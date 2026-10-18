@@ -1,14 +1,45 @@
 # AI Infra Lab (`turbo998/ai-infra-lab`)
 
-面向 **AI Infra 架构师** 的云厂商与智算基础设施全栈技术深度测评与可视化图谱仓库，覆盖 **AI 算力芯片（GPU / PPU / ASIC / CPU / Switch / SmartNIC / SSD 主控）**、**超节点与 Scale-Up/Scale-Out 智算网络（RDMA / RoCE / CXL / ICN）**、**异构算力调度平台**、**云原生分布式训推平台** 与 **企业级 MaaS / Agent 平台**。
+面向 **AI Infra 架构师** 的云厂商与智算基础设施全栈技术深度测评与可视化图谱仓库，覆盖 **AI 算力芯片（GPU / PPU / ASIC / CPU / Switch / SmartNIC / SSD 主控）**、**超节点与 Scale-Up/Scale-Out 智算网络（RDMA / RoCE / CXL / ICN）**、**异构算力调度平台**、**云原生分布式训推平台** 与 **企业级 MaaS / AI Agent 运行时与安全沙箱基础设施（Azure AI Agent Infra）**。
 
 ---
 
 ## 📚 深度测评报告目录（Research & Architecture Evaluations）
 
-| 专题报告 | 核心覆盖范围 | 可视化图表 (`SVG` + `Mermaid`) | 证据台账 | 审校记录 | 更新日期 |
+| 专题报告 | 核心覆盖范围 | 可视化图表 (`SVG` + `H5` + `7-Card`) | 证据台账 | 审校记录 | 更新日期 |
 |---|---|---|---|---|---|
+| **[Azure AI Agent Infra 全栈方案设计、技术选型与架构师 Playbook](docs/azure-agent-infra/README.md)** | **L1 Build 编排层**（MAF · GitHub Copilot SDK · LangGraph · OpenClaw · Hermes · MCP/A2A）· **L2 Run 六大运行时光谱**（Foundry Hosted Agents · Durable Functions · ACA Dynamic Sessions · ACA Sandboxes Preview · AKS + Kata `AKSClaw` · E2B on Azure VMSS `D96as_v7` `108ms/132ms`）· **L3 Ground 状态与记忆底座**（Azure HorizonDB Preview + PgBouncer 5ms + Cosmos DB + Firecracker UFFD/NBD Snapshot）· **L4 Govern 零信任控制面**（Entra Agent ID · Unified AI Gateway · 169.254.169.254 IMDS 封禁 · 5 道平台硬边界）· **现场五步落地法与 10万并发沙箱测算器** | 8 张高清矢量架构图 + [7-Card 4:5 基准报告](docs/azure-agent-infra/test-report.md) + [4 页交互式 H5 套件](docs/azure-agent-infra/h5/index.html) + [可运行 Demo](docs/azure-agent-infra/demo/run_live_demo.py) | [`evidence.json`](docs/azure-agent-infra/evidence.json)（5 份核心工程资产 + 官方信源） | [`review.md`](docs/azure-agent-infra/review.md) | 2026-10-19 |
 | **[阿里云 AI Infra 全栈架构深度测评报告](docs/alibaba-cloud-ai-infra/README.md)** | **L0 平头哥芯片**（含光 800、真武 810E / M890 / V900 / J900、倚天 710/750、ICN Switch 1.0、磐脉 920、镇岳 510）· **L1 智算底座与网络**（磐久 AL128 超节点、CIPU、HPN 7.0 双上联×多轨×双平面、Solar-RDMA、eRDMA、ACCL、CPFS）· **L1.5 灵骏智算**（`hz` 亲和性调度、双平面网卡）· **L2 人工智能平台 PAI（“Pi平台”）**（DSW / DLC AIMaster+EasyCKPT / EAS Prefix-Cache 路由+EP/PD 分离 / 父子配额潮汐抢占）· **L3 百炼平台（Model Studio）**（Token / PTU / DTU / MU 四大算力阶梯与后训练流水线） | 6 张高清矢量架构图 + 2 幅交互式 Mermaid 决策图 | [`evidence.json`](docs/alibaba-cloud-ai-infra/evidence.json)（21 篇一手信源） | [`review.md`](docs/alibaba-cloud-ai-infra/review.md) | 2026-10-14 |
+
+---
+
+## 📊 Azure AI Agent Infra 核心可视化图谱速览（Visual Atlas）
+
+- **核心技术资产入口**：[完整 Playbook 正文 (`README.md`)](docs/azure-agent-infra/README.md) · [7-Card 4:5 基准评测报告 (`test-report.md`)](docs/azure-agent-infra/test-report.md) · [离线自包含 7-Card HTML (`test-report-cards.html`)](docs/azure-agent-infra/test-report-cards.html) · [交互式 H5 全景手册 (`h5/index.html`)](docs/azure-agent-infra/h5/index.html) · [AKSClaw × E2B 实时仿真台 (`h5/demo.html`)](docs/azure-agent-infra/h5/demo.html) · [选型决策与 10万沙箱计算器 (`h5/selector.html`)](docs/azure-agent-infra/h5/selector.html) · [IaC 与网关策略蓝图 (`blueprints/`)](docs/azure-agent-infra/blueprints)
+
+### 1. Azure AI Agent Infra 四层全栈参考架构全景图（Build · Run · Ground · Govern）
+![Azure AI Agent Infra 四层全栈参考架构全景图](docs/azure-agent-infra/assets/01-azure-agent-infra-4layer-panorama.svg)
+
+### 2. Azure 六大 Agent Runtime 责任边界、隔离机制与恢复延迟对比矩阵
+![Azure 六大 Agent Runtime 对比矩阵](docs/azure-agent-infra/assets/02-runtime-spectrum-6tier-matrix.svg)
+
+### 3. AI Agent Infra on Azure 双阶段架构选型决策树与数据底座配对图
+![双阶段架构选型决策树](docs/azure-agent-infra/assets/03-scenario-decision-tree-and-routing.svg)
+
+### 4. AKSClaw 多租户 Kubernetes Agent 平台参考架构（六大支柱与五道平台硬边界）
+![AKSClaw 多租户 Kubernetes Agent 平台参考架构](docs/azure-agent-infra/assets/04-aksclaw-multi-tenant-k8s-architecture.svg)
+
+### 5. E2B on Azure VMSS 生产级参考架构图（Manus × E2B 10万+ 并发云端沙箱底座）
+![E2B on Azure VMSS 生产级参考架构图](docs/azure-agent-infra/assets/05-e2b-on-azure-vmss-reference-architecture.svg)
+
+### 6. Firecracker MicroVM 沙箱内部机理（UFFD + NBD）与 Azure v6/v7 实测启动延迟对比
+![Firecracker MicroVM 内部机理与实测延迟对比](docs/azure-agent-infra/assets/06-e2b-microvm-internals-and-vm-benchmark.svg)
+
+### 7. 多智能体协同工作流（MAF × Copilot SDK × Durable）与状态持久化选型矩阵
+![多智能体协同工作流与状态持久化矩阵](docs/azure-agent-infra/assets/07-multi-agent-workflow-and-state-checkpoint.svg)
+
+### 8. Azure Agent Infra Playbook 六大高优场景、四维资质筛查与五步落地工作流
+![Playbook 六大场景与五步落地工作流](docs/azure-agent-infra/assets/08-field-playbook-5step-execution-flow.svg)
 
 ---
 
@@ -40,15 +71,21 @@
 ai-infra-lab/
 ├── README.md                                                     # 仓库总览与可视化图谱导览
 └── docs/
+    ├── azure-agent-infra/
+    │   ├── README.md                                             # Azure AI Agent Infra 全栈架构设计与选型 Playbook
+    │   ├── test-report.md                                        # 7-Card 4:5 基准评测报告 (Markdown)
+    │   ├── test-report-cards.html                                # 7-Card 4:5 自包含离线视觉卡片 (CSP-Locked)
+    │   ├── report.json                                           # 密封评测数据集 (含 SHA-256 校验)
+    │   ├── evidence.json                                         # 证据台账与匿名化合规边界
+    │   ├── review.md                                             # 审校记录与质量门禁清单
+    │   ├── assets/                                               # 8 张高清 SVG 矢量架构图与工作流图 (01..08)
+    │   ├── h5/                                                   # 4 页交互式 H5 手册、实时仿真台与 10万沙箱计算器
+    │   ├── demo/                                                 # 可运行全链路仿真与验证脚本 (run_live_demo.py)
+    │   ├── blueprints/                                           # AKSClaw K8s YAML、APIM XML、VMSS Bicep、HorizonDB 模板
+    │   └── simulator/                                            # 确定性选型引擎、容量测算器与 8 项单元测试
     └── alibaba-cloud-ai-infra/
         ├── README.md                                             # 阿里云 AI Infra 全栈架构深度测评主报告
         ├── evidence.json                                         # 21 篇一手技术信源与证据链台账
         ├── review.md                                             # 完整性、证据边界与可视化核验记录
-        └── assets/
-            ├── 01-tong-yun-ge-architecture.svg                   # L0-L3 全栈架构与跨层协同闭环图
-            ├── 02-zhenwu-ppu-vs-gpu-comparison.svg               # 真武 PPU 四代 vs NVIDIA GPU 指标对比图
-            ├── 03-panjiu-al128-five-chip-datapath.svg            # 磐久 AL128 超节点五芯协同数据通路图
-            ├── 04-hpn7-dual-plane-topology.svg                   # HPN 7.0 双平面网络拓扑与实测对比图
-            ├── 05-pai-tidal-preemption-and-eas-benchmark.svg     # PAI 训推潮汐抢占与 EAS Prefix-Cache 加速图
-            └── 06-bailian-resource-modes-and-architect-matrix.svg# 百炼四大算力模式与 6 大场景选型矩阵图
+        └── assets/                                               # 6 张高清 SVG 矢量架构图 (01..06)
 ```
