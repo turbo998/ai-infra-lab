@@ -1,21 +1,23 @@
-# AI Infra Lab (`turbo998/ai-infra-lab`)
+# AI Infra Lab (`turbo998/ai-infra-lab`) · 中英双语版 (Bilingual Edition)
+
+> 🌐 **Language / 语言版本切换**: **[🇨🇳 中文主页 (README.zh-CN.md)](README.zh-CN.md)** | **[🇬🇧 English Homepage (README.en.md)](README.en.md)** | **[📘 Azure Agent Infra Playbook (中文)](docs/azure-agent-infra/README.zh-CN.md)** | **[📘 Azure Agent Infra Playbook (English)](docs/azure-agent-infra/README.en.md)**
 
 面向 **AI Infra 架构师** 的云厂商与智算基础设施全栈技术深度测评与可视化图谱仓库，覆盖 **AI 算力芯片（GPU / PPU / ASIC / CPU / Switch / SmartNIC / SSD 主控）**、**超节点与 Scale-Up/Scale-Out 智算网络（RDMA / RoCE / CXL / ICN）**、**异构算力调度平台**、**云原生分布式训推平台** 与 **企业级 MaaS / AI Agent 运行时与安全沙箱基础设施（Azure AI Agent Infra）**。
 
 ---
 
-## 📚 深度测评报告目录（Research & Architecture Evaluations）
+## 📚 深度测评报告目录（Research & Architecture Evaluations · Bilingual EN/中文）
 
 | 专题报告 | 核心覆盖范围 | 可视化图表 (`SVG` + `H5` + `7-Card`) | 证据台账 | 审校记录 | 更新日期 |
 |---|---|---|---|---|---|
-| **[Azure AI Agent Infra 全栈方案设计、技术选型与架构师 Playbook](docs/azure-agent-infra/README.md)** | **L1 Build 编排层**（MAF · GitHub Copilot SDK · LangGraph · OpenClaw · Hermes · MCP/A2A）· **L2 Run 六大运行时光谱**（Foundry Hosted Agents · Durable Functions · ACA Dynamic Sessions · ACA Sandboxes Preview · AKS + Kata `AKSClaw` · E2B on Azure VMSS `D96as_v7` `108ms/132ms`）· **L3 Ground 状态与记忆底座**（Azure HorizonDB Preview + PgBouncer 5ms + Cosmos DB + Firecracker UFFD/NBD Snapshot）· **L4 Govern 零信任控制面**（Entra Agent ID · Unified AI Gateway · 169.254.169.254 IMDS 封禁 · 5 道平台硬边界）· **现场五步落地法与 10万并发沙箱测算器** | 8 张高清矢量架构图 + [7-Card 4:5 基准报告](docs/azure-agent-infra/test-report.md) + [4 页交互式 H5 套件](docs/azure-agent-infra/h5/index.html) + [可运行 Demo](docs/azure-agent-infra/demo/run_live_demo.py) | [`evidence.json`](docs/azure-agent-infra/evidence.json)（5 份核心工程资产 + 官方信源） | [`review.md`](docs/azure-agent-infra/review.md) | 2026-10-19 |
+| **[Azure AI Agent Infra 全栈方案设计、技术选型与架构师 Playbook (中文)](docs/azure-agent-infra/README.md)** · **[English Edition](docs/azure-agent-infra/README.en.md)** | **L1 Build 编排层**（MAF · GitHub Copilot SDK · LangGraph · OpenClaw · Hermes · MCP/A2A）· **L2 Run 六大运行时光谱**（Foundry Hosted Agents · Durable Functions · ACA Dynamic Sessions · ACA Sandboxes Preview · AKS + Kata `AKSClaw` · E2B on Azure VMSS `D96as_v7` `108ms/132ms`）· **L3 Ground 状态与记忆底座**（Azure HorizonDB Preview + PgBouncer 5ms + Cosmos DB + Firecracker UFFD/NBD Snapshot）· **L4 Govern 零信任控制面**（Entra Agent ID · Unified AI Gateway · 169.254.169.254 IMDS 封禁 · 5 道平台硬边界）· **55 章行业物理模型、50 套 IaC 蓝图与 49 项交互式测算器（58/58 单测全绿）** | 8 张高清矢量架构图 + [7-Card 基准报告 (中文)](docs/azure-agent-infra/test-report.md) / [English](docs/azure-agent-infra/test-report.en.md) + [4 页交互式双语 H5 套件](docs/azure-agent-infra/h5/index.html) + [可运行 Demo](docs/azure-agent-infra/demo/run_live_demo.py) | [`evidence.json`](docs/azure-agent-infra/evidence.json)（5 份核心工程资产 + 官方信源） | [`review.md`](docs/azure-agent-infra/review.md) | 2026-10-20 |
 | **[阿里云 AI Infra 全栈架构深度测评报告](docs/alibaba-cloud-ai-infra/README.md)** | **L0 平头哥芯片**（含光 800、真武 810E / M890 / V900 / J900、倚天 710/750、ICN Switch 1.0、磐脉 920、镇岳 510）· **L1 智算底座与网络**（磐久 AL128 超节点、CIPU、HPN 7.0 双上联×多轨×双平面、Solar-RDMA、eRDMA、ACCL、CPFS）· **L1.5 灵骏智算**（`hz` 亲和性调度、双平面网卡）· **L2 人工智能平台 PAI（“Pi平台”）**（DSW / DLC AIMaster+EasyCKPT / EAS Prefix-Cache 路由+EP/PD 分离 / 父子配额潮汐抢占）· **L3 百炼平台（Model Studio）**（Token / PTU / DTU / MU 四大算力阶梯与后训练流水线） | 6 张高清矢量架构图 + 2 幅交互式 Mermaid 决策图 | [`evidence.json`](docs/alibaba-cloud-ai-infra/evidence.json)（21 篇一手信源） | [`review.md`](docs/alibaba-cloud-ai-infra/review.md) | 2026-10-14 |
 
 ---
 
 ## 📊 Azure AI Agent Infra 核心可视化图谱速览（Visual Atlas）
 
-- **核心技术资产入口**：[完整 Playbook 正文 (`README.md`)](docs/azure-agent-infra/README.md) · [7-Card 4:5 基准评测报告 (`test-report.md`)](docs/azure-agent-infra/test-report.md) · [离线自包含 7-Card HTML (`test-report-cards.html`)](docs/azure-agent-infra/test-report-cards.html) · [交互式 H5 全景手册 (`h5/index.html`)](docs/azure-agent-infra/h5/index.html) · [AKSClaw × E2B 实时仿真台 (`h5/demo.html`)](docs/azure-agent-infra/h5/demo.html) · [选型决策与 10万沙箱计算器 (`h5/selector.html`)](docs/azure-agent-infra/h5/selector.html) · [IaC 与网关策略蓝图 (`blueprints/`)](docs/azure-agent-infra/blueprints)
+- **核心技术资产入口（中英双语 / Bilingual）**：[完整 Playbook 中文版 (`README.zh-CN.md`)](docs/azure-agent-infra/README.zh-CN.md) · [English Full Playbook (`README.en.md`)](docs/azure-agent-infra/README.en.md) · [7-Card 4:5 基准评测报告 (中文)](docs/azure-agent-infra/test-report.md) · [7-Card Benchmark Report (EN)](docs/azure-agent-infra/test-report.en.md) · [离线自包含 7-Card HTML (`test-report-cards.html`)](docs/azure-agent-infra/test-report-cards.html) · [交互式 H5 全景手册 (`h5/index.html`)](docs/azure-agent-infra/h5/index.html) · [AKSClaw × E2B 实时仿真台 (`h5/demo.html`)](docs/azure-agent-infra/h5/demo.html) · [选型决策与 10万沙箱计算器 (`h5/selector.html`)](docs/azure-agent-infra/h5/selector.html) · [50 套 IaC 与网关策略蓝图 (`blueprints/`)](docs/azure-agent-infra/blueprints)
 
 ### 1. Azure AI Agent Infra 四层全栈参考架构全景图（Build · Run · Ground · Govern）
 ![Azure AI Agent Infra 四层全栈参考架构全景图](docs/azure-agent-infra/assets/01-azure-agent-infra-4layer-panorama.svg)
@@ -62,30 +64,3 @@
 
 ### 6. 百炼平台四大算力阶梯对比与 AI Infra 架构师 6 大核心场景选型矩阵
 ![百炼四大算力模式与架构师选型矩阵](docs/alibaba-cloud-ai-infra/assets/06-bailian-resource-modes-and-architect-matrix.svg)
-
----
-
-## 🗂️ 仓库目录结构
-
-```text
-ai-infra-lab/
-├── README.md                                                     # 仓库总览与可视化图谱导览
-└── docs/
-    ├── azure-agent-infra/
-    │   ├── README.md                                             # Azure AI Agent Infra 全栈架构设计与选型 Playbook
-    │   ├── test-report.md                                        # 7-Card 4:5 基准评测报告 (Markdown)
-    │   ├── test-report-cards.html                                # 7-Card 4:5 自包含离线视觉卡片 (CSP-Locked)
-    │   ├── report.json                                           # 密封评测数据集 (含 SHA-256 校验)
-    │   ├── evidence.json                                         # 证据台账与匿名化合规边界
-    │   ├── review.md                                             # 审校记录与质量门禁清单
-    │   ├── assets/                                               # 8 张高清 SVG 矢量架构图与工作流图 (01..08)
-    │   ├── h5/                                                   # 4 页交互式 H5 手册、实时仿真台与 10万沙箱计算器
-    │   ├── demo/                                                 # 可运行全链路仿真与验证脚本 (run_live_demo.py)
-    │   ├── blueprints/                                           # AKSClaw K8s YAML、APIM XML、VMSS Bicep、HorizonDB 模板
-    │   └── simulator/                                            # 确定性选型引擎、容量测算器与 8 项单元测试
-    └── alibaba-cloud-ai-infra/
-        ├── README.md                                             # 阿里云 AI Infra 全栈架构深度测评主报告
-        ├── evidence.json                                         # 21 篇一手技术信源与证据链台账
-        ├── review.md                                             # 完整性、证据边界与可视化核验记录
-        └── assets/                                               # 6 张高清 SVG 矢量架构图 (01..06)
-```
