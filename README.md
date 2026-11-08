@@ -27,7 +27,7 @@
 
 ## 📊 Azure AI Agent Infra 核心可视化图谱速览（Visual Atlas）
 
-- **核心技术资产入口（中英双语 / Bilingual）**：[Playbook 中文版 (`README.md`)](workshops/azure-agent-infra/README.md) · [English Playbook (`README.en.md`)](workshops/azure-agent-infra/README.en.md) · [316章完整百科归档 (`docs/full-monograph-archive.md`)](workshops/azure-agent-infra/docs/full-monograph-archive.md) · [7-Card 4:5 基准评测报告 (中文)](workshops/azure-agent-infra/test-report.md) · [7-Card Benchmark Report (EN)](workshops/azure-agent-infra/test-report.en.md) · [Cycle #384 卡组 (`benchmark-cards.html`)](workshops/azure-agent-infra/benchmark-cards.html) · [Cycle #384 English Deck (`benchmark-cards.en.html`)](workshops/azure-agent-infra/benchmark-cards.en.html) · [Cycle #384 工作台 (`workbench-cycle-384.html`)](workshops/azure-agent-infra/workbench-cycle-384.html) · [Cycle #384 日报](workshops/azure-agent-infra/daily-report-2026-11-10.md) · [MCP/A2A 编排观测选型 FAQ（中文）](workshops/azure-agent-infra/mcp-a2a-observability-selection-faq.md) · [MCP/A2A Orchestration FAQ (EN)](workshops/azure-agent-infra/mcp-a2a-observability-selection-faq.en.md) · [交互式 H5 全景手册 (`index.html`)](workshops/azure-agent-infra/index.html) · [AKSClaw × E2B 实时仿真台 (`demo.html`)](workshops/azure-agent-infra/demo.html) · [选型决策与 10万沙箱计算器 (`selector.html`)](workshops/azure-agent-infra/selector.html) · [309 套 IaC 与网关策略蓝图 (`blueprints/`)](workshops/azure-agent-infra/blueprints)
+- **核心技术资产入口（中英双语 / Bilingual）**：[Playbook 中文版 (`README.md`)](workshops/azure-agent-infra/README.md) · [English Playbook (`README.en.md`)](workshops/azure-agent-infra/README.en.md) · [316章完整百科归档 (`docs/full-monograph-archive.md`)](workshops/azure-agent-infra/docs/full-monograph-archive.md) · [7-Card 4:5 基准评测报告 (中文)](workshops/azure-agent-infra/test-report.md) · [7-Card Benchmark Report (EN)](workshops/azure-agent-infra/test-report.en.md) · [Cycle #385 卡组 (`benchmark-cards.html`)](workshops/azure-agent-infra/benchmark-cards.html) · [Cycle #385 English Deck (`benchmark-cards.en.html`)](workshops/azure-agent-infra/benchmark-cards.en.html) · [Cycle #385 工作台 (`workbench-cycle-385.html`)](workshops/azure-agent-infra/workbench-cycle-385.html) · [Cycle #385 日报](workshops/azure-agent-infra/daily-report-2026-11-11.md) · [语义缓存路由选型 FAQ（中文）](workshops/azure-agent-infra/semantic-cache-routing-selection-faq.md) · [Semantic Cache Routing FAQ (EN)](workshops/azure-agent-infra/semantic-cache-routing-selection-faq.en.md) · [交互式 H5 全景手册 (`index.html`)](workshops/azure-agent-infra/index.html) · [AKSClaw × E2B 实时仿真台 (`demo.html`)](workshops/azure-agent-infra/demo.html) · [选型决策与 10万沙箱计算器 (`selector.html`)](workshops/azure-agent-infra/selector.html) · [309 套 IaC 与网关策略蓝图 (`blueprints/`)](workshops/azure-agent-infra/blueprints)
 
 ### 1. Azure AI Agent Infra 四层全栈参考架构全景图（Build · Run · Ground · Govern）
 ![Azure AI Agent Infra 四层全栈参考架构全景图](docs/azure-agent-infra/assets/01-azure-agent-infra-4layer-panorama.svg)
@@ -74,6 +74,7 @@
 
 ### 6. 百炼平台四大算力阶梯对比与 AI Infra 架构师 6 大核心场景选型矩阵
 ![百炼四大算力模式与架构师选型矩阵](docs/alibaba-cloud-ai-infra/assets/06-bailian-resource-modes-and-architect-matrix.svg)
+
 
 
 
