@@ -1,11 +1,11 @@
 # Azure AI Agent Infrastructure Playbook (Compact)
 
 > 🌐 **Language Switch**: **[🇨🇳 Chinese (`README.md`)](README.md)** | **🇬🇧 English (`README.en.md`)**  
-> 🔎 **Cycle #1486 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1445.html](workbench-cycle-1445.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
+> 🔎 **Cycle #1487 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1445.html](workbench-cycle-1445.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
 
 ---
 
-## 1) Cycle #1486 release summary (2026-11-12)
+## 1) Cycle #1487 release summary (2026-11-12)
 
 - **Scope**: Cloud-native Agent Infra (Runtime/Sandbox, AI Gateway, MCP/A2A orchestration and observability)
 - **Evidence policy**: 2026 official docs/changelogs/releases first
@@ -26,9 +26,9 @@
 | Dual-track demo | AKSClaw × E2B simulation | [`demo.html`](demo.html) |
 | Decision + sizing | Runtime/storage selection and capacity | [`selector.html`](selector.html) |
 | Historical 7-card deck | Existing visual report entry | [`cards.html`](cards.html) |
-| **Cycle #1486 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
-| **Cycle #1486 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
-| **Cycle #1486 workbench** | Interactive benchmark surface | [`workbench-cycle-1445.html`](workbench-cycle-1445.html) |
+| **Cycle #1487 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
+| **Cycle #1487 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
+| **Cycle #1487 workbench** | Interactive benchmark surface | [`workbench-cycle-1445.html`](workbench-cycle-1445.html) |
 
 ---
 
@@ -51,8 +51,8 @@
 - One-page SVG: [`assets/34-cycle-1445-daily-breakthroughs.svg`](assets/34-cycle-1445-daily-breakthroughs.svg)
 - Monograph addendum (EN): [`docs/full-monograph-cycle-1445.en.md`](docs/full-monograph-cycle-1445.en.md)
 - Monograph addendum (ZH): [`docs/full-monograph-cycle-1445.md`](docs/full-monograph-cycle-1445.md)
-- Selection FAQ (EN, ACA Dynamic Session Quota Fairshare): [`agent-aca-dynamic-session-quota-fairshare-selection-faq.en.md`](agent-aca-dynamic-session-quota-fairshare-selection-faq.en.md)
-- Selection FAQ (ZH, ACA Dynamic Session Quota Fairshare): [`agent-aca-dynamic-session-quota-fairshare-selection-faq.md`](agent-aca-dynamic-session-quota-fairshare-selection-faq.md)
+- Selection FAQ (EN, APIM PTU Spillover Fallback): [`agent-apim-ptu-spillover-fallback-selection-faq.en.md`](agent-apim-ptu-spillover-fallback-selection-faq.en.md)
+- Selection FAQ (ZH, APIM PTU Spillover Fallback): [`agent-apim-ptu-spillover-fallback-selection-faq.md`](agent-apim-ptu-spillover-fallback-selection-faq.md)
 - Full archive (EN): [`docs/full-monograph-archive.en.md`](docs/full-monograph-archive.en.md)
 - Full archive (ZH): [`docs/full-monograph-archive.md`](docs/full-monograph-archive.md)
 
