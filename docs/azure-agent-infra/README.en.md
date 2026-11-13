@@ -1,11 +1,11 @@
 # Azure AI Agent Infrastructure Playbook (Compact)
 
 > 🌐 **Language Switch**: **[🇨🇳 Chinese (`README.md`)](README.md)** | **🇬🇧 English (`README.en.md`)**  
-> 🔎 **Cycle #1329 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1329.html](workbench-cycle-1329.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
+> 🔎 **Cycle #1330 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1330.html](workbench-cycle-1330.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
 
 ---
 
-## 1) Cycle #1329 release summary (2026-11-12)
+## 1) Cycle #1330 release summary (2026-11-12)
 
 - **Scope**: Cloud-native Agent Infra (Runtime/Sandbox, AI Gateway, MCP/A2A orchestration and observability)
 - **Evidence policy**: 2026 official docs/changelogs/releases first
@@ -26,21 +26,21 @@
 | Dual-track demo | AKSClaw × E2B simulation | [`demo.html`](demo.html) |
 | Decision + sizing | Runtime/storage selection and capacity | [`selector.html`](selector.html) |
 | Historical 7-card deck | Existing visual report entry | [`cards.html`](cards.html) |
-| **Cycle #1329 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
-| **Cycle #1329 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
-| **Cycle #1329 workbench** | Interactive benchmark surface | [`workbench-cycle-1329.html`](workbench-cycle-1329.html) |
+| **Cycle #1330 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
+| **Cycle #1330 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
+| **Cycle #1330 workbench** | Interactive benchmark surface | [`workbench-cycle-1330.html`](workbench-cycle-1330.html) |
 
 ---
 
 ## 3) Reproducible evidence bundle
 
-- Canonical payload: [`evidence/cycle-1329-benchmark.json`](evidence/cycle-1329-benchmark.json)
-- Source ledger: [`evidence/cycle-1329-sources.json`](evidence/cycle-1329-sources.json)
+- Canonical payload: [`evidence/cycle-1330-benchmark.json`](evidence/cycle-1330-benchmark.json)
+- Source ledger: [`evidence/cycle-1330-sources.json`](evidence/cycle-1330-sources.json)
 - Metric CSV files:
-  - [`cycle-1329-latency.csv`](evidence/cycle-1329-latency.csv)
-  - [`cycle-1329-throughput.csv`](evidence/cycle-1329-throughput.csv)
-  - [`cycle-1329-policy.csv`](evidence/cycle-1329-policy.csv)
-  - [`cycle-1329-cost.csv`](evidence/cycle-1329-cost.csv)
+  - [`cycle-1330-latency.csv`](evidence/cycle-1330-latency.csv)
+  - [`cycle-1330-throughput.csv`](evidence/cycle-1330-throughput.csv)
+  - [`cycle-1330-policy.csv`](evidence/cycle-1330-policy.csv)
+  - [`cycle-1330-cost.csv`](evidence/cycle-1330-cost.csv)
 
 ---
 
@@ -48,11 +48,11 @@
 
 - Daily report (EN): [`daily-report-2026-11-12.en.md`](daily-report-2026-11-12.en.md)
 - Daily report (ZH): [`daily-report-2026-11-12.md`](daily-report-2026-11-12.md)
-- One-page SVG: [`assets/34-cycle-1329-daily-breakthroughs.svg`](assets/34-cycle-1329-daily-breakthroughs.svg)
-- Monograph addendum (EN): [`docs/full-monograph-cycle-1329.en.md`](docs/full-monograph-cycle-1329.en.md)
-- Monograph addendum (ZH): [`docs/full-monograph-cycle-1329.md`](docs/full-monograph-cycle-1329.md)
-- Selection FAQ (EN, ACA Sandbox Heartbeat Loss Recovery Auto Cycle 1329): [`agent-aca-sandbox-heartbeat-loss-recovery-auto-cycle-1329-selection-faq.en.md`](agent-aca-sandbox-heartbeat-loss-recovery-auto-cycle-1329-selection-faq.en.md)
-- Selection FAQ (ZH, ACA Sandbox Heartbeat Loss Recovery Auto Cycle 1329): [`agent-aca-sandbox-heartbeat-loss-recovery-auto-cycle-1329-selection-faq.md`](agent-aca-sandbox-heartbeat-loss-recovery-auto-cycle-1329-selection-faq.md)
+- One-page SVG: [`assets/34-cycle-1330-daily-breakthroughs.svg`](assets/34-cycle-1330-daily-breakthroughs.svg)
+- Monograph addendum (EN): [`docs/full-monograph-cycle-1330.en.md`](docs/full-monograph-cycle-1330.en.md)
+- Monograph addendum (ZH): [`docs/full-monograph-cycle-1330.md`](docs/full-monograph-cycle-1330.md)
+- Selection FAQ (EN, APIM Timeout Tier Fallback Auto Cycle 1330): [`agent-apim-timeout-tier-fallback-auto-cycle-1330-selection-faq.en.md`](agent-apim-timeout-tier-fallback-auto-cycle-1330-selection-faq.en.md)
+- Selection FAQ (ZH, APIM Timeout Tier Fallback Auto Cycle 1330): [`agent-apim-timeout-tier-fallback-auto-cycle-1330-selection-faq.md`](agent-apim-timeout-tier-fallback-auto-cycle-1330-selection-faq.md)
 - Full archive (EN): [`docs/full-monograph-archive.en.md`](docs/full-monograph-archive.en.md)
 - Full archive (ZH): [`docs/full-monograph-archive.md`](docs/full-monograph-archive.md)
 
