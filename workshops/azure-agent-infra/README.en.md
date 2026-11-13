@@ -1,11 +1,11 @@
 # Azure AI Agent Infrastructure Playbook (Compact)
 
 > 🌐 **Language Switch**: **[🇨🇳 Chinese (`README.md`)](README.md)** | **🇬🇧 English (`README.en.md`)**  
-> 🔎 **Cycle #1479 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1445.html](workbench-cycle-1445.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
+> 🔎 **Cycle #1480 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1445.html](workbench-cycle-1445.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
 
 ---
 
-## 1) Cycle #1479 release summary (2026-11-12)
+## 1) Cycle #1480 release summary (2026-11-12)
 
 - **Scope**: Cloud-native Agent Infra (Runtime/Sandbox, AI Gateway, MCP/A2A orchestration and observability)
 - **Evidence policy**: 2026 official docs/changelogs/releases first
@@ -26,9 +26,9 @@
 | Dual-track demo | AKSClaw × E2B simulation | [`demo.html`](demo.html) |
 | Decision + sizing | Runtime/storage selection and capacity | [`selector.html`](selector.html) |
 | Historical 7-card deck | Existing visual report entry | [`cards.html`](cards.html) |
-| **Cycle #1479 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
-| **Cycle #1479 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
-| **Cycle #1479 workbench** | Interactive benchmark surface | [`workbench-cycle-1445.html`](workbench-cycle-1445.html) |
+| **Cycle #1480 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
+| **Cycle #1480 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
+| **Cycle #1480 workbench** | Interactive benchmark surface | [`workbench-cycle-1445.html`](workbench-cycle-1445.html) |
 
 ---
 
@@ -51,8 +51,8 @@
 - One-page SVG: [`assets/34-cycle-1445-daily-breakthroughs.svg`](assets/34-cycle-1445-daily-breakthroughs.svg)
 - Monograph addendum (EN): [`docs/full-monograph-cycle-1445.en.md`](docs/full-monograph-cycle-1445.en.md)
 - Monograph addendum (ZH): [`docs/full-monograph-cycle-1445.md`](docs/full-monograph-cycle-1445.md)
-- Selection FAQ (EN, Browser CUA Cluster Session Prewarm): [`agent-browser-cua-cluster-session-prewarm-selection-faq.en.md`](agent-browser-cua-cluster-session-prewarm-selection-faq.en.md)
-- Selection FAQ (ZH, Browser CUA Cluster Session Prewarm): [`agent-browser-cua-cluster-session-prewarm-selection-faq.md`](agent-browser-cua-cluster-session-prewarm-selection-faq.md)
+- Selection FAQ (EN, MCP Policy Engine Shadow Rollout): [`agent-mcp-policy-engine-shadow-rollout-selection-faq.en.md`](agent-mcp-policy-engine-shadow-rollout-selection-faq.en.md)
+- Selection FAQ (ZH, MCP Policy Engine Shadow Rollout): [`agent-mcp-policy-engine-shadow-rollout-selection-faq.md`](agent-mcp-policy-engine-shadow-rollout-selection-faq.md)
 - Full archive (EN): [`docs/full-monograph-archive.en.md`](docs/full-monograph-archive.en.md)
 - Full archive (ZH): [`docs/full-monograph-archive.md`](docs/full-monograph-archive.md)
 
