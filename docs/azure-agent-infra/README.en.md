@@ -1,11 +1,11 @@
 # Azure AI Agent Infrastructure Playbook (Compact)
 
 > 🌐 **Language Switch**: **[🇨🇳 Chinese (`README.md`)](README.md)** | **🇬🇧 English (`README.en.md`)**  
-> 🔎 **Cycle #1317 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1317.html](workbench-cycle-1317.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
+> 🔎 **Cycle #1318 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1318.html](workbench-cycle-1318.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
 
 ---
 
-## 1) Cycle #1317 release summary (2026-11-12)
+## 1) Cycle #1318 release summary (2026-11-12)
 
 - **Scope**: Cloud-native Agent Infra (Runtime/Sandbox, AI Gateway, MCP/A2A orchestration and observability)
 - **Evidence policy**: 2026 official docs/changelogs/releases first
@@ -26,21 +26,21 @@
 | Dual-track demo | AKSClaw × E2B simulation | [`demo.html`](demo.html) |
 | Decision + sizing | Runtime/storage selection and capacity | [`selector.html`](selector.html) |
 | Historical 7-card deck | Existing visual report entry | [`cards.html`](cards.html) |
-| **Cycle #1317 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
-| **Cycle #1317 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
-| **Cycle #1317 workbench** | Interactive benchmark surface | [`workbench-cycle-1317.html`](workbench-cycle-1317.html) |
+| **Cycle #1318 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
+| **Cycle #1318 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
+| **Cycle #1318 workbench** | Interactive benchmark surface | [`workbench-cycle-1318.html`](workbench-cycle-1318.html) |
 
 ---
 
 ## 3) Reproducible evidence bundle
 
-- Canonical payload: [`evidence/cycle-1317-benchmark.json`](evidence/cycle-1317-benchmark.json)
-- Source ledger: [`evidence/cycle-1317-sources.json`](evidence/cycle-1317-sources.json)
+- Canonical payload: [`evidence/cycle-1318-benchmark.json`](evidence/cycle-1318-benchmark.json)
+- Source ledger: [`evidence/cycle-1318-sources.json`](evidence/cycle-1318-sources.json)
 - Metric CSV files:
-  - [`cycle-1317-latency.csv`](evidence/cycle-1317-latency.csv)
-  - [`cycle-1317-throughput.csv`](evidence/cycle-1317-throughput.csv)
-  - [`cycle-1317-policy.csv`](evidence/cycle-1317-policy.csv)
-  - [`cycle-1317-cost.csv`](evidence/cycle-1317-cost.csv)
+  - [`cycle-1318-latency.csv`](evidence/cycle-1318-latency.csv)
+  - [`cycle-1318-throughput.csv`](evidence/cycle-1318-throughput.csv)
+  - [`cycle-1318-policy.csv`](evidence/cycle-1318-policy.csv)
+  - [`cycle-1318-cost.csv`](evidence/cycle-1318-cost.csv)
 
 ---
 
@@ -48,11 +48,11 @@
 
 - Daily report (EN): [`daily-report-2026-11-12.en.md`](daily-report-2026-11-12.en.md)
 - Daily report (ZH): [`daily-report-2026-11-12.md`](daily-report-2026-11-12.md)
-- One-page SVG: [`assets/34-cycle-1317-daily-breakthroughs.svg`](assets/34-cycle-1317-daily-breakthroughs.svg)
-- Monograph addendum (EN): [`docs/full-monograph-cycle-1317.en.md`](docs/full-monograph-cycle-1317.en.md)
-- Monograph addendum (ZH): [`docs/full-monograph-cycle-1317.md`](docs/full-monograph-cycle-1317.md)
-- Selection FAQ (EN, Cosmos DB Vector Index Write Budget Auto Cycle 1317): [`agent-cosmosdb-vector-index-write-budget-auto-cycle-1317-selection-faq.en.md`](agent-cosmosdb-vector-index-write-budget-auto-cycle-1317-selection-faq.en.md)
-- Selection FAQ (ZH, Cosmos DB Vector Index Write Budget Auto Cycle 1317): [`agent-cosmosdb-vector-index-write-budget-auto-cycle-1317-selection-faq.md`](agent-cosmosdb-vector-index-write-budget-auto-cycle-1317-selection-faq.md)
+- One-page SVG: [`assets/34-cycle-1318-daily-breakthroughs.svg`](assets/34-cycle-1318-daily-breakthroughs.svg)
+- Monograph addendum (EN): [`docs/full-monograph-cycle-1318.en.md`](docs/full-monograph-cycle-1318.en.md)
+- Monograph addendum (ZH): [`docs/full-monograph-cycle-1318.md`](docs/full-monograph-cycle-1318.md)
+- Selection FAQ (EN, Entra Token Exchange Failure Budget Auto Cycle 1318): [`agent-entra-token-exchange-failure-budget-auto-cycle-1318-selection-faq.en.md`](agent-entra-token-exchange-failure-budget-auto-cycle-1318-selection-faq.en.md)
+- Selection FAQ (ZH, Entra Token Exchange Failure Budget Auto Cycle 1318): [`agent-entra-token-exchange-failure-budget-auto-cycle-1318-selection-faq.md`](agent-entra-token-exchange-failure-budget-auto-cycle-1318-selection-faq.md)
 - Full archive (EN): [`docs/full-monograph-archive.en.md`](docs/full-monograph-archive.en.md)
 - Full archive (ZH): [`docs/full-monograph-archive.md`](docs/full-monograph-archive.md)
 
