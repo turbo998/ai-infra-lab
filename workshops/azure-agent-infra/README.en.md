@@ -1,11 +1,11 @@
 # Azure AI Agent Infrastructure Playbook (Compact)
 
 > 🌐 **Language Switch**: **[🇨🇳 Chinese (`README.md`)](README.md)** | **🇬🇧 English (`README.en.md`)**  
-> 🔎 **Cycle #1444 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1444.html](workbench-cycle-1444.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
+> 🔎 **Cycle #1445 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1445.html](workbench-cycle-1445.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
 
 ---
 
-## 1) Cycle #1444 release summary (2026-11-12)
+## 1) Cycle #1445 release summary (2026-11-12)
 
 - **Scope**: Cloud-native Agent Infra (Runtime/Sandbox, AI Gateway, MCP/A2A orchestration and observability)
 - **Evidence policy**: 2026 official docs/changelogs/releases first
@@ -26,21 +26,21 @@
 | Dual-track demo | AKSClaw × E2B simulation | [`demo.html`](demo.html) |
 | Decision + sizing | Runtime/storage selection and capacity | [`selector.html`](selector.html) |
 | Historical 7-card deck | Existing visual report entry | [`cards.html`](cards.html) |
-| **Cycle #1444 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
-| **Cycle #1444 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
-| **Cycle #1444 workbench** | Interactive benchmark surface | [`workbench-cycle-1444.html`](workbench-cycle-1444.html) |
+| **Cycle #1445 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
+| **Cycle #1445 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
+| **Cycle #1445 workbench** | Interactive benchmark surface | [`workbench-cycle-1445.html`](workbench-cycle-1445.html) |
 
 ---
 
 ## 3) Reproducible evidence bundle
 
-- Canonical payload: [`evidence/cycle-1444-benchmark.json`](evidence/cycle-1444-benchmark.json)
-- Source ledger: [`evidence/cycle-1444-sources.json`](evidence/cycle-1444-sources.json)
+- Canonical payload: [`evidence/cycle-1445-benchmark.json`](evidence/cycle-1445-benchmark.json)
+- Source ledger: [`evidence/cycle-1445-sources.json`](evidence/cycle-1445-sources.json)
 - Metric CSV files:
-  - [`cycle-1444-latency.csv`](evidence/cycle-1444-latency.csv)
-  - [`cycle-1444-throughput.csv`](evidence/cycle-1444-throughput.csv)
-  - [`cycle-1444-policy.csv`](evidence/cycle-1444-policy.csv)
-  - [`cycle-1444-cost.csv`](evidence/cycle-1444-cost.csv)
+  - [`cycle-1445-latency.csv`](evidence/cycle-1445-latency.csv)
+  - [`cycle-1445-throughput.csv`](evidence/cycle-1445-throughput.csv)
+  - [`cycle-1445-policy.csv`](evidence/cycle-1445-policy.csv)
+  - [`cycle-1445-cost.csv`](evidence/cycle-1445-cost.csv)
 
 ---
 
@@ -48,11 +48,11 @@
 
 - Daily report (EN): [`daily-report-2026-11-12.en.md`](daily-report-2026-11-12.en.md)
 - Daily report (ZH): [`daily-report-2026-11-12.md`](daily-report-2026-11-12.md)
-- One-page SVG: [`assets/34-cycle-1444-daily-breakthroughs.svg`](assets/34-cycle-1444-daily-breakthroughs.svg)
-- Monograph addendum (EN): [`docs/full-monograph-cycle-1444.en.md`](docs/full-monograph-cycle-1444.en.md)
-- Monograph addendum (ZH): [`docs/full-monograph-cycle-1444.md`](docs/full-monograph-cycle-1444.md)
-- Selection FAQ (EN, ACA Session Pool Coldstart Burst Auto Cycle 1444): [`agent-aca-session-pool-coldstart-burst-auto-cycle-1444-selection-faq.en.md`](agent-aca-session-pool-coldstart-burst-auto-cycle-1444-selection-faq.en.md)
-- Selection FAQ (ZH, ACA Session Pool Coldstart Burst Auto Cycle 1444): [`agent-aca-session-pool-coldstart-burst-auto-cycle-1444-selection-faq.md`](agent-aca-session-pool-coldstart-burst-auto-cycle-1444-selection-faq.md)
+- One-page SVG: [`assets/34-cycle-1445-daily-breakthroughs.svg`](assets/34-cycle-1445-daily-breakthroughs.svg)
+- Monograph addendum (EN): [`docs/full-monograph-cycle-1445.en.md`](docs/full-monograph-cycle-1445.en.md)
+- Monograph addendum (ZH): [`docs/full-monograph-cycle-1445.md`](docs/full-monograph-cycle-1445.md)
+- Selection FAQ (EN, APIM Semantic Cache Eviction Curve Auto Cycle 1445): [`agent-apim-semantic-cache-eviction-curve-auto-cycle-1445-selection-faq.en.md`](agent-apim-semantic-cache-eviction-curve-auto-cycle-1445-selection-faq.en.md)
+- Selection FAQ (ZH, APIM Semantic Cache Eviction Curve Auto Cycle 1445): [`agent-apim-semantic-cache-eviction-curve-auto-cycle-1445-selection-faq.md`](agent-apim-semantic-cache-eviction-curve-auto-cycle-1445-selection-faq.md)
 - Full archive (EN): [`docs/full-monograph-archive.en.md`](docs/full-monograph-archive.en.md)
 - Full archive (ZH): [`docs/full-monograph-archive.md`](docs/full-monograph-archive.md)
 
