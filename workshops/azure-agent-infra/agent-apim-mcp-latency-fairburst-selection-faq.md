@@ -3,7 +3,7 @@
 ## 1) 3 分钟结论
 - **当 APIM + MCP 工具流量出现租户并发突增时，应优先采用 circuit 保护路由，避免重试风暴放大。**
 - **推荐基线：** APIM AI Gateway 策略链 + 租户预算账本 + 分级回退通道（`soft-open -> half-open -> closed`）。
-- **Cycle 1661 目标：** `p95_gateway_queue < 420ms`、`policy_intercept_rate >= 95%`、`critical_tool_success >= 99.5%`。
+- **Cycle 1758 目标：** `p95_gateway_queue < 420ms`、`policy_intercept_rate >= 95%`、`critical_tool_success >= 99.5%`。
 
 ## 2) Q1 / Q2 / Q3
 - **Q1 为什么现在要 circuit-first？** 在突发工具调用下，重试放大会把可恢复排队问题升级成饱和环路。
@@ -77,9 +77,9 @@ sequenceDiagram
   - `apim-mcp-latency-window-fence fence integrity guard` = `161/168` = `95.8%`
   - `tenant-scope apim-mcp-latency-window-fence dns-authorization fence` = `154/161` = `95.7%`
 - 可复现证据：
-  - `workshops/azure-agent-infra/evidence/cycle-1661-benchmark.json`
-  - `workshops/azure-agent-infra/evidence/cycle-1661-latency.csv`
-  - `workshops/azure-agent-infra/evidence/cycle-1661-policy.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-1758-benchmark.json`
+  - `workshops/azure-agent-infra/evidence/cycle-1758-latency.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-1758-policy.csv`
 - 标签：`measured / synthetic / anonymized_reported`。
 
 ## 6) 生产核验 Checklist
