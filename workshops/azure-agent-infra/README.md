@@ -1,11 +1,11 @@
 # Azure AI Agent Infrastructure Playbook（精简版）
 
 > 🌐 **Language / 语言切换**: **🇨🇳 中文 (`README.md`)** | **[🇬🇧 English (`README.en.md`)](README.en.md)**  
-> 🔎 **Cycle #1307 重点资产**: [benchmark-cards.html](benchmark-cards.html) · [benchmark-cards.en.html](benchmark-cards.en.html) · [workbench-cycle-1307.html](workbench-cycle-1307.html) · [daily-report-2026-11-12.md](daily-report-2026-11-12.md)
+> 🔎 **Cycle #1308 重点资产**: [benchmark-cards.html](benchmark-cards.html) · [benchmark-cards.en.html](benchmark-cards.en.html) · [workbench-cycle-1308.html](workbench-cycle-1308.html) · [daily-report-2026-11-12.md](daily-report-2026-11-12.md)
 
 ---
 
-## 一、Cycle #1307 发布摘要（2026-11-12）
+## 一、Cycle #1308 发布摘要（2026-11-12）
 
 - **主题**：云原生 Agent Infra（Runtime/Sandbox、AI Gateway、MCP/A2A 编排与可观测）
 - **当日证据口径**：2026 官方文档 / changelog / release notes 优先
@@ -26,21 +26,21 @@
 | 双轨仿真 Demo | AKSClaw × E2B | [`demo.html`](demo.html) |
 | 选型与容量测算 | 决策树 + 10 万沙箱估算 | [`selector.html`](selector.html) |
 | 历史 7-card 卡组 | 既有可视化入口 | [`cards.html`](cards.html) |
-| **Cycle #1307 卡组（中文）** | 新规范 7-card | [`benchmark-cards.html`](benchmark-cards.html) |
-| **Cycle #1307 卡组（英文）** | 新规范 7-card | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
-| **Cycle #1307 工作台** | 新增交互实验台 | [`workbench-cycle-1307.html`](workbench-cycle-1307.html) |
+| **Cycle #1308 卡组（中文）** | 新规范 7-card | [`benchmark-cards.html`](benchmark-cards.html) |
+| **Cycle #1308 卡组（英文）** | 新规范 7-card | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
+| **Cycle #1308 工作台** | 新增交互实验台 | [`workbench-cycle-1308.html`](workbench-cycle-1308.html) |
 
 ---
 
 ## 三、可复现实验与证据
 
-- 基准主文件：[`evidence/cycle-1307-benchmark.json`](evidence/cycle-1307-benchmark.json)
-- 来源台账：[`evidence/cycle-1307-sources.json`](evidence/cycle-1307-sources.json)
+- 基准主文件：[`evidence/cycle-1308-benchmark.json`](evidence/cycle-1308-benchmark.json)
+- 来源台账：[`evidence/cycle-1308-sources.json`](evidence/cycle-1308-sources.json)
 - 指标 CSV：
-  - [`cycle-1307-latency.csv`](evidence/cycle-1307-latency.csv)
-  - [`cycle-1307-throughput.csv`](evidence/cycle-1307-throughput.csv)
-  - [`cycle-1307-policy.csv`](evidence/cycle-1307-policy.csv)
-  - [`cycle-1307-cost.csv`](evidence/cycle-1307-cost.csv)
+  - [`cycle-1308-latency.csv`](evidence/cycle-1308-latency.csv)
+  - [`cycle-1308-throughput.csv`](evidence/cycle-1308-throughput.csv)
+  - [`cycle-1308-policy.csv`](evidence/cycle-1308-policy.csv)
+  - [`cycle-1308-cost.csv`](evidence/cycle-1308-cost.csv)
 
 ---
 
@@ -48,11 +48,11 @@
 
 - 日报（中文）：[`daily-report-2026-11-12.md`](daily-report-2026-11-12.md)
 - 日报（英文）：[`daily-report-2026-11-12.en.md`](daily-report-2026-11-12.en.md)
-- 一图流 SVG：[`assets/34-cycle-1307-daily-breakthroughs.svg`](assets/34-cycle-1307-daily-breakthroughs.svg)
-- 专著增补（中文）：[`docs/full-monograph-cycle-1307.md`](docs/full-monograph-cycle-1307.md)
-- 专著增补（英文）：[`docs/full-monograph-cycle-1307.en.md`](docs/full-monograph-cycle-1307.en.md)
-- 选型 FAQ（中文）：[`agent-cosmosdb-vector-index-write-budget-auto-cycle-1307-selection-faq.md`](agent-cosmosdb-vector-index-write-budget-auto-cycle-1307-selection-faq.md)
-- 选型 FAQ（英文）：[`agent-cosmosdb-vector-index-write-budget-auto-cycle-1307-selection-faq.en.md`](agent-cosmosdb-vector-index-write-budget-auto-cycle-1307-selection-faq.en.md)
+- 一图流 SVG：[`assets/34-cycle-1308-daily-breakthroughs.svg`](assets/34-cycle-1308-daily-breakthroughs.svg)
+- 专著增补（中文）：[`docs/full-monograph-cycle-1308.md`](docs/full-monograph-cycle-1308.md)
+- 专著增补（英文）：[`docs/full-monograph-cycle-1308.en.md`](docs/full-monograph-cycle-1308.en.md)
+- 选型 FAQ（中文）：[`agent-entra-token-exchange-failure-budget-auto-cycle-1308-selection-faq.md`](agent-entra-token-exchange-failure-budget-auto-cycle-1308-selection-faq.md)
+- 选型 FAQ（英文）：[`agent-entra-token-exchange-failure-budget-auto-cycle-1308-selection-faq.en.md`](agent-entra-token-exchange-failure-budget-auto-cycle-1308-selection-faq.en.md)
 - 完整历史专著（中文）：[`docs/full-monograph-archive.md`](docs/full-monograph-archive.md)
 - 完整历史专著（英文）：[`docs/full-monograph-archive.en.md`](docs/full-monograph-archive.en.md)
 
