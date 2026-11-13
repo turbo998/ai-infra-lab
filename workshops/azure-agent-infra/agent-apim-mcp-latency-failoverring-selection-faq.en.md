@@ -3,7 +3,7 @@
 ## 1) 3-minute conclusions
 - **Choose circuit-protected routing when tenant concurrency bursts can trigger retry storms in APIM + MCP tool chains.**
 - **Recommended baseline:** APIM AI Gateway policy chain + tenant budget ledger + staged fallback lanes (`soft-open -> half-open -> closed`).
-- **Cycle 1710 targets:** `p95_gateway_queue < 420ms`, `policy_intercept_rate >= 95%`, `critical_tool_success >= 99.5%`.
+- **Cycle 1746 targets:** `p95_gateway_queue < 420ms`, `policy_intercept_rate >= 95%`, `critical_tool_success >= 99.5%`.
 
 ## 2) Q1 / Q2 / Q3
 - **Q1 Why circuit-first now?** With bursty tool traffic, retry amplification can turn a recoverable queue into a saturation loop.
@@ -77,9 +77,9 @@ sequenceDiagram
   - `apim-mcp-latency-window-fence fence integrity guard` = `161/168` = `95.8%`
   - `tenant-scope apim-mcp-latency-window-fence dns-authorization fence` = `154/161` = `95.7%`
 - Repro artifacts:
-  - `workshops/azure-agent-infra/evidence/cycle-1710-benchmark.json`
-  - `workshops/azure-agent-infra/evidence/cycle-1710-latency.csv`
-  - `workshops/azure-agent-infra/evidence/cycle-1710-policy.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-1746-benchmark.json`
+  - `workshops/azure-agent-infra/evidence/cycle-1746-latency.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-1746-policy.csv`
 - Labels used: `measured / synthetic / anonymized_reported`.
 
 ## 6) Production verification checklist
