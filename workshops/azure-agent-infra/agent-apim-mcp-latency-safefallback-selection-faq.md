@@ -1,90 +1,65 @@
-# agent apim mcp latency safefallback 选型 FAQ（Azure AI Agent Infra）
+# Foundry Agent Service vs Container Apps 承载选型 FAQ（Cycle 1755）
 
-## 1) 3 分钟结论
-- **当 APIM + MCP 工具流量出现租户并发突增时，应优先采用 circuit 保护路由，避免重试风暴放大。**
-- **推荐基线：** APIM AI Gateway 策略链 + 租户预算账本 + 分级回退通道（`soft-open -> half-open -> closed`）。
-- **Cycle 1717 目标：** `p95_gateway_queue < 420ms`、`policy_intercept_rate >= 95%`、`critical_tool_success >= 99.5%`。
+## 1) 3 分钟结论（给决策者）
+- **若你的核心目标是“最快上线、最低运维门槛、受控 Agent 托管”，优先用 Azure AI Foundry Agent Service。**
+- **若你的核心目标是“运行时可控性、网络与身份边界可编排、可插拔沙箱/工具链”，优先用 Container Apps（含 Dynamic Sessions）。**
+- **常见落地路线：** 控制平面（计划/记忆/路由）放 Foundry，执行平面（工具调用、浏览器/CUA、代码沙箱）放 ACA/AKS，并由 APIM AI Gateway 做统一入口、配额与回退。
 
-## 2) Q1 / Q2 / Q3
-- **Q1 为什么现在要 circuit-first？** 在突发工具调用下，重试放大会把可恢复排队问题升级成饱和环路。
-- **Q2 为什么不能只做静态限流？** 仅限流虽然控成本，但会在混合优先级负载下显著伤害关键工具可用性。
-- **Q3 最小生产闭环是什么？** 动态 circuit 阈值 + 租户预算 + 可审计策略版本回退。
+## 2) 选型问题（Q1/Q2/Q3）
+### Q1：何时应把主承载放在 Foundry Agent Service？
+当你更看重以下能力时：  
+1) 内建 Agent 运行与编排体验；  
+2) 团队偏应用研发而非平台工程；  
+3) 希望在短周期内把可用版本上线并先跑通闭环。
 
-### Q1：触发阈值
-当队列延迟趋势与错误率斜率连续 3 个窗口超出预算包络时进入 `half-open`。
+### Q2：何时应把主承载放在 Container Apps？
+当你必须明确控制以下能力时：  
+1) 私网拓扑（Private Link、VNet 出口、DNS 与审计路径）；  
+2) 多租户隔离策略（会话池、租户预算、策略版本冻结）；  
+3) 工具执行面（浏览器自动化、代码沙箱、外部系统连接）的伸缩与故障回退。
 
-### Q2：退出阈值
-仅在队列深度与超时率连续 2 个窗口回到阈值内，且策略回放保持确定性时，恢复 `soft-open`。
+### Q3：如何做“Foundry + ACA”双平面组合而不失控？
+推荐三条硬约束：  
+1) **入口统一**：所有模型与工具请求先过 APIM，统一做 token 预算、请求优先级、审计标签。  
+2) **身份分离**：控制面身份与执行面身份分开，执行面采用最小权限 OBO（On-Behalf-Of）令牌。  
+3) **回退有据**：每次回退必须写入策略版本号、租户、触发阈值、恢复阈值。
 
-### Q3：结果指标
-必须联动观察 `policy_intercept_rate`、`critical_tool_success`、`queue_p95_ms`；任一指标缺失即不允许自动决策。
-
-## 3) Mermaid 图
-### 3.1 决策树
-```mermaid
-flowchart TD
-  A[进入 MCP 工具请求] --> B{租户预算健康?}
-  B -- 是 --> C[soft-open 通道]
-  B -- 否 --> D[half-open 探针通道]
-  D --> E{探针成功率达标?}
-  E -- 是 --> C
-  E -- 否 --> F[closed 通道 + 回退策略]
-  C --> G[提交策略版本与遥测]
-  F --> G
-```
-
-### 3.2 路径对比
+## 3) 参考架构（生产分层）
 ```mermaid
 flowchart LR
-  A1[仅静态限流] --> B1[成本方差较低]
-  B1 --> C1[关键工具丢失风险更高]
-
-  A2[circuit + 预算 + 回退] --> B2[韧性与成本平衡]
-  B2 --> C2[需要严格策略回放]
+  U[Client / Copilot Surface] --> G[APIM AI Gateway]
+  G --> C1[Foundry Agent Service\nControl Plane]
+  G --> C2[Container Apps Sessions\nExecution Plane]
+  C1 --> M[Model + Orchestration]
+  C2 --> T[Tool Runtimes\nBrowser/CUA/Code Sandbox]
+  C1 --> S[(State Store\nCosmos DB / Redis)]
+  C2 --> S
+  G --> A[Audit + Policy Ledger]
 ```
 
-### 3.3 时序
-```mermaid
-sequenceDiagram
-  participant Client
-  participant Gateway as APIM Gateway
-  participant Ledger as 租户预算账本
-  participant Runtime as 沙箱运行时
-  Client->>Gateway: MCP 工具调用
-  Gateway->>Ledger: 读取预算与 circuit 状态
-  Ledger-->>Gateway: allow/half-open/closed
-  Gateway->>Runtime: 执行或回退
-  Runtime-->>Gateway: 结果 + 延迟/错误
-  Gateway-->>Ledger: 更新指标与策略版本
-  Gateway-->>Client: 返回响应
-```
+## 4) 决策矩阵（业务可读）
+| 维度 | Foundry Agent Service 优势 | Container Apps 优势 | 建议 |
+|---|---|---|---|
+| 上线速度 | 内建能力多，快 | 需较多平台配置 | POC/首发偏 Foundry |
+| 运行时可控性 | 中 | 高 | 复杂工具执行偏 ACA |
+| 私网与隔离 | 中（需配套） | 高（网络与身份可编排） | 高合规偏 ACA/AKS |
+| 运维负担 | 低-中 | 中-高 | 平台能力弱时先 Foundry |
+| 成本可预测性 | 中 | 中-高（可细粒度治理） | 规模化需 APIM+预算账本 |
 
-## 4) 决策矩阵
-| 维度 | 静态限流 | circuit+预算+回退（推荐） |
-|---|---:|---:|
-| 重试风暴抑制 | 中 | 高 |
-| 关键工具可用性 | 中 | 高 |
-| 运维复杂度（1-10） | 4 | 8 |
-| 回退确定性 | 低 | 高 |
-| 多租户公平性 | 中 | 高 |
+## 5) 证据与可复算口径（validation7）
+- **延迟/吞吐/策略拦截证据**：  
+  - `workshops/azure-agent-infra/evidence/cycle-1755-latency.csv`  
+  - `workshops/azure-agent-infra/evidence/cycle-1755-throughput.csv`  
+  - `workshops/azure-agent-infra/evidence/cycle-1755-policy.csv`  
+- **关键指标（本轮）**：  
+  - warm pool p95（ACA Sessions）≈ **398ms**  
+  - fast path p95（Firecracker path）≈ **211ms**  
+  - policy intercept rate（主策略组）≈ **93.5%–95.8%**  
+- **标签约束**：`measured / synthetic / anonymized_reported`（均在证据文件内标注）。
 
-## 5) 数据证据与可复算算例（含 N 分母来源）
-- Warm-pool p95 延迟（ACA Dynamic Sessions）：**398 ms**
-- 硬隔离 p95 延迟（AKS Kata）：**1420 ms**
-- 快路径 p95 延迟（E2B Firecracker）：**211 ms**
-- 策略拦截率：
-  - `apim-mcp-latency-window-violation saturation gate` = `172/184` = `93.5%`
-  - `apim-mcp-latency-window-fence fence integrity guard` = `161/168` = `95.8%`
-  - `tenant-scope apim-mcp-latency-window-fence dns-authorization fence` = `154/161` = `95.7%`
-- 可复现证据：
-  - `workshops/azure-agent-infra/evidence/cycle-1717-benchmark.json`
-  - `workshops/azure-agent-infra/evidence/cycle-1717-latency.csv`
-  - `workshops/azure-agent-infra/evidence/cycle-1717-policy.csv`
-- 标签：`measured / synthetic / anonymized_reported`。
-
-## 6) 生产核验 Checklist
-- [ ] circuit 三态（`soft-open/half-open/closed`）切换可由策略日志完整回放。
-- [ ] 租户预算账本记录每次回退决策的策略版本与时间戳。
-- [ ] 重试风暴演练验证抑制效果且不破坏关键工具 SLO。
-- [ ] 队列深度与超时告警已绑定策略回退手册。
-- [ ] FAQ、benchmark、7-card 均保留来源标签与抓取时间戳。
+## 6) 生产落地清单（可执行）
+- [ ] APIM 入口强制启用租户配额、重试上限、策略版本号写入。  
+- [ ] Foundry 控制面与 ACA 执行面使用不同托管身份与最小权限 OBO。  
+- [ ] 私网场景完成 Private Link + DNS + egress 审计链路演练。  
+- [ ] 发生回退时，审计账本必须可回放“触发阈值→执行策略→恢复条件”。  
+- [ ] 7-card / SVG / H5 与 FAQ 引用同一轮证据，保证口径一致。  
