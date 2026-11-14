@@ -1,26 +1,26 @@
-# APIM MCP Reentry Reliability Guard Lane Latency Bucket FAQ (Cycle 2160)
+# APIM MCP Reentry Reliability Guard Lane Latency Bucket FAQ (Cycle 2174)
 
 ## 1) Three-minute decision
-- **Core issue:** with reentry peaks and policy oscillation, recovery paths show reliability drift and fairness decay.
-- **Recommendation:** implement a closed loop of reliability guard lanes, latency-bucket allocation, fallback downgrade gates, and replay audit.
-- **Goal:** preserve tenant fairness while shrinking reliability-drift windows and rollback amplification.
+- **Core issue:** during reentry peaks, execution reliability drift amplifies fairness deviation and rollback spread.
+- **Recommendation:** run a closed loop of reliability guard lanes, latency-bucket allocation, fallback downgrade gates, and replay accountability.
+- **Goal:** under multi-tenant fairness constraints, shrink reliability-drift windows and rollback amplification cost.
 
 ## 2) Q1 / Q2 / Q3
 ### Q1: Why add a reliability guard lane?
-1) unified throttling cannot separate reliability volatility risk classes,
-2) reliability lanes block spread from high-risk policy changes and protect critical recovery paths,
-3) with latency buckets, credit, validity, ordering, and reliability boundaries are jointly bounded.
+1) unified throttling cannot separate reliability risk classes,
+2) reliability lanes isolate high-risk reentry flows during policy transitions,
+3) with latency buckets, credit, ordering, and reliability boundaries are jointly bounded.
 
 ### Q2: How should production layering work?
-- **Reliability guard layer:** map tenant class + reliability state into recovery lanes,
-- **Allocation layer:** issue lane-scoped bucket credit and renewal windows,
-- **Reclaim layer:** reclaim overdraft leases with anti-propagation windows,
-- **Downgrade layer:** trigger fallback downgrade and human replay at peak.
+- **Reliability guard layer:** map tenant tier + reliability signature into recovery lanes,
+- **Allocation layer:** manage lane-scoped bucket credit, renewal, and reclaim windows,
+- **Reclaim layer:** reclaim overdraft leases while suppressing spread,
+- **Downgrade layer:** trigger fallback downgrade at peak with accountable replay evidence.
 
 ### Q3: What is the go-live bar?
-- unfenced drift keeps declining,
-- guard-lane variance remains stable and traceable,
-- recovery gain (percentage points) stays reproducible across windows.
+- unfenced reliability drift keeps shrinking,
+- lane variance remains stable and explainable,
+- recovery gain (percentage points) is reproducible across windows.
 
 ## 3) Reference architecture
 ```mermaid
@@ -33,7 +33,7 @@ flowchart LR
   E --> G[Standard Lane]
   F --> H[Gateway Response]
   G --> H
-  H --> I[Audit Replay Timeline]
+  H --> I[Replay + Accountability Timeline]
 ```
 
 ## 4) Decision matrix
@@ -41,16 +41,16 @@ flowchart LR
 |---|---:|---:|
 | Reliability drift control | Medium | High |
 | Cross-tenant propagation suppression | Medium | High |
-| Replay explainability | Medium | High |
+| Replay accountability | Medium | High |
 | Peak downgrade stability | Medium | High |
 | Implementation complexity | Medium | Medium-High |
 
 ## 5) Evidence and reproducibility
 - Evidence files:
-  - `workshops/azure-agent-infra/evidence/cycle-2160-benchmark.json`
-  - `workshops/azure-agent-infra/evidence/cycle-2160-latency.csv`
-  - `workshops/azure-agent-infra/evidence/cycle-2160-throughput.csv`
-  - `workshops/azure-agent-infra/evidence/cycle-2160-cost.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-2174-benchmark.json`
+  - `workshops/azure-agent-infra/evidence/cycle-2174-latency.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-2174-throughput.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-2174-cost.csv`
 - Contract keys:
   - `percentage_contract.unfenced_reentry_reliabilityguardlane_drift_rate`
   - `percentage_contract.reentry_reliabilityguardlane_variance_rate`
@@ -58,8 +58,8 @@ flowchart LR
 - Labels: `measured / synthetic / anonymized_reported`.
 
 ## 6) Production checklist
-- [ ] Reliability-lane classification is tenant-class replayable.
+- [ ] Reliability-lane mapping is tenant-tier replayable.
 - [ ] Bucket grant/renew/reclaim is reliability-lane consistent.
 - [ ] Reliability-priority lanes stay starvation-free during peak downgrade.
-- [ ] Audit trails bind policy version, reliability class, and recovery path.
+- [ ] Audit trails bind policy version, reliability signature, and recovery path.
 - [ ] FAQ/H5/SVG/7-card/evidence stay cycle-topic consistent.
