@@ -5,7 +5,7 @@
 - **Recommendation:** end-to-end timeout budget allocation + staged circuit breaking + fallback-result policy.
 - **Goal:** reduce cascading timeouts and blocking propagation while stabilizing end-to-end latency.
 
-## 2) Core questions (Q1/Q2/Q3)
+## 2) Q1 / Q2 / Q3
 ### Q1: Why is a single timeout threshold insufficient?
 1) tool complexity varies widely,
 2) upstream waits consume downstream budget,
