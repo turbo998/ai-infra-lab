@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cycle 2440 7-card</title>
+<title>Cycle 2441 7-card</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#020617;color:#e2e8f0;font-family:Segoe UI,Arial,sans-serif}
 .deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;padding:16px}
@@ -26,66 +26,65 @@ th,td{border-bottom:1px solid #1e293b;padding:6px;vertical-align:top}th{color:#6
 <body>
 <div class="deck">
   <section class="card">
-    <div class="tag">1 / 7 · HANDS-ON · AVIATION IROPS</div>
-    <h1>航空 IROPS 混合 Agent + CP-SAT 路径在保持合规前提下缩短恢复时长</h1>
-    <p>确定性合法性闸门在突发负载下阻断非法排班、MEL 违规与机位冲突</p>
+    <div class="tag">1 / 7 · HANDS-ON · PRIOR AUTH GOVERNANCE</div>
+    <h1>医疗预授权混合 Agent 路径在保持确定性合规的同时提升处理效率</h1>
+    <p>FHIR 理赔锁一致性 + 临床/保障规则硬校验 + 全渠道状态通知</p>
     <div class="grid3">
-      <div class="tile"><div class="kpi">58.8%</div><div>恢复时间改善</div></div>
-      <div class="tile"><div class="kpi">100.0%</div><div>机组+MEL 合规率</div></div>
-      <div class="tile"><div class="kpi">91.4%</div><div>突发改签 SLA</div></div>
+      <div class="tile"><div class="kpi">59.0%</div><div>处理时长改善</div></div>
+      <div class="tile"><div class="kpi">96.4%</div><div>临床/保障合规率</div></div>
+      <div class="tile"><div class="kpi">87.6%</div><div>成员状态 SLA</div></div>
     </div>
-    <div class="foot">evidence/cycle-2440-benchmark.json · labels: measured, synthetic, anonymized_reported</div>
+    <div class="foot">evidence/cycle-2441-benchmark.json · labels: measured, synthetic, anonymized_reported</div>
   </section>
   <section class="card">
-    <div class="tag">2 / 7 · SCENARIO: HUB GROUND-STOP RECOVERY</div>
-    <h2>混合确定性校验在恢复航网时保持合法性约束</h2>
-    <p>在任何座位提交前，CP-SAT 校验值勤时限、MEL 与机位互斥。</p>
+    <div class="tag">2 / 7 · SCENARIO: PRIOR-AUTH BURST TRIAGE</div>
+    <h2>混合确定性校验路径在加速审批的同时抑制误判风险</h2>
+    <p>在突发负载下仍强制执行策略硬闸门与理赔锁幂等。</p>
     <div class="grid3">
-      <div class="tile"><div class="kpi">18.7s</div><div>p50 plan latency</div></div>
-      <div class="tile"><div class="kpi">34.2s</div><div>p95 plan latency</div></div>
-      <div class="tile"><div class="kpi">57.0%</div><div>看订比保护</div></div>
+      <div class="tile"><div class="kpi">12.6s</div><div>p50 first packet</div></div>
+      <div class="tile"><div class="kpi">23.8s</div><div>p95 first packet</div></div>
+      <div class="tile"><div class="kpi">53.1%</div><div>申诉成本下降</div></div>
     </div>
-    <div class="foot">source: anonymized replay + deterministic solver profile</div>
+    <div class="foot">source: anonymized replay + deterministic coverage/guideline benchmark</div>
   </section>
   <section class="card">
     <div class="tag">3 / 7 · WHAT I TESTED</div>
     <table>
       <thead><tr><th>Scenario</th><th>Question / Task</th><th>Model answer</th><th>Action</th></tr></thead>
-      <tbody><tr><td>hub disruption recovery</td><td>Can full schedule recovery time shrink while preserving legality constraints?</td><td>Yes, deterministic CP-SAT validation with cascade-aware candidate ranking.</td><td>Act automatically</td></tr><tr><td>crew and MEL compliance</td><td>Can any illegal pairing or MEL-violating assignment pass execution gate?</td><td>No, legality verifier blocks all non-compliant plans before commit.</td><td>Act automatically</td></tr><tr><td>passenger 50x burst</td><td>Can rebooking complete under SLA with inventory consistency?</td><td>Yes, with idempotent seat locks and priority queue execution lanes.</td><td>Confirm</td></tr><tr><td>pure llm fallback</td><td>Skip deterministic constraints for fastest recovery suggestions?</td><td>No, route to human oversight; keep legality verifier mandatory.</td><td>Send to a human ✕</td></tr></tbody>
+      <tbody><tr><td>prior-auth turnaround</td><td>Can hybrid path reduce decision latency while preserving policy correctness?</td><td>Yes, event-driven triage + deterministic verifier improves speed with bounded risk.</td><td>Act automatically</td></tr><tr><td>clinical and coverage compliance</td><td>Can non-compliant recommendations pass commit gates?</td><td>No, hard constraints block contradictory or uncovered approvals.</td><td>Act automatically</td></tr><tr><td>member status SLA</td><td>Can members/providers get timely status during burst backlogs?</td><td>Yes, ACS fan-out and priority queues maintain status cadence.</td><td>Confirm</td></tr><tr><td>opaque llm fallback</td><td>Can pure LLM recommendation skip deterministic compliance checks?</td><td>No, route to manual review; verifier remains mandatory.</td><td>Send to a human ✕</td></tr></tbody>
     </table>
     <div class="foot">Rows are bound to evaluation_matrix in benchmark payload.</div>
   </section>
   <section class="card">
     <div class="tag">4 / 7 · UNDER THE HOOD</div>
-    <div class="code">{"event":"ground_stop","inputs":["ACARS","ADS-B","METAR","NOTAM"],"solver":"CP-SAT","hard_constraints":["FAA117","EASA_FTL","MEL","gate_exclusive"]}</div>
-    <div class="code">Event stream -> ADX cascade graph
--> fleet/crew/pax candidate plans
--> deterministic legality verifier
--> seat-lock idempotent commit (Cosmos)
--> ACS re-accommodation notifications</div>
-    <div class="foot">No execution bypasses legality verifier or inventory lock constraints.</div>
+    <div class="code">{"input":"FHIR PA request","constraints":["guideline","coverage","consent","coding"],"commit":"idempotent claim lock"}</div>
+    <div class="code">EHR/FHIR events -> triage agents
+-> deterministic clinical-policy verifier
+-> claim/auth lock commit
+-> member/provider status notifications</div>
+    <div class="foot">No authorization decision can bypass clinical-policy or consent boundary gates.</div>
   </section>
   <section class="card">
     <div class="tag">5 / 7 · ROBUSTNESS CHECK</div>
     <table>
       <thead><tr><th>Question/Answer</th><th>Original</th><th>Perturbed</th><th>Change (pts)</th></tr></thead>
-      <tbody><tr><td>recovery time improvement</td><td>58.8</td><td>57.6</td><td>-1.2</td></tr><tr><td>crew+mel compliance</td><td>100.0</td><td>100.0</td><td>+0.0</td></tr><tr><td>rebooking burst sla</td><td>91.4</td><td>90.6</td><td>-0.8</td></tr><tr><td>look-to-book protection</td><td>57.0</td><td>56.1</td><td>-0.9</td></tr></tbody>
+      <tbody><tr><td>turnaround improvement</td><td>59.0</td><td>57.8</td><td>-1.2</td></tr><tr><td>clinical policy compliance</td><td>96.4</td><td>95.8</td><td>-0.6</td></tr><tr><td>member status SLA</td><td>87.6</td><td>86.7</td><td>-0.9</td></tr><tr><td>appeal cost reduction</td><td>53.1</td><td>52.3</td><td>-0.8</td></tr></tbody>
     </table>
-    <div class="foot">Perturbation includes demand surge shape shift and crew reserve pool reduction.</div>
+    <div class="foot">Perturbation includes diagnosis-mix shift and payer policy-version skew.</div>
   </section>
   <section class="card">
     <div class="tag">6 / 7 · LATENCY</div>
-    <h2>在不断上升的滞留旅客规模下，确定性混合路径持续优于纯 LLM 基线</h2>
-    <div class='bar-row'><div class='bar-label'>10k stranded pax</div><div class='bar primary' style='width:57.7%'>34200 ms</div><div class='bar base' style='width:76.1%'>45100 ms</div></div><div class='bar-row'><div class='bar-label'>50k stranded pax</div><div class='bar primary' style='width:65.6%'>38900 ms</div><div class='bar base' style='width:87.2%'>51700 ms</div></div><div class='bar-row'><div class='bar-label'>100k stranded pax</div><div class='bar primary' style='width:72.2%'>42800 ms</div><div class='bar base' style='width:100.0%'>59300 ms</div></div>
+    <h2>在 10k 到 100k 日请求区间，确定性混合路径持续优于纯 LLM 基线</h2>
+    <div class='bar-row'><div class='bar-label'>10k requests/day</div><div class='bar primary' style='width:50.4%'>23800 ms</div><div class='bar base' style='width:79.2%'>37400 ms</div></div><div class='bar-row'><div class='bar-label'>50k requests/day</div><div class='bar primary' style='width:56.4%'>26600 ms</div><div class='bar base' style='width:88.6%'>41800 ms</div></div><div class='bar-row'><div class='bar-label'>100k requests/day</div><div class='bar primary' style='width:64.0%'>30200 ms</div><div class='bar base' style='width:100.0%'>47200 ms</div></div>
     <div class="foot">Primary (blue) vs baseline (gray) from latency_load_tiers in benchmark payload.</div>
   </section>
   <section class="card">
     <div class="tag">7 / 7 · MY TAKE</div>
     <div class="fit">
-      <div class="good"><strong>✅ 适用</strong><br>需要在高突发 IROPS 中保持合规并完成大规模旅客改签的航司。</div>
-      <div class="bad"><strong>⛔ 不适用</strong><br>无法强制执行值勤时限/MEL/机位硬约束的纯建议型试点。</div>
+      <div class="good"><strong>✅ 适用</strong><br>需要规模化、可解释且合规的预授权自动化的支付方/提供方。</div>
+      <div class="bad"><strong>⛔ 不适用</strong><br>无法强制执行确定性策略与同意边界约束的流程。</div>
     </div>
-    <div class="foot">readiness: legality verifier + seat-lock idempotency + priority queue + omnichannel comms</div>
+    <div class="foot">readiness: deterministic verifier + fhir lock + consent boundary + omnichannel status</div>
   </section>
 </div>
 </body>
