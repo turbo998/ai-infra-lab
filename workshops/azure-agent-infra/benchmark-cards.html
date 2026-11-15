@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</title>
+<title>Azure Agent Infra Cycle #2415 · ERP 混合集成卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · FSI Quant + Compliance</div><h2>MNPI 伦理墙、确定性量化复算与 WORM 审计锚定可把投研 Agent 提升到监管可发布状态。</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Deal-room Chinese Wall isolation.</li><li>Deterministic Python quant verification.</li><li>SEC 17a-4 WORM + ledger evidence path.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2414,"focus":"fsi_mnpi_worm_quant","gates":["mnpi","quant_verify","worm"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2414-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Regulated Quant Research</div><h2>先隔离、再复算、后归档三段门禁显著降低跨 Desk 泄漏与数值误差风险。</h2>
-<div class="quote">Input quote: "Block MNPI leakage, verify DCF/VaR deterministically, and archive immutable evidence before distribution."</div>
-<div class="decision"><strong>MNPI leak block rate</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
-<div class="decision"><strong>deterministic quant exactness</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
-<div class="decision"><strong>worm ledger verification success</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>将隔离、数值确定性与留痕不可篡改并列为发布前强制检查。</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Brownfield ERP Integration</div><h2>API 门面 + 主体透传 + 干跑预检三件套可显著降低棕地核心系统被 Agent 误改写风险。</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>APIM MCP facade over SOAP/OData.</li><li>Entra to SAP user principal propagation.</li><li>BAPI TESTRUN gate before commit.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2415,"focus":"brownfield_erp_hybrid","gates":["propagation","testrun","pool_guard"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2415-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP 混合集成卡组</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Safe Mutation on Legacy SoR</div><h2>主体透传与 TESTRUN 双门禁让高价值 ERP 写操作可控上线。</h2>
+<div class="quote">Input quote: "Preserve per-user SAP authorization, dry-run every mutation, and protect backend pools under burst load."</div>
+<div class="decision"><strong>principal-propagation audit coverage</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
+<div class="decision"><strong>TESTRUN precommit catch rate</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+<div class="decision"><strong>connection-pool protection rate</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP 混合集成卡组</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>发布前必须同时满足身份、预检、连接池三类硬门禁。</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>MNPI</td><td>是否阻断跨 Desk 敏感检索？</td><td>Per-desk ACL filter with deny-by-default.</td><td>✓ Act automatically</td></tr>
-<tr><td>Quant math</td><td>DCF/VaR 是否完成确定性复算？</td><td>Python verifier signature required.</td><td>✓ Confirm</td></tr>
-<tr><td>Latency</td><td>财报信号链路是否满足低抖动目标？</td><td>Event Hubs + ADX + PTU lane tuning.</td><td>✓ Send to a human</td></tr>
-<tr><td>Retention</td><td>是否满足 17a-4 immutable 留存要求？</td><td>WORM legal hold + ledger anchor replay.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>金融 Agent 能否上线取决于合规门禁链，而非单次模型得分。</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2414
-focus=fsi_capital_markets_mnpi_worm_quant
+<tr><td>Identity</td><td>是否按用户粒度透传 SAP 权限？</td><td>OBO principal propagation required.</td><td>✓ Act automatically</td></tr>
+<tr><td>Dry-run</td><td>所有写请求是否先 TESTRUN？</td><td>TESTRUN pass is mandatory before commit.</td><td>✓ Confirm</td></tr>
+<tr><td>Pool</td><td>工具风暴是否触发连接池保护？</td><td>APIM throttle + connector cap + fallback lane.</td><td>✓ Send to a human</td></tr>
+<tr><td>Fallback</td><td>RPA 回退是否只用于无 API 尾系统？</td><td>API-first policy with constrained fallback.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP 混合集成卡组</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>棕地集成质量由“先验证再提交”的协议与身份边界决定。</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2415
+focus=legacy_erp_sap_mainframe_hybrid
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert mnpi cross-desk leak block floor
-assert deterministic dcf/var exactness floor
-assert earnings ingestion latency threshold
-assert worm+ledger replay verification floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.2 to -0.4 points under workload and prompt variations.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert principal propagation audit floor
+assert testrun precommit catch floor
+assert connection pool protection floor
+assert fallback policy compliance</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP 混合集成卡组</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.5 to -0.5 points.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>mnpi block</td><td>99.6</td><td>99.2</td><td>-0.4</td><td>synthetic</td></tr>
-<tr><td>quant exactness</td><td>99.4</td><td>98.7</td><td>-0.7</td><td>synthetic</td></tr>
-<tr><td>worm verification</td><td>99.2</td><td>98.3</td><td>-0.9</td><td>synthetic</td></tr>
-<tr><td>latency consistency</td><td>95.1</td><td>93.9</td><td>-1.2</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Event Hubs + ADX + PTU 将财报入湖到信号链路 P95 降至 0.86s，较人工基线显著改善。</h2>
+<tr><td>principal propagation</td><td>98.8</td><td>98.3</td><td>-0.5</td><td>synthetic</td></tr>
+<tr><td>testrun catch</td><td>95.2</td><td>94.1</td><td>-1.1</td><td>synthetic</td></tr>
+<tr><td>pool protection</td><td>96.1</td><td>95.0</td><td>-1.1</td><td>synthetic</td></tr>
+<tr><td>integration consistency</td><td>93.4</td><td>91.9</td><td>-1.5</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP 混合集成卡组</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Logic Apps 主路径在提高可靠性的同时把 P95 控制在 1.76s，远优于人工与 RPA 回退。</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>sell-side desk</td><td>1.42 s</td><td>4.9 s</td><td>anonymized_reported</td></tr>
-<tr><td>buy-side quant</td><td>1.08 s</td><td>4.9 s</td><td>synthetic</td></tr>
-<tr><td>regulated institution</td><td>0.86 s</td><td>4.9 s</td><td>measured</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>FSI 场景只有把伦理墙、确定性复算与不可篡改留痕联动，才值得在生产发布 Agent 结论。</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Sell-side and buy-side desks requiring MNPI isolation</li><li>Quant research pipelines with deterministic verification mandates</li><li>Institutions under SEC/FINRA immutable retention audits</li><li>Teams operating evidence replay drills and compliance controls</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>Non-regulated teams without retention obligations</li><li>Workloads that accept non-deterministic financial calculations</li><li>Organizations lacking desk-level isolation governance</li><li>Programs unable to maintain legal-hold lifecycle controls</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for regulated capital-markets workflows.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>7 / 7</span></div></article>
+<tr><td>direct RFC</td><td>1.32 s</td><td>12.8 s</td><td>anonymized_reported</td></tr>
+<tr><td>logic apps orchestration</td><td>1.76 s</td><td>12.8 s</td><td>measured</td></tr>
+<tr><td>rpa fallback</td><td>4.6 s</td><td>12.8 s</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP 混合集成卡组</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>ERP Agent 想上线，必须把身份透传、干跑预检、连接池保护作为不可协商的发布门槛。</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Large enterprises integrating SAP and mainframe systems</li><li>Teams with strict user-level authorization and audit requirements</li><li>Programs requiring precommit simulation before mutation</li><li>Operations enforcing connection-pool SLO protections</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>Workloads relying on shared privileged service accounts</li><li>No-governance direct mutation of core records</li><li>Teams without integration throttling and fallback discipline</li><li>Scenarios expecting RPA to replace API-first architecture</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for brownfield ERP integration.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP 混合集成卡组</span><span>7 / 7</span></div></article>
 </main></body></html>
