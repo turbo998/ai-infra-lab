@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2419 · Fraud/Risk Dual-Speed Deck</title>
+<title>Azure Agent Infra Cycle #2420 · A2A Federation Deck</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Fraud/Risk Triage</div><h2>Dual-speed triage keeps authorization p99 under 50ms while lifting fraud capture to 93.8%.</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Event Hubs/Fabric real-time streams.</li><li>Redis velocity features + inline ONNX scoring.</li><li>Async Foundry investigation swarm + SAR draft.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2419,"focus":"fraud_risk_dual_speed","gates":["latency","capture","compliance"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2419-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk Deck</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Hot-Path + Async Investigation</div><h2>Deterministic inline scoring plus async investigation reduces false-positive friction and SAR workload.</h2>
-<div class="quote">Input quote: "Keep inline authorization under 50ms while improving fraud capture and reducing analyst workload."</div>
-<div class="decision"><strong>inline p99 under 50ms compliance</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-<div class="decision"><strong>false-positive friction reduction</strong><div class="bar"><div class="fill" style="width:31%"></div></div></div>
-<div class="decision"><strong>sar investigation time savings</strong><div class="bar"><div class="fill" style="width:49%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk Deck</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Production recommendation requires low-latency authorization, capture uplift, and auditable compliance together.</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · A2A Federation</div><h2>Cross-org A2A with DMZ isolation enables both partner agility and auditable trust boundaries.</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Agent card discovery and capability registry.</li><li>mTLS + cross-tenant token exchange in APIM DMZ.</li><li>Prompt shield quarantine + Purview DLP egress control.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2420,"focus":"a2a_cross_org_federation","gates":["identity","quarantine","dlp"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2420-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Partner Exchange Hardening</div><h2>Prompt-shielded DMZ triage substantially reduces injection risk while preserving completion reliability.</h2>
+<div class="quote">Input quote: "Secure partner agent exchange with legal traceability and high completion reliability."</div>
+<div class="decision"><strong>cross-org prompt injection block</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+<div class="decision"><strong>a2a async completion reliability</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div>
+<div class="decision"><strong>dlp outbound leak prevention</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Production recommendation requires identity trust, task reliability, and outbound data control together.</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>Latency</td><td>Can inline authorization stay under 50ms p99?</td><td>Dual-speed path keeps inline p99 at 43ms.</td><td>✓ Act automatically</td></tr>
-<tr><td>Capture</td><td>Does fraud capture improve while controlling friction?</td><td>Capture reaches 93.8% with adaptive step-up.</td><td>✓ Confirm</td></tr>
-<tr><td>SAR</td><td>Does investigation chain improve analyst productivity?</td><td>Async swarm reduces SAR cycle by 48.7%.</td><td>✓ Send to a human</td></tr>
-<tr><td>Throughput</td><td>Does architecture sustain peak TPS demand?</td><td>P95 throughput remains at 14,600 TPS.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk Deck</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>The core pattern is deterministic hot-path scoring plus asynchronous deep reasoning with compliance auditability.</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2419
-focus=realtime_fraud_dual_speed_triage
+<tr><td>Handshake</td><td>Is cross-tenant handshake stable and bounded?</td><td>mTLS + token exchange holds p95 at 118ms.</td><td>✓ Act automatically</td></tr>
+<tr><td>Quarantine</td><td>Are injection/manipulation payloads blocked?</td><td>Prompt shield DMZ blocks 96.7% malicious payloads.</td><td>✓ Confirm</td></tr>
+<tr><td>Completion</td><td>Can async A2A tasks complete reliably?</td><td>SSE+webhook reliability reaches 98.1%.</td><td>✓ Send to a human</td></tr>
+<tr><td>DLP</td><td>Is outbound leakage effectively prevented?</td><td>DLP controls prevent 97.2% leakage attempts.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>The core pattern is federated identity + untrusted-input quarantine + legal-grade evidence chain.</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2420
+focus=a2a_cross_org_b2b_federation
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert inline p99 latency floor
-assert fraud capture uplift floor
-assert step-up friction reduction floor
-assert SAR explainability and audit linkage</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk Deck</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.6 to -0.6 points.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert injection block floor
+assert async completion reliability floor
+assert DLP leak-prevention floor
+assert mTLS token-exchange overhead budget</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.3 to -0.5 points.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>inline p99 compliance</td><td>96.9</td><td>95.8</td><td>-1.1</td><td>synthetic</td></tr>
-<tr><td>friction reduction</td><td>31.2</td><td>30.3</td><td>-0.9</td><td>synthetic</td></tr>
-<tr><td>sar time savings</td><td>48.7</td><td>47.1</td><td>-1.6</td><td>synthetic</td></tr>
-<tr><td>peak tps stability</td><td>91.8</td><td>91.2</td><td>-0.6</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk Deck</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Dual-speed design holds 43ms authorization p99 while preserving high throughput and investigation depth.</h2>
+<tr><td>injection block</td><td>96.7</td><td>95.9</td><td>-0.8</td><td>synthetic</td></tr>
+<tr><td>completion reliability</td><td>98.1</td><td>97.6</td><td>-0.5</td><td>synthetic</td></tr>
+<tr><td>dlp leak prevention</td><td>97.2</td><td>96.2</td><td>-1.0</td><td>synthetic</td></tr>
+<tr><td>handshake stability</td><td>94.3</td><td>93.0</td><td>-1.3</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Federated handshake adds 118ms p95 overhead while materially improving trust and compliance controls.</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>inline authorization p99</td><td>43 ms</td><td>21 ms</td><td>measured</td></tr>
-<tr><td>async investigation cycle</td><td>21 min</td><td>41 min</td><td>anonymized_reported</td></tr>
-<tr><td>peak throughput p95</td><td>14,600 TPS</td><td>17,300 TPS</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk Deck</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Financial-grade agent defenses should run deterministic hot-path controls with asynchronous deep investigation lanes.</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>High-TPS payment and AML workloads with strict latency SLAs</li><li>Teams operating feature-store and event-stream controls</li><li>Organizations requiring SAR auditability and analyst review</li><li>Platforms balancing fraud capture and customer friction</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>LLM-only inline authorization path designs</li><li>Teams lacking feature-store and event-stream operations</li><li>No SAR governance and analyst review process</li><li>Workloads without latency SLO ownership</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for dual-speed fraud and AML operations.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk Deck</span><span>7 / 7</span></div></article>
+<tr><td>mTLS + token exchange p95</td><td>118 ms</td><td>73 ms</td><td>measured</td></tr>
+<tr><td>a2a task completion reliability</td><td>98.1%</td><td>94.2%</td><td>anonymized_reported</td></tr>
+<tr><td>DLP prevention rate</td><td>97.2%</td><td>73.1%</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Sustainable B2B agent federation requires default-hostile handling of cross-company payloads.</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>B2B ecosystems requiring partner-agent interoperability</li><li>Teams with DMZ and federated identity operations</li><li>Organizations needing legal non-repudiation trails</li><li>Workloads with strict outbound DLP controls</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>Direct exposure of internal MCP tools to external partners</li><li>No partner trust-tier governance model</li><li>Missing quarantine and prompt-shield pipelines</li><li>No legal/audit ownership for signed transactions</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for cross-org A2A federation with guardrails.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>7 / 7</span></div></article>
 </main></body></html>
