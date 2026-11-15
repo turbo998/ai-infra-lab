@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2413 · 医疗临床 Agent 卡组</title>
+<title>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Clinical FHIR + Multimodal</div><h2>PHI 边界、FHIR 版本门禁与 CITL 签署联动后，EHR 回写风险可降至受控上线区间。</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>AHDS FHIR R4 + DICOM retrieval.</li><li>SMART-on-FHIR Entra OBO scopes.</li><li>CITL cryptographic sign-off before writeback.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2413,"focus":"clinical_fhir_multimodal","gates":["phi","fhir_version","citl"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2413-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2413 · 医疗临床 Agent 卡组</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Clinical Safety Gate</div><h2>CITL 加密签署 + PHI 脱敏流水线让临床多 Agent 在高合规下可控提速。</h2>
-<div class="quote">Input quote: "Enable tumor-board and prior-auth agents, but block every unsigned EHR writeback."</div>
-<div class="decision"><strong>PHI de-identification precision</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-<div class="decision"><strong>FHIR grounding accuracy</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-<div class="decision"><strong>unapproved writeback blocked</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2413 · 医疗临床 Agent 卡组</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>临床生产门禁把数据边界、签署责任链和写回安全统一到同一决策平面。</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · FSI Quant + Compliance</div><h2>MNPI 伦理墙、确定性量化复算与 WORM 审计锚定可把投研 Agent 提升到监管可发布状态。</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Deal-room Chinese Wall isolation.</li><li>Deterministic Python quant verification.</li><li>SEC 17a-4 WORM + ledger evidence path.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2414,"focus":"fsi_mnpi_worm_quant","gates":["mnpi","quant_verify","worm"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2414-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Regulated Quant Research</div><h2>先隔离、再复算、后归档三段门禁显著降低跨 Desk 泄漏与数值误差风险。</h2>
+<div class="quote">Input quote: "Block MNPI leakage, verify DCF/VaR deterministically, and archive immutable evidence before distribution."</div>
+<div class="decision"><strong>MNPI leak block rate</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
+<div class="decision"><strong>deterministic quant exactness</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
+<div class="decision"><strong>worm ledger verification success</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>将隔离、数值确定性与留痕不可篡改并列为发布前强制检查。</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>PHI</td><td>PHI 是否在出模前全部脱敏？</td><td>Safe Harbor + surrogate replacement gate.</td><td>✓ Act automatically</td></tr>
-<tr><td>FHIR</td><td>写回是否保证版本一致？</td><td>If-Match + versionId conflict route to human.</td><td>✓ Confirm</td></tr>
-<tr><td>CITL</td><td>是否先签后写、无签名即拒绝？</td><td>Cryptographic clinician attestation required.</td><td>✓ Send to a human</td></tr>
-<tr><td>Audit</td><td>是否具备不可抵赖审计链？</td><td>Signed event trail + immutable ledger export.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2413 · 医疗临床 Agent 卡组</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>临床 Agent 可靠性取决于 FHIR/OBO/CITL 的严格联动，而非单点模型精度。</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2413
-focus=healthcare_clinical_fhir_multimodal
+<tr><td>MNPI</td><td>是否阻断跨 Desk 敏感检索？</td><td>Per-desk ACL filter with deny-by-default.</td><td>✓ Act automatically</td></tr>
+<tr><td>Quant math</td><td>DCF/VaR 是否完成确定性复算？</td><td>Python verifier signature required.</td><td>✓ Confirm</td></tr>
+<tr><td>Latency</td><td>财报信号链路是否满足低抖动目标？</td><td>Event Hubs + ADX + PTU lane tuning.</td><td>✓ Send to a human</td></tr>
+<tr><td>Retention</td><td>是否满足 17a-4 immutable 留存要求？</td><td>WORM legal hold + ledger anchor replay.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>金融 Agent 能否上线取决于合规门禁链，而非单次模型得分。</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2414
+focus=fsi_capital_markets_mnpi_worm_quant
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert phi redaction precision floor
-assert fhir bundle grounding floor
-assert unsigned ehr writeback hard block
-assert citl attestation audit completeness</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2413 · 医疗临床 Agent 卡组</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.4 to -0.5 points under scope and prompt variations.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert mnpi cross-desk leak block floor
+assert deterministic dcf/var exactness floor
+assert earnings ingestion latency threshold
+assert worm+ledger replay verification floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.2 to -0.4 points under workload and prompt variations.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>PHI precision</td><td>97.2</td><td>96.7</td><td>-0.5</td><td>synthetic</td></tr>
-<tr><td>FHIR grounding</td><td>95.8</td><td>94.8</td><td>-1.0</td><td>synthetic</td></tr>
-<tr><td>writeback block</td><td>99.7</td><td>99.1</td><td>-0.6</td><td>synthetic</td></tr>
-<tr><td>tumor-board latency consistency</td><td>94.2</td><td>92.8</td><td>-1.4</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2413 · 医疗临床 Agent 卡组</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>高监管企业层将会诊链路 P95 降到 1.86s，同时把未签署回写阻断率提升到 99.7%。</h2>
+<tr><td>mnpi block</td><td>99.6</td><td>99.2</td><td>-0.4</td><td>synthetic</td></tr>
+<tr><td>quant exactness</td><td>99.4</td><td>98.7</td><td>-0.7</td><td>synthetic</td></tr>
+<tr><td>worm verification</td><td>99.2</td><td>98.3</td><td>-0.9</td><td>synthetic</td></tr>
+<tr><td>latency consistency</td><td>95.1</td><td>93.9</td><td>-1.2</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Event Hubs + ADX + PTU 将财报入湖到信号链路 P95 降至 0.86s，较人工基线显著改善。</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>research pilot</td><td>3.8 s</td><td>9.4 s</td><td>anonymized_reported</td></tr>
-<tr><td>hospital network</td><td>2.6 s</td><td>9.4 s</td><td>synthetic</td></tr>
-<tr><td>regulated enterprise</td><td>1.86 s</td><td>9.4 s</td><td>measured</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2413 · 医疗临床 Agent 卡组</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>医疗临床场景只有在 PHI、FHIR 与 CITL 三重门禁协同下才适合规模化上线。</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Tumor-board and prior-auth workflows with auditable controls</li><li>Enterprises requiring HIPAA/HITRUST traceability</li><li>Programs that can enforce clinician sign-off accountability</li><li>Teams operating FHIR conflict + safety drills continuously</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>No clinician sign-off process or accountability model</li><li>Teams requiring autonomous EHR writes without human gate</li><li>Workloads without PHI de-identification operations readiness</li><li>Low-governance pilots expecting direct production rollout</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for regulated clinical workflows.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2413 · 医疗临床 Agent 卡组</span><span>7 / 7</span></div></article>
+<tr><td>sell-side desk</td><td>1.42 s</td><td>4.9 s</td><td>anonymized_reported</td></tr>
+<tr><td>buy-side quant</td><td>1.08 s</td><td>4.9 s</td><td>synthetic</td></tr>
+<tr><td>regulated institution</td><td>0.86 s</td><td>4.9 s</td><td>measured</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>FSI 场景只有把伦理墙、确定性复算与不可篡改留痕联动，才值得在生产发布 Agent 结论。</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Sell-side and buy-side desks requiring MNPI isolation</li><li>Quant research pipelines with deterministic verification mandates</li><li>Institutions under SEC/FINRA immutable retention audits</li><li>Teams operating evidence replay drills and compliance controls</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>Non-regulated teams without retention obligations</li><li>Workloads that accept non-deterministic financial calculations</li><li>Organizations lacking desk-level isolation governance</li><li>Programs unable to maintain legal-hold lifecycle controls</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for regulated capital-markets workflows.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI 量化合规卡组</span><span>7 / 7</span></div></article>
 </main></body></html>

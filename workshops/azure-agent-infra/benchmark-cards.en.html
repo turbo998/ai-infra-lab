@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</title>
+<title>Azure Agent Infra Cycle #2414 · FSI Quant Compliance Deck</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Clinical FHIR + Multimodal</div><h2>PHI boundaries, FHIR version gates, and CITL sign-off combine to reduce EHR writeback risk to a controlled production zone.</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>AHDS FHIR R4 + DICOM retrieval.</li><li>SMART-on-FHIR Entra OBO scopes.</li><li>CITL cryptographic sign-off before writeback.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2413,"focus":"clinical_fhir_multimodal","gates":["phi","fhir_version","citl"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2413-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Clinical Safety Gate</div><h2>CITL cryptographic attestation plus PHI de-identification lets clinical multi-agent workflows accelerate safely under strict compliance.</h2>
-<div class="quote">Input quote: "Enable tumor-board and prior-auth agents, but block every unsigned EHR writeback."</div>
-<div class="decision"><strong>PHI de-identification precision</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-<div class="decision"><strong>FHIR grounding accuracy</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-<div class="decision"><strong>unapproved writeback blocked</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Clinical production gates unify data boundaries, attestation accountability, and writeback safety into one decision plane.</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · FSI Quant + Compliance</div><h2>MNPI wall controls, deterministic quant recomputation, and WORM evidence anchoring move agent outputs into a regulator-ready release zone.</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Deal-room Chinese Wall isolation.</li><li>Deterministic Python quant verification.</li><li>SEC 17a-4 WORM + ledger evidence path.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2414,"focus":"fsi_mnpi_worm_quant","gates":["mnpi","quant_verify","worm"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2414-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI Quant Compliance Deck</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Regulated Quant Research</div><h2>Isolate first, verify deterministically second, archive immutably third to suppress leakage and numerical drift risk.</h2>
+<div class="quote">Input quote: "Block MNPI leakage, verify DCF/VaR deterministically, and archive immutable evidence before distribution."</div>
+<div class="decision"><strong>MNPI leak block rate</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
+<div class="decision"><strong>deterministic quant exactness</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
+<div class="decision"><strong>worm ledger verification success</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI Quant Compliance Deck</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates force isolation integrity, numerical certainty, and immutable retention before desk distribution.</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>PHI</td><td>Is all PHI redacted before model egress?</td><td>Safe Harbor + surrogate replacement gate.</td><td>✓ Act automatically</td></tr>
-<tr><td>FHIR</td><td>Is writeback version-safe?</td><td>If-Match + versionId conflict route to human.</td><td>✓ Confirm</td></tr>
-<tr><td>CITL</td><td>Is sign-before-write mandatory?</td><td>Cryptographic clinician attestation required.</td><td>✓ Send to a human</td></tr>
-<tr><td>Audit</td><td>Is non-repudiation evidence complete?</td><td>Signed event trail + immutable ledger export.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Clinical agent reliability depends on strict FHIR/OBO/CITL coupling, not a single model score.</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2413
-focus=healthcare_clinical_fhir_multimodal
+<tr><td>MNPI</td><td>Are cross-desk sensitive lookups blocked?</td><td>Per-desk ACL filter with deny-by-default.</td><td>✓ Act automatically</td></tr>
+<tr><td>Quant math</td><td>Are DCF/VaR outputs deterministically recomputed?</td><td>Python verifier signature required.</td><td>✓ Confirm</td></tr>
+<tr><td>Latency</td><td>Does earnings signal chain meet low-jitter SLO?</td><td>Event Hubs + ADX + PTU lane tuning.</td><td>✓ Send to a human</td></tr>
+<tr><td>Retention</td><td>Does evidence satisfy 17a-4 immutable retention?</td><td>WORM legal hold + ledger anchor replay.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI Quant Compliance Deck</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>FSI agent release quality is governed by compliance gates, not just model-level quality scores.</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2414
+focus=fsi_capital_markets_mnpi_worm_quant
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert phi redaction precision floor
-assert fhir bundle grounding floor
-assert unsigned ehr writeback hard block
-assert citl attestation audit completeness</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.4 to -0.5 points under scope and prompt variations.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert mnpi cross-desk leak block floor
+assert deterministic dcf/var exactness floor
+assert earnings ingestion latency threshold
+assert worm+ledger replay verification floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI Quant Compliance Deck</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.2 to -0.4 points under workload and prompt variations.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>PHI precision</td><td>97.2</td><td>96.7</td><td>-0.5</td><td>synthetic</td></tr>
-<tr><td>FHIR grounding</td><td>95.8</td><td>94.8</td><td>-1.0</td><td>synthetic</td></tr>
-<tr><td>writeback block</td><td>99.7</td><td>99.1</td><td>-0.6</td><td>synthetic</td></tr>
-<tr><td>tumor-board latency consistency</td><td>94.2</td><td>92.8</td><td>-1.4</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>The regulated-enterprise tier cuts deliberation latency P95 to 1.86s while pushing unsigned-writeback blocking to 99.7%.</h2>
+<tr><td>mnpi block</td><td>99.6</td><td>99.2</td><td>-0.4</td><td>synthetic</td></tr>
+<tr><td>quant exactness</td><td>99.4</td><td>98.7</td><td>-0.7</td><td>synthetic</td></tr>
+<tr><td>worm verification</td><td>99.2</td><td>98.3</td><td>-0.9</td><td>synthetic</td></tr>
+<tr><td>latency consistency</td><td>95.1</td><td>93.9</td><td>-1.2</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI Quant Compliance Deck</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Event Hubs + ADX + PTU lowers earnings ingestion-to-signal P95 to 0.86s versus manual baseline.</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>research pilot</td><td>3.8 s</td><td>9.4 s</td><td>anonymized_reported</td></tr>
-<tr><td>hospital network</td><td>2.6 s</td><td>9.4 s</td><td>synthetic</td></tr>
-<tr><td>regulated enterprise</td><td>1.86 s</td><td>9.4 s</td><td>measured</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Clinical healthcare platforms scale safely only when PHI, FHIR, and CITL gates are enforced together.</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Tumor-board and prior-auth workflows with auditable controls</li><li>Enterprises requiring HIPAA/HITRUST traceability</li><li>Programs that can enforce clinician sign-off accountability</li><li>Teams operating FHIR conflict + safety drills continuously</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>No clinician sign-off process or accountability model</li><li>Teams requiring autonomous EHR writes without human gate</li><li>Workloads without PHI de-identification operations readiness</li><li>Low-governance pilots expecting direct production rollout</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for regulated clinical workflows.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>7 / 7</span></div></article>
+<tr><td>sell-side desk</td><td>1.42 s</td><td>4.9 s</td><td>anonymized_reported</td></tr>
+<tr><td>buy-side quant</td><td>1.08 s</td><td>4.9 s</td><td>synthetic</td></tr>
+<tr><td>regulated institution</td><td>0.86 s</td><td>4.9 s</td><td>measured</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI Quant Compliance Deck</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Capital-markets agents are production-fit only when ethical-wall, deterministic math, and immutable evidence controls run together.</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Sell-side and buy-side desks requiring MNPI isolation</li><li>Quant pipelines with deterministic verification mandates</li><li>Institutions under SEC/FINRA immutable retention audits</li><li>Teams operating evidence replay drills and compliance controls</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>Non-regulated teams without retention obligations</li><li>Workloads accepting non-deterministic financial calculations</li><li>Organizations lacking desk-level isolation governance</li><li>Programs unable to maintain legal-hold lifecycle controls</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for regulated capital-markets workflows.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2414 · FSI Quant Compliance Deck</span><span>7 / 7</span></div></article>
 </main></body></html>
