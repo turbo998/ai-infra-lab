@@ -1,98 +1,68 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2396 · 7 页基准卡组</title>
-<style>
-*{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
-.deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
-.card{width:900px;min-height:1125px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:12px}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#0369a1;text-transform:uppercase}
-h2{margin:0;font-size:30px;line-height:1.2} h3{margin:0;font-size:16px}
-table{width:100%;border-collapse:collapse;font-size:14px} th,td{border-bottom:1px solid #e2e8f0;padding:8px;text-align:left}
-th{font-size:12px;color:#475569;text-transform:uppercase;letter-spacing:.08em}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px} .pane{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff}
-.dark{background:#0f172a;color:#e2e8f0;border-color:#1e293b} .quote{border-left:4px solid #2563eb;background:#eff6ff;padding:10px}
-.decision{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff;margin-bottom:8px}
-.bar{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,#2563eb,#0ea5e9)}
-.good{background:#ecfdf5;border:1px solid #86efac;border-radius:10px;padding:10px} .bad{background:#fff1f2;border:1px solid #fda4af;border-radius:10px;padding:10px}
-.ready{background:#0f172a;color:#e2e8f0;border:1px solid #1e293b;border-radius:10px;padding:10px} .footer{margin-top:auto;font-size:12px;color:#64748b;display:flex;justify-content:space-between}
-ul{margin:8px 0 0 18px;padding:0}
-</style>
-</head>
-<body><main class="deck">
-<article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · GraphRAG 时序知识图谱记忆</div>
-  <h2>GraphRAG 动态社区选择 + 混合检索可提升多跳推理准确率并控制索引成本。</h2>
-  <div class="grid2">
-    <section class="pane"><h3>工作台阈值带</h3><ul><li>多跳问答必须命中图邻域证据。</li><li>实体关系更新优先走增量图变更。</li><li>索引 token 成本需绑定 break-even 门限。</li></ul></section>
-    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2396,"graph_modes":3,"temporal":"enabled","cost_gate":"active"}</pre></section>
-  </div>
-  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2396-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>1 / 7</span></div>
-</article>
-<article class="card">
-  <div class="eyebrow">2 / 7 · 场景：GraphRAG 多跳推理与时序记忆</div>
-  <h2>时序图谱 + 混合向量检索让并购、合规、供应链问题的跨实体推理更稳定。</h2>
-  <div class="quote">输入引用："我们要在多跳合规/并购/供应链问题上提升 GraphRAG 准确率，同时控制索引 token 成本并支持增量图更新。"</div>
-  <div class="decision"><strong>multi-hop answer grounding fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>incremental graph mutation consistency</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="decision"><strong>index-token break-even optimization precision</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>2 / 7</span></div>
-</article>
-<article class="card">
-  <div class="eyebrow">3 / 7 · 测试矩阵</div>
-  <h2>多跳准确率、增量更新一致性与索引成本都绑定可复算决策门。</h2>
-  <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>M&A multi-hop query</td><td>Can entity lineage be traced across subsidiaries and timeline?</td><td>Answer only when graph neighborhood evidence passes confidence floor.</td><td>✓ Confirm</td></tr>
-  <tr><td>Compliance traceability</td><td>Can policy and incident entities remain temporally consistent?</td><td>Use temporal graph version and block stale-edge joins.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Incremental mutation</td><td>Can new entities be indexed without full rebuild?</td><td>Apply delta mutation and update affected community slices.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Cost gate</td><td>Can indexing proceed when token budget exceeds break-even?</td><td>Throttle mutation batch and defer low-priority edges.</td><td>✕ Send to a human</td></tr>
-  </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>3 / 7</span></div>
-</article>
-<article class="card">
-  <div class="eyebrow">4 / 7 · 底层机制</div>
-  <h2>图更新、向量检索和成本账本统一形成可审计 GraphRAG 决策链。</h2>
-  <div class="grid2">
-    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2396
-focus=graphrag_temporal_knowledge_graph_memory
+        <!doctype html>
+        <html lang="zh-CN">
+        <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+        <title>Azure Agent Infra Cycle #2397 · 7 页基准卡组</title>
+        <style>
+        *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
+        .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+        .card{width:900px;min-height:1125px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:12px}
+        .eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#0369a1;text-transform:uppercase}
+        h2{margin:0;font-size:30px;line-height:1.2} h3{margin:0;font-size:16px}
+        table{width:100%;border-collapse:collapse;font-size:14px} th,td{border-bottom:1px solid #e2e8f0;padding:8px;text-align:left}
+        th{font-size:12px;color:#475569;text-transform:uppercase;letter-spacing:.08em}
+        .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px} .pane{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff}
+        .dark{background:#0f172a;color:#e2e8f0;border-color:#1e293b} .quote{border-left:4px solid #2563eb;background:#eff6ff;padding:10px}
+        .decision{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff;margin-bottom:8px}
+        .bar{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,#2563eb,#0ea5e9)}
+        .good{background:#ecfdf5;border:1px solid #86efac;border-radius:10px;padding:10px} .bad{background:#fff1f2;border:1px solid #fda4af;border-radius:10px;padding:10px}
+        .ready{background:#0f172a;color:#e2e8f0;border:1px solid #1e293b;border-radius:10px;padding:10px} .footer{margin-top:auto;font-size:12px;color:#64748b;display:flex;justify-content:space-between}
+        ul{margin:8px 0 0 18px;padding:0}
+        </style>
+        </head>
+        <body><main class="deck">
+        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Multi-LoRA Distilled Fleet</div><h2>Multi-LoRA 热切换结合蒸馏 SLM 适配器，可在共享 GPU 池上同时降低时延与单位成本。</h2>
+        <div class="grid2"><section class="pane"><h3>Workbench Threshold Bands</h3><ul><li>Adapter signature and tenancy policy must pass before hot-swap.</li><li>Cache hit and swap success must remain above SLO floor.</li><li>Cost gate controls scale-out when ROI drops.</li></ul></section>
+        <section class="pane dark"><h3>Structured Input</h3><pre>{"cycle":2397,"tenants":56,"gpu_pool":"shared_h100_a100","adapter_tiering":"blob+lustre"}</pre></section></div>
+        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2397-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7 页基准卡组</span><span>1 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Multi-LoRA Hot-Swap</div><h2>Hot-swapping adapters keeps tool-calling specialization while avoiding per-tenant full model loads.</h2>
+        <div class="quote">Input quote: "Serve 50+ tenant adapters on shared H100/A100 pools with deterministic policy and break-even controls."</div>
+        <div class="decision"><strong>adapter signature and tenancy guard</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+        <div class="decision"><strong>hot-swap lifecycle consistency</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+        <div class="decision"><strong>cost break-even precision</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7 页基准卡组</span><span>2 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Decision gates bind latency, throughput, policy interception, and chargeback economics.</h2>
+        <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
+        <tr><td>Tenant hot-swap</td><td>Can adapter transition stay policy-safe under concurrency?</td><td>Allow only signed adapters and block cross-tenant mount leakage.</td><td>✓ Confirm</td></tr>
+        <tr><td>Tiered loading</td><td>Can Lustre prewarm reduce cold adapter penalty?</td><td>Warm candidate adapters before admission surge windows.</td><td>✓ Act automatically</td></tr>
+        <tr><td>Prompt-only fallback</td><td>Should requests bypass adapters when swap pressure spikes?</td><td>Use fallback lane only after swap SLO and cost gates fail.</td><td>✓ Send to a human</td></tr>
+        <tr><td>Cost governance</td><td>Can fleet scale-out proceed when ROI drops below threshold?</td><td>Throttle low-priority tenants and require approval for extra GPUs.</td><td>✕ Send to a human</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7 页基准卡组</span><span>3 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Distillation pipeline, adapter tiering, and runtime policy create an auditable serving contract.</h2>
+        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2397
+focus=multi_lora_hotswap_distilled_slm_fleet
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>校验流程</h3><pre>assert multi-hop evidence grounding
-assert incremental mutation correctness
-assert temporal edge/version validity
-assert index-token break-even gates</pre></section>
-  </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>4 / 7</span></div>
-</article>
-<article class="card">
-  <div class="eyebrow">5 / 7 · 鲁棒性检验</div>
-  <h2>扰动后分值变化位于 -3.0 到 -0.8 分。</h2>
-  <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Multi-hop grounding fidelity</td><td>96.2</td><td>95.4</td><td>-0.8</td><td>synthetic</td></tr>
-  <tr><td>Incremental mutation consistency</td><td>95.1</td><td>93.9</td><td>-1.2</td><td>synthetic</td></tr>
-  <tr><td>Temporal edge validity</td><td>94.2</td><td>92.9</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>Break-even stability</td><td>85.7</td><td>82.7</td><td>-3.0</td><td>synthetic</td></tr>
-  </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>5 / 7</span></div>
-</article>
-<article class="card">
-  <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>10x 负载下主路径 P95 为 341ms，整图重建基线为 929ms。</h2>
-  <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>197 ms</td><td>739 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>275 ms</td><td>835 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>341 ms</td><td>929 ms</td><td>anonymized_reported</td></tr>
-  </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>6 / 7</span></div>
-</article>
-<article class="card">
-  <div class="eyebrow">7 / 7 · 我的结论</div>
-  <h2>GraphRAG 时序图谱记忆架构适合需要多跳可追溯推理的企业 Agent 场景。</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprise multi-hop reasoning workloads needing temporal entity-relationship memory</li><li>GraphRAG community selection plus hybrid vector retrieval for grounded answers</li><li>Incremental graph mutation pipelines avoiding full graph rebuild cycles</li><li>Break-even governance balancing query quality and indexing token economics</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Full graph rebuild on every update with no incremental mutation strategy</li><li>Relying only on vectors without graph neighborhood evidence for multi-hop QA</li><li>No temporal versioning for entity/relationship evolution and compliance audit</li><li>Ignoring index-token cost while scaling graph and hybrid retrieval breadth</li></ul></section></div>
-  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级多跳推理与增量图更新治理。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>7 / 7</span></div>
-</article>
-</main></body></html>
+        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert adapter signature + tenant isolation
+assert swap lifecycle completion and rollback
+assert throughput under burst load
+assert break-even cost gate on scale-out</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7 页基准卡组</span><span>4 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -2.8 to -0.9 points.</h2>
+        <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
+        <tr><td>Adapter signature guard</td><td>97.1</td><td>96.2</td><td>-0.9</td><td>synthetic</td></tr>
+        <tr><td>Hot-swap lifecycle consistency</td><td>95.7</td><td>94.4</td><td>-1.3</td><td>synthetic</td></tr>
+        <tr><td>Cache-hit stability</td><td>84.7</td><td>82.8</td><td>-1.9</td><td>synthetic</td></tr>
+        <tr><td>Break-even precision</td><td>60.8</td><td>58.0</td><td>-2.8</td><td>synthetic</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7 页基准卡组</span><span>5 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>10x load P95 stays at 298ms on warm-mount path versus 910ms dedicated baseline.</h2>
+        <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
+        <tr><td>1x</td><td>179 ms</td><td>612 ms</td><td>measured</td></tr>
+        <tr><td>5x</td><td>244 ms</td><td>771 ms</td><td>synthetic</td></tr>
+        <tr><td>10x</td><td>298 ms</td><td>910 ms</td><td>anonymized_reported</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7 页基准卡组</span><span>6 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for shared multi-tenant specialization fleets that need adapter-level governance and FinOps clarity.</h2>
+        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>50+ tenant or vertical adapters with repeated specialization requests</li><li>Adapter signing, tenant isolation, and rollback policy are enforceable</li><li>Distilled SLM adapters with measurable chargeback and ROI gates</li><li>GPU pools shared across tenants with controlled hot-swap lifecycle</li></ul></section>
+        <section class="bad"><strong>⛔ Not for</strong><ul><li>Single-tenant deployments with minimal adapter reuse</li><li>No adapter provenance/signing governance capabilities</li><li>Workloads requiring dedicated per-tenant full-model residency</li><li>Teams without operational ownership for adapter lifecycle controls</li></ul></section></div>
+        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with guarded rollout controls.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+        <div class="footer"><span>Azure Agent Infra Cycle #2397 · 7 页基准卡组</span><span>7 / 7</span></div></article>
+        </main></body></html>
