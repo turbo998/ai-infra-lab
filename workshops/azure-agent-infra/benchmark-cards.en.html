@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-        <title>Azure Agent Infra Cycle #2405 · Round 1000 Flagship Deck</title>
+        <title>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</title>
         <style>
         *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
         .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@
         </style>
         </head>
         <body><main class="deck">
-        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Enterprise Agent Platform Blueprint</div><h2>A unified platform blueprint is required to scale enterprise agents from pilot to global concurrency.</h2>
-        <div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Control plane: Foundry Agent.</li><li>Compute plane: AKS, ACA, Dynamic Sessions.</li><li>Memory + Governance: Search/Cosmos/Fabric + OTel/Purview.</li></ul></section>
-        <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2405,"round":1000,"target_concurrency":[100,1000,10000,100000]}</pre></section></div>
-        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2405-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2405 · Round 1000 Flagship Deck</span><span>1 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Day-0 to Day-2 Capacity</div><h2>Phased sizing formulas reduce latency spikes and keep policy control stable across growth tiers.</h2>
-        <div class="quote">Input quote: "Provide concrete SKU/PTU/RU/vCPU formulas from 100 pilot users to 100k global concurrency with governance and observability."</div>
-        <div class="decision"><strong>day0 capacity fit</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-        <div class="decision"><strong>day1 scaleout success</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-        <div class="decision"><strong>day2 governance audit coverage</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2405 · Round 1000 Flagship Deck</span><span>2 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates align policy interception, latency budgets, and unit economics.</h2>
+        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Rack-Scale MoE Inference</div><h2>MoE reasoning swarms require rack-topology-aware placement and token-level TCO governance.</h2>
+        <div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>NVL72 rack domain placement.</li><li>Expert-parallel routing locality.</li><li>H100/H200 versus GB200 token economics.</li></ul></section>
+        <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2406,"focus":"rack_scale_moe","tiers":["pilot","growth","saturation"]}</pre></section></div>
+        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2406-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>1 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Topology and Cost</div><h2>Rack-local MoE routing reduces tail latency and improves token-level economics.</h2>
+        <div class="quote">Input quote: "Scale reasoning swarms with explicit NVLink and inter-rack boundaries while controlling token TCO."</div>
+        <div class="decision"><strong>topology locality hit rate</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+        <div class="decision"><strong>reasoning slo meet rate</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+        <div class="decision"><strong>token tco improvement</strong><div class="bar"><div class="fill" style="width:29%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>2 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates bind locality placement, latency SLO, and million-token spend.</h2>
         <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-        <tr><td>Pilot</td><td>Is day-0 sizing formula valid for 100 users?</td><td>Use pooled dynamic sessions + conservative PTU floor.</td><td>✓ Act automatically</td></tr>
-        <tr><td>Growth</td><td>Can day-1 scale preserve p95 < 1s?</td><td>Split control and compute autoscale loops.</td><td>✓ Confirm</td></tr>
-        <tr><td>Global</td><td>Can 100k concurrency keep tenant policy boundaries?</td><td>Enforce APIM token-aware route and OBO claims.</td><td>✓ Send to a human</td></tr>
-        <tr><td>Governance</td><td>Can day-2 trace lineage reach audit threshold?</td><td>Bind OTel spans to Purview governance entities.</td><td>✕ Send to a human</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2405 · Round 1000 Flagship Deck</span><span>3 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Production readiness depends on explicit scaling formulas and policy-evaluable control surfaces.</h2>
-        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2405
-focus=end_to_end_enterprise_agent_platform_reference_blueprint
+        <tr><td>Locality</td><td>Can scheduler keep expert traffic rack-local?</td><td>Use topology labels and anti-affinity per expert group.</td><td>✓ Act automatically</td></tr>
+        <tr><td>Latency</td><td>Can p95 remain under SLO under burst?</td><td>Enable dynamic expert shard balancing.</td><td>✓ Confirm</td></tr>
+        <tr><td>Boundary</td><td>Can inter-rack traffic stay policy-bounded?</td><td>Limit cross-rack fanout with route budgets.</td><td>✓ Send to a human</td></tr>
+        <tr><td>Cost</td><td>Can GB200 reduce million-token spend vs prior paths?</td><td>Apply token-aware autoscaling and cache policy.</td><td>✕ Send to a human</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>3 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Topology-aware placement and expert routing policy are the core stability primitives.</h2>
+        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2406
+focus=rack_scale_liquid_cooled_gpu_reasoning
 labels=measured/synthetic/anonymized_reported</pre></section>
-        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert control and compute plane separation
-assert p95 orchestration latency threshold
-assert token-aware policy interception
-assert governance lineage and audit coverage</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2405 · Round 1000 Flagship Deck</span><span>4 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.8 to -0.5 points.</h2>
+        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert rack locality placement constraints
+assert p95 reasoning latency threshold
+assert inter-rack boundary policy guard
+assert million-token tco improvement contract</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>4 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -2.1 to -0.7 points.</h2>
         <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>day0 capacity fit</td><td>97.4</td><td>96.9</td><td>-0.5</td><td>synthetic</td></tr>
-        <tr><td>day1 scaleout success</td><td>95.8</td><td>94.7</td><td>-1.1</td><td>synthetic</td></tr>
-        <tr><td>day2 governance coverage</td><td>98.2</td><td>97.1</td><td>-1.1</td><td>synthetic</td></tr>
-        <tr><td>global policy boundary</td><td>98.9</td><td>97.1</td><td>-1.8</td><td>synthetic</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2405 · Round 1000 Flagship Deck</span><span>5 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>10x load p95 is 721ms on blueprint target versus 1935ms on legacy baseline.</h2>
+        <tr><td>locality hit</td><td>97.2</td><td>96.5</td><td>-0.7</td><td>synthetic</td></tr>
+        <tr><td>reasoning slo</td><td>95.4</td><td>94.2</td><td>-1.2</td><td>synthetic</td></tr>
+        <tr><td>boundary policy</td><td>98.4</td><td>96.8</td><td>-1.6</td><td>synthetic</td></tr>
+        <tr><td>tco improvement</td><td>28.6</td><td>26.5</td><td>-2.1</td><td>synthetic</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>5 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>10x load p95 is 812ms on GB200 target versus 1714ms baseline.</h2>
         <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>1x</td><td>498 ms</td><td>1362 ms</td><td>measured</td></tr>
-        <tr><td>5x</td><td>629 ms</td><td>1671 ms</td><td>synthetic</td></tr>
-        <tr><td>10x</td><td>721 ms</td><td>1935 ms</td><td>anonymized_reported</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2405 · Round 1000 Flagship Deck</span><span>6 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for enterprises that need policy-first, identity-grounded, globally scalable agent operations.</h2>
-        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Multi-tenant enterprise platforms with strict identity and policy requirements</li><li>Teams standardizing day-0/day-1/day-2 operational playbooks</li><li>Organizations requiring auditable traces and governance lineage</li><li>High-growth workloads needing phased compute elasticity</li></ul></section>
-        <section class="bad"><strong>⛔ Not for</strong><ul><li>Tiny workloads without tenant, policy, or compliance complexity</li><li>Teams lacking operational capacity for observability and governance loops</li><li>Single-service deployments preferring monolith simplicity</li><li>No need for dynamic-session or pooled compute controls</li></ul></section></div>
-        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with policy gates.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-        <div class="footer"><span>Azure Agent Infra Cycle #2405 · Round 1000 Flagship Deck</span><span>7 / 7</span></div></article>
+        <tr><td>1x</td><td>566 ms</td><td>1296 ms</td><td>measured</td></tr>
+        <tr><td>5x</td><td>703 ms</td><td>1512 ms</td><td>synthetic</td></tr>
+        <tr><td>10x</td><td>812 ms</td><td>1714 ms</td><td>anonymized_reported</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>6 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for MoE reasoning swarms where topology and token economics determine platform viability.</h2>
+        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>High-concurrency reasoning agent workloads</li><li>Teams with rack-level scheduling and network fabric ownership</li><li>Programs optimizing cost per million reasoning tokens</li><li>Platforms using expert-parallel inference runtimes</li></ul></section>
+        <section class="bad"><strong>⛔ Not for</strong><ul><li>Small single-model services without expert routing pressure</li><li>No topology labels or placement policy governance</li><li>Low-traffic workloads where simple clusters are sufficient</li><li>Teams without finops telemetry for token economics</li></ul></section></div>
+        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with topology gates.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+        <div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>7 / 7</span></div></article>
         </main></body></html>
