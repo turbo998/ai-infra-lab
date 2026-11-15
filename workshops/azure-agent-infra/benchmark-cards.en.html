@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-        <title>Azure Agent Infra Cycle #2397 · 7-Card Benchmark Deck</title>
+        <title>Azure Agent Infra Cycle #2398 · 7-Card Benchmark Deck</title>
         <style>
         *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
         .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@
         </style>
         </head>
         <body><main class="deck">
-        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Multi-LoRA Distilled Fleet</div><h2>Multi-LoRA hot-swapping plus distilled SLM adapters reduces latency and unit cost on shared GPU pools.</h2>
-        <div class="grid2"><section class="pane"><h3>Workbench Threshold Bands</h3><ul><li>Adapter signature and tenancy policy must pass before hot-swap.</li><li>Cache hit and swap success must remain above SLO floor.</li><li>Cost gate controls scale-out when ROI drops.</li></ul></section>
-        <section class="pane dark"><h3>Structured Input</h3><pre>{"cycle":2397,"tenants":56,"gpu_pool":"shared_h100_a100","adapter_tiering":"blob+lustre"}</pre></section></div>
-        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2397-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7-Card Benchmark Deck</span><span>1 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Multi-LoRA Hot-Swap</div><h2>Hot-swapping adapters keeps tool-calling specialization while avoiding per-tenant full model loads.</h2>
-        <div class="quote">Input quote: "Serve 50+ tenant adapters on shared H100/A100 pools with deterministic policy and break-even controls."</div>
-        <div class="decision"><strong>adapter signature and tenancy guard</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-        <div class="decision"><strong>hot-swap lifecycle consistency</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-        <div class="decision"><strong>cost break-even precision</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7-Card Benchmark Deck</span><span>2 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Decision gates bind latency, throughput, policy interception, and chargeback economics.</h2>
+        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Enterprise Coding-Agent Farm</div><h2>Enterprise coding-agent farms on Azure can scale parallel issue-to-PR swarms with bounded credential risk.</h2>
+        <div class="grid2"><section class="pane"><h3>Workbench Threshold Bands</h3><ul><li>Token broker enforces short TTL installation tokens.</li><li>Isolation lane chosen by trust and workload class.</li><li>Egress allowlists are mandatory before execution.</li></ul></section>
+        <section class="pane dark"><h3>Structured Input</h3><pre>{"cycle":2398,"parallel_workers":72,"runtime":"aca+aks-kata","token_ttl_sec":900}</pre></section></div>
+        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2398-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2398 · 7-Card Benchmark Deck</span><span>1 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Issue-to-PR Swarm</div><h2>Dual runtime lanes plus short-lived tokens increase safe throughput for coding swarms.</h2>
+        <div class="quote">Input quote: "Scale parallel coding swarms without credential leakage and with supply-chain egress control."</div>
+        <div class="decision"><strong>token scope + ttl guard</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+        <div class="decision"><strong>runtime isolation policy</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div>
+        <div class="decision"><strong>egress allowlist enforcement</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2398 · 7-Card Benchmark Deck</span><span>2 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Latency, throughput, safety interception, and task cost are bound by deterministic gates.</h2>
         <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-        <tr><td>Tenant hot-swap</td><td>Can adapter transition stay policy-safe under concurrency?</td><td>Allow only signed adapters and block cross-tenant mount leakage.</td><td>✓ Confirm</td></tr>
-        <tr><td>Tiered loading</td><td>Can Lustre prewarm reduce cold adapter penalty?</td><td>Warm candidate adapters before admission surge windows.</td><td>✓ Act automatically</td></tr>
-        <tr><td>Prompt-only fallback</td><td>Should requests bypass adapters when swap pressure spikes?</td><td>Use fallback lane only after swap SLO and cost gates fail.</td><td>✓ Send to a human</td></tr>
-        <tr><td>Cost governance</td><td>Can fleet scale-out proceed when ROI drops below threshold?</td><td>Throttle low-priority tenants and require approval for extra GPUs.</td><td>✕ Send to a human</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7-Card Benchmark Deck</span><span>3 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Distillation pipeline, adapter tiering, and runtime policy create an auditable serving contract.</h2>
-        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2397
-focus=multi_lora_hotswap_distilled_slm_fleet
+        <tr><td>Token lifecycle</td><td>Can short-lived tokens prevent credential carry-over?</td><td>Expire token per session boundary and deny reuse.</td><td>✓ Confirm</td></tr>
+        <tr><td>Runtime selection</td><td>Can untrusted tasks be isolated in Kata lane?</td><td>Route untrusted build steps to AKS Kata pods.</td><td>✓ Act automatically</td></tr>
+        <tr><td>Cache economics</td><td>Can layer cache reduce end-to-end task cost?</td><td>Reuse signed layers in team-scoped cache namespaces.</td><td>✓ Confirm</td></tr>
+        <tr><td>Supply chain</td><td>Can unknown egress endpoints be blocked deterministically?</td><td>Block and escalate if endpoint not in allowlist.</td><td>✓ Send to a human</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2398 · 7-Card Benchmark Deck</span><span>3 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Copilot SDK orchestration and security rails define a repeatable coding-farm contract.</h2>
+        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2398
+focus=enterprise_coding_agent_farm_on_azure
 labels=measured/synthetic/anonymized_reported</pre></section>
-        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert adapter signature + tenant isolation
-assert swap lifecycle completion and rollback
-assert throughput under burst load
-assert break-even cost gate on scale-out</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7-Card Benchmark Deck</span><span>4 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -2.8 to -0.9 points.</h2>
+        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert token ttl + scope policy
+assert runtime lane isolation
+assert egress allowlist conformance
+assert issue-to-pr completion cost gate</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2398 · 7-Card Benchmark Deck</span><span>4 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -2.6 to -0.7 points.</h2>
         <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>Adapter signature guard</td><td>97.1</td><td>96.2</td><td>-0.9</td><td>synthetic</td></tr>
-        <tr><td>Hot-swap lifecycle consistency</td><td>95.7</td><td>94.4</td><td>-1.3</td><td>synthetic</td></tr>
-        <tr><td>Cache-hit stability</td><td>84.7</td><td>82.8</td><td>-1.9</td><td>synthetic</td></tr>
-        <tr><td>Break-even precision</td><td>60.8</td><td>58.0</td><td>-2.8</td><td>synthetic</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7-Card Benchmark Deck</span><span>5 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>10x load P95 stays at 298ms on warm-mount path versus 910ms dedicated baseline.</h2>
+        <tr><td>Token leakage reduction</td><td>74.5</td><td>73.8</td><td>-0.7</td><td>synthetic</td></tr>
+        <tr><td>Cache hit stability</td><td>82.9</td><td>81.2</td><td>-1.7</td><td>synthetic</td></tr>
+        <tr><td>Issue-to-PR completion gain</td><td>68.2</td><td>66.1</td><td>-2.1</td><td>synthetic</td></tr>
+        <tr><td>Egress guard precision</td><td>96.3</td><td>93.7</td><td>-2.6</td><td>synthetic</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2398 · 7-Card Benchmark Deck</span><span>5 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>10x load P95 is 3.08s on isolation lane versus 7.92s legacy baseline.</h2>
         <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>1x</td><td>179 ms</td><td>612 ms</td><td>measured</td></tr>
-        <tr><td>5x</td><td>244 ms</td><td>771 ms</td><td>synthetic</td></tr>
-        <tr><td>10x</td><td>298 ms</td><td>910 ms</td><td>anonymized_reported</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2397 · 7-Card Benchmark Deck</span><span>6 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for shared multi-tenant specialization fleets that need adapter-level governance and FinOps clarity.</h2>
-        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>50+ tenant or vertical adapters with repeated specialization requests</li><li>Adapter signing, tenant isolation, and rollback policy are enforceable</li><li>Distilled SLM adapters with measurable chargeback and ROI gates</li><li>GPU pools shared across tenants with controlled hot-swap lifecycle</li></ul></section>
-        <section class="bad"><strong>⛔ Not for</strong><ul><li>Single-tenant deployments with minimal adapter reuse</li><li>No adapter provenance/signing governance capabilities</li><li>Workloads requiring dedicated per-tenant full-model residency</li><li>Teams without operational ownership for adapter lifecycle controls</li></ul></section></div>
-        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with guarded rollout controls.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-        <div class="footer"><span>Azure Agent Infra Cycle #2397 · 7-Card Benchmark Deck</span><span>7 / 7</span></div></article>
+        <tr><td>1x</td><td>1.82 s</td><td>5.43 s</td><td>measured</td></tr>
+        <tr><td>5x</td><td>2.46 s</td><td>6.58 s</td><td>synthetic</td></tr>
+        <tr><td>10x</td><td>3.08 s</td><td>7.92 s</td><td>anonymized_reported</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2398 · 7-Card Benchmark Deck</span><span>6 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for regulated enterprise coding swarms that need safe parallelism and deterministic credential boundaries.</h2>
+        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Large repo portfolios with parallel issue-to-pr execution demand</li><li>Short-lived GitHub App installation token governance in place</li><li>Dual runtime lanes with trust-aware routing and stronger isolation options</li><li>Egress allowlist operations mature enough for supply-chain control</li></ul></section>
+        <section class="bad"><strong>⛔ Not for</strong><ul><li>Small teams with low parallelism and simple automation requirements</li><li>No ownership for token-broker policy and runtime governance</li><li>Environments that cannot maintain dependency allowlists</li><li>Workloads requiring unrestricted outbound connectivity</li></ul></section></div>
+        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with governance-first rollout.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+        <div class="footer"><span>Azure Agent Infra Cycle #2398 · 7-Card Benchmark Deck</span><span>7 / 7</span></div></article>
         </main></body></html>
