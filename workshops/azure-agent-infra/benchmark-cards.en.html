@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2386 · 7-Card Benchmark</title>
+<title>Azure Agent Infra Cycle #2387 · 7-Card Benchmark</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · speculative + constrained decoding</div>
-  <h2>Draft routing plus constrained decoding keeps low latency and zero-malformed tool calls within a governable envelope.</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · confidential gpu enclaves</div>
+  <h2>Confidential GPUs plus hardware attestation enable zero-operator-visibility inference within controllable overhead.</h2>
   <div class="grid2">
-    <section class="pane"><h3>Workbench thresholds</h3><ul><li>Tool calls default to JSON/schema-constrained decoding.</li><li>Fallback to large model when draft confidence is insufficient.</li><li>Track token FinOps per routing lane.</li></ul></section>
-    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2386,"router_tiers":3,"decode_modes":2,"goal":"zero-malformed-toolcall"}</pre></section>
+    <section class="pane"><h3>Workbench thresholds</h3><ul><li>Model load requires MAA attestation and SKR key release first.</li><li>Confidential and non-confidential lanes must stay isolated with separate audit.</li><li>Performance budgets must include TDX/SEV-SNP and Hopper CC overhead.</li></ul></section>
+    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2387,"gpu_modes":2,"attestation_chain":4,"goal":"zero-operator-visibility"}</pre></section>
   </div>
-  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2386-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2386 · 7-Card Benchmark</span><span>1 / 7</span></div>
+  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2387-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2387 · 7-Card Benchmark</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · SCENARIO: router cascade + tool schema</div>
-  <h2>Tiered routing lowers TTFT/TPOT into production range while preserving schema correctness.</h2>
-  <div class="quote">Input quote: "Need to balance TTFT/TPOT, schema correctness, and token cost between Foundry router draft-tiering and AKS EAGLE-3 + constrained decoding."</div>
-  <div class="decision"><strong>zero-malformed tool-call fidelity</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
-  <div class="decision"><strong>ttft/tpot latency gain integrity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>token finops route governance</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2386 · 7-Card Benchmark</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · SCENARIO: confidential inference and attested key release</div>
+  <h2>Attestation-first key release lowers compliance risk while keeping latency acceptable.</h2>
+  <div class="quote">Input quote: "Need to balance zero-visibility inference, attestation-chain integrity, and performance overhead between NCC H100 v5 confidential compute and standard ND H100 v5."</div>
+  <div class="decision"><strong>attestation chain integrity fidelity</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+  <div class="decision"><strong>secure key release custody precision</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>confidential-overhead budget guard</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2387 · 7-Card Benchmark</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · WHAT I TESTED</div>
-  <h2>Constrained decoding keeps zero malformed outputs while low-confidence draft paths fall back and preserve throughput.</h2>
+  <h2>Attestation and key-release paths pass while attestation-bypass model loads are hard-blocked.</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Schema-constrained tool call</td><td>Strict JSON tool output required?</td><td>Constrained decoder emits schema-valid output only.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Draft confidence low</td><td>Speculative draft divergence detected?</td><td>Fallback to large model with guardrail checkpoint.</td><td>✓ Confirm</td></tr>
-  <tr><td>Token budget pressure</td><td>Tenant token budget near limit?</td><td>Route to SLM tier with capped max output tokens.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Malformed bypass attempt</td><td>Disable constraint mode for speed?</td><td>Rejected and escalated to human review.</td><td>✕ Send to a human</td></tr>
+  <tr><td>Confidential VM lane</td><td>Load model weights without enclave proof?</td><td>Denied until MAA claims validated and SKR policy matched.</td><td>✓ Send to a human</td></tr>
+  <tr><td>AKS Kata confidential</td><td>Pod starts with measured boot and attestation token?</td><td>Allow secure key release and start inference container.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Standard fallback lane</td><td>Need lower overhead for non-regulated workload?</td><td>Route to ND H100 with explicit non-confidential policy tag.</td><td>✓ Confirm</td></tr>
+  <tr><td>Custody boundary breach</td><td>Mix confidential key in standard lane?</td><td>Blocked and quarantined for policy violation.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2386 · 7-Card Benchmark</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2387 · 7-Card Benchmark</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · UNDER THE HOOD</div>
-  <h2>Latency/correctness/cost coordinates are evidence-bound with reproducible experiment chains.</h2>
+  <h2>Overhead and attestation coordinates are traceable to evidence files for audit replay.</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2386
-focus=speculative_constrained_router
+    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2387
+focus=confidential_gpu_attested_enclave
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>Verifier flow</h3><pre>assert constrained decode enabled
-assert ttft/tpot gains from evidence
-assert malformed bypass human-routed
+    <section class="pane dark"><h3>Verifier flow</h3><pre>assert attestation before key release
+assert overhead bounds from evidence
+assert custody breach human-routed
 assert csp self-contained cards</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2386 · 7-Card Benchmark</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2387 · 7-Card Benchmark</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div>
-  <h2>Post-perturbation score drift stays within -2.9 to -0.7 points.</h2>
+  <h2>Post-perturbation drift remains between -3.0 and -0.8 points.</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Schema validity confidence</td><td>98.9</td><td>98.2</td><td>-0.7</td><td>synthetic</td></tr>
-  <tr><td>TTFT/TPOT gain stability</td><td>95.8</td><td>94.6</td><td>-1.2</td><td>synthetic</td></tr>
-  <tr><td>Route-level finops attribution</td><td>95.1</td><td>93.8</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>Constraint bypass resistance</td><td>84.4</td><td>81.5</td><td>-2.9</td><td>synthetic</td></tr>
+  <tr><td>Attestation integrity confidence</td><td>96.8</td><td>96.0</td><td>-0.8</td><td>synthetic</td></tr>
+  <tr><td>SKR custody precision</td><td>95.9</td><td>94.7</td><td>-1.2</td><td>synthetic</td></tr>
+  <tr><td>Overhead budget stability</td><td>94.4</td><td>93.1</td><td>-1.3</td><td>synthetic</td></tr>
+  <tr><td>Boundary breach resistance</td><td>84.1</td><td>81.1</td><td>-3.0</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2386 · 7-Card Benchmark</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2387 · 7-Card Benchmark</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>At 10x load, primary path P95 is 281ms while unoptimized baseline is 902ms.</h2>
+  <h2>At 10x load, primary path P95 is 301ms versus 934ms on unmanaged standard baseline.</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>159 ms</td><td>732 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>224 ms</td><td>816 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>281 ms</td><td>902 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>176 ms</td><td>759 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>243 ms</td><td>846 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>301 ms</td><td>934 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2386 · 7-Card Benchmark</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2387 · 7-Card Benchmark</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · MY TAKE</div>
-  <h2>Speculative + constrained decoding with route-level FinOps fits enterprise tool-calling agent production.</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Tool-calling agents needing strict JSON/schema output correctness guarantees</li><li>High-throughput copilots requiring TTFT reductions via draft-to-large cascades</li><li>Multi-tenant SaaS requiring route-level token FinOps attribution</li><li>Regulated environments requiring malformed-call hard-block and audit lineage</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Unconstrained decoding for tool invocations with strict schema contracts</li><li>Speculative paths without rollback confidence thresholds</li><li>No route-level telemetry for token and malformed-call cost leakage</li><li>Single-model forcing for all workloads regardless of latency/cost tier</li></ul></section></div>
-  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: supports production low-latency and zero-malformed tool-call governance.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2386 · 7-Card Benchmark</span><span>7 / 7</span></div>
+  <h2>Confidential GPU attested enclave architecture fits highly regulated agent inference and custody governance.</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Regulated banking/healthcare agents requiring zero-operator-visibility execution</li><li>AKS confidential containers with attested key release before model load</li><li>Multi-tenant SaaS needing enclave proof gates per tenant policy tier</li><li>High-assurance tool-calling agents requiring immutable attestation audit lineage</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Confidential mode enabled without attestation verification enforcement</li><li>Secure key release configured without policy-bound measurement claims</li><li>Ignoring TDX/SEV-SNP and Hopper CC overhead in SLO sizing decisions</li><li>Mixing confidential and non-confidential lanes without custody boundaries</li></ul></section></div>
+  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: supports production zero-visibility inference and attested key release.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2387 · 7-Card Benchmark</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
