@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-        <title>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</title>
+        <title>Azure Agent Infra Cycle #2407 · Unified Store Deck</title>
         <style>
         *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
         .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@
         </style>
         </head>
         <body><main class="deck">
-        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Rack-Scale MoE Inference</div><h2>MoE reasoning swarms require rack-topology-aware placement and token-level TCO governance.</h2>
-        <div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>NVL72 rack domain placement.</li><li>Expert-parallel routing locality.</li><li>H100/H200 versus GB200 token economics.</li></ul></section>
-        <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2406,"focus":"rack_scale_moe","tiers":["pilot","growth","saturation"]}</pre></section></div>
-        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2406-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>1 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Topology and Cost</div><h2>Rack-local MoE routing reduces tail latency and improves token-level economics.</h2>
-        <div class="quote">Input quote: "Scale reasoning swarms with explicit NVLink and inter-rack boundaries while controlling token TCO."</div>
-        <div class="decision"><strong>topology locality hit rate</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-        <div class="decision"><strong>reasoning slo meet rate</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-        <div class="decision"><strong>token tco improvement</strong><div class="bar"><div class="fill" style="width:29%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>2 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates bind locality placement, latency SLO, and million-token spend.</h2>
+        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Unified Operational plus Vector Memory</div><h2>Checkpoint ACID and vector memory should be selected with SLO and TCO gates, not by QPS alone.</h2>
+        <div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Unified PostgreSQL path.</li><li>Unified Cosmos path.</li><li>Split-stack control comparison.</li></ul></section>
+        <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2407,"focus":"unified_operational_vector_store","tiers":[100,1000,10000,100000]}</pre></section></div>
+        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2407-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2407 · Unified Store Deck</span><span>1 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Consolidation vs Split</div><h2>Unified stores simplify dual-write risk while split stacks can still lead on pure recall latency.</h2>
+        <div class="quote">Input quote: "Select between unified and split stack for ACID checkpoints and vector memory at scale."</div>
+        <div class="decision"><strong>unified adoption readiness</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+        <div class="decision"><strong>p99 recall slo meet</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+        <div class="decision"><strong>tco break-even success</strong><div class="bar"><div class="fill" style="width:34%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2407 · Unified Store Deck</span><span>2 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates tie recall latency, policy interception, and million-task cost together.</h2>
         <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-        <tr><td>Locality</td><td>Can scheduler keep expert traffic rack-local?</td><td>Use topology labels and anti-affinity per expert group.</td><td>✓ Act automatically</td></tr>
-        <tr><td>Latency</td><td>Can p95 remain under SLO under burst?</td><td>Enable dynamic expert shard balancing.</td><td>✓ Confirm</td></tr>
-        <tr><td>Boundary</td><td>Can inter-rack traffic stay policy-bounded?</td><td>Limit cross-rack fanout with route budgets.</td><td>✓ Send to a human</td></tr>
-        <tr><td>Cost</td><td>Can GB200 reduce million-token spend vs prior paths?</td><td>Apply token-aware autoscaling and cache policy.</td><td>✕ Send to a human</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>3 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Topology-aware placement and expert routing policy are the core stability primitives.</h2>
-        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2406
-focus=rack_scale_liquid_cooled_gpu_reasoning
+        <tr><td>Consistency</td><td>Can unified path remove dual-write race failures?</td><td>Use single write-path with transactional checkpoint and vector update.</td><td>✓ Act automatically</td></tr>
+        <tr><td>Recall SLO</td><td>Can p99 stay below threshold under tenant burst?</td><td>Apply per-tenant query budgets and cache hints.</td><td>✓ Confirm</td></tr>
+        <tr><td>Policy</td><td>Can memory access stay tenant-scoped?</td><td>Enforce OBO claim-scoped filters in all query paths.</td><td>✓ Send to a human</td></tr>
+        <tr><td>TCO</td><td>Can unified path beat split-stack cost at scale?</td><td>Track break-even by concurrent sessions and memory churn.</td><td>✕ Send to a human</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2407 · Unified Store Deck</span><span>3 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Store architecture quality depends on correctness, recall, and economics as a coupled system.</h2>
+        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2407
+focus=unified_operational_vector_store_selection
 labels=measured/synthetic/anonymized_reported</pre></section>
-        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert rack locality placement constraints
-assert p95 reasoning latency threshold
-assert inter-rack boundary policy guard
-assert million-token tco improvement contract</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>4 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -2.1 to -0.7 points.</h2>
+        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert checkpoint consistency contract
+assert p99 recall latency threshold
+assert tenant policy boundary enforcement
+assert million-task break-even economics</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2407 · Unified Store Deck</span><span>4 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -2.0 to -0.8 points.</h2>
         <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>locality hit</td><td>97.2</td><td>96.5</td><td>-0.7</td><td>synthetic</td></tr>
-        <tr><td>reasoning slo</td><td>95.4</td><td>94.2</td><td>-1.2</td><td>synthetic</td></tr>
-        <tr><td>boundary policy</td><td>98.4</td><td>96.8</td><td>-1.6</td><td>synthetic</td></tr>
-        <tr><td>tco improvement</td><td>28.6</td><td>26.5</td><td>-2.1</td><td>synthetic</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>5 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>10x load p95 is 812ms on GB200 target versus 1714ms baseline.</h2>
+        <tr><td>adoption readiness</td><td>96.1</td><td>95.3</td><td>-0.8</td><td>synthetic</td></tr>
+        <tr><td>recall slo meet</td><td>97.4</td><td>96.1</td><td>-1.3</td><td>synthetic</td></tr>
+        <tr><td>policy boundary</td><td>98.3</td><td>96.9</td><td>-1.4</td><td>synthetic</td></tr>
+        <tr><td>tco break-even</td><td>34.7</td><td>32.7</td><td>-2.0</td><td>synthetic</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2407 · Unified Store Deck</span><span>5 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>p99 recall is 108ms unified PostgreSQL and 94ms unified Cosmos, versus 153ms legacy dual-write baseline.</h2>
         <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>1x</td><td>566 ms</td><td>1296 ms</td><td>measured</td></tr>
-        <tr><td>5x</td><td>703 ms</td><td>1512 ms</td><td>synthetic</td></tr>
-        <tr><td>10x</td><td>812 ms</td><td>1714 ms</td><td>anonymized_reported</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>6 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for MoE reasoning swarms where topology and token economics determine platform viability.</h2>
-        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>High-concurrency reasoning agent workloads</li><li>Teams with rack-level scheduling and network fabric ownership</li><li>Programs optimizing cost per million reasoning tokens</li><li>Platforms using expert-parallel inference runtimes</li></ul></section>
-        <section class="bad"><strong>⛔ Not for</strong><ul><li>Small single-model services without expert routing pressure</li><li>No topology labels or placement policy governance</li><li>Low-traffic workloads where simple clusters are sufficient</li><li>Teams without finops telemetry for token economics</li></ul></section></div>
-        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with topology gates.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-        <div class="footer"><span>Azure Agent Infra Cycle #2406 · Rack-Scale GPU Deck</span><span>7 / 7</span></div></article>
+        <tr><td>1x</td><td>71 ms</td><td>117 ms</td><td>measured</td></tr>
+        <tr><td>5x</td><td>92 ms</td><td>136 ms</td><td>synthetic</td></tr>
+        <tr><td>10x</td><td>108 ms</td><td>153 ms</td><td>anonymized_reported</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2407 · Unified Store Deck</span><span>6 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for platforms balancing checkpoint correctness with memory-retrieval economics under multi-tenant load.</h2>
+        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Platforms reducing dual-write complexity in agent state and memory layers</li><li>Teams requiring strong policy controls on semantic retrieval paths</li><li>Workloads where recall p99 and ACID guarantees are co-equal</li><li>Organizations evaluating break-even by million-task cost</li></ul></section>
+        <section class="bad"><strong>⛔ Not for</strong><ul><li>Small prototypes without multi-tenant or governance constraints</li><li>Teams lacking ownership for both database and retrieval operations</li><li>Use cases requiring specialized retrieval features outside selected path</li><li>Environments ignoring cost-to-quality tradeoffs</li></ul></section></div>
+        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with store-selection gates.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+        <div class="footer"><span>Azure Agent Infra Cycle #2407 · Unified Store Deck</span><span>7 / 7</span></div></article>
         </main></body></html>
