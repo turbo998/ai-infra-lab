@@ -4,65 +4,65 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2428 · Sovereign Residency Deck</title>
+<title>Azure Agent Infra Cycle #2429 · Chaos Recovery Deck</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
 .card{width:900px;min-height:1125px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:12px}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#1d4ed8;text-transform:uppercase}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#b45309;text-transform:uppercase}
 h2{margin:0;font-size:30px;line-height:1.2} h3{margin:0;font-size:16px}
 table{width:100%;border-collapse:collapse;font-size:14px} th,td{border-bottom:1px solid #e2e8f0;padding:8px;text-align:left}
 th{font-size:12px;color:#475569;text-transform:uppercase;letter-spacing:.08em}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px} .pane{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff}
-.dark{background:#0f172a;color:#e2e8f0;border-color:#1e293b} .quote{border-left:4px solid #2563eb;background:#eff6ff;padding:10px}
+.dark{background:#0f172a;color:#e2e8f0;border-color:#1e293b} .quote{border-left:4px solid #b45309;background:#fff7ed;padding:10px}
 .decision{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff;margin-bottom:8px}
-.bar{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,#1d4ed8,#0ea5e9)}
+.bar{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,#b45309,#f97316)}
 .good{background:#ecfdf5;border:1px solid #86efac;border-radius:10px;padding:10px} .bad{background:#fff1f2;border:1px solid #fda4af;border-radius:10px;padding:10px}
 .ready{background:#0f172a;color:#e2e8f0;border:1px solid #1e293b;border-radius:10px;padding:10px} .footer{margin-top:auto;font-size:12px;color:#64748b;display:flex;justify-content:space-between}
 ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Sovereign Federation</div><h2>主权边界策略、机密执行与签名交换形成可审计跨域 Agent 生产底座。</h2>
-<div class="grid2"><section class="pane"><h3>工作台范围</h3><ul><li>APIM residency gates</li><li>HSM signing + enclave run</li><li>Partner verification flow</li></ul></section>
-<section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2428,"focus":"sovereign_federation","gates":["residency","identity","signature"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-16 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2428-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2428 · Sovereign Residency Deck</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Sovereign Exchange</div><h2>Policy-gated signed exchange preserves compliance without blocking cross-border delivery.</h2>
-<div class="quote">Input quote: "Enforce residency and legal evidence while federating partner agents."</div>
-<div class="decision"><strong>residency policy violation block rate</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-<div class="decision"><strong>cross border token denial rate</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-<div class="decision"><strong>signed artifact non repudiation rate</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2428 · Sovereign Residency Deck</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>跨域协作必须同时满足驻留防越界、签名可验证与 P0 事故收敛。</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Resilience Governance</div><h2>多区域 Agent 平台恢复能力必须以持续混沌演练与策略一致性证据驱动。</h2>
+<div class="grid2"><section class="pane"><h3>工作台范围</h3><ul><li>Fault injection lanes</li><li>Regional failover policy</li><li>Replay and failback evidence</li></ul></section>
+<section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2429,"focus":"agentic_chaos_recovery","gates":["rto","rpo","policy"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-16 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2429-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2429 · Chaos Recovery Deck</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Chaos Recovery</div><h2>策略一致的故障切换与回切是 RPO/RTO 可兑现的关键。</h2>
+<div class="quote">Input quote: "Run repeatable chaos drills and keep failover compliant under regulated constraints."</div>
+<div class="decision"><strong>rto within slo recovery rate</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+<div class="decision"><strong>rpo within budget rate</strong><div class="bar"><div class="fill" style="width:93%"></div></div></div>
+<div class="decision"><strong>policy drift block rate</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2429 · Chaos Recovery Deck</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>恢复演练需同时验证时延、一致性与治理有效性。</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>Residency</td><td>Can out-of-zone requests be blocked deterministically?</td><td>Block rate reaches 96.8%.</td><td>✓ 确认执行</td></tr>
-<tr><td>Identity</td><td>Can risky cross-border tokens be denied quickly?</td><td>Denial rate reaches 93.7%.</td><td>✓ 确认执行</td></tr>
-<tr><td>Integrity</td><td>Are signed artifacts verifiable at scale?</td><td>Non-repudiation pass reaches 99.2%.</td><td>✓ 确认执行</td></tr>
-<tr><td>Risk</td><td>Do P0 egress incidents decline after rollout?</td><td>Reduction reaches 84.4%.</td><td>✓ 送人工复核</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2428 · Sovereign Residency Deck</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>核心链路由 APIM 策略、机密执行和签名验证组成。</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2428
-focus=sovereign_cross_border_federation
+<tr><td>RTO</td><td>Can failover recover within service SLO?</td><td>Recovery rate reaches 94.6%.</td><td>✓ 确认执行</td></tr>
+<tr><td>RPO</td><td>Can state loss stay within budget?</td><td>RPO pass rate reaches 92.8%.</td><td>✓ 确认执行</td></tr>
+<tr><td>Policy</td><td>Can policy drift be blocked during failover?</td><td>Drift block rate reaches 98.7%.</td><td>✓ 确认执行</td></tr>
+<tr><td>Failback</td><td>Is failback stable after re-entry?</td><td>Stability pass reaches 95.9%.</td><td>✓ 送人工复核</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2429 · Chaos Recovery Deck</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>核心链路由故障注入、策略切换、状态恢复与审计回放组成。</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2429
+focus=chaos_drill_rpo_rto_governance
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert residency gate floor
-assert token deny floor
-assert signed artifact pass floor
-assert p0 egress reduction floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2428 · Sovereign Residency Deck</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>扰动后关键指标波动保持在 -1.4 到 -0.6 个点。</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert rto recovery floor
+assert rpo budget floor
+assert policy drift block floor
+assert failback stability floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2429 · Chaos Recovery Deck</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>扰动后关键恢复指标波动控制在 -1.3 到 -0.7 个点。</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>residency block rate</td><td>96.8</td><td>96.1</td><td>-0.7</td><td>synthetic</td></tr>
-<tr><td>token denial rate</td><td>93.7</td><td>92.5</td><td>-1.2</td><td>synthetic</td></tr>
-<tr><td>non repudiation pass</td><td>99.2</td><td>98.6</td><td>-0.6</td><td>synthetic</td></tr>
-<tr><td>p0 egress reduction</td><td>84.4</td><td>83.0</td><td>-1.4</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2428 · Sovereign Residency Deck</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>策略门禁与签名校验在可控时延内保持高吞吐。</h2>
+<tr><td>rto recovery rate</td><td>94.6</td><td>93.8</td><td>-0.8</td><td>synthetic</td></tr>
+<tr><td>rpo budget rate</td><td>92.8</td><td>91.5</td><td>-1.3</td><td>synthetic</td></tr>
+<tr><td>policy drift block</td><td>98.7</td><td>98.0</td><td>-0.7</td><td>synthetic</td></tr>
+<tr><td>failback stability pass</td><td>95.9</td><td>94.8</td><td>-1.1</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2429 · Chaos Recovery Deck</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>关键控制路径在低时延下保持故障恢复能力。</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>policy decision p95</td><td>138 ms</td><td>420 ms</td><td>measured</td></tr>
-<tr><td>artifact verify p95</td><td>92 ms</td><td>301 ms</td><td>synthetic</td></tr>
-<tr><td>cross-border exchange p95</td><td>287 ms</td><td>640 ms</td><td>anonymized_reported</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2428 · Sovereign Residency Deck</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>对受监管 B2B Agent 场景，签名工件跨域交换是可落地主路径。</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>受监管行业跨组织 Agent 协作</li><li>要求驻留合规与法律证据链场景</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>依赖明文跨境上下文直传</li><li>缺少身份与策略治理基础</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for sovereign cross-border agent exchange.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-16 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2428 · Sovereign Residency Deck</span><span>7 / 7</span></div></article>
+<tr><td>failover decision p95</td><td>172 ms</td><td>421 ms</td><td>measured</td></tr>
+<tr><td>replay recovery p95</td><td>486 ms</td><td>1110 ms</td><td>anonymized_reported</td></tr>
+<tr><td>failback settle p95</td><td>260 ms</td><td>690 ms</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2429 · Chaos Recovery Deck</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>持续混沌演练 + 策略一致切换是企业 Agent 控制面韧性的可执行路径。</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>有严格 RPO/RTO 约束的企业 Agent 平台</li><li>多区域受监管 SaaS 控制面</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>仅依赖人工切换且缺乏策略版本治理</li><li>无法持续运行混沌演练</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for multi-region recovery governance.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-16 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2429 · Chaos Recovery Deck</span><span>7 / 7</span></div></article>
 </main></body></html>
