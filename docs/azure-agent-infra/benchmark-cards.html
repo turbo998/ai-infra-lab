@@ -77,7 +77,7 @@ rendered_prompt = benchmark_harness/cards.py contract payload</div>
       <ul><li>Coding Sandbox: Act automatically (synthetic)</li><li>Multi-tenant SaaS Gateway: Confirm (measured)</li><li>Financial Zero-Trust: Confirm (measured)</li></ul>
     </section>
   </div>
-  <div class="readiness">溯源: fetched 2026-11-14 · labels measured / synthetic / anonymized_reported · source file evidence/cycle-2259-benchmark.json</div>
+  <div class="readiness">溯源: fetched 2026-11-14 · labels measured / synthetic / anonymized_reported · source file evidence/cycle-2260-benchmark.json</div>
   <section class="readiness"><strong>2026-11-11 增量影响</strong><ul><li>Restore-path impact: E2B 2.63.0 iteration tightens the Firecracker fast-path jitter envelope for short-lived coding sandboxes.</li><li>Output-stream impact: sandbox command/output flow is modeled as a first-class throughput lane in MCP tool orchestration sizing, with higher sustained stream throughput.</li><li>Elastic scheduling impact: dynamic session memory sizing and clock-drift admission thresholds are recalibrated around the improved E2B fast-path envelope.</li></ul></section>
   <div class="footer"><span>Azure Agent Infra Cycle #2178 · 7 页基准卡组</span><span>1 / 7</span></div>
 </article>
@@ -118,7 +118,7 @@ rendered_prompt = benchmark_harness/cards.py contract payload</div>
 ↓
 rendered_prompt = benchmark_harness/cards.py contract payload</div></section>
     <section class="pane pane-dark"><h3>校验流程</h3><div class="code">verify(card_coordinates):
-  load evidence/cycle-2259-benchmark.json
+  load evidence/cycle-2260-benchmark.json
   assert all bars width = value/max(value_set)
   assert misses carry ✕ in Card 3 matrix
   assert paired latency bars use latency_load_tiers
