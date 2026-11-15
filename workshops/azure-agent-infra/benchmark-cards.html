@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2418 · IDP Golden Path 卡组</title>
+<title>Azure Agent Infra Cycle #2419 · Reliability SLO 卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · IDP Golden Paths</div><h2>Agent Vending Machine 将合规环境开通从“周”缩短到“分钟级”。</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>ADE + Dev Box environment vending.</li><li>AVM + azd paved road templates.</li><li>Foundry/APIM/Entra self-service bootstrap.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2418,"focus":"idp_agent_vending","gates":["policy","quota","identity"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2418-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path 卡组</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: CoE Scale-Out</div><h2>平台工程杠杆升至 26 squads/engineer，且保持高策略阻断率。</h2>
-<div class="quote">Input quote: "Enable 50+ squads with self-service onboarding, no-public-endpoint, content safety, and budget-tag guardrails."</div>
-<div class="decision"><strong>compliant provisioning under 30 min</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-<div class="decision"><strong>policy non-compliant block rate</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
-<div class="decision"><strong>orphan sandbox TTL savings</strong><div class="bar"><div class="fill" style="width:82%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path 卡组</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>平台效率必须与合规阻断一起达标才允许生产放量。</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Fraud/Risk Triage</div><h2>双速分诊在保持授权 P99&lt;50ms 的同时，将欺诈捕获提升到 93.8%。</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Event Hubs/Fabric real-time streams.</li><li>Redis velocity features + inline ONNX scoring.</li><li>Async Foundry investigation swarm + SAR draft.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2419,"focus":"fraud_risk_dual_speed","gates":["latency","capture","compliance"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2419-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk 卡组</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Hot-Path + Async Investigation</div><h2>热路径确定性评分 + 异步调查 swarm 有效降低误杀摩擦并缩短 SAR 分析时长。</h2>
+<div class="quote">Input quote: "Keep inline authorization under 50ms while improving fraud capture and reducing analyst workload."</div>
+<div class="decision"><strong>inline p99 under 50ms compliance</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+<div class="decision"><strong>false-positive friction reduction</strong><div class="bar"><div class="fill" style="width:31%"></div></div></div>
+<div class="decision"><strong>sar investigation time savings</strong><div class="bar"><div class="fill" style="width:49%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk 卡组</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>只有“低延迟授权 + 高捕获 + 可解释合规”同时达标时才进入生产推荐。</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>Provisioning</td><td>是否支持 30 分钟内合规开通？</td><td>ADE + AVM + azd reaches 96.4% under-30-min.</td><td>✓ Act automatically</td></tr>
-<tr><td>Policy</td><td>非合规部署是否被阻断？</td><td>DINE/Deny blocks 98.7% non-compliant changes.</td><td>✓ Confirm</td></tr>
-<tr><td>Leverage</td><td>CoE 人效是否显著提升？</td><td>26 squads/engineer with template governance.</td><td>✓ Send to a human</td></tr>
-<tr><td>Lifecycle</td><td>孤儿环境成本是否可回收？</td><td>TTL reclaim saves 82.4% stale sandbox spend.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path 卡组</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Golden path 的关键是“模板产品化 + 策略内建 + 生命周期自动化”。</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2418
-focus=idp_golden_paths_agent_vending
+<tr><td>Latency</td><td>授权热路径 P99 是否维持 &lt;50ms？</td><td>Dual-speed path keeps inline p99 at 43ms.</td><td>✓ Act automatically</td></tr>
+<tr><td>Capture</td><td>是否提升欺诈识别同时控制误杀？</td><td>Capture reaches 93.8% with adaptive step-up.</td><td>✓ Confirm</td></tr>
+<tr><td>SAR</td><td>调查链是否提高分析师效率？</td><td>Async swarm reduces SAR cycle by 48.7%.</td><td>✓ Send to a human</td></tr>
+<tr><td>Throughput</td><td>峰值 TPS 是否满足高并发？</td><td>P95 throughput stays at 14,600 TPS.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk 卡组</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>核心机制是“热路径确定性评分 + 异步深度推理 + 合规审计闭环”。</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2419
+focus=realtime_fraud_dual_speed_triage
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert provisioning SLO floor
-assert policy block-rate floor
-assert platform leverage threshold
-assert TTL reclaim savings floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path 卡组</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay between -1.8 and -0.7 points.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert inline p99 latency floor
+assert fraud capture uplift floor
+assert step-up friction reduction floor
+assert SAR explainability and audit linkage</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk 卡组</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.6 to -0.6 points.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>under-30-min provisioning</td><td>96.4</td><td>95.6</td><td>-0.8</td><td>synthetic</td></tr>
-<tr><td>policy block</td><td>98.7</td><td>97.9</td><td>-0.8</td><td>synthetic</td></tr>
-<tr><td>leverage stability</td><td>96.1</td><td>94.3</td><td>-1.8</td><td>synthetic</td></tr>
-<tr><td>TTL savings</td><td>82.4</td><td>81.7</td><td>-0.7</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path 卡组</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>全自动 IDP 在 27 分钟中位开通下，策略阻断率达到 98.7%。</h2>
+<tr><td>inline p99 compliance</td><td>96.9</td><td>95.8</td><td>-1.1</td><td>synthetic</td></tr>
+<tr><td>friction reduction</td><td>31.2</td><td>30.3</td><td>-0.9</td><td>synthetic</td></tr>
+<tr><td>sar time savings</td><td>48.7</td><td>47.1</td><td>-1.6</td><td>synthetic</td></tr>
+<tr><td>peak tps stability</td><td>91.8</td><td>91.2</td><td>-0.6</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk 卡组</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>双速架构在保持授权 P99 43ms 的同时提供更高欺诈捕获与吞吐韧性。</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>compliant provisioning</td><td>27 min</td><td>15 days</td><td>measured</td></tr>
-<tr><td>policy decision path</td><td>510 ms</td><td>120 ms</td><td>synthetic</td></tr>
-<tr><td>promotion gate checks</td><td>4.2 min</td><td>2.1 min</td><td>anonymized_reported</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path 卡组</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>CoE 要规模化支持 AI squads，必须把 IDP 当产品而不是工单队列。</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Large enterprises with many product squads and strict controls</li><li>Organizations adopting policy-as-code and template governance</li><li>Teams needing repeatable Foundry/APIM/identity bootstrapping</li><li>FinOps-focused operations requiring TTL reclaim discipline</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>Teams resisting standard templates and policy guardrails</li><li>Manual environment provisioning as default workflow</li><li>No ownership model for platform product operations</li><li>Organizations without lifecycle cleanup governance</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for enterprise IDP golden paths.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path 卡组</span><span>7 / 7</span></div></article>
+<tr><td>inline authorization p99</td><td>43 ms</td><td>21 ms</td><td>measured</td></tr>
+<tr><td>async investigation cycle</td><td>21 min</td><td>41 min</td><td>anonymized_reported</td></tr>
+<tr><td>peak throughput p95</td><td>14,600 TPS</td><td>17,300 TPS</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk 卡组</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>金融级 Agent 风控应坚持“热路径确定性 + 灰区异步推理”双轨并行。</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Multi-region enterprise agent fleets with strict uptime commitments</li><li>Teams operating policy-driven release gates</li><li>Organizations with mature observability foundations</li><li>Workloads requiring auditable remediation actions</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>LLM-only inline authorization path designs</li><li>Teams lacking feature-store and event-stream operations</li><li>No SAR governance and analyst review process</li><li>Workloads without latency SLO ownership</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for dual-speed fraud and AML operations.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2419 · Fraud/Risk 卡组</span><span>7 / 7</span></div></article>
 </main></body></html>
