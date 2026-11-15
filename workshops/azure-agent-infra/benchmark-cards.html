@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-        <title>Azure Agent Infra Cycle #2410 · 批处理扫库群组卡组</title>
+        <title>Azure Agent Infra Cycle #2411 · B2B 多租户隔离卡组</title>
         <style>
         *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
         .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@
         </style>
         </head>
         <body><main class="deck">
-        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Offline Sweeping Swarms</div><h2>千万级夜间扫库需要队列感知 fan-out 与抗抢占检查点恢复。</h2>
-        <div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Foundry Batch + spillover.</li><li>ACA KEDA queue scaling.</li><li>AKS Kueue spot checkpoint recovery.</li></ul></section>
-        <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2410,"focus":"offline_batch_swarms","items":10000000}</pre></section></div>
-        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2410-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2410 · 批处理扫库群组卡组</span><span>1 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: 10M Overnight Sweep</div><h2>Cost-optimal completion requires balancing queue fan-out, spot loss, and verification lag.</h2>
-        <div class="quote">Input quote: "Complete 10M-item nightly sweep with bounded cost, retry safety, and verification integrity."</div>
-        <div class="decision"><strong>verification accuracy</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
-        <div class="decision"><strong>preemption recovery</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-        <div class="decision"><strong>overnight sla completion</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2410 · 批处理扫库群组卡组</span><span>2 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates couple completion time, cost, and recovery correctness.</h2>
+        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · B2B Tenant Isolation</div><h2>租户隔离质量由爆炸半径控制、p99 稳定性与密码学下线能力共同决定。</h2>
+        <div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Pool vs bridge vs silo compute isolation.</li><li>Shared index trim vs tenant-sharded retrieval.</li><li>CMK offboarding and quota fairness controls.</li></ul></section>
+        <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2411,"focus":"b2b_multitenant_isolation","tiers":["free","pro","enterprise"]}</pre></section></div>
+        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2411-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2411 · B2B 多租户隔离卡组</span><span>1 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Isolation and Economics</div><h2>Bridge tier captures most isolation gains before full silo cost is required.</h2>
+        <div class="quote">Input quote: "Deliver tenant isolation with fair quotas and cryptographic offboarding while preserving SaaS unit economics."</div>
+        <div class="decision"><strong>bleed prevention</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
+        <div class="decision"><strong>cmk offboarding success</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div>
+        <div class="decision"><strong>isolation audit pass</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2411 · B2B 多租户隔离卡组</span><span>2 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates align tenant safety, tail latency, and per-tenant COGS.</h2>
         <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-        <tr><td>Batch SLA</td><td>Can 10M items finish in overnight window?</td><td>Blend Foundry batch with controlled realtime spillover.</td><td>✓ Act automatically</td></tr>
-        <tr><td>Spot risk</td><td>Can spot preemption stay within overhead budget?</td><td>Use shard checkpoints and lease-based rehydration.</td><td>✓ Confirm</td></tr>
-        <tr><td>Backpressure</td><td>Can queue burst avoid verifier collapse?</td><td>Tie KEDA scaling to verifier lag and token budget.</td><td>✓ Send to a human</td></tr>
-        <tr><td>Accuracy</td><td>Can verification precision remain production-safe?</td><td>Enforce map-reduce double-check on high-risk shards.</td><td>✕ Send to a human</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2410 · 批处理扫库群组卡组</span><span>3 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Throughput wins only matter when idempotent recovery and accuracy gates remain intact.</h2>
-        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2410
-focus=high_throughput_batch_sweeping_agent_swarms
+        <tr><td>Isolation</td><td>Can cross-tenant context bleed be blocked at all planes?</td><td>Enforce claim-scoped filters and namespace boundaries.</td><td>✓ Act automatically</td></tr>
+        <tr><td>Latency</td><td>Can p99 tail remain stable under noisy neighbors?</td><td>Bridge/silo tiers isolate high-variance tenants.</td><td>✓ Confirm</td></tr>
+        <tr><td>Offboarding</td><td>Can enterprise tenant data be cryptographically erased?</td><td>Use CMK revocation and key-version tombstones.</td><td>✓ Send to a human</td></tr>
+        <tr><td>Economics</td><td>Can free/pro tiers stay viable with fairness controls?</td><td>Apply per-tier quota + spillover budgets.</td><td>✕ Send to a human</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2411 · B2B 多租户隔离卡组</span><span>3 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Trustworthy multi-tenancy requires identity, isolation, and key lifecycle controls as one contract.</h2>
+        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2411
+focus=b2b_saas_multitenant_isolation_silo_pool_bridge
 labels=measured/synthetic/anonymized_reported</pre></section>
-        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert overnight completion sla threshold
-assert preemption recovery checkpoint integrity
-assert verification accuracy floor
-assert cost-per-million contract bounds</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2410 · 批处理扫库群组卡组</span><span>4 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -2.2 to -0.6 points.</h2>
+        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert cross-tenant bleed prevention controls
+assert noisy-neighbor p99 tail isolation thresholds
+assert cmk offboarding cryptographic erasure workflow
+assert audit-pass and cogs guardrails</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2411 · B2B 多租户隔离卡组</span><span>4 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.8 to -0.7 points.</h2>
         <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>verification accuracy</td><td>99.2</td><td>98.6</td><td>-0.6</td><td>synthetic</td></tr>
-        <tr><td>preemption recovery</td><td>96.1</td><td>94.9</td><td>-1.2</td><td>synthetic</td></tr>
-        <tr><td>sla completion</td><td>95.3</td><td>93.9</td><td>-1.4</td><td>synthetic</td></tr>
-        <tr><td>cost stability</td><td>92.0</td><td>89.8</td><td>-2.2</td><td>synthetic</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2410 · 批处理扫库群组卡组</span><span>5 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>10M-item wall clock is 5.6h on Foundry-primary path versus 11.8h legacy baseline.</h2>
+        <tr><td>bleed prevention</td><td>99.1</td><td>98.4</td><td>-0.7</td><td>synthetic</td></tr>
+        <tr><td>offboarding success</td><td>98.2</td><td>97.0</td><td>-1.2</td><td>synthetic</td></tr>
+        <tr><td>audit pass</td><td>97.1</td><td>95.9</td><td>-1.2</td><td>synthetic</td></tr>
+        <tr><td>tail latency isolation</td><td>94.4</td><td>92.6</td><td>-1.8</td><td>synthetic</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2411 · B2B 多租户隔离卡组</span><span>5 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Noisy-neighbor p99 inflation drops from 130% legacy to 23% bridge and 6% silo.</h2>
         <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>steady load</td><td>4.2 h</td><td>8.9 h</td><td>measured</td></tr>
-        <tr><td>burst + retries</td><td>5.1 h</td><td>10.6 h</td><td>synthetic</td></tr>
-        <tr><td>worst nightly</td><td>5.6 h</td><td>11.8 h</td><td>anonymized_reported</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2410 · 批处理扫库群组卡组</span><span>6 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for large overnight sweeps where checkpoint integrity and economics must both be provable.</h2>
-        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Massive offline sweeps requiring 10M+ nightly throughput</li><li>Teams managing spot preemption with shard checkpoint controls</li><li>Programs optimizing cost per million processed items</li><li>Enterprises enforcing strict verification accuracy floors</li></ul></section>
-        <section class="bad"><strong>⛔ Not for</strong><ul><li>Small jobs where orchestration overhead dominates</li><li>No operations ownership for queue backpressure and retry controls</li><li>Workloads that cannot tolerate eventual batch completion semantics</li><li>Scenarios without reliable idempotent output sinks</li></ul></section></div>
-        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with batch-swarm gates.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-        <div class="footer"><span>Azure Agent Infra Cycle #2410 · 批处理扫库群组卡组</span><span>7 / 7</span></div></article>
+        <tr><td>pool</td><td>72%</td><td>130%</td><td>measured</td></tr>
+        <tr><td>bridge</td><td>23%</td><td>130%</td><td>synthetic</td></tr>
+        <tr><td>silo</td><td>6%</td><td>130%</td><td>anonymized_reported</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2411 · B2B 多租户隔离卡组</span><span>6 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Bridge is often the practical default; silo is the compliance extreme; pool is the scale-cost baseline.</h2>
+        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>B2B SaaS platforms with tiered tenant isolation needs</li><li>Teams needing auditable anti-bleed controls and CMK workflows</li><li>Products balancing free/pro economics with enterprise isolation</li><li>Organizations enforcing quota fairness under bursty tenants</li></ul></section>
+        <section class="bad"><strong>⛔ Not for</strong><ul><li>Single-tenant systems with no noisy-neighbor risk</li><li>Teams without key-management lifecycle ownership</li><li>Deployments unwilling to operate policy and audit controls</li><li>Scenarios where strict compliance isolation is unnecessary</li></ul></section></div>
+        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with multi-tenant isolation gates.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+        <div class="footer"><span>Azure Agent Infra Cycle #2411 · B2B 多租户隔离卡组</span><span>7 / 7</span></div></article>
         </main></body></html>
