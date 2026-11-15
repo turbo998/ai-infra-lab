@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2378 · 7 页基准卡组</title>
+<title>Azure Agent Infra Cycle #2379 · 7 页基准卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · 运行时护栏防注入</div>
-  <h2>异步并行护栏把 P99 时延税压低并保持注入拦截有效性。</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · A2A+MCP 企业互操作拓扑</div>
+  <h2>双平面拓扑把互联吞吐与跨租户治理同时压进生产可控区间。</h2>
   <div class="grid2">
-    <section class="pane"><h3>工作台阈值带</h3><ul><li>敏感工具调用前必须完成注入与越权并行检查。</li><li>高风险租户启用更严阈值并降级到 HITL。</li><li>误报调优按租户画像分层管理。</li></ul></section>
-    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2378,"guardrail_paths":4,"policy_checks":3,"latency_bucket":"p99-tax"}</pre></section>
+    <section class="pane"><h3>工作台阈值带</h3><ul><li>Agent Card 发现必须绑定版本/签名与租户信任链。</li><li>长连接池要有租户级熔断与隔离。</li><li>跨租户联邦需经 APIM registry policy 与 mesh mTLS 双重约束。</li></ul></section>
+    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2379,"planes":2,"federation_modes":3,"pooling_policy":"streamable-http"}</pre></section>
   </div>
-  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2378-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>1 / 7</span></div>
+  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2379-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7 页基准卡组</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · 场景：间接提示注入防御</div>
-  <h2>护栏分层把高风险链路转人工审批，同时保持主路径吞吐。</h2>
-  <div class="quote">输入引用："需要在 Prompt Shields、APIM 网关策略和 AKS 自托管 Guardrail 之间平衡 P99 时延税与误报率。"</div>
-  <div class="decision"><strong>indirect injection block fidelity</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="decision"><strong>async parallel guardrail latency budget</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-  <div class="decision"><strong>false-positive tuning governance control</strong><div class="bar"><div class="fill" style="width:93%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · 场景：企业 A2A 联邦互联</div>
+  <h2>边缘网关+东西向网格组合将联邦重试风暴与越权风险降到可治理水平。</h2>
+  <div class="quote">输入引用："需要在 APIM Agent/MCP Registry + Front Door WAF 与 AKS/ACA East-West mTLS Mesh 间平衡跨租户互联、长连接池与协议演进。"</div>
+  <div class="decision"><strong>agent-card discovery version custody</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>streamable-http pool stability guard</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+  <div class="decision"><strong>cross-tenant federation blast-radius fence</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7 页基准卡组</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · 测试矩阵</div>
-  <h2>注入扰动被拦截，正常链路保持自动化通过。</h2>
+  <h2>协议演进与连接池压力场景保持通过，越权联邦场景转人工。</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Coding sandbox</td><td>Tool call payload includes hidden exfil directive?</td><td>Prompt Shields + gateway policy block and quarantine payload.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Browser/CUA cluster</td><td>Retrieved page attempts instruction override?</td><td>Task-adherence + groundedness fail, approval required.</td><td>✓ Confirm</td></tr>
-  <tr><td>Multi-tenant SaaS</td><td>Tenant policy threshold mismatch?</td><td>Apply tenant profile threshold and continue guarded path.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Stress perturbation</td><td>Disable parallel checks to reduce latency?</td><td>Rejected due to custody-proof violation.</td><td>✕ Send to a human</td></tr>
+  <tr><td>Agent Card discovery</td><td>New card version without signed compatibility proof?</td><td>Reject registration; require signed compatibility chain.</td><td>✓ Confirm</td></tr>
+  <tr><td>Streamable-HTTP pooling</td><td>Burst reconnection under 10x tenant load?</td><td>Reuse pool slots + tenant breaker; no global collapse.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Cross-tenant federation</td><td>Tenant A token attempts tenant B tool chain?</td><td>Federation denied by APIM policy + mesh identity guard.</td><td>✓ Send to a human</td></tr>
+  <tr><td>Protocol downgrade attack</td><td>Force legacy MCP mode bypass?</td><td>Downgrade blocked; require approved version map.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7 页基准卡组</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · 底层机制</div>
-  <h2>所有分数坐标均绑定证据数据，验证链闭环。</h2>
+  <h2>坐标全部来源证据表，协议/版本/租户策略链可复核。</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2378
-focus=runtime_guardrails
+    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2379
+focus=a2a_mcp_interop
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>校验流程</h3><pre>assert async checks are bounded
-assert p99 tax from evidence table
-assert policy misses human-routed
-assert csp self-contained cards</pre></section>
+    <section class="pane dark"><h3>校验流程</h3><pre>assert card version signatures
+assert stream pool tax from latency table
+assert tenant overreach human-routed
+assert csp self-contained report cards</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7 页基准卡组</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · 鲁棒性检验</div>
-  <h2>扰动后指标变动控制在 -2.9 到 -0.8 分。</h2>
+  <h2>扰动后分值漂移保持在 -3.1 到 -0.9 分。</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Indirect injection block fidelity</td><td>95.4</td><td>94.6</td><td>-0.8</td><td>synthetic</td></tr>
-  <tr><td>Parallel latency budget stability</td><td>96.7</td><td>95.5</td><td>-1.2</td><td>synthetic</td></tr>
-  <tr><td>Tenant profile threshold consistency</td><td>93.8</td><td>92.4</td><td>-1.4</td><td>synthetic</td></tr>
-  <tr><td>No-guardrail shortcut temptation</td><td>84.1</td><td>81.2</td><td>-2.9</td><td>synthetic</td></tr>
+  <tr><td>Card version custody confidence</td><td>96.4</td><td>95.5</td><td>-0.9</td><td>synthetic</td></tr>
+  <tr><td>Pooling stability under burst load</td><td>94.8</td><td>93.5</td><td>-1.3</td><td>synthetic</td></tr>
+  <tr><td>Cross-tenant federation isolation score</td><td>95.1</td><td>93.7</td><td>-1.4</td><td>synthetic</td></tr>
+  <tr><td>Legacy protocol bypass temptation</td><td>83.9</td><td>80.8</td><td>-3.1</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7 页基准卡组</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>并行护栏路径将 10x 负载 P95 控制在 302ms，串行基线仍在 919ms。</h2>
+  <h2>10x 负载下主路径 P95 为 318ms，而无池化基线达到 982ms。</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>169 ms</td><td>744 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>243 ms</td><td>833 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>302 ms</td><td>919 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>188 ms</td><td>812 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>259 ms</td><td>903 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>318 ms</td><td>982 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7 页基准卡组</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · 我的结论</div>
-  <h2>Azure 运行时护栏分层策略适合高合规 Tool-Calling Agent 生产落地。</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox: async parallel guardrails before irreversible tool calls</li><li>Browser/CUA cluster: APIM policy + content safety preflight interception</li><li>Multi-tenant SaaS gateway: tenant-level false-positive tuning profiles</li><li>Financial zero-trust: custody-proof guardrails with HITL fallback path</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Serial guardrail checks on every token stream without latency budget</li><li>No distinction between system prompt and untrusted retrieval context</li><li>Single global threshold across tenants and domains</li><li>No post-incident replay loop for false-positive drift correction</li></ul></section></div>
-  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：可用于生产级间接注入防御与策略审计。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>7 / 7</span></div>
+  <h2>A2A+Streamable-HTTP 双平面拓扑适合企业级多租户 Agent 联邦互操作。</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox federation with explicit Agent Card trust chain</li><li>Browser/CUA clusters needing streamable-HTTP pool reuse and lower reconnect tax</li><li>Multi-tenant SaaS gateway with APIM registry governance + tenant custody controls</li><li>Financial zero-trust requiring east-west mTLS mesh policy and isolated tenant federation</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>No agent-card version policy or backward-compatibility contract</li><li>Connection pooling without per-tenant circuit breakers and token custody</li><li>Cross-tenant federation enabled without blast-radius boundaries</li><li>Single-plane topology with no failover between edge-gateway and mesh lanes</li></ul></section></div>
+  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：可用于生产级跨租户 Agent 互联治理。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7 页基准卡组</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
