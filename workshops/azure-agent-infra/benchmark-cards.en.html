@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2392 · 7-Card Benchmark</title>
+<title>Azure Agent Infra Cycle #2393 · 7-Card Benchmark</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · agentic chaos and resilience</div>
-  <h2>Chaos Studio + Load Testing + token-aware breakers shift streaming-agent risk into replayable verification gates.</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · zero-downtime stateful rollout</div>
+  <h2>Blue-green plus shadow canary enables zero-downtime migration for long sessions while preserving checkpoint integrity.</h2>
   <div class="grid2">
-    <section class="pane"><h3>Workbench thresholds</h3><ul><li>429 quota storms must trigger degradation, not runaway retries.</li><li>Regional latency spikes must preserve session consistency and idempotent writes.</li><li>Tool brownouts must verify zero duplicate side-effects.</li></ul></section>
-    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2392,"fault_domains":3,"stream_paths":2,"idempotency":"required"}</pre></section>
+    <section class="pane"><h3>Workbench thresholds</h3><ul><li>15-minute sessions must drain before traffic switch.</li><li>Prompt/tool schema must stay version-pinned.</li><li>Checkpoint integrity gates canary promotion.</li></ul></section>
+    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2393,"revisions":2,"drain_minutes":15,"pinning":"strict"}</pre></section>
   </div>
-  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2392-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7-Card Benchmark</span><span>1 / 7</span></div>
+  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2393-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2393 · 7-Card Benchmark</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · SCENARIO: streaming agent chaos resilience</div>
-  <h2>Coupled chaos injection, streaming load tests, and breaker policy validation sharply reduce fault amplification risk.</h2>
-  <div class="quote">Input quote: "We need to validate agent degradation paths under 429 quota storms, regional latency spikes, and tool brownouts while guaranteeing zero duplicate side effects."</div>
-  <div class="decision"><strong>quota-storm degradation fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>regional-latency resilience consistency</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="decision"><strong>duplicate-sideeffect prevention precision</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7-Card Benchmark</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · SCENARIO: long-session agent blue-green canary rollout</div>
+  <h2>Multi-revision traffic split + drain window + version pinning makes stateful agent rollout controllable and reversible.</h2>
+  <div class="quote">Input quote: "We need blue-green plus canary rollout for long-running agents, draining 15-minute streaming sessions smoothly with no checkpoint loss."</div>
+  <div class="decision"><strong>in-flight stream drain fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>schema version pinning consistency</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>checkpoint migration integrity precision</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2393 · 7-Card Benchmark</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · WHAT I TESTED</div>
-  <h2>Quota storms, regional latency spikes, and tool brownouts are each bound to reproducible degradation and rollback criteria.</h2>
+  <h2>From shadow traffic to canary promotion, each step is bound to streaming-session and state-consistency criteria.</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>429 quota storm</td><td>How should stream path respond when quota saturates?</td><td>Token-aware breaker trips and reroutes to fallback profile.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Cosmos regional latency spike</td><td>Can session state remain consistent under high latency?</td><td>Switch to degraded read/write policy with idempotency locks.</td><td>✓ Confirm</td></tr>
-  <tr><td>MCP tool brownout</td><td>Can swarms avoid duplicate tool side-effects?</td><td>Retry with idempotency key and side-effect ledger check.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Breaker bypass attempt</td><td>Can requests skip breaker and force unsafe retries?</td><td>Blocked and quarantined for policy breach.</td><td>✕ Send to a human</td></tr>
+  <tr><td>Blue-green drain</td><td>Can in-flight 15-minute sessions drain without orphaning?</td><td>Promote only after active sessions complete or checkpoint handoff succeeds.</td><td>✓ Confirm</td></tr>
+  <tr><td>Canary rollout</td><td>Can 5%-20% traffic ramp preserve stream SLA?</td><td>Ramp with error-budget guard and rollback trigger.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Schema pinning</td><td>Can prompt/tool schema mismatch occur during rollout?</td><td>Blocked by pinned config and compatibility check.</td><td>✓ Send to a human</td></tr>
+  <tr><td>Checkpoint skew</td><td>Detected state migration skew under failover?</td><td>Quarantine revision and roll back traffic split.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7-Card Benchmark</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2393 · 7-Card Benchmark</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · UNDER THE HOOD</div>
-  <h2>Injection experiments, load streams, idempotency ledgers, and breaker logs form a closed auditable evidence chain.</h2>
+  <h2>Deployment stacks, traffic split, version pinning, and state checks form an auditable rollout loop.</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2392
-focus=agentic_chaos_streaming_resilience
+    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2393
+focus=stateful_agent_bluegreen_canary_rollout
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>Verifier flow</h3><pre>assert quota-storm breaker trip threshold
-assert latency-spike graceful degradation
-assert idempotency ledger duplicate guard
-assert tool brownout fallback continuity</pre></section>
+    <section class="pane dark"><h3>Verifier flow</h3><pre>assert in-flight session drain completeness
+assert prompt/tool schema version pinning
+assert checkpoint migration consistency
+assert canary rollback trigger fidelity</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7-Card Benchmark</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2393 · 7-Card Benchmark</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div>
-  <h2>Post-perturbation score shifts remain between -3.1 and -0.8 points.</h2>
+  <h2>Post-perturbation score shifts remain between -3.1 and -0.9 points.</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Quota-storm degradation fidelity</td><td>96.3</td><td>95.5</td><td>-0.8</td><td>synthetic</td></tr>
-  <tr><td>Latency-spike resilience consistency</td><td>95.1</td><td>93.8</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>Side-effect guard precision</td><td>94.1</td><td>92.7</td><td>-1.4</td><td>synthetic</td></tr>
-  <tr><td>Fallback path stability</td><td>85.5</td><td>82.4</td><td>-3.1</td><td>synthetic</td></tr>
+  <tr><td>Drain-window fidelity</td><td>96.2</td><td>95.3</td><td>-0.9</td><td>synthetic</td></tr>
+  <tr><td>Version pinning consistency</td><td>95.0</td><td>93.7</td><td>-1.3</td><td>synthetic</td></tr>
+  <tr><td>Checkpoint integrity precision</td><td>94.1</td><td>92.8</td><td>-1.3</td><td>synthetic</td></tr>
+  <tr><td>Rollback readiness stability</td><td>85.4</td><td>82.3</td><td>-3.1</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7-Card Benchmark</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2393 · 7-Card Benchmark</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>At 10x load, primary path P95 is 349ms versus 938ms on no-breaker baseline.</h2>
+  <h2>At 10x load, primary path P95 is 352ms versus 941ms on no-drain cutover baseline.</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>203 ms</td><td>748 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>281 ms</td><td>844 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>349 ms</td><td>938 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>205 ms</td><td>750 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>283 ms</td><td>846 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>352 ms</td><td>941 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7-Card Benchmark</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2393 · 7-Card Benchmark</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · MY TAKE</div>
-  <h2>Agentic chaos plus streaming-load verification architecture fits production streaming-agent swarm resilience governance.</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Agent swarms requiring chaos-informed release confidence before production expansion</li><li>Streaming/SSE/streamable-HTTP workloads needing token-aware circuit breakers</li><li>Fault injection regimes validating graceful degradation and retry safety</li><li>Idempotency controls proving zero duplicate side-effects under turbulence</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Load tests without chaos fault domains or side-effect verification tracks</li><li>Retry loops that ignore idempotency keys and write replay boundaries</li><li>No token-aware breaker policy for quota storms and model fallback</li><li>Assuming tool availability without brownout handling contracts</li></ul></section></div>
-  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: supports production-grade fault injection and degradation verification gates.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7-Card Benchmark</span><span>7 / 7</span></div>
+  <h2>Blue-green shadow/canary architecture for stateful agents fits high-availability long-session production rollout governance.</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Stateful long-running agents requiring no-downtime revision transitions</li><li>Traffic splitting with explicit drain windows for streaming SSE/MCP sessions</li><li>Prompt/tool-schema version pinning to avoid runtime skew during rollout</li><li>Shadow/canary promotion with checkpoint integrity guards</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Hard cutover deployment with active long sessions still attached</li><li>Rolling model or tool schema without version pinning contracts</li><li>No checkpoint migration validation before traffic promotion</li><li>Canary promotion without rollback triggers tied to stream error budgets</li></ul></section></div>
+  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: supports zero-downtime long-session upgrades and rollback.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2393 · 7-Card Benchmark</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
