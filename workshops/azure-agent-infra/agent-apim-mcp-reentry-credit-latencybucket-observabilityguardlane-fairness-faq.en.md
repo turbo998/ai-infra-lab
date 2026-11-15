@@ -1,65 +1,65 @@
-# APIM MCP Reentry Observability Guard Lane Latency Bucket FAQ (Cycle 2162)
+# APIM MCP Reentry Adaptivity Guard Lane Latency Bucket FAQ (Cycle 2181)
 
 ## 1) Three-minute decision
-- **Core issue:** with reentry peaks and policy oscillation, recovery paths show observability drift and fairness decay.
-- **Recommendation:** implement a closed loop of observability guard lanes, latency-bucket allocation, fallback downgrade gates, and replay audit.
-- **Goal:** preserve tenant fairness while shrinking observability-drift windows and rollback amplification.
+- **Core issue:** when reentry peaks overlap policy oscillation, adaptive-control mismatch amplifies fairness jitter and rollback spread.
+- **Recommendation:** adopt a closed loop of adaptivity guard lanes, latency-bucket credit allocation, fallback downgrade gates, and replay audit.
+- **Goal:** preserve multi-tenant fairness while increasing recovery elasticity and constraining blast radius.
 
 ## 2) Q1 / Q2 / Q3
-### Q1: Why add an observability guard lane?
-1) unified throttling cannot separate observability volatility risk classes,
-2) observability lanes block spread from high-risk policy changes and protect critical recovery paths,
-3) with latency buckets, credit, validity, ordering, and observability boundaries are jointly bounded.
+### Q1: Why introduce an adaptivity guard lane?
+1) unified throttling cannot segment by dynamic recovery capability class,
+2) adaptivity lanes isolate high-volatility traffic during policy transitions,
+3) with latency buckets, credit burn, recovery ordering, and failure radius are jointly bounded.
 
-### Q2: How should production layering work?
-- **Observability guard layer:** map tenant class + observability state into recovery lanes,
-- **Allocation layer:** issue lane-scoped bucket credit and renewal windows,
-- **Reclaim layer:** reclaim overdraft leases with anti-propagation windows,
-- **Downgrade layer:** trigger fallback downgrade and human replay at peak.
+### Q2: How should production layering be deployed?
+- **Adaptivity guard layer:** map tenant tier + dynamic recovery signature into lanes,
+- **Credit allocation layer:** grant/renew/reclaim lane-scoped latency-bucket credits,
+- **Suppression layer:** reclaim burst overdrafts and block propagation,
+- **Degrade layer:** trigger fallback downgrade at peak with replayable accountability evidence.
 
-### Q3: What is the go-live bar?
-- unfenced drift keeps declining,
-- guard-lane variance remains stable and traceable,
-- recovery gain (percentage points) stays reproducible across windows.
+### Q3: What is the release bar?
+- unfenced adaptivity drift trends down continuously,
+- lane variance remains stable and explainable,
+- recovery gain (percentage points) is reproducible across windows.
 
 ## 3) Reference architecture
 ```mermaid
 flowchart LR
-  A[MCP Reentry Ingress] --> B[Observability Guard Lane Classifier]
+  A[MCP Reentry Ingress] --> B[Adaptivity Guard Lane Classifier]
   B --> C[Credit Latency Bucket Controller]
-  C --> D[Observability-aware Recovery Scheduler]
+  C --> D[Adaptivity-aware Recovery Scheduler]
   D --> E[Fallback Downgrade Gate]
-  E --> F[Observability Priority Lane]
+  E --> F[Adaptivity Priority Lane]
   E --> G[Standard Lane]
   F --> H[Gateway Response]
   G --> H
-  H --> I[Audit Replay Timeline]
+  H --> I[Replay + Accountability Timeline]
 ```
 
 ## 4) Decision matrix
-| Dimension | Unified latency bucket | Observability Guard Lane + Latency Bucket (Recommended) |
+| Dimension | Unified latency bucket | Adaptivity Guard Lane + Latency Bucket (Recommended) |
 |---|---:|---:|
-| Observability drift control | Medium | High |
+| Adaptivity drift control | Medium | High |
 | Cross-tenant propagation suppression | Medium | High |
-| Replay explainability | Medium | High |
+| Replay accountability | Medium | High |
 | Peak downgrade stability | Medium | High |
 | Implementation complexity | Medium | Medium-High |
 
 ## 5) Evidence and reproducibility
 - Evidence files:
-  - `workshops/azure-agent-infra/evidence/cycle-2162-benchmark.json`
-  - `workshops/azure-agent-infra/evidence/cycle-2162-latency.csv`
-  - `workshops/azure-agent-infra/evidence/cycle-2162-throughput.csv`
-  - `workshops/azure-agent-infra/evidence/cycle-2162-cost.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-2181-benchmark.json`
+  - `workshops/azure-agent-infra/evidence/cycle-2181-latency.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-2181-throughput.csv`
+  - `workshops/azure-agent-infra/evidence/cycle-2181-cost.csv`
 - Contract keys:
-  - `percentage_contract.unfenced_reentry_observabilityguardlane_drift_rate`
-  - `percentage_contract.reentry_observabilityguardlane_variance_rate`
-  - `percentage_contract.reentry_observabilityguardlane_recovery_gain_pts`
+  - `percentage_contract.unfenced_reentry_adaptivityguardlane_drift_rate`
+  - `percentage_contract.reentry_adaptivityguardlane_variance_rate`
+  - `percentage_contract.reentry_adaptivityguardlane_recovery_gain_pts`
 - Labels: `measured / synthetic / anonymized_reported`.
 
 ## 6) Production checklist
-- [ ] Observability-lane classification is tenant-class replayable.
-- [ ] Bucket grant/renew/reclaim is observability-lane consistent.
-- [ ] Observability-priority lanes stay starvation-free during peak downgrade.
-- [ ] Audit trails bind policy version, observability class, and recovery path.
+- [ ] Adaptivity-lane mapping is tenant-tier replayable.
+- [ ] Bucket grant/renew/reclaim is adaptivity-lane consistent.
+- [ ] Adaptivity-priority lanes remain starvation-free during peak downgrade.
+- [ ] Audit trails bind policy version, recovery signature, and execution path.
 - [ ] FAQ/H5/SVG/7-card/evidence stay cycle-topic consistent.
