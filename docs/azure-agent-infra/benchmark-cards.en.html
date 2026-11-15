@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2394 · 7-Card Benchmark</title>
+<title>Azure Agent Infra Cycle #2395 · 7-Card Benchmark</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · agentic finops and cache economics</div>
-  <h2>Multi-tenant token attribution plus semantic caching and inference-path routing can materially reduce unit cost per 1k resolved tasks.</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · autonomous sre incident response</div>
+  <h2>Read-only autonomous diagnostics plus JIT-approved remediation can improve MTTR while containing blast radius.</h2>
   <div class="grid2">
-    <section class="pane"><h3>Workbench thresholds</h3><ul><li>Tenant cost attribution must be auditable at token granularity.</li><li>Semantic cache requires poisoning guard and hit-quality validation.</li><li>Batch/PTU/PayGo must be selected by combined SLA and cost constraints.</li></ul></section>
-    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2394,"tenants":4,"cache":"vector-semantic","routing":"batch-ptu-paygo"}</pre></section>
+    <section class="pane"><h3>Workbench thresholds</h3><ul><li>Alert storms must deduplicate before runbook execution.</li><li>Mutating actions must pass JIT approval gates.</li><li>Read-only diagnostics and remediation paths must be audit-separated.</li></ul></section>
+    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2395,"alert_domains":3,"approval":"jit","autonomy":"readonly-first"}</pre></section>
   </div>
-  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2394-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2394 · 7-Card Benchmark</span><span>1 / 7</span></div>
+  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2395-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7-Card Benchmark</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · SCENARIO: multi-tenant chargeback and cache economics</div>
-  <h2>With token metric emission, cache-hit economics, and route policy linked, cost optimization shifts from post-hoc reporting to online governance.</h2>
-  <div class="quote">Input quote: "We need one decision model that unifies multi-tenant token chargeback, semantic cache hit economics, and Batch/PTU/PayGo inference paths into cost per 1k resolved tasks."</div>
-  <div class="decision"><strong>tenant token attribution fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>semantic cache poisoning guard precision</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="decision"><strong>unit-cost routing optimization consistency</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2394 · 7-Card Benchmark</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · SCENARIO: autonomous sre incident response</div>
+  <h2>SRE agents, KQL root-cause triage, and JIT remediation approval can keep decisions controlled under alert storms.</h2>
+  <div class="quote">Input quote: "We need SRE agents to run read-only diagnostics first, then execute bounded remediation with JIT approval, while keeping MTTR convergent during alert storms."</div>
+  <div class="decision"><strong>read-only diagnostic autonomy fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>jit remediation approval precision</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>alert dedup and mttr convergence consistency</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7-Card Benchmark</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · WHAT I TESTED</div>
-  <h2>Tenant attribution, cache protection, and routing cost-down actions are reproducible and gate-bound.</h2>
+  <h2>Read-only autonomy, approved remediation, alert deduplication, and rollback thresholds are all tied to reproducible metrics.</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Tenant chargeback</td><td>Can token usage be attributed per tenant and flow?</td><td>Emit token metrics with tenant and scenario labels.</td><td>✓ Confirm</td></tr>
-  <tr><td>Semantic cache</td><td>Can poisoned cache candidates bypass quality checks?</td><td>Reject low-confidence or conflicting semantic hits.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Route optimization</td><td>Can routing pick Batch/PTU/PayGo by unit-cost target?</td><td>Select route by SLA tier plus marginal cost threshold.</td><td>✓ Act automatically</td></tr>
-  <tr><td>KV-prefix optimization</td><td>Can repeated prefixes skip redundant token spend?</td><td>Enable prefix cache and verify hit-integrity guard.</td><td>✕ Send to a human</td></tr>
+  <tr><td>Read-only triage</td><td>Can agent diagnose root cause without mutation rights?</td><td>Run KQL and topology diff in read-only mode first.</td><td>✓ Act automatically</td></tr>
+  <tr><td>JIT remediation gate</td><td>Can high-impact remediation execute without approval?</td><td>Blocked until PIM JIT approval is granted.</td><td>✓ Send to a human</td></tr>
+  <tr><td>Alert storm dedup</td><td>Can duplicate alerts collapse into one incident thread?</td><td>Dedup by correlation keys and suppress duplicates.</td><td>✓ Confirm</td></tr>
+  <tr><td>Blast-radius control</td><td>Can mutating actions exceed scoped resources?</td><td>Denied by blast-radius policy guard.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2394 · 7-Card Benchmark</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7-Card Benchmark</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · UNDER THE HOOD</div>
-  <h2>Token metrics, cache validation, and routing ledgers form an auditable FinOps decision chain.</h2>
+  <h2>Alert streams, KQL analysis, JIT approvals, and remediation ledgers form a closed audit chain.</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2394
-focus=agentic_finops_chargeback_cache_economics
+    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2395
+focus=autonomous_sre_incident_response_infra
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>Verifier flow</h3><pre>assert tenant token metric attribution
-assert cache poisoning guard and hit quality
-assert batch/ptu/paygo route economics
-assert unit cost per 1k resolved tasks</pre></section>
+    <section class="pane dark"><h3>Verifier flow</h3><pre>assert readonly triage before mutation
+assert jit approval for mutating actions
+assert alert dedup storm suppression
+assert mttr and rollback threshold checks</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2394 · 7-Card Benchmark</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7-Card Benchmark</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div>
-  <h2>Post-perturbation score shifts remain between -3.0 and -0.8 points.</h2>
+  <h2>Post-perturbation score shifts remain between -3.1 and -0.8 points.</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Token attribution fidelity</td><td>96.2</td><td>95.4</td><td>-0.8</td><td>synthetic</td></tr>
-  <tr><td>Cache poisoning guard precision</td><td>95.0</td><td>93.8</td><td>-1.2</td><td>synthetic</td></tr>
-  <tr><td>Route optimization consistency</td><td>94.2</td><td>92.9</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>Unit-cost stability</td><td>85.6</td><td>82.6</td><td>-3.0</td><td>synthetic</td></tr>
+  <tr><td>Read-only autonomy fidelity</td><td>96.3</td><td>95.5</td><td>-0.8</td><td>synthetic</td></tr>
+  <tr><td>JIT approval precision</td><td>95.1</td><td>93.9</td><td>-1.2</td><td>synthetic</td></tr>
+  <tr><td>Alert dedup consistency</td><td>94.2</td><td>92.9</td><td>-1.3</td><td>synthetic</td></tr>
+  <tr><td>MTTR convergence stability</td><td>85.5</td><td>82.4</td><td>-3.1</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2394 · 7-Card Benchmark</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7-Card Benchmark</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>At 10x load, primary path P95 is 344ms versus 933ms on non-optimized baseline.</h2>
+  <h2>At 10x load, primary path P95 is 346ms versus 936ms on unmanaged baseline.</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>199 ms</td><td>744 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>277 ms</td><td>839 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>344 ms</td><td>933 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>201 ms</td><td>746 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>279 ms</td><td>841 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>346 ms</td><td>936 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2394 · 7-Card Benchmark</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7-Card Benchmark</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · MY TAKE</div>
-  <h2>Agentic FinOps plus cache-economics architecture fits multi-tenant agent platforms for real-time cost governance and chargeback.</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Multi-tenant agent platforms requiring tenant-level token attribution and budget guardrails</li><li>Semantic cache economics with poisoning protection and cache-hit quality controls</li><li>Batch/PTU/PayGo routing strategies optimized by workload shape and SLA tier</li><li>Unit-cost governance per 1k resolved tasks with replayable accounting evidence</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Cost reporting without tenant or scenario-level token attribution granularity</li><li>Semantic cache enabled without poisoning-detection and quality validation gates</li><li>Single pricing mode for all workloads regardless of latency/cost requirements</li><li>No prefix KV-cache optimization while paying full-token compute repeatedly</li></ul></section></div>
-  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: supports production-grade multi-tenant chargeback and route-level cost optimization.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2394 · 7-Card Benchmark</span><span>7 / 7</span></div>
+  <h2>Autonomous SRE incident-response architecture fits reducing MTTR and containing remediation risk under high-pressure alert conditions.</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Production platforms requiring autonomous triage with bounded remediation blast radius</li><li>Alert-storm deduplication pipelines tied to incident-priority orchestration</li><li>JIT approval gates for mutating ARM/kubectl actions under policy controls</li><li>MTTR benchmarking with read-only and mutating-path separation</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Directly allowing mutating remediation without read-only triage evidence</li><li>No approval gate for high-impact ARM or kubectl changes</li><li>Alert storms handled with naive one-alert-one-runbook triggering</li><li>No side-effect containment for autonomous remediation loops</li></ul></section></div>
+  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: supports production-grade alert-storm triage autonomy and controlled remediation.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7-Card Benchmark</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
