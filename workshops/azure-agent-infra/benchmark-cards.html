@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2395 · 7 页基准卡组</title>
+<title>Azure Agent Infra Cycle #2396 · 7 页基准卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · 自治 SRE 生产故障响应</div>
-  <h2>只读诊断自治 + JIT 批准修复可在控制爆炸半径前提下显著改善 MTTR。</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · GraphRAG 时序知识图谱记忆</div>
+  <h2>GraphRAG 动态社区选择 + 混合检索可提升多跳推理准确率并控制索引成本。</h2>
   <div class="grid2">
-    <section class="pane"><h3>工作台阈值带</h3><ul><li>告警风暴必须先去重再执行 runbook。</li><li>mutating 操作必须经过 JIT 批准门。</li><li>只读诊断与修复执行路径必须审计分离。</li></ul></section>
-    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2395,"alert_domains":3,"approval":"jit","autonomy":"readonly-first"}</pre></section>
+    <section class="pane"><h3>工作台阈值带</h3><ul><li>多跳问答必须命中图邻域证据。</li><li>实体关系更新优先走增量图变更。</li><li>索引 token 成本需绑定 break-even 门限。</li></ul></section>
+    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2396,"graph_modes":3,"temporal":"enabled","cost_gate":"active"}</pre></section>
   </div>
-  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2395-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7 页基准卡组</span><span>1 / 7</span></div>
+  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2396-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · 场景：自治 SRE 故障处置</div>
-  <h2>SRE Agent、KQL 根因分诊与 JIT 修复批准联动可在告警风暴中保持决策可控。</h2>
-  <div class="quote">输入引用："我们要让 SRE Agent 先做只读诊断，再通过 JIT 批准执行有限修复，并在告警风暴时保持 MTTR 收敛。"</div>
-  <div class="decision"><strong>read-only diagnostic autonomy fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>jit remediation approval precision</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="decision"><strong>alert dedup and mttr convergence consistency</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7 页基准卡组</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · 场景：GraphRAG 多跳推理与时序记忆</div>
+  <h2>时序图谱 + 混合向量检索让并购、合规、供应链问题的跨实体推理更稳定。</h2>
+  <div class="quote">输入引用："我们要在多跳合规/并购/供应链问题上提升 GraphRAG 准确率，同时控制索引 token 成本并支持增量图更新。"</div>
+  <div class="decision"><strong>multi-hop answer grounding fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>incremental graph mutation consistency</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>index-token break-even optimization precision</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · 测试矩阵</div>
-  <h2>只读自治、批准修复、告警去重和回滚阈值都绑定可复算指标。</h2>
+  <h2>多跳准确率、增量更新一致性与索引成本都绑定可复算决策门。</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Read-only triage</td><td>Can agent diagnose root cause without mutation rights?</td><td>Run KQL and topology diff in read-only mode first.</td><td>✓ Act automatically</td></tr>
-  <tr><td>JIT remediation gate</td><td>Can high-impact remediation execute without approval?</td><td>Blocked until PIM JIT approval is granted.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Alert storm dedup</td><td>Can duplicate alerts collapse into one incident thread?</td><td>Dedup by correlation keys and suppress duplicates.</td><td>✓ Confirm</td></tr>
-  <tr><td>Blast-radius control</td><td>Can mutating actions exceed scoped resources?</td><td>Denied by blast-radius policy guard.</td><td>✕ Send to a human</td></tr>
+  <tr><td>M&A multi-hop query</td><td>Can entity lineage be traced across subsidiaries and timeline?</td><td>Answer only when graph neighborhood evidence passes confidence floor.</td><td>✓ Confirm</td></tr>
+  <tr><td>Compliance traceability</td><td>Can policy and incident entities remain temporally consistent?</td><td>Use temporal graph version and block stale-edge joins.</td><td>✓ Send to a human</td></tr>
+  <tr><td>Incremental mutation</td><td>Can new entities be indexed without full rebuild?</td><td>Apply delta mutation and update affected community slices.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Cost gate</td><td>Can indexing proceed when token budget exceeds break-even?</td><td>Throttle mutation batch and defer low-priority edges.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7 页基准卡组</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · 底层机制</div>
-  <h2>告警流、KQL 分析、JIT 审批和修复台账共同形成闭环审计链。</h2>
+  <h2>图更新、向量检索和成本账本统一形成可审计 GraphRAG 决策链。</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2395
-focus=autonomous_sre_incident_response_infra
+    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2396
+focus=graphrag_temporal_knowledge_graph_memory
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>校验流程</h3><pre>assert readonly triage before mutation
-assert jit approval for mutating actions
-assert alert dedup storm suppression
-assert mttr and rollback threshold checks</pre></section>
+    <section class="pane dark"><h3>校验流程</h3><pre>assert multi-hop evidence grounding
+assert incremental mutation correctness
+assert temporal edge/version validity
+assert index-token break-even gates</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7 页基准卡组</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · 鲁棒性检验</div>
-  <h2>扰动后分值变化位于 -3.1 到 -0.8 分。</h2>
+  <h2>扰动后分值变化位于 -3.0 到 -0.8 分。</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Read-only autonomy fidelity</td><td>96.3</td><td>95.5</td><td>-0.8</td><td>synthetic</td></tr>
-  <tr><td>JIT approval precision</td><td>95.1</td><td>93.9</td><td>-1.2</td><td>synthetic</td></tr>
-  <tr><td>Alert dedup consistency</td><td>94.2</td><td>92.9</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>MTTR convergence stability</td><td>85.5</td><td>82.4</td><td>-3.1</td><td>synthetic</td></tr>
+  <tr><td>Multi-hop grounding fidelity</td><td>96.2</td><td>95.4</td><td>-0.8</td><td>synthetic</td></tr>
+  <tr><td>Incremental mutation consistency</td><td>95.1</td><td>93.9</td><td>-1.2</td><td>synthetic</td></tr>
+  <tr><td>Temporal edge validity</td><td>94.2</td><td>92.9</td><td>-1.3</td><td>synthetic</td></tr>
+  <tr><td>Break-even stability</td><td>85.7</td><td>82.7</td><td>-3.0</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7 页基准卡组</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>10x 负载下主路径 P95 为 346ms，无自治治理基线为 936ms。</h2>
+  <h2>10x 负载下主路径 P95 为 341ms，整图重建基线为 929ms。</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>201 ms</td><td>746 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>279 ms</td><td>841 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>346 ms</td><td>936 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>197 ms</td><td>739 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>275 ms</td><td>835 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>341 ms</td><td>929 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7 页基准卡组</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · 我的结论</div>
-  <h2>自治 SRE 生产故障响应架构适合在高压告警场景下降低 MTTR 并约束修复风险。</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Production platforms requiring autonomous triage with bounded remediation blast radius</li><li>Alert-storm deduplication pipelines tied to incident-priority orchestration</li><li>JIT approval gates for mutating ARM/kubectl actions under policy controls</li><li>MTTR benchmarking with read-only and mutating-path separation</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Directly allowing mutating remediation without read-only triage evidence</li><li>No approval gate for high-impact ARM or kubectl changes</li><li>Alert storms handled with naive one-alert-one-runbook triggering</li><li>No side-effect containment for autonomous remediation loops</li></ul></section></div>
-  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级告警风暴自治分诊与受控修复。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2395 · 7 页基准卡组</span><span>7 / 7</span></div>
+  <h2>GraphRAG 时序图谱记忆架构适合需要多跳可追溯推理的企业 Agent 场景。</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprise multi-hop reasoning workloads needing temporal entity-relationship memory</li><li>GraphRAG community selection plus hybrid vector retrieval for grounded answers</li><li>Incremental graph mutation pipelines avoiding full graph rebuild cycles</li><li>Break-even governance balancing query quality and indexing token economics</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Full graph rebuild on every update with no incremental mutation strategy</li><li>Relying only on vectors without graph neighborhood evidence for multi-hop QA</li><li>No temporal versioning for entity/relationship evolution and compliance audit</li><li>Ignoring index-token cost while scaling graph and hybrid retrieval breadth</li></ul></section></div>
+  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级多跳推理与增量图更新治理。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2396 · 7 页基准卡组</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
