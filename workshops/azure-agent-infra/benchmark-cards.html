@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2421 · GreenOps 卡组</title>
+<title>Azure Agent Infra Cycle #2422 · Gaming LiveOps 卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · GreenOps</div><h2>碳感知调度 + GPU 能效工程让每 10K 任务 `gCO2e` 显著下降且不破坏 SLA。</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Carbon-aware region/time routing.</li><li>GPU power capping + MIG + scale-to-zero.</li><li>Quantization + KV cache + cascade optimization.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2421,"focus":"greenops_agent_fleet","gates":["latency","energy","audit"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2421-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps 卡组</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Carbon-Aware Fleet Optimization</div><h2>在 P99 体验约束内，联合调度与模型优化可同时降低碳和成本。</h2>
-<div class="quote">Input quote: "Reduce gCO2e and cost per resolved task without breaking interactive latency budgets."</div>
-<div class="decision"><strong>gCO2e reduction per 10k tasks</strong><div class="bar"><div class="fill" style="width:35%"></div></div></div>
-<div class="decision"><strong>idle GPU waste elimination</strong><div class="bar"><div class="fill" style="width:78%"></div></div></div>
-<div class="decision"><strong>joint cost + carbon reduction</strong><div class="bar"><div class="fill" style="width:23%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps 卡组</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>仅当碳减排、成本优化和延迟目标同时满足时才建议规模推广。</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Gaming LiveOps</div><h2>三层级联让 NPC 交互在低延迟与低成本之间实现可运营平衡。</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Client NPU bark lane.</li><li>Regional vLLM LoRA NPC pool.</li><li>Async frontier GM director and economy validator.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2422,"focus":"gaming_npc_cascade","gates":["latency","cogs","exploit"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2422-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2422 · Gaming LiveOps 卡组</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Million-Player NPC Stack</div><h2>在 `<180ms` 体验目标下，级联架构将 COGS 与 exploit 风险同时压低。</h2>
+<div class="quote">Input quote: "Maintain ultra-low-latency NPC interaction while sustaining economics and anti-exploit controls."</div>
+<div class="decision"><strong>sub-180ms ttft compliance</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+<div class="decision"><strong>economy exploit block rate</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
+<div class="decision"><strong>cogs reduction vs single model</strong><div class="bar"><div class="fill" style="width:40%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2422 · Gaming LiveOps 卡组</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>上线建议需同时通过延迟、成本、反作弊与扩容四项门槛。</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>Routing</td><td>碳感知调度是否稳定减排？</td><td>Hybrid routing cuts gCO2e by 34.6%.</td><td>✓ Act automatically</td></tr>
-<tr><td>GPU Power</td><td>TDP cap 是否带来可接受延迟开销？</td><td>75% cap saves energy with bounded TTFT increase.</td><td>✓ Confirm</td></tr>
-<tr><td>Runtime</td><td>idle GPU 是否有效清零？</td><td>Scale-to-zero + MIG removes 78.3% waste.</td><td>✓ Send to a human</td></tr>
-<tr><td>Economics</td><td>$ 与 gCO2e 是否同步下降？</td><td>Joint reduction reaches 22.8%.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps 卡组</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>关键机制是“调度、硬件功耗、算法压缩”三层协同。</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2421
-focus=greenops_carbon_aware_gpu_efficiency
+<tr><td>Latency</td><td>TTFT 是否稳定在 180ms 以内？</td><td>Cascade keeps p95 dialogue TTFT at 132ms regional.</td><td>✓ Act automatically</td></tr>
+<tr><td>Economics</td><td>COGS 是否低于目标阈值？</td><td>3-tier COGS is $17.9 per 1K player-hours.</td><td>✓ Confirm</td></tr>
+<tr><td>Exploit</td><td>经济系统注入是否可阻断？</td><td>Authoritative validator blocks 99.1% exploits.</td><td>✓ Send to a human</td></tr>
+<tr><td>Burst</td><td>10x CCU 发售日是否可承载？</td><td>Elastic readiness reaches 94.5%.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2422 · Gaming LiveOps 卡组</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>核心是“级联推理 + 权威状态校验 + LiveOps 弹性控制”闭环。</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2422
+focus=million_player_npc_world_sim
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert gCO2e reduction floor
-assert idle-waste elimination floor
-assert joint $ + carbon reduction floor
-assert latency guardrail compliance</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps 卡组</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.4 to -0.6 points.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert sub-180ms TTFT floor
+assert exploit block floor
+assert COGS reduction floor
+assert launch-day burst readiness floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2422 · Gaming LiveOps 卡组</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.5 to -0.6 points.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>gCO2e reduction</td><td>34.6</td><td>33.5</td><td>-1.1</td><td>synthetic</td></tr>
-<tr><td>idle waste elimination</td><td>78.3</td><td>77.5</td><td>-0.8</td><td>synthetic</td></tr>
-<tr><td>joint reduction</td><td>22.8</td><td>21.9</td><td>-0.9</td><td>synthetic</td></tr>
-<tr><td>latency stability</td><td>95.1</td><td>93.7</td><td>-1.4</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps 卡组</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>75% TDP 带来能耗下降，但需用分层策略控制 TTFT 尾延迟抬升。</h2>
+<tr><td>ttft compliance</td><td>96.2</td><td>95.4</td><td>-0.8</td><td>synthetic</td></tr>
+<tr><td>exploit block</td><td>99.1</td><td>98.5</td><td>-0.6</td><td>synthetic</td></tr>
+<tr><td>cogs reduction</td><td>39.7</td><td>38.2</td><td>-1.5</td><td>synthetic</td></tr>
+<tr><td>burst readiness</td><td>94.5</td><td>93.4</td><td>-1.1</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2422 · Gaming LiveOps 卡组</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>区域 LoRA 层维持 `<180ms` 交互目标，Frontier 层异步承载深叙事。</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>TDP 75% TTFT p95</td><td>978 ms</td><td>840 ms</td><td>measured</td></tr>
-<tr><td>Wh / 1K tokens</td><td>21.7</td><td>28.4</td><td>anonymized_reported</td></tr>
-<tr><td>gCO2e / 10K tasks</td><td>119 kg</td><td>182 kg</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps 卡组</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>面向 ESG 的 Agent 基础设施应以任务级碳归因驱动资源与算法联动优化。</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprises with ESG/CSRD reporting obligations</li><li>Teams operating multi-region GPU fleets</li><li>Workloads with both interactive and async traffic classes</li><li>Organizations combining FinOps and carbon governance</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>No task-level telemetry or attribution pipeline</li><li>Single fixed region with no temporal flexibility</li><li>Teams unable to manage power and model optimization jointly</li><li>Platforms without latency SLO ownership</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for carbon-aware agent-fleet optimization.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps 卡组</span><span>7 / 7</span></div></article>
+<tr><td>regional dialogue ttft p95</td><td>132 ms</td><td>389 ms</td><td>measured</td></tr>
+<tr><td>cogs per 1k player-hours</td><td>$17.9</td><td>$29.7</td><td>anonymized_reported</td></tr>
+<tr><td>exploit block rate</td><td>99.1%</td><td>74.6%</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2422 · Gaming LiveOps 卡组</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>游戏级 Agent 平台要可持续，必须将 AI 输出与权威游戏状态严格解耦。</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Large-scale F2P/live-service games</li><li>Teams with authoritative server governance</li><li>Studios requiring narrative depth plus low latency</li><li>Operations with launch-day burst planning discipline</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>No authoritative economy/state validation</li><li>Single-tier frontier-only runtime architecture</li><li>No LiveOps readiness drills for CCU spikes</li><li>Teams without anti-toxicity and exploit governance</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for million-player NPC infrastructure.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2422 · Gaming LiveOps 卡组</span><span>7 / 7</span></div></article>
 </main></body></html>
