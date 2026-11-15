@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2377 · 7 页基准卡组</title>
+<title>Azure Agent Infra Cycle #2378 · 7 页基准卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · 编排运行时选型</div>
-  <h2>多运行时对比在 10x 负载下将 HITL 批准延迟保持在可治理范围。</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · 运行时护栏防注入</div>
+  <h2>异步并行护栏把 P99 时延税压低并保持注入拦截有效性。</h2>
   <div class="grid2">
-    <section class="pane"><h3>工作台阈值带</h3><ul><li>高确定性流程优先 Agent Framework/LangGraph 图编排。</li><li>低运维优先 Foundry Managed Threads。</li><li>企业治理优先 Azure-hosted Copilot SDK + policy contracts。</li></ul></section>
-    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2377,"runtime_paths":4,"throughput_paths":4,"policy_checks":3}</pre></section>
+    <section class="pane"><h3>工作台阈值带</h3><ul><li>敏感工具调用前必须完成注入与越权并行检查。</li><li>高风险租户启用更严阈值并降级到 HITL。</li><li>误报调优按租户画像分层管理。</li></ul></section>
+    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2378,"guardrail_paths":4,"policy_checks":3,"latency_bucket":"p99-tax"}</pre></section>
   </div>
-  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2377-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2377 · 7 页基准卡组</span><span>1 / 7</span></div>
+  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2378-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · 场景：多 Agent 编排治理</div>
-  <h2>运行时分层策略把确定性、审批延迟和运维成本冲突压到可治理区间。</h2>
-  <div class="quote">输入引用："需要在 Agent Framework、Foundry Managed Threads、LangGraph 自托管与 Azure-Hosted Copilot SDK 之间权衡确定性、HITL 延迟与治理成本。"</div>
-  <div class="decision"><strong>control-flow determinism integrity fence</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div>
-  <div class="decision"><strong>hitl approval-latency governance guard</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>enterprise policy custody detector</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2377 · 7 页基准卡组</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · 场景：间接提示注入防御</div>
+  <h2>护栏分层把高风险链路转人工审批，同时保持主路径吞吐。</h2>
+  <div class="quote">输入引用："需要在 Prompt Shields、APIM 网关策略和 AKS 自托管 Guardrail 之间平衡 P99 时延税与误报率。"</div>
+  <div class="decision"><strong>indirect injection block fidelity</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>async parallel guardrail latency budget</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+  <div class="decision"><strong>false-positive tuning governance control</strong><div class="bar"><div class="fill" style="width:93%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · 测试矩阵</div>
-  <h2>反转扰动场景被识别并转人工，主路径保持通过。</h2>
+  <h2>注入扰动被拦截，正常链路保持自动化通过。</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Coding Agent sandbox</td><td>Need deterministic tool graph and bounded retries?</td><td>Agent Framework graph contracts + explicit retry guards.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Browser/CUA cluster</td><td>Need lower orchestration ops overhead?</td><td>Foundry managed threads + policy checkpoints.</td><td>✓ Confirm</td></tr>
-  <tr><td>Multi-tenant SaaS gateway</td><td>Need tenant-scoped enterprise governance?</td><td>Azure-hosted Copilot SDK + policy attribution controls.</td><td>✓ Confirm</td></tr>
-  <tr><td>Edge stress test</td><td>Reverse options and disable HITL checkpoints?</td><td>No-HITL fast path selected.</td><td>✕ Send to a human</td></tr>
+  <tr><td>Coding sandbox</td><td>Tool call payload includes hidden exfil directive?</td><td>Prompt Shields + gateway policy block and quarantine payload.</td><td>✓ Send to a human</td></tr>
+  <tr><td>Browser/CUA cluster</td><td>Retrieved page attempts instruction override?</td><td>Task-adherence + groundedness fail, approval required.</td><td>✓ Confirm</td></tr>
+  <tr><td>Multi-tenant SaaS</td><td>Tenant policy threshold mismatch?</td><td>Apply tenant profile threshold and continue guarded path.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Stress perturbation</td><td>Disable parallel checks to reduce latency?</td><td>Rejected due to custody-proof violation.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2377 · 7 页基准卡组</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · 底层机制</div>
-  <h2>输入契约到校验链条全程可追溯，无虚构坐标。</h2>
+  <h2>所有分数坐标均绑定证据数据，验证链闭环。</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2377
-evidence=evidence/cycle-2377-benchmark.json
+    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2378
+focus=runtime_guardrails
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>校验流程</h3><pre>assert csp self-contained
-assert coordinates from evidence payload
-assert labels are traceable
-assert misses remain human-routed</pre></section>
+    <section class="pane dark"><h3>校验流程</h3><pre>assert async checks are bounded
+assert p99 tax from evidence table
+assert policy misses human-routed
+assert csp self-contained cards</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2377 · 7 页基准卡组</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · 鲁棒性检验</div>
-  <h2>扰动漂移区间收敛在 -3.2 到 -0.9 分。</h2>
+  <h2>扰动后指标变动控制在 -2.9 到 -0.8 分。</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Control-flow determinism score</td><td>96.2</td><td>95.3</td><td>-0.9</td><td>synthetic</td></tr>
-  <tr><td>HITL approval latency stability</td><td>95.6</td><td>94.4</td><td>-1.2</td><td>synthetic</td></tr>
-  <tr><td>Enterprise policy custody reliability</td><td>96.1</td><td>94.8</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>No-HITL shortcut heuristic</td><td>84.3</td><td>81.1</td><td>-3.2</td><td>synthetic</td></tr>
+  <tr><td>Indirect injection block fidelity</td><td>95.4</td><td>94.6</td><td>-0.8</td><td>synthetic</td></tr>
+  <tr><td>Parallel latency budget stability</td><td>96.7</td><td>95.5</td><td>-1.2</td><td>synthetic</td></tr>
+  <tr><td>Tenant profile threshold consistency</td><td>93.8</td><td>92.4</td><td>-1.4</td><td>synthetic</td></tr>
+  <tr><td>No-guardrail shortcut temptation</td><td>84.1</td><td>81.2</td><td>-2.9</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2377 · 7 页基准卡组</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>10x 负载下主路径保持亚 310ms，基线路径仍高于 950ms。</h2>
+  <h2>并行护栏路径将 10x 负载 P95 控制在 302ms，串行基线仍在 919ms。</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>182 ms</td><td>802 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>254 ms</td><td>889 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>309 ms</td><td>964 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>169 ms</td><td>744 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>243 ms</td><td>833 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>302 ms</td><td>919 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2377 · 7 页基准卡组</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · 我的结论</div>
-  <h2>多运行时编排分层策略适合企业级 Agent 治理与成本控制。</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox: deterministic graph lanes with explicit tool-approval checkpoints</li><li>Browser/CUA cluster: managed threads for lower orchestration ops overhead</li><li>Multi-tenant SaaS gateway: framework-level policy gates + tenant attribution</li><li>Financial zero-trust: strict HITL custody and immutable action lineage controls</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Runtime chosen by convenience without control-flow determinism requirements</li><li>No HITL approval SLO and no timeout fallback policy</li><li>Shared governance policy across tenants without isolation dimensions</li><li>Self-hosted orchestration without operational ownership and rollback contracts</li></ul></section></div>
-  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级多 Agent 编排治理。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2377 · 7 页基准卡组</span><span>7 / 7</span></div>
+  <h2>Azure 运行时护栏分层策略适合高合规 Tool-Calling Agent 生产落地。</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox: async parallel guardrails before irreversible tool calls</li><li>Browser/CUA cluster: APIM policy + content safety preflight interception</li><li>Multi-tenant SaaS gateway: tenant-level false-positive tuning profiles</li><li>Financial zero-trust: custody-proof guardrails with HITL fallback path</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Serial guardrail checks on every token stream without latency budget</li><li>No distinction between system prompt and untrusted retrieval context</li><li>Single global threshold across tenants and domains</li><li>No post-incident replay loop for false-positive drift correction</li></ul></section></div>
+  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：可用于生产级间接注入防御与策略审计。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2378 · 7 页基准卡组</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
