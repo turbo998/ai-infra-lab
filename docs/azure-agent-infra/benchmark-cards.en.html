@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</title>
+<title>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Post-Training Flywheel</div><h2>Governed trajectory curation enables distilled domain models to outperform prompt/RAG baselines on both quality and cost.</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>OTel trajectory ingestion.</li><li>Consent-aware scrubbing pipeline.</li><li>SFT/DPO/RFT promotion gates.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2416,"focus":"trajectory_to_training","gates":["consent","reward","promotion"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2416-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Distillation Loop</div><h2>Teacher critique plus deterministic reward scoring stabilizes gains for safe model promotion.</h2>
-<div class="quote">Input quote: "Distill expensive frontier trajectories into fast domain models without violating consent or forgetting guardrails."</div>
-<div class="decision"><strong>distilled accuracy gain</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
-<div class="decision"><strong>monthly token cost reduction</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-<div class="decision"><strong>forgetting guardrail pass</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Promotion gates merge governance, utility gains, and forgetting controls into one release path.</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Supply-Chain Admission</div><h2>Signature graph, admission policy, and runtime drift controls together compress MCP supply-chain risk.</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Notation signing and OCI referrers.</li><li>Ratify/Gatekeeper admission.</li><li>Copa patch and drift quarantine.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2417,"focus":"mcp_supply_chain_zero_trust","gates":["signature","admission","drift"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2417-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: MCP Rug-Pull Defense</div><h2>Combining unsigned blocking, accelerated patching, and drift quarantine materially reduces exposure.</h2>
+<div class="quote">Input quote: "Block tampered MCP images, reduce npx/uvx rug-pull exposure, and keep patch windows short."</div>
+<div class="decision"><strong>unsigned/tampered block rate</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
+<div class="decision"><strong>rug-pull exposure reduction</strong><div class="bar"><div class="fill" style="width:93%"></div></div></div>
+<div class="decision"><strong>supply-chain guardrail pass</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates evaluate signature integrity, admission policy, and patch velocity together.</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>Ingestion</td><td>Is trajectory collection coverage sufficient?</td><td>Partitioned OTel ingestion with quality gates.</td><td>✓ Act automatically</td></tr>
-<tr><td>Governance</td><td>Are consent and scrubbing gates enforced?</td><td>Purview + Presidio + consent policy required.</td><td>✓ Confirm</td></tr>
-<tr><td>Training</td><td>Does training outperform RAG baseline?</td><td>SFT/DPO/RFT gains validated by deterministic eval.</td><td>✓ Send to a human</td></tr>
-<tr><td>Promotion</td><td>Is forgetting regression controlled?</td><td>Forgetting guardrail gating with rollback triggers.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Post-training quality is governed by traceable data and promotion controls, not raw accuracy alone.</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2416
-focus=trajectory_curation_post_training
+<tr><td>Signing</td><td>Are unsigned or incomplete graphs denied?</td><td>Notation + OCI referrers integrity required.</td><td>✓ Act automatically</td></tr>
+<tr><td>Admission</td><td>Are critical CVEs blocked before scheduling?</td><td>Ratify + Gatekeeper critical-CVE deny.</td><td>✓ Confirm</td></tr>
+<tr><td>Patching</td><td>Does Copa reduce patch window?</td><td>Zero-rebuild patch then re-sign path.</td><td>✓ Send to a human</td></tr>
+<tr><td>Runtime</td><td>Is drift automatically quarantined?</td><td>Defender drift trigger quarantine lane.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Zero-trust MCP supply chains require verifiable provenance, enforceable policy, and patch rollback discipline.</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2417
+focus=supply_chain_mcp_container_admission
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert distilled accuracy gain floor
-assert token cost reduction floor
-assert forgetting guardrail pass floor
-assert consent and scrubbing compliance</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.3 to -0.6 points.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert unsigned tampered block floor
+assert rugpull exposure reduction floor
+assert admission latency budget
+assert patch and drift guardrail pass</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.4 to -0.5 points.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>accuracy gain</td><td>12.9</td><td>12.1</td><td>-0.8</td><td>synthetic</td></tr>
-<tr><td>cost reduction</td><td>29.0</td><td>28.1</td><td>-0.9</td><td>synthetic</td></tr>
-<tr><td>guardrail pass</td><td>96.9</td><td>96.3</td><td>-0.6</td><td>synthetic</td></tr>
-<tr><td>promotion stability</td><td>94.1</td><td>92.8</td><td>-1.3</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Distilled SFT/DPO/RFT paths reduce TTFT P95 from 1.94s to the 1.21-1.34s band.</h2>
+<tr><td>block rate</td><td>99.5</td><td>99.0</td><td>-0.5</td><td>synthetic</td></tr>
+<tr><td>rug-pull reduction</td><td>93.2</td><td>92.0</td><td>-1.2</td><td>synthetic</td></tr>
+<tr><td>guardrail pass</td><td>98.2</td><td>97.3</td><td>-0.9</td><td>synthetic</td></tr>
+<tr><td>admission stability</td><td>95.6</td><td>94.2</td><td>-1.4</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Ratify/Gatekeeper keeps admission overhead to 96ms P95 while achieving 99.5% tampered-image blocking.</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>LoRA SFT</td><td>1.21 s</td><td>1.94 s</td><td>measured</td></tr>
-<tr><td>DPO</td><td>1.26 s</td><td>1.94 s</td><td>synthetic</td></tr>
-<tr><td>RFT</td><td>1.34 s</td><td>1.94 s</td><td>anonymized_reported</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Flywheels deliver enterprise value only when trajectory governance, reward design, and release gates are operated together.</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprises with large production trajectory volume</li><li>Teams with governance and evaluation maturity</li><li>Programs targeting sustained latency/cost reduction</li><li>Organizations operating canary + rollback workflows</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>Small datasets without stable task definitions</li><li>No consent governance or scrubbing operations</li><li>Teams unwilling to maintain regression guardrails</li><li>One-off experiments without release discipline</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for enterprise post-training loops.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>7 / 7</span></div></article>
+<tr><td>signing + admission</td><td>96 ms</td><td>0 ms</td><td>measured</td></tr>
+<tr><td>copa patch lead time</td><td>22 min</td><td>137 min</td><td>anonymized_reported</td></tr>
+<tr><td>full rebuild patch</td><td>137 min</td><td>137 min</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>MCP ecosystems scale safely only when signing, admission, and patch operations are run as one product capability.</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprises adopting third-party MCP/tool ecosystems</li><li>Teams with admission policy and signing operations</li><li>Regulated workloads requiring immutable provenance</li><li>Organizations running continuous patch and drift response</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>Unpinned runtime package fetch in production paths</li><li>No SBOM/provenance generation pipeline</li><li>Teams without key/certificate management discipline</li><li>Environments unwilling to enforce CVE-based admission blocking</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for zero-trust MCP supply chains.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>7 / 7</span></div></article>
 </main></body></html>
