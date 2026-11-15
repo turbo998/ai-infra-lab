@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2382 · 7 页基准卡组</title>
+<title>Azure Agent Infra Cycle #2383 · 7 页基准卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · MCP 工具托管签名证明</div>
-  <h2>签名卡片 + 策略侧车 + HSM 轮换将工具调用托管风险压到可治理区间。</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · 多区域主动-主动容灾</div>
+  <h2>主动-主动双区域架构在保留低 RTO/RPO 的同时约束跨区成本。</h2>
   <div class="grid2">
-    <section class="pane"><h3>工作台阈值带</h3><ul><li>所有生产工具卡必须签名并带版本链。</li><li>策略拒绝必须附带可回放证据。</li><li>密钥轮换按租户波次灰度，支持回滚。</li></ul></section>
-    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2382,"attestation_planes":3,"policy_layers":2,"rotation_mode":"wave"}</pre></section>
+    <section class="pane"><h3>工作台阈值带</h3><ul><li>关键租户配置区域配额钉住与溢出上限。</li><li>会话状态冲突必须有确定性合并策略。</li><li>故障切换演练必须可复放并量化 RTO/RPO。</li></ul></section>
+    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2383,"regions":2,"state_mode":"cosmos-multiwrite","spillover":"ptu+paygo"}</pre></section>
   </div>
-  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2382-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2382 · 7 页基准卡组</span><span>1 / 7</span></div>
+  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2383-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2383 · 7 页基准卡组</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · 场景：MCP 工具托管证明链</div>
-  <h2>双层策略与签名治理在高并发下保持安全拦截并控制延迟税。</h2>
-  <div class="quote">输入引用："需要在 APIM MCP Registry、OPA/Rego 侧车与 Key Vault HSM 签名轮换之间平衡工具托管安全、延迟税与运维复杂度。"</div>
-  <div class="decision"><strong>signed card attestation fidelity</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-  <div class="decision"><strong>policy denial precision control</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="decision"><strong>key rotation custody guard</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2382 · 7 页基准卡组</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · 场景：跨区故障切换与状态冲突</div>
+  <h2>配额钉住与冲突合并策略把故障切换风险压到企业可治理区间。</h2>
+  <div class="quote">输入引用："需要在 Front Door+多区域 APIM+Foundry PTU 跨区溢出与 Cosmos 多写冲突解决之间平衡 RTO/RPO、配额和成本。"</div>
+  <div class="decision"><strong>rto guard and ingress failover fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>rpo conflict-merge custody</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>quota spillover finops fence</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2383 · 7 页基准卡组</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · 测试矩阵</div>
-  <h2>未签名卡片与策略越权请求被阻断，正常路径稳定通过。</h2>
+  <h2>切换与冲突场景通过，未受控跨区溢出被拦截转人工。</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Tool card onboarding</td><td>Unsigned MCP card submitted to registry?</td><td>Rejected; require signature chain and version policy.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Runtime policy check</td><td>Gateway allow but sidecar deny mismatch?</td><td>Deny execution and emit custody replay artifact.</td><td>✓ Confirm</td></tr>
-  <tr><td>Key rotation wave</td><td>Tenant wave-2 key not propagated yet?</td><td>Route to prior key set with bounded grace window.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Bypass attempt</td><td>Direct tool call skipping attestation?</td><td>Hard deny and quarantine session.</td><td>✕ Send to a human</td></tr>
+  <tr><td>Ingress failover</td><td>Primary region outage during tool calls?</td><td>Front Door reroutes to secondary with APIM regional pin set.</td><td>✓ Act automatically</td></tr>
+  <tr><td>PTU spillover</td><td>Primary PTU saturation exceeds tenant budget?</td><td>Spill over to Global Standard PayGo within quota ceiling.</td><td>✓ Confirm</td></tr>
+  <tr><td>Cosmos conflict</td><td>Concurrent writes on same session key?</td><td>Apply deterministic merge rule and append audit delta.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Cost overrun risk</td><td>Disable quota pinning for urgent tenant burst?</td><td>Denied; requires human approval path.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2382 · 7 页基准卡组</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2383 · 7 页基准卡组</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · 底层机制</div>
-  <h2>证据坐标可追溯到策略与签名实验数据，不含虚构坐标。</h2>
+  <h2>RTO/RPO 与配额坐标均绑定证据文件，支持审计复核。</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2382
-focus=mcp_tool_custody_attestation
+    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2383
+focus=active_active_dr_failover
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>校验流程</h3><pre>assert signed card lineage
-assert policy precision from table
-assert bypass attempt quarantine
-assert csp self-contained report</pre></section>
+    <section class="pane dark"><h3>校验流程</h3><pre>assert regional failover target
+assert rto/rpo from evidence tables
+assert quota overrun human-routed
+assert csp self-contained cards</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2382 · 7 页基准卡组</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2383 · 7 页基准卡组</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · 鲁棒性检验</div>
-  <h2>扰动后分值漂移控制在 -3.2 到 -0.8 分。</h2>
+  <h2>扰动后分值漂移维持在 -3.1 到 -0.9 分。</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Signed card fidelity</td><td>96.9</td><td>96.1</td><td>-0.8</td><td>synthetic</td></tr>
-  <tr><td>Policy denial precision</td><td>95.4</td><td>94.2</td><td>-1.2</td><td>synthetic</td></tr>
-  <tr><td>Rotation custody stability</td><td>94.7</td><td>93.3</td><td>-1.4</td><td>synthetic</td></tr>
-  <tr><td>Bypass resistance</td><td>84.0</td><td>80.8</td><td>-3.2</td><td>synthetic</td></tr>
+  <tr><td>RTO failover fidelity</td><td>96.3</td><td>95.4</td><td>-0.9</td><td>synthetic</td></tr>
+  <tr><td>RPO conflict merge stability</td><td>95.1</td><td>93.9</td><td>-1.2</td><td>synthetic</td></tr>
+  <tr><td>Quota spillover governance</td><td>94.4</td><td>93.1</td><td>-1.3</td><td>synthetic</td></tr>
+  <tr><td>Unpinned burst abuse resistance</td><td>83.6</td><td>80.5</td><td>-3.1</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2382 · 7 页基准卡组</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2383 · 7 页基准卡组</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>10x 负载下主路径 P95 为 319ms，未治理基线为 971ms。</h2>
+  <h2>10x 负载下主路径 P95 为 314ms，未治理基线为 962ms。</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>189 ms</td><td>798 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>261 ms</td><td>886 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>319 ms</td><td>971 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>184 ms</td><td>791 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>255 ms</td><td>879 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>314 ms</td><td>962 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2382 · 7 页基准卡组</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2383 · 7 页基准卡组</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · 我的结论</div>
-  <h2>MCP 工具托管签名证明方案适合企业级零信任工具调用治理。</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox tool calls with signed card verification before execution</li><li>Browser/CUA clusters requiring policy denials with deterministic audit lineage</li><li>Multi-tenant SaaS gateway with tenant-scoped policy bundles and key rotation windows</li><li>Financial zero-trust with immutable tool-custody attestations and HITL overrides</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Unsigned MCP tool cards allowed in production registry</li><li>No policy bundle version pinning between gateway and sidecars</li><li>Global key rotation without tenant rollout waves or rollback plan</li><li>Runtime denials without replay artifacts for post-incident adjudication</li></ul></section></div>
-  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级工具托管证明与策略审计。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2382 · 7 页基准卡组</span><span>7 / 7</span></div>
+  <h2>多区域主动-主动容灾方案适合生产 AI Agent 低中断运营与 FinOps 约束。</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox requiring region failover with deterministic session re-entry</li><li>Browser/CUA clusters needing active-active ingress and quota-aware PTU spillover</li><li>Multi-tenant SaaS with region-pinned quotas and conflict-safe multi-write state</li><li>Financial zero-trust requiring auditable failover and bounded RPO conflict resolution</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Single-region control-plane with ad-hoc failover scripts</li><li>No quota pinning, causing uncontrolled cross-region burst costs</li><li>Cosmos multi-write enabled without deterministic conflict policy</li><li>RTO/RPO targets declared without replay drill evidence</li></ul></section></div>
+  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级跨区容灾与状态冲突治理。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2383 · 7 页基准卡组</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
