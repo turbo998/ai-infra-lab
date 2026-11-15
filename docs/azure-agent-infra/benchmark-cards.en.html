@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2415 · ERP Hybrid Integration Deck</title>
+<title>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Brownfield ERP Integration</div><h2>API facades, principal propagation, and dry-run precommit gates sharply reduce mutation risk on legacy systems of record.</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>APIM MCP facade over SOAP/OData.</li><li>Entra to SAP user principal propagation.</li><li>BAPI TESTRUN gate before commit.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2415,"focus":"brownfield_erp_hybrid","gates":["propagation","testrun","pool_guard"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2415-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP Hybrid Integration Deck</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Safe Mutation on Legacy SoR</div><h2>Principal propagation plus TESTRUN dual gates make high-value ERP mutations releasable under control.</h2>
-<div class="quote">Input quote: "Preserve per-user SAP authorization, dry-run every mutation, and protect backend pools under burst load."</div>
-<div class="decision"><strong>principal-propagation audit coverage</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
-<div class="decision"><strong>TESTRUN precommit catch rate</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-<div class="decision"><strong>connection-pool protection rate</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP Hybrid Integration Deck</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release requires identity, dry-run, and backend pool controls as equal hard gates.</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Post-Training Flywheel</div><h2>Governed trajectory curation enables distilled domain models to outperform prompt/RAG baselines on both quality and cost.</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>OTel trajectory ingestion.</li><li>Consent-aware scrubbing pipeline.</li><li>SFT/DPO/RFT promotion gates.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2416,"focus":"trajectory_to_training","gates":["consent","reward","promotion"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2416-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Distillation Loop</div><h2>Teacher critique plus deterministic reward scoring stabilizes gains for safe model promotion.</h2>
+<div class="quote">Input quote: "Distill expensive frontier trajectories into fast domain models without violating consent or forgetting guardrails."</div>
+<div class="decision"><strong>distilled accuracy gain</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
+<div class="decision"><strong>monthly token cost reduction</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+<div class="decision"><strong>forgetting guardrail pass</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Promotion gates merge governance, utility gains, and forgetting controls into one release path.</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>Identity</td><td>Is SAP authorization preserved per user?</td><td>OBO principal propagation required.</td><td>✓ Act automatically</td></tr>
-<tr><td>Dry-run</td><td>Do all mutating calls pass TESTRUN first?</td><td>TESTRUN pass is mandatory before commit.</td><td>✓ Confirm</td></tr>
-<tr><td>Pool</td><td>Do tool storms trigger backend pool protection?</td><td>APIM throttle + connector cap + fallback lane.</td><td>✓ Send to a human</td></tr>
-<tr><td>Fallback</td><td>Is RPA used only for no-API tails?</td><td>API-first policy with constrained fallback.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP Hybrid Integration Deck</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Brownfield release quality is determined by protocol gates and identity boundaries before commit.</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2415
-focus=legacy_erp_sap_mainframe_hybrid
+<tr><td>Ingestion</td><td>Is trajectory collection coverage sufficient?</td><td>Partitioned OTel ingestion with quality gates.</td><td>✓ Act automatically</td></tr>
+<tr><td>Governance</td><td>Are consent and scrubbing gates enforced?</td><td>Purview + Presidio + consent policy required.</td><td>✓ Confirm</td></tr>
+<tr><td>Training</td><td>Does training outperform RAG baseline?</td><td>SFT/DPO/RFT gains validated by deterministic eval.</td><td>✓ Send to a human</td></tr>
+<tr><td>Promotion</td><td>Is forgetting regression controlled?</td><td>Forgetting guardrail gating with rollback triggers.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Post-training quality is governed by traceable data and promotion controls, not raw accuracy alone.</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2416
+focus=trajectory_curation_post_training
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert principal propagation audit floor
-assert testrun precommit catch floor
-assert connection pool protection floor
-assert fallback policy compliance</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP Hybrid Integration Deck</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.5 to -0.5 points.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert distilled accuracy gain floor
+assert token cost reduction floor
+assert forgetting guardrail pass floor
+assert consent and scrubbing compliance</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.3 to -0.6 points.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>principal propagation</td><td>98.8</td><td>98.3</td><td>-0.5</td><td>synthetic</td></tr>
-<tr><td>testrun catch</td><td>95.2</td><td>94.1</td><td>-1.1</td><td>synthetic</td></tr>
-<tr><td>pool protection</td><td>96.1</td><td>95.0</td><td>-1.1</td><td>synthetic</td></tr>
-<tr><td>integration consistency</td><td>93.4</td><td>91.9</td><td>-1.5</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP Hybrid Integration Deck</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Logic Apps primary path maintains P95 at 1.76s with higher reliability than RPA and manual baselines.</h2>
+<tr><td>accuracy gain</td><td>12.9</td><td>12.1</td><td>-0.8</td><td>synthetic</td></tr>
+<tr><td>cost reduction</td><td>29.0</td><td>28.1</td><td>-0.9</td><td>synthetic</td></tr>
+<tr><td>guardrail pass</td><td>96.9</td><td>96.3</td><td>-0.6</td><td>synthetic</td></tr>
+<tr><td>promotion stability</td><td>94.1</td><td>92.8</td><td>-1.3</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Distilled SFT/DPO/RFT paths reduce TTFT P95 from 1.94s to the 1.21-1.34s band.</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>direct RFC</td><td>1.32 s</td><td>12.8 s</td><td>anonymized_reported</td></tr>
-<tr><td>logic apps orchestration</td><td>1.76 s</td><td>12.8 s</td><td>measured</td></tr>
-<tr><td>rpa fallback</td><td>4.6 s</td><td>12.8 s</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP Hybrid Integration Deck</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>ERP agents are production-fit only when principal propagation, dry-run gates, and pool protection are non-negotiable release bars.</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Large enterprises integrating SAP and mainframe systems</li><li>Teams with strict user-level authorization and audit requirements</li><li>Programs requiring precommit simulation before mutation</li><li>Operations enforcing connection-pool SLO protections</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>Workloads relying on shared privileged service accounts</li><li>No-governance direct mutation of core records</li><li>Teams without integration throttling and fallback discipline</li><li>Scenarios expecting RPA to replace API-first architecture</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for brownfield ERP integration.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2415 · ERP Hybrid Integration Deck</span><span>7 / 7</span></div></article>
+<tr><td>LoRA SFT</td><td>1.21 s</td><td>1.94 s</td><td>measured</td></tr>
+<tr><td>DPO</td><td>1.26 s</td><td>1.94 s</td><td>synthetic</td></tr>
+<tr><td>RFT</td><td>1.34 s</td><td>1.94 s</td><td>anonymized_reported</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Flywheels deliver enterprise value only when trajectory governance, reward design, and release gates are operated together.</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprises with large production trajectory volume</li><li>Teams with governance and evaluation maturity</li><li>Programs targeting sustained latency/cost reduction</li><li>Organizations operating canary + rollback workflows</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>Small datasets without stable task definitions</li><li>No consent governance or scrubbing operations</li><li>Teams unwilling to maintain regression guardrails</li><li>One-off experiments without release discipline</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for enterprise post-training loops.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2416 · Post-Training Flywheel Deck</span><span>7 / 7</span></div></article>
 </main></body></html>
