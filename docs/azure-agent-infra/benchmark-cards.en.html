@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2420 · A2A Federation Deck</title>
+<title>Azure Agent Infra Cycle #2421 · GreenOps Deck</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · A2A Federation</div><h2>Cross-org A2A with DMZ isolation enables both partner agility and auditable trust boundaries.</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Agent card discovery and capability registry.</li><li>mTLS + cross-tenant token exchange in APIM DMZ.</li><li>Prompt shield quarantine + Purview DLP egress control.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2420,"focus":"a2a_cross_org_federation","gates":["identity","quarantine","dlp"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2420-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Partner Exchange Hardening</div><h2>Prompt-shielded DMZ triage substantially reduces injection risk while preserving completion reliability.</h2>
-<div class="quote">Input quote: "Secure partner agent exchange with legal traceability and high completion reliability."</div>
-<div class="decision"><strong>cross-org prompt injection block</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-<div class="decision"><strong>a2a async completion reliability</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div>
-<div class="decision"><strong>dlp outbound leak prevention</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Production recommendation requires identity trust, task reliability, and outbound data control together.</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · GreenOps</div><h2>Carbon-aware routing and GPU efficiency engineering reduce `gCO2e` per 10K tasks without violating SLA.</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Carbon-aware region/time routing.</li><li>GPU power capping + MIG + scale-to-zero.</li><li>Quantization + KV cache + cascade optimization.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2421,"focus":"greenops_agent_fleet","gates":["latency","energy","audit"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2421-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps Deck</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Carbon-Aware Fleet Optimization</div><h2>Under latency guardrails, combined scheduling and model optimization reduce both carbon and cost.</h2>
+<div class="quote">Input quote: "Reduce gCO2e and cost per resolved task without breaking interactive latency budgets."</div>
+<div class="decision"><strong>gCO2e reduction per 10k tasks</strong><div class="bar"><div class="fill" style="width:35%"></div></div></div>
+<div class="decision"><strong>idle GPU waste elimination</strong><div class="bar"><div class="fill" style="width:78%"></div></div></div>
+<div class="decision"><strong>joint cost + carbon reduction</strong><div class="bar"><div class="fill" style="width:23%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps Deck</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Scale recommendation requires carbon, cost, and latency targets to pass simultaneously.</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>Handshake</td><td>Is cross-tenant handshake stable and bounded?</td><td>mTLS + token exchange holds p95 at 118ms.</td><td>✓ Act automatically</td></tr>
-<tr><td>Quarantine</td><td>Are injection/manipulation payloads blocked?</td><td>Prompt shield DMZ blocks 96.7% malicious payloads.</td><td>✓ Confirm</td></tr>
-<tr><td>Completion</td><td>Can async A2A tasks complete reliably?</td><td>SSE+webhook reliability reaches 98.1%.</td><td>✓ Send to a human</td></tr>
-<tr><td>DLP</td><td>Is outbound leakage effectively prevented?</td><td>DLP controls prevent 97.2% leakage attempts.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>The core pattern is federated identity + untrusted-input quarantine + legal-grade evidence chain.</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2420
-focus=a2a_cross_org_b2b_federation
+<tr><td>Routing</td><td>Does carbon-aware scheduling consistently reduce emissions?</td><td>Hybrid routing cuts gCO2e by 34.6%.</td><td>✓ Act automatically</td></tr>
+<tr><td>GPU Power</td><td>Is TDP cap latency trade-off acceptable?</td><td>75% cap saves energy with bounded TTFT increase.</td><td>✓ Confirm</td></tr>
+<tr><td>Runtime</td><td>Is idle GPU waste effectively removed?</td><td>Scale-to-zero + MIG removes 78.3% waste.</td><td>✓ Send to a human</td></tr>
+<tr><td>Economics</td><td>Do `$` and `gCO2e` decrease together?</td><td>Joint reduction reaches 22.8%.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps Deck</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>The core mechanism is coordination across scheduling, power control, and algorithmic efficiency.</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2421
+focus=greenops_carbon_aware_gpu_efficiency
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert injection block floor
-assert async completion reliability floor
-assert DLP leak-prevention floor
-assert mTLS token-exchange overhead budget</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.3 to -0.5 points.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert gCO2e reduction floor
+assert idle-waste elimination floor
+assert joint $ + carbon reduction floor
+assert latency guardrail compliance</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps Deck</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.4 to -0.6 points.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>injection block</td><td>96.7</td><td>95.9</td><td>-0.8</td><td>synthetic</td></tr>
-<tr><td>completion reliability</td><td>98.1</td><td>97.6</td><td>-0.5</td><td>synthetic</td></tr>
-<tr><td>dlp leak prevention</td><td>97.2</td><td>96.2</td><td>-1.0</td><td>synthetic</td></tr>
-<tr><td>handshake stability</td><td>94.3</td><td>93.0</td><td>-1.3</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Federated handshake adds 118ms p95 overhead while materially improving trust and compliance controls.</h2>
+<tr><td>gCO2e reduction</td><td>34.6</td><td>33.5</td><td>-1.1</td><td>synthetic</td></tr>
+<tr><td>idle waste elimination</td><td>78.3</td><td>77.5</td><td>-0.8</td><td>synthetic</td></tr>
+<tr><td>joint reduction</td><td>22.8</td><td>21.9</td><td>-0.9</td><td>synthetic</td></tr>
+<tr><td>latency stability</td><td>95.1</td><td>93.7</td><td>-1.4</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps Deck</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>75% TDP lowers energy draw, but tiered policy is required to control TTFT tail lift.</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>mTLS + token exchange p95</td><td>118 ms</td><td>73 ms</td><td>measured</td></tr>
-<tr><td>a2a task completion reliability</td><td>98.1%</td><td>94.2%</td><td>anonymized_reported</td></tr>
-<tr><td>DLP prevention rate</td><td>97.2%</td><td>73.1%</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Sustainable B2B agent federation requires default-hostile handling of cross-company payloads.</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>B2B ecosystems requiring partner-agent interoperability</li><li>Teams with DMZ and federated identity operations</li><li>Organizations needing legal non-repudiation trails</li><li>Workloads with strict outbound DLP controls</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>Direct exposure of internal MCP tools to external partners</li><li>No partner trust-tier governance model</li><li>Missing quarantine and prompt-shield pipelines</li><li>No legal/audit ownership for signed transactions</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for cross-org A2A federation with guardrails.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2420 · A2A Federation Deck</span><span>7 / 7</span></div></article>
+<tr><td>TDP 75% TTFT p95</td><td>978 ms</td><td>840 ms</td><td>measured</td></tr>
+<tr><td>Wh / 1K tokens</td><td>21.7</td><td>28.4</td><td>anonymized_reported</td></tr>
+<tr><td>gCO2e / 10K tasks</td><td>119 kg</td><td>182 kg</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps Deck</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>ESG-grade agent infrastructure should optimize resources and algorithms using task-level carbon attribution.</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprises with ESG/CSRD reporting obligations</li><li>Teams operating multi-region GPU fleets</li><li>Workloads with both interactive and async traffic classes</li><li>Organizations combining FinOps and carbon governance</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>No task-level telemetry or attribution pipeline</li><li>Single fixed region with no temporal flexibility</li><li>Teams unable to manage power and model optimization jointly</li><li>Platforms without latency SLO ownership</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for carbon-aware agent-fleet optimization.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2421 · GreenOps Deck</span><span>7 / 7</span></div></article>
 </main></body></html>
