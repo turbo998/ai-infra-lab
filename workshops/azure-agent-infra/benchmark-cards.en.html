@@ -1,68 +1,68 @@
-        <!doctype html>
-        <html lang="en">
-        <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-        <title>Azure Agent Infra Cycle #2412 · Global Edge Ingress Deck</title>
-        <style>
-        *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
-        .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
-        .card{width:900px;min-height:1125px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:12px}
-        .eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#0369a1;text-transform:uppercase}
-        h2{margin:0;font-size:30px;line-height:1.2} h3{margin:0;font-size:16px}
-        table{width:100%;border-collapse:collapse;font-size:14px} th,td{border-bottom:1px solid #e2e8f0;padding:8px;text-align:left}
-        th{font-size:12px;color:#475569;text-transform:uppercase;letter-spacing:.08em}
-        .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px} .pane{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff}
-        .dark{background:#0f172a;color:#e2e8f0;border-color:#1e293b} .quote{border-left:4px solid #2563eb;background:#eff6ff;padding:10px}
-        .decision{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff;margin-bottom:8px}
-        .bar{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,#2563eb,#0ea5e9)}
-        .good{background:#ecfdf5;border:1px solid #86efac;border-radius:10px;padding:10px} .bad{background:#fff1f2;border:1px solid #fda4af;border-radius:10px;padding:10px}
-        .ready{background:#0f172a;color:#e2e8f0;border:1px solid #1e293b;border-radius:10px;padding:10px} .footer{margin-top:auto;font-size:12px;color:#64748b;display:flex;justify-content:space-between}
-        ul{margin:8px 0 0 18px;padding:0}
-        </style>
-        </head>
-        <body><main class="deck">
-        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Global Active-Active Edge</div><h2>Active-active edge ingress minimizes TTFT and preserves stream continuity under regional faults.</h2>
-        <div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>AFD Anycast + Private Link origins.</li><li>APIM multi-region active-active stickiness.</li><li>Resume-token failover continuity.</li></ul></section>
-        <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2412,"focus":"global_edge_active_active","channels":["sse","websocket","webrtc"]}</pre></section></div>
-        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2412-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2412 · Global Edge Ingress Deck</span><span>1 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Streaming Continuity</div><h2>Anycast ingress plus regional stickiness cuts TTFT while preserving mid-stream recovery.</h2>
-        <div class="quote">Input quote: "Keep geo-distributed interactive streams alive under regional outages with zero public origin exposure."</div>
-        <div class="decision"><strong>session continuity</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div>
-        <div class="decision"><strong>failover resume success</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-        <div class="decision"><strong>waf blocking accuracy</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2412 · Global Edge Ingress Deck</span><span>2 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates tie TTFT, abuse defense, and stream recovery into one reliability contract.</h2>
-        <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-        <tr><td>TTFT</td><td>Can cross-continent TTFT stay sub-100ms?</td><td>Use Anycast POP affinity with nearest healthy region pinning.</td><td>✓ Act automatically</td></tr>
-        <tr><td>Streaming</td><td>Can mid-stream failover resume without duplication?</td><td>Use resume token + acknowledged segment replay.</td><td>✓ Confirm</td></tr>
-        <tr><td>Security</td><td>Can origin stay private under global ingress?</td><td>Enforce Private Link-only route policy.</td><td>✓ Send to a human</td></tr>
-        <tr><td>Abuse</td><td>Can WAF/Bot controls block adversarial traffic accurately?</td><td>Tune managed rules + anomaly thresholds by geo profile.</td><td>✕ Send to a human</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2412 · Global Edge Ingress Deck</span><span>3 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Edge quality depends on synchronized routing, security policy, and stream-state recovery controls.</h2>
-        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2412
-focus=global_edge_multiregion_active_active_ingress
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
+<title>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</title>
+<style>
+*{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
+.deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+.card{width:900px;min-height:1125px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#0369a1;text-transform:uppercase}
+h2{margin:0;font-size:30px;line-height:1.2} h3{margin:0;font-size:16px}
+table{width:100%;border-collapse:collapse;font-size:14px} th,td{border-bottom:1px solid #e2e8f0;padding:8px;text-align:left}
+th{font-size:12px;color:#475569;text-transform:uppercase;letter-spacing:.08em}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px} .pane{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff}
+.dark{background:#0f172a;color:#e2e8f0;border-color:#1e293b} .quote{border-left:4px solid #2563eb;background:#eff6ff;padding:10px}
+.decision{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff;margin-bottom:8px}
+.bar{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,#2563eb,#0ea5e9)}
+.good{background:#ecfdf5;border:1px solid #86efac;border-radius:10px;padding:10px} .bad{background:#fff1f2;border:1px solid #fda4af;border-radius:10px;padding:10px}
+.ready{background:#0f172a;color:#e2e8f0;border:1px solid #1e293b;border-radius:10px;padding:10px} .footer{margin-top:auto;font-size:12px;color:#64748b;display:flex;justify-content:space-between}
+ul{margin:8px 0 0 18px;padding:0}
+</style>
+</head>
+<body><main class="deck">
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Clinical FHIR + Multimodal</div><h2>PHI boundaries, FHIR version gates, and CITL sign-off combine to reduce EHR writeback risk to a controlled production zone.</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>AHDS FHIR R4 + DICOM retrieval.</li><li>SMART-on-FHIR Entra OBO scopes.</li><li>CITL cryptographic sign-off before writeback.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2413,"focus":"clinical_fhir_multimodal","gates":["phi","fhir_version","citl"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2413-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Clinical Safety Gate</div><h2>CITL cryptographic attestation plus PHI de-identification lets clinical multi-agent workflows accelerate safely under strict compliance.</h2>
+<div class="quote">Input quote: "Enable tumor-board and prior-auth agents, but block every unsigned EHR writeback."</div>
+<div class="decision"><strong>PHI de-identification precision</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+<div class="decision"><strong>FHIR grounding accuracy</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+<div class="decision"><strong>unapproved writeback blocked</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Clinical production gates unify data boundaries, attestation accountability, and writeback safety into one decision plane.</h2>
+<table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
+<tr><td>PHI</td><td>Is all PHI redacted before model egress?</td><td>Safe Harbor + surrogate replacement gate.</td><td>✓ Act automatically</td></tr>
+<tr><td>FHIR</td><td>Is writeback version-safe?</td><td>If-Match + versionId conflict route to human.</td><td>✓ Confirm</td></tr>
+<tr><td>CITL</td><td>Is sign-before-write mandatory?</td><td>Cryptographic clinician attestation required.</td><td>✓ Send to a human</td></tr>
+<tr><td>Audit</td><td>Is non-repudiation evidence complete?</td><td>Signed event trail + immutable ledger export.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Clinical agent reliability depends on strict FHIR/OBO/CITL coupling, not a single model score.</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2413
+focus=healthcare_clinical_fhir_multimodal
 labels=measured/synthetic/anonymized_reported</pre></section>
-        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert cross-continent ttft threshold
-assert mid-stream resume token integrity
-assert private-origin route enforcement
-assert waf abuse-blocking accuracy floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2412 · Global Edge Ingress Deck</span><span>4 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.6 to -0.6 points.</h2>
-        <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>session continuity</td><td>98.4</td><td>97.8</td><td>-0.6</td><td>synthetic</td></tr>
-        <tr><td>failover resume</td><td>97.3</td><td>96.2</td><td>-1.1</td><td>synthetic</td></tr>
-        <tr><td>waf accuracy</td><td>98.1</td><td>97.0</td><td>-1.1</td><td>synthetic</td></tr>
-        <tr><td>ttft consistency</td><td>95.9</td><td>94.3</td><td>-1.6</td><td>synthetic</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2412 · Global Edge Ingress Deck</span><span>5 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Cross-continent TTFT p95 improves to 91ms active-active from 186ms single-region and 244ms legacy.</h2>
-        <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>single-region</td><td>186 ms</td><td>244 ms</td><td>measured</td></tr>
-        <tr><td>active-passive</td><td>132 ms</td><td>244 ms</td><td>synthetic</td></tr>
-        <tr><td>active-active</td><td>91 ms</td><td>244 ms</td><td>anonymized_reported</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2412 · Global Edge Ingress Deck</span><span>6 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Active-active is the practical target for global interactive agents with strict continuity requirements.</h2>
-        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Global interactive products needing sub-100ms TTFT goals</li><li>Streaming sessions requiring mid-stream failover recovery</li><li>Enterprises enforcing private-origin security by design</li><li>Teams operating WAF and anti-abuse controls continuously</li></ul></section>
-        <section class="bad"><strong>⛔ Not for</strong><ul><li>Single-region products without global latency pressure</li><li>Workloads not requiring stream stickiness or resume guarantees</li><li>Teams without edge security operations readiness</li><li>Cost-only deployments that can tolerate large outage impact</li></ul></section></div>
-        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with global edge gating.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-        <div class="footer"><span>Azure Agent Infra Cycle #2412 · Global Edge Ingress Deck</span><span>7 / 7</span></div></article>
-        </main></body></html>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert phi redaction precision floor
+assert fhir bundle grounding floor
+assert unsigned ehr writeback hard block
+assert citl attestation audit completeness</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -1.4 to -0.5 points under scope and prompt variations.</h2>
+<table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
+<tr><td>PHI precision</td><td>97.2</td><td>96.7</td><td>-0.5</td><td>synthetic</td></tr>
+<tr><td>FHIR grounding</td><td>95.8</td><td>94.8</td><td>-1.0</td><td>synthetic</td></tr>
+<tr><td>writeback block</td><td>99.7</td><td>99.1</td><td>-0.6</td><td>synthetic</td></tr>
+<tr><td>tumor-board latency consistency</td><td>94.2</td><td>92.8</td><td>-1.4</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>The regulated-enterprise tier cuts deliberation latency P95 to 1.86s while pushing unsigned-writeback blocking to 99.7%.</h2>
+<table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
+<tr><td>research pilot</td><td>3.8 s</td><td>9.4 s</td><td>anonymized_reported</td></tr>
+<tr><td>hospital network</td><td>2.6 s</td><td>9.4 s</td><td>synthetic</td></tr>
+<tr><td>regulated enterprise</td><td>1.86 s</td><td>9.4 s</td><td>measured</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Clinical healthcare platforms scale safely only when PHI, FHIR, and CITL gates are enforced together.</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Tumor-board and prior-auth workflows with auditable controls</li><li>Enterprises requiring HIPAA/HITRUST traceability</li><li>Programs that can enforce clinician sign-off accountability</li><li>Teams operating FHIR conflict + safety drills continuously</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>No clinician sign-off process or accountability model</li><li>Teams requiring autonomous EHR writes without human gate</li><li>Workloads without PHI de-identification operations readiness</li><li>Low-governance pilots expecting direct production rollout</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for regulated clinical workflows.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2413 · Clinical Agent Deck</span><span>7 / 7</span></div></article>
+</main></body></html>
