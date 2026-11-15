@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2388 · 7 页基准卡组</title>
+<title>Azure Agent Infra Cycle #2389 · 7 页基准卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · ci/cd 评测红队发布闸门</div>
-  <h2>离线到在线评测闭环将 Agent 发布风险前置到 PR 阶段，并用线上采样守住回滚阈值。</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · text-to-sql 企业数据安全</div>
+  <h2>Text-to-SQL Agent 在身份透传、读权限最小化与语义层约束下可实现可审计的企业级数据访问。</h2>
   <div class="grid2">
-    <section class="pane"><h3>工作台阈值带</h3><ul><li>PR 合并前必须通过 Foundry 质量门与 PyRIT 红队门。</li><li>上线后按租户采样并追踪工具轨迹违规率。</li><li>超阈值自动回滚并冻结发布通道。</li></ul></section>
-    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2388,"pipelines":4,"gate_layers":3,"rollback":"enabled"}</pre></section>
+    <section class="pane"><h3>工作台阈值带</h3><ul><li>SQL 仅允许 AST 白名单内的只读语义。</li><li>Entra OBO 身份透传必须与租户/行级权限绑定。</li><li>跨租户外泄检测触发硬拦截。</li></ul></section>
+    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2389,"data_paths":4,"security_gates":3,"obo":"required"}</pre></section>
   </div>
-  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2388-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7 页基准卡组</span><span>1 / 7</span></div>
+  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2389-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7 页基准卡组</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · 场景：CI/CD 发布闸门</div>
-  <h2>轨迹级评测 + 对抗红队 + 线上采样让发布决策从“单点分数”升级为“可审计闸门”。</h2>
-  <div class="quote">输入引用："我们需要把离线评测、对抗红队、线上采样评估串成发布闸门，并且在风险超阈值时自动回滚。"</div>
-  <div class="decision"><strong>offline eval gate fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>adversarial red-team intercept coverage</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-  <div class="decision"><strong>online rollback trigger precision</strong><div class="bar"><div class="fill" style="width:93%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7 页基准卡组</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · 场景：企业 Text-to-SQL 安全闸门</div>
+  <h2>AST 沙箱 + OBO + 行级权限 + 语义指标层组合能显著降低数据外泄风险。</h2>
+  <div class="quote">输入引用："我们要让 Text-to-SQL Agent 在跨租户场景下默认只读、按 Entra OBO 透传身份，并阻断数据外泄路径。"</div>
+  <div class="decision"><strong>read-only ast policy fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>entra obo identity boundary precision</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>cross-tenant exfiltration block coverage</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7 页基准卡组</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · 测试矩阵</div>
-  <h2>质量门、红队门、线上回滚门都由可复算证据驱动。</h2>
+  <h2>权限、语义、外泄防护都映射到可复算闸门指标。</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>PR quality gate</td><td>Do trajectory metrics pass policy floor?</td><td>Pass only when gate bundle score is above threshold.</td><td>✓ Confirm</td></tr>
-  <tr><td>PyRIT adversarial gate</td><td>Can jailbreak/tool misuse prompts bypass guardrails?</td><td>Block release when intercept coverage drops below policy.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Online sampling gate</td><td>Do live traces exceed safety drift budget?</td><td>Trigger staged rollback and freeze deployment ring.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Rollback safety</td><td>Release without pre-defined rollback threshold?</td><td>Denied as policy violation.</td><td>✕ Send to a human</td></tr>
+  <tr><td>AST read-only sandbox</td><td>Can generated SQL include write operations?</td><td>Denied when AST detects non-read statement classes.</td><td>✓ Send to a human</td></tr>
+  <tr><td>Entra OBO pass-through</td><td>Can shared identity query all tenant partitions?</td><td>Denied without per-user delegated OBO claims.</td><td>✓ Confirm</td></tr>
+  <tr><td>RLS + metric grounding</td><td>Does query align with metric-layer policy?</td><td>Allow only when metric dictionary and RLS both match.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Exfiltration pattern</td><td>Cross-tenant join attempt detected?</td><td>Blocked and quarantined for security review.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7 页基准卡组</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7 页基准卡组</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · 底层机制</div>
-  <h2>CI 证据、闸门决策、线上采样结果统一入库并支撑回放。</h2>
+  <h2>评测、策略、线上采样证据形成可追溯的数据访问审计链。</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2388
-focus=cicd_offline_online_eval_redteaming
+    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2389
+focus=text_to_sql_enterprise_security
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>校验流程</h3><pre>assert foundry eval gate pass/fail
-assert pyrit red-team intercept floor
-assert online sampling rollback threshold
-assert csp self-contained cards</pre></section>
+    <section class="pane dark"><h3>校验流程</h3><pre>assert ast read-only allowlist
+assert entra obo + rls policy binding
+assert metric-layer grounding constraint
+assert exfiltration block thresholds</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7 页基准卡组</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7 页基准卡组</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · 鲁棒性检验</div>
-  <h2>扰动后分值变化位于 -3.3 到 -0.9 分区间。</h2>
+  <h2>扰动后分值变化位于 -3.1 到 -0.8 分。</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Offline gate fidelity</td><td>96.3</td><td>95.4</td><td>-0.9</td><td>synthetic</td></tr>
-  <tr><td>Adversarial intercept coverage</td><td>94.8</td><td>93.2</td><td>-1.6</td><td>synthetic</td></tr>
-  <tr><td>Rollback trigger precision</td><td>93.7</td><td>92.3</td><td>-1.4</td><td>synthetic</td></tr>
-  <tr><td>Tool-trajectory safety consistency</td><td>86.1</td><td>82.8</td><td>-3.3</td><td>synthetic</td></tr>
+  <tr><td>AST read-only fidelity</td><td>96.4</td><td>95.6</td><td>-0.8</td><td>synthetic</td></tr>
+  <tr><td>OBO identity boundary precision</td><td>95.2</td><td>94.0</td><td>-1.2</td><td>synthetic</td></tr>
+  <tr><td>Metric-grounding consistency</td><td>94.3</td><td>92.9</td><td>-1.4</td><td>synthetic</td></tr>
+  <tr><td>Exfiltration block stability</td><td>85.8</td><td>82.7</td><td>-3.1</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7 页基准卡组</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7 页基准卡组</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>10x 负载下主路径 P95 为 332ms，非闸门基线为 907ms。</h2>
+  <h2>10x 负载下主路径 P95 为 347ms，未治理基线为 918ms。</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>193 ms</td><td>721 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>267 ms</td><td>814 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>332 ms</td><td>907 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>201 ms</td><td>736 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>279 ms</td><td>829 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>347 ms</td><td>918 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7 页基准卡组</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7 页基准卡组</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · 我的结论</div>
-  <h2>Azure 上的离线到在线评测闸门适合生产 Agent 发布治理与持续安全回归。</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Agent PRs require deterministic quality/safety gate before production exposure</li><li>Tool-call trajectory evaluators track policy violations across multi-step runs</li><li>PyRIT adversarial suites and synthetic datasets are versioned in CI</li><li>Online production sampling closes the loop with rollback thresholds</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Shipping model/tool changes without offline + red-team gate evidence</li><li>Using single-score evaluation without trajectory-level policy diagnostics</li><li>Ignoring online drift and relying only on pre-release benchmarks</li><li>Setting rollback policy after incidents instead of pre-defined thresholds</li></ul></section></div>
-  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产发布闸门、回滚与轨迹审计。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7 页基准卡组</span><span>7 / 7</span></div>
+  <h2>Fabric/Databricks/SQL 组合下的安全 Text-to-SQL 架构适合多租户企业数据 Agent 生产落地。</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprise BI and data agents needing identity pass-through and row-level controls</li><li>Read-only SQL sandboxing with AST policy checks before execution</li><li>Semantic metric layer grounding to reduce raw-schema hallucination risk</li><li>Cross-tenant exfiltration detection and hard-block governance</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Direct free-form SQL execution without AST allowlist policy enforcement</li><li>Bypassing Entra OBO and using shared service identity for all tenants</li><li>Grounding on raw schema only, with no semantic metric layer constraints</li><li>Missing exfiltration guardrails for cross-workspace/tenant data routes</li></ul></section></div>
+  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级数据访问治理与越权拦截。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7 页基准卡组</span><span>7 / 7</span></div>
 </article>
 </main></body></html>

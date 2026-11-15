@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2388 · 7-Card Benchmark</title>
+<title>Azure Agent Infra Cycle #2389 · 7-Card Benchmark</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · cicd eval + red-team gateway</div>
-  <h2>Offline-to-online evaluation loops shift agent release risk into PR gates and enforce rollback thresholds with live sampling.</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · text-to-sql enterprise security</div>
+  <h2>Text-to-SQL agents can achieve auditable enterprise data access with identity pass-through, least-privilege reads, and semantic-layer constraints.</h2>
   <div class="grid2">
-    <section class="pane"><h3>Workbench thresholds</h3><ul><li>Foundry quality and PyRIT red-team gates must pass before merge.</li><li>Post-release tenant sampling tracks tool-trajectory policy violation rates.</li><li>Threshold breach triggers auto rollback and channel freeze.</li></ul></section>
-    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2388,"pipelines":4,"gate_layers":3,"rollback":"enabled"}</pre></section>
+    <section class="pane"><h3>Workbench thresholds</h3><ul><li>SQL must remain read-only under AST allowlist policy.</li><li>Entra OBO pass-through must bind tenant and row-level policy.</li><li>Cross-tenant exfiltration signals trigger hard block.</li></ul></section>
+    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2389,"data_paths":4,"security_gates":3,"obo":"required"}</pre></section>
   </div>
-  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2388-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7-Card Benchmark</span><span>1 / 7</span></div>
+  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2389-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7-Card Benchmark</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · SCENARIO: ci/cd release gate</div>
-  <h2>Trajectory evaluators + adversarial red teaming + online sampling turn release decisions from single scores into auditable gates.</h2>
-  <div class="quote">Input quote: "We need one release gate chaining offline eval, adversarial red teaming, and online sampling with automatic rollback on threshold breach."</div>
-  <div class="decision"><strong>offline eval gate fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>adversarial red-team intercept coverage</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-  <div class="decision"><strong>online rollback trigger precision</strong><div class="bar"><div class="fill" style="width:93%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7-Card Benchmark</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · SCENARIO: enterprise text-to-sql security gate</div>
+  <h2>AST sandboxing + OBO + row-level controls + semantic metric grounding substantially lower data exfiltration risk.</h2>
+  <div class="quote">Input quote: "We need Text-to-SQL agents to stay read-only by default, enforce Entra OBO identity pass-through, and block cross-tenant exfiltration."</div>
+  <div class="decision"><strong>read-only ast policy fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>entra obo identity boundary precision</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>cross-tenant exfiltration block coverage</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7-Card Benchmark</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · WHAT I TESTED</div>
-  <h2>Quality, red-team, and online rollback gates are all driven by reproducible evidence.</h2>
+  <h2>Permission, semantic grounding, and exfiltration controls are mapped to reproducible gate metrics.</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>PR quality gate</td><td>Do trajectory metrics pass policy floor?</td><td>Pass only when gate bundle score is above threshold.</td><td>✓ Confirm</td></tr>
-  <tr><td>PyRIT adversarial gate</td><td>Can jailbreak/tool misuse prompts bypass guardrails?</td><td>Block release when intercept coverage drops below policy.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Online sampling gate</td><td>Do live traces exceed safety drift budget?</td><td>Trigger staged rollback and freeze deployment ring.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Rollback safety</td><td>Release without pre-defined rollback threshold?</td><td>Denied as policy violation.</td><td>✕ Send to a human</td></tr>
+  <tr><td>AST read-only sandbox</td><td>Can generated SQL include write operations?</td><td>Denied when AST detects non-read statement classes.</td><td>✓ Send to a human</td></tr>
+  <tr><td>Entra OBO pass-through</td><td>Can shared identity query all tenant partitions?</td><td>Denied without per-user delegated OBO claims.</td><td>✓ Confirm</td></tr>
+  <tr><td>RLS + metric grounding</td><td>Does query align with metric-layer policy?</td><td>Allow only when metric dictionary and RLS both match.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Exfiltration pattern</td><td>Cross-tenant join attempt detected?</td><td>Blocked and quarantined for security review.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7-Card Benchmark</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7-Card Benchmark</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · UNDER THE HOOD</div>
-  <h2>CI evidence, gate decisions, and online sampling outcomes are stored together for replay.</h2>
+  <h2>Evaluation, policy, and live sampling evidence form a traceable data-access audit chain.</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2388
-focus=cicd_offline_online_eval_redteaming
+    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2389
+focus=text_to_sql_enterprise_security
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>Verifier flow</h3><pre>assert foundry eval gate pass/fail
-assert pyrit red-team intercept floor
-assert online sampling rollback threshold
-assert csp self-contained cards</pre></section>
+    <section class="pane dark"><h3>Verifier flow</h3><pre>assert ast read-only allowlist
+assert entra obo + rls policy binding
+assert metric-layer grounding constraint
+assert exfiltration block thresholds</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7-Card Benchmark</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7-Card Benchmark</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div>
-  <h2>Post-perturbation score shifts remain within -3.3 to -0.9 points.</h2>
+  <h2>Post-perturbation score shifts stay within -3.1 to -0.8 points.</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Offline gate fidelity</td><td>96.3</td><td>95.4</td><td>-0.9</td><td>synthetic</td></tr>
-  <tr><td>Adversarial intercept coverage</td><td>94.8</td><td>93.2</td><td>-1.6</td><td>synthetic</td></tr>
-  <tr><td>Rollback trigger precision</td><td>93.7</td><td>92.3</td><td>-1.4</td><td>synthetic</td></tr>
-  <tr><td>Tool-trajectory safety consistency</td><td>86.1</td><td>82.8</td><td>-3.3</td><td>synthetic</td></tr>
+  <tr><td>AST read-only fidelity</td><td>96.4</td><td>95.6</td><td>-0.8</td><td>synthetic</td></tr>
+  <tr><td>OBO identity boundary precision</td><td>95.2</td><td>94.0</td><td>-1.2</td><td>synthetic</td></tr>
+  <tr><td>Metric-grounding consistency</td><td>94.3</td><td>92.9</td><td>-1.4</td><td>synthetic</td></tr>
+  <tr><td>Exfiltration block stability</td><td>85.8</td><td>82.7</td><td>-3.1</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7-Card Benchmark</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7-Card Benchmark</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>At 10x load, primary path P95 is 332ms versus 907ms on ungated baseline.</h2>
+  <h2>At 10x load, primary path P95 is 347ms versus 918ms on ungated baseline.</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>193 ms</td><td>721 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>267 ms</td><td>814 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>332 ms</td><td>907 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>201 ms</td><td>736 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>279 ms</td><td>829 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>347 ms</td><td>918 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7-Card Benchmark</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7-Card Benchmark</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · MY TAKE</div>
-  <h2>Azure offline-to-online evaluation gates fit production agent release governance and continuous safety regression.</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Agent PRs require deterministic quality/safety gate before production exposure</li><li>Tool-call trajectory evaluators track policy violations across multi-step runs</li><li>PyRIT adversarial suites and synthetic datasets are versioned in CI</li><li>Online production sampling closes the loop with rollback thresholds</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Shipping model/tool changes without offline + red-team gate evidence</li><li>Using single-score evaluation without trajectory-level policy diagnostics</li><li>Ignoring online drift and relying only on pre-release benchmarks</li><li>Setting rollback policy after incidents instead of pre-defined thresholds</li></ul></section></div>
-  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: supports production release gates, rollback, and trajectory audit.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2388 · 7-Card Benchmark</span><span>7 / 7</span></div>
+  <h2>Secure Text-to-SQL architecture across Fabric/Databricks/SQL fits multi-tenant enterprise data agents in production.</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprise BI and data agents needing identity pass-through and row-level controls</li><li>Read-only SQL sandboxing with AST policy checks before execution</li><li>Semantic metric layer grounding to reduce raw-schema hallucination risk</li><li>Cross-tenant exfiltration detection and hard-block governance</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Direct free-form SQL execution without AST allowlist policy enforcement</li><li>Bypassing Entra OBO and using shared service identity for all tenants</li><li>Grounding on raw schema only, with no semantic metric layer constraints</li><li>Missing exfiltration guardrails for cross-workspace/tenant data routes</li></ul></section></div>
+  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: supports production-grade data-access governance and privilege boundary enforcement.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2389 · 7-Card Benchmark</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
