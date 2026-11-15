@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-        <title>Azure Agent Infra Cycle #2401 · 7-Card Benchmark Deck</title>
+        <title>Azure Agent Infra Cycle #2402 · 7-Card Benchmark Deck</title>
         <style>
         *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
         .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@
         </style>
         </head>
         <body><main class="deck">
-        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Long-Context Memory Fabric</div><h2>Long-context agents stay stable when memory compaction and version-safe prefix KV caching are combined.</h2>
-        <div class="grid2"><section class="pane"><h3>Workbench Threshold Bands</h3><ul><li>Prompt-version invalidation required before cache reuse.</li><li>Compaction summaries must preserve tool/state invariants.</li><li>KV offload cannot violate tenant isolation leases.</li></ul></section>
-        <section class="pane dark"><h3>Structured Input</h3><pre>{"cycle":2401,"context_window":"128k-1m","cache_tiers":"foundry+apc+lmcache"}</pre></section></div>
-        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2401-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2401 · 7-Card Benchmark Deck</span><span>1 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: TTFT & Context-Rot Control</div><h2>Version-safe prefix caching reduces TTFT while limiting context-rot incidents.</h2>
-        <div class="quote">Input quote: "Handle 128k–1M token multi-turn trajectories without stale cache reuse and with predictable cost."</div>
-        <div class="decision"><strong>ttft improvement gate</strong><div class="bar"><div class="fill" style="width:61%"></div></div></div>
-        <div class="decision"><strong>versioned cache-hit quality</strong><div class="bar"><div class="fill" style="width:87%"></div></div></div>
-        <div class="decision"><strong>context-rot incident reduction</strong><div class="bar"><div class="fill" style="width:72%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2401 · 7-Card Benchmark Deck</span><span>2 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Compaction, cache tiers, and invalidation contracts are validated as one release unit.</h2>
+        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Omnichannel IM Gateway</div><h2>Omnichannel IM gateways need fast ACK, replay defense, and identity linking as one contract.</h2>
+        <div class="grid2"><section class="pane"><h3>Workbench Threshold Bands</h3><ul><li>Inbound webhook ACK must meet sub-3s target.</li><li>Replay defense requires nonce and signature verification.</li><li>Identity linking must pass policy-complete mapping checks.</li></ul></section>
+        <section class="pane dark"><h3>Structured Input</h3><pre>{"cycle":2402,"channels":4,"ack_sla_ms":3000,"mode":"async_proactive"}</pre></section></div>
+        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2402-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2402 · 7-Card Benchmark Deck</span><span>1 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Multi-IM Reliability</div><h2>Gateway policy and async fanout stabilize multi-channel enterprise messaging.</h2>
+        <div class="quote">Input quote: "Keep webhook ACK fast while enabling secure proactive updates across Teams, WeCom, Slack, and WhatsApp."</div>
+        <div class="decision"><strong>ack sla compliance</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
+        <div class="decision"><strong>hmac replay block quality</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+        <div class="decision"><strong>identity link success</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2402 · 7-Card Benchmark Deck</span><span>2 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>ACK, replay defense, and identity mapping are validated as one production contract.</h2>
         <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-        <tr><td>Prefix reuse</td><td>Can repeated prefill be skipped safely across sessions?</td><td>Reuse only on matching prompt-version and tenant policy hash.</td><td>✓ Act automatically</td></tr>
-        <tr><td>Compaction drift</td><td>Can summaries preserve tool arguments and constraints?</td><td>Block compaction output when schema-critical fields are missing.</td><td>✓ Confirm</td></tr>
-        <tr><td>Dynamic prompt updates</td><td>Can stale cache keys be invalidated deterministically?</td><td>Rotate cache namespace on policy version and guard retries.</td><td>✓ Send to a human</td></tr>
-        <tr><td>Offload economics</td><td>Can NVMe/Redis tiering stay below cost threshold?</td><td>Demote low-value KV segments under budget pressure.</td><td>✕ Send to a human</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2401 · 7-Card Benchmark Deck</span><span>3 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Prefix KV lifecycle control is the key boundary between performance gain and semantic corruption.</h2>
-        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2401
-focus=long_context_memory_compaction_prefix_kv_sharing
+        <tr><td>Webhook ingress</td><td>Can channel callbacks be ACKed under SLA during burst?</td><td>Return fast ACK and offload full processing to async queue.</td><td>✓ Act automatically</td></tr>
+        <tr><td>Replay defense</td><td>Can duplicated signed payloads be blocked reliably?</td><td>Verify signature plus nonce TTL and reject replayed payloads.</td><td>✓ Confirm</td></tr>
+        <tr><td>Identity convergence</td><td>Can cross-channel users map to unified enterprise identities?</td><td>Link by deterministic identity graph with conflict resolution.</td><td>✓ Send to a human</td></tr>
+        <tr><td>Proactive fanout</td><td>Can async proactive updates maintain ordering per channel thread?</td><td>Use partitioned queue keys and channel-specific publish workers.</td><td>✕ Send to a human</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2402 · 7-Card Benchmark Deck</span><span>3 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Sub-3s ACK and async fanout only work when replay and identity controls are deterministic.</h2>
+        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2402
+focus=omnichannel_enterprise_im_gateway
 labels=measured/synthetic/anonymized_reported</pre></section>
-        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert prompt-version invalidation keying
-assert tenant-safe cache lease ownership
-assert compaction schema fidelity
-assert ttft+cost gates under load</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2401 · 7-Card Benchmark Deck</span><span>4 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay within -2.5 to -0.8 points.</h2>
+        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert webhook ack latency under threshold
+assert hmac replay protection and nonce window
+assert cross-channel identity mapping success
+assert proactive queue ordering and retry safety</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2402 · 7-Card Benchmark Deck</span><span>4 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -2.2 to -0.5 points.</h2>
         <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>TTFT improvement</td><td>60.5</td><td>59.7</td><td>-0.8</td><td>synthetic</td></tr>
-        <tr><td>Versioned cache hit quality</td><td>87.4</td><td>86.0</td><td>-1.4</td><td>synthetic</td></tr>
-        <tr><td>Context-rot incident reduction</td><td>72.6</td><td>71.0</td><td>-1.6</td><td>synthetic</td></tr>
-        <tr><td>Invalidation precision</td><td>97.6</td><td>95.1</td><td>-2.5</td><td>synthetic</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2401 · 7-Card Benchmark Deck</span><span>5 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>10x load P95 TTFT is 432ms on full cache fabric versus 1094ms baseline.</h2>
+        <tr><td>ACK SLA meet rate</td><td>98.9</td><td>98.4</td><td>-0.5</td><td>synthetic</td></tr>
+        <tr><td>Replay block rate</td><td>97.2</td><td>96.1</td><td>-1.1</td><td>synthetic</td></tr>
+        <tr><td>Identity link success</td><td>95.4</td><td>94.0</td><td>-1.4</td><td>synthetic</td></tr>
+        <tr><td>Ordering safety</td><td>98.1</td><td>95.9</td><td>-2.2</td><td>synthetic</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2402 · 7-Card Benchmark Deck</span><span>5 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>10x load P95 ACK is 842ms on target path versus 2884ms legacy baseline.</h2>
         <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>1x</td><td>296 ms</td><td>864 ms</td><td>measured</td></tr>
-        <tr><td>5x</td><td>371 ms</td><td>983 ms</td><td>synthetic</td></tr>
-        <tr><td>10x</td><td>432 ms</td><td>1094 ms</td><td>anonymized_reported</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2401 · 7-Card Benchmark Deck</span><span>6 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for persistent long-context agents where cache governance quality is as important as raw speed.</h2>
-        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Long-running coding/research sessions with high prefix reuse</li><li>Teams that can enforce strict prompt-version invalidation contracts</li><li>Workloads requiring TTFT and cost improvements at high concurrency</li><li>Environments with operational maturity for distributed KV tiers</li></ul></section>
-        <section class="bad"><strong>⛔ Not for</strong><ul><li>Single-turn tasks with low prefix reuse potential</li><li>No governance for prompt/system-message version rollout</li><li>Platforms unable to isolate cache leases across tenants</li><li>Teams without observability for cache correctness and drift</li></ul></section></div>
-        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with strict cache governance.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-        <div class="footer"><span>Azure Agent Infra Cycle #2401 · 7-Card Benchmark Deck</span><span>7 / 7</span></div></article>
+        <tr><td>1x</td><td>516 ms</td><td>1994 ms</td><td>measured</td></tr>
+        <tr><td>5x</td><td>694 ms</td><td>2431 ms</td><td>synthetic</td></tr>
+        <tr><td>10x</td><td>842 ms</td><td>2884 ms</td><td>anonymized_reported</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2402 · 7-Card Benchmark Deck</span><span>6 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for enterprise omnichannel assistants that need reliable low-latency ingress and secure proactive messaging.</h2>
+        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Multi-channel enterprise messaging with shared governance needs</li><li>Strict webhook ACK SLA and replay-protection requirements</li><li>Cross-tenant identity linking with centralized policy control</li><li>Asynchronous proactive updates and ordered delivery expectations</li></ul></section>
+        <section class="bad"><strong>⛔ Not for</strong><ul><li>Single-channel bots with simple synchronous replies</li><li>No nonce/signature management capability</li><li>No identity federation process across enterprise boundaries</li><li>Teams lacking queue and proactive publishing operations</li></ul></section></div>
+        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with gateway-first controls.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+        <div class="footer"><span>Azure Agent Infra Cycle #2402 · 7-Card Benchmark Deck</span><span>7 / 7</span></div></article>
         </main></body></html>
