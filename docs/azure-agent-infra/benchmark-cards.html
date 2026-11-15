@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2391 · 7 页基准卡组</title>
+<title>Azure Agent Infra Cycle #2392 · 7 页基准卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · 多模态文档图纸视频摄取管线</div>
-  <h2>分区 fan-out + 多模态向量化让企业 Agent 在复杂文档、图纸、视频场景下保持吞吐与成本可控。</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · Agentic 混沌与韧性验证</div>
+  <h2>Chaos Studio + Load Testing + token 感知熔断可把流式 Agent 风险前置到可回放验证门。</h2>
   <div class="grid2">
-    <section class="pane"><h3>工作台阈值带</h3><ul><li>复杂嵌套表格需保持高保真结构抽取。</li><li>视频关键帧与转录片段需对齐入库。</li><li>每万页成本与吞吐需同时达标。</li></ul></section>
-    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2391,"modalities":3,"partitions":8,"cost_guard":"enabled"}</pre></section>
+    <section class="pane"><h3>工作台阈值带</h3><ul><li>429 配额风暴下必须触发退化策略而非失控重试。</li><li>区域延迟尖峰下保持会话一致性与幂等写入。</li><li>工具棕断场景验证零重复副作用。</li></ul></section>
+    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2392,"fault_domains":3,"stream_paths":2,"idempotency":"required"}</pre></section>
   </div>
-  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2391-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2391 · 7 页基准卡组</span><span>1 / 7</span></div>
+  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2392-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7 页基准卡组</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · 场景：企业多模态摄取</div>
-  <h2>内容理解、布局抽取、分区并发与向量索引链路可将复杂素材转化为可检索 Agent 记忆。</h2>
-  <div class="quote">输入引用："企业 Agent 需要在一个流水线中并行处理复杂表格、工程图与视频，并保证吞吐和每万页成本可控。"</div>
-  <div class="decision"><strong>nested-table layout extraction fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>diagram/video alignment consistency</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="decision"><strong>throughput-cost gate precision</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2391 · 7 页基准卡组</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · 场景：流式 Agent 混沌韧性验证</div>
+  <h2>混沌注入 + 流式压测 + 熔断策略联动验证可显著降低故障放大风险。</h2>
+  <div class="quote">输入引用："我们要在 429 配额风暴、区域延迟尖峰和工具棕断下验证 Agent 退化路径，并确保零重复副作用。"</div>
+  <div class="decision"><strong>quota-storm degradation fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>regional-latency resilience consistency</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>duplicate-sideeffect prevention precision</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7 页基准卡组</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · 测试矩阵</div>
-  <h2>从内容抽取到检索索引的每一段都绑定可复算指标与门禁动作。</h2>
+  <h2>配额风暴、区域时延、工具棕断三类故障都绑定了可复算退化与回滚判据。</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Nested table extraction</td><td>Can complex merged cells and hierarchy be preserved?</td><td>Pass when structural fidelity score exceeds threshold.</td><td>✓ Confirm</td></tr>
-  <tr><td>Diagram ingestion</td><td>Can CAD and architecture diagram regions be indexed?</td><td>Index only when region labels and vector grounding align.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Video alignment</td><td>Are keyframes and transcript segments aligned?</td><td>Block if timestamp drift breaches alignment budget.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Cost gate</td><td>Can ingestion continue when cost/10k pages exceeds budget?</td><td>Throttle partitions and quarantine batch.</td><td>✕ Send to a human</td></tr>
+  <tr><td>429 quota storm</td><td>How should stream path respond when quota saturates?</td><td>Token-aware breaker trips and reroutes to fallback profile.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Cosmos regional latency spike</td><td>Can session state remain consistent under high latency?</td><td>Switch to degraded read/write policy with idempotency locks.</td><td>✓ Confirm</td></tr>
+  <tr><td>MCP tool brownout</td><td>Can swarms avoid duplicate tool side-effects?</td><td>Retry with idempotency key and side-effect ledger check.</td><td>✓ Send to a human</td></tr>
+  <tr><td>Breaker bypass attempt</td><td>Can requests skip breaker and force unsafe retries?</td><td>Blocked and quarantined for policy breach.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2391 · 7 页基准卡组</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7 页基准卡组</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · 底层机制</div>
-  <h2>分区任务、向量化、成本守卫形成可审计的端到端摄取闭环。</h2>
+  <h2>注入实验、压测流、幂等台账与熔断日志形成闭环可审计证据链。</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2391
-focus=multimodal_ingestion_enterprise_agents
+    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2392
+focus=agentic_chaos_streaming_resilience
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>校验流程</h3><pre>assert layout extraction score floor
-assert keyframe-transcript alignment budget
-assert partition throughput and queue stability
-assert cost per 10k pages budget guard</pre></section>
+    <section class="pane dark"><h3>校验流程</h3><pre>assert quota-storm breaker trip threshold
+assert latency-spike graceful degradation
+assert idempotency ledger duplicate guard
+assert tool brownout fallback continuity</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2391 · 7 页基准卡组</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7 页基准卡组</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · 鲁棒性检验</div>
-  <h2>扰动后分值变化位于 -3.0 到 -0.9 分。</h2>
+  <h2>扰动后分值变化位于 -3.1 到 -0.8 分。</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Layout extraction fidelity</td><td>96.2</td><td>95.3</td><td>-0.9</td><td>synthetic</td></tr>
-  <tr><td>Diagram/video alignment consistency</td><td>95.1</td><td>93.8</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>Throughput stability</td><td>94.2</td><td>92.9</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>Cost gate resilience</td><td>85.4</td><td>82.4</td><td>-3.0</td><td>synthetic</td></tr>
+  <tr><td>Quota-storm degradation fidelity</td><td>96.3</td><td>95.5</td><td>-0.8</td><td>synthetic</td></tr>
+  <tr><td>Latency-spike resilience consistency</td><td>95.1</td><td>93.8</td><td>-1.3</td><td>synthetic</td></tr>
+  <tr><td>Side-effect guard precision</td><td>94.1</td><td>92.7</td><td>-1.4</td><td>synthetic</td></tr>
+  <tr><td>Fallback path stability</td><td>85.5</td><td>82.4</td><td>-3.1</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2391 · 7 页基准卡组</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7 页基准卡组</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>10x 负载下主路径 P95 为 356ms，无分区基线为 944ms。</h2>
+  <h2>10x 负载下主路径 P95 为 349ms，无熔断基线为 938ms。</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>206 ms</td><td>752 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>284 ms</td><td>851 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>356 ms</td><td>944 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>203 ms</td><td>748 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>281 ms</td><td>844 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>349 ms</td><td>938 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2391 · 7 页基准卡组</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7 页基准卡组</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · 我的结论</div>
-  <h2>Azure 多模态摄取架构适合高复杂企业内容驱动的 Agent 检索与决策链路。</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>High-volume multimodal ingestion with partitioned fan-out and replay safety</li><li>Complex table/layout extraction combined with diagram and keyframe indexing</li><li>Unified vector retrieval over document, diagram, and video transcript chunks</li><li>Deterministic throughput and cost-per-10k-pages governance for enterprise SLAs</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Single-thread ingestion with no partitioned backpressure handling</li><li>Ignoring nested-table structure quality before downstream retrieval indexing</li><li>No keyframe-transcript alignment strategy for video grounding</li><li>Missing cost controls and quota-aware batching for ingestion peaks</li></ul></section></div>
-  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持企业多模态摄取生产门禁。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2391 · 7 页基准卡组</span><span>7 / 7</span></div>
+  <h2>Agentic Chaos + Streaming Load 验证架构适合生产级流式 Agent 群体韧性治理。</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Agent swarms requiring chaos-informed release confidence before production expansion</li><li>Streaming/SSE/streamable-HTTP workloads needing token-aware circuit breakers</li><li>Fault injection regimes validating graceful degradation and retry safety</li><li>Idempotency controls proving zero duplicate side-effects under turbulence</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Load tests without chaos fault domains or side-effect verification tracks</li><li>Retry loops that ignore idempotency keys and write replay boundaries</li><li>No token-aware breaker policy for quota storms and model fallback</li><li>Assuming tool availability without brownout handling contracts</li></ul></section></div>
+  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级故障注入与退化验证门。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2392 · 7 页基准卡组</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
