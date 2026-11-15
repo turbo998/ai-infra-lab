@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2374 · 7-Card Benchmark</title>
+<title>Azure Agent Infra Cycle #2375 · 7-Card Benchmark</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · Event-driven async swarms</div>
-  <h2>KEDA with queue-first signals keeps long-running agent swarm queue latency controllable at 10x peak load.</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · Agent observability</div>
+  <h2>Foundry Tracing + App Insights + ADX + Grafana keep multi-agent chains observable and attributable at 10x load.</h2>
   <div class="grid2">
-    <section class="pane"><h3>Workbench thresholds</h3><ul><li>Command lane uses Service Bus session lock for exclusive task ownership.</li><li>Failed messages drop to DLQ and move to isolated replay lane.</li><li>Telemetry lane uses Event Hubs to avoid control-plane backpressure.</li></ul></section>
-    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2374,"runtime_paths":4,"throughput_paths":4,"policy_checks":3}</pre></section>
+    <section class="pane"><h3>Workbench thresholds</h3><ul><li>All child-agent spans must inherit a unified parent trace.</li><li>Token cost attribution must bind tenant+agent+tool tuple.</li><li>Runaway loops over threshold auto-trigger circuit break.</li></ul></section>
+    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2375,"runtime_paths":4,"throughput_paths":4,"policy_checks":3}</pre></section>
   </div>
-  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2374-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7-Card Benchmark</span><span>1 / 7</span></div>
+  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2375-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2375 · 7-Card Benchmark</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · SCENARIO: async swarm scheduling</div>
-  <h2>Session Lock + DLQ + pull delivery + telemetry split reduces long-run jitter into a governable range.</h2>
-  <div class="quote">Input quote: "Long-running background agent swarms need stable balance across Service Bus lock renewal, DLQ isolation, Event Hubs telemetry, and KEDA autoscaling."</div>
-  <div class="decision"><strong>session-lock renewal anomaly block</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="decision"><strong>poison-message DLQ isolation fence</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
-  <div class="decision"><strong>event-stream telemetry backpressure guard</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7-Card Benchmark</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · SCENARIO: multi-agent tracing attribution</div>
+  <h2>End-to-end OTel semantic conventions unify span correlation, cost attribution, and online evaluation.</h2>
+  <div class="quote">Input quote: "Multi-agent chains must provide span correlation, tenant token cost attribution, runaway loop detection, and online evaluation closure."</div>
+  <div class="decision"><strong>multi-agent span-correlation integrity fence</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div>
+  <div class="decision"><strong>tenant token FinOps attribution guard</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="decision"><strong>runaway tool-loop circuit-break detector</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2375 · 7-Card Benchmark</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · WHAT I TESTED</div>
   <h2>Reversed perturbation is caught and routed to human review while primary paths pass.</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Coding Agent sandbox</td><td>Need long task lock custody without duplicate execution?</td><td>Service Bus session lock + renewal budget + lease lineage.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Browser/CUA cluster</td><td>Need queue-depth-first autoscaling?</td><td>KEDA scales by lag + active session count + lock age.</td><td>✓ Confirm</td></tr>
-  <tr><td>Multi-tenant SaaS gateway</td><td>Need poison-message blast-radius isolation?</td><td>Tenant-scoped DLQ and replay quarantine lanes.</td><td>✓ Confirm</td></tr>
-  <tr><td>Edge stress test</td><td>Reverse option order and disable DLQ path?</td><td>Single queue fallback without isolation.</td><td>✕ Send to a human</td></tr>
+  <tr><td>Coding Agent sandbox</td><td>Need stable trace parent linkage across tools?</td><td>Propagate W3C trace context from coordinator to all tool spans.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Browser/CUA cluster</td><td>Need joint UI action and tool span stitching?</td><td>Use span-link semantics and lane-specific attributes.</td><td>✓ Confirm</td></tr>
+  <tr><td>Multi-tenant SaaS gateway</td><td>Need tenant-level token cost attribution?</td><td>Emit tenant+agent+tool dimensions into ADX and App Insights.</td><td>✓ Confirm</td></tr>
+  <tr><td>Edge stress test</td><td>Reverse options and disable loop detection?</td><td>No-circuit-break path selected.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7-Card Benchmark</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2375 · 7-Card Benchmark</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · UNDER THE HOOD</div>
   <h2>Contract-to-verifier flow stays traceable with no fabricated coordinates.</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2374
-evidence=evidence/cycle-2374-benchmark.json
+    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2375
+evidence=evidence/cycle-2375-benchmark.json
 labels=measured/synthetic/anonymized_reported</pre></section>
     <section class="pane dark"><h3>Verifier flow</h3><pre>assert csp self-contained
 assert coordinates from evidence payload
 assert labels are traceable
 assert misses remain human-routed</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7-Card Benchmark</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2375 · 7-Card Benchmark</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div>
-  <h2>Perturbation drift stays bounded between -3.2 and -0.9 points.</h2>
+  <h2>Perturbation drift stays bounded between -3.0 and -0.8 points.</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Session lock custody stability</td><td>95.3</td><td>94.4</td><td>-0.9</td><td>synthetic</td></tr>
-  <tr><td>DLQ poison isolation integrity</td><td>96.7</td><td>95.6</td><td>-1.1</td><td>synthetic</td></tr>
-  <tr><td>Telemetry stream backpressure resilience</td><td>95.9</td><td>94.4</td><td>-1.5</td><td>synthetic</td></tr>
-  <tr><td>Single-queue shortcut heuristic</td><td>84.0</td><td>80.8</td><td>-3.2</td><td>synthetic</td></tr>
+  <tr><td>Span correlation integrity score</td><td>96.1</td><td>95.3</td><td>-0.8</td><td>synthetic</td></tr>
+  <tr><td>Tenant token attribution consistency</td><td>95.7</td><td>94.6</td><td>-1.1</td><td>synthetic</td></tr>
+  <tr><td>Runaway loop detection reliability</td><td>96.4</td><td>95.0</td><td>-1.4</td><td>synthetic</td></tr>
+  <tr><td>No-circuit fallback heuristic</td><td>84.2</td><td>81.2</td><td>-3.0</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7-Card Benchmark</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2375 · 7-Card Benchmark</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>At 10x load, primary path stays below 280ms while baseline remains above 860ms.</h2>
+  <h2>At 10x load, primary path stays below 290ms while baseline remains above 900ms.</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>156 ms</td><td>736 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>218 ms</td><td>808 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>274 ms</td><td>889 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>168 ms</td><td>761 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>233 ms</td><td>836 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>289 ms</td><td>917 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7-Card Benchmark</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2375 · 7-Card Benchmark</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · MY TAKE</div>
-  <h2>Event-driven async swarms are production-scalable with layered Service Bus + Event Grid + Event Hubs design.</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox: async job orchestration with bounded session lock windows</li><li>Browser/CUA cluster: pull-delivery with queue-depth-aware KEDA scaling</li><li>Multi-tenant SaaS gateway: DLQ isolation and per-tenant poison replay lanes</li><li>Financial zero-trust: immutable telemetry stream + policy-enforced lock custody</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Single queue without poison-message isolation strategy</li><li>No lock renewal budget for long-running agent actions</li><li>Autoscaling on CPU only while ignoring queue lag and session contention</li><li>Telemetry plane coupled to command plane with no backpressure boundaries</li></ul></section></div>
-  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-capable async swarm governance.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7-Card Benchmark</span><span>7 / 7</span></div>
+  <h2>OTel GenAI semantic conventions + Foundry Tracing + ADX/Grafana fit production multi-agent observability.</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox: per-tool span trace and loop-stop guard with token budget</li><li>Browser/CUA cluster: correlated spans across UI action lane and tool lane</li><li>Multi-tenant SaaS gateway: tenant-scoped FinOps attribution with token lineage</li><li>Financial zero-trust: immutable trace export with policy-enforced evaluation gates</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Trace IDs generated per hop without cross-agent parent context</li><li>No tenant dimension in token and latency attribution records</li><li>Offline-only evaluation with no online anomaly trigger path</li><li>Runaway tool loop detected only by manual dashboard inspection</li></ul></section></div>
+  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-capable tracing attribution and online-eval closure.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2375 · 7-Card Benchmark</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
