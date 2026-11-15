@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2373 · 7 页基准卡组</title>
+<title>Azure Agent Infra Cycle #2374 · 7 页基准卡组</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · Agentic RAG 记忆分层</div>
-  <h2>三层记忆分工在 10x 负载下将检索 P95 保持在 260ms 内。</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · 事件驱动异步 Agent 群</div>
+  <h2>KEDA + Queue 指标联动让长任务 Agent 群在 10x 峰值下保持可控队列时延。</h2>
   <div class="grid2">
-    <section class="pane"><h3>工作台阈值带</h3><ul><li>冷数据检索优先走 Azure AI Search Agentic Retrieval。</li><li>Operational memory 写入走 Cosmos DiskANN。</li><li>短期 episodic 交互上下文走 Redis 语义缓存。</li></ul></section>
-    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2373,"runtime_paths":4,"throughput_paths":4,"policy_checks":3}</pre></section>
+    <section class="pane"><h3>工作台阈值带</h3><ul><li>命令流走 Service Bus 会话锁，保证任务独占执行。</li><li>失败消息落 DLQ，进入隔离回放通道。</li><li>遥测流走 Event Hubs，避免控制面背压。</li></ul></section>
+    <section class="pane dark"><h3>结构化输入</h3><pre>{"cycle":2374,"runtime_paths":4,"throughput_paths":4,"policy_checks":3}</pre></section>
   </div>
-  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2373-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2373 · 7 页基准卡组</span><span>1 / 7</span></div>
+  <div class="ready">溯源: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2374-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7 页基准卡组</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · 场景：多层记忆路由</div>
-  <h2>Agentic Retrieval + DiskANN + Redis 的分层治理把新鲜度与成本冲突降到可控区间。</h2>
-  <div class="quote">输入引用："需要把 Agentic Retrieval、Cosmos DiskANN operational memory、Redis semantic cache 组合为可治理的多层记忆闭环。"</div>
-  <div class="decision"><strong>retrieval freshness drift block</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>diskann operational memory consistency fence</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
-  <div class="decision"><strong>redis episodic cache tenancy guard</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2373 · 7 页基准卡组</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · 场景：异步群调度</div>
+  <h2>Session Lock + DLQ + Pull Delivery + Telemetry 分流将长任务抖动压缩至可治理区间。</h2>
+  <div class="quote">输入引用："长时后台 Agent 群需要在 Service Bus 锁续租、DLQ 隔离、Event Hubs 遥测与 KEDA 弹性之间实现稳定平衡。"</div>
+  <div class="decision"><strong>session-lock renewal anomaly block</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>poison-message DLQ isolation fence</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
+  <div class="decision"><strong>event-stream telemetry backpressure guard</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7 页基准卡组</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · 测试矩阵</div>
   <h2>反转扰动场景被识别并转人工，主路径保持通过。</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Coding Agent sandbox</td><td>Need retrieval freshness with low tail latency?</td><td>Search retrieval + Redis episodic cache before DiskANN writeback.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Browser/CUA cluster</td><td>Need fast short-term interaction memory?</td><td>Redis semantic episodic cache with strict TTL budget.</td><td>✓ Confirm</td></tr>
-  <tr><td>Multi-tenant SaaS gateway</td><td>Need tenant ACLs across memory tiers?</td><td>Tenant-scoped ACL and namespace gates per memory layer.</td><td>✓ Confirm</td></tr>
-  <tr><td>Edge stress test</td><td>Reverse option order and bypass freshness checks?</td><td>Single-tier memory selected without freshness gate.</td><td>✕ Send to a human</td></tr>
+  <tr><td>Coding Agent sandbox</td><td>Need long task lock custody without duplicate execution?</td><td>Service Bus session lock + renewal budget + lease lineage.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Browser/CUA cluster</td><td>Need queue-depth-first autoscaling?</td><td>KEDA scales by lag + active session count + lock age.</td><td>✓ Confirm</td></tr>
+  <tr><td>Multi-tenant SaaS gateway</td><td>Need poison-message blast-radius isolation?</td><td>Tenant-scoped DLQ and replay quarantine lanes.</td><td>✓ Confirm</td></tr>
+  <tr><td>Edge stress test</td><td>Reverse option order and disable DLQ path?</td><td>Single queue fallback without isolation.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2373 · 7 页基准卡组</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7 页基准卡组</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · 底层机制</div>
   <h2>输入契约到校验链条全程可追溯，无虚构坐标。</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2373
-evidence=evidence/cycle-2373-benchmark.json
+    <section class="pane dark"><h3>契约输入</h3><pre>cycle=2374
+evidence=evidence/cycle-2374-benchmark.json
 labels=measured/synthetic/anonymized_reported</pre></section>
     <section class="pane dark"><h3>校验流程</h3><pre>assert csp self-contained
 assert coordinates from evidence payload
 assert labels are traceable
 assert misses remain human-routed</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2373 · 7 页基准卡组</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7 页基准卡组</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · 鲁棒性检验</div>
-  <h2>扰动漂移区间收敛在 -3.1 到 -0.8 分。</h2>
+  <h2>扰动漂移区间收敛在 -3.2 到 -0.9 分。</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Retrieval freshness stability score</td><td>95.8</td><td>95.0</td><td>-0.8</td><td>synthetic</td></tr>
-  <tr><td>DiskANN operational memory consistency</td><td>96.3</td><td>95.1</td><td>-1.2</td><td>synthetic</td></tr>
-  <tr><td>Redis episodic cache tenancy integrity</td><td>95.1</td><td>93.8</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>Single-tier fallback heuristic</td><td>84.4</td><td>81.3</td><td>-3.1</td><td>synthetic</td></tr>
+  <tr><td>Session lock custody stability</td><td>95.3</td><td>94.4</td><td>-0.9</td><td>synthetic</td></tr>
+  <tr><td>DLQ poison isolation integrity</td><td>96.7</td><td>95.6</td><td>-1.1</td><td>synthetic</td></tr>
+  <tr><td>Telemetry stream backpressure resilience</td><td>95.9</td><td>94.4</td><td>-1.5</td><td>synthetic</td></tr>
+  <tr><td>Single-queue shortcut heuristic</td><td>84.0</td><td>80.8</td><td>-3.2</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2373 · 7 页基准卡组</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7 页基准卡组</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>10x 负载下主路径保持亚 260ms，基线路径仍高于 820ms。</h2>
+  <h2>10x 负载下主路径保持亚 280ms，基线路径仍高于 860ms。</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>142 ms</td><td>704 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>197 ms</td><td>771 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>258 ms</td><td>843 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>156 ms</td><td>736 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>218 ms</td><td>808 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>274 ms</td><td>889 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2373 · 7 页基准卡组</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7 页基准卡组</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · 我的结论</div>
-  <h2>Agentic RAG + Operational Memory + Episodic Cache 的分层组合适合多租户生产。</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox: retrieval memory separated from operational write-memory</li><li>Browser/CUA cluster: Redis episodic cache keeps interaction context fast and short-lived</li><li>Multi-tenant SaaS gateway: tenant ACL + memory-tier policy contracts</li><li>Financial zero-trust: Cosmos + Search ACL lineage with auditable replay</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Single memory tier for all read/write/query paths</li><li>No freshness boundary between retrieval context and operational memory writes</li><li>Shared Redis keyspace across tenants without ACL namespace isolation</li><li>Cost control based only on average latency without RU/SU pressure gates</li></ul></section></div>
-  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级多层记忆治理。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2373 · 7 页基准卡组</span><span>7 / 7</span></div>
+  <h2>事件驱动异步 Agent 群在 Service Bus + Event Grid + Event Hubs 分层下具备生产可扩展性。</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox: async job orchestration with bounded session lock windows</li><li>Browser/CUA cluster: pull-delivery with queue-depth-aware KEDA scaling</li><li>Multi-tenant SaaS gateway: DLQ isolation and per-tenant poison replay lanes</li><li>Financial zero-trust: immutable telemetry stream + policy-enforced lock custody</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Single queue without poison-message isolation strategy</li><li>No lock renewal budget for long-running agent actions</li><li>Autoscaling on CPU only while ignoring queue lag and session contention</li><li>Telemetry plane coupled to command plane with no backpressure boundaries</li></ul></section></div>
+  <section class="ready"><strong>就绪度 / 许可 / 溯源</strong><br>就绪度：支持生产级异步群调度治理。<br>许可：仓库自有仿真产物。<br>溯源： fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2374 · 7 页基准卡组</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
