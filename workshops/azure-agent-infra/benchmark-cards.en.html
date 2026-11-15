@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2379 · 7-Card Benchmark</title>
+<title>Azure Agent Infra Cycle #2380 · 7-Card Benchmark</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -24,75 +24,75 @@ ul{margin:8px 0 0 18px;padding:0}
 </head>
 <body><main class="deck">
 <article class="card">
-  <div class="eyebrow">1 / 7 · HANDS-ON · a2a + mcp interoperability topology</div>
-  <h2>Dual-plane topology keeps interoperability throughput and cross-tenant governance in a production-safe envelope.</h2>
+  <div class="eyebrow">1 / 7 · HANDS-ON · durable checkpointed orchestration</div>
+  <h2>Tiered durable checkpoints plus hot cache keep multi-agent recovery consistency and latency controllable.</h2>
   <div class="grid2">
-    <section class="pane"><h3>Workbench thresholds</h3><ul><li>Agent Card discovery must bind version/signature and tenant trust chain.</li><li>Long-lived stream pools require tenant-scoped circuit breakers and isolation.</li><li>Cross-tenant federation requires APIM registry policy plus mesh mTLS constraints.</li></ul></section>
-    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2379,"planes":2,"federation_modes":3,"pooling_policy":"streamable-http"}</pre></section>
+    <section class="pane"><h3>Workbench thresholds</h3><ul><li>Critical state must persist in Durable+Cosmos, not only Redis.</li><li>Recovery paths must include idempotency keys and compensation steps.</li><li>Tenant partitions and quotas protect against replay storms.</li></ul></section>
+    <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2380,"state_tiers":3,"recovery_modes":4,"checkpoint_policy":"durable+cosmos"}</pre></section>
   </div>
-  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2379-benchmark.json</div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7-Card Benchmark</span><span>1 / 7</span></div>
+  <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2380-benchmark.json</div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2380 · 7-Card Benchmark</span><span>1 / 7</span></div>
 </article>
 <article class="card">
-  <div class="eyebrow">2 / 7 · SCENARIO: enterprise A2A federation</div>
-  <h2>Edge-gateway plus east-west mesh composition reduces federation retry storms and overreach risk to governable levels.</h2>
-  <div class="quote">Input quote: "Need to balance cross-tenant federation, long-lived connection pooling, and protocol evolution between APIM Agent/MCP Registry + Front Door WAF and AKS/ACA east-west mTLS mesh."</div>
-  <div class="decision"><strong>agent-card discovery version custody</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
-  <div class="decision"><strong>streamable-http pool stability guard</strong><div class="bar"><div class="fill" style="width:94%"></div></div></div>
-  <div class="decision"><strong>cross-tenant federation blast-radius fence</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7-Card Benchmark</span><span>2 / 7</span></div>
+  <div class="eyebrow">2 / 7 · SCENARIO: multi-agent state recovery and handoff</div>
+  <h2>Tiered state planes keep replay latency and consistency risks inside enterprise-governable bounds.</h2>
+  <div class="quote">Input quote: "Need to balance recovery consistency, replay latency, and cost across Durable Functions + Cosmos DB checkpoints and Redis hot context."</div>
+  <div class="decision"><strong>checkpoint consistency custody</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
+  <div class="decision"><strong>replay latency budget guard</strong><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+  <div class="decision"><strong>tenant partition isolation fidelity</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2380 · 7-Card Benchmark</span><span>2 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">3 / 7 · WHAT I TESTED</div>
-  <h2>Protocol-evolution and pool-pressure scenarios pass while overreach federation cases route to human review.</h2>
+  <h2>Recovery and compensation paths pass while cross-tenant state mixing is blocked and routed to human review.</h2>
   <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-  <tr><td>Agent Card discovery</td><td>New card version without signed compatibility proof?</td><td>Reject registration; require signed compatibility chain.</td><td>✓ Confirm</td></tr>
-  <tr><td>Streamable-HTTP pooling</td><td>Burst reconnection under 10x tenant load?</td><td>Reuse pool slots + tenant breaker; no global collapse.</td><td>✓ Act automatically</td></tr>
-  <tr><td>Cross-tenant federation</td><td>Tenant A token attempts tenant B tool chain?</td><td>Federation denied by APIM policy + mesh identity guard.</td><td>✓ Send to a human</td></tr>
-  <tr><td>Protocol downgrade attack</td><td>Force legacy MCP mode bypass?</td><td>Downgrade blocked; require approved version map.</td><td>✕ Send to a human</td></tr>
+  <tr><td>Checkpoint restore</td><td>Resume from interrupted step with durable state?</td><td>Replay from latest Durable checkpoint with idempotency key.</td><td>✓ Act automatically</td></tr>
+  <tr><td>Compensation handoff</td><td>Tool side-effect detected after timeout?</td><td>Invoke compensation flow and move to HITL gate.</td><td>✓ Confirm</td></tr>
+  <tr><td>Tenant isolation</td><td>Shared partition request across tenants?</td><td>Denied by partition policy and custody fence.</td><td>✓ Send to a human</td></tr>
+  <tr><td>Replay shortcut</td><td>Skip checkpoint to speed re-entry?</td><td>Rejected due to consistency contract violation.</td><td>✕ Send to a human</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7-Card Benchmark</span><span>3 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2380 · 7-Card Benchmark</span><span>3 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">4 / 7 · UNDER THE HOOD</div>
-  <h2>Coordinates come directly from evidence tables with auditable protocol/version/tenant policy chain.</h2>
+  <h2>Scores and thresholds bind directly to evidence tables with auditable recovery chains.</h2>
   <div class="grid2">
-    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2379
-focus=a2a_mcp_interop
+    <section class="pane dark"><h3>Contract input</h3><pre>cycle=2380
+focus=durable_checkpoint_runtime
 labels=measured/synthetic/anonymized_reported</pre></section>
-    <section class="pane dark"><h3>Verifier flow</h3><pre>assert card version signatures
-assert stream pool tax from latency table
-assert tenant overreach human-routed
-assert csp self-contained report cards</pre></section>
+    <section class="pane dark"><h3>Verifier flow</h3><pre>assert durable checkpoint lineage
+assert replay p95 from latency table
+assert tenant mix routed human-review
+assert csp self-contained 7-card</pre></section>
   </div>
-  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7-Card Benchmark</span><span>4 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2380 · 7-Card Benchmark</span><span>4 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div>
-  <h2>After perturbation, score drift remains bounded between -3.1 and -0.9 points.</h2>
+  <h2>Post-perturbation score drift remains bounded between -3.0 and -0.8 points.</h2>
   <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>Card version custody confidence</td><td>96.4</td><td>95.5</td><td>-0.9</td><td>synthetic</td></tr>
-  <tr><td>Pooling stability under burst load</td><td>94.8</td><td>93.5</td><td>-1.3</td><td>synthetic</td></tr>
-  <tr><td>Cross-tenant federation isolation score</td><td>95.1</td><td>93.7</td><td>-1.4</td><td>synthetic</td></tr>
-  <tr><td>Legacy protocol bypass temptation</td><td>83.9</td><td>80.8</td><td>-3.1</td><td>synthetic</td></tr>
+  <tr><td>Checkpoint consistency custody</td><td>96.7</td><td>95.9</td><td>-0.8</td><td>synthetic</td></tr>
+  <tr><td>Replay latency budget stability</td><td>95.3</td><td>94.1</td><td>-1.2</td><td>synthetic</td></tr>
+  <tr><td>Tenant partition isolation score</td><td>95.8</td><td>94.4</td><td>-1.4</td><td>synthetic</td></tr>
+  <tr><td>Checkpoint bypass temptation</td><td>84.2</td><td>81.2</td><td>-3.0</td><td>synthetic</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7-Card Benchmark</span><span>5 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2380 · 7-Card Benchmark</span><span>5 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">6 / 7 · LATENCY</div>
-  <h2>At 10x load, primary path P95 is 318ms while no-pooling baseline reaches 982ms.</h2>
+  <h2>At 10x load, primary path P95 is 327ms while non-durable baseline reaches 1003ms.</h2>
   <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-  <tr><td>1x</td><td>188 ms</td><td>812 ms</td><td>anonymized_reported</td></tr>
-  <tr><td>5x</td><td>259 ms</td><td>903 ms</td><td>synthetic</td></tr>
-  <tr><td>10x</td><td>318 ms</td><td>982 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>1x</td><td>193 ms</td><td>829 ms</td><td>anonymized_reported</td></tr>
+  <tr><td>5x</td><td>268 ms</td><td>921 ms</td><td>synthetic</td></tr>
+  <tr><td>10x</td><td>327 ms</td><td>1003 ms</td><td>anonymized_reported</td></tr>
   </tbody></table>
-  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7-Card Benchmark</span><span>6 / 7</span></div>
+  <div class="footer"><span>Azure Agent Infra Cycle #2380 · 7-Card Benchmark</span><span>6 / 7</span></div>
 </article>
 <article class="card">
   <div class="eyebrow">7 / 7 · MY TAKE</div>
-  <h2>A2A + streamable-HTTP dual-plane topology fits enterprise multi-tenant agent federation interoperability.</h2>
-  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox federation with explicit Agent Card trust chain</li><li>Browser/CUA clusters needing streamable-HTTP pool reuse and lower reconnect tax</li><li>Multi-tenant SaaS gateway with APIM registry governance + tenant custody controls</li><li>Financial zero-trust requiring east-west mTLS mesh policy and isolated tenant federation</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>No agent-card version policy or backward-compatibility contract</li><li>Connection pooling without per-tenant circuit breakers and token custody</li><li>Cross-tenant federation enabled without blast-radius boundaries</li><li>Single-plane topology with no failover between edge-gateway and mesh lanes</li></ul></section></div>
-  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: suitable for production-grade cross-tenant agent interoperability governance.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-  <div class="footer"><span>Azure Agent Infra Cycle #2379 · 7-Card Benchmark</span><span>7 / 7</span></div>
+  <h2>Durable Functions + Cosmos DB checkpoint stratification fits enterprise multi-agent recovery governance.</h2>
+  <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox: resumable multi-step plans with deterministic checkpoint custody</li><li>Browser/CUA clusters: session-level replay and compensation step handoff</li><li>Multi-tenant SaaS gateway: tenant-isolated checkpoint partitions and replay quotas</li><li>Financial zero-trust: immutable checkpoint lineage with approval re-entry gates</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>No separation between workflow state and ephemeral conversational cache</li><li>Replay enabled without idempotency keys and compensation contracts</li><li>Cross-tenant checkpoint reuse or shared partition strategy</li><li>Checkpoint retention without lifecycle policy and legal audit mapping</li></ul></section></div>
+  <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: supports production recovery, compensation, and auditability.<br>License: repository-owned simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+  <div class="footer"><span>Azure Agent Infra Cycle #2380 · 7-Card Benchmark</span><span>7 / 7</span></div>
 </article>
 </main></body></html>
