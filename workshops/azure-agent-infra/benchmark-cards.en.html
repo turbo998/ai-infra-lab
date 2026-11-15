@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</title>
+<title>Azure Agent Infra Cycle #2418 · IDP Golden Path Deck</title>
 <style>
 *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
 .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@ ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Supply-Chain Admission</div><h2>Signature graph, admission policy, and runtime drift controls together compress MCP supply-chain risk.</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Notation signing and OCI referrers.</li><li>Ratify/Gatekeeper admission.</li><li>Copa patch and drift quarantine.</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2417,"focus":"mcp_supply_chain_zero_trust","gates":["signature","admission","drift"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2417-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: MCP Rug-Pull Defense</div><h2>Combining unsigned blocking, accelerated patching, and drift quarantine materially reduces exposure.</h2>
-<div class="quote">Input quote: "Block tampered MCP images, reduce npx/uvx rug-pull exposure, and keep patch windows short."</div>
-<div class="decision"><strong>unsigned/tampered block rate</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div>
-<div class="decision"><strong>rug-pull exposure reduction</strong><div class="bar"><div class="fill" style="width:93%"></div></div></div>
-<div class="decision"><strong>supply-chain guardrail pass</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates evaluate signature integrity, admission policy, and patch velocity together.</h2>
+<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · IDP Golden Paths</div><h2>Agent vending machine shrinks compliant environment provisioning from weeks to minutes.</h2>
+<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>ADE + Dev Box environment vending.</li><li>AVM + azd paved road templates.</li><li>Foundry/APIM/Entra self-service bootstrap.</li></ul></section>
+<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2418,"focus":"idp_agent_vending","gates":["policy","quota","identity"]}</pre></section></div>
+<div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2418-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path Deck</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: CoE Scale-Out</div><h2>Platform leverage rises to 26 squads per engineer while policy blocking remains high.</h2>
+<div class="quote">Input quote: "Enable 50+ squads with self-service onboarding, no-public-endpoint, content safety, and budget-tag guardrails."</div>
+<div class="decision"><strong>compliant provisioning under 30 min</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+<div class="decision"><strong>policy non-compliant block rate</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
+<div class="decision"><strong>orphan sandbox TTL savings</strong><div class="bar"><div class="fill" style="width:82%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path Deck</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Scale-up requires both platform efficiency and compliance blocking to pass together.</h2>
 <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>Signing</td><td>Are unsigned or incomplete graphs denied?</td><td>Notation + OCI referrers integrity required.</td><td>✓ Act automatically</td></tr>
-<tr><td>Admission</td><td>Are critical CVEs blocked before scheduling?</td><td>Ratify + Gatekeeper critical-CVE deny.</td><td>✓ Confirm</td></tr>
-<tr><td>Patching</td><td>Does Copa reduce patch window?</td><td>Zero-rebuild patch then re-sign path.</td><td>✓ Send to a human</td></tr>
-<tr><td>Runtime</td><td>Is drift automatically quarantined?</td><td>Defender drift trigger quarantine lane.</td><td>✕ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Zero-trust MCP supply chains require verifiable provenance, enforceable policy, and patch rollback discipline.</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2417
-focus=supply_chain_mcp_container_admission
+<tr><td>Provisioning</td><td>Can compliant provisioning finish within 30 minutes?</td><td>ADE + AVM + azd reaches 96.4% under-30-min.</td><td>✓ Act automatically</td></tr>
+<tr><td>Policy</td><td>Are non-compliant deployments blocked?</td><td>DINE/Deny blocks 98.7% non-compliant changes.</td><td>✓ Confirm</td></tr>
+<tr><td>Leverage</td><td>Does CoE leverage materially improve?</td><td>26 squads/engineer with template governance.</td><td>✓ Send to a human</td></tr>
+<tr><td>Lifecycle</td><td>Can orphan environment cost be reclaimed?</td><td>TTL reclaim saves 82.4% stale sandbox spend.</td><td>✕ Send to a human</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path Deck</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Golden paths work only when templates, policy, and lifecycle automation are packaged as one product.</h2>
+<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2418
+focus=idp_golden_paths_agent_vending
 labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert unsigned tampered block floor
-assert rugpull exposure reduction floor
-assert admission latency budget
-assert patch and drift guardrail pass</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.4 to -0.5 points.</h2>
+<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert provisioning SLO floor
+assert policy block-rate floor
+assert platform leverage threshold
+assert TTL reclaim savings floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path Deck</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas stay between -1.8 and -0.7 points.</h2>
 <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>block rate</td><td>99.5</td><td>99.0</td><td>-0.5</td><td>synthetic</td></tr>
-<tr><td>rug-pull reduction</td><td>93.2</td><td>92.0</td><td>-1.2</td><td>synthetic</td></tr>
-<tr><td>guardrail pass</td><td>98.2</td><td>97.3</td><td>-0.9</td><td>synthetic</td></tr>
-<tr><td>admission stability</td><td>95.6</td><td>94.2</td><td>-1.4</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Ratify/Gatekeeper keeps admission overhead to 96ms P95 while achieving 99.5% tampered-image blocking.</h2>
+<tr><td>under-30-min provisioning</td><td>96.4</td><td>95.6</td><td>-0.8</td><td>synthetic</td></tr>
+<tr><td>policy block</td><td>98.7</td><td>97.9</td><td>-0.8</td><td>synthetic</td></tr>
+<tr><td>leverage stability</td><td>96.1</td><td>94.3</td><td>-1.8</td><td>synthetic</td></tr>
+<tr><td>TTL savings</td><td>82.4</td><td>81.7</td><td>-0.7</td><td>synthetic</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path Deck</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Full IDP vending reaches 27-minute median provisioning with 98.7% policy blocking.</h2>
 <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>signing + admission</td><td>96 ms</td><td>0 ms</td><td>measured</td></tr>
-<tr><td>copa patch lead time</td><td>22 min</td><td>137 min</td><td>anonymized_reported</td></tr>
-<tr><td>full rebuild patch</td><td>137 min</td><td>137 min</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>MCP ecosystems scale safely only when signing, admission, and patch operations are run as one product capability.</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Enterprises adopting third-party MCP/tool ecosystems</li><li>Teams with admission policy and signing operations</li><li>Regulated workloads requiring immutable provenance</li><li>Organizations running continuous patch and drift response</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>Unpinned runtime package fetch in production paths</li><li>No SBOM/provenance generation pipeline</li><li>Teams without key/certificate management discipline</li><li>Environments unwilling to enforce CVE-based admission blocking</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for zero-trust MCP supply chains.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2417 · Supply-Chain Security Deck</span><span>7 / 7</span></div></article>
+<tr><td>compliant provisioning</td><td>27 min</td><td>15 days</td><td>measured</td></tr>
+<tr><td>policy decision path</td><td>510 ms</td><td>120 ms</td><td>synthetic</td></tr>
+<tr><td>promotion gate checks</td><td>4.2 min</td><td>2.1 min</td><td>anonymized_reported</td></tr>
+</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path Deck</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>To scale AI squads, CoE must run IDP as a product, not a ticket queue.</h2>
+<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Large enterprises with many product squads and strict controls</li><li>Organizations adopting policy-as-code and template governance</li><li>Teams needing repeatable Foundry/APIM/identity bootstrapping</li><li>FinOps-focused operations requiring TTL reclaim discipline</li></ul></section>
+<section class="bad"><strong>⛔ Not for</strong><ul><li>Teams resisting standard templates and policy guardrails</li><li>Manual environment provisioning as default workflow</li><li>No ownership model for platform product operations</li><li>Organizations without lifecycle cleanup governance</li></ul></section></div>
+<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for enterprise IDP golden paths.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+<div class="footer"><span>Azure Agent Infra Cycle #2418 · IDP Golden Path Deck</span><span>7 / 7</span></div></article>
 </main></body></html>
