@@ -4,65 +4,41 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-<title>Azure Agent Infra Cycle #2433 · Telco NetOps Deck</title>
+<title>Cycle 2434 · OTel GenAI Tracing Benchmark Cards</title>
 <style>
-*{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
-.deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
-.card{width:900px;min-height:1125px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:12px}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#047857;text-transform:uppercase}
-h2{margin:0;font-size:30px;line-height:1.2} h3{margin:0;font-size:16px}
-table{width:100%;border-collapse:collapse;font-size:14px} th,td{border-bottom:1px solid #e2e8f0;padding:8px;text-align:left}
-th{font-size:12px;color:#475569;text-transform:uppercase;letter-spacing:.08em}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px} .pane{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff}
-.dark{background:#0f172a;color:#e2e8f0;border-color:#1e293b} .quote{border-left:4px solid #047857;background:#ecfdf5;padding:10px}
-.decision{border:1px solid #cbd5e1;border-radius:10px;padding:10px;background:#fff;margin-bottom:8px}
-.bar{height:8px;background:#e2e8f0;border-radius:999px;overflow:hidden} .fill{height:100%;background:linear-gradient(90deg,#047857,#10b981)}
-.good{background:#ecfdf5;border:1px solid #86efac;border-radius:10px;padding:10px} .bad{background:#fff1f2;border:1px solid #fda4af;border-radius:10px;padding:10px}
-.ready{background:#0f172a;color:#e2e8f0;border:1px solid #1e293b;border-radius:10px;padding:10px} .footer{margin-top:auto;font-size:12px;color:#64748b;display:flex;justify-content:space-between}
+*{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;color:#0f172a}
+.deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:22px} .card{width:900px;min-height:1125px;background:#f8fafc;border:1px solid #cbd5e1;border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.eye{font-size:12px;font-weight:700;letter-spacing:.13em;color:#0369a1;text-transform:uppercase} h2{margin:0;font-size:30px} h3{margin:0;font-size:16px} p{margin:0;color:#334155;line-height:1.5}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px} .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px} .pane{border:1px solid #cbd5e1;border-radius:10px;padding:12px;background:#fff}
+.dark{background:#0f172a;border-color:#1e293b;color:#e2e8f0} .code{font-family:Consolas,monospace;font-size:12px;white-space:pre-wrap;line-height:1.45}
+table{width:100%;border-collapse:collapse;font-size:14px} th,td{padding:8px;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top} th{font-size:12px;color:#475569;text-transform:uppercase;letter-spacing:.08em}
+.lr{border:1px solid #cbd5e1;border-radius:10px;background:#fff;padding:10px;margin-bottom:8px} .lt{font-weight:700;font-size:13px;margin-bottom:8px} .lv{display:grid;grid-template-columns:180px 1fr;gap:8px;align-items:center;font-size:13px;margin-bottom:6px}
+.track{height:12px;background:#e2e8f0;border-radius:999px;overflow:hidden} .p{height:100%;background:#3B82F6} .b{height:100%;background:#CBD5E1}
+.good{background:#ecfdf5;border:1px solid #86efac;border-radius:10px;padding:12px} .bad{background:#fff1f2;border:1px solid #fda4af;border-radius:10px;padding:12px}
+.foot{margin-top:auto;font-size:12px;color:#64748b;display:flex;justify-content:space-between} .ready{background:#0f172a;border:1px solid #1e293b;border-radius:10px;padding:12px;color:#e2e8f0}
 ul{margin:8px 0 0 18px;padding:0}
 </style>
 </head>
 <body><main class="deck">
-<article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Carrier-Grade NetOps</div><h2>Alarm compression, formal preflight verification, and ring rollback controls form the carrier-grade NetOps automation baseline.</h2>
-<div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Alarm storm correlation</li><li>YANG and Batfish preflight</li><li>Canary ring rollback governance</li></ul></section>
-<section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2433,"focus":"telco_5g_netops","gates":["preflight","canary","sla"]}</pre></section></div>
-<div class="ready">Provenance: fetched 2026-11-16 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2433-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2433 · Telco NetOps Deck</span><span>1 / 7</span></div></article>
-<article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Carrier NetOps</div><h2>Digital twin preflight verification materially blocks risky configs and improves fault-handling efficiency.</h2>
-<div class="quote">Input quote: "Enforce deterministic config safety and reduce alarm-storm MTTR under carrier-grade SLA constraints."</div>
-<div class="decision"><strong>invalid config block rate</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
-<div class="decision"><strong>alarm-storm MTTR improvement</strong><div class="bar"><div class="fill" style="width:47%"></div></div></div>
-<div class="decision"><strong>network-slice SLA compliance</strong><div class="bar"><div class="fill" style="width:100%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2433 · Telco NetOps Deck</span><span>2 / 7</span></div></article>
-<article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Evaluation covers config safety blocking, fault recovery, energy savings, and slice SLA compliance.</h2>
-<table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-<tr><td>Config safety</td><td>Can invalid configs be blocked before live commit?</td><td>Block rate reaches 99.4%.</td><td>✓ Confirm</td></tr>
-<tr><td>MTTR</td><td>Can alarm-storm root cause MTTR be reduced?</td><td>Improvement reaches 47.2%.</td><td>✓ Confirm</td></tr>
-<tr><td>Energy</td><td>Can off-peak RAN energy usage be reduced?</td><td>Savings reaches 18.9%.</td><td>✓ Confirm</td></tr>
-<tr><td>SLA</td><td>Can network-slice SLA compliance be maintained?</td><td>Compliance reaches 99.93%.</td><td>✓ Send to a human</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2433 · Telco NetOps Deck</span><span>3 / 7</span></div></article>
-<article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>The core chain combines topology correlation, preflight verification, canary rollout, and automated rollback.</h2>
-<div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2433
-focus=telco_oran_son_netops_pipeline
-labels=measured/synthetic/anonymized_reported</pre></section>
-<section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert invalid-config block floor
-assert mttr improvement floor
-assert energy saving floor
-assert slice sla compliance floor</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2433 · Telco NetOps Deck</span><span>4 / 7</span></div></article>
-<article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain bounded from -1.5 to -0.6 points.</h2>
-<table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>invalid config block</td><td>99.4</td><td>98.8</td><td>-0.6</td><td>synthetic</td></tr>
-<tr><td>mttr improvement</td><td>47.2</td><td>45.7</td><td>-1.5</td><td>synthetic</td></tr>
-<tr><td>energy savings</td><td>18.9</td><td>17.8</td><td>-1.1</td><td>synthetic</td></tr>
-<tr><td>slice sla compliance</td><td>99.9</td><td>99.2</td><td>-0.7</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2433 · Telco NetOps Deck</span><span>5 / 7</span></div></article>
-<article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Under high alarm concurrency, preflight and ring rollout lanes maintain low-latency governance.</h2>
-<table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-<tr><td>preflight verify p95</td><td>164 ms</td><td>512 ms</td><td>measured</td></tr>
-<tr><td>canary commit p95</td><td>201 ms</td><td>604 ms</td><td>anonymized_reported</td></tr>
-<tr><td>rollback trigger p95</td><td>44 s</td><td>108 s</td><td>synthetic</td></tr>
-</tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2433 · Telco NetOps Deck</span><span>6 / 7</span></div></article>
-<article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>In carrier production, verify before rollout and canary before full release are core survival rules for NetOps agents.</h2>
-<div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Carrier networks requiring five-nines service assurance</li><li>NOC teams with strict preflight and rollback governance</li></ul></section>
-<section class="bad"><strong>⛔ Not for</strong><ul><li>Direct live-router mutation without formal preflight checks</li><li>LLM loops coupled to near-RT control decisions</li></ul></section></div>
-<section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate for carrier-grade NetOps automation pipelines.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-16 · labels measured / synthetic / anonymized_reported.</section>
-<div class="footer"><span>Azure Agent Infra Cycle #2433 · Telco NetOps Deck</span><span>7 / 7</span></div></article>
+<article class="card"><div class="eye">1 / 7 · HANDS-ON · OBSERVABILITY</div><h2>Tail sampling preserves forensic signal while reducing telemetry spend.</h2><div class="g3"><section class="pane"><h3>Workbench thresholds</h3><ul><li>Need lowest ops effort and small scale -> App Insights native tracing with strict payload suppression.</li><li>Need multi-agent RCA with async hops -> OTel GenAI conventions + ADX critical-path flamegraphs.</li><li>Need strict data governance -> OTel collector redaction + encrypted payload vault split storage.</li><li>Need cross-org observability federation -> hybrid export to external tracing platform with tenant contracts.</li></ul></section><section class="pane dark"><h3>Structured contract</h3><div class="code">{
+  "cycle": 2434,
+  "labels": "measured / synthetic / anonymized_reported",
+  "dataset": "evidence/cycle-2434-benchmark.json",
+  "sampling_policy": "100% errors/high-latency/low-eval + 5% healthy"
+}</div></section><section class="pane"><h3>Top metrics</h3><ul><li>Context continuity 95.6%</li><li>Cost reduction 79.7%</li><li>MTTD improvement 67.9%</li></ul></section></div><div class="ready">Labels: measured / synthetic / anonymized_reported · evidence/cycle-2434-benchmark.json</div><div class="foot"><span>Cycle 2434 · OTel GenAI Tracing Benchmark Cards</span><span>1 / 7</span></div></article>
+<article class="card"><div class="eye">2 / 7 · SCENARIO: ASYNC TRACE CONTINUITY</div><h2>W3C context injection closes lineage gaps across queue and MCP hops.</h2><p>Input: enforce trace lineage across APIM, Service Bus, Durable Task, and MCP while preserving privacy and cost limits.</p><table><thead><tr><th>Policy</th><th>Rate</th><th>Label</th></tr></thead><tbody><tr><td>Collector payload-vault split enforcement</td><td>96.5%</td><td>measured</td></tr><tr><td>Cross-tenant baggage key leak prevention</td><td>95.7%</td><td>measured</td></tr><tr><td>Runaway token-loop hard stop gate</td><td>95.4%</td><td>measured</td></tr></tbody></table><div class="foot"><span>Cycle 2434 · OTel GenAI Tracing Benchmark Cards</span><span>2 / 7</span></div></article>
+<article class="card"><div class="eye">3 / 7 · WHAT I TESTED</div><h2>One anti-pattern is intentionally rejected and routed to human review.</h2><table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody><tr><td>Async queue propagation</td><td>Can traceparent survive Service Bus + Durable Task boundary?</td><td>Inject traceparent/baggage at ingress and enforce forward-only middleware in workers.</td><td>✓ Act automatically</td></tr><tr><td>Collector governance</td><td>Can payload traces be debugged without leaking PII?</td><td>Keep structural spans in hot path, move encrypted prompt/completion payload to vault lane.</td><td>✓ Confirm</td></tr><tr><td>Latency regression triage</td><td>Can ADX flamegraph isolate critical path under multi-agent fan-out?</td><td>Use KQL critical-path condensation by trace_id/span.parent lineage and token growth joins.</td><td>✓ Act automatically</td></tr><tr><td>Healthy-flow full capture</td><td>Should we keep 100% healthy traces to maximize debugging?</td><td>No, route to 5% healthy sampling and keep 100% only for errors/high-latency/low-eval.</td><td>✕ Send to a human</td></tr></tbody></table><div class="foot"><span>Cycle 2434 · OTel GenAI Tracing Benchmark Cards</span><span>3 / 7</span></div></article>
+<article class="card"><div class="eye">4 / 7 · UNDER THE HOOD</div><h2>Coordinates are deterministic and reproducible from evidence payloads.</h2><div class="g2"><section class="pane dark"><h3>Contract input</h3><div class="code">{
+  "cycle": 2434,
+  "labels": "measured / synthetic / anonymized_reported",
+  "dataset": "evidence/cycle-2434-benchmark.json",
+  "sampling_policy": "100% errors/high-latency/low-eval + 5% healthy"
+}</div></section><section class="pane dark"><h3>Verifier flow</h3><div class="code">load evidence/cycle-2434-benchmark.json
+assert card bars derive from payload values
+assert matrix miss row keeps ✕ marker
+assert CSP is self-contained
+assert labels in {measured, synthetic, anonymized_reported}</div></section></div><div class="foot"><span>Cycle 2434 · OTel GenAI Tracing Benchmark Cards</span><span>4 / 7</span></div></article>
+<article class="card"><div class="eye">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation drift stays controlled for critical observability decisions.</h2><table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>REVERSED/PERTURBED</th><th>CHANGE (PTS)</th></tr></thead><tbody><tr><td>Context continuity confidence</td><td>95.6</td><td>94.8</td><td>-0.8</td></tr><tr><td>Tail-sampling cost outcome</td><td>79.7</td><td>78.9</td><td>-0.8</td></tr><tr><td>Redaction throughput preservation</td><td>88.2</td><td>87.6</td><td>-0.6</td></tr><tr><td>MTTD improvement estimate</td><td>67.9</td><td>66.4</td><td>-1.5</td></tr></tbody></table><div class="foot"><span>Cycle 2434 · OTel GenAI Tracing Benchmark Cards</span><span>5 / 7</span></div></article>
+<article class="card"><div class="eye">6 / 7 · LATENCY</div><h2>Primary path keeps sub-350ms at 10x while baseline exceeds 1.2s.</h2><div class='lr'><div class='lt'>1x load</div><div class='lv'><span>Primary 184ms</span><div class='track'><div class='p' style='width:14.84%'></div></div></div><div class='lv'><span>Baseline 612ms</span><div class='track'><div class='b' style='width:49.35%'></div></div></div></div><div class='lr'><div class='lt'>5x load</div><div class='lv'><span>Primary 226ms</span><div class='track'><div class='p' style='width:18.23%'></div></div></div><div class='lv'><span>Baseline 890ms</span><div class='track'><div class='b' style='width:71.77%'></div></div></div></div><div class='lr'><div class='lt'>10x load</div><div class='lv'><span>Primary 308ms</span><div class='track'><div class='p' style='width:24.84%'></div></div></div><div class='lv'><span>Baseline 1240ms</span><div class='track'><div class='b' style='width:100.00%'></div></div></div></div><div class="foot"><span>Cycle 2434 · OTel GenAI Tracing Benchmark Cards</span><span>6 / 7</span></div></article>
+<article class="card"><div class="eye">7 / 7 · MY TAKE</div><h2>Strong fit for regulated multi-agent platforms with strict RCA requirements.</h2><div class="g2"><section class="good"><strong>✅ Good fit</strong><ul><li>Coding Agent sandbox: W3C context propagation + ADX flamegraph to isolate tool-loop latency root causes.</li><li>Browser/CUA cluster: Tail sampling keeps full-fidelity traces for failures while reducing healthy-flow ingestion cost.</li><li>Multi-tenant SaaS Agent Gateway: Baggage scope fencing + collector redaction + ADX critical-path attribution.</li><li>Financial zero-trust execution: Split-storage telemetry with encrypted payload vault and immutable audit lineage.</li></ul></section><section class="bad"><strong>⛔ Not for</strong><ul><li>Coding Agent sandbox: Inline prompt payload logging without encrypted vault split and tenant guardrails.</li><li>Browser/CUA cluster: Always-on full payload capture in shared tenant telemetry lanes.</li><li>Multi-tenant SaaS Agent Gateway: Cross-tenant baggage propagation without deterministic key allow-list.</li><li>Financial zero-trust execution: Debug pathways that expose PII-bearing prompts in clear-text telemetry backends.</li></ul></section></div><section class="ready"><strong>Readiness / Provenance</strong><br>Fetched on 2026-11-16 · labels measured / synthetic / anonymized_reported · self-contained CSP</section><div class="foot"><span>Cycle 2434 · OTel GenAI Tracing Benchmark Cards</span><span>7 / 7</span></div></article>
 </main></body></html>
