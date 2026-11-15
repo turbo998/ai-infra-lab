@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
-        <title>Azure Agent Infra Cycle #2408 · MCP 治理防火墙卡组</title>
+        <title>Azure Agent Infra Cycle #2409 · Agentic BCDR 卡组</title>
         <style>
         *{box-sizing:border-box} body{margin:0;padding:20px;background:#e5e7eb;font-family:Segoe UI,Arial,sans-serif;color:#0f172a}
         .deck{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
@@ -23,46 +23,46 @@
         </style>
         </head>
         <body><main class="deck">
-        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Deterministic MCP Governance</div><h2>确定性 MCP 治理需要签名合约、网关策略与运行时准入控制协同。</h2>
-        <div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Signed tool-contract enforcement.</li><li>Gateway + admission dual policy plane.</li><li>Trace-to-governance lineage binding.</li></ul></section>
-        <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2408,"focus":"mcp_policy_firewall","tiers":["dev","staging","prod"]}</pre></section></div>
-        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2408-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2408 · MCP 治理防火墙卡组</span><span>1 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Tool Policy Integrity</div><h2>Combining signed contracts and runtime policy gates closes most privilege-drift vectors.</h2>
-        <div class="quote">Input quote: "Prevent MCP tool privilege drift while preserving throughput and tenant isolation."</div>
-        <div class="decision"><strong>signed contract enforcement</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
-        <div class="decision"><strong>policy firewall slo meet</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div>
-        <div class="decision"><strong>audit coverage</strong><div class="bar"><div class="fill" style="width:98%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2408 · MCP 治理防火墙卡组</span><span>2 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates couple policy precision, performance, and governance evidence.</h2>
+        <article class="card"><div class="eyebrow">1 / 7 · HANDS-ON · Agentic BCDR</div><h2>抗勒索连续性需要不可变备份、PITR、别名切换重建与 clean-room 回放。</h2>
+        <div class="grid2"><section class="pane"><h3>Workbench scope</h3><ul><li>Immutable backup plus MUA controls.</li><li>Cosmos PITR + search alias rebuild.</li><li>Clean-room poisoning replay gates.</li></ul></section>
+        <section class="pane dark"><h3>Structured input</h3><pre>{"cycle":2409,"focus":"agentic_bcdr_cleanroom","tiers":["rto16","rto42","rto180"]}</pre></section></div>
+        <div class="ready">Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported · source evidence/cycle-2409-benchmark.json</div><div class="footer"><span>Azure Agent Infra Cycle #2409 · Agentic BCDR 卡组</span><span>1 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">2 / 7 · SCENARIO: Ransomware and Poisoning Recovery</div><h2>Immutable backups and clean-room replay reduce both ransomware and poisoning recovery risk.</h2>
+        <div class="quote">Input quote: "Recover stateful agents with low RPO and controlled blast radius under ransomware or memory poisoning."</div>
+        <div class="decision"><strong>immutable lock enforcement</strong><div class="bar"><div class="fill" style="width:99%"></div></div></div>
+        <div class="decision"><strong>clean-room recovery success</strong><div class="bar"><div class="fill" style="width:96%"></div></div></div>
+        <div class="decision"><strong>cross-store consistency</strong><div class="bar"><div class="fill" style="width:97%"></div></div></div><div class="footer"><span>Azure Agent Infra Cycle #2409 · Agentic BCDR 卡组</span><span>2 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">3 / 7 · WHAT I TESTED</div><h2>Release gates enforce restore integrity, failover speed, and forensic replay coverage.</h2>
         <table><thead><tr><th>SCENARIO</th><th>QUESTION/TASK</th><th>MODEL ANSWER</th><th>ACTION</th></tr></thead><tbody>
-        <tr><td>Contracts</td><td>Can unsigned tool revisions be blocked deterministically?</td><td>Reject execution when contract signature/version mismatches.</td><td>✓ Act automatically</td></tr>
-        <tr><td>Performance</td><td>Can policy checks remain below p95 target?</td><td>Cache deterministic policy context per tenant/session scope.</td><td>✓ Confirm</td></tr>
-        <tr><td>Isolation</td><td>Can cross-tenant tool invocation be prevented?</td><td>Apply OBO claim and tenant-bound policy filters.</td><td>✓ Send to a human</td></tr>
-        <tr><td>Audit</td><td>Can every decision be replayed for compliance?</td><td>Bind tool-call trace IDs to governance lineage entities.</td><td>✕ Send to a human</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2408 · MCP 治理防火墙卡组</span><span>3 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Policy trustworthiness comes from deterministic contracts, admission checks, and replayable traces.</h2>
-        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2408
-focus=deterministic_mcp_tool_governance_firewall
+        <tr><td>Backup</td><td>Can immutable vault lock remain enforced under break-glass attempts?</td><td>MUA approvals required for all vault state changes.</td><td>✓ Act automatically</td></tr>
+        <tr><td>PITR</td><td>Can checkpoint timeline be restored consistently across stores?</td><td>Use restore epoch and replay ledger reconciliation.</td><td>✓ Confirm</td></tr>
+        <tr><td>Clean-room</td><td>Can poisoning candidates be quarantined before promotion?</td><td>Route all restores through isolated replay validation.</td><td>✓ Send to a human</td></tr>
+        <tr><td>Search</td><td>Can index rebuild avoid downtime during recovery?</td><td>Rebuild offline and switch using alias cutover.</td><td>✕ Send to a human</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2409 · Agentic BCDR 卡组</span><span>3 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">4 / 7 · UNDER THE HOOD</div><h2>Recovery trust depends on immutable controls, replayable timelines, and signed artifacts.</h2>
+        <div class="grid2"><section class="pane dark"><h3>Contract Input</h3><pre>cycle=2409
+focus=agentic_bcdr_immutable_backup_cleanroom
 labels=measured/synthetic/anonymized_reported</pre></section>
-        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert signed tool-contract validation
-assert policy decision p95 threshold
-assert tenant boundary enforcement
-assert trace-linked audit coverage completeness</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2408 · MCP 治理防火墙卡组</span><span>4 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.7 to -0.5 points.</h2>
+        <section class="pane dark"><h3>Deterministic Verifier</h3><pre>assert immutable backup lock and MUA gates
+assert pitr restore and cross-store checkpoint consistency
+assert clean-room replay validation success
+assert bounded failover latency and rebuild throughput</pre></section></div><div class="footer"><span>Azure Agent Infra Cycle #2409 · Agentic BCDR 卡组</span><span>4 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">5 / 7 · ROBUSTNESS CHECK</div><h2>Perturbation deltas remain within -1.9 to -0.6 points.</h2>
         <table><thead><tr><th>QUESTION/ANSWER</th><th>ORIGINAL</th><th>PERTURBED</th><th>CHANGE (PTS)</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>contract enforcement</td><td>99.2</td><td>98.7</td><td>-0.5</td><td>synthetic</td></tr>
-        <tr><td>firewall slo meet</td><td>97.1</td><td>96.0</td><td>-1.1</td><td>synthetic</td></tr>
-        <tr><td>audit coverage</td><td>98.4</td><td>97.2</td><td>-1.2</td><td>synthetic</td></tr>
-        <tr><td>tenant boundary integrity</td><td>99.1</td><td>97.4</td><td>-1.7</td><td>synthetic</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2408 · MCP 治理防火墙卡组</span><span>5 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>p95 policy latency is 74ms target versus 161ms legacy coarse-RBAC baseline.</h2>
+        <tr><td>immutable lock</td><td>99.3</td><td>98.7</td><td>-0.6</td><td>synthetic</td></tr>
+        <tr><td>clean-room recovery</td><td>96.4</td><td>95.2</td><td>-1.2</td><td>synthetic</td></tr>
+        <tr><td>checkpoint consistency</td><td>97.2</td><td>95.8</td><td>-1.4</td><td>synthetic</td></tr>
+        <tr><td>forensic replay coverage</td><td>98.1</td><td>96.2</td><td>-1.9</td><td>synthetic</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2409 · Agentic BCDR 卡组</span><span>5 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">6 / 7 · LATENCY</div><h2>Failover p95 is 842ms on full BCDR path versus 2480ms legacy baseline.</h2>
         <table><thead><tr><th>TIER</th><th>PRIMARY</th><th>BASELINE</th><th>LABEL</th></tr></thead><tbody>
-        <tr><td>1x</td><td>49 ms</td><td>117 ms</td><td>measured</td></tr>
-        <tr><td>5x</td><td>63 ms</td><td>139 ms</td><td>synthetic</td></tr>
-        <tr><td>10x</td><td>74 ms</td><td>161 ms</td><td>anonymized_reported</td></tr>
-        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2408 · MCP 治理防火墙卡组</span><span>6 / 7</span></div></article>
-        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for enterprise MCP platforms that cannot compromise on policy integrity or auditability.</h2>
-        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>High-governance MCP ecosystems with strict tenant boundaries</li><li>Teams enforcing signed tool-contract lifecycle controls</li><li>Platforms requiring deterministic incident replay evidence</li><li>Organizations combining gateway and runtime policy controls</li></ul></section>
-        <section class="bad"><strong>⛔ Not for</strong><ul><li>Low-risk internal automations without policy-audit requirements</li><li>Environments lacking policy operations ownership</li><li>Workloads tolerant of tool schema drift and coarse RBAC controls</li><li>Use cases prioritizing minimal controls over governance assurance</li></ul></section></div>
-        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with deterministic policy gates.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
-        <div class="footer"><span>Azure Agent Infra Cycle #2408 · MCP 治理防火墙卡组</span><span>7 / 7</span></div></article>
+        <tr><td>1x</td><td>611 ms</td><td>1734 ms</td><td>measured</td></tr>
+        <tr><td>5x</td><td>748 ms</td><td>2116 ms</td><td>synthetic</td></tr>
+        <tr><td>10x</td><td>842 ms</td><td>2480 ms</td><td>anonymized_reported</td></tr>
+        </tbody></table><div class="footer"><span>Azure Agent Infra Cycle #2409 · Agentic BCDR 卡组</span><span>6 / 7</span></div></article>
+        <article class="card"><div class="eyebrow">7 / 7 · MY TAKE</div><h2>Best for stateful enterprise agents where resilience must include anti-ransomware and anti-poisoning controls.</h2>
+        <div class="grid2"><section class="good"><strong>✅ Good fit</strong><ul><li>Platforms with strict BCDR and compliance obligations</li><li>Workloads needing low-RPO restore with forensic replay assurance</li><li>Teams operating signed artifact and immutable backup controls</li><li>Systems with high blast-radius cost for poisoned memory/prompts</li></ul></section>
+        <section class="bad"><strong>⛔ Not for</strong><ul><li>Low-criticality stateless apps with minimal continuity requirements</li><li>No ownership for DR drills, replay, and clean-room operations</li><li>Environments unable to maintain multi-store restore consistency</li><li>Cost-only deployments accepting high recovery risk</li></ul></section></div>
+        <section class="ready"><strong>Readiness / License / Provenance</strong><br>Readiness: production-candidate with BCDR and anti-poisoning gates.<br>License: repository-authored simulation artifacts.<br>Provenance: fetched 2026-11-15 · labels measured / synthetic / anonymized_reported.</section>
+        <div class="footer"><span>Azure Agent Infra Cycle #2409 · Agentic BCDR 卡组</span><span>7 / 7</span></div></article>
         </main></body></html>
