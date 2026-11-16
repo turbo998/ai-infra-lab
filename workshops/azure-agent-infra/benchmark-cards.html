@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cycle 2442 7-card</title>
+<title>Cycle 2443 7-card</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#020617;color:#e2e8f0;font-family:Segoe UI,Arial,sans-serif}
 .deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;padding:16px}
@@ -26,65 +26,65 @@ th,td{border-bottom:1px solid #1e293b;padding:6px;vertical-align:top}th{color:#6
 <body>
 <div class="deck">
   <section class="card">
-    <div class="tag">1 / 7 · HANDS-ON · PHARMA GXP RELEASE</div>
-    <h1>制药冷链混合 Agent 路径在保持 GxP 控制的同时压缩放行时延</h1>
-    <p>遥测异常分诊 + 确定性偏差/CAPA 校验 + QMS 电子签名锁提交</p>
+    <div class="tag">1 / 7 · HANDS-ON · MARITIME CUSTOMS RISK</div>
+    <h1>港航海关混合 Agent 路径在保持制裁/单证控制的同时降低放行时延</h1>
+    <p>港口遥测异常分诊 + 确定性制裁/单证校验 + 放行锁提交</p>
     <div class="grid3">
-      <div class="tile"><div class="kpi">61.6%</div><div>批次放行周期缩短</div></div>
-      <div class="tile"><div class="kpi">96.5%</div><div>GxP 合规闸门通过率</div></div>
-      <div class="tile"><div class="kpi">86.9%</div><div>温控偏差阻断率</div></div>
+      <div class="tile"><div class="kpi">58.3%</div><div>清关周期缩短</div></div>
+      <div class="tile"><div class="kpi">97.1%</div><div>单证合规闸门通过率</div></div>
+      <div class="tile"><div class="kpi">88.2%</div><div>高风险货运拦截率</div></div>
     </div>
-    <div class="foot">evidence/cycle-2442-benchmark.json · labels: measured, synthetic, anonymized_reported</div>
+    <div class="foot">evidence/cycle-2443-benchmark.json · labels: measured, synthetic, anonymized_reported</div>
   </section>
   <section class="card">
-    <div class="tag">2 / 7 · SCENARIO: COLD-CHAIN EXCURSION</div>
-    <h2>确定性 CAPA 与电子签名闸门在维持吞吐的同时阻断不安全批次放行</h2>
-    <p>任何放行状态迁移都不能绕过未闭环偏差与链路缺口校验。</p>
+    <div class="tag">2 / 7 · SCENARIO: TRADE-LANE DOCUMENT RISK</div>
+    <h2>确定性制裁/单证闸门在维持吞吐的同时阻断高风险货运放行</h2>
+    <p>任何放行状态迁移都不能绕过拒绝方命中或提单链路缺口校验。</p>
     <div class="grid3">
       <div class="tile"><div class="kpi">9.8s</div><div>p50 first packet</div></div>
       <div class="tile"><div class="kpi">18.4s</div><div>p95 first packet</div></div>
-      <div class="tile"><div class="kpi">53.1%</div><div>偏差调查成本下降</div></div>
+      <div class="tile"><div class="kpi">49.7%</div><div>人工审计成本下降</div></div>
     </div>
-    <div class="foot">source: anonymized lot replay + deterministic gxp/capa benchmark</div>
+    <div class="foot">source: anonymized customs replay + deterministic sanctions/docs benchmark</div>
   </section>
   <section class="card">
     <div class="tag">3 / 7 · WHAT I TESTED</div>
     <table>
       <thead><tr><th>Scenario</th><th>Question / Task</th><th>Model answer</th><th>Action</th></tr></thead>
-      <tbody><tr><td>batch release cycle time</td><td>Can hybrid path reduce release lead time while preserving auditability?</td><td>Yes, event triage plus deterministic verifier cuts cycle time with evidence trace.</td><td>Act automatically</td></tr><tr><td>gxp compliance guard</td><td>Can incomplete e-sign or unresolved excursion bypass release gate?</td><td>No, deterministic controls block non-conforming release transitions.</td><td>Act automatically</td></tr><tr><td>cold-chain excursion response</td><td>Can anomaly-to-disposition SLA hold under burst telemetry periods?</td><td>Yes, ADX + verifier path remains inside target p95 envelope.</td><td>Confirm</td></tr><tr><td>advisory-only shortcut</td><td>Can pure LLM recommendation commit release without hard verifier?</td><td>No, route to quality board review and keep deterministic gate mandatory.</td><td>Send to a human ✕</td></tr></tbody>
+      <tbody><tr><td>customs clearance cycle time</td><td>Can hybrid path reduce clearance lead time while preserving auditability?</td><td>Yes, event triage plus deterministic verifier cuts clearance cycle time with evidence trace.</td><td>Act automatically</td></tr><tr><td>manifest compliance guard</td><td>Can unresolved manifest discrepancy or denied-party match bypass release gate?</td><td>No, deterministic controls block non-conforming clearance transitions.</td><td>Act automatically</td></tr><tr><td>high-risk shipment response</td><td>Can anomaly-to-disposition SLA hold under burst vessel-arrival periods?</td><td>Yes, ADX + verifier path remains inside target p95 envelope.</td><td>Confirm</td></tr><tr><td>advisory-only shortcut</td><td>Can pure LLM recommendation clear shipment without hard verifier?</td><td>No, route to customs desk review and keep deterministic gate mandatory.</td><td>Send to a human ✕</td></tr></tbody>
     </table>
     <div class="foot">Rows are bound to evaluation_matrix in benchmark payload.</div>
   </section>
   <section class="card">
     <div class="tag">4 / 7 · UNDER THE HOOD</div>
-    <div class="code">{"input":"cold-chain lot telemetry","constraints":["gxp","excursion_capa","e-sign","chain_of_custody"],"commit":"qms release lock"}</div>
-    <div class="code">IoT telemetry -> anomaly triage agents
--> deterministic CAPA/GxP verifier
--> e-sign release lock commit
--> supplier/depot recall status fan-out</div>
-    <div class="foot">No lot release can bypass deterministic compliance and traceability constraints.</div>
+    <div class="code">{"input":"ais+manifest telemetry","constraints":["sanctions","hs_code","deny_party","bill_of_lading"],"commit":"customs release lock"}</div>
+    <div class="code">AIS/manifest telemetry -> anomaly triage agents
+-> deterministic sanctions/docs verifier
+-> release lock commit
+-> carrier/broker inspection status fan-out</div>
+    <div class="foot">No shipment release can bypass deterministic sanctions/document and traceability constraints.</div>
   </section>
   <section class="card">
     <div class="tag">5 / 7 · ROBUSTNESS CHECK</div>
     <table>
       <thead><tr><th>Question/Answer</th><th>Original</th><th>Perturbed</th><th>Change (pts)</th></tr></thead>
-      <tbody><tr><td>release cycle-time reduction</td><td>61.6</td><td>60.3</td><td>-1.3</td></tr><tr><td>gxp compliance gate pass</td><td>96.5</td><td>95.9</td><td>-0.6</td></tr><tr><td>excursion prevented rate</td><td>86.9</td><td>86.1</td><td>-0.8</td></tr><tr><td>investigation cost reduction</td><td>53.1</td><td>52.4</td><td>-0.7</td></tr></tbody>
+      <tbody><tr><td>clearance cycle-time reduction</td><td>58.3</td><td>57.1</td><td>-1.2</td></tr><tr><td>manifest compliance gate pass</td><td>97.1</td><td>96.4</td><td>-0.7</td></tr><tr><td>high-risk intercept rate</td><td>88.2</td><td>87.3</td><td>-0.9</td></tr><tr><td>manual audit cost reduction</td><td>49.7</td><td>49.0</td><td>-0.7</td></tr></tbody>
     </table>
-    <div class="foot">Perturbation includes seasonal excursion spikes and depot handoff jitter.</div>
+    <div class="foot">Perturbation includes route congestion spikes and broker handoff jitter.</div>
   </section>
   <section class="card">
     <div class="tag">6 / 7 · LATENCY</div>
-    <h2>在 50k 到 500k 日遥测事件区间，确定性混合路径持续快于纯 LLM 基线</h2>
-    <div class='bar-row'><div class='bar-label'>50k telemetry events/day</div><div class='bar primary' style='width:45.9%'>18400 ms</div><div class='bar base' style='width:77.8%'>31200 ms</div></div><div class='bar-row'><div class='bar-label'>250k telemetry events/day</div><div class='bar primary' style='width:52.1%'>20900 ms</div><div class='bar base' style='width:88.5%'>35500 ms</div></div><div class='bar-row'><div class='bar-label'>500k telemetry events/day</div><div class='bar primary' style='width:60.8%'>24400 ms</div><div class='bar base' style='width:100.0%'>40100 ms</div></div>
+    <h2>在 20k 到 250k 日报关单区间，确定性混合路径持续快于纯 LLM 基线</h2>
+    <div class='bar-row'><div class='bar-label'>20k declarations/day</div><div class='bar primary' style='width:45.9%'>18400 ms</div><div class='bar base' style='width:77.8%'>31200 ms</div></div><div class='bar-row'><div class='bar-label'>220k declarations/day</div><div class='bar primary' style='width:52.1%'>20900 ms</div><div class='bar base' style='width:88.5%'>35500 ms</div></div><div class='bar-row'><div class='bar-label'>250k declarations/day</div><div class='bar primary' style='width:60.8%'>24400 ms</div><div class='bar base' style='width:100.0%'>40100 ms</div></div>
     <div class="foot">Primary (blue) vs baseline (gray) from latency_load_tiers in benchmark payload.</div>
   </section>
   <section class="card">
     <div class="tag">7 / 7 · MY TAKE</div>
     <div class="fit">
-      <div class="good"><strong>✅ 适用</strong><br>需要规模化、可追溯且合规批次放行自动化的制药质量体系。</div>
-      <div class="bad"><strong>⛔ 不适用</strong><br>无法强制执行确定性 GxP 控制与电子签名边界的流程。</div>
+      <div class="good"><strong>✅ 适用</strong><br>需要规模化、可追溯且合规清关自动化的港航海关运营体系。</div>
+      <div class="bad"><strong>⛔ 不适用</strong><br>无法强制执行确定性制裁/单证控制与放行边界的流程。</div>
     </div>
-    <div class="foot">readiness: deterministic verifier + e-sign lock + chain-of-custody continuity + recall fan-out</div>
+    <div class="foot">readiness: deterministic verifier + release lock + bill-of-lading continuity + inspection fan-out</div>
   </section>
 </div>
 </body>
