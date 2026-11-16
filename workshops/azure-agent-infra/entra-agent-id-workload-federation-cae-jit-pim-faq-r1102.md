@@ -121,91 +121,107 @@ signal = distinct_vnet>1 and delta<30s
 - 观察 6.7：把指标写入周度治理例会。
 - 观察 6.8：每次阈值变更都要记录依据。
 
-## 9) Mermaid #1：控制面与数据面拓扑
+## 9) Mermaid #1：Entra Agent ID + OIDC + APIM 身份拓扑
 
 ```mermaid
 flowchart LR
-  Client[Caller/User] --> Ingress[Ingress Layer]
-  Ingress --> Policy[Policy Layer]
-  Policy --> Runtime[Runtime Layer]
-  Runtime --> State[State/Storage Layer]
-  Policy --> Observe[Observability Layer]
-  Observe --> Remediate[Remediation Layer]
+  Pod[AKS Agent Pod] --> SA[ServiceAccount Token]
+  SA --> OIDC[AKS OIDC Issuer]
+  OIDC --> Entra[Entra STS]
+  Entra --> UAMI[User Assigned Managed Identity]
+  UAMI --> APIM[APIM validate-jwt]
+  APIM --> Tool[Protected Tool APIs]
+  APIM --> KV[Key Vault RBAC]
+  Entra --> SignIn[AADManagedIdentitySignInLogs]
+  APIM --> SignIn
 ```
 
-## 10) Mermaid #2：异常到隔离序列
+该拓扑重点是用联邦令牌替代静态密钥，并把 claim 验证统一在 APIM。
+该拓扑保证身份日志与网关日志可关联，支持 replay 事件闭环取证。
+
+## 10) Mermaid #2：CAE challenge 到恢复序列
 
 ```mermaid
 sequenceDiagram
-  participant C as Client
-  participant G as Gateway
-  participant R as Runtime
-  participant O as Observer
-  participant Q as Quarantine
-  C->>G: request
-  G->>R: validated call
-  O-->>G: anomaly detected
-  G-->>C: challenge/throttle
-  G->>Q: isolate + notify
+  participant D as Detector
+  participant G as APIM
+  participant E as Entra CAE
+  participant P as Agent Pod
+  participant T as Tool API
+  D->>G: replay suspect alert
+  G->>E: request claims challenge
+  E-->>G: challenge issued
+  G-->>P: 401 with claims challenge
+  P->>E: acquire new token
+  E-->>P: refreshed scoped token
+  P->>G: retry with new token
+  G->>T: authorized execution
 ```
 
-## 13) KQL 可观测性查询
+该序列强调“先阻断后恢复”，避免失陷令牌继续执行高危工具。
+该序列给 SOC 与 SRE 提供统一的可执行处置语义。
 
-```kql
-let W = 1h;
-customMetrics
-| where TimeGenerated > ago(W)
-| summarize p50=percentile(Value,50), p95=percentile(Value,95), n=count() by Name, bin(TimeGenerated, 5m)
-| order by TimeGenerated desc
-```
-
-## 14) 4-Option Weighted Decision Matrix
-
-| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
-|---|---:|---:|---:|---:|---|---|
-
-## 15) Day-0 / Day-2 Checklist
-
-Day-0：
-1. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-2. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-3. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-4. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-5. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-6. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-7. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-8. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-9. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-10. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-Day-2：
-1. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-2. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-3. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-4. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-5. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-6. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-7. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-8. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-9. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-10. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-来源：Entra / AKS / APIM 官方文档；证据：`evidence/cycle-2507-benchmark.json`。
-
-## 11) 生产级 Bicep（UAMI + FIC + RBAC）
+## 11) 生产级 Bicep（UAMI + FIC + RBAC + 诊断）
 
 ```bicep
 param location string = resourceGroup().location
-param uamiName string = 'agent-tier-a-uami'
-param principalObjectId string
+param uamiName string
+param aksOidcIssuer string
+param namespace string = 'agent-runtime'
+param serviceAccountName string = 'agent-sa-tier1'
+param keyVaultName string
+param lawName string
+
+resource law 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
+  name: lawName
+  location: location
+  properties: {
+    sku: { name: 'PerGB2018' }
+    retentionInDays: 30
+  }
+}
+
 resource uami 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   name: uamiName
   location: location
 }
+
 resource fic 'Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials@2023-01-31' = {
-  name: '${uami.name}/aks-agent-fic'
+  name: '${uami.name}/aks-${namespace}-${serviceAccountName}'
   properties: {
-    issuer: 'https://oidc.prod-aks.azure.com/xxxx/'
-    subject: 'system:serviceaccount:agent-system:agent-runner'
-    audiences: [ 'api://AzureADTokenExchange' ]
+    issuer: aksOidcIssuer
+    subject: 'system:serviceaccount:${namespace}:${serviceAccountName}'
+    audiences: [
+      'api://AzureADTokenExchange'
+    ]
+  }
+}
+
+resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+  name: keyVaultName
+}
+
+resource kvReader 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(kv.id, uami.properties.principalId, 'KeyVaultSecretsUser')
+  scope: kv
+  properties: {
+    principalId: uami.properties.principalId
+    principalType: 'ServicePrincipal'
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions','4633458b-17de-408a-b874-0445c86b69e6')
+  }
+}
+
+resource diag 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: 'identity-diag'
+  scope: uami
+  properties: {
+    workspaceId: law.id
+    logs: [
+      { category: 'AuditLogs', enabled: true }
+    ]
+    metrics: [
+      { category: 'AllMetrics', enabled: true }
+    ]
   }
 }
 ```
@@ -216,45 +232,120 @@ resource fic 'Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentity
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: agent-runner
-  namespace: agent-system
+  name: agent-sa-tier1
+  namespace: agent-runtime
   annotations:
-    azure.workload.identity/client-id: '<uami-client-id>'
+    azure.workload.identity/client-id: "<uami-client-id>"
+    azure.workload.identity/tenant-id: "<tenant-id>"
+  labels:
+    azure.workload.identity/use: "true"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autonomous-agent
+  namespace: agent-runtime
+spec:
+  replicas: 6
+  template:
+    metadata:
+      labels:
+        app: autonomous-agent
+        azure.workload.identity/use: "true"
+    spec:
+      serviceAccountName: agent-sa-tier1
+      containers:
+      - name: agent
+        image: contoso.azurecr.io/agent:1102
 ```
 
 ```xml
 <policies>
   <inbound>
     <base />
-    <validate-jwt header-name="Authorization" require-expiration-time="true" />
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="jwt_invalid">
+      <openid-config url="https://login.microsoftonline.com/{tenant-id}/v2.0/.well-known/openid-configuration" />
+      <required-claims>
+        <claim name="aud"><value>api://agent-tool-gateway</value></claim>
+        <claim name="scp"><value>tool.invoke</value></claim>
+      </required-claims>
+    </validate-jwt>
     <choose>
-      <when condition="@(context.Variables.GetValueOrDefault<bool>('caeRequired', false))">
+      <when condition="@(context.Variables.GetValueOrDefault<string>("tokenReplayFlag") == "true")">
         <return-response>
-          <set-status code="401" reason="Claims challenge" />
+          <set-status code="401" reason="claims_challenge_required" />
           <set-header name="WWW-Authenticate" exists-action="override">
-            <value>Bearer claims="{...}"</value>
+            <value>Bearer error="insufficient_claims", claims="{"access_token":{"xms_cc":{"values":["cp1"]}}}"</value>
           </set-header>
         </return-response>
       </when>
     </choose>
   </inbound>
+  <backend><base /></backend>
+  <outbound><base /></outbound>
+  <on-error><base /></on-error>
 </policies>
 ```
 
-| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
-|---|---:|---:|---:|---:|---|---|
-| Agent ID + Workload Identity + CAE | 5 | 4 | 4 | 3 | 大规模自治 Agent | 治理能力薄弱团队 |
-| User-Delegated OBO | 4 | 3 | 3 | 4 | 用户审计强约束流程 | 无用户上下文任务 |
-| Shared Managed Identity | 1 | 5 | 5 | 5 | 临时实验 | 生产多租户写操作 |
-| JIT/PIM 受控提权 | 5 | 2 | 3 | 2 | 高危工具链路 | 秒级无人值守写入 |
+## 13) KQL 可观测性查询 + Day-0/Day-2 Checklist
 
-- 身份治理补充说明 250：保持最小权限、即时撤销、可审计闭环。
-- 身份治理补充说明 251：保持最小权限、即时撤销、可审计闭环。
-- 身份治理补充说明 252：保持最小权限、即时撤销、可审计闭环。
-- 身份治理补充说明 253：保持最小权限、即时撤销、可审计闭环。
-- 身份治理补充说明 254：保持最小权限、即时撤销、可审计闭环。
-- 身份治理补充说明 255：保持最小权限、即时撤销、可审计闭环。
-- 身份治理补充说明 256：保持最小权限、即时撤销、可审计闭环。
-- 身份治理补充说明 257：保持最小权限、即时撤销、可审计闭环。
-- 身份治理补充说明 258：保持最小权限、即时撤销、可审计闭环。
-- 身份治理补充说明 259：保持最小权限、即时撤销、可审计闭环。
+```kql
+let lookback = 24h;
+let mi = AADManagedIdentitySignInLogs
+| where TimeGenerated > ago(lookback)
+| project TimeGenerated, AppId, ServicePrincipalId, IPAddress, ResultType, ResourceDisplayName;
+let sp = AADServicePrincipalSignInLogs
+| where TimeGenerated > ago(lookback)
+| project TimeGenerated, AppId, ServicePrincipalId, IPAddress, ResultType, ResourceDisplayName;
+mi
+| union sp
+| summarize first_seen=min(TimeGenerated), last_seen=max(TimeGenerated), ip_count=dcount(IPAddress), failure_count=countif(ResultType != 0) by AppId, ServicePrincipalId, ResourceDisplayName
+| extend replay_suspect = ip_count > 1 and datetime_diff('second', last_seen, first_seen) < 30
+| order by replay_suspect desc, failure_count desc
+```
+
+Day-0 关键项：
+1. 每个 Agent tier 独立 UAMI，严禁跨 tier 复用身份。
+2. 校验 FIC issuer 与 subject 精确匹配目标 ServiceAccount。
+3. 验证 APIM validate-jwt 的 aud/scp 约束拒绝不合规请求。
+4. 执行 5,000 沙箱刷新压测并确认 STS 峰值可控。
+5. 审核 Key Vault RBAC 仅授予 Secrets User，不包含写权限。
+6. 演练 CAE challenge 全链路，记录收敛时长。
+7. 确认 JIT/PIM 对高危工具调用不可绕过。
+8. 绑定 replay 告警到自动隔离 runbook。
+9. 验证身份日志保留期满足审计要求。
+10. 将 exposure_window 与 replay_suspect 纳入发布阻断。
+
+Day-2 运营项：
+1. 每周评估 AppId 级别失败率并动态调阈值。
+2. 每日抽检 scope 与 audience 组合，防止策略漂移。
+3. 每月回放 CAE 样本，验证 claims challenge 未退化。
+4. 对审批延迟超标工单执行流程优化。
+5. 持续下线历史共享 MI，完成主体隔离迁移。
+6. 追踪 STS 节流并更新刷新抖动策略。
+7. 定期复核 roleAssignments，删除冗余权限。
+8. 建立 replay 复盘模板，统一证据字段。
+9. 将身份门禁纳入季度架构审计清单。
+10. 把身份异常与业务影响关联驱动优先级。
+
+## 14) 4-Option Weighted Decision Matrix
+
+| 方案 | 安全收敛(30) | 自动化效率(20) | 运维可控(20) | 成本影响(15) | 审计完备(15) | 加权总分 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 方案A：Shared Managed Identity（反模式） | 6 | 18 | 8 | 14 | 7 | 53 |
+| 方案B：User Delegated OBO 主路径 | 20 | 14 | 13 | 10 | 15 | 72 |
+| 方案C：Entra Agent ID + Federation + CAE | 28 | 17 | 18 | 11 | 15 | 89 |
+| 方案D：Agent ID + CAE + JIT/PIM 全量门禁 | 30 | 14 | 19 | 9 | 15 | 87 |
+
+方案A评价：接入快但爆炸半径大，不适合多租户自治平台。
+方案B评价：用户在环可审计性好，但无人值守自动化效率偏低。
+方案C评价：在安全收敛与工程复杂度之间平衡最佳。
+方案D评价：控制最强但审批时延更高，适用于高合规行业。
+
+## 15) Good fit / Not for
+
+Good fit：需要零常驻权限并支持快速撤销的多租户自治 Agent 平台。
+Good fit：高危工具调用必须有审批闭环与全链路审计的行业。
+Not for：只追求开发便捷且无法承担身份治理复杂度的小型原型团队。
+Not for：缺少稳定日志管道、无法复盘 token 事件的环境。
+结论：默认方案C，并在高危写操作叠加方案D 的 JIT/PIM 门禁。

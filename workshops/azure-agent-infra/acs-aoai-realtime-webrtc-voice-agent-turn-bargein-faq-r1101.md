@@ -121,74 +121,47 @@ a=λ/μ; P(wait)=ErlangC(c,a); Wq=P(wait)/(c*μ-λ)
 - 观察 6.7：跨区 fallback 会改变 λ 分布，应单独建模。
 - 观察 6.8：容量报表要覆盖等待时间分位数而非均值。
 
-## 9) Mermaid #1：控制面与数据面拓扑
+## 9) Mermaid #1：ACS + AOAI Realtime 生产拓扑
 
 ```mermaid
 flowchart LR
-  Client[Caller/User] --> Ingress[Ingress Layer]
-  Ingress --> Policy[Policy Layer]
-  Policy --> Runtime[Runtime Layer]
-  Runtime --> State[State/Storage Layer]
-  Policy --> Observe[Observability Layer]
-  Observe --> Remediate[Remediation Layer]
+  Caller[PSTN 或 WebRTC 用户] --> ACS[ACS Edge]
+  ACS --> EV[Event Grid CallAutomation Events]
+  ACS --> Bridge[Media Bridge Pool on ACA or AKS]
+  Bridge --> RT[AOAI Realtime Session]
+  Bridge --> APIM[APIM Realtime Gateway]
+  APIM --> MCP[MCP Tool APIs]
+  RT --> Bridge
+  Bridge --> Player[Client Playback Buffer]
+  EV --> Observe[App Insights + Log Analytics]
+  Bridge --> Observe
+  APIM --> Observe
 ```
 
-## 10) Mermaid #2：异常到隔离序列
+该拓扑把媒体平面与控制平面拆分，便于独立扩容与独立告警。
+该拓扑要求所有会话事件统一进可观测平台，支持跨段归因。
+
+## 10) Mermaid #2：Barge-In 控制事务序列
 
 ```mermaid
 sequenceDiagram
-  participant C as Client
-  participant G as Gateway
-  participant R as Runtime
-  participant O as Observer
-  participant Q as Quarantine
-  C->>G: request
-  G->>R: validated call
-  O-->>G: anomaly detected
-  G-->>C: challenge/throttle
-  G->>Q: isolate + notify
+  participant U as User
+  participant B as Media Bridge
+  participant R as Realtime
+  participant C as Client Player
+  U->>B: 用户插话
+  B->>R: response.cancel
+  R-->>B: cancel.ack
+  B->>R: conversation.item.truncate
+  R-->>B: truncate.ack
+  B->>C: playback.flush
+  C-->>B: flush.ack
+  B->>R: resume.stream
+  R-->>C: new audio chunks
 ```
 
-## 13) KQL 可观测性查询
-
-```kql
-let W = 1h;
-customMetrics
-| where TimeGenerated > ago(W)
-| summarize p50=percentile(Value,50), p95=percentile(Value,95), n=count() by Name, bin(TimeGenerated, 5m)
-| order by TimeGenerated desc
-```
-
-## 14) 4-Option Weighted Decision Matrix
-
-| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
-|---|---:|---:|---:|---:|---|---|
-
-## 15) Day-0 / Day-2 Checklist
-
-Day-0：
-1. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-2. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-3. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-4. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-5. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-6. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-7. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-8. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-9. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-10. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-Day-2：
-1. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-2. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-3. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-4. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-5. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-6. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-7. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-8. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-9. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-10. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-来源：ACS / AOAI Realtime / APIM / ACA 官方文档；证据：`evidence/cycle-2506-benchmark.json`。
+该序列将“打断成功”定义为三类 ack 都完成，而不是只看 cancel。
+该序列为值班手册提供了可复述的失败定位顺序。
 
 ## 11) 生产级 Bicep（ACS + AOAI Realtime + Event Grid）
 
@@ -196,23 +169,82 @@ Day-2：
 param location string = resourceGroup().location
 param acsName string
 param aoaiName string
-param ptu int = 30
-resource acs 'Microsoft.Communication/communicationServices@2023-04-01' = {
+param appiName string
+param laName string
+param envName string
+param ptuCapacity int = 30
+
+resource law 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
+  name: laName
+  location: location
+  properties: {
+    sku: { name: 'PerGB2018' }
+    retentionInDays: 30
+  }
+}
+
+resource appi 'Microsoft.Insights/components@2022-06-15' = {
+  name: appiName
+  location: location
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    WorkspaceResourceId: law.id
+  }
+}
+
+resource acs 'Microsoft.Communication/communicationServices@2023-06-01-preview' = {
   name: acsName
   location: 'global'
-  properties: { dataLocation: 'Asia Pacific' }
+  properties: {
+    dataLocation: 'Asia Pacific'
+  }
 }
+
 resource aoai 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
   name: aoaiName
   location: location
   kind: 'OpenAI'
-  sku: { name: 'S0' }
+  sku: {
+    name: 'S0'
+    capacity: 1
+  }
+  properties: {
+    customSubDomainName: aoaiName
+    publicNetworkAccess: 'Enabled'
+  }
 }
-resource rt 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
+
+resource realtime 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
   name: '${aoai.name}/gpt-4o-realtime-preview'
   properties: {
-    model: { format: 'OpenAI', name: 'gpt-4o-realtime-preview', version: '2025-01-01-preview' }
-    scaleSettings: { scaleType: 'Manual', capacity: ptu }
+    model: {
+      format: 'OpenAI'
+      name: 'gpt-4o-realtime-preview'
+      version: '2025-02-01-preview'
+    }
+    currentCapacity: ptuCapacity
+    versionUpgradeOption: 'NoAutoUpgrade'
+  }
+}
+
+resource eventSub 'Microsoft.EventGrid/systemTopics/eventSubscriptions@2023-12-15-preview' = {
+  name: 'acs-call-events'
+  scope: acs
+  properties: {
+    destination: {
+      endpointType: 'WebHook'
+      properties: {
+        endpointUrl: 'https://voice-bridge.contoso.net/hooks/callautomation'
+      }
+    }
+    filter: {
+      includedEventTypes: [
+        'Microsoft.Communication.CallStarted'
+        'Microsoft.Communication.CallEnded'
+        'Microsoft.Communication.RecordingFileStatusUpdated'
+      ]
+    }
   }
 }
 ```
@@ -223,38 +255,101 @@ resource rt 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
 <policies>
   <inbound>
     <base />
-    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" />
-    <rate-limit-by-key calls="120" renewal-period="60" counter-key="@(context.Subscription.Id)" />
-    <set-variable name="maxSessionMinutes" value="25" />
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="invalid_token">
+      <openid-config url="https://login.microsoftonline.com/{tenant-id}/v2.0/.well-known/openid-configuration" />
+      <required-claims>
+        <claim name="aud"><value>api://voice-agent-realtime</value></claim>
+        <claim name="scp"><value>voice.realtime.invoke</value></claim>
+      </required-claims>
+    </validate-jwt>
+    <quota-by-key calls="120" renewal-period="60" counter-key="@(context.Request.Headers.GetValueOrDefault("x-tenant-id","na"))" />
+    <rate-limit-by-key calls="40" renewal-period="10" counter-key="@(context.Subscription?.Id ?? "anon")" />
+    <set-variable name="maxSessionSeconds" value="240" />
   </inbound>
+  <backend><base /></backend>
+  <outbound><base /></outbound>
+  <on-error><base /></on-error>
 </policies>
 ```
 
 ```yaml
 mediaBridge:
-  sessionAffinity: client-ip
-  transport: websocket
+  runtime: aca
+  sessionAffinity: clientIP
+  websocket:
+    pingIntervalSeconds: 20
+    idleTimeoutSeconds: 300
   vad:
-    mode: server
-    semanticTurnFallback: true
-    silenceWindowMs: 140
+    pstnG711:
+      silenceWindowMs: 220
+      energyThresholdDb: -38
+    webrtcPcm16:
+      silenceWindowMs: 140
+      semanticTurnEnabled: true
   bargeIn:
-    cancelTimeoutMs: 80
-    truncateTimeoutMs: 90
-    flushSlaMs: 150
-  heartbeat:
-    intervalSeconds: 45
+    cancelTimeoutMs: 60
+    truncateTimeoutMs: 70
+    flushTimeoutMs: 90
 ```
 
-| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
-|---|---:|---:|---:|---:|---|---|
-| Realtime WebRTC Direct | 3 | 5 | 3 | 3 | 同区高质量线路 | 噪声 PSTN 大规模呼叫中心 |
-| ACS + Media Bridge + AOAI Realtime | 5 | 4 | 4 | 2 | 企业多租户语音中心 | 缺少平台工程能力的小团队 |
-| Cascaded Speech SDK | 4 | 3 | 5 | 4 | 稳定播报流程 | 高频抢话场景 |
-| Hybrid Router | 5 | 4 | 4 | 3 | 混合意图业务组合 | 固定单脚本流程 |
+## 13) KQL 可观测性查询 + Day-0/Day-2 Checklist
 
-- 运营补充说明 255：语音链路治理需保持可解释、可回放、可审计。
-- 运营补充说明 256：语音链路治理需保持可解释、可回放、可审计。
-- 运营补充说明 257：语音链路治理需保持可解释、可回放、可审计。
-- 运营补充说明 258：语音链路治理需保持可解释、可回放、可审计。
-- 运营补充说明 259：语音链路治理需保持可解释、可回放、可审计。
+```kql
+let window = 24h;
+let calls = ACSCallSummary
+| where TimeGenerated > ago(window)
+| summarize call_count=count(), m2e_p95=percentile(MouthToEarMs,95) by bin(TimeGenerated,15m), TenantId;
+let media = ACSMediaSummary
+| where TimeGenerated > ago(window)
+| summarize flush_p95=percentile(BargeInFlushMs,95), jitter_p95=percentile(JitterMs,95) by bin(TimeGenerated,15m), TenantId;
+calls
+| join kind=inner media on TenantId, TimeGenerated
+| project TimeGenerated, TenantId, call_count, m2e_p95, flush_p95, jitter_p95
+| order by TimeGenerated desc
+```
+
+Day-0 关键项：
+1. 启用 ACS webhook mTLS，并验证回调来源白名单。
+2. 为 PSTN 与 WebRTC 分开执行 200 通压测并单独出阈值建议。
+3. 校验 APIM quota 键使用 tenantId，避免跨租户污染。
+4. 演练 cancel 成功但 truncate 失败场景，确认能自动切换半双工。
+5. 确认媒体桥 session affinity 生效，避免同会话跨节点漂移。
+6. 复核 M2E 与 flush 的双阈值都进入发布门禁。
+7. 验证 ACSCallSummary 与 ACSMediaSummary 字段完整率。
+8. 准备跨区容灾演练并记录 hairpin 罚时分布。
+9. 在上线评审中给出 interruption_factor 财务假设。
+10. 设置连续三窗超标即阻断发布的自动规则。
+
+Day-2 运营项：
+1. 每周按运营商与国家复盘误打断率，更新阈值模板。
+2. 每日复算 M2E 预算余量，低于 15ms 时触发扩容评估。
+3. 每月对账 Realtime 与 Cascaded 分钟成本偏差并调路由。
+4. 为高价值租户启用独立告警和快速响应通道。
+5. 抽样投诉录音与遥测对齐，识别“指标正常但体验差”情况。
+6. 定期回放容灾流量，防止跨区策略漂移。
+7. 审核 JWT claim 变化，防止范围失配导致误拒绝。
+8. 统计 flush 连续失败根因并分类整改。
+9. 季度更新 Erlang-C 参数，避免经验型扩容。
+10. 对异常重试租户做专项治理，抑制重播放大效应。
+
+## 14) 4-Option Weighted Decision Matrix
+
+| 方案 | 延迟表现(30) | 打断稳定性(25) | 成本可控(20) | 运维复杂度(15) | 合规可审计(10) | 加权总分 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 方案A：Realtime WebRTC 直连 AOAI | 28 | 18 | 14 | 9 | 6 | 75 |
+| 方案B：ACS + Media Bridge + AOAI Realtime | 26 | 24 | 17 | 12 | 9 | 88 |
+| 方案C：Cascaded Speech SDK(STT→LLM→TTS) | 20 | 16 | 19 | 11 | 8 | 74 |
+| 方案D：Hybrid Router(按租户动态切换) | 24 | 22 | 18 | 10 | 9 | 83 |
+
+方案A评价：路径短但企业 PSTN 治理能力不足。
+方案B评价：延迟、稳定性、可治理性平衡最佳，适合作为默认主路径。
+方案C评价：长播报成本有优势，但高打断场景体验波动较大。
+方案D评价：长期演进价值高，但需要成熟路由控制面。
+
+## 15) Good fit / Not for
+
+Good fit：需要统一管理 PSTN 与 WebRTC 且强调可审计打断事务的企业语音场景。
+Good fit：多租户平台，要求 APIM 集中治理身份与会话预算。
+Not for：低并发热线且无严格打断体验要求的小规模内部系统。
+Not for：缺少统一遥测和回放能力、无法做跨段归因的环境。
+结论：优先方案B，保留方案D作为中期演进。
