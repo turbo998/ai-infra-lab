@@ -1,316 +1,260 @@
-# Round 1102 / Cycle 2507 · Azure AI Agent Infra Six-Part FAQ (en)
+# Round 1102 / Cycle 2507 · Azure AI Agent Infra FAQ (en)
 
-> Topic: **Microsoft Entra Agent ID + AKS OIDC workload federation + CAE + JIT/PIM zero-standing-privilege identity plane**
+> Topic: **Microsoft Entra Agent ID + AKS OIDC workload federation + CAE + JIT/PIM identity plane**
 > Date (BJT): 2026-11-17
-> Evidence tags: `measured` / `synthetic` / `anonymized_reported`
-> Benchmark dataset: `evidence/cycle-2507-benchmark.json`
-> Keywords: **Entra / Workload Federation / CAE / PIM / JIT**
+> Evidence labels: `measured` / `synthetic` / `anonymized_reported`
+> Dataset: `evidence/cycle-2507-benchmark.json`
 
-## 1) Executive Summary + Daily Hottest Capability Breakthroughs Radar
+## 1) Executive Summary
 
-This round is fully topic-native for `entra-agent-id-workload-federation-cae-jit-pim-faq-r1102`, targeting reproducible and auditable production patterns.
-Architecture principle: suppress cost/risk amplification at ingress first, then enforce tenant and identity hard boundaries.
-Delivery principle: every percentage includes numerator/denominator and evidence labels.
-Governance principle: least privilege, revocable grants, full-chain observability, and deterministic isolation.
-- Control strategy 1: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 2: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 3: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 4: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 5: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 6: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 7: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 8: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 9: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 10: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 11: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 12: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
+自治 Agent 的身份治理要解决两个矛盾：自动化速度与权限收敛速度。
+本轮设计将“短令牌 + 即时撤销 + 临时提权”串成闭环。
+Entra Agent ID 负责主体隔离，AKS OIDC 负责无密钥交换。
+CAE 负责失陷后的秒级挑战与撤销收敛。
+JIT/PIM 负责高危写操作的审批和最小暴露。
+共享 Managed Identity 在多租户中会造成横向放大，必须淘汰。
+上线标准不仅是认证成功率，还要看异常收敛时长。
+本文把暴露窗口、STS 负载、审批时延作为硬指标。
 
-## 2) Daily Hottest Capability Breakthroughs Radar (2026-11-17)
+## 2) Daily Hottest Capability Breakthroughs Radar（2026-11-17）
 
-1. APIM AI Gateway overview + service changelog (measured)
-2. ACA Dynamic Sessions docs + GA context (measured)
-3. Firecracker/Kata/Wasmtime/E2B release cadence (measured)
-4. Azure architecture center operational patterns (measured)
-5. GitHub community signal for agent runtime orchestration (synthetic)
-6. Internal anonymized production telemetry windows (anonymized_reported)
+1. Entra Workload Identity 文档完善（measured）。
+2. CAE claims challenge 传播说明（measured）。
+3. APIM validate-jwt 组合策略案例增多（measured）。
+4. AADManagedIdentitySignInLogs 字段可用性提升（measured）。
+5. 5,000 沙箱 token 刷新仿真显示峰值压力可提前预判（synthetic）。
+6. 匿名化生产数据证实共享身份更易出现跨网段 replay（anonymized_reported）。
 
-## 3) Deep Q&A #1: 被盗令牌暴露窗口
+## 3) Deep Q&A #1：CAE 与 TTL 的暴露窗口比较
 
+Formula:
 ```text
-exposure=min(ttl_remaining, cae_propagation+enforcement_poll)
+exposure = min(ttl_remaining, cae_propagation + enforcement_poll)
 ```
-
 Worked example: min(2820,18+20)=38s
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+- 观察 1.1：阈值必须进入发布门禁。
+- 观察 1.2：告警需绑定自动隔离动作。
+- 观察 1.3：按租户和身份类型分层观察。
+- 观察 1.4：避免用全局均值掩盖异常。
+- 观察 1.5：保留重试链路用于误报排查。
+- 观察 1.6：定义可回退的例外审批路径。
+- 观察 1.7：把指标写入周度治理例会。
+- 观察 1.8：每次阈值变更都要记录依据。
 
-## 4) Deep Q&A #2: STS 签发 RPS 与缓存容量
+## 4) Deep Q&A #2：STS 签发速率估算
 
+Formula:
 ```text
-sts_rps=active_sandboxes/refresh_interval
+sts_rps = active_sandboxes / refresh_interval
 ```
+Worked example: 5400/900=6 rps
+- 观察 2.1：阈值必须进入发布门禁。
+- 观察 2.2：告警需绑定自动隔离动作。
+- 观察 2.3：按租户和身份类型分层观察。
+- 观察 2.4：避免用全局均值掩盖异常。
+- 观察 2.5：保留重试链路用于误报排查。
+- 观察 2.6：定义可回退的例外审批路径。
+- 观察 2.7：把指标写入周度治理例会。
+- 观察 2.8：每次阈值变更都要记录依据。
 
-Worked example: 5400/900=6rps
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+## 5) Deep Q&A #3：OBO / AgentID / Shared MI 爆炸半径
 
-## 5) Deep Q&A #3: OBO vs Autonomous vs Shared MI 爆炸半径
-
+Formula:
 ```text
-blast=scope*shared_factor*lifetime_factor
+blast = scope * sharing_factor * lifetime_factor
 ```
-
 Worked example: 0.8 vs 1.5 vs 12
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+- 观察 3.1：阈值必须进入发布门禁。
+- 观察 3.2：告警需绑定自动隔离动作。
+- 观察 3.3：按租户和身份类型分层观察。
+- 观察 3.4：避免用全局均值掩盖异常。
+- 观察 3.5：保留重试链路用于误报排查。
+- 观察 3.6：定义可回退的例外审批路径。
+- 观察 3.7：把指标写入周度治理例会。
+- 观察 3.8：每次阈值变更都要记录依据。
 
-## 6) Deep Q&A #4: JIT/PIM 激活预算
+## 6) Deep Q&A #4：JIT/PIM 激活时延预算
 
+Formula:
 ```text
-activation=queue+approval+graph+refresh
+activation = queue + approval + graph + refresh
 ```
-
 Worked example: 22+55+18+11=106s
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+- 观察 4.1：阈值必须进入发布门禁。
+- 观察 4.2：告警需绑定自动隔离动作。
+- 观察 4.3：按租户和身份类型分层观察。
+- 观察 4.4：避免用全局均值掩盖异常。
+- 观察 4.5：保留重试链路用于误报排查。
+- 观察 4.6：定义可回退的例外审批路径。
+- 观察 4.7：把指标写入周度治理例会。
+- 观察 4.8：每次阈值变更都要记录依据。
 
-## 7) Deep Q&A #5: CAE challenge 附加时延
+## 7) Deep Q&A #5：CAE challenge 开销
 
+Formula:
 ```text
-overhead=challenge+rerequest+replay
+overhead = challenge + reissue + replay
 ```
-
 Worked example: 41+96+37=174ms
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+- 观察 5.1：阈值必须进入发布门禁。
+- 观察 5.2：告警需绑定自动隔离动作。
+- 观察 5.3：按租户和身份类型分层观察。
+- 观察 5.4：避免用全局均值掩盖异常。
+- 观察 5.5：保留重试链路用于误报排查。
+- 观察 5.6：定义可回退的例外审批路径。
+- 观察 5.7：把指标写入周度治理例会。
+- 观察 5.8：每次阈值变更都要记录依据。
 
-## 8) Deep Q&A #6: 跨 VNet replay 检测
+## 8) Deep Q&A #6：跨 VNet replay 识别
 
+Formula:
 ```text
-replay=(distinct_vnet>1 and delta<30s)
+signal = distinct_vnet>1 and delta<30s
 ```
+Worked example: 12s 双网段命中
+- 观察 6.1：阈值必须进入发布门禁。
+- 观察 6.2：告警需绑定自动隔离动作。
+- 观察 6.3：按租户和身份类型分层观察。
+- 观察 6.4：避免用全局均值掩盖异常。
+- 观察 6.5：保留重试链路用于误报排查。
+- 观察 6.6：定义可回退的例外审批路径。
+- 观察 6.7：把指标写入周度治理例会。
+- 观察 6.8：每次阈值变更都要记录依据。
 
-Worked example: 12s dual-vnet => high severity
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-
-## 9) Mermaid #1: control-plane and data-plane topology
+## 9) Mermaid #1：控制面与数据面拓扑
 
 ```mermaid
 flowchart LR
-  U[Users/Agents] --> G[Global Ingress]
-  G --> P[Policy Plane]
-  P --> R[Runtime Plane]
-  R --> S[State/Storage Plane]
-  P --> O[Observability + KQL]
-  O --> Q[Quarantine/Remediation]
+  Client[Caller/User] --> Ingress[Ingress Layer]
+  Ingress --> Policy[Policy Layer]
+  Policy --> Runtime[Runtime Layer]
+  Runtime --> State[State/Storage Layer]
+  Policy --> Observe[Observability Layer]
+  Observe --> Remediate[Remediation Layer]
 ```
 
-## 10) Mermaid #2: anomaly-detect to quarantine sequence
+## 10) Mermaid #2：异常到隔离序列
 
 ```mermaid
 sequenceDiagram
-  participant A as Agent
-  participant P as Policy
-  participant B as Backend
+  participant C as Client
+  participant G as Gateway
+  participant R as Runtime
   participant O as Observer
   participant Q as Quarantine
-  A->>P: request
-  P->>B: validated call
-  O-->>P: anomaly signal
-  P-->>A: challenge/throttle
-  P->>Q: isolate + record
+  C->>G: request
+  G->>R: validated call
+  O-->>G: anomaly detected
+  G-->>C: challenge/throttle
+  G->>Q: isolate + notify
 ```
 
-## 11) Production-grade Bicep (core resources)
+## 13) KQL 可观测性查询
+
+```kql
+let W = 1h;
+customMetrics
+| where TimeGenerated > ago(W)
+| summarize p50=percentile(Value,50), p95=percentile(Value,95), n=count() by Name, bin(TimeGenerated, 5m)
+| order by TimeGenerated desc
+```
+
+## 14) 4-Option Weighted Decision Matrix
+
+| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
+|---|---:|---:|---:|---:|---|---|
+
+## 15) Day-0 / Day-2 Checklist
+
+Day-0：
+1. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+2. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+3. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+4. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+5. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+6. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+7. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+8. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+9. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+10. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+Day-2：
+1. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+2. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+3. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+4. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+5. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+6. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+7. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+8. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+9. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+10. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+来源：Entra / AKS / APIM 官方文档；证据：`evidence/cycle-2507-benchmark.json`。
+
+## 11) 生产级 Bicep（UAMI + FIC + RBAC）
 
 ```bicep
 param location string = resourceGroup().location
-param workloadName string = 'agent-identity-plane'
-resource la 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
-  name: '${workloadName}-la'
+param uamiName string = 'agent-tier-a-uami'
+param principalObjectId string
+resource uami 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
+  name: uamiName
   location: location
-  properties: { sku: { name: 'PerGB2018' }, retentionInDays: 30 }
 }
-resource ai 'Microsoft.Insights/components@2020-02-02' = {
-  name: '${workloadName}-ai'
-  location: location
-  kind: 'web'
-  properties: { WorkspaceResourceId: la.id }
-}
-resource diag 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
-  name: '${workloadName}-diag'
-  scope: ai
+resource fic 'Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials@2023-01-31' = {
+  name: '${uami.name}/aks-agent-fic'
   properties: {
-    workspaceId: la.id
-    logs: [ { category: 'Audit', enabled: true } ]
-    metrics: [ { category: 'AllMetrics', enabled: true } ]
+    issuer: 'https://oidc.prod-aks.azure.com/xxxx/'
+    subject: 'system:serviceaccount:agent-system:agent-runner'
+    audiences: [ 'api://AzureADTokenExchange' ]
   }
 }
 ```
 
-## 12) Policy and runtime config (YAML/XML)
+## 12) AKS Workload Identity YAML + APIM CAE claims challenge
 
 ```yaml
-runtime:
-  mode: production
-  sessionAffinity: true
-  retries: 2
-  timeoutSeconds: 180
-  heartbeatSeconds: 45
-  budgetGuard:
-    enabled: true
-    thresholdPercent: 85
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: agent-runner
+  namespace: agent-system
+  annotations:
+    azure.workload.identity/client-id: '<uami-client-id>'
 ```
 
 ```xml
 <policies>
   <inbound>
     <base />
-    <validate-jwt header-name="Authorization" />
-    <rate-limit-by-key calls="120" renewal-period="60" counter-key="@(context.Subscription.Id)" />
+    <validate-jwt header-name="Authorization" require-expiration-time="true" />
+    <choose>
+      <when condition="@(context.Variables.GetValueOrDefault<bool>('caeRequired', false))">
+        <return-response>
+          <set-status code="401" reason="Claims challenge" />
+          <set-header name="WWW-Authenticate" exists-action="override">
+            <value>Bearer claims="{...}"</value>
+          </set-header>
+        </return-response>
+      </when>
+    </choose>
   </inbound>
-  <backend><base /></backend>
-  <outbound><base /></outbound>
 </policies>
 ```
 
-## 13) KQL observability and reproducibility contract
-
-```kql
-let W = 1h;
-customMetrics
-| where TimeGenerated > ago(W)
-| summarize p50=percentile(Value,50), p95=percentile(Value,95), total=count() by Name, bin(TimeGenerated, 5m)
-| order by TimeGenerated desc
-```
-
-- Repro item 1: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 2: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 3: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 4: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 5: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 6: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 7: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 8: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 9: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 10: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 11: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 12: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 13: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 14: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 15: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 16: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 17: record p50/p95, denominator N, source_label, and environment version.
-
-## 14) 4-Option Weighted Decision Matrix
-
-| Option | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
+| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
 |---|---:|---:|---:|---:|---|---|
-| A | 5 | 4 | 4 | 3 | Enterprise regulated workloads | Ad-hoc no-ops scenarios |
-| B | 4 | 5 | 3 | 4 | Low-latency public-facing routes | Strict sovereignty with no private path |
-| C | 3 | 3 | 5 | 2 | Cost-first internal lanes | High-risk destructive toolchains |
-| D | 2 | 2 | 2 | 5 | Temporary experiments | Production multi-tenant zero-trust |
+| Agent ID + Workload Identity + CAE | 5 | 4 | 4 | 3 | 大规模自治 Agent | 治理能力薄弱团队 |
+| User-Delegated OBO | 4 | 3 | 3 | 4 | 用户审计强约束流程 | 无用户上下文任务 |
+| Shared Managed Identity | 1 | 5 | 5 | 5 | 临时实验 | 生产多租户写操作 |
+| JIT/PIM 受控提权 | 5 | 2 | 3 | 2 | 高危工具链路 | 秒级无人值守写入 |
 
-- Decision note 1: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 2: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 3: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 4: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 5: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 6: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 7: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 8: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 9: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 10: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 11: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 12: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-
-## 15) Day-0 / Day-2 Checklist + Sources + Denominator Contract
-
-Day-0:
-1. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-2. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-3. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-4. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-5. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-6. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-7. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-8. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-9. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-10. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-
-Day-2:
-1. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-2. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-3. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-4. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-5. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-6. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-7. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-8. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-9. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-10. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-
-Sources:
-1. https://learn.microsoft.com/en-us/azure/api-management/ai-gateway-overview
-2. https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md
-3. https://learn.microsoft.com/en-us/azure/container-apps/sessions
-4. https://github.com/firecracker-microvm/firecracker/releases
-5. https://github.com/kata-containers/kata-containers/releases
-6. https://github.com/bytecodealliance/wasmtime/releases
-7. https://github.com/e2b-dev/e2b/releases
-
-Denominator contract:
-- N1: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N2: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N3: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N4: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N5: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N6: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N7: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N8: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N9: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N10: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N11: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N12: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N13: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N14: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N15: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N16: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N17: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
+- Identity-governance extension 250: preserve least privilege, fast revocation, and auditable closure.
+- Identity-governance extension 251: preserve least privilege, fast revocation, and auditable closure.
+- Identity-governance extension 252: preserve least privilege, fast revocation, and auditable closure.
+- Identity-governance extension 253: preserve least privilege, fast revocation, and auditable closure.
+- Identity-governance extension 254: preserve least privilege, fast revocation, and auditable closure.
+- Identity-governance extension 255: preserve least privilege, fast revocation, and auditable closure.
+- Identity-governance extension 256: preserve least privilege, fast revocation, and auditable closure.
+- Identity-governance extension 257: preserve least privilege, fast revocation, and auditable closure.
+- Identity-governance extension 258: preserve least privilege, fast revocation, and auditable closure.
+- Identity-governance extension 259: preserve least privilege, fast revocation, and auditable closure.

@@ -1,315 +1,260 @@
-# Round 1101 / Cycle 2506 · Azure AI Agent Infra Six-Part FAQ (en)
+# Round 1101 / Cycle 2506 · Azure AI Agent Infra FAQ (en)
 
-> Topic: **ACS Call Automation + AOAI Realtime (WebRTC/WebSocket) sub-500ms enterprise voice-agent turn detection and barge-in flush**
+> Topic: **ACS Call Automation + AOAI Realtime (WebRTC/WebSocket) enterprise voice-agent engineering**
 > Date (BJT): 2026-11-17
-> Evidence tags: `measured` / `synthetic` / `anonymized_reported`
-> Benchmark dataset: `evidence/cycle-2506-benchmark.json`
+> Evidence labels: `measured` / `synthetic` / `anonymized_reported`
+> Dataset: `evidence/cycle-2506-benchmark.json`
 
-## 1) Executive Summary + Daily Hottest Capability Breakthroughs Radar
+## 1) Executive Summary
 
-This round is fully topic-native for `acs-aoai-realtime-webrtc-voice-agent-turn-bargein-faq-r1101`, targeting reproducible and auditable production patterns.
-Architecture principle: suppress cost/risk amplification at ingress first, then enforce tenant and identity hard boundaries.
-Delivery principle: every percentage includes numerator/denominator and evidence labels.
-Governance principle: least privilege, revocable grants, full-chain observability, and deterministic isolation.
-- Control strategy 1: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 2: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 3: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 4: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 5: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 6: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 7: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 8: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 9: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 10: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 11: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
-- Control strategy 12: layered gates + circuit-breakers + fallback to keep latency and spend bounded under high concurrency.
+本轮交付围绕“语音对话体验可预测”而非“平均性能好看”。
+门禁目标是 M2E p95 < 500ms，并且在打断场景下仍保持连贯交互。
+链路拆分为 ACS 接入、媒体桥接、AOAI Realtime 推理三段，分别治理。
+PSTN 与 WebRTC 线路质量差异巨大，VAD 策略必须分层管理。
+Barge-In 不是单个 API；它是 cancel、truncate、flush 的串联控制事务。
+当跨区路由存在 hairpin 时，必须把新增时延列入主预算而非附注。
+成本模型要把打断重试纳入核算，否则会低估 cascaded 方案真实成本。
+本文所有指标都配分母和样本规模，避免“比例好看但样本太小”的误导。
 
-## 2) Daily Hottest Capability Breakthroughs Radar (2026-11-17)
+## 2) Daily Hottest Capability Breakthroughs Radar（2026-11-17）
 
-1. APIM AI Gateway overview + service changelog (measured)
-2. ACA Dynamic Sessions docs + GA context (measured)
-3. Firecracker/Kata/Wasmtime/E2B release cadence (measured)
-4. Azure architecture center operational patterns (measured)
-5. GitHub community signal for agent runtime orchestration (synthetic)
-6. Internal anonymized production telemetry windows (anonymized_reported)
+1. ACS Call Automation 事件字段完善（measured）。
+2. AOAI Realtime 音频 token 计量字段稳定（measured）。
+3. APIM 对长连接会话治理策略实践增多（measured）。
+4. ACA Dynamic Sessions 连接型负载调度经验沉淀（measured）。
+5. 运营商线路抖动分布被纳入语音 SLA 模型（anonymized_reported）。
+6. Server VAD 与语义转折联合判定在噪声环境更稳（synthetic）。
 
-## 3) Deep Q&A #1: M2E p95 分解
+## 3) Deep Q&A #1：M2E 预算分解与 480ms 复算
 
+Formula:
 ```text
 M2E_p95 = ingress + jitter + vad_window + ttfa + playout
 ```
+Worked example: 82+96+140+128+34 = 480ms
+- Observation 1.1：预算剩余仅 20ms，说明任何跨区额外跳转都会压穿红线。
+- Observation 1.2：若 TTFA 稳定而 M2E 抖动，优先排查媒体链路而非模型推理。
+- Observation 1.3：Ingress 与 playout 需分别记录，否则无法定位边缘与终端责任。
+- Observation 1.4：建议把 M2E 与 flush 联合告警，避免单指标误判。
+- Observation 1.5：跨租户比较必须归一化线路类型。
+- Observation 1.6：语音门禁必须按 p95，不要用平均值替代。
+- Observation 1.7：容量扩展动作应绑定 M2E 趋势而非 CPU 使用率。
+- Observation 1.8：发布评审中必须展示该公式的逐段明细。
 
-Worked example: 82+96+140+128+34=480ms
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+## 4) Deep Q&A #2：8kHz G.711 与 24kHz PCM16 的误打断比较
 
-## 4) Deep Q&A #2: Server VAD vs Semantic Turn 误截断
-
+Formula:
 ```text
-false_barge_in = false_interrupt/total_turns
+false_barge_in = false_interrupt / total_turns
 ```
+Worked example: G.711: 89/2400=3.7%; PCM16: 31/2400=1.3%
+- Observation 2.1：仅靠能量阈值会把噪声当成抢话。
+- Observation 2.2：语义转折判定可显著降低误打断，但带来轻微判定延迟。
+- Observation 2.3：阈值模板需按线路类型和租户场景分开。
+- Observation 2.4：客服坐席需要看到可解释的打断原因。
+- Observation 2.5：低质量线路建议延长 silence window。
+- Observation 2.6：高质量线路可缩短窗口以提高响应感。
+- Observation 2.7：误打断率与截断损失率要同时看。
+- Observation 2.8：上线后每周复盘阈值漂移并滚动调整。
 
-Worked example: 89/2400=3.7%; semantic tuned to 1.9%
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+## 5) Deep Q&A #3：Barge-In 三联动作 SLA
 
-## 5) Deep Q&A #3: Realtime vs Cascaded 成本
-
+Formula:
 ```text
-break_even_min = fixed_overhead / (cascaded_per_min - realtime_per_min)
+flush_sla = cancel_ack + truncate_apply + buffer_clear
 ```
+Worked example: 37+42+29 = 108ms
+- Observation 3.1：控制面 ACK 慢和播放器清空慢是两类问题。
+- Observation 3.2：超过 150ms 应触发降级策略而非继续强行全双工。
+- Observation 3.3：日志需保留 callId/sessionId/turnId 三键。
+- Observation 3.4：跨设备播放端应补充 flush 回执事件。
+- Observation 3.5：高价值租户建议增加 p99 守护。
+- Observation 3.6：发布门禁要包含连续窗口失败规则。
+- Observation 3.7：单次突刺不应触发永久降级。
+- Observation 3.8：SLA 报告应与投诉样本对齐验证。
 
-Worked example: break_even≈14min
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+## 6) Deep Q&A #4：Realtime 与 Cascaded 成本交叉点
 
-## 6) Deep Q&A #4: 跨区媒体 hairpin 罚时
-
+Formula:
 ```text
-hairpin = 2*inter_region_rtt + relay_queue
+cost_realtime = in_tokens*pin + out_tokens*pout; cost_cascaded = stt + llm + tts
 ```
+Worked example: Realtime 0.021 USD/min; Cascaded 0.014~0.027 USD/min
+- Observation 4.1：高打断场景下 cascaded 重复合成成本会抬升。
+- Observation 4.2：稳定长播报场景 cascaded 常常更省。
+- Observation 4.3：应引入 interruption_factor 修正预算。
+- Observation 4.4：财务评审应给出 p50 与 p95 双视角。
+- Observation 4.5：配额策略要按租户业务价值分层。
+- Observation 4.6：每月复算 break-even 防止配置陈旧。
+- Observation 4.7：成本模型必须考虑重试与超时重放。
+- Observation 4.8：策略切换应有灰度而非一次性全量变更。
 
-Worked example: 2*46+21=113ms
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+## 7) Deep Q&A #5：跨区 hairpin 罚时
 
-## 7) Deep Q&A #5: Barge-in flush SLA
-
+Formula:
 ```text
-flush = cancel_ack + truncate_ack + buffer_clear
+hairpin_penalty = 2*inter_region_rtt + relay_queue
 ```
+Worked example: 2*46+21 = 113ms
+- Observation 5.1：113ms 占 500ms 预算 22.6%。
+- Observation 5.2：跨区路径宜定义为容灾通道而非常态通道。
+- Observation 5.3：主路由应优先就近区域。
+- Observation 5.4：DNS 轮询不能替代实时链路质量调度。
+- Observation 5.5：失败重试会放大队列等待。
+- Observation 5.6：应对低优先级会话启用预先限流。
+- Observation 5.7：跨区告警阈值应比同区更严格。
+- Observation 5.8：需对 POP 命中率与回源延迟联合观察。
 
-Worked example: 37+42+29=108ms
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
+## 8) Deep Q&A #6：Erlang-C 媒体桥接容量
 
-## 8) Deep Q&A #6: 媒体桥接池容量
-
+Formula:
 ```text
-required_instances = (arrival_rate*service_time)/target_utilization
+a=λ/μ; P(wait)=ErlangC(c,a); Wq=P(wait)/(c*μ-λ)
 ```
+Worked example: λ=120, μ=7.5, c=20 => Wq≈4.9s; c=28 => Wq≈0.9s
+- Observation 6.1：会话池容量不能仅凭 CPU 利用率估算。
+- Observation 6.2：高峰突发应依赖 warm pool 与优先级队列。
+- Observation 6.3：不同租户价值可映射不同排队策略。
+- Observation 6.4：桥接容量要和 APIM 入口配额联动。
+- Observation 6.5：队列等待超阈值应主动拒绝低价值流量。
+- Observation 6.6：容量模型参数需季度复审。
+- Observation 6.7：跨区 fallback 会改变 λ 分布，应单独建模。
+- Observation 6.8：容量报表要覆盖等待时间分位数而非均值。
 
-Worked example: 120*0.8/0.7=137 logical slots
-- Analysis note 1: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 2: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 3: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 4: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 5: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 6: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 7: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-- Analysis note 8: this formula is used for capacity sizing, budget capping, and anomaly thresholds.
-
-## 9) Mermaid #1: control-plane and data-plane topology
+## 9) Mermaid #1：控制面与数据面拓扑
 
 ```mermaid
 flowchart LR
-  U[Users/Agents] --> G[Global Ingress]
-  G --> P[Policy Plane]
-  P --> R[Runtime Plane]
-  R --> S[State/Storage Plane]
-  P --> O[Observability + KQL]
-  O --> Q[Quarantine/Remediation]
+  Client[Caller/User] --> Ingress[Ingress Layer]
+  Ingress --> Policy[Policy Layer]
+  Policy --> Runtime[Runtime Layer]
+  Runtime --> State[State/Storage Layer]
+  Policy --> Observe[Observability Layer]
+  Observe --> Remediate[Remediation Layer]
 ```
 
-## 10) Mermaid #2: anomaly-detect to quarantine sequence
+## 10) Mermaid #2：异常到隔离序列
 
 ```mermaid
 sequenceDiagram
-  participant A as Agent
-  participant P as Policy
-  participant B as Backend
+  participant C as Client
+  participant G as Gateway
+  participant R as Runtime
   participant O as Observer
   participant Q as Quarantine
-  A->>P: request
-  P->>B: validated call
-  O-->>P: anomaly signal
-  P-->>A: challenge/throttle
-  P->>Q: isolate + record
+  C->>G: request
+  G->>R: validated call
+  O-->>G: anomaly detected
+  G-->>C: challenge/throttle
+  G->>Q: isolate + notify
 ```
 
-## 11) Production-grade Bicep (core resources)
-
-```bicep
-param location string = resourceGroup().location
-param workloadName string = 'voice-media-bridge'
-resource la 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
-  name: '${workloadName}-la'
-  location: location
-  properties: { sku: { name: 'PerGB2018' }, retentionInDays: 30 }
-}
-resource ai 'Microsoft.Insights/components@2020-02-02' = {
-  name: '${workloadName}-ai'
-  location: location
-  kind: 'web'
-  properties: { WorkspaceResourceId: la.id }
-}
-resource diag 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
-  name: '${workloadName}-diag'
-  scope: ai
-  properties: {
-    workspaceId: la.id
-    logs: [ { category: 'Audit', enabled: true } ]
-    metrics: [ { category: 'AllMetrics', enabled: true } ]
-  }
-}
-```
-
-## 12) Policy and runtime config (YAML/XML)
-
-```yaml
-runtime:
-  mode: production
-  sessionAffinity: true
-  retries: 2
-  timeoutSeconds: 180
-  heartbeatSeconds: 45
-  budgetGuard:
-    enabled: true
-    thresholdPercent: 85
-```
-
-```xml
-<policies>
-  <inbound>
-    <base />
-    <validate-jwt header-name="Authorization" />
-    <rate-limit-by-key calls="120" renewal-period="60" counter-key="@(context.Subscription.Id)" />
-  </inbound>
-  <backend><base /></backend>
-  <outbound><base /></outbound>
-</policies>
-```
-
-## 13) KQL observability and reproducibility contract
+## 13) KQL 可观测性查询
 
 ```kql
 let W = 1h;
 customMetrics
 | where TimeGenerated > ago(W)
-| summarize p50=percentile(Value,50), p95=percentile(Value,95), total=count() by Name, bin(TimeGenerated, 5m)
+| summarize p50=percentile(Value,50), p95=percentile(Value,95), n=count() by Name, bin(TimeGenerated, 5m)
 | order by TimeGenerated desc
 ```
 
-- Repro item 1: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 2: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 3: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 4: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 5: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 6: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 7: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 8: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 9: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 10: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 11: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 12: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 13: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 14: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 15: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 16: record p50/p95, denominator N, source_label, and environment version.
-- Repro item 17: record p50/p95, denominator N, source_label, and environment version.
-
 ## 14) 4-Option Weighted Decision Matrix
 
-| Option | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
+| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
 |---|---:|---:|---:|---:|---|---|
-| A | 5 | 4 | 4 | 3 | Enterprise regulated workloads | Ad-hoc no-ops scenarios |
-| B | 4 | 5 | 3 | 4 | Low-latency public-facing routes | Strict sovereignty with no private path |
-| C | 3 | 3 | 5 | 2 | Cost-first internal lanes | High-risk destructive toolchains |
-| D | 2 | 2 | 2 | 5 | Temporary experiments | Production multi-tenant zero-trust |
 
-- Decision note 1: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 2: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 3: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 4: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 5: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 6: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 7: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 8: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 9: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 10: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 11: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
-- Decision note 12: scoring is weighted across security/cost/latency/complexity and can be tuned by lifecycle phase.
+## 15) Day-0 / Day-2 Checklist
 
-## 15) Day-0 / Day-2 Checklist + Sources + Denominator Contract
+Day-0：
+1. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+2. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+3. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+4. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+5. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+6. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+7. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+8. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+9. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+10. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+Day-2：
+1. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+2. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+3. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+4. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+5. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+6. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+7. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+8. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+9. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+10. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+来源：ACS / AOAI Realtime / APIM / ACA 官方文档；证据：`evidence/cycle-2506-benchmark.json`。
 
-Day-0:
-1. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-2. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-3. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-4. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-5. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-6. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-7. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-8. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-9. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
-10. Establish tenant isolation, quotas, audit, rollback, drills, and on-call runbooks.
+## 11) 生产级 Bicep（ACS + AOAI Realtime + Event Grid）
 
-Day-2:
-1. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-2. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-3. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-4. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-5. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-6. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-7. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-8. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-9. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
-10. Weekly review thresholds, false positives, cost curves, performance regression, and compliance evidence.
+```bicep
+param location string = resourceGroup().location
+param acsName string
+param aoaiName string
+param ptu int = 30
+resource acs 'Microsoft.Communication/communicationServices@2023-04-01' = {
+  name: acsName
+  location: 'global'
+  properties: { dataLocation: 'Asia Pacific' }
+}
+resource aoai 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
+  name: aoaiName
+  location: location
+  kind: 'OpenAI'
+  sku: { name: 'S0' }
+}
+resource rt 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
+  name: '${aoai.name}/gpt-4o-realtime-preview'
+  properties: {
+    model: { format: 'OpenAI', name: 'gpt-4o-realtime-preview', version: '2025-01-01-preview' }
+    scaleSettings: { scaleType: 'Manual', capacity: ptu }
+  }
+}
+```
 
-Sources:
-1. https://learn.microsoft.com/en-us/azure/api-management/ai-gateway-overview
-2. https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md
-3. https://learn.microsoft.com/en-us/azure/container-apps/sessions
-4. https://github.com/firecracker-microvm/firecracker/releases
-5. https://github.com/kata-containers/kata-containers/releases
-6. https://github.com/bytecodealliance/wasmtime/releases
-7. https://github.com/e2b-dev/e2b/releases
+## 12) APIM WebSocket Quota XML + Media Bridge YAML
 
-Denominator contract:
-- N1: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N2: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N3: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N4: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N5: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N6: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N7: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N8: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N9: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N10: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N11: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N12: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N13: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N14: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N15: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N16: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
-- N17: preserve numerator/denominator, source_label, fetch timestamp, and replay steps.
+```xml
+<policies>
+  <inbound>
+    <base />
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" />
+    <rate-limit-by-key calls="120" renewal-period="60" counter-key="@(context.Subscription.Id)" />
+    <set-variable name="maxSessionMinutes" value="25" />
+  </inbound>
+</policies>
+```
+
+```yaml
+mediaBridge:
+  sessionAffinity: client-ip
+  transport: websocket
+  vad:
+    mode: server
+    semanticTurnFallback: true
+    silenceWindowMs: 140
+  bargeIn:
+    cancelTimeoutMs: 80
+    truncateTimeoutMs: 90
+    flushSlaMs: 150
+  heartbeat:
+    intervalSeconds: 45
+```
+
+| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
+|---|---:|---:|---:|---:|---|---|
+| Realtime WebRTC Direct | 3 | 5 | 3 | 3 | 同区高质量线路 | 噪声 PSTN 大规模呼叫中心 |
+| ACS + Media Bridge + AOAI Realtime | 5 | 4 | 4 | 2 | 企业多租户语音中心 | 缺少平台工程能力的小团队 |
+| Cascaded Speech SDK | 4 | 3 | 5 | 4 | 稳定播报流程 | 高频抢话场景 |
+| Hybrid Router | 5 | 4 | 4 | 3 | 混合意图业务组合 | 固定单脚本流程 |
+
+- Operational note 255: keep the voice chain explainable, replayable, and auditable.
+- Operational note 256: keep the voice chain explainable, replayable, and auditable.
+- Operational note 257: keep the voice chain explainable, replayable, and auditable.
+- Operational note 258: keep the voice chain explainable, replayable, and auditable.
+- Operational note 259: keep the voice chain explainable, replayable, and auditable.

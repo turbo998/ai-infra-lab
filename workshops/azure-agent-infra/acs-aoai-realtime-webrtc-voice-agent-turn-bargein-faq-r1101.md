@@ -1,315 +1,260 @@
-# Round 1101 / Cycle 2506 · Azure AI Agent Infra 六段式 FAQ（zh-CN）
+# Round 1101 / Cycle 2506 · Azure AI Agent Infra FAQ（zh-CN）
 
-> 主题：**ACS Call Automation + AOAI Realtime（WebRTC/WebSocket）企业语音 Agent 亚 500ms 转折检测与 Barge-In 刷新**
+> 主题：**ACS Call Automation + AOAI Realtime（WebRTC/WebSocket）企业语音 Agent 亚 500ms 转折检测与 Barge-In 工程指南**
 > 日期（BJT）：2026-11-17
 > 证据标签：`measured` / `synthetic` / `anonymized_reported`
-> 基准数据：`evidence/cycle-2506-benchmark.json`
+> 基准文件：`evidence/cycle-2506-benchmark.json`
 
-## 1) Executive Summary + Daily Hottest Capability Breakthroughs Radar
+## 1) Executive Summary
 
-本轮聚焦 `acs-aoai-realtime-webrtc-voice-agent-turn-bargein-faq-r1101`，目标是建立可复现、可审计、可运营的生产级方案。
-架构原则：先入口抑制成本放大，再在控制面执行租户与身份硬边界。
-交付原则：指标必须可复算，所有百分比都带分子/分母与来源标签。
-治理原则：强制最小权限、可撤销授权、全链路审计与异常隔离。
-- 关键策略 1：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 2：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 3：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 4：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 5：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 6：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 7：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 8：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 9：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 10：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 11：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
-- 关键策略 12：分层门禁 + 熔断 + 回退，保证高并发场景下稳定与成本可控。
+本轮交付围绕“语音对话体验可预测”而非“平均性能好看”。
+门禁目标是 M2E p95 < 500ms，并且在打断场景下仍保持连贯交互。
+链路拆分为 ACS 接入、媒体桥接、AOAI Realtime 推理三段，分别治理。
+PSTN 与 WebRTC 线路质量差异巨大，VAD 策略必须分层管理。
+Barge-In 不是单个 API；它是 cancel、truncate、flush 的串联控制事务。
+当跨区路由存在 hairpin 时，必须把新增时延列入主预算而非附注。
+成本模型要把打断重试纳入核算，否则会低估 cascaded 方案真实成本。
+本文所有指标都配分母和样本规模，避免“比例好看但样本太小”的误导。
 
 ## 2) Daily Hottest Capability Breakthroughs Radar（2026-11-17）
 
-1. APIM AI Gateway overview + service changelog（measured）
-2. ACA Dynamic Sessions docs + GA context（measured）
-3. Firecracker/Kata/Wasmtime/E2B release cadence（measured）
-4. Azure architecture center operational patterns（measured）
-5. GitHub community signal for agent runtime orchestration（synthetic）
-6. Internal anonymized production telemetry windows（anonymized_reported）
+1. ACS Call Automation 事件字段完善（measured）。
+2. AOAI Realtime 音频 token 计量字段稳定（measured）。
+3. APIM 对长连接会话治理策略实践增多（measured）。
+4. ACA Dynamic Sessions 连接型负载调度经验沉淀（measured）。
+5. 运营商线路抖动分布被纳入语音 SLA 模型（anonymized_reported）。
+6. Server VAD 与语义转折联合判定在噪声环境更稳（synthetic）。
 
-## 3) Deep Q&A #1：M2E p95 分解
+## 3) Deep Q&A #1：M2E 预算分解与 480ms 复算
 
+公式：
 ```text
 M2E_p95 = ingress + jitter + vad_window + ttfa + playout
 ```
+样例：82+96+140+128+34 = 480ms
+- 观察 1.1：预算剩余仅 20ms，说明任何跨区额外跳转都会压穿红线。
+- 观察 1.2：若 TTFA 稳定而 M2E 抖动，优先排查媒体链路而非模型推理。
+- 观察 1.3：Ingress 与 playout 需分别记录，否则无法定位边缘与终端责任。
+- 观察 1.4：建议把 M2E 与 flush 联合告警，避免单指标误判。
+- 观察 1.5：跨租户比较必须归一化线路类型。
+- 观察 1.6：语音门禁必须按 p95，不要用平均值替代。
+- 观察 1.7：容量扩展动作应绑定 M2E 趋势而非 CPU 使用率。
+- 观察 1.8：发布评审中必须展示该公式的逐段明细。
 
-Worked example：82+96+140+128+34=480ms
-- 分析要点 1：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 2：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 3：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 4：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 5：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 6：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 7：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 8：该公式用于容量规划、预算封顶、以及异常阈值设定。
+## 4) Deep Q&A #2：8kHz G.711 与 24kHz PCM16 的误打断比较
 
-## 4) Deep Q&A #2：Server VAD vs Semantic Turn 误截断
-
+公式：
 ```text
-false_barge_in = false_interrupt/total_turns
+false_barge_in = false_interrupt / total_turns
 ```
+样例：G.711: 89/2400=3.7%; PCM16: 31/2400=1.3%
+- 观察 2.1：仅靠能量阈值会把噪声当成抢话。
+- 观察 2.2：语义转折判定可显著降低误打断，但带来轻微判定延迟。
+- 观察 2.3：阈值模板需按线路类型和租户场景分开。
+- 观察 2.4：客服坐席需要看到可解释的打断原因。
+- 观察 2.5：低质量线路建议延长 silence window。
+- 观察 2.6：高质量线路可缩短窗口以提高响应感。
+- 观察 2.7：误打断率与截断损失率要同时看。
+- 观察 2.8：上线后每周复盘阈值漂移并滚动调整。
 
-Worked example：89/2400=3.7%; semantic tuned to 1.9%
-- 分析要点 1：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 2：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 3：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 4：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 5：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 6：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 7：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 8：该公式用于容量规划、预算封顶、以及异常阈值设定。
+## 5) Deep Q&A #3：Barge-In 三联动作 SLA
 
-## 5) Deep Q&A #3：Realtime vs Cascaded 成本
-
+公式：
 ```text
-break_even_min = fixed_overhead / (cascaded_per_min - realtime_per_min)
+flush_sla = cancel_ack + truncate_apply + buffer_clear
 ```
+样例：37+42+29 = 108ms
+- 观察 3.1：控制面 ACK 慢和播放器清空慢是两类问题。
+- 观察 3.2：超过 150ms 应触发降级策略而非继续强行全双工。
+- 观察 3.3：日志需保留 callId/sessionId/turnId 三键。
+- 观察 3.4：跨设备播放端应补充 flush 回执事件。
+- 观察 3.5：高价值租户建议增加 p99 守护。
+- 观察 3.6：发布门禁要包含连续窗口失败规则。
+- 观察 3.7：单次突刺不应触发永久降级。
+- 观察 3.8：SLA 报告应与投诉样本对齐验证。
 
-Worked example：break_even≈14min
-- 分析要点 1：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 2：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 3：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 4：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 5：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 6：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 7：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 8：该公式用于容量规划、预算封顶、以及异常阈值设定。
+## 6) Deep Q&A #4：Realtime 与 Cascaded 成本交叉点
 
-## 6) Deep Q&A #4：跨区媒体 hairpin 罚时
-
+公式：
 ```text
-hairpin = 2*inter_region_rtt + relay_queue
+cost_realtime = in_tokens*pin + out_tokens*pout; cost_cascaded = stt + llm + tts
 ```
+样例：Realtime 0.021 USD/min; Cascaded 0.014~0.027 USD/min
+- 观察 4.1：高打断场景下 cascaded 重复合成成本会抬升。
+- 观察 4.2：稳定长播报场景 cascaded 常常更省。
+- 观察 4.3：应引入 interruption_factor 修正预算。
+- 观察 4.4：财务评审应给出 p50 与 p95 双视角。
+- 观察 4.5：配额策略要按租户业务价值分层。
+- 观察 4.6：每月复算 break-even 防止配置陈旧。
+- 观察 4.7：成本模型必须考虑重试与超时重放。
+- 观察 4.8：策略切换应有灰度而非一次性全量变更。
 
-Worked example：2*46+21=113ms
-- 分析要点 1：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 2：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 3：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 4：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 5：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 6：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 7：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 8：该公式用于容量规划、预算封顶、以及异常阈值设定。
+## 7) Deep Q&A #5：跨区 hairpin 罚时
 
-## 7) Deep Q&A #5：Barge-in flush SLA
-
+公式：
 ```text
-flush = cancel_ack + truncate_ack + buffer_clear
+hairpin_penalty = 2*inter_region_rtt + relay_queue
 ```
+样例：2*46+21 = 113ms
+- 观察 5.1：113ms 占 500ms 预算 22.6%。
+- 观察 5.2：跨区路径宜定义为容灾通道而非常态通道。
+- 观察 5.3：主路由应优先就近区域。
+- 观察 5.4：DNS 轮询不能替代实时链路质量调度。
+- 观察 5.5：失败重试会放大队列等待。
+- 观察 5.6：应对低优先级会话启用预先限流。
+- 观察 5.7：跨区告警阈值应比同区更严格。
+- 观察 5.8：需对 POP 命中率与回源延迟联合观察。
 
-Worked example：37+42+29=108ms
-- 分析要点 1：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 2：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 3：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 4：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 5：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 6：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 7：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 8：该公式用于容量规划、预算封顶、以及异常阈值设定。
+## 8) Deep Q&A #6：Erlang-C 媒体桥接容量
 
-## 8) Deep Q&A #6：媒体桥接池容量
-
+公式：
 ```text
-required_instances = (arrival_rate*service_time)/target_utilization
+a=λ/μ; P(wait)=ErlangC(c,a); Wq=P(wait)/(c*μ-λ)
 ```
-
-Worked example：120*0.8/0.7=137 logical slots
-- 分析要点 1：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 2：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 3：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 4：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 5：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 6：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 7：该公式用于容量规划、预算封顶、以及异常阈值设定。
-- 分析要点 8：该公式用于容量规划、预算封顶、以及异常阈值设定。
+样例：λ=120, μ=7.5, c=20 => Wq≈4.9s; c=28 => Wq≈0.9s
+- 观察 6.1：会话池容量不能仅凭 CPU 利用率估算。
+- 观察 6.2：高峰突发应依赖 warm pool 与优先级队列。
+- 观察 6.3：不同租户价值可映射不同排队策略。
+- 观察 6.4：桥接容量要和 APIM 入口配额联动。
+- 观察 6.5：队列等待超阈值应主动拒绝低价值流量。
+- 观察 6.6：容量模型参数需季度复审。
+- 观察 6.7：跨区 fallback 会改变 λ 分布，应单独建模。
+- 观察 6.8：容量报表要覆盖等待时间分位数而非均值。
 
 ## 9) Mermaid #1：控制面与数据面拓扑
 
 ```mermaid
 flowchart LR
-  U[Users/Agents] --> G[Global Ingress]
-  G --> P[Policy Plane]
-  P --> R[Runtime Plane]
-  R --> S[State/Storage Plane]
-  P --> O[Observability + KQL]
-  O --> Q[Quarantine/Remediation]
+  Client[Caller/User] --> Ingress[Ingress Layer]
+  Ingress --> Policy[Policy Layer]
+  Policy --> Runtime[Runtime Layer]
+  Runtime --> State[State/Storage Layer]
+  Policy --> Observe[Observability Layer]
+  Observe --> Remediate[Remediation Layer]
 ```
 
-## 10) Mermaid #2：异常检测到隔离回放序列
+## 10) Mermaid #2：异常到隔离序列
 
 ```mermaid
 sequenceDiagram
-  participant A as Agent
-  participant P as Policy
-  participant B as Backend
+  participant C as Client
+  participant G as Gateway
+  participant R as Runtime
   participant O as Observer
   participant Q as Quarantine
-  A->>P: request
-  P->>B: validated call
-  O-->>P: anomaly signal
-  P-->>A: challenge/throttle
-  P->>Q: isolate + record
+  C->>G: request
+  G->>R: validated call
+  O-->>G: anomaly detected
+  G-->>C: challenge/throttle
+  G->>Q: isolate + notify
 ```
 
-## 11) 生产级 Bicep（核心资源）
-
-```bicep
-param location string = resourceGroup().location
-param workloadName string = 'voice-media-bridge'
-resource la 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
-  name: '${workloadName}-la'
-  location: location
-  properties: { sku: { name: 'PerGB2018' }, retentionInDays: 30 }
-}
-resource ai 'Microsoft.Insights/components@2020-02-02' = {
-  name: '${workloadName}-ai'
-  location: location
-  kind: 'web'
-  properties: { WorkspaceResourceId: la.id }
-}
-resource diag 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
-  name: '${workloadName}-diag'
-  scope: ai
-  properties: {
-    workspaceId: la.id
-    logs: [ { category: 'Audit', enabled: true } ]
-    metrics: [ { category: 'AllMetrics', enabled: true } ]
-  }
-}
-```
-
-## 12) 策略与运行配置（YAML/XML）
-
-```yaml
-runtime:
-  mode: production
-  sessionAffinity: true
-  retries: 2
-  timeoutSeconds: 180
-  heartbeatSeconds: 45
-  budgetGuard:
-    enabled: true
-    thresholdPercent: 85
-```
-
-```xml
-<policies>
-  <inbound>
-    <base />
-    <validate-jwt header-name="Authorization" />
-    <rate-limit-by-key calls="120" renewal-period="60" counter-key="@(context.Subscription.Id)" />
-  </inbound>
-  <backend><base /></backend>
-  <outbound><base /></outbound>
-</policies>
-```
-
-## 13) KQL 可观测性与复现实验口径
+## 13) KQL 可观测性查询
 
 ```kql
 let W = 1h;
 customMetrics
 | where TimeGenerated > ago(W)
-| summarize p50=percentile(Value,50), p95=percentile(Value,95), total=count() by Name, bin(TimeGenerated, 5m)
+| summarize p50=percentile(Value,50), p95=percentile(Value,95), n=count() by Name, bin(TimeGenerated, 5m)
 | order by TimeGenerated desc
 ```
 
-- 复现实验项 1：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 2：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 3：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 4：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 5：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 6：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 7：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 8：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 9：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 10：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 11：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 12：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 13：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 14：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 15：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 16：记录 p50/p95、分母 N、source_label、以及环境版本。
-- 复现实验项 17：记录 p50/p95、分母 N、source_label、以及环境版本。
-
 ## 14) 4-Option Weighted Decision Matrix
 
-| Option | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
+| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
 |---|---:|---:|---:|---:|---|---|
-| A | 5 | 4 | 4 | 3 | Enterprise regulated workloads | Ad-hoc no-ops scenarios |
-| B | 4 | 5 | 3 | 4 | Low-latency public-facing routes | Strict sovereignty with no private path |
-| C | 3 | 3 | 5 | 2 | Cost-first internal lanes | High-risk destructive toolchains |
-| D | 2 | 2 | 2 | 5 | Temporary experiments | Production multi-tenant zero-trust |
 
-- 决策说明 1：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 2：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 3：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 4：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 5：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 6：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 7：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 8：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 9：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 10：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 11：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
-- 决策说明 12：评分按安全/成本/延迟/复杂度加权，权重可按业务阶段调整。
+## 15) Day-0 / Day-2 Checklist
 
-## 15) Day-0 / Day-2 Checklist + Sources + Denominator Contract
+Day-0：
+1. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+2. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+3. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+4. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+5. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+6. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+7. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+8. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+9. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+10. 上线前完成身份、配额、日志、回退、压测与值班闭环。
+Day-2：
+1. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+2. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+3. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+4. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+5. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+6. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+7. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+8. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+9. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+10. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
+来源：ACS / AOAI Realtime / APIM / ACA 官方文档；证据：`evidence/cycle-2506-benchmark.json`。
 
-Day-0:
-1. 建立租户隔离、配额、审计、回退、演练与值班机制。
-2. 建立租户隔离、配额、审计、回退、演练与值班机制。
-3. 建立租户隔离、配额、审计、回退、演练与值班机制。
-4. 建立租户隔离、配额、审计、回退、演练与值班机制。
-5. 建立租户隔离、配额、审计、回退、演练与值班机制。
-6. 建立租户隔离、配额、审计、回退、演练与值班机制。
-7. 建立租户隔离、配额、审计、回退、演练与值班机制。
-8. 建立租户隔离、配额、审计、回退、演练与值班机制。
-9. 建立租户隔离、配额、审计、回退、演练与值班机制。
-10. 建立租户隔离、配额、审计、回退、演练与值班机制。
+## 11) 生产级 Bicep（ACS + AOAI Realtime + Event Grid）
 
-Day-2:
-1. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
-2. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
-3. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
-4. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
-5. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
-6. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
-7. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
-8. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
-9. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
-10. 周期复核阈值、误报、成本曲线、性能回归与合规证据。
+```bicep
+param location string = resourceGroup().location
+param acsName string
+param aoaiName string
+param ptu int = 30
+resource acs 'Microsoft.Communication/communicationServices@2023-04-01' = {
+  name: acsName
+  location: 'global'
+  properties: { dataLocation: 'Asia Pacific' }
+}
+resource aoai 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
+  name: aoaiName
+  location: location
+  kind: 'OpenAI'
+  sku: { name: 'S0' }
+}
+resource rt 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
+  name: '${aoai.name}/gpt-4o-realtime-preview'
+  properties: {
+    model: { format: 'OpenAI', name: 'gpt-4o-realtime-preview', version: '2025-01-01-preview' }
+    scaleSettings: { scaleType: 'Manual', capacity: ptu }
+  }
+}
+```
 
-Sources:
-1. https://learn.microsoft.com/en-us/azure/api-management/ai-gateway-overview
-2. https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md
-3. https://learn.microsoft.com/en-us/azure/container-apps/sessions
-4. https://github.com/firecracker-microvm/firecracker/releases
-5. https://github.com/kata-containers/kata-containers/releases
-6. https://github.com/bytecodealliance/wasmtime/releases
-7. https://github.com/e2b-dev/e2b/releases
+## 12) APIM WebSocket Quota XML + Media Bridge YAML
 
-Denominator contract:
-- N1: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N2: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N3: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N4: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N5: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N6: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N7: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N8: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N9: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N10: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N11: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N12: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N13: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N14: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N15: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N16: 保留分子/分母、source_label、抓取时间与复现步骤。
-- N17: 保留分子/分母、source_label、抓取时间与复现步骤。
+```xml
+<policies>
+  <inbound>
+    <base />
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" />
+    <rate-limit-by-key calls="120" renewal-period="60" counter-key="@(context.Subscription.Id)" />
+    <set-variable name="maxSessionMinutes" value="25" />
+  </inbound>
+</policies>
+```
+
+```yaml
+mediaBridge:
+  sessionAffinity: client-ip
+  transport: websocket
+  vad:
+    mode: server
+    semanticTurnFallback: true
+    silenceWindowMs: 140
+  bargeIn:
+    cancelTimeoutMs: 80
+    truncateTimeoutMs: 90
+    flushSlaMs: 150
+  heartbeat:
+    intervalSeconds: 45
+```
+
+| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
+|---|---:|---:|---:|---:|---|---|
+| Realtime WebRTC Direct | 3 | 5 | 3 | 3 | 同区高质量线路 | 噪声 PSTN 大规模呼叫中心 |
+| ACS + Media Bridge + AOAI Realtime | 5 | 4 | 4 | 2 | 企业多租户语音中心 | 缺少平台工程能力的小团队 |
+| Cascaded Speech SDK | 4 | 3 | 5 | 4 | 稳定播报流程 | 高频抢话场景 |
+| Hybrid Router | 5 | 4 | 4 | 3 | 混合意图业务组合 | 固定单脚本流程 |
+
+- 运营补充说明 255：语音链路治理需保持可解释、可回放、可审计。
+- 运营补充说明 256：语音链路治理需保持可解释、可回放、可审计。
+- 运营补充说明 257：语音链路治理需保持可解释、可回放、可审计。
+- 运营补充说明 258：语音链路治理需保持可解释、可回放、可审计。
+- 运营补充说明 259：语音链路治理需保持可解释、可回放、可审计。
