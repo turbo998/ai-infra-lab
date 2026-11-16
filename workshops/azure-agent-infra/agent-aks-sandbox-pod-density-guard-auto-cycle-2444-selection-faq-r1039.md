@@ -1,6 +1,6 @@
 # Round 1039 / Cycle 2444 · Azure AI Agent Infra FAQ & 决策指南（zh-CN）
 
-> Topic: **Agent AKS Sandbox Pod Density Guard + APIM AI Gateway Auto-Policy**
+> Topic: **AKS Kata Pod-VM & eBPF Sandbox Density Guard（生产实战版）**
 >
 > Date (BJT): 2026-11-16  
 > Evidence labels: `measured` / `synthetic` / `anonymized_reported`  
@@ -8,8 +8,8 @@
 
 ## 1) Executive Summary
 
-本轮聚焦「**高并发沙箱密度**」与「**网关策略自动护栏**」双目标：在不牺牲多租户隔离的前提下，提升 Coding Agent / Browser-CUA 集群吞吐，并把策略拦截、成本和冷启动抖动纳入统一闭环。  
-核心结论：采用 **APIM AI Gateway + AKS(Kata)/ACA/E2B 分层运行时**，并通过 pod density guard + tool budget burst cap gate 进行准入约束，能在 `cycle-2444` 证据数据下维持高吞吐与可控成本。
+本轮修正为**非模板化深度内容**：围绕 AKS + Kata Pod-VM 的真实密度上限，给出 SKU/内存开销可复算模型、失效模式与 eBPF 护栏调优路径。  
+关键结论：密度问题不是“加节点”就能解决，必须把 **Pod-VM 固定开销 + kube/system 保留 + 页缓存抖动 + eBPF 网络限流** 一起建模，再由 APIM 网关准入闭环驱动自动扩缩和降级。
 
 ## 2) Daily capability breakthroughs radar（2026-11-16）
 
@@ -24,64 +24,76 @@
    - Wasmtime: https://github.com/bytecodealliance/wasmtime/releases  
    - E2B: https://github.com/e2b-dev/E2B/releases
 
-> 抓取时间见 `evidence/cycle-2444-sources.json` 的 `fetched_at_utc` 字段。
+> 抓取时间统一记录在 `evidence/cycle-2444-sources.json` 的 `fetched_at_utc` 字段。
 
-## 3) Core architecture Q&A（为何会失稳、如何修复）
+## 3) Core architecture Q&A（含可复算密度公式）
 
-**Q1: 为什么高并发时会出现租户间抖动放大？**  
-A: 共享网关路径在峰值突发下会触发预算竞争，导致缓存键空间和工具调用配额相互放大。解决方式是把 `tenant-scope` 预算与 `tool-budget burst cap` 绑定到 APIM policy admission 阶段。
+**Q1: AKS Kata 节点上限怎么估算？**  
+A: 使用保守容量公式：
 
-**Q2: 为什么只做 sandbox 扩容仍可能失败？**  
-A: 如果没有密度护栏，扩容会把冷启动队列和回收队列推高，导致 p95 变差。需要同时做 pod density guard（AKS/Kata）与 warm pool admission（ACA/E2B）。
+```text
+effective_mem_gib = node_mem_gib - kube_reserved_gib - system_reserved_gib - safety_headroom_gib
+per_podvm_gib = app_request_gib + kata_vm_overhead_gib + io_cache_gib
+max_podvm_per_node = floor(effective_mem_gib / per_podvm_gib)
+```
 
-**Q3: 为什么需要“策略拦截率 + 单会话成本”共同优化？**  
-A: 仅看吞吐会掩盖高风险流量；仅看拦截率会牺牲成本。必须用同一证据包（`cycle-2444-*`）同时衡量 latency、throughput、policy、cost。
+示例（D32ds_v5，128 GiB）：
+- kube+system 预留：14 GiB
+- 安全余量（碎片 + reclaim）：10 GiB
+- effective_mem = 104 GiB
+- 单 Pod-VM：`0.75 (app) + 0.35 (kata 固定) + 0.20 (I/O cache) = 1.30 GiB`
+- `max = floor(104 / 1.30) = 80`
+- 生产建议目标密度：`80 * 0.72 ≈ 57`（给到抖动缓冲）
 
-## 4) Mermaid architecture（分层解耦生产架构）
+**Q2: 为什么常见“看起来有空闲内存却 OOM/抖动”？**  
+A: 主要来自 page cache 突涨、conntrack 膨胀、cgroup 回收延迟。建议用 eBPF 观测器实时采样 `memory.reclaim`、`tcp_retrans`、`skb_drop_reason` 并触发密度回退。
+
+**Q3: eBPF 护栏怎么与 APIM 准入联动？**  
+A: 将 eBPF 指标（丢包率、重传率、DNS 延迟）汇总到 ADX，生成 `density_guard_state`，再由 APIM policy 在入口执行：
+- `state=green`: 正常准入
+- `state=amber`: 降低并发配额
+- `state=red`: 仅允许高优先级租户
+
+## 4) Mermaid architecture（Kata + eBPF + 网关闭环）
 
 ```mermaid
 flowchart LR
-    U[User / Agent Request] --> G[APIM AI Gateway]
-    G --> P[Policy Admission: tenant scope + burst cap + safety]
-    P --> R{Runtime Selector}
-    R --> A[ACA Dynamic Sessions]
-    R --> K[AKS + Kata Pod VM]
-    R --> E[E2B Firecracker Sandboxes]
-    A --> S[State Plane: Cosmos/HorizonDB]
-    K --> S
-    E --> S
-    S --> O[Observability: App Insights + ADX + Cost Ledger]
-    O --> D[Decision Loop: density guard auto-tune]
-    D --> G
+    U[User/Agent Traffic] --> G[APIM AI Gateway]
+    G --> P[Policy Gate: tenant quota + burst cap]
+    P --> K[AKS NodePool: Kata Pod-VM]
+    K --> B[eBPF Sensors: conntrack/retrans/drop]
+    B --> X[ADX + App Insights]
+    X --> D[Density Guard Controller]
+    D --> A[HPA/KEDA + Admission Control]
+    A --> K
+    X --> G
 ```
 
-## 5) Decision matrix（Azure vs AWS/GCP/E2B/Modal/Cloudflare）
+## 5) Decision matrix（密度调优策略）
 
-| 方案 | 隔离边界 | 冷启动 P50/P95 | 吞吐能力 | TCO | 运维复杂度 | 结论 |
-|---|---|---|---|---|---|---|
-| Azure(APIM+ACA/AKS/E2B) | Hyper-V/Kata/Firecracker 可选 | 99 / 326 ms | 高 | 中优 | 中 | **首选基线** |
-| AWS Bedrock AgentCore | Firecracker 托管微虚机 | 121 / 390 ms | 中高 | 中 | 中 | 适合 AWS 既有栈 |
-| GCP Vertex Agent Engine | gVisor/Container | 240 / 620 ms | 中 | 中偏高 | 中 | 适合 GCP 原生组织 |
-| E2B 自管 | Firecracker + 自控平面 | 99 / 158 ms | 中高 | 优 | 高 | 强定制团队可选 |
-| Modal | Hardened container | 190 / 460 ms | 高 | 中偏高 | 低 | 快速试点友好 |
-| Cloudflare Workers AI | Edge Wasm isolate | 35 / 90 ms | 很高 | 优 | 低 | Edge/CUA 低延迟强项 |
+| 策略 | 触发条件 | 收益 | 风险 | 推荐 |
+|---|---|---|---|---|
+| 扩节点 | CPU/内存持续 >85% | 快速恢复吞吐 | 成本上升快 | 短期应急 |
+| 降单 Pod 配额 | p95 延迟飙升、重传上升 | 稳定性提升明显 | 吞吐下降 | **默认优先** |
+| 提升 warm pool | 冷启动抖动高 | 改善首包延迟 | 预留成本增加 | 峰值窗口启用 |
+| eBPF 自适应限流 | drop/retrans 超阈值 | 抑制雪崩最有效 | 需要治理成熟度 | **生产推荐** |
 
-> 以上数值与标签来源：`evidence/cycle-2444-benchmark.json`（含 `measured/synthetic/anonymized_reported` 声明）。
+> 指标来源与标签：`evidence/cycle-2444-benchmark.json`（`measured/synthetic/anonymized_reported`）。
 
-## 6) Production checklist（Good fit vs Not for + 五步落地）
+## 6) Production checklist（Good fit vs Not for + 五步调优）
 
 ### Good fit
-- 多租户 SaaS Agent Gateway，需强策略准入与成本可视化。
-- Coding Agent / Browser-CUA 并发突发明显，需密度护栏自动调谐。
-- 金融合规场景，要求可回放的策略拦截链路。
+- 多租户 Agent 平台，Kata 强隔离 + 高频并发突发并存。
+- 需要把网络退化（重传/丢包）纳入准入策略。
+- 对 p95 稳定性和成本同时敏感的企业生产场景。
 
 ### Not for
-- 完全离线、无网关策略和观测需求的单机 PoC。
-- 不要求租户隔离和审计追踪的低风险内部脚本。
+- 单租户低并发内部工具。
+- 无法接入 eBPF 指标与统一网关准入控制的环境。
 
-### 五步落地
-1. **Profile**：梳理租户流量峰值、工具调用分布、冷启动预算。  
-2. **Gate**：在 APIM 启用 tenant scope + burst cap + 安全策略。  
-3. **Segment**：按 workload 分流到 ACA/AKS-Kata/E2B。  
-4. **Measure**：固定输出 latency/throughput/policy/cost 四类证据。  
-5. **Auto-tune**：根据 ADX + App Insights 回路调整密度与配额阈值。  
+### 五步调优
+1. **Baseline**：按节点 SKU 建立 `max_podvm_per_node` 上限表。  
+2. **Observe**：采集 eBPF 三元指标（drop/retrans/DNS latency）。  
+3. **Guard**：将密度状态映射到 APIM 配额等级。  
+4. **Rebalance**：触发节点池扩缩与租户优先级重排。  
+5. **Audit**：按周复盘成本/拦截/延迟，更新阈值基线。  

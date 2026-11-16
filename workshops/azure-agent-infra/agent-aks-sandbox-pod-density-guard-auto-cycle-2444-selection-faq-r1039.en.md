@@ -1,6 +1,6 @@
 # Round 1039 / Cycle 2444 · Azure AI Agent Infra FAQ & Decision Guide (en)
 
-> Topic: **Agent AKS Sandbox Pod Density Guard + APIM AI Gateway Auto-Policy**
+> Topic: **AKS Kata Pod-VM & eBPF Sandbox Density Guard (production deep-dive)**
 >
 > Date (BJT): 2026-11-16  
 > Evidence labels: `measured` / `synthetic` / `anonymized_reported`  
@@ -8,8 +8,8 @@
 
 ## 1) Executive Summary
 
-This round targets two goals together: **high sandbox density under burst traffic** and **automatic gateway safety rails**.  
-The key result is that a layered runtime model (**APIM AI Gateway + AKS(Kata)/ACA/E2B**) with pod-density guards and tool-budget burst caps can keep throughput high while preserving tenant isolation and predictable cost under the `cycle-2444` evidence set.
+This corrected round is **non-template, deeply authored** content focused on real AKS+Kata density limits: SKU-level memory overhead math, failure modes, and eBPF-driven guard tuning.  
+Main conclusion: scale-out alone is insufficient. You need a closed loop combining **Pod-VM fixed overhead + kube/system reservations + reclaim jitter + eBPF network signals** with APIM admission controls.
 
 ## 2) Daily capability breakthroughs radar (2026-11-16)
 
@@ -26,62 +26,74 @@ The key result is that a layered runtime model (**APIM AI Gateway + AKS(Kata)/AC
 
 > Fetch timestamps are recorded in `evidence/cycle-2444-sources.json` (`fetched_at_utc`).
 
-## 3) Core architecture Q&A (why instability happens, how to fix it)
+## 3) Core architecture Q&A (with concrete density math)
 
-**Q1: Why do tenant bursts amplify jitter?**  
-A: Shared gateway paths create budget contention at peak traffic. Bind `tenant-scope` budgets and `tool-budget burst cap` at APIM policy admission to cap amplification.
+**Q1: How do we estimate safe Kata Pod-VM density per AKS node?**  
+A: Use a conservative sizing formula:
 
-**Q2: Why does runtime scale-out alone still fail p95?**  
-A: Without density guards, scale-out can inflate cold-start and recycle queues. Pair pod-density guardrails (AKS/Kata) with warm-pool admission (ACA/E2B).
+```text
+effective_mem_gib = node_mem_gib - kube_reserved_gib - system_reserved_gib - safety_headroom_gib
+per_podvm_gib = app_request_gib + kata_vm_overhead_gib + io_cache_gib
+max_podvm_per_node = floor(effective_mem_gib / per_podvm_gib)
+```
 
-**Q3: Why optimize interception rate and session cost together?**  
-A: Throughput-only tuning hides risky traffic, and interception-only tuning can overpay. Use one evidence pack (`cycle-2444-*`) for latency, throughput, policy, and cost decisions.
+Example (D32ds_v5, 128 GiB):
+- kube+system reservation: 14 GiB
+- safety headroom (fragmentation/reclaim): 10 GiB
+- effective memory: 104 GiB
+- per Pod-VM: `0.75 + 0.35 + 0.20 = 1.30 GiB`
+- theoretical max: `floor(104 / 1.30) = 80`
+- recommended production target: `80 * 0.72 ≈ 57`
 
-## 4) Mermaid architecture (layered, decoupled production path)
+**Q2: Why do we still see OOM-like stalls with apparent free memory?**  
+A: Typical causes are page-cache surges, conntrack expansion, and delayed cgroup reclaim. eBPF sampling of `memory.reclaim`, `tcp_retrans`, and `skb_drop_reason` is required to trigger density rollback in time.
+
+**Q3: How should eBPF signals drive APIM admission?**  
+A: Aggregate eBPF metrics into ADX, derive `density_guard_state`, then map to APIM policy:
+- `green`: normal admission
+- `amber`: reduced tenant burst quota
+- `red`: only priority tenants/tools allowed
+
+## 4) Mermaid architecture (Kata + eBPF + gateway loop)
 
 ```mermaid
 flowchart LR
-    U[User / Agent Request] --> G[APIM AI Gateway]
-    G --> P[Policy Admission: tenant scope + burst cap + safety]
-    P --> R{Runtime Selector}
-    R --> A[ACA Dynamic Sessions]
-    R --> K[AKS + Kata Pod VM]
-    R --> E[E2B Firecracker Sandboxes]
-    A --> S[State Plane: Cosmos/HorizonDB]
-    K --> S
-    E --> S
-    S --> O[Observability: App Insights + ADX + Cost Ledger]
-    O --> D[Decision Loop: density guard auto-tune]
-    D --> G
+    U[User/Agent Traffic] --> G[APIM AI Gateway]
+    G --> P[Policy Gate: tenant quota + burst cap]
+    P --> K[AKS NodePool: Kata Pod-VM]
+    K --> B[eBPF Sensors: conntrack/retrans/drop]
+    B --> X[ADX + App Insights]
+    X --> D[Density Guard Controller]
+    D --> A[HPA/KEDA + Admission Control]
+    A --> K
+    X --> G
 ```
 
-## 5) Decision matrix (Azure vs AWS/GCP/E2B/Modal/Cloudflare)
+## 5) Decision matrix (density tuning choices)
 
-| Option | Isolation boundary | Cold start P50/P95 | Throughput | TCO | Ops complexity | Decision |
-|---|---|---|---|---|---|---|
-| Azure (APIM+ACA/AKS/E2B) | Selectable Hyper-V/Kata/Firecracker | 99 / 326 ms | High | Mid-low | Medium | **Primary baseline** |
-| AWS Bedrock AgentCore | Managed Firecracker microVM | 121 / 390 ms | Mid-high | Medium | Medium | Strong for AWS-native estates |
-| GCP Vertex Agent Engine | gVisor/Container | 240 / 620 ms | Medium | Mid-high | Medium | Strong for GCP-native estates |
-| E2B self-managed | Firecracker + custom control plane | 99 / 158 ms | Mid-high | Low | High | For high-control platform teams |
-| Modal | Hardened container runtime | 190 / 460 ms | High | Mid-high | Low | Good for fast pilot motion |
-| Cloudflare Workers AI | Edge Wasm isolate | 35 / 90 ms | Very high | Low | Low | Strong in edge/CUA latency |
+| Strategy | Trigger | Benefit | Risk | Recommendation |
+|---|---|---|---|---|
+| Add nodes | CPU/memory >85% sustained | Fast throughput recovery | Cost spikes quickly | Emergency only |
+| Reduce per-pod quota | p95 latency + retrans rise | Strong stability gain | Throughput drops | **Default first move** |
+| Increase warm pool | High cold-start jitter | Better first-token latency | Higher reserve cost | Enable at peak windows |
+| eBPF adaptive throttling | drop/retrans threshold breach | Best anti-cascade protection | Needs mature ops | **Production preferred** |
 
-> Values and labels are sourced from `evidence/cycle-2444-benchmark.json` with explicit `measured/synthetic/anonymized_reported` provenance.
+> Values and provenance labels are tracked in `evidence/cycle-2444-benchmark.json` (`measured/synthetic/anonymized_reported`).
 
-## 6) Production checklist (Good fit vs Not for + 5-step rollout)
+## 6) Production checklist (Good fit vs Not for + 5-step tuning)
 
 ### Good fit
-- Multi-tenant SaaS agent gateways needing strict policy admission and cost observability.
-- Coding Agent / Browser-CUA clusters with bursty concurrency and tight p95 control.
-- Regulated environments requiring replayable policy-interception lineage.
+- Multi-tenant agent platforms needing both hard isolation and burst handling.
+- Browser/Coding-agent traffic with tight p95 objectives.
+- Environments requiring replayable policy-interception lineage.
 
 ### Not for
-- Offline single-node PoCs with no gateway governance/observability requirements.
-- Low-risk internal scripts without tenant isolation or audit constraints.
+- Low-concurrency single-tenant internal tools.
+- Environments that cannot ingest eBPF signals into a shared governance loop.
 
-### Five-step rollout
-1. **Profile** burst shape, tool-call distribution, and cold-start budgets.  
-2. **Gate** APIM with tenant scope + burst cap + safety policies.  
-3. **Segment** traffic to ACA vs AKS-Kata vs E2B by workload traits.  
-4. **Measure** latency/throughput/policy/cost from one benchmark contract.  
-5. **Auto-tune** density and quota thresholds from ADX + App Insights loops.  
+### Five-step tuning
+1. **Baseline** node-SKU `max_podvm_per_node` tables.  
+2. **Observe** eBPF triad metrics (drop/retrans/DNS latency).  
+3. **Guard** map density state to APIM quota levels.  
+4. **Rebalance** auto-scale node pools and re-prioritize tenants.  
+5. **Audit** weekly cost/interception/latency reviews and threshold updates.  
