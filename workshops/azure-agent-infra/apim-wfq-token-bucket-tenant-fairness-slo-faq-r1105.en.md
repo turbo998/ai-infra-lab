@@ -1,260 +1,313 @@
 # Round 1105 / Cycle 2510 · Azure AI Agent Infra FAQ (en)
 
-> Topic: **APIM AI Gateway weighted fair queuing + token-bucket governance for multi-tenant agent burst fairness and SLO control**
+> Topic: **APIM AI Gateway Weighted Fair Queuing + Token Bucket for multi-tenant agent fairness and SLO governance**
 > Date (BJT): 2026-11-17
 > Evidence labels: `measured` / `synthetic` / `anonymized_reported`
-> Dataset: `evidence/cycle-2510-benchmark.json`
+> Benchmark dataset: `evidence/cycle-2510-benchmark.json`
 
 ## 1) Executive Summary
 
-This round targets multi-tenant burst fairness and latency predictability for agent gateways.
-The objective is not max single-tenant throughput; it is stable cross-tenant behavior under peak load.
-Control strategy combines APIM token-bucket ingress and weighted scheduling lanes.
-Queue weights map to contract tier and business criticality so low-value traffic cannot starve premium lanes.
-We enforce both Jain fairness index and p95 latency gates; neither metric is allowed to pass alone.
-Good fairness with bad latency still fails UX; good latency with poor fairness still fails tenancy governance.
-This guide includes recomputable formulas, Bicep, XML policy, KQL, and launch/operate checklists.
-Every ratio keeps numerator and denominator for audit-grade traceability.
+This round targets simultaneous success on multi-tenant fairness, latency stability, and cost protection.
+Maximizing raw throughput alone can starve high-value tenants and trigger SLA disputes.
+Optimizing fairness alone can still fail if queue latency explodes during bursts.
+Therefore release gates enforce Jain fairness index and p95 latency together.
+Ingress peak clipping is handled by token bucket while dispatch fairness is handled by WFQ.
+Tenant weights map to business criticality and contract tier with auditable governance.
+Cross-region fallback introduces queue penalties and must be measured separately.
+PTU burn protection and quota rejection must work together against authenticated DoW spikes.
+This guide delivers production Bicep, APIM policy, scheduler config, KQL, and operation checklists.
 
 ## 2) Daily Hottest Capability Breakthroughs Radar (2026-11-17)
-1. APIM AI Gateway multi-model ingress policy practices (measured)
-2. Joint token-budget and tenant-quota governance patterns (measured)
-3. Global ingress traffic shaping impact on PTU peak suppression (measured)
-4. Backpressure patterns for dynamic sessions and tool chains (measured)
-5. Anonymized production contention cases across tenant tiers (anonymized_reported)
-6. Interpretability of fairness queue simulation in business tiering (synthetic)
 
-## 3) Deep Q&A #1: DoW amplification and ingress suppression payoff
+APIM AI Gateway policy composition for multi-model ingress is becoming more mature (measured).
+Joint token-budget and tenant-weight governance patterns are increasingly reusable (measured).
+Fairness metrics are now entering release gates instead of remaining offline-only analytics (measured).
+PTU-consumption and rejection-rate correlation is becoming a default FinOps control pattern (measured).
+Anonymized telemetry shows burst contention often begins with lower-tier request surges (anonymized_reported).
+Synthetic simulation confirms WFQ plus token bucket is more stable than single-layer throttling (synthetic).
+
+## 3) Deep Q&A #1: Jain fairness index gate design
+
 ```text
-amplification = downstream_cost / ingress_cost
+jain_index = (sum(x_i)^2) / (n * sum(x_i^2))
 ```
-Worked example: 0.0011 / 0.000002 = 550x
-- Discussion 1.1: This metric must be release-gated
-- Discussion 1.2: Gate failure must trigger deterministic load shedding
-- Discussion 1.3: Thresholds should be tier-aware
-- Discussion 1.4: Weekly reviews must preserve denominators
-- Discussion 1.5: Jointly evaluate spend and latency
 
-## 4) Deep Q&A #2: Fairness index and queue weighting
+Sample: `x=[120,110,100,95]`, resulting index `0.992`.
+Recommended gate: `jain_index >= 0.96` for three consecutive windows.
+If fairness drops below threshold, adjust queue weights before scaling out.
+Fairness views must be tier-segmented to avoid blended-metric blind spots.
+Every fairness panel should show denominator and sample-window metadata.
+
+## 4) Deep Q&A #2: dual gate between p95 latency and fairness
+
 ```text
-Jain = (sum(x_i)^2) / (n * sum(x_i^2))
+dual_gate = (jain_index >= target_jain) and (latency_p95_ms <= target_latency)
 ```
-Worked example: x=[120,110,100,95] => Jain≈0.992
-- Discussion 2.1: This metric must be release-gated
-- Discussion 2.2: Gate failure must trigger deterministic load shedding
-- Discussion 2.3: Thresholds should be tier-aware
-- Discussion 2.4: Weekly reviews must preserve denominators
-- Discussion 2.5: Jointly evaluate spend and latency
 
-## 5) Deep Q&A #3: Token-bucket peak clipping
+Sample: `jain=0.971`, `latency_p95=910ms`, threshold `0.96/950ms`, gate passes.
+Fairness pass with latency fail still breaks user experience.
+Latency pass with fairness fail still breaks tenancy governance.
+Release policy should treat dual-gate failure as a hard block.
+Failure output should recommend weight tuning, bucket tuning, or PTU scaling.
+
+## 5) Deep Q&A #3: token-bucket peak clipping parameters
+
 ```text
-effective_qps = min(arrival_qps, refill_rate + burst_tokens/window)
+effective_qps = min(arrival_qps, refill_rate + burst_tokens / window_seconds)
 ```
-Worked example: arrival=900, refill=500, burst=600/60s => 510 qps
-- Discussion 3.1: This metric must be release-gated
-- Discussion 3.2: Gate failure must trigger deterministic load shedding
-- Discussion 3.3: Thresholds should be tier-aware
-- Discussion 3.4: Weekly reviews must preserve denominators
-- Discussion 3.5: Jointly evaluate spend and latency
 
-## 6) Deep Q&A #4: Cross-region fallback penalty
+Sample: `arrival=900, refill=500, burst=600, window=60`, output `510 qps`.
+refill_rate controls steady-state throughput while burst_tokens controls shock tolerance.
+Oversized burst settings can inject queue spikes and PTU burn tails.
+Undersized burst settings can reject legitimate short-lived business peaks.
+Parameter sets should be tier-specific and periodically revalidated.
+
+## 6) Deep Q&A #4: cross-region fallback queue penalty
+
 ```text
-penalty_p95 = 2*inter_region_rtt + queue_delay
+fallback_penalty_ms = 2 * inter_region_rtt_ms + extra_queue_delay_ms
 ```
-Worked example: 2*42 + 18 = 102ms
-- Discussion 4.1: This metric must be release-gated
-- Discussion 4.2: Gate failure must trigger deterministic load shedding
-- Discussion 4.3: Thresholds should be tier-aware
-- Discussion 4.4: Weekly reviews must preserve denominators
-- Discussion 4.5: Jointly evaluate spend and latency
 
-## 7) Deep Q&A #5: Tenant quota and PTU burn
+Sample: `2*42 + 18 = 102ms`.
+A 102ms penalty is material for interactive flows and should not become baseline behavior.
+Fallback should remain disaster-only and include aggressive auto-return conditions.
+During fallback windows, low-priority burst budgets can be tightened to protect critical tenants.
+Alerting should separate cross-region penalties from same-region congestion causes.
+
+## 7) Deep Q&A #5: PTU burn protection and budget coupling
+
 ```text
-burn_ratio = consumed_tokens / tenant_budget_tokens
+burn_ratio = consumed_tokens_per_min / tenant_token_budget_per_min
 ```
-Worked example: 1.62M / 1.2M = 1.35
-- Discussion 5.1: This metric must be release-gated
-- Discussion 5.2: Gate failure must trigger deterministic load shedding
-- Discussion 5.3: Thresholds should be tier-aware
-- Discussion 5.4: Weekly reviews must preserve denominators
-- Discussion 5.5: Jointly evaluate spend and latency
 
-## 8) Deep Q&A #6: Alert denoise and false-positive reduction
+Sample: `1.62M / 1.2M = 1.35`.
+A burn ratio above 1 indicates budget overrun and requires immediate mitigation.
+Premium tiers may hold larger budgets but require stronger audit controls.
+Before hard rejection, apply response-length caps and prompt-truncation safeguards.
+Burn alerts should be correlated with business impact rather than viewed in isolation.
+
+## 8) Deep Q&A #6: WFQ alert precision and denoise strategy
+
 ```text
-precision = true_positive / (true_positive + false_positive)
+precision = true_positive_alerts / (true_positive_alerts + false_positive_alerts)
 ```
-Worked example: 84 / (84+16) = 84%
-- Discussion 6.1: This metric must be release-gated
-- Discussion 6.2: Gate failure must trigger deterministic load shedding
-- Discussion 6.3: Thresholds should be tier-aware
-- Discussion 6.4: Weekly reviews must preserve denominators
-- Discussion 6.5: Jointly evaluate spend and latency
 
-## 9) Mermaid #1: global ingress and weighted-queue topology
+Sample: `84/(84+16)=84%`.
+Low precision drives on-call fatigue and lowers true-incident response quality.
+Classify fairness, latency, and budget anomalies into separate severity routes.
+Alert denoise should improve context quality instead of hiding noisy signals.
+Operations should continuously identify false-positive root causes and feed policy updates.
+
+## 9) Mermaid #1: APIM WFQ and token-bucket multi-tenant topology
+
 ```mermaid
 flowchart LR
-  U[Tenants] --> AFD[Global Ingress]
-  AFD --> APIM[APIM AI Gateway]
-  APIM --> WFQ[Weighted Fair Queue]
-  WFQ --> AOAI[AOAI/PTU]
-  APIM --> OBS[Observability]
+  Clients[Tenant Clients] --> APIM[APIM AI Gateway]
+  APIM --> Bucket[Token Bucket Ingress Shaper]
+  Bucket --> WFQ[Weighted Fair Queue Scheduler]
+  WFQ --> AOAI[AOAI Model Backends]
+  WFQ --> Tools[MCP Tool Services]
+  APIM --> Logs[ApiManagementGatewayLogs]
+  AOAI --> Cost[PTU Consumption Metrics]
+  Logs --> Monitor[Unified Monitoring]
+  Cost --> Monitor
 ```
 
-## 10) Mermaid #2: burst-throttling sequence
+The topology enforces peak clipping before queue arbitration to protect backend stability.
+The topology unifies fairness and cost telemetry for coordinated operator decisions.
+
+## 10) Mermaid #2: congestion trigger to policy convergence sequence
+
 ```mermaid
 sequenceDiagram
-  participant T as Tenant
-  participant G as Gateway
-  participant Q as WFQ
-  participant M as Model
-  T->>G: burst requests
-  G->>Q: classify by tier
-  Q->>M: fair scheduled requests
-  G-->>T: throttle when over-budget
+  participant C as Tenant Client
+  participant G as APIM Gateway
+  participant B as Token Bucket
+  participant Q as WFQ Scheduler
+  participant M as Model Backend
+  participant O as Operator
+  C->>G: burst requests
+  G->>B: ingress shaping check
+  B-->>G: allow with bucket tokens
+  G->>Q: enqueue by tenant weight
+  Q->>M: dispatch bounded workload
+  M-->>Q: latency and token usage
+  Q-->>G: queue pressure signal
+  G->>O: fairness or latency gate violation
+  O->>G: adjust weight and bucket profile
 ```
 
-## 11) Production Bicep
+The sequence gives operators deterministic trigger-to-action pathways.
+The sequence preserves a stable workflow from diagnosis to policy correction.
+
+## 11) Production-grade Bicep (Microsoft.ApiManagement/service)
+
 ```bicep
 param location string = resourceGroup().location
 param apimName string
-resource apim 'Microsoft.ApiManagement/service@2023-09-01-preview' = {
+param publisherEmail string
+param publisherName string
+param skuName string = 'Premium'
+param skuCapacity int = 2
+param lawId string
+
+resource apim 'Microsoft.ApiManagement/service@2023-05-01-preview' = {
   name: apimName
   location: location
-  sku: { name: 'Premium', capacity: 2 }
+  sku: {
+    name: skuName
+    capacity: skuCapacity
+  }
+  properties: {
+    publisherEmail: publisherEmail
+    publisherName: publisherName
+    virtualNetworkType: 'Internal'
+    publicNetworkAccess: 'Disabled'
+    hostnameConfigurations: []
+    customProperties: {
+      'Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2': 'true'
+    }
+  }
 }
-resource diag 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
-  name: '${apim.name}-diag'
-  scope: apim
-  properties: { logs: [ { category: 'GatewayLogs', enabled: true } ] }
+
+resource logger 'Microsoft.ApiManagement/service/loggers@2023-05-01-preview' = {
+  name: '${apim.name}/appinsights-logger'
+  properties: {
+    loggerType: 'applicationInsights'
+    credentials: {
+      instrumentationKey: '{{appi-key}}'
+    }
+    isBuffered: true
+  }
+}
+
+resource diag 'Microsoft.ApiManagement/service/diagnostics@2023-05-01-preview' = {
+  name: '${apim.name}/applicationinsights'
+  properties: {
+    loggerId: logger.id
+    sampling: {
+      samplingType: 'fixed'
+      percentage: 100
+    }
+    frontend: {
+      request: {
+        headers: [ '*' ]
+      }
+      response: {
+        headers: [ '*' ]
+      }
+    }
+  }
 }
 ```
 
-## 12) APIM policy + runtime YAML
+## 12) APIM `<llm-token-limit>` policy + WFQ scheduler config
+
 ```xml
 <policies>
   <inbound>
     <base />
-    <rate-limit-by-key calls="600" renewal-period="60" counter-key="@(context.Subscription.Id)" />
-    <llm-token-limit counter-key="@(context.Subscription.Id)" tokens-per-minute="1200000" />
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="jwt_invalid">
+      <openid-config url="https://login.microsoftonline.com/{tenant-id}/v2.0/.well-known/openid-configuration" />
+      <required-claims>
+        <claim name="aud"><value>api://agent-gateway</value></claim>
+        <claim name="scp"><value>agent.invoke</value></claim>
+      </required-claims>
+    </validate-jwt>
+    <llm-token-limit tokens-per-minute="260000" token-quota-key="@(context.Request.Headers.GetValueOrDefault("x-tenant-id","na"))" estimate-prompt-tokens="true" remaining-tokens-header-name="x-remaining-tokens" />
+    <set-header name="x-tenant-tier" exists-action="override"><value>@(context.Request.Headers.GetValueOrDefault("x-tenant-tier","standard"))</value></set-header>
   </inbound>
+  <backend><base /></backend>
+  <outbound><base /></outbound>
+  <on-error><base /></on-error>
 </policies>
 ```
 
 ```yaml
-scheduler:
-  mode: weighted-fair-queue
+wfqScheduler:
+  dispatchWindowMs: 200
+  defaultQueueWeight: 1
   tiers:
-    platinum: { weight: 8, burst: 8000 }
-    gold: { weight: 5, burst: 5000 }
-    silver: { weight: 3, burst: 3000 }
-  refillRatePerSec: 500
+    platinum:
+      queueWeight: 8
+      tokenBucket:
+        refillPerSecond: 2200
+        burstTokens: 180000
+    gold:
+      queueWeight: 5
+      tokenBucket:
+        refillPerSecond: 1400
+        burstTokens: 120000
+    standard:
+      queueWeight: 2
+      tokenBucket:
+        refillPerSecond: 800
+        burstTokens: 60000
+  fairnessGate:
+    minimumJainIndex: 0.96
+  latencyGate:
+    maximumP95Ms: 950
 ```
 
-## 13) KQL query
+Policy and scheduler profiles should be version-controlled to prevent untracked manual drift.
+
+## 13) ApiManagementGatewayLogs KQL + Day-0/Day-2 checklists
+
 ```kql
-let W=1h;
+let lookback = 24h;
 ApiManagementGatewayLogs
-| where TimeGenerated > ago(W)
-| summarize Requests=count(), Tokens=sum(TotalTokens), P95=percentile(DurationMs,95) by SubscriptionId, bin(TimeGenerated, 5m)
-| order by TimeGenerated desc
+| where TimeGenerated > ago(lookback)
+| extend tenantId = tostring(parse_json(Properties).tenantId)
+| extend tier = tostring(parse_json(Properties).tenantTier)
+| summarize req=count(), p95_latency=percentile(DurationMs,95), reject429=countif(ResponseCode == 429), token_est=sum(todouble(parse_json(Properties).estimatedTokens)) by bin(TimeGenerated, 5m), tenantId, tier
+| extend reject_rate = todouble(reject429) / iif(req == 0, 1.0, todouble(req))
+| order by TimeGenerated desc, p95_latency desc
 ```
 
-## 14) Weighted Decision Matrix
-| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
-|---|---:|---:|---:|---:|---|---|
-| APIM WFQ + token-bucket | 5 | 4 | 4 | 3 | large multi-tenant SaaS agents | single-tenant toy apps |
-| Flat per-key rate limit only | 3 | 3 | 5 | 5 | simple internal APIs | bursty premium tenants |
-| Queue only, no token budget | 2 | 4 | 2 | 3 | low-cost low-risk workloads | PTU-sensitive production |
-| Hard reject without tiering | 4 | 2 | 4 | 4 | strict abuse suppression | differentiated SLA businesses |
+Day-0 readiness items:
+1. Define WFQ weights by tenant tier and lock them through approval workflows.
+2. Validate token-bucket parameters against contractual SLA classes.
+3. Establish benchmark baselines for dual gates before release sign-off.
+4. Verify `<llm-token-limit>` response headers expose remaining budget context.
+5. Drill low-tier degradation pathways under burst pressure.
+6. Confirm ApiManagementGatewayLogs fields support all KQL fairness computations.
+7. Test cross-region fallback and record penalty distributions.
+8. Bind PTU burn alerts to automated shaping actions.
+9. Ensure every policy change has rollback metadata and audit trails.
+10. Enable consecutive-window gate failures as release blockers.
 
-## 15) Day-0 / Day-2 checklist
-Day-0:
-1. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-2. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-3. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-4. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-5. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-6. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-7. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-8. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-9. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-10. Establish tenant tiers, quotas, queue weights, logging, and fallback controls.
-Day-2:
-1. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-2. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-3. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-4. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-5. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-6. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-7. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-8. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-9. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-10. Periodically review fairness, spend, latency, false positives, and hotspot-tenant behavior.
-Sources: APIM/ACA/runtime official docs + release notes + cycle-2510 evidence.
-- Operations detail 193: keep queue-weight mapping aligned with business contracts.
-- Operations detail 194: keep queue-weight mapping aligned with business contracts.
-- Operations detail 195: keep queue-weight mapping aligned with business contracts.
-- Operations detail 196: keep queue-weight mapping aligned with business contracts.
-- Operations detail 197: keep queue-weight mapping aligned with business contracts.
-- Operations detail 198: keep queue-weight mapping aligned with business contracts.
-- Operations detail 199: keep queue-weight mapping aligned with business contracts.
-- Operations detail 200: keep queue-weight mapping aligned with business contracts.
-- Operations detail 201: keep queue-weight mapping aligned with business contracts.
-- Operations detail 202: keep queue-weight mapping aligned with business contracts.
-- Operations detail 203: keep queue-weight mapping aligned with business contracts.
-- Operations detail 204: keep queue-weight mapping aligned with business contracts.
-- Operations detail 205: keep queue-weight mapping aligned with business contracts.
-- Operations detail 206: keep queue-weight mapping aligned with business contracts.
-- Operations detail 207: keep queue-weight mapping aligned with business contracts.
-- Operations detail 208: keep queue-weight mapping aligned with business contracts.
-- Operations detail 209: keep queue-weight mapping aligned with business contracts.
-- Operations detail 210: keep queue-weight mapping aligned with business contracts.
-- Operations detail 211: keep queue-weight mapping aligned with business contracts.
-- Operations detail 212: keep queue-weight mapping aligned with business contracts.
-- Operations detail 213: keep queue-weight mapping aligned with business contracts.
-- Operations detail 214: keep queue-weight mapping aligned with business contracts.
-- Operations detail 215: keep queue-weight mapping aligned with business contracts.
-- Operations detail 216: keep queue-weight mapping aligned with business contracts.
-- Operations detail 217: keep queue-weight mapping aligned with business contracts.
-- Operations detail 218: keep queue-weight mapping aligned with business contracts.
-- Operations detail 219: keep queue-weight mapping aligned with business contracts.
-- Operations detail 220: keep queue-weight mapping aligned with business contracts.
-- Operations detail 221: keep queue-weight mapping aligned with business contracts.
-- Operations detail 222: keep queue-weight mapping aligned with business contracts.
-- Operations detail 223: keep queue-weight mapping aligned with business contracts.
-- Operations detail 224: keep queue-weight mapping aligned with business contracts.
-- Operations detail 225: keep queue-weight mapping aligned with business contracts.
-- Operations detail 226: keep queue-weight mapping aligned with business contracts.
-- Operations detail 227: keep queue-weight mapping aligned with business contracts.
-- Operations detail 228: keep queue-weight mapping aligned with business contracts.
-- Operations detail 229: keep queue-weight mapping aligned with business contracts.
-- Operations detail 230: keep queue-weight mapping aligned with business contracts.
-- Operations detail 231: keep queue-weight mapping aligned with business contracts.
-- Operations detail 232: keep queue-weight mapping aligned with business contracts.
-- Operations detail 233: keep queue-weight mapping aligned with business contracts.
-- Operations detail 234: keep queue-weight mapping aligned with business contracts.
-- Operations detail 235: keep queue-weight mapping aligned with business contracts.
-- Operations detail 236: keep queue-weight mapping aligned with business contracts.
-- Operations detail 237: keep queue-weight mapping aligned with business contracts.
-- Operations detail 238: keep queue-weight mapping aligned with business contracts.
-- Operations detail 239: keep queue-weight mapping aligned with business contracts.
-- Operations detail 240: keep queue-weight mapping aligned with business contracts.
-- Operations detail 241: keep queue-weight mapping aligned with business contracts.
-- Operations detail 242: keep queue-weight mapping aligned with business contracts.
-- Operations detail 243: keep queue-weight mapping aligned with business contracts.
-- Operations detail 244: keep queue-weight mapping aligned with business contracts.
-- Operations detail 245: keep queue-weight mapping aligned with business contracts.
-- Operations detail 246: keep queue-weight mapping aligned with business contracts.
-- Operations detail 247: keep queue-weight mapping aligned with business contracts.
-- Operations detail 248: keep queue-weight mapping aligned with business contracts.
-- Operations detail 249: keep queue-weight mapping aligned with business contracts.
-- Operations detail 250: keep queue-weight mapping aligned with business contracts.
-- Operations detail 251: keep queue-weight mapping aligned with business contracts.
-- Operations detail 252: keep queue-weight mapping aligned with business contracts.
-- Operations detail 253: keep queue-weight mapping aligned with business contracts.
-- Operations detail 254: keep queue-weight mapping aligned with business contracts.
-- Operations detail 255: keep queue-weight mapping aligned with business contracts.
-- Operations detail 256: keep queue-weight mapping aligned with business contracts.
-- Operations detail 257: keep queue-weight mapping aligned with business contracts.
-- Operations detail 258: keep queue-weight mapping aligned with business contracts.
-- Operations detail 259: keep queue-weight mapping aligned with business contracts.
+Day-2 operating items:
+1. Recalibrate fairness by tenant tier weekly using observed demand profiles.
+2. Track p95 latency and reject-rate coupling daily to identify congestion pivots.
+3. Recompute PTU budget variance monthly and tune token limits.
+4. Monitor fallback frequency and prevent disaster paths from becoming defaults.
+5. Audit policy governance chains to prevent ad hoc threshold drift.
+6. Measure post-429 recovery success and refine client retry contracts.
+7. Segment noisy tenants and apply targeted governance interventions.
+8. Improve alert precision continuously by eliminating false-positive causes.
+9. Keep scheduler runtime profiles synchronized with infrastructure-as-code assets.
+10. Include fairness and burn metrics in quarterly business governance reviews.
+
+## 14) 4-Option Weighted Decision Matrix
+
+| Option | Fairness Assurance(30) | Latency Stability(20) | Cost Protection(20) | Ops Control(15) | Compliance Auditability(15) | Weighted Score |
+| --- | --- | --- | --- | --- | --- | --- |
+| Option A: WFQ + Token Bucket + dual gates (recommended) | 29 | 17 | 18 | 12 | 14 | 90 |
+| Option B: Token-bucket throttling only | 18 | 15 | 16 | 13 | 11 | 73 |
+| Option C: Fixed quotas without weighted queues | 14 | 14 | 15 | 12 | 10 | 65 |
+| Option D: First-come-first-served without governance | 6 | 8 | 7 | 9 | 5 | 35 |
+
+Option A assessment: strongest balance across fairness, latency, and cost resilience.
+Option B assessment: simple to deploy but weak under multi-tenant fairness pressure.
+Option C assessment: moderate control with unstable burst behavior.
+Option D assessment: unacceptable risk profile for production agent platforms.
+
+## 15) Good fit / Not for and closeout guidance
+
+Good fit: multi-tenant agent platforms that require fairness and latency as explicit SLOs.
+Good fit: businesses sensitive to PTU burn and authenticated token-drain behavior.
+Good fit: teams with active gateway operations that can sustain Day-2 parameter governance.
+Not for: single-tenant low-concurrency systems with no fairness contention risk.
+Not for: teams unable to maintain policy versioning and audit closure.
+Closing recommendation: adopt Option A and keep Option B as a short transitional fallback.
+Next action: enforce Jain index, reject-rate, and burn-ratio as dual release and runtime gates.

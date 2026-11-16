@@ -121,91 +121,107 @@ Worked example: 12s 双网段命中
 - 观察 6.7：把指标写入周度治理例会。
 - 观察 6.8：每次阈值变更都要记录依据。
 
-## 9) Mermaid #1：控制面与数据面拓扑
+## 9) Mermaid #1: Entra Agent ID + OIDC + APIM identity topology
 
 ```mermaid
 flowchart LR
-  Client[Caller/User] --> Ingress[Ingress Layer]
-  Ingress --> Policy[Policy Layer]
-  Policy --> Runtime[Runtime Layer]
-  Runtime --> State[State/Storage Layer]
-  Policy --> Observe[Observability Layer]
-  Observe --> Remediate[Remediation Layer]
+  Pod[AKS Agent Pod] --> SA[ServiceAccount Token]
+  SA --> OIDC[AKS OIDC Issuer]
+  OIDC --> Entra[Entra STS]
+  Entra --> UAMI[User Assigned Managed Identity]
+  UAMI --> APIM[APIM validate-jwt]
+  APIM --> Tool[Protected Tool APIs]
+  APIM --> KV[Key Vault RBAC]
+  Entra --> SignIn[AADManagedIdentitySignInLogs]
+  APIM --> SignIn
 ```
 
-## 10) Mermaid #2：异常到隔离序列
+The topology replaces static credentials with federation and central claim enforcement at APIM.
+The topology also guarantees identity and gateway logs can be correlated for replay forensics.
+
+## 10) Mermaid #2: CAE challenge to recovery sequence
 
 ```mermaid
 sequenceDiagram
-  participant C as Client
-  participant G as Gateway
-  participant R as Runtime
-  participant O as Observer
-  participant Q as Quarantine
-  C->>G: request
-  G->>R: validated call
-  O-->>G: anomaly detected
-  G-->>C: challenge/throttle
-  G->>Q: isolate + notify
+  participant D as Detector
+  participant G as APIM
+  participant E as Entra CAE
+  participant P as Agent Pod
+  participant T as Tool API
+  D->>G: replay suspect alert
+  G->>E: request claims challenge
+  E-->>G: challenge issued
+  G-->>P: 401 with claims challenge
+  P->>E: acquire new token
+  E-->>P: refreshed scoped token
+  P->>G: retry with new token
+  G->>T: authorized execution
 ```
 
-## 13) KQL 可观测性查询
+The sequence enforces fail-safe interruption before recovery.
+The sequence gives SOC and SRE one deterministic containment pattern.
 
-```kql
-let W = 1h;
-customMetrics
-| where TimeGenerated > ago(W)
-| summarize p50=percentile(Value,50), p95=percentile(Value,95), n=count() by Name, bin(TimeGenerated, 5m)
-| order by TimeGenerated desc
-```
-
-## 14) 4-Option Weighted Decision Matrix
-
-| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
-|---|---:|---:|---:|---:|---|---|
-
-## 15) Day-0 / Day-2 Checklist
-
-Day-0：
-1. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-2. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-3. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-4. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-5. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-6. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-7. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-8. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-9. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-10. 上线前完成身份、配额、日志、回退、压测与值班闭环。
-Day-2：
-1. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-2. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-3. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-4. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-5. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-6. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-7. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-8. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-9. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-10. 上线后周期复盘阈值、容量、成本、误报、审计证据与演练结果。
-来源：Entra / AKS / APIM 官方文档；证据：`evidence/cycle-2507-benchmark.json`。
-
-## 11) 生产级 Bicep（UAMI + FIC + RBAC）
+## 11) Production-grade Bicep (UAMI + FIC + RBAC + diagnostics)
 
 ```bicep
 param location string = resourceGroup().location
-param uamiName string = 'agent-tier-a-uami'
-param principalObjectId string
+param uamiName string
+param aksOidcIssuer string
+param namespace string = 'agent-runtime'
+param serviceAccountName string = 'agent-sa-tier1'
+param keyVaultName string
+param lawName string
+
+resource law 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
+  name: lawName
+  location: location
+  properties: {
+    sku: { name: 'PerGB2018' }
+    retentionInDays: 30
+  }
+}
+
 resource uami 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
   name: uamiName
   location: location
 }
+
 resource fic 'Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials@2023-01-31' = {
-  name: '${uami.name}/aks-agent-fic'
+  name: '${uami.name}/aks-${namespace}-${serviceAccountName}'
   properties: {
-    issuer: 'https://oidc.prod-aks.azure.com/xxxx/'
-    subject: 'system:serviceaccount:agent-system:agent-runner'
-    audiences: [ 'api://AzureADTokenExchange' ]
+    issuer: aksOidcIssuer
+    subject: 'system:serviceaccount:${namespace}:${serviceAccountName}'
+    audiences: [
+      'api://AzureADTokenExchange'
+    ]
+  }
+}
+
+resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+  name: keyVaultName
+}
+
+resource kvReader 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(kv.id, uami.properties.principalId, 'KeyVaultSecretsUser')
+  scope: kv
+  properties: {
+    principalId: uami.properties.principalId
+    principalType: 'ServicePrincipal'
+    roleDefinitionId: subscriptionResourceId('Microsoft.Authorization/roleDefinitions','4633458b-17de-408a-b874-0445c86b69e6')
+  }
+}
+
+resource diag 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: 'identity-diag'
+  scope: uami
+  properties: {
+    workspaceId: law.id
+    logs: [
+      { category: 'AuditLogs', enabled: true }
+    ]
+    metrics: [
+      { category: 'AllMetrics', enabled: true }
+    ]
   }
 }
 ```
@@ -216,45 +232,120 @@ resource fic 'Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentity
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: agent-runner
-  namespace: agent-system
+  name: agent-sa-tier1
+  namespace: agent-runtime
   annotations:
-    azure.workload.identity/client-id: '<uami-client-id>'
+    azure.workload.identity/client-id: "<uami-client-id>"
+    azure.workload.identity/tenant-id: "<tenant-id>"
+  labels:
+    azure.workload.identity/use: "true"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autonomous-agent
+  namespace: agent-runtime
+spec:
+  replicas: 6
+  template:
+    metadata:
+      labels:
+        app: autonomous-agent
+        azure.workload.identity/use: "true"
+    spec:
+      serviceAccountName: agent-sa-tier1
+      containers:
+      - name: agent
+        image: contoso.azurecr.io/agent:1102
 ```
 
 ```xml
 <policies>
   <inbound>
     <base />
-    <validate-jwt header-name="Authorization" require-expiration-time="true" />
+    <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="jwt_invalid">
+      <openid-config url="https://login.microsoftonline.com/{tenant-id}/v2.0/.well-known/openid-configuration" />
+      <required-claims>
+        <claim name="aud"><value>api://agent-tool-gateway</value></claim>
+        <claim name="scp"><value>tool.invoke</value></claim>
+      </required-claims>
+    </validate-jwt>
     <choose>
-      <when condition="@(context.Variables.GetValueOrDefault<bool>('caeRequired', false))">
+      <when condition="@(context.Variables.GetValueOrDefault<string>("tokenReplayFlag") == "true")">
         <return-response>
-          <set-status code="401" reason="Claims challenge" />
+          <set-status code="401" reason="claims_challenge_required" />
           <set-header name="WWW-Authenticate" exists-action="override">
-            <value>Bearer claims="{...}"</value>
+            <value>Bearer error="insufficient_claims", claims="{"access_token":{"xms_cc":{"values":["cp1"]}}}"</value>
           </set-header>
         </return-response>
       </when>
     </choose>
   </inbound>
+  <backend><base /></backend>
+  <outbound><base /></outbound>
+  <on-error><base /></on-error>
 </policies>
 ```
 
-| Candidate | Security | Latency | Cost | Ops Complexity | Good fit | Not for |
-|---|---:|---:|---:|---:|---|---|
-| Agent ID + Workload Identity + CAE | 5 | 4 | 4 | 3 | 大规模自治 Agent | 治理能力薄弱团队 |
-| User-Delegated OBO | 4 | 3 | 3 | 4 | 用户审计强约束流程 | 无用户上下文任务 |
-| Shared Managed Identity | 1 | 5 | 5 | 5 | 临时实验 | 生产多租户写操作 |
-| JIT/PIM 受控提权 | 5 | 2 | 3 | 2 | 高危工具链路 | 秒级无人值守写入 |
+## 13) KQL observability query + Day-0/Day-2 checklist
 
-- Identity-governance extension 250: preserve least privilege, fast revocation, and auditable closure.
-- Identity-governance extension 251: preserve least privilege, fast revocation, and auditable closure.
-- Identity-governance extension 252: preserve least privilege, fast revocation, and auditable closure.
-- Identity-governance extension 253: preserve least privilege, fast revocation, and auditable closure.
-- Identity-governance extension 254: preserve least privilege, fast revocation, and auditable closure.
-- Identity-governance extension 255: preserve least privilege, fast revocation, and auditable closure.
-- Identity-governance extension 256: preserve least privilege, fast revocation, and auditable closure.
-- Identity-governance extension 257: preserve least privilege, fast revocation, and auditable closure.
-- Identity-governance extension 258: preserve least privilege, fast revocation, and auditable closure.
-- Identity-governance extension 259: preserve least privilege, fast revocation, and auditable closure.
+```kql
+let lookback = 24h;
+let mi = AADManagedIdentitySignInLogs
+| where TimeGenerated > ago(lookback)
+| project TimeGenerated, AppId, ServicePrincipalId, IPAddress, ResultType, ResourceDisplayName;
+let sp = AADServicePrincipalSignInLogs
+| where TimeGenerated > ago(lookback)
+| project TimeGenerated, AppId, ServicePrincipalId, IPAddress, ResultType, ResourceDisplayName;
+mi
+| union sp
+| summarize first_seen=min(TimeGenerated), last_seen=max(TimeGenerated), ip_count=dcount(IPAddress), failure_count=countif(ResultType != 0) by AppId, ServicePrincipalId, ResourceDisplayName
+| extend replay_suspect = ip_count > 1 and datetime_diff('second', last_seen, first_seen) < 30
+| order by replay_suspect desc, failure_count desc
+```
+
+Day-0 readiness items:
+1. Provision one UAMI per agent tier and prohibit cross-tier identity reuse.
+2. Validate federated credential issuer and subject against the exact ServiceAccount.
+3. Verify APIM aud/scp constraints reject non-compliant tokens deterministically.
+4. Run 5,000 sandbox refresh tests and confirm STS burst rates stay within limits.
+5. Audit Key Vault RBAC to ensure read-only secret access boundaries.
+6. Rehearse CAE challenge end-to-end and record convergence duration.
+7. Confirm JIT/PIM gates are mandatory for destructive tool operations.
+8. Bind replay alerts to automated quarantine runbooks.
+9. Verify identity-log retention satisfies compliance audit requirements.
+10. Add exposure_window and replay_suspect thresholds to release blocking policy.
+
+Day-2 operating items:
+1. Review AppId failure trajectories weekly and tune anomaly thresholds.
+2. Sample scope and audience combinations daily to catch drift early.
+3. Replay CAE evidence monthly and validate challenge handling integrity.
+4. Optimize approval workflow whenever elevation latency breaches targets.
+5. Retire legacy shared identities to complete principal isolation migration.
+6. Track STS throttling events and adjust refresh jitter windows.
+7. Re-audit role assignments and remove stale privilege grants.
+8. Standardize replay postmortem templates with required evidence fields.
+9. Include identity gates in quarterly architecture and risk reviews.
+10. Correlate identity anomalies with business impact for prioritization.
+
+## 14) 4-Option Weighted Decision Matrix
+
+| Option | Security Convergence(30) | Automation Throughput(20) | Ops Control(20) | Cost Impact(15) | Audit Completeness(15) | Weighted Score |
+| --- | --- | --- | --- | --- | --- | --- |
+| Option A: Shared Managed Identity anti-pattern | 6 | 18 | 8 | 14 | 7 | 53 |
+| Option B: User Delegated OBO primary path | 20 | 14 | 13 | 10 | 15 | 72 |
+| Option C: Entra Agent ID + Federation + CAE | 28 | 17 | 18 | 11 | 15 | 89 |
+| Option D: Agent ID + CAE + mandatory JIT/PIM | 30 | 14 | 19 | 9 | 15 | 87 |
+
+Option A assessment: fastest onboarding path but unacceptable blast radius in multi-tenant systems.
+Option B assessment: strong user-context governance with lower unattended automation efficiency.
+Option C assessment: best balance between security convergence and engineering complexity.
+Option D assessment: highest control rigor with additional approval-latency overhead.
+
+## 15) Good fit / Not for
+
+Good fit: multi-tenant autonomous platforms requiring zero-standing-privilege controls.
+Good fit: regulated domains where destructive actions need approval and audit closure.
+Not for: prototype teams optimizing only for speed without identity-governance capacity.
+Not for: environments without reliable telemetry for token-event forensics.
+Conclusion: use Option C by default and apply Option D controls for high-risk write operations.
