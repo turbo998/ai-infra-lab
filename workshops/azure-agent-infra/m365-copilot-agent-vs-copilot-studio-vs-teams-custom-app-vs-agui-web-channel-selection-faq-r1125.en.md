@@ -288,37 +288,19 @@ customEvents
 - QA-D When to prioritize AG-UI web/mobile? When external customer visual journey and collaborative planning dominate.
 - QA-E How to prevent channel fragmentation? Standardize APIM policy, identity, memory, and telemetry contracts.
 
-### Thirty architecture gate checks
-- CK-01 Channel governance checkpoint 1: verify identity, policy, audit, and replay closure.
-- CK-02 Channel governance checkpoint 2: verify identity, policy, audit, and replay closure.
-- CK-03 Channel governance checkpoint 3: verify identity, policy, audit, and replay closure.
-- CK-04 Channel governance checkpoint 4: verify identity, policy, audit, and replay closure.
-- CK-05 Channel governance checkpoint 5: verify identity, policy, audit, and replay closure.
-- CK-06 Channel governance checkpoint 6: verify identity, policy, audit, and replay closure.
-- CK-07 Channel governance checkpoint 7: verify identity, policy, audit, and replay closure.
-- CK-08 Channel governance checkpoint 8: verify identity, policy, audit, and replay closure.
-- CK-09 Channel governance checkpoint 9: verify identity, policy, audit, and replay closure.
-- CK-10 Channel governance checkpoint 10: verify identity, policy, audit, and replay closure.
-- CK-11 Channel governance checkpoint 11: verify identity, policy, audit, and replay closure.
-- CK-12 Channel governance checkpoint 12: verify identity, policy, audit, and replay closure.
-- CK-13 Channel governance checkpoint 13: verify identity, policy, audit, and replay closure.
-- CK-14 Channel governance checkpoint 14: verify identity, policy, audit, and replay closure.
-- CK-15 Channel governance checkpoint 15: verify identity, policy, audit, and replay closure.
-- CK-16 Channel governance checkpoint 16: verify identity, policy, audit, and replay closure.
-- CK-17 Channel governance checkpoint 17: verify identity, policy, audit, and replay closure.
-- CK-18 Channel governance checkpoint 18: verify identity, policy, audit, and replay closure.
-- CK-19 Channel governance checkpoint 19: verify identity, policy, audit, and replay closure.
-- CK-20 Channel governance checkpoint 20: verify identity, policy, audit, and replay closure.
-- CK-21 Channel governance checkpoint 21: verify identity, policy, audit, and replay closure.
-- CK-22 Channel governance checkpoint 22: verify identity, policy, audit, and replay closure.
-- CK-23 Channel governance checkpoint 23: verify identity, policy, audit, and replay closure.
-- CK-24 Channel governance checkpoint 24: verify identity, policy, audit, and replay closure.
-- CK-25 Channel governance checkpoint 25: verify identity, policy, audit, and replay closure.
-- CK-26 Channel governance checkpoint 26: verify identity, policy, audit, and replay closure.
-- CK-27 Channel governance checkpoint 27: verify identity, policy, audit, and replay closure.
-- CK-28 Channel governance checkpoint 28: verify identity, policy, audit, and replay closure.
-- CK-29 Channel governance checkpoint 29: verify identity, policy, audit, and replay closure.
-- CK-30 Channel governance checkpoint 30: verify identity, policy, audit, and replay closure.
+### 12 channel, identity, and licensing review checks
+- RC-01: Confirm persona boundaries across M365 Copilot, Copilot Studio, Teams app, and AG-UI channels are explicit and non-overlapping.
+- RC-02: Confirm Entra OBO identity is fully traceable across drafting, approval, and archival stages.
+- RC-03: Confirm least-privilege Graph scopes are separated by surface (authoring, approval, concierge).
+- RC-04: Confirm Adaptive Card callback signature validation and replay protection are enabled.
+- RC-05: Confirm seat-based and consumption-based economics are attributed per persona cohort.
+- RC-06: Confirm external guest AG-UI routes and internal employee routes use isolated policy packs and throttles.
+- RC-07: Confirm cross-channel handoff (Web/WhatsApp/Teams) preserves shared context and unified audit IDs.
+- RC-08: Confirm DLP and sensitive-content policies behave consistently across all four channels.
+- RC-09: Confirm fallback SLO is defined when the primary channel is unavailable.
+- RC-10: Confirm APIM route policy versions are coupled with agent-tool versions and rollback-ready.
+- RC-11: Confirm App Insights captures first-token latency, handoff latency, human-takeover latency, and failure rates.
+- RC-12: Confirm compliance sampling can replay full evidence from input to model output to approval action.
 
 ### Deliverables for this round
 - Bilingual FAQ docs with 330+ lines and strict sections 1..15.
@@ -336,84 +318,3 @@ pytest workshops/azure-agent-infra/simulator -q
 ```
 - Acceptance criteria: `sections 1..15`, `max_suffix_repeat == 1`, workshops/docs byte parity, and full test pass.
 
-### Appendix: 80 channel economics review addenda
-- EX-01: Addendum 1 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-02: Addendum 2 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-03: Addendum 3 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-04: Addendum 4 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-05: Addendum 5 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-06: Addendum 6 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-07: Addendum 7 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-08: Addendum 8 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-09: Addendum 9 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-10: Addendum 10 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-11: Addendum 11 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-12: Addendum 12 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-13: Addendum 13 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-14: Addendum 14 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-15: Addendum 15 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-16: Addendum 16 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-17: Addendum 17 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-18: Addendum 18 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-19: Addendum 19 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-20: Addendum 20 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-21: Addendum 21 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-22: Addendum 22 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-23: Addendum 23 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-24: Addendum 24 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-25: Addendum 25 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-26: Addendum 26 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-27: Addendum 27 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-28: Addendum 28 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-29: Addendum 29 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-30: Addendum 30 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-31: Addendum 31 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-32: Addendum 32 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-33: Addendum 33 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-34: Addendum 34 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-35: Addendum 35 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-36: Addendum 36 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-37: Addendum 37 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-38: Addendum 38 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-39: Addendum 39 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-40: Addendum 40 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-41: Addendum 41 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-42: Addendum 42 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-43: Addendum 43 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-44: Addendum 44 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-45: Addendum 45 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-46: Addendum 46 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-47: Addendum 47 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-48: Addendum 48 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-49: Addendum 49 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-50: Addendum 50 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-51: Addendum 51 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-52: Addendum 52 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-53: Addendum 53 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-54: Addendum 54 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-55: Addendum 55 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-56: Addendum 56 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-57: Addendum 57 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-58: Addendum 58 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-59: Addendum 59 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-60: Addendum 60 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-61: Addendum 61 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-62: Addendum 62 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-63: Addendum 63 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-64: Addendum 64 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-65: Addendum 65 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-66: Addendum 66 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-67: Addendum 67 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-68: Addendum 68 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-69: Addendum 69 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-70: Addendum 70 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-71: Addendum 71 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-72: Addendum 72 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-73: Addendum 73 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-74: Addendum 74 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-75: Addendum 75 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-76: Addendum 76 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-77: Addendum 77 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-78: Addendum 78 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-79: Addendum 79 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.
-- EX-80: Addendum 80 — persist the tuple (`persona`, `channel`, `licenseModel`, `handoffPolicy`) to keep product, security, and finance governance aligned.

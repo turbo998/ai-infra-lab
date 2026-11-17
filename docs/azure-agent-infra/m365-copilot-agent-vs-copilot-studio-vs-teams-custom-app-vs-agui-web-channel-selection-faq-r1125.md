@@ -294,37 +294,19 @@ customEvents
 - QA-D：何时优先 AG-UI Web？当外部客户体验、可视化行程与实时协同是首要目标时。
 - QA-E：如何避免渠道碎片化？统一 APIM、统一身份、统一记忆与统一观测。
 
-### 30 条架构检查点（用于评审会逐条打勾）
-- CK-01 渠道治理检查项 1：确认身份、策略、审计与回放闭环均可验证。
-- CK-02 渠道治理检查项 2：确认身份、策略、审计与回放闭环均可验证。
-- CK-03 渠道治理检查项 3：确认身份、策略、审计与回放闭环均可验证。
-- CK-04 渠道治理检查项 4：确认身份、策略、审计与回放闭环均可验证。
-- CK-05 渠道治理检查项 5：确认身份、策略、审计与回放闭环均可验证。
-- CK-06 渠道治理检查项 6：确认身份、策略、审计与回放闭环均可验证。
-- CK-07 渠道治理检查项 7：确认身份、策略、审计与回放闭环均可验证。
-- CK-08 渠道治理检查项 8：确认身份、策略、审计与回放闭环均可验证。
-- CK-09 渠道治理检查项 9：确认身份、策略、审计与回放闭环均可验证。
-- CK-10 渠道治理检查项 10：确认身份、策略、审计与回放闭环均可验证。
-- CK-11 渠道治理检查项 11：确认身份、策略、审计与回放闭环均可验证。
-- CK-12 渠道治理检查项 12：确认身份、策略、审计与回放闭环均可验证。
-- CK-13 渠道治理检查项 13：确认身份、策略、审计与回放闭环均可验证。
-- CK-14 渠道治理检查项 14：确认身份、策略、审计与回放闭环均可验证。
-- CK-15 渠道治理检查项 15：确认身份、策略、审计与回放闭环均可验证。
-- CK-16 渠道治理检查项 16：确认身份、策略、审计与回放闭环均可验证。
-- CK-17 渠道治理检查项 17：确认身份、策略、审计与回放闭环均可验证。
-- CK-18 渠道治理检查项 18：确认身份、策略、审计与回放闭环均可验证。
-- CK-19 渠道治理检查项 19：确认身份、策略、审计与回放闭环均可验证。
-- CK-20 渠道治理检查项 20：确认身份、策略、审计与回放闭环均可验证。
-- CK-21 渠道治理检查项 21：确认身份、策略、审计与回放闭环均可验证。
-- CK-22 渠道治理检查项 22：确认身份、策略、审计与回放闭环均可验证。
-- CK-23 渠道治理检查项 23：确认身份、策略、审计与回放闭环均可验证。
-- CK-24 渠道治理检查项 24：确认身份、策略、审计与回放闭环均可验证。
-- CK-25 渠道治理检查项 25：确认身份、策略、审计与回放闭环均可验证。
-- CK-26 渠道治理检查项 26：确认身份、策略、审计与回放闭环均可验证。
-- CK-27 渠道治理检查项 27：确认身份、策略、审计与回放闭环均可验证。
-- CK-28 渠道治理检查项 28：确认身份、策略、审计与回放闭环均可验证。
-- CK-29 渠道治理检查项 29：确认身份、策略、审计与回放闭环均可验证。
-- CK-30 渠道治理检查项 30：确认身份、策略、审计与回放闭环均可验证。
+### 12 条渠道/身份/许可评审清单
+- RC-01：确认 M365 Copilot、Copilot Studio、Teams App、AG-UI 四类入口的目标人群边界不重叠。
+- RC-02：确认 Entra OBO 在“草拟→审批→归档”链路中的主体身份可追溯。
+- RC-03：确认 Graph 权限最小化策略按应用面分离（起草面、审批面、客服面）。
+- RC-04：确认 Adaptive Card 回调签名校验与重放防护策略已启用。
+- RC-05：确认 Seat 模式与 Consumption 模式按 persona 建立成本归因口径。
+- RC-06：确认外部访客 AG-UI 通道与内部员工通道使用隔离的策略集与速率限制。
+- RC-07：确认跨渠道接力（Web/WhatsApp/Teams）共享同一会话上下文与审计 ID。
+- RC-08：确认 DLP 与敏感词策略在四类入口行为一致并可回放验证。
+- RC-09：确认渠道故障降级策略（主渠道失败后的备用渠道）具备明确 SLO。
+- RC-10：确认 APIM 路由策略版本与 Agent 工具版本双向绑定可回滚。
+- RC-11：确认 App Insights 指标覆盖首包时延、接力时延、人工接管时延与失败率。
+- RC-12：确认合规抽检流程可直接定位到“用户输入→模型输出→审批动作”全链路证据。
 
 ### 本轮交付
 - FAQ（zh/en）各 330+ 行，章节 1..15 完整。
@@ -342,84 +324,3 @@ pytest workshops/azure-agent-infra/simulator -q
 ```
 - 验收门槛：`sections 1..15`、`max_suffix_repeat == 1`、workshops/docs 字节一致、测试通过。
 
-### 附录：80 条渠道与经济性评审补充
-- EX-01：补充要点 1 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-02：补充要点 2 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-03：补充要点 3 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-04：补充要点 4 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-05：补充要点 5 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-06：补充要点 6 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-07：补充要点 7 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-08：补充要点 8 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-09：补充要点 9 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-10：补充要点 10 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-11：补充要点 11 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-12：补充要点 12 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-13：补充要点 13 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-14：补充要点 14 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-15：补充要点 15 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-16：补充要点 16 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-17：补充要点 17 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-18：补充要点 18 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-19：补充要点 19 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-20：补充要点 20 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-21：补充要点 21 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-22：补充要点 22 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-23：补充要点 23 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-24：补充要点 24 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-25：补充要点 25 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-26：补充要点 26 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-27：补充要点 27 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-28：补充要点 28 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-29：补充要点 29 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-30：补充要点 30 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-31：补充要点 31 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-32：补充要点 32 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-33：补充要点 33 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-34：补充要点 34 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-35：补充要点 35 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-36：补充要点 36 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-37：补充要点 37 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-38：补充要点 38 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-39：补充要点 39 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-40：补充要点 40 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-41：补充要点 41 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-42：补充要点 42 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-43：补充要点 43 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-44：补充要点 44 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-45：补充要点 45 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-46：补充要点 46 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-47：补充要点 47 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-48：补充要点 48 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-49：补充要点 49 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-50：补充要点 50 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-51：补充要点 51 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-52：补充要点 52 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-53：补充要点 53 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-54：补充要点 54 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-55：补充要点 55 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-56：补充要点 56 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-57：补充要点 57 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-58：补充要点 58 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-59：补充要点 59 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-60：补充要点 60 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-61：补充要点 61 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-62：补充要点 62 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-63：补充要点 63 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-64：补充要点 64 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-65：补充要点 65 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-66：补充要点 66 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-67：补充要点 67 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-68：补充要点 68 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-69：补充要点 69 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-70：补充要点 70 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-71：补充要点 71 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-72：补充要点 72 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-73：补充要点 73 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-74：补充要点 74 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-75：补充要点 75 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-76：补充要点 76 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-77：补充要点 77 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-78：补充要点 78 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-79：补充要点 79 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
-- EX-80：补充要点 80 —— 记录 `persona`、`channel`、`licenseModel`、`handoffPolicy` 四元组，确保跨产品/合规/财务团队在同一决策语义面上协同。
