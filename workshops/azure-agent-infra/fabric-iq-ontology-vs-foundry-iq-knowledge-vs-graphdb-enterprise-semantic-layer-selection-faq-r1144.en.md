@@ -124,7 +124,7 @@ A Fabric IQ:
 B Foundry IQ:
 - Fit: SOP, contract, legal clause, and operations document grounding.
 - Not fit: strict financial-metric answers requiring certified formulas.
-- Anti-pattern: omitting document version and ownership metadata.
+- Anti-pattern: omitting document provenance versioning and steward fields.
 C Graph layer:
 - Fit: multi-hop dependencies and causal path explainability.
 - Not fit: simple group-by dashboard workloads.
