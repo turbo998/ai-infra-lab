@@ -1,13 +1,13 @@
-# Azure AI Agent Infra Playbook · Daily Report · Cycle #1159 (2026-11-12)
+# Azure AI Agent Infra Playbook · Daily Report · Cycle #1160 (2026-11-12)
 
 > Window (BJT): 2026-11-12 23:00 ~ 2026-11-13 05:15  
-> Focus: Enterprise AI SecOps and runtime defense selection only (no semiconductor/ALD topics)  
-> Generated at (UTC): 2026-11-17T21:02:18.961329+00:00
+> Focus: Enterprise AI data-readiness and garbage-in prevention selection only (no semiconductor/ALD topics)  
+> Generated at (UTC): 2026-11-17T21:06:04.780639+00:00
 
 ## 1) Daily hottest breakthroughs (2026 official/release-first)
 
-- Top1 daily breakthrough: enterprise AI security baseline converges around inline blocking, async threat hunting, and DSPM governance contracts.
-- AI SecOps selection now emphasizes prompt-injection blocking, session-level circuit breaking, and compliance evidence automation.
+- Top1 daily breakthrough: enterprise AI readiness baseline converges around medallion data quality, lineage governance, and conflict-retirement contracts.
+- AI readiness selection now emphasizes dedup retirement, authority weighting, and policy-conflict suppression automation.
 - D365 Contact Center, ACS sidecar assist, Copilot Studio handoff, and self-built omnichannel states are normalized into comparable dimensions.
 - Guardrails are encoded as non-bypass controls for red-line escalation, warm-handoff payload integrity, and compliance evidence boundaries.
 - Delivery cadence is staged by pilot-to-scale contact-center rollout waves with explicit fallback and runbook ownership checkpoints.
@@ -23,24 +23,24 @@
 ### Source ledger (with fetch date and labels)
 | Source | Published date | Label | URL | Fetched at (UTC) |
 |---|---|---|---|---|
-| AI Gateway overview (Microsoft Learn) | 2026-10-23 | `measured` | https://learn.microsoft.com/en-us/azure/ai-gateway/overview | 2026-11-17T21:02:18.961329+00:00 |
-| Azure API Management service changelog (June 2026) | 2026-06-16 commit 02b1448 | `measured` | https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md | 2026-11-17T21:02:18.961329+00:00 |
-| Azure Container Apps dynamic sessions docs | 2026-03-31 | `measured` | https://learn.microsoft.com/en-us/azure/container-apps/sessions | 2026-11-17T21:02:18.961329+00:00 |
-| ACA Dynamic Sessions GA blog (historical maturity memory) | 2024-11-19 | `anonymized_reported` | https://techcommunity.microsoft.com/blog/appsonazureblog/azure-container-apps-dynamic-sessions-general-availability-and-more/4303561 | 2026-11-17T21:02:18.961329+00:00 |
-| Firecracker release v1.17.0 | 2026-09-10 | `measured` | https://github.com/firecracker-microvm/firecracker/releases/tag/v1.17.0 | 2026-11-17T21:02:18.961329+00:00 |
-| Kata Containers release 4.3.1 | 2026-10-21 | `measured` | https://github.com/kata-containers/kata-containers/releases/tag/4.3.1 | 2026-11-17T21:02:18.961329+00:00 |
-| Wasmtime release v50.0.1 | 2026-10-29 | `measured` | https://github.com/bytecodealliance/wasmtime/releases/tag/v50.0.1 | 2026-11-17T21:02:18.961329+00:00 |
-| E2B release e2b@2.63.0 | 2026-11-04 16:41:49 | `measured` | https://github.com/e2b-dev/E2B/releases/tag/e2b%402.63.0 | 2026-11-17T21:02:18.961329+00:00 |
-| Microsoft Entra workload identities overview | timestamp_unverified (official docs page) | `measured` | https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview | 2026-11-17T21:02:18.961329+00:00 |
-| Azure AI Foundry Agent Service docs | timestamp_unverified (official docs page) | `measured` | https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview | 2026-11-17T21:02:18.961329+00:00 |
-| AWS AgentCore overview | timestamp_unverified (official docs page) | `measured` | https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html | 2026-11-17T21:02:18.961329+00:00 |
-| AWS Bedrock Agents classic notice | timestamp_unverified (official docs page) | `measured` | https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html | 2026-11-17T21:02:18.961329+00:00 |
-| Cloudflare Workers docs | last updated 2026-10-08 | `measured` | https://developers.cloudflare.com/workers/ | 2026-11-17T21:02:18.961329+00:00 |
-| Cloudflare Workers AI docs | last updated 2026-04-21 | `measured` | https://developers.cloudflare.com/workers-ai/ | 2026-11-17T21:02:18.961329+00:00 |
-| Cloudflare Workflows docs | last updated 2026-09-18 | `measured` | https://developers.cloudflare.com/workflows/ | 2026-11-17T21:02:18.961329+00:00 |
-| Cloudflare Browser Rendering docs | timestamp_unverified (official docs page) | `measured` | https://developers.cloudflare.com/browser-rendering/ | 2026-11-17T21:02:18.961329+00:00 |
-| Modal official guide | timestamp_unverified (official docs page) | `measured` | https://modal.com/docs/guide | 2026-11-17T21:02:18.961329+00:00 |
-| GCP Vertex AI Agent Engine overview | timestamp_unverified (official docs page; redirected) | `measured` | https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview | 2026-11-17T21:02:18.961329+00:00 |
+| AI Gateway overview (Microsoft Learn) | 2026-10-23 | `measured` | https://learn.microsoft.com/en-us/azure/ai-gateway/overview | 2026-11-17T21:06:04.780639+00:00 |
+| Azure API Management service changelog (June 2026) | 2026-06-16 commit 02b1448 | `measured` | https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md | 2026-11-17T21:06:04.780639+00:00 |
+| Azure Container Apps dynamic sessions docs | 2026-03-31 | `measured` | https://learn.microsoft.com/en-us/azure/container-apps/sessions | 2026-11-17T21:06:04.780639+00:00 |
+| ACA Dynamic Sessions GA blog (historical maturity memory) | 2024-11-19 | `anonymized_reported` | https://techcommunity.microsoft.com/blog/appsonazureblog/azure-container-apps-dynamic-sessions-general-availability-and-more/4303561 | 2026-11-17T21:06:04.780639+00:00 |
+| Firecracker release v1.17.0 | 2026-09-10 | `measured` | https://github.com/firecracker-microvm/firecracker/releases/tag/v1.17.0 | 2026-11-17T21:06:04.780639+00:00 |
+| Kata Containers release 4.3.1 | 2026-10-21 | `measured` | https://github.com/kata-containers/kata-containers/releases/tag/4.3.1 | 2026-11-17T21:06:04.780639+00:00 |
+| Wasmtime release v50.0.1 | 2026-10-29 | `measured` | https://github.com/bytecodealliance/wasmtime/releases/tag/v50.0.1 | 2026-11-17T21:06:04.780639+00:00 |
+| E2B release e2b@2.63.0 | 2026-11-04 16:41:49 | `measured` | https://github.com/e2b-dev/E2B/releases/tag/e2b%402.63.0 | 2026-11-17T21:06:04.780639+00:00 |
+| Microsoft Entra workload identities overview | timestamp_unverified (official docs page) | `measured` | https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview | 2026-11-17T21:06:04.780639+00:00 |
+| Azure AI Foundry Agent Service docs | timestamp_unverified (official docs page) | `measured` | https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview | 2026-11-17T21:06:04.780639+00:00 |
+| AWS AgentCore overview | timestamp_unverified (official docs page) | `measured` | https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html | 2026-11-17T21:06:04.780639+00:00 |
+| AWS Bedrock Agents classic notice | timestamp_unverified (official docs page) | `measured` | https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html | 2026-11-17T21:06:04.780639+00:00 |
+| Cloudflare Workers docs | last updated 2026-10-08 | `measured` | https://developers.cloudflare.com/workers/ | 2026-11-17T21:06:04.780639+00:00 |
+| Cloudflare Workers AI docs | last updated 2026-04-21 | `measured` | https://developers.cloudflare.com/workers-ai/ | 2026-11-17T21:06:04.780639+00:00 |
+| Cloudflare Workflows docs | last updated 2026-09-18 | `measured` | https://developers.cloudflare.com/workflows/ | 2026-11-17T21:06:04.780639+00:00 |
+| Cloudflare Browser Rendering docs | timestamp_unverified (official docs page) | `measured` | https://developers.cloudflare.com/browser-rendering/ | 2026-11-17T21:06:04.780639+00:00 |
+| Modal official guide | timestamp_unverified (official docs page) | `measured` | https://modal.com/docs/guide | 2026-11-17T21:06:04.780639+00:00 |
+| GCP Vertex AI Agent Engine overview | timestamp_unverified (official docs page; redirected) | `measured` | https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview | 2026-11-17T21:06:04.780639+00:00 |
 
 ## 2) Production Azure reference architecture + competitor matrix
 
@@ -61,11 +61,11 @@ Layered decoupling baseline for this cycle:
 
 ## 3) Reproducible benchmark outputs
 
-- Cold/warm start: see `evidence/cycle-1159-latency.csv`
-- Throughput: see `evidence/cycle-1159-throughput.csv`
-- Policy interception: see `evidence/cycle-1159-policy.csv`
-- Single-session cost: see `evidence/cycle-1159-cost.csv`
-- Canonical benchmark payload: `evidence/cycle-1159-benchmark.json`
+- Cold/warm start: see `evidence/cycle-1160-latency.csv`
+- Throughput: see `evidence/cycle-1160-throughput.csv`
+- Policy interception: see `evidence/cycle-1160-policy.csv`
+- Single-session cost: see `evidence/cycle-1160-cost.csv`
+- Canonical benchmark payload: `evidence/cycle-1160-benchmark.json`
 
 ## 4) Business scenario solution set (Good fit vs Not for)
 
@@ -98,10 +98,10 @@ Layered decoupling baseline for this cycle:
 
 ## 6) Visual deliverables
 
-- Summary SVG: `assets/59-cycle-1159-daily-breakthroughs.svg`
+- Summary SVG: `assets/60-cycle-1160-daily-breakthroughs.svg`
 - 7-card deck (ZH): `benchmark-cards.html`
 - 7-card deck (EN): `benchmark-cards.en.html`
-- Interactive workbench H5: `workbench-cycle-2564.html`
+- Interactive workbench H5: `workbench-cycle-2565.html`
 
 ## 7) Traceability labels
 
