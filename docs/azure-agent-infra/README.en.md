@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (100 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (101 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **100 structured architecture selection guides and trade-off FAQs** (`200` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **101 structured architecture selection guides and trade-off FAQs** (`202` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 100 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 101 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -91,7 +91,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 25 | [Azure Front Door Premium (WAF + Bot Manager 1.1 + Private Link Origin) + APIM AI Gateway for Denial-of-Wallet token-drain defense and long-lived SSE](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.en.md) | [🇬🇧 EN](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.en.md) · [🇨🇳 中文](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.md) |
 | 26 | [Azure Web PubSub / SignalR Service vs Direct AKS/ACA Envoy WebSocket Multiplexing for Real-Time Agent Streaming & Human-in-the-Loop Approval Gateways](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.en.md) | [🇬🇧 EN](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.en.md) · [🇨🇳 中文](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (18 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (19 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -115,6 +115,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 42 | [Azure AI Search Multimodal RAG vs Content Understanding Figure Captioning vs ColPali: Complex Technical Document Retrieval Selection FAQ](ai-search-multimodal-rag-vs-cu-figure-captioning-vs-colpali-engineering-drawing-selection-faq.en.md) | [🇬🇧 EN](ai-search-multimodal-rag-vs-cu-figure-captioning-vs-colpali-engineering-drawing-selection-faq.en.md) · [🇨🇳 中文](ai-search-multimodal-rag-vs-cu-figure-captioning-vs-colpali-engineering-drawing-selection-faq.md) |
 | 43 | [SharePoint Embedded vs Azure Blob Storage (CMK) vs Cosmos DB Artifact Store: Enterprise Agent Document Lifecycle Selection FAQ](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.en.md) | [🇬🇧 EN](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.en.md) · [🇨🇳 中文](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.md) |
 | 44 | [Azure Blob User Delegation SAS + Entra ABAC + WORM immutability for multi-tenant agent artifacts and sandbox file I/O](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.en.md) | [🇬🇧 EN](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.en.md) · [🇨🇳 中文](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.md) |
+| 101 | [Snowflake Cortex AI on Azure vs Azure AI Foundry vs Fabric OneLake Iceberg Shortcut: Enterprise Multi-Data-Cloud Agent Selection FAQ](snowflake-cortex-ai-on-azure-vs-azure-ai-foundry-vs-fabric-onelake-iceberg-shortcut-multi-data-cloud-agent-selection-faq.en.md) | [🇬🇧 EN](snowflake-cortex-ai-on-azure-vs-azure-ai-foundry-vs-fabric-onelake-iceberg-shortcut-multi-data-cloud-agent-selection-faq.en.md) · [🇨🇳 中文](snowflake-cortex-ai-on-azure-vs-azure-ai-foundry-vs-fabric-onelake-iceberg-shortcut-multi-data-cloud-agent-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (15 Guides)
 
