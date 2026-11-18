@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（99 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（100 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **99 个架构选型、平台对比与安全治理决策专题**（共 `198` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **100 个架构选型、平台对比与安全治理决策专题**（共 `200` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 99 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 100 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
@@ -58,7 +58,7 @@
 | 07 | [Azure 容量预留组 (CRG) + AKS Spot 节点池 + Compute Fleet 多规格回退：GPU 与沙箱集群弹性供给指南](crg-aks-spot-compute-fleet-fallback-faq.md) | [🇨🇳 中文](crg-aks-spot-compute-fleet-fallback-faq.md) · [🇬🇧 EN](crg-aks-spot-compute-fleet-fallback-faq.en.md) |
 | 08 | [企业级 Agent 应用落地蓝图：编排框架、运行时宿主、状态记忆、RAG 架构与多租户平台治理选型](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.md) | [🇨🇳 中文](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.md) · [🇬🇧 EN](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（8 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（9 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -72,6 +72,7 @@
 | 14 | [Azure AI Foundry 微调托管 vs AKS vLLM Multi-LoRA 动态适配器服务：显存槽位装箱与热切换吞吐选型指南](foundry-ft-vllm-multilora-vram-slot-packing-hotswap-faq.md) | [🇨🇳 中文](foundry-ft-vllm-multilora-vram-slot-packing-hotswap-faq.md) · [🇬🇧 EN](foundry-ft-vllm-multilora-vram-slot-packing-hotswap-faq.en.md) |
 | 15 | [AKS 智能体辅助模型（Reranker / Guardrail / OCR / 路由）GPU 切分选型：NVIDIA MIG vs CUDA MPS vs Time-Slicing vs K8s DRA](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.md) | [🇨🇳 中文](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.md) · [🇬🇧 EN](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.en.md) |
 | 16 | [Azure Managed Lustre vs Azure NetApp Files Ultra vs BlobFuse2：Agentic RL / GRPO 后训练与轨迹检查点存储选型指南](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.md) | [🇨🇳 中文](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.md) · [🇬🇧 EN](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.en.md) |
+| 100 | [Azure OpenAI Sora/GPT-Image vs Foundry 伙伴媒体模型 vs Adobe Firefly：企业品牌营销智能体选型 FAQ](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.md) | [🇨🇳 中文](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.md) · [🇬🇧 EN](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（10 篇）
 
