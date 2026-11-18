@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (87 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (88 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **87 structured architecture selection guides and trade-off FAQs** (`174` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **88 structured architecture selection guides and trade-off FAQs** (`176` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 87 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 88 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -168,7 +168,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 75 | [APIM Semantic Cache vs AOAI Prompt Caching vs Batch API: Enterprise AI FinOps Optimization Selection FAQ](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) | [🇬🇧 EN](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) · [🇨🇳 中文](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) |
 | 76 | [B2B ISV & SaaS Agent Monetization: APIM Tenant Metering, Azure Marketplace Billing & Chargeback Selection FAQ](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) | [🇬🇧 EN](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) · [🇨🇳 中文](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) |
 
-### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (11 Guides)
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (12 Guides)
 
 > Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
@@ -185,3 +185,4 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 85 | [Azure Logic Apps Agent Loop vs Durable Functions vs Power Automate vs MAF on ACA: Enterprise iPaaS and Agentic Orchestration Selection FAQ](azure-logic-apps-agent-loop-vs-durable-functions-vs-power-automate-enterprise-ipaas-selection-faq.en.md) | [🇬🇧 EN](azure-logic-apps-agent-loop-vs-durable-functions-vs-power-automate-enterprise-ipaas-selection-faq.en.md) · [🇨🇳 中文](azure-logic-apps-agent-loop-vs-durable-functions-vs-power-automate-enterprise-ipaas-selection-faq.md) |
 | 86 | [GitHub Copilot App Modernization vs Azure Migrate vs Foundry Custom Migration Agents vs APIM Strangler: Legacy Java/.NET Modernization Selection FAQ](github-copilot-app-modernization-vs-azure-migrate-vs-foundry-custom-migration-agent-legacy-java-dotnet-selection-faq.en.md) | [🇬🇧 EN](github-copilot-app-modernization-vs-azure-migrate-vs-foundry-custom-migration-agent-legacy-java-dotnet-selection-faq.en.md) · [🇨🇳 中文](github-copilot-app-modernization-vs-azure-migrate-vs-foundry-custom-migration-agent-legacy-java-dotnet-selection-faq.md) |
 | 87 | [Azure Cost Management + FinOps Hubs vs APIM Token Chargeback vs Kubecost: Enterprise AI Cost Governance Selection FAQ](azure-cost-management-finops-hubs-vs-apim-token-chargeback-vs-kubecost-enterprise-ai-cost-governance-selection-faq.en.md) | [🇬🇧 EN](azure-cost-management-finops-hubs-vs-apim-token-chargeback-vs-kubecost-enterprise-ai-cost-governance-selection-faq.en.md) · [🇨🇳 中文](azure-cost-management-finops-hubs-vs-apim-token-chargeback-vs-kubecost-enterprise-ai-cost-governance-selection-faq.md) |
+| 88 | [Azure Health Data Services FHIR vs Fabric Healthcare vs Foundry Clinical RAG vs Confidential Computing: HIPAA Clinical Agent Selection FAQ](azure-health-data-services-fhir-vs-fabric-healthcare-vs-foundry-clinical-rag-hipaa-agent-selection-faq.en.md) | [🇬🇧 EN](azure-health-data-services-fhir-vs-fabric-healthcare-vs-foundry-clinical-rag-hipaa-agent-selection-faq.en.md) · [🇨🇳 中文](azure-health-data-services-fhir-vs-fabric-healthcare-vs-foundry-clinical-rag-hipaa-agent-selection-faq.md) |
