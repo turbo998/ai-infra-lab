@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (117 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (118 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **117 structured architecture selection guides and trade-off FAQs** (`234` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **118 structured architecture selection guides and trade-off FAQs** (`236` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 117 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 118 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -142,7 +142,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 102 | [D365 Field Service Copilot vs Foundry Mobile Offline RAG vs Mixed-Reality Remote Assist: Utilities and Telecom Field-Agent Selection FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) | [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) · [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) |
 | 111 | [Automotive SDV In-Vehicle Voice Agent Selection: Onboard NPU SLM vs AOAI Realtime Hybrid Cloud vs Connected Fleet Fabric FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) | [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) · [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (22 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (23 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -170,6 +170,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 115 | [Capital Markets Research and Wealth Advisory Agent Selection: Foundry As-Of RAG vs Bloomberg/S&P MCP Federation vs SEC/FINRA Compliance Plane FAQ](capital-markets-investment-research-wealth-advisory-foundry-vs-bloomberg-sp-mcp-vs-sec-finra-compliance-selection-faq.en.md) | [🇬🇧 EN](capital-markets-investment-research-wealth-advisory-foundry-vs-bloomberg-sp-mcp-vs-sec-finra-compliance-selection-faq.en.md) · [🇨🇳 中文](capital-markets-investment-research-wealth-advisory-foundry-vs-bloomberg-sp-mcp-vs-sec-finra-compliance-selection-faq.md) |
 | 116 | [Enterprise B2B Revenue Ops and CPQ Agent Selection: Copilot for Sales vs Salesforce Agentforce Interop vs Foundry Guardrail Plane FAQ](enterprise-b2b-revenue-rfp-cpq-deal-desk-copilot-for-sales-vs-salesforce-agentforce-interop-vs-foundry-selection-faq.en.md) | [🇬🇧 EN](enterprise-b2b-revenue-rfp-cpq-deal-desk-copilot-for-sales-vs-salesforce-agentforce-interop-vs-foundry-selection-faq.en.md) · [🇨🇳 中文](enterprise-b2b-revenue-rfp-cpq-deal-desk-copilot-for-sales-vs-salesforce-agentforce-interop-vs-foundry-selection-faq.md) |
 | 117 | [CRE Lease Abstraction and Smart Building Agent Selection: Foundry Lease Intelligence vs Digital Twins BMS Guardrails vs Fabric ESG Portfolio Analytics FAQ](real-estate-smart-building-bms-lease-abstraction-foundry-cu-vs-digital-twins-bacnet-vs-fabric-esg-selection-faq.en.md) | [🇬🇧 EN](real-estate-smart-building-bms-lease-abstraction-foundry-cu-vs-digital-twins-bacnet-vs-fabric-esg-selection-faq.en.md) · [🇨🇳 中文](real-estate-smart-building-bms-lease-abstraction-foundry-cu-vs-digital-twins-bacnet-vs-fabric-esg-selection-faq.md) |
+| 118 | [Broadcast Media and OTT Sports Agent Selection: AOAI Realtime Caption Plane vs Video Indexer Highlights vs Foundry Rights and Ad-Ops FAQ](media-broadcast-ott-sports-live-captioning-highlights-aoai-realtime-vs-video-indexer-vs-foundry-ad-ops-selection-faq.en.md) | [🇬🇧 EN](media-broadcast-ott-sports-live-captioning-highlights-aoai-realtime-vs-video-indexer-vs-foundry-ad-ops-selection-faq.en.md) · [🇨🇳 中文](media-broadcast-ott-sports-live-captioning-highlights-aoai-realtime-vs-video-indexer-vs-foundry-ad-ops-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (7 Guides)
 
