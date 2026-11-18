@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（115 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（116 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **115 个架构选型、平台对比与安全治理决策专题**（共 `230` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **116 个架构选型、平台对比与安全治理决策专题**（共 `232` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 115 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 116 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
@@ -142,7 +142,7 @@
 | 102 | [D365 Field Service Copilot vs Foundry 移动离线 RAG vs 混合现实远程协助：公用事业与电信外勤智能体选型 FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) | [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) · [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) |
 | 111 | [汽车 SDV 座舱语音智能体选型：车端 NPU SLM vs AOAI Realtime 混合云 vs 车队 Fabric 实时平面 FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) | [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) · [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（20 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（21 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -168,6 +168,7 @@
 | 113 | [企业资金司库与 FP&A 关账智能体选型：Copilot for Finance vs Fabric Planning vs Foundry 方差审计控制平面 FAQ](corporate-treasury-fpna-erp-close-copilot-for-finance-vs-fabric-planning-vs-foundry-variance-audit-selection-faq.md) | [🇨🇳 中文](corporate-treasury-fpna-erp-close-copilot-for-finance-vs-fabric-planning-vs-foundry-variance-audit-selection-faq.md) · [🇬🇧 EN](corporate-treasury-fpna-erp-close-copilot-for-finance-vs-fabric-planning-vs-foundry-variance-audit-selection-faq.en.md) |
 | 114 | [航空与酒店 IROPS 中断恢复智能体选型：Foundry+确定性优化 vs Amadeus/Sabre MCP 事务网关 vs ACS 旅客关怀 FAQ](airline-hospitality-irrops-disruption-rebooking-agent-foundry-vs-amadeus-sabre-gds-mcp-vs-acs-passenger-care-selection-faq.md) | [🇨🇳 中文](airline-hospitality-irrops-disruption-rebooking-agent-foundry-vs-amadeus-sabre-gds-mcp-vs-acs-passenger-care-selection-faq.md) · [🇬🇧 EN](airline-hospitality-irrops-disruption-rebooking-agent-foundry-vs-amadeus-sabre-gds-mcp-vs-acs-passenger-care-selection-faq.en.md) |
 | 115 | [资本市场投研与财富顾问智能体选型：Foundry 时点 RAG vs Bloomberg/S&P MCP 数据联邦 vs SEC/FINRA 合规平面 FAQ](capital-markets-investment-research-wealth-advisory-foundry-vs-bloomberg-sp-mcp-vs-sec-finra-compliance-selection-faq.md) | [🇨🇳 中文](capital-markets-investment-research-wealth-advisory-foundry-vs-bloomberg-sp-mcp-vs-sec-finra-compliance-selection-faq.md) · [🇬🇧 EN](capital-markets-investment-research-wealth-advisory-foundry-vs-bloomberg-sp-mcp-vs-sec-finra-compliance-selection-faq.en.md) |
+| 116 | [企业 B2B 增长与报价中台智能体选型：Copilot for Sales vs Salesforce Agentforce 互操作 vs Foundry CPQ 守门平面 FAQ](enterprise-b2b-revenue-rfp-cpq-deal-desk-copilot-for-sales-vs-salesforce-agentforce-interop-vs-foundry-selection-faq.md) | [🇨🇳 中文](enterprise-b2b-revenue-rfp-cpq-deal-desk-copilot-for-sales-vs-salesforce-agentforce-interop-vs-foundry-selection-faq.md) · [🇬🇧 EN](enterprise-b2b-revenue-rfp-cpq-deal-desk-copilot-for-sales-vs-salesforce-agentforce-interop-vs-foundry-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（7 篇）
 
