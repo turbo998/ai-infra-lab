@@ -1,6 +1,6 @@
 # Azure AI Agent Infrastructure Playbook: 4-Layer Architecture, 6 Compute Runtimes, AKSClaw & E2B on Azure Production Guide
 
-> 🌐 **Language / 语言切换**: **[🇨🇳 中文完整版 (`README.md`)](README.md)** | **English Edition (Current)** | **[🧭 106 Selection FAQs (`../../docs/azure-agent-infra/README.en.md`)](../../docs/azure-agent-infra/README.en.md)** | **[🛠️ Workshop Runbook (`workshop-runbook.md`)](workshop-runbook.md)** | **[📊 7-Card Benchmark Report (`test-report.en.md`)](test-report.en.md)** | **[🖥️ Interactive Sizer (`selector.html`)](selector.html)**
+> 🌐 **Language / 语言切换**: **[🇨🇳 中文完整版 (`README.md`)](README.md)** | **English Edition (Current)** | **[🧭 107 Selection FAQs (`../../docs/azure-agent-infra/README.en.md`)](../../docs/azure-agent-infra/README.en.md)** | **[🛠️ Workshop Runbook (`workshop-runbook.md`)](workshop-runbook.md)** | **[📊 7-Card Benchmark Report (`test-report.en.md`)](test-report.en.md)** | **[🖥️ Interactive Sizer (`selector.html`)](selector.html)**
 
 - **Last Updated**: 2026-10-18
 - **Positioning (Solution Architect Lens)**: Full-stack Cloud & AI Solution Architect reference architecture, platform trade-off decision matrix, generational Azure VM empirical benchmarks (`AMD EPYC Turin v7` vs. `Genoa v6` vs. `Intel Emerald Rapids v6`), multi-tenant zero-trust governance, and customer field delivery playbook (**28 Architecture Chapters · 23 Production IaC Blueprints · Deterministic Capacity & TCO Verifier**).
