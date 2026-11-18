@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（95 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（96 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **95 个架构选型、平台对比与安全治理决策专题**（共 `190` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **96 个架构选型、平台对比与安全治理决策专题**（共 `192` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 95 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 96 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
@@ -168,7 +168,7 @@
 | 75 | [APIM Semantic Cache vs AOAI Prompt Caching vs Batch API：企业 AI FinOps 降本选型 FAQ](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) | [🇨🇳 中文](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) · [🇬🇧 EN](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) |
 | 76 | [B2B ISV / SaaS 智能体商业化变现架构：APIM 多租户计量、Azure Marketplace 计费与内部分摊选型 FAQ](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) | [🇨🇳 中文](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) · [🇬🇧 EN](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（19 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（20 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -193,3 +193,4 @@
 | 93 | [Microsoft Security Copilot vs Foundry 自建 SOC Agent vs Sentinel+Logic Apps SOAR：企业 SecOps 选型 FAQ](microsoft-security-copilot-sentinel-vs-foundry-custom-soc-agent-vs-logic-apps-soar-secops-selection-faq.md) | [🇨🇳 中文](microsoft-security-copilot-sentinel-vs-foundry-custom-soc-agent-vs-logic-apps-soar-secops-selection-faq.md) · [🇬🇧 EN](microsoft-security-copilot-sentinel-vs-foundry-custom-soc-agent-vs-logic-apps-soar-secops-selection-faq.en.md) |
 | 94 | [零售全渠道购物智能体：AI Search+Cosmos vs Fabric 个性化 vs Copilot Studio Commerce 选型 FAQ](retail-omnichannel-shopping-agent-ai-search-cosmos-vs-fabric-personalization-vs-copilot-studio-commerce-selection-faq.md) | [🇨🇳 中文](retail-omnichannel-shopping-agent-ai-search-cosmos-vs-fabric-personalization-vs-copilot-studio-commerce-selection-faq.md) · [🇬🇧 EN](retail-omnichannel-shopping-agent-ai-search-cosmos-vs-fabric-personalization-vs-copilot-studio-commerce-selection-faq.en.md) |
 | 95 | [企业法务 CLM 与合同红线：Foundry 自建工作台 vs M365 Copilot Word vs 法务 SaaS 选型 FAQ](enterprise-legal-clm-contract-redlining-foundry-cu-vs-m365-copilot-word-add-in-vs-saas-legal-ai-selection-faq.md) | [🇨🇳 中文](enterprise-legal-clm-contract-redlining-foundry-cu-vs-m365-copilot-word-add-in-vs-saas-legal-ai-selection-faq.md) · [🇬🇧 EN](enterprise-legal-clm-contract-redlining-foundry-cu-vs-m365-copilot-word-add-in-vs-saas-legal-ai-selection-faq.en.md) |
+| 96 | [Azure Databricks Mosaic AI vs Azure AI Foundry vs Fabric Data Agent：多平台湖仓团队共存选型 FAQ](azure-databricks-mosaic-ai-agent-vs-azure-ai-foundry-vs-fabric-data-agent-lakehouse-team-selection-faq.md) | [🇨🇳 中文](azure-databricks-mosaic-ai-agent-vs-azure-ai-foundry-vs-fabric-data-agent-lakehouse-team-selection-faq.md) · [🇬🇧 EN](azure-databricks-mosaic-ai-agent-vs-azure-ai-foundry-vs-fabric-data-agent-lakehouse-team-selection-faq.en.md) |
