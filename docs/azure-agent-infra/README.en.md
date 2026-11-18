@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (124 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (125 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **124 structured architecture selection guides and trade-off FAQs** (`248` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **125 structured architecture selection guides and trade-off FAQs** (`250` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -142,7 +142,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 102 | [D365 Field Service Copilot vs Foundry Mobile Offline RAG vs Mixed-Reality Remote Assist: Utilities and Telecom Field-Agent Selection FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) | [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) · [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) |
 | 111 | [Automotive SDV In-Vehicle Voice Agent Selection: Onboard NPU SLM vs AOAI Realtime Hybrid Cloud vs Connected Fleet Fabric FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) | [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) · [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (29 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (30 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -177,6 +177,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 122 | [Cross-Border ISO 20022 Payments Exception Repair Selection: Deterministic STP Rule Plane vs Foundry Investigation Copilot vs Confidential Ledger/HSM Maker-Checker Control FAQ](cross-border-payments-iso20022-swift-exception-repair-agent-foundry-vs-durable-stp-vs-confidential-ledger-selection-faq.en.md) | [🇬🇧 EN](cross-border-payments-iso20022-swift-exception-repair-agent-foundry-vs-durable-stp-vs-confidential-ledger-selection-faq.en.md) · [🇨🇳 中文](cross-border-payments-iso20022-swift-exception-repair-agent-foundry-vs-durable-stp-vs-confidential-ledger-selection-faq.md) |
 | 123 | [Enterprise Procurement Source-to-Pay Agent Selection: Ariba/Coupa MCP Federation vs Foundry Spend-Cube Analytics vs Deterministic 3-Way Match and SoD/BEC Fraud Control FAQ](enterprise-procurement-source-to-pay-sap-ariba-coupa-mcp-vs-foundry-spend-analytics-vs-sod-fraud-selection-faq.en.md) | [🇬🇧 EN](enterprise-procurement-source-to-pay-sap-ariba-coupa-mcp-vs-foundry-spend-analytics-vs-sod-fraud-selection-faq.en.md) · [🇨🇳 中文](enterprise-procurement-source-to-pay-sap-ariba-coupa-mcp-vs-foundry-spend-analytics-vs-sod-fraud-selection-faq.md) |
 | 124 | [Enterprise Vulnerability Remediation and PSIRT Agent Selection: GHAS + Copilot Autofix vs Defender Exposure Prioritization vs Foundry and ServiceNow Patch-Window Orchestration FAQ](cyber-threat-intelligence-vulnerability-remediation-ghas-copilot-autofix-vs-defender-exposure-vs-foundry-psirt-selection-faq.en.md) | [🇬🇧 EN](cyber-threat-intelligence-vulnerability-remediation-ghas-copilot-autofix-vs-defender-exposure-vs-foundry-psirt-selection-faq.en.md) · [🇨🇳 中文](cyber-threat-intelligence-vulnerability-remediation-ghas-copilot-autofix-vs-defender-exposure-vs-foundry-psirt-selection-faq.md) |
+| 125 | [Global Freight and Port Customs Agent Selection: Foundry Trade-Document Agent vs Azure Maps Route Solver vs TMS EDI Event Federation Plane FAQ](logistics-port-freight-forwarding-customs-bol-agent-foundry-cu-vs-azure-maps-route-solver-vs-tms-edi-selection-faq.en.md) | [🇬🇧 EN](logistics-port-freight-forwarding-customs-bol-agent-foundry-cu-vs-azure-maps-route-solver-vs-tms-edi-selection-faq.en.md) · [🇨🇳 中文](logistics-port-freight-forwarding-customs-bol-agent-foundry-cu-vs-azure-maps-route-solver-vs-tms-edi-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (7 Guides)
 

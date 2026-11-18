@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（124 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（125 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **124 个架构选型、平台对比与安全治理决策专题**（共 `248` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **125 个架构选型、平台对比与安全治理决策专题**（共 `250` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -142,7 +142,7 @@
 | 102 | [D365 Field Service Copilot vs Foundry 移动离线 RAG vs 混合现实远程协助：公用事业与电信外勤智能体选型 FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) | [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) · [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) |
 | 111 | [汽车 SDV 座舱语音智能体选型：车端 NPU SLM vs AOAI Realtime 混合云 vs 车队 Fabric 实时平面 FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) | [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) · [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（29 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（30 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -177,6 +177,7 @@
 | 122 | [跨境支付 ISO 20022 异常修复智能体选型：Deterministic STP 规则平面 vs Foundry 调查修复 Copilot vs Confidential Ledger 四眼审计平面 FAQ](cross-border-payments-iso20022-swift-exception-repair-agent-foundry-vs-durable-stp-vs-confidential-ledger-selection-faq.md) | [🇨🇳 中文](cross-border-payments-iso20022-swift-exception-repair-agent-foundry-vs-durable-stp-vs-confidential-ledger-selection-faq.md) · [🇬🇧 EN](cross-border-payments-iso20022-swift-exception-repair-agent-foundry-vs-durable-stp-vs-confidential-ledger-selection-faq.en.md) |
 | 123 | [企业采购 S2P 智能体选型：Ariba/Coupa MCP 联邦 vs Foundry Spend-Cube 分析 vs 3-Way Match + SoD/BEC 反欺诈控制平面 FAQ](enterprise-procurement-source-to-pay-sap-ariba-coupa-mcp-vs-foundry-spend-analytics-vs-sod-fraud-selection-faq.md) | [🇨🇳 中文](enterprise-procurement-source-to-pay-sap-ariba-coupa-mcp-vs-foundry-spend-analytics-vs-sod-fraud-selection-faq.md) · [🇬🇧 EN](enterprise-procurement-source-to-pay-sap-ariba-coupa-mcp-vs-foundry-spend-analytics-vs-sod-fraud-selection-faq.en.md) |
 | 124 | [企业漏洞修复与 PSIRT 编排智能体选型：GHAS+Copilot Autofix vs Defender 暴露面优先级 vs Foundry+ServiceNow 补丁窗口编排 FAQ](cyber-threat-intelligence-vulnerability-remediation-ghas-copilot-autofix-vs-defender-exposure-vs-foundry-psirt-selection-faq.md) | [🇨🇳 中文](cyber-threat-intelligence-vulnerability-remediation-ghas-copilot-autofix-vs-defender-exposure-vs-foundry-psirt-selection-faq.md) · [🇬🇧 EN](cyber-threat-intelligence-vulnerability-remediation-ghas-copilot-autofix-vs-defender-exposure-vs-foundry-psirt-selection-faq.en.md) |
+| 125 | [全球货代与港口报关智能体选型：Foundry 单证代理 vs Azure Maps 路径求解器 vs TMS EDI 事件联邦平面 FAQ](logistics-port-freight-forwarding-customs-bol-agent-foundry-cu-vs-azure-maps-route-solver-vs-tms-edi-selection-faq.md) | [🇨🇳 中文](logistics-port-freight-forwarding-customs-bol-agent-foundry-cu-vs-azure-maps-route-solver-vs-tms-edi-selection-faq.md) · [🇬🇧 EN](logistics-port-freight-forwarding-customs-bol-agent-foundry-cu-vs-azure-maps-route-solver-vs-tms-edi-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（7 篇）
 
