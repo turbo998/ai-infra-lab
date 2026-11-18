@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (84 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (85 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **84 structured architecture selection guides and trade-off FAQs** (`168` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **85 structured architecture selection guides and trade-off FAQs** (`170` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 84 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 85 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -168,7 +168,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 75 | [APIM Semantic Cache vs AOAI Prompt Caching vs Batch API: Enterprise AI FinOps Optimization Selection FAQ](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) | [🇬🇧 EN](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) · [🇨🇳 中文](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) |
 | 76 | [B2B ISV & SaaS Agent Monetization: APIM Tenant Metering, Azure Marketplace Billing & Chargeback Selection FAQ](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) | [🇬🇧 EN](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) · [🇨🇳 中文](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) |
 
-### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (8 Guides)
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (9 Guides)
 
 > Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
@@ -182,3 +182,4 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 82 | [Azure Chaos Studio + Azure Load Testing Multi-Region Agent GameDay & Resilience Verification](chaos-loadtest-multiregion-gameday-faq.en.md) | [🇬🇧 EN](chaos-loadtest-multiregion-gameday-faq.en.md) · [🇨🇳 中文](chaos-loadtest-multiregion-gameday-faq.md) |
 | 83 | [Shared Hub vs Spoke Subscription vs Deployment Stamp: Enterprise Multi-Tenant AI Landing Zone Selection FAQ](shared-hub-vs-spoke-subscription-vs-deployment-stamp-ai-landing-zone-selection-faq.en.md) | [🇬🇧 EN](shared-hub-vs-spoke-subscription-vs-deployment-stamp-ai-landing-zone-selection-faq.en.md) · [🇨🇳 中文](shared-hub-vs-spoke-subscription-vs-deployment-stamp-ai-landing-zone-selection-faq.md) |
 | 84 | [Enterprise AI CoE Hub-Spoke Landing Zone vs Federated BU Operating Model Selection FAQ](enterprise-ai-coe-hub-spoke-landing-zone-vs-federated-bu-operating-model-selection-faq.en.md) | [🇬🇧 EN](enterprise-ai-coe-hub-spoke-landing-zone-vs-federated-bu-operating-model-selection-faq.en.md) · [🇨🇳 中文](enterprise-ai-coe-hub-spoke-landing-zone-vs-federated-bu-operating-model-selection-faq.md) |
+| 85 | [Azure Logic Apps Agent Loop vs Durable Functions vs Power Automate vs MAF on ACA: Enterprise iPaaS and Agentic Orchestration Selection FAQ](azure-logic-apps-agent-loop-vs-durable-functions-vs-power-automate-enterprise-ipaas-selection-faq.en.md) | [🇬🇧 EN](azure-logic-apps-agent-loop-vs-durable-functions-vs-power-automate-enterprise-ipaas-selection-faq.en.md) · [🇨🇳 中文](azure-logic-apps-agent-loop-vs-durable-functions-vs-power-automate-enterprise-ipaas-selection-faq.md) |
