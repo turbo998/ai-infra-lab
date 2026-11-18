@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（110 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（111 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **110 个架构选型、平台对比与安全治理决策专题**（共 `220` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **111 个架构选型、平台对比与安全治理决策专题**（共 `222` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 110 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 111 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
@@ -118,7 +118,7 @@
 | 101 | [Snowflake Cortex AI on Azure vs Azure AI Foundry vs Fabric OneLake Iceberg Shortcut：多数据云企业智能体选型 FAQ](snowflake-cortex-ai-on-azure-vs-azure-ai-foundry-vs-fabric-onelake-iceberg-shortcut-multi-data-cloud-agent-selection-faq.md) | [🇨🇳 中文](snowflake-cortex-ai-on-azure-vs-azure-ai-foundry-vs-fabric-onelake-iceberg-shortcut-multi-data-cloud-agent-selection-faq.md) · [🇬🇧 EN](snowflake-cortex-ai-on-azure-vs-azure-ai-foundry-vs-fabric-onelake-iceberg-shortcut-multi-data-cloud-agent-selection-faq.en.md) |
 | 105 | [Azure Cosmos DB 多区域写入 vs Azure SQL Failover Groups vs Redis Active-Geo：有状态智能体多区域容灾选型 FAQ](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.md) | [🇨🇳 中文](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.md) · [🇬🇧 EN](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（16 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（17 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -140,6 +140,7 @@
 | 58 | [Azure AI Translator vs AOAI LLM Localization vs Cross-Lingual RAG vs Sovereign Routing：全球多语种智能体选型 FAQ](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) | [🇨🇳 中文](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) · [🇬🇧 EN](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) |
 | 99 | [GitHub Copilot Extensions Skillsets vs 自建 MCP Servers vs Copilot Coding Agent：平台工程 IDP 选型 FAQ](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.md) | [🇨🇳 中文](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.md) · [🇬🇧 EN](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) |
 | 102 | [D365 Field Service Copilot vs Foundry 移动离线 RAG vs 混合现实远程协助：公用事业与电信外勤智能体选型 FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) | [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) · [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) |
+| 111 | [汽车 SDV 座舱语音智能体选型：车端 NPU SLM vs AOAI Realtime 混合云 vs 车队 Fabric 实时平面 FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) | [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) · [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（16 篇）
 

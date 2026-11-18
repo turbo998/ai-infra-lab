@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (110 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (111 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **110 structured architecture selection guides and trade-off FAQs** (`220` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **111 structured architecture selection guides and trade-off FAQs** (`222` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 110 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 111 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -118,7 +118,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 101 | [Snowflake Cortex AI on Azure vs Azure AI Foundry vs Fabric OneLake Iceberg Shortcut: Enterprise Multi-Data-Cloud Agent Selection FAQ](snowflake-cortex-ai-on-azure-vs-azure-ai-foundry-vs-fabric-onelake-iceberg-shortcut-multi-data-cloud-agent-selection-faq.en.md) | [🇬🇧 EN](snowflake-cortex-ai-on-azure-vs-azure-ai-foundry-vs-fabric-onelake-iceberg-shortcut-multi-data-cloud-agent-selection-faq.en.md) · [🇨🇳 中文](snowflake-cortex-ai-on-azure-vs-azure-ai-foundry-vs-fabric-onelake-iceberg-shortcut-multi-data-cloud-agent-selection-faq.md) |
 | 105 | [Azure Cosmos DB Global Active-Active vs Azure SQL Failover Groups vs Redis Active Geo: Multi-Region Stateful Agent DR Selection FAQ](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.en.md) | [🇬🇧 EN](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.en.md) · [🇨🇳 中文](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (16 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (17 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -140,6 +140,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 58 | [Azure AI Translator vs AOAI LLM Localization vs Cross-Lingual RAG vs Sovereign Routing: Global Multilingual Agent Selection FAQ](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) | [🇬🇧 EN](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) · [🇨🇳 中文](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) |
 | 99 | [GitHub Copilot Extensions Skillsets vs Custom MCP Servers vs Copilot Coding Agent: Platform Engineering IDP Selection FAQ](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) | [🇬🇧 EN](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) · [🇨🇳 中文](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.md) |
 | 102 | [D365 Field Service Copilot vs Foundry Mobile Offline RAG vs Mixed-Reality Remote Assist: Utilities and Telecom Field-Agent Selection FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) | [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) · [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) |
+| 111 | [Automotive SDV In-Vehicle Voice Agent Selection: Onboard NPU SLM vs AOAI Realtime Hybrid Cloud vs Connected Fleet Fabric FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) | [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) · [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (16 Guides)
 
