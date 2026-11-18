@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（120 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（121 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **120 个架构选型、平台对比与安全治理决策专题**（共 `240` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **121 个架构选型、平台对比与安全治理决策专题**（共 `242` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -142,7 +142,7 @@
 | 102 | [D365 Field Service Copilot vs Foundry 移动离线 RAG vs 混合现实远程协助：公用事业与电信外勤智能体选型 FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) | [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) · [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) |
 | 111 | [汽车 SDV 座舱语音智能体选型：车端 NPU SLM vs AOAI Realtime 混合云 vs 车队 Fabric 实时平面 FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) | [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) · [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（25 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（26 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -173,6 +173,7 @@
 | 118 | [广播媒体与 OTT 直播智能体选型：AOAI Realtime 字幕平面 vs Video Indexer 高亮分析 vs Foundry 版权与广告运营 FAQ](media-broadcast-ott-sports-live-captioning-highlights-aoai-realtime-vs-video-indexer-vs-foundry-ad-ops-selection-faq.md) | [🇨🇳 中文](media-broadcast-ott-sports-live-captioning-highlights-aoai-realtime-vs-video-indexer-vs-foundry-ad-ops-selection-faq.md) · [🇬🇧 EN](media-broadcast-ott-sports-live-captioning-highlights-aoai-realtime-vs-video-indexer-vs-foundry-ad-ops-selection-faq.en.md) |
 | 119 | [高校苏格拉底教学与校园服务智能体选型：Foundry Tutor + LTI 1.3 vs Copilot Studio + SIS vs FERPA 与科研资助合规平面 FAQ](higher-education-university-tutoring-sis-campus-agent-foundry-socratic-vs-copilot-studio-lms-vs-ferpa-selection-faq.md) | [🇨🇳 中文](higher-education-university-tutoring-sis-campus-agent-foundry-socratic-vs-copilot-studio-lms-vs-ferpa-selection-faq.md) · [🇬🇧 EN](higher-education-university-tutoring-sis-campus-agent-foundry-socratic-vs-copilot-studio-lms-vs-ferpa-selection-faq.en.md) |
 | 120 | [并购 Day-1 多租户智能体联邦选型：Entra 跨租户协同 vs APIM 多 IdP 换票 vs Fabric Clean Room 反垄断/TSA 环形隔离 FAQ](post-merger-mna-day1-cross-tenant-entra-b2b-vs-apim-multi-idp-vs-fabric-clean-room-agent-integration-selection-faq.md) | [🇨🇳 中文](post-merger-mna-day1-cross-tenant-entra-b2b-vs-apim-multi-idp-vs-fabric-clean-room-agent-integration-selection-faq.md) · [🇬🇧 EN](post-merger-mna-day1-cross-tenant-entra-b2b-vs-apim-multi-idp-vs-fabric-clean-room-agent-integration-selection-faq.en.md) |
+| 121 | [半导体 EDA 验证智能体选型：CycleCloud+ANF 回归平面 vs Foundry RTL 失效聚类 Copilot vs PDK/IP 出口管制清洁室 FAQ](semiconductor-eda-hpc-verification-copilot-azure-netapp-files-vs-cyclecloud-slurm-vs-foundry-ip-isolation-selection-faq.md) | [🇨🇳 中文](semiconductor-eda-hpc-verification-copilot-azure-netapp-files-vs-cyclecloud-slurm-vs-foundry-ip-isolation-selection-faq.md) · [🇬🇧 EN](semiconductor-eda-hpc-verification-copilot-azure-netapp-files-vs-cyclecloud-slurm-vs-foundry-ip-isolation-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（7 篇）
 

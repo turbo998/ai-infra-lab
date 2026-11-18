@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (120 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (121 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **120 structured architecture selection guides and trade-off FAQs** (`240` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **121 structured architecture selection guides and trade-off FAQs** (`242` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -142,7 +142,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 102 | [D365 Field Service Copilot vs Foundry Mobile Offline RAG vs Mixed-Reality Remote Assist: Utilities and Telecom Field-Agent Selection FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) | [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) · [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) |
 | 111 | [Automotive SDV In-Vehicle Voice Agent Selection: Onboard NPU SLM vs AOAI Realtime Hybrid Cloud vs Connected Fleet Fabric FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) | [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) · [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (25 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (26 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -173,6 +173,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 118 | [Broadcast Media and OTT Sports Agent Selection: AOAI Realtime Caption Plane vs Video Indexer Highlights vs Foundry Rights and Ad-Ops FAQ](media-broadcast-ott-sports-live-captioning-highlights-aoai-realtime-vs-video-indexer-vs-foundry-ad-ops-selection-faq.en.md) | [🇬🇧 EN](media-broadcast-ott-sports-live-captioning-highlights-aoai-realtime-vs-video-indexer-vs-foundry-ad-ops-selection-faq.en.md) · [🇨🇳 中文](media-broadcast-ott-sports-live-captioning-highlights-aoai-realtime-vs-video-indexer-vs-foundry-ad-ops-selection-faq.md) |
 | 119 | [Higher-Education Socratic Tutoring and Campus Services Agent Selection: Foundry Tutor + LTI 1.3 vs Copilot Studio + SIS vs FERPA and Sponsored-Research Compliance Plane FAQ](higher-education-university-tutoring-sis-campus-agent-foundry-socratic-vs-copilot-studio-lms-vs-ferpa-selection-faq.en.md) | [🇬🇧 EN](higher-education-university-tutoring-sis-campus-agent-foundry-socratic-vs-copilot-studio-lms-vs-ferpa-selection-faq.en.md) · [🇨🇳 中文](higher-education-university-tutoring-sis-campus-agent-foundry-socratic-vs-copilot-studio-lms-vs-ferpa-selection-faq.md) |
 | 120 | [Post-Merger M&A Day-1 Multi-Tenant Agent Federation Selection: Entra Cross-Tenant Collaboration vs APIM Multi-IdP Exchange vs Fabric Clean-Room Antitrust and TSA Ring-Fence FAQ](post-merger-mna-day1-cross-tenant-entra-b2b-vs-apim-multi-idp-vs-fabric-clean-room-agent-integration-selection-faq.en.md) | [🇬🇧 EN](post-merger-mna-day1-cross-tenant-entra-b2b-vs-apim-multi-idp-vs-fabric-clean-room-agent-integration-selection-faq.en.md) · [🇨🇳 中文](post-merger-mna-day1-cross-tenant-entra-b2b-vs-apim-multi-idp-vs-fabric-clean-room-agent-integration-selection-faq.md) |
+| 121 | [Semiconductor EDA Verification Copilot Selection: CycleCloud+ANF Regression Plane vs Foundry Failure Clustering and SVA Copilot vs PDK/IP Export-Control Clean-Room Isolation FAQ](semiconductor-eda-hpc-verification-copilot-azure-netapp-files-vs-cyclecloud-slurm-vs-foundry-ip-isolation-selection-faq.en.md) | [🇬🇧 EN](semiconductor-eda-hpc-verification-copilot-azure-netapp-files-vs-cyclecloud-slurm-vs-foundry-ip-isolation-selection-faq.en.md) · [🇨🇳 中文](semiconductor-eda-hpc-verification-copilot-azure-netapp-files-vs-cyclecloud-slurm-vs-foundry-ip-isolation-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (7 Guides)
 
