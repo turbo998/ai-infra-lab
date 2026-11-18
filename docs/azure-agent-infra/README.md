@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（131 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（132 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **131 个架构选型、平台对比与安全治理决策专题**（共 `262` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **132 个架构选型、平台对比与安全治理决策专题**（共 `264` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 131 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 132 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
@@ -142,7 +142,7 @@
 | 102 | [D365 Field Service Copilot vs Foundry 移动离线 RAG vs 混合现实远程协助：公用事业与电信外勤智能体选型 FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) | [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) · [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) |
 | 111 | [汽车 SDV 座舱语音智能体选型：车端 NPU SLM vs AOAI Realtime 混合云 vs 车队 Fabric 实时平面 FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) | [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) · [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（36 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（37 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -184,6 +184,7 @@
 | 129 | [医院收入周期 RCM 智能体选型：EHR SMART on FHIR 环境 CDI vs Foundry 证据锚定编码工作台 vs payer EDI X12 278 确定性编排平面 FAQ](hospital-revenue-cycle-icd10-medical-coding-prior-auth-foundry-vs-epic-fhir-vs-payer-edi-x12-278-selection-faq.md) | [🇨🇳 中文](hospital-revenue-cycle-icd10-medical-coding-prior-auth-foundry-vs-epic-fhir-vs-payer-edi-x12-278-selection-faq.md) · [🇬🇧 EN](hospital-revenue-cycle-icd10-medical-coding-prior-auth-foundry-vs-epic-fhir-vs-payer-edi-x12-278-selection-faq.en.md) |
 | 130 | [游戏 LiveOps 智能体选型：Content Safety 多模态内联闸门 vs PlayFab+Fabric 经济风控平面 vs Foundry 玩家支持调查工作台 FAQ](gaming-liveops-player-support-ugc-moderation-agent-azure-playfab-vs-content-safety-multimodal-vs-foundry-selection-faq.md) | [🇨🇳 中文](gaming-liveops-player-support-ugc-moderation-agent-azure-playfab-vs-content-safety-multimodal-vs-foundry-selection-faq.md) · [🇬🇧 EN](gaming-liveops-player-support-ugc-moderation-agent-azure-playfab-vs-content-safety-multimodal-vs-foundry-selection-faq.en.md) |
 | 131 | [航空 MRO 适航智能体选型：效力锁定 Foundry RAG vs AMOS/TRAX MCP 执行层 vs Part-145 双签放行合规平面 FAQ](aviation-mro-airworthiness-techlog-ata-troubleshooting-foundry-rag-vs-amos-trax-mcp-vs-faa-easa-part145-selection-faq.md) | [🇨🇳 中文](aviation-mro-airworthiness-techlog-ata-troubleshooting-foundry-rag-vs-amos-trax-mcp-vs-faa-easa-part145-selection-faq.md) · [🇬🇧 EN](aviation-mro-airworthiness-techlog-ata-troubleshooting-foundry-rag-vs-amos-trax-mcp-vs-faa-easa-part145-selection-faq.en.md) |
+| 132 | [主权税务与海关智能体选型：确定性 CTC/Peppol 网关 vs Fabric 欺诈图谱平面 vs Foundry 机密税法 RAG 工作台 FAQ](sovereign-tax-customs-audit-e-invoicing-peppol-fraud-graph-fabric-vs-foundry-tax-code-rag-vs-confidential-compute-selection-faq.md) | [🇨🇳 中文](sovereign-tax-customs-audit-e-invoicing-peppol-fraud-graph-fabric-vs-foundry-tax-code-rag-vs-confidential-compute-selection-faq.md) · [🇬🇧 EN](sovereign-tax-customs-audit-e-invoicing-peppol-fraud-graph-fabric-vs-foundry-tax-code-rag-vs-confidential-compute-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（7 篇）
 
