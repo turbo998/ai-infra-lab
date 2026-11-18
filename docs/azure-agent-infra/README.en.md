@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (91 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (92 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **91 structured architecture selection guides and trade-off FAQs** (`182` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **92 structured architecture selection guides and trade-off FAQs** (`184` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 91 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 92 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -168,7 +168,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 75 | [APIM Semantic Cache vs AOAI Prompt Caching vs Batch API: Enterprise AI FinOps Optimization Selection FAQ](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) | [🇬🇧 EN](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) · [🇨🇳 中文](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) |
 | 76 | [B2B ISV & SaaS Agent Monetization: APIM Tenant Metering, Azure Marketplace Billing & Chargeback Selection FAQ](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) | [🇬🇧 EN](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) · [🇨🇳 中文](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) |
 
-### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (15 Guides)
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (16 Guides)
 
 > Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
@@ -189,3 +189,4 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 89 | [Azure AML/Fraud Risk Agent: Event Hubs Inline Scoring vs Cosmos DiskANN Entity Rings vs Foundry Case Investigation Selection FAQ](azure-aml-fraud-risk-agent-cosmos-diskann-vs-eventhubs-rti-vs-foundry-case-investigation-selection-faq.en.md) | [🇬🇧 EN](azure-aml-fraud-risk-agent-cosmos-diskann-vs-eventhubs-rti-vs-foundry-case-investigation-selection-faq.en.md) · [🇨🇳 中文](azure-aml-fraud-risk-agent-cosmos-diskann-vs-eventhubs-rti-vs-foundry-case-investigation-selection-faq.md) |
 | 90 | [Azure Local Disconnected + AKS Arc vs Sovereign Landing Zone vs Azure OpenAI DataZone: Sovereign and Hybrid/Disconnected AI Selection FAQ](azure-local-disconnected-aks-arc-vs-sovereign-landing-zone-vs-azure-openai-datazone-hybrid-ai-selection-faq.en.md) | [🇬🇧 EN](azure-local-disconnected-aks-arc-vs-sovereign-landing-zone-vs-azure-openai-datazone-hybrid-ai-selection-faq.en.md) · [🇨🇳 中文](azure-local-disconnected-aks-arc-vs-sovereign-landing-zone-vs-azure-openai-datazone-hybrid-ai-selection-faq.md) |
 | 91 | [SAP Joule/BTP vs Copilot Studio vs Azure Foundry+APIM+SAP OData/MCP: Clean-Core S/4HANA Agent Selection FAQ](sap-joule-btp-vs-azure-foundry-apim-sap-odata-mcp-vs-copilot-studio-clean-core-agent-selection-faq.en.md) | [🇬🇧 EN](sap-joule-btp-vs-azure-foundry-apim-sap-odata-mcp-vs-copilot-studio-clean-core-agent-selection-faq.en.md) · [🇨🇳 中文](sap-joule-btp-vs-azure-foundry-apim-sap-odata-mcp-vs-copilot-studio-clean-core-agent-selection-faq.md) |
+| 92 | [SharePoint SAM vs Purview DSPM for AI vs AI Search ACL Sync: Enterprise Copilot/RAG Oversharing Governance Selection FAQ](sharepoint-advanced-management-sam-vs-purview-dspm-for-ai-vs-ai-search-acl-sync-oversharing-governance-selection-faq.en.md) | [🇬🇧 EN](sharepoint-advanced-management-sam-vs-purview-dspm-for-ai-vs-ai-search-acl-sync-oversharing-governance-selection-faq.en.md) · [🇨🇳 中文](sharepoint-advanced-management-sam-vs-purview-dspm-for-ai-vs-ai-search-acl-sync-oversharing-governance-selection-faq.md) |
