@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (94 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (95 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **94 structured architecture selection guides and trade-off FAQs** (`188` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **95 structured architecture selection guides and trade-off FAQs** (`190` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 94 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 95 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -168,7 +168,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 75 | [APIM Semantic Cache vs AOAI Prompt Caching vs Batch API: Enterprise AI FinOps Optimization Selection FAQ](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) | [🇬🇧 EN](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) · [🇨🇳 中文](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) |
 | 76 | [B2B ISV & SaaS Agent Monetization: APIM Tenant Metering, Azure Marketplace Billing & Chargeback Selection FAQ](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) | [🇬🇧 EN](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) · [🇨🇳 中文](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) |
 
-### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (18 Guides)
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (19 Guides)
 
 > Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
@@ -192,3 +192,4 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 92 | [SharePoint SAM vs Purview DSPM for AI vs AI Search ACL Sync: Enterprise Copilot/RAG Oversharing Governance Selection FAQ](sharepoint-advanced-management-sam-vs-purview-dspm-for-ai-vs-ai-search-acl-sync-oversharing-governance-selection-faq.en.md) | [🇬🇧 EN](sharepoint-advanced-management-sam-vs-purview-dspm-for-ai-vs-ai-search-acl-sync-oversharing-governance-selection-faq.en.md) · [🇨🇳 中文](sharepoint-advanced-management-sam-vs-purview-dspm-for-ai-vs-ai-search-acl-sync-oversharing-governance-selection-faq.md) |
 | 93 | [Microsoft Security Copilot vs Foundry Custom SOC Agents vs Sentinel+Logic Apps SOAR: Enterprise SecOps Selection FAQ](microsoft-security-copilot-sentinel-vs-foundry-custom-soc-agent-vs-logic-apps-soar-secops-selection-faq.en.md) | [🇬🇧 EN](microsoft-security-copilot-sentinel-vs-foundry-custom-soc-agent-vs-logic-apps-soar-secops-selection-faq.en.md) · [🇨🇳 中文](microsoft-security-copilot-sentinel-vs-foundry-custom-soc-agent-vs-logic-apps-soar-secops-selection-faq.md) |
 | 94 | [Retail Omnichannel Shopping Agents: AI Search+Cosmos vs Fabric Personalization vs Copilot Studio Commerce Selection FAQ](retail-omnichannel-shopping-agent-ai-search-cosmos-vs-fabric-personalization-vs-copilot-studio-commerce-selection-faq.en.md) | [🇬🇧 EN](retail-omnichannel-shopping-agent-ai-search-cosmos-vs-fabric-personalization-vs-copilot-studio-commerce-selection-faq.en.md) · [🇨🇳 中文](retail-omnichannel-shopping-agent-ai-search-cosmos-vs-fabric-personalization-vs-copilot-studio-commerce-selection-faq.md) |
+| 95 | [Enterprise Legal CLM and Contract Redlining: Foundry Workbench vs M365 Copilot Word vs Legal AI SaaS Selection FAQ](enterprise-legal-clm-contract-redlining-foundry-cu-vs-m365-copilot-word-add-in-vs-saas-legal-ai-selection-faq.en.md) | [🇬🇧 EN](enterprise-legal-clm-contract-redlining-foundry-cu-vs-m365-copilot-word-add-in-vs-saas-legal-ai-selection-faq.en.md) · [🇨🇳 中文](enterprise-legal-clm-contract-redlining-foundry-cu-vs-m365-copilot-word-add-in-vs-saas-legal-ai-selection-faq.md) |
