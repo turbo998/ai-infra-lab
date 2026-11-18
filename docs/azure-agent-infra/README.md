@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（103 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（104 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **103 个架构选型、平台对比与安全治理决策专题**（共 `206` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **104 个架构选型、平台对比与安全治理决策专题**（共 `208` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 103 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 104 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
@@ -140,7 +140,7 @@
 | 99 | [GitHub Copilot Extensions Skillsets vs 自建 MCP Servers vs Copilot Coding Agent：平台工程 IDP 选型 FAQ](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.md) | [🇨🇳 中文](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.md) · [🇬🇧 EN](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) |
 | 102 | [D365 Field Service Copilot vs Foundry 移动离线 RAG vs 混合现实远程协助：公用事业与电信外勤智能体选型 FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) | [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) · [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（13 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（14 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -159,6 +159,7 @@
 | 69 | [Microsoft Defender for Cloud（AI + 容器）+ Microsoft Sentinel：失陷智能体沙箱自动化 SOAR 隔离取证指南](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.md) | [🇨🇳 中文](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.md) · [🇬🇧 EN](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.en.md) |
 | 98 | [EU AI Act + ISO/IEC 42001 高风险智能体合规：Purview AI Hub vs Foundry Eval vs Defender 治理选型 FAQ](eu-ai-act-iso-42001-high-risk-agent-compliance-purview-ai-hub-vs-foundry-eval-vs-defender-governance-selection-faq.md) | [🇨🇳 中文](eu-ai-act-iso-42001-high-risk-agent-compliance-purview-ai-hub-vs-foundry-eval-vs-defender-governance-selection-faq.md) · [🇬🇧 EN](eu-ai-act-iso-42001-high-risk-agent-compliance-purview-ai-hub-vs-foundry-eval-vs-defender-governance-selection-faq.en.md) |
 | 103 | [保险理赔与核保智能体：Foundry 多模态 vs Durable STP vs Guidewire/Duck Creek 精算边界选型 FAQ](insurance-claims-underwriting-agent-foundry-cu-vs-durable-stp-vs-guidewire-duckcreek-actuarial-selection-faq.md) | [🇨🇳 中文](insurance-claims-underwriting-agent-foundry-cu-vs-durable-stp-vs-guidewire-duckcreek-actuarial-selection-faq.md) · [🇬🇧 EN](insurance-claims-underwriting-agent-foundry-cu-vs-durable-stp-vs-guidewire-duckcreek-actuarial-selection-faq.en.md) |
+| 104 | [企业 HR 智能体选型：Copilot Declarative Agent vs Copilot Studio + HRIS OBO vs Foundry PII 治理 FAQ](enterprise-hr-workday-successfactors-employee-service-copilot-studio-vs-m365-declarative-agent-vs-foundry-pii-selection-faq.md) | [🇨🇳 中文](enterprise-hr-workday-successfactors-employee-service-copilot-studio-vs-m365-declarative-agent-vs-foundry-pii-selection-faq.md) · [🇬🇧 EN](enterprise-hr-workday-successfactors-employee-service-copilot-studio-vs-m365-declarative-agent-vs-foundry-pii-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（7 篇）
 
