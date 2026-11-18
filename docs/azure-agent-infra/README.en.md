@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (107 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (108 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **107 structured architecture selection guides and trade-off FAQs** (`214` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **108 structured architecture selection guides and trade-off FAQs** (`216` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 107 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 108 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -141,7 +141,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 99 | [GitHub Copilot Extensions Skillsets vs Custom MCP Servers vs Copilot Coding Agent: Platform Engineering IDP Selection FAQ](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) | [🇬🇧 EN](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) · [🇨🇳 中文](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.md) |
 | 102 | [D365 Field Service Copilot vs Foundry Mobile Offline RAG vs Mixed-Reality Remote Assist: Utilities and Telecom Field-Agent Selection FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) | [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) · [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (15 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (16 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -162,6 +162,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 103 | [Insurance Claims & Underwriting Agent Selection: Foundry Multimodal vs Durable STP vs Guidewire/Duck Creek Actuarial Boundaries FAQ](insurance-claims-underwriting-agent-foundry-cu-vs-durable-stp-vs-guidewire-duckcreek-actuarial-selection-faq.en.md) | [🇬🇧 EN](insurance-claims-underwriting-agent-foundry-cu-vs-durable-stp-vs-guidewire-duckcreek-actuarial-selection-faq.en.md) · [🇨🇳 中文](insurance-claims-underwriting-agent-foundry-cu-vs-durable-stp-vs-guidewire-duckcreek-actuarial-selection-faq.md) |
 | 104 | [Enterprise HR Agent Selection: M365 Declarative Agent vs Copilot Studio + HRIS OBO vs Foundry PII Governance FAQ](enterprise-hr-workday-successfactors-employee-service-copilot-studio-vs-m365-declarative-agent-vs-foundry-pii-selection-faq.en.md) | [🇬🇧 EN](enterprise-hr-workday-successfactors-employee-service-copilot-studio-vs-m365-declarative-agent-vs-foundry-pii-selection-faq.en.md) · [🇨🇳 中文](enterprise-hr-workday-successfactors-employee-service-copilot-studio-vs-m365-declarative-agent-vs-foundry-pii-selection-faq.md) |
 | 107 | [Pharma GxP / 21 CFR Part 11 Regulatory Submission Agent Selection: Foundry vs Veeva Vault vs Purview Validation Governance FAQ](pharma-gxp-21-cfr-part-11-regulatory-submission-ectd-agent-foundry-vs-veeva-vault-vs-purview-validation-selection-faq.en.md) | [🇬🇧 EN](pharma-gxp-21-cfr-part-11-regulatory-submission-ectd-agent-foundry-vs-veeva-vault-vs-purview-validation-selection-faq.en.md) · [🇨🇳 中文](pharma-gxp-21-cfr-part-11-regulatory-submission-ectd-agent-foundry-vs-veeva-vault-vs-purview-validation-selection-faq.md) |
+| 108 | [Public-Sector Citizen Services Agent Selection: Entra Verified ID vs Copilot Studio Multichannel vs Foundry WCAG Governance FAQ](public-sector-citizen-services-agent-entra-verified-id-vs-copilot-studio-multichannel-vs-foundry-wcag-selection-faq.en.md) | [🇬🇧 EN](public-sector-citizen-services-agent-entra-verified-id-vs-copilot-studio-multichannel-vs-foundry-wcag-selection-faq.en.md) · [🇨🇳 中文](public-sector-citizen-services-agent-entra-verified-id-vs-copilot-studio-multichannel-vs-foundry-wcag-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (7 Guides)
 
