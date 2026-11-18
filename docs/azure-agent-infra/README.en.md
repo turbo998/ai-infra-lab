@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (113 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (114 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **113 structured architecture selection guides and trade-off FAQs** (`226` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **114 structured architecture selection guides and trade-off FAQs** (`228` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 113 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 114 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -142,7 +142,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 102 | [D365 Field Service Copilot vs Foundry Mobile Offline RAG vs Mixed-Reality Remote Assist: Utilities and Telecom Field-Agent Selection FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) | [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) · [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) |
 | 111 | [Automotive SDV In-Vehicle Voice Agent Selection: Onboard NPU SLM vs AOAI Realtime Hybrid Cloud vs Connected Fleet Fabric FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) | [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) · [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (18 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (19 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -166,6 +166,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 108 | [Public-Sector Citizen Services Agent Selection: Entra Verified ID vs Copilot Studio Multichannel vs Foundry WCAG Governance FAQ](public-sector-citizen-services-agent-entra-verified-id-vs-copilot-studio-multichannel-vs-foundry-wcag-selection-faq.en.md) | [🇬🇧 EN](public-sector-citizen-services-agent-entra-verified-id-vs-copilot-studio-multichannel-vs-foundry-wcag-selection-faq.en.md) · [🇨🇳 中文](public-sector-citizen-services-agent-entra-verified-id-vs-copilot-studio-multichannel-vs-foundry-wcag-selection-faq.md) |
 | 112 | [Oracle Database@Azure Enterprise ERP Agent Selection: Exadata In-Database Plane vs Fabric Mirroring Offload vs APIM+ORDS+MCP Transaction Governance FAQ](oracle-database-at-azure-exadata-vs-fabric-mirroring-vs-apim-ords-mcp-enterprise-erp-agent-selection-faq.en.md) | [🇬🇧 EN](oracle-database-at-azure-exadata-vs-fabric-mirroring-vs-apim-ords-mcp-enterprise-erp-agent-selection-faq.en.md) · [🇨🇳 中文](oracle-database-at-azure-exadata-vs-fabric-mirroring-vs-apim-ords-mcp-enterprise-erp-agent-selection-faq.md) |
 | 113 | [Corporate Treasury and FP&A Close Agent Selection: Copilot for Finance vs Fabric Planning vs Foundry Variance Audit Control Plane FAQ](corporate-treasury-fpna-erp-close-copilot-for-finance-vs-fabric-planning-vs-foundry-variance-audit-selection-faq.en.md) | [🇬🇧 EN](corporate-treasury-fpna-erp-close-copilot-for-finance-vs-fabric-planning-vs-foundry-variance-audit-selection-faq.en.md) · [🇨🇳 中文](corporate-treasury-fpna-erp-close-copilot-for-finance-vs-fabric-planning-vs-foundry-variance-audit-selection-faq.md) |
+| 114 | [Airline and Hospitality IROPS Recovery Agent Selection: Foundry + Deterministic Optimization vs Amadeus/Sabre MCP Transaction Gateway vs ACS Passenger Care FAQ](airline-hospitality-irrops-disruption-rebooking-agent-foundry-vs-amadeus-sabre-gds-mcp-vs-acs-passenger-care-selection-faq.en.md) | [🇬🇧 EN](airline-hospitality-irrops-disruption-rebooking-agent-foundry-vs-amadeus-sabre-gds-mcp-vs-acs-passenger-care-selection-faq.en.md) · [🇨🇳 中文](airline-hospitality-irrops-disruption-rebooking-agent-foundry-vs-amadeus-sabre-gds-mcp-vs-acs-passenger-care-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (7 Guides)
 
