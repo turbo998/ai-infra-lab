@@ -1,78 +1,85 @@
-# AI Infra Lab (`turbo998/ai-infra-lab`) · 中英双语版 (Bilingual Edition)
+# AI Infra Lab — 云原生与企业级 AI 基础设施架构实验室
 
-> 🌐 **Language / 语言版本切换**: **[🇨🇳 中文主页 (README.md)](README.md)** | **[🇬🇧 English Homepage (README.en.md)](README.en.md)** | **[📘 Azure Agent Infra Playbook (中文)](workshops/azure-agent-infra/README.md)** | **[📘 Azure Agent Infra Playbook (English)](workshops/azure-agent-infra/README.en.md)**
+> 🌐 **Language / 语言切换**: **中文主页 (`README.md`)** | **[🇬🇧 English Homepage (`README.en.md`)](README.en.md)** | **[📚 84 篇架构选型决策库 (`docs/azure-agent-infra/`)](docs/azure-agent-infra/README.md)** | **[🛠️ 28 章全栈手册与蓝图 (`workshops/azure-agent-infra/`)](workshops/azure-agent-infra/README.md)**
 
-> **📌 Executive Overview Summary / 核心架构总览**
-> - **Azure AI Agent Infra 全栈参考架构与 100K 沙箱压测 (`AKSClaw × E2B`)**：定义 6 层生产级智能体工程栈（`Build · Run · Ground · Govern`），基于第五代 AMD EPYC Turin (`Standard_D96as_v7`) 实测 **Firecracker MicroVM `80 ms` 冷启动 / `108 ms` UFFD 快照恢复**（对比 Kata Pod VM `1,420 ms` 冷启动），单集群 **261 台 Client 节点稳态承载 100,000 并发沙箱**（优化后月度 TCO **`~$148K/mo`**，结合 Nomad 心跳监控与优雅 Drain 实现 `99.4%+` 会话存活率），配套运行时与存储选型矩阵（ACA Dynamic Sessions vs AKS+Kata vs E2B vs Daytona；Azure Files NFS v4.1 vs Managed Lustre vs Blob FUSE2）及 **316 章半导体/AI Factory 与智能体工程百科**（[`workshops/azure-agent-infra/docs/full-monograph-archive.md`](workshops/azure-agent-infra/docs/full-monograph-archive.md)）。
-> - **阿里云“通-云-哥”（通义大模型 × 阿里云 AI Infra × 平头哥芯片）全栈工程体系**：覆盖平头哥真武 PPU 四代演进、磐久 AL128 超节点五芯自研通路、HPN 7.0 双平面网络、PAI 灵骏潮汐调度与百炼 Serverless 算力选型矩阵。
+面向 **Cloud & AI Solution Architect（云与 AI 解决方案架构师）** 的生产级参考架构、平台选型权衡（Trade-offs）、容量与 TCO 测算模型以及可部署基础设施即代码（IaC）知识库。本仓库聚焦企业在落地大规模 LLM 推理、多智能体编排与安全沙箱时的真实架构决策：
 
-### 核心架构图谱速览（Core Agent Infra Reference Visuals）
+- **应用场景（Application Scenarios）**：不受信任代码执行沙箱、千至十万并发云端浏览器/研发智能体、跨区域 PTU/PAYG 模型路由网关、基于 Microsoft Entra Agent ID 的零信任身份委派（OBO）、高并发智能体状态检查点（Checkpointing）与多云智算底座对标。
+- **参考架构（Reference Architectures）**：`Build · Run · Ground · Govern` 六层企业级智能体全栈架构、`AKSClaw` 五道多租户硬边界、`E2B on Azure VMSS` 十万并发 Firecracker MicroVM 拓扑，以及跨云 L0–L3（芯片—超节点网络—调度平台—MaaS）垂直整合架构。
+- **平台选型权衡（Platform Selection Trade-offs）**：量化对比隔离边界（MicroVM vs Hypervisor Pod VM vs 容器）、冷启动/快照恢复延迟（`80 ms / 108 ms` vs `1,420 ms`）、吞吐可预测性（PTU 预留 vs Serverless PAYG 溢出 vs AKS KAITO 自托管）与月度 TCO。
 
-![Azure AI Agent Infra 六层全栈参考架构图](workshops/azure-agent-infra/assets/svg/01-six-layer-architecture.svg)
-
-![100K 并发沙箱生产拓扑与五步落地工作流](workshops/azure-agent-infra/assets/svg/08-100k-sandbox-topology.svg)
-
-面向 **AI Infra 架构师** 的云厂商与智算基础设施全栈技术深度测评与可视化图谱仓库，覆盖 **AI 算力芯片（GPU / PPU / ASIC / CPU / Switch / SmartNIC / SSD 主控）**、**超节点与 Scale-Up/Scale-Out 智算网络（RDMA / RoCE / CXL / ICN）**、**异构算力调度平台**、**云原生分布式训推平台** 与 **企业级 MaaS / AI Agent 运行时与安全沙箱基础设施（Azure AI Agent Infra）**。
+![Azure AI Agent Infra 六层全栈参考架构图](workshops/azure-agent-infra/assets/01-azure-agent-infra-4layer-panorama.svg)
 
 ---
 
-## 📚 深度测评报告目录（Research & Architecture Evaluations · Bilingual EN/中文）
+## 🧭 四大核心资产模块（Core Deliverables · 100% 中英双语）
 
-| 专题报告 | 核心覆盖范围 | 可视化图表 (`SVG` + `H5` + `7-Card`) | 证据台账 | 审校记录 | 更新日期 |
-|---|---|---|---|---|---|
-| **[Azure AI Agent Infra 全栈方案设计、技术选型与架构师 Playbook (中文)](workshops/azure-agent-infra/README.md)** · **[English Edition](workshops/azure-agent-infra/README.en.md)** | **L1–L6 全栈参考架构**（MAF · GitHub Copilot SDK · LangGraph · OpenClaw · Hermes · MCP/A2A）· **六大运行时光谱**（Foundry Hosted Agents · Durable Functions · ACA Dynamic Sessions · ACA Sandboxes Preview · AKS + Kata `AKSClaw` · E2B on Azure VMSS `D96as_v7` `80ms/108ms`）· **状态与存储底座**（Azure Files NFS v4.1 + Managed Lustre + Blob FUSE2 + HorizonDB + Firecracker UFFD/NBD Snapshot）· **零信任控制面**（Entra Agent ID · Unified AI Gateway · 169.254.169.254 IMDS 封禁 · 5 道平台硬边界）· **316 章行业物理模型、309 套 IaC 蓝图与 308 项交互式测算器（317/317 单测全绿）** | 8 张高清矢量架构图 + [7-Card 基准报告 (中文)](workshops/azure-agent-infra/test-report.md) / [English](workshops/azure-agent-infra/test-report.en.md) + [4 页交互式双语 H5 套件](workshops/azure-agent-infra/index.html) + [316章完整归档](workshops/azure-agent-infra/docs/full-monograph-archive.md) + [可运行 Demo](workshops/azure-agent-infra/demo/run_live_demo.py) | [`evidence.json`](workshops/azure-agent-infra/evidence.json)（5 份核心工程资产 + 官方信源） | [`review.md`](workshops/azure-agent-infra/review.md) | 2026-10-28 |
-| **[阿里云 AI Infra 全栈架构深度测评报告](docs/alibaba-cloud-ai-infra/README.md)** | **L0 平头哥芯片**（含光 800、真武 810E / M890 / V900 / J900、倚天 710/750、ICN Switch 1.0、磐脉 920、镇岳 510）· **L1 智算底座与网络**（磐久 AL128 超节点、CIPU、HPN 7.0 双上联×多轨×双平面、Solar-RDMA、eRDMA、ACCL、CPFS）· **L1.5 灵骏智算**（`hz` 亲和性调度、双平面网卡）· **L2 人工智能平台 PAI（“Pi平台”）**（DSW / DLC AIMaster+EasyCKPT / EAS Prefix-Cache 路由+EP/PD 分离 / 父子配额潮汐抢占）· **L3 百炼平台（Model Studio）**（Token / PTU / DTU / MU 四大算力阶梯与后训练流水线） | 6 张高清矢量架构图 + 2 幅交互式 Mermaid 决策图 | [`evidence.json`](docs/alibaba-cloud-ai-infra/evidence.json)（21 篇一手信源） | [`review.md`](docs/alibaba-cloud-ai-infra/review.md) | 2026-10-14 |
-
----
-
-## 📊 Azure AI Agent Infra 核心可视化图谱速览（Visual Atlas）
-
-- **核心技术资产入口（中英双语 / Bilingual）**：[Playbook 中文版 (`README.md`)](workshops/azure-agent-infra/README.md) · [English Playbook (`README.en.md`)](workshops/azure-agent-infra/README.en.md) · [316章完整百科归档 (`docs/full-monograph-archive.md`)](workshops/azure-agent-infra/docs/full-monograph-archive.md) · [7-Card 4:5 基准评测报告 (中文)](workshops/azure-agent-infra/test-report.md) · [7-Card Benchmark Report (EN)](workshops/azure-agent-infra/test-report.en.md) · [Cycle #414 卡组 (`benchmark-cards.html`)](workshops/azure-agent-infra/benchmark-cards.html) · [Cycle #414 English Deck (`benchmark-cards.en.html`)](workshops/azure-agent-infra/benchmark-cards.en.html) · [Cycle #414 工作台 (`workbench-cycle-414.html`)](workshops/azure-agent-infra/workbench-cycle-414.html) · [Cycle #414 日报](workshops/azure-agent-infra/daily-report-2026-11-14.md) · [Agent MCP/A2A 幂等键策略选型 FAQ（中文）](workshops/azure-agent-infra/agent-mcp-a2a-idempotency-key-selection-faq.md) · [Agent MCP/A2A Idempotency Key FAQ (EN)](workshops/azure-agent-infra/agent-mcp-a2a-idempotency-key-selection-faq.en.md) · [交互式 H5 全景手册 (`index.html`)](workshops/azure-agent-infra/index.html) · [AKSClaw × E2B 实时仿真台 (`demo.html`)](workshops/azure-agent-infra/demo.html) · [选型决策与 10万沙箱计算器 (`selector.html`)](workshops/azure-agent-infra/selector.html) · [309 套 IaC 与网关策略蓝图 (`blueprints/`)](workshops/azure-agent-infra/blueprints)
-
-### 1. Azure AI Agent Infra 四层全栈参考架构全景图（Build · Run · Ground · Govern）
-![Azure AI Agent Infra 四层全栈参考架构全景图](docs/azure-agent-infra/assets/01-azure-agent-infra-4layer-panorama.svg)
-
-### 2. Azure 六大 Agent Runtime 责任边界、隔离机制与恢复延迟对比矩阵
-![Azure 六大 Agent Runtime 对比矩阵](docs/azure-agent-infra/assets/02-runtime-spectrum-6tier-matrix.svg)
-
-### 3. AI Agent Infra on Azure 双阶段架构选型决策树与数据底座配对图
-![双阶段架构选型决策树](docs/azure-agent-infra/assets/03-scenario-decision-tree-and-routing.svg)
-
-### 4. AKSClaw 多租户 Kubernetes Agent 平台参考架构（六大支柱与五道平台硬边界）
-![AKSClaw 多租户 Kubernetes Agent 平台参考架构](docs/azure-agent-infra/assets/04-aksclaw-multi-tenant-k8s-architecture.svg)
-
-### 5. E2B on Azure VMSS 生产级参考架构图（Manus × E2B 10万+ 并发云端沙箱底座）
-![E2B on Azure VMSS 生产级参考架构图](docs/azure-agent-infra/assets/05-e2b-on-azure-vmss-reference-architecture.svg)
-
-### 6. Firecracker MicroVM 沙箱内部机理（UFFD + NBD）与 Azure v6/v7 实测启动延迟对比
-![Firecracker MicroVM 内部机理与实测延迟对比](docs/azure-agent-infra/assets/06-e2b-microvm-internals-and-vm-benchmark.svg)
-
-### 7. 多智能体协同工作流（MAF × Copilot SDK × Durable）与状态持久化选型矩阵
-![多智能体协同工作流与状态持久化矩阵](docs/azure-agent-infra/assets/07-multi-agent-workflow-and-state-checkpoint.svg)
-
-### 8. Azure Agent Infra Playbook 六大高优场景、四维资质筛查与五步落地工作流
-![Playbook 六大场景与五步落地工作流](docs/azure-agent-infra/assets/08-field-playbook-5step-execution-flow.svg)
+| 模块 | 架构师核心问题与覆盖范围 | 资产规模 | 快速入口（中文 / English） |
+|---|---|---|---|
+| **1. Azure AI 与智能体架构选型决策库** | 8 大企业架构域：**沙箱与执行环境**（ACA Dynamic Sessions / Foundry Code Interpreter / AKS Kata / E2B）、**模型托管与 GPU**（PTU / Serverless GPU / AKS KAITO）、**AI Gateway 与协议**（APIM 令牌治理 / A2A + Remote MCP）、**零信任身份与网络**（Entra Agent ID OBO / Private Link）、**状态存储**（Cosmos DB / Managed Redis / PostgreSQL `pgvector`）、**企业知识底座**（AI Search Hybrid RAG / Fabric IQ）、**可观测与 FinOps**、**跨栈编排**（Copilot Studio / Power Automate / Playwright MCP） | **84 篇**双语选型 FAQ（`168` 份文档）+ **8 张**矢量架构图 | [🇨🇳 中文选型总览](docs/azure-agent-infra/README.md) · [🇬🇧 EN Catalog](docs/azure-agent-infra/README.en.md) |
+| **2. Azure AI Agent Infra 全栈架构手册与工程套件** | **28 章全栈架构 Playbook** + **23 套生产级 IaC 蓝图**（Bicep / AKS Kata RuntimeClass / Cilium IMDS 封禁 / Nomad / APIM AI Gateway XML / OTEL Collector）+ **确定性容量与成本测算器**（`agent_infra_sizer.py`）+ **7-Card 4:5 基准测试报告** + **交互式 H5 仿真工作台** | 28 章手册 · 23 套蓝图 · 16 张 SVG · 33 项单测 | [🇨🇳 Playbook 中文版](workshops/azure-agent-infra/README.md) · [🇬🇧 EN Playbook](workshops/azure-agent-infra/README.en.md) · [📊 7-Card 评测](workshops/azure-agent-infra/test-report.md) |
+| **3. 阿里云 AI Infra 全栈架构深度测评（跨云对标）** | 系统拆解 **L0 平头哥自研芯片**（真武 810E PPU / 倚天 CPU / ICN 交换芯片 / 磐脉网卡 / 镇岳主控）、**L1 磐久 AL128 超节点与 HPN 7.0 双平面网络**（Solar-RDMA / ACCL / CPFS）、**L2 PAI 潮汐配额与 PD 分离推理**、**L3 百炼平台（Token / PTU / DTU / MU）**，并与 **Azure / AWS / GCP** 逐层横向对标 | L0–L3 深度报告 + **6 张**高清矢量架构图 | [🇨🇳 中文深度测评](docs/alibaba-cloud-ai-infra/README.md) · [🇬🇧 EN Evaluation](docs/alibaba-cloud-ai-infra/README.en.md) |
+| **4. AI 基础设施硬核架构视频脚本库** | 面向技术分享与高管汇报的分幕双语脚本：**EP03**（FlashInfer 0.6 块稀疏算子与 Mooncake RDMA PD 分离架构）与 **EP05**（Azure 企业级零信任 Agent 硬件沙箱与 APIM AI Gateway） | **2 期**完整四幕双语分镜脚本 | [🇨🇳 视频脚本目录](docs/video-explainers/README.md) · [🇬🇧 Video Index](docs/video-explainers/README.en.md) |
 
 ---
 
-## 📊 阿里云 AI Infra 核心可视化图谱速览（Visual Atlas）
+## ⚡ 高频架构选型速查矩阵（Top Architecture Selection Trade-offs）
 
-### 1. “通-云-哥” L0–L3 全栈垂直整合架构与三大跨层协同闭环
-![阿里云 AI Infra 全栈垂直整合架构图](docs/alibaba-cloud-ai-infra/assets/01-tong-yun-ge-architecture.svg)
+| 业务场景 | 首选推荐方案 | 备选 / 演进方案 | 关键决策分水岭（SA 定量判据） | 对应深度指南 |
+|---|---|---|---|---|
+| **不受信任的 Python / Shell 代码执行** | **ACA Dynamic Sessions**（全托管 Hyper-V 强隔离） | **AKS Kata Containers** / **E2B on VMSS** | 免运维毫秒级热池选 Dynamic Sessions；需自定义 RootFS、GPU 或 `100K` 并发快照恢复（`108 ms`）选 AKS Kata / E2B | [代码沙箱选型](docs/azure-agent-infra/aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.md) |
+| **企业大模型推理与开源权重托管** | **Foundry PTU + PAYG 溢出**（核心生产 SLA） | **ACA Serverless GPU** / **AKS KAITO** | P99 延迟敏感且利用率 `>60%` 选 PTU；波峰波谷剧烈的轻量自研模型选 Serverless GPU；千卡级 vLLM/SGLang 深度定制选 AKS KAITO | [GPU 与端点选型](docs/azure-agent-infra/aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.md) |
+| **多模型统一网关与远程工具治理** | **Azure API Management (AI Gateway)** | 应用内直连 SDK（仅限单团队 PoC） | 多团队共享配额必须前置 APIM 实现 `llm-token-limit` 令牌限流、语义缓存、PTU 429 自动降级切换与 MCP Streamable HTTP 鉴权 | [APIM A2A+MCP 治理](docs/azure-agent-infra/a2a-mcp-federation-apim-istio-ambient-faq.md) |
+| **智能体访问下游受保护企业数据** | **Microsoft Entra Agent ID + OBO 委派令牌** | Managed Identity（仅限无用户上下文后台任务） | 只要涉及自然人权限边界（SharePoint / SQL 行级安全 / CRM），严禁共享高权限应用密钥，必须走 OBO 细粒度审计 | [Entra Agent ID OBO](docs/azure-agent-infra/entra-agent-id-workload-federation-cae-jit-pim-faq.md) |
+| **多轮会话记忆与工作流状态持久化** | **Cosmos DB**（持久化检查点）+ **Managed Redis**（亚毫秒热锁） | **Azure Database for PostgreSQL (`pgvector`)** | 跨区域多活与海量 JSON 会话状态选 Cosmos DB；工具幂等锁与流式增量缓冲选 Redis；强关系事务联合查询选 PostgreSQL | [状态存储三选一](docs/azure-agent-infra/cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.md) |
+| **企业流程自动化与遗留系统 UI 操作** | **Copilot Studio**（对话编排）+ **Power Automate**（API 连接器） | **Playwright MCP**（受控沙箱浏览器） | 有标准连接器走 Power Automate；仅当老旧系统无 API 时在隔离沙箱运行 Playwright MCP，并在写操作前强制人工审批（HITL） | [低代码与浏览器自动化](docs/azure-agent-infra/copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.md) |
 
-### 2. 平头哥真武 PPU 四代演进（810E → M890 → V900 → J900）与主流 GPU 关键指标对比
-![真武 PPU 四代演进与主流 GPU 对比](docs/alibaba-cloud-ai-infra/assets/02-zhenwu-ppu-vs-gpu-comparison.svg)
+---
 
-### 3. 磐久 AL128 高密超节点“算-存-网”平头哥五芯全自研数据通路图
-![磐久 AL128 超节点五芯数据通路图](docs/alibaba-cloud-ai-infra/assets/03-panjiu-al128-five-chip-datapath.svg)
+## 🏗️ 代表性架构图谱预览（Featured Reference Architecture Diagrams）
 
-### 4. 阿里云 HPN 7.0（SIGCOMM 2024）双上联 × 多轨 × 双平面网络架构与实测收益
-![阿里云 HPN 7.0 双平面网络拓扑与性能收益](docs/alibaba-cloud-ai-infra/assets/04-hpn7-dual-plane-topology.svg)
+### 1. 100K 并发沙箱生产拓扑与五步落地工作流（`Standard_D96as_v7` · `~$148K/mo` 优化后 TCO）
+![100K 并发沙箱生产拓扑](workshops/azure-agent-infra/assets/05-e2b-on-azure-vmss-reference-architecture.svg)
 
-### 5. PAI 训推一体潮汐配额树与 PAI-EAS Prefix-Cache 智能路由官方实测加速比
-![PAI 潮汐抢占与 EAS Prefix-Cache 实测对比](docs/alibaba-cloud-ai-infra/assets/05-pai-tidal-preemption-and-eas-benchmark.svg)
+### 2. Azure 六大智能体运行时光谱对比矩阵（隔离级别 · 状态持久化 · 恢复延迟）
+![Azure 六大运行时光谱](docs/azure-agent-infra/assets/02-runtime-spectrum-6tier-matrix.svg)
 
-### 6. 百炼平台四大算力阶梯对比与 AI Infra 架构师 6 大核心场景选型矩阵
-![百炼四大算力模式与架构师选型矩阵](docs/alibaba-cloud-ai-infra/assets/06-bailian-resource-modes-and-architect-matrix.svg)
+### 3. 阿里云“通-云-哥” L0–L3 全栈垂直整合架构（跨云对标参考）
+![阿里云 L0-L3 全栈架构](docs/alibaba-cloud-ai-infra/assets/01-tong-yun-ge-architecture.svg)
 
+---
 
+## 🗂️ 仓库目录结构（Repository Layout）
+
+```text
+ai-infra-lab/
+├── README.md / README.en.md          # 中英双语仓库总览与高频选型矩阵
+├── docs/
+│   ├── README.md / README.en.md      # 文档中心总索引（中英双语）
+│   ├── azure-agent-infra/            # 84 篇企业级 Azure AI 与智能体架构选型 FAQ（168 份双语文档 + 8 张 SVG）
+│   ├── alibaba-cloud-ai-infra/       # 阿里云 L0–L3 AI Infra 全栈测评与跨云对标报告（双语 + 6 张 SVG）
+│   └── video-explainers/             # AI 基础设施硬核架构科普视频分镜脚本（EP03 · EP05 双语）
+└── workshops/
+    └── azure-agent-infra/            # 28 章全栈架构 Playbook、23 套 IaC 蓝图、容量测算器、H5 工作台与 7-Card 评测报告
+        ├── blueprints/               # 23 套可直接裁剪落地的 Bicep / K8s Kata / Cilium / APIM / OTEL 生产模板
+        ├── simulator/                # 确定性容量与成本测算引擎（agent_infra_sizer.py）及 33 项单测套件
+        ├── demo/                     # 零外部依赖全链路本地仿真验证脚本（run_live_demo.py）
+        └── index.html / cards.html   # 离线自包含交互式架构工作台与 7-Card 4:5 基准测试报告卡
+```
+
+---
+
+## 🧪 本地快速验证（Quick Verification）
+
+本仓库所有容量测算器、JSON 数据契约、SVG 图表语法、CSP 安全头及文档相对链接均配备零第三方依赖的 Python 标准库验证套件：
+
+```powershell
+# 1. 校验确定性容量与 TCO 测算结果与已归档基准报告完全一致
+python workshops/azure-agent-infra/simulator/agent_infra_sizer.py --check
+
+# 2. 运行全部 33 项架构测算、数据契约与链接完整性单元测试
+python workshops/azure-agent-infra/simulator/test_agent_infra_sizer.py
+
+# 3. 运行本地全链路选型与沙箱容量仿真自检
+python workshops/azure-agent-infra/demo/run_live_demo.py --self-test
+```

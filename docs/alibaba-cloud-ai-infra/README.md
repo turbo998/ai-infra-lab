@@ -1,7 +1,9 @@
 # 阿里云 AI Infra 全栈架构深度测评报告：从平头哥“算存网”芯片到灵骏、PAI 与百炼平台
 
+> 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[🧭 Azure 84 篇选型决策库 (`../azure-agent-infra/README.md`)](../azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
+
 - **研究日期**：2026-10-14
-- **研究定位**：AI Infrastructure 架构师视角全栈产品布局、架构机理、代际对比与选型测评（不含实机跑分 Benchmark）
+- **研究定位（Solution Architect 视角）**：面向 Cloud & AI Solution Architect 的全栈产品布局、架构机理、跨云横向对比（对标 Azure / AWS / GCP）与企业选型权衡评估（不含实机跑分 Benchmark）
 - **覆盖范围**：
   - **L0 芯片与硬件层（平头哥 T-Head）**：AI 加速卡 PPU（含光 800 → 真武 810E → 真武 M890 → 真武 V900 → 真武 J900）、服务器 CPU（倚天 710 / 720 / 730 / 750、玄铁 RISC-V）、片间互联交换芯片（ICN Switch 1.0）、AI 智能网卡（磐脉 920）、企业级 SSD 主控芯片（镇岳 510）
   - **L1 算存网底座层（阿里云基础设施）**：磐久 AL128 超节点服务器、CIPU 云基础设施处理器、HPN 7.0 高性能网络（双上联 + 多轨 + 双平面）、Solar-RDMA / eRDMA、ACCL 集合通信库、CPFS 并行文件系统

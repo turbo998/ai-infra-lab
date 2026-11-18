@@ -1,5 +1,7 @@
 # 📺 EP03 · 算力与推理系统硬核拆解: Breaking LLM Memory & Attention Bottlenecks: FlashInfer 0.6 & Mooncake Disaggregation
 
+
+> 🌐 **Language / 语言切换**: **[🇬🇧 English Edition (`ep03-ai-infra-research.en.md`)](ep03-ai-infra-research.en.md)** | **[🇨🇳 中文版 (`ep03-ai-infra-research.zh-CN.md`)](ep03-ai-infra-research.zh-CN.md)** | **[📺 Video Index (`README.en.md`)](README.en.md)**
 > **Chinese Title (中文标题)**: *GPU显存与注意力瓶颈怎么破？FlashInfer 0.6 与月之暗面 Mooncake 架构拆解*  
 > **Target Repository**: `turbo998/ai-infra-research` (Verified on `main` branch)  
 > **Deliverable Formats**: 16:9 Landscape Deep-Dive (`1920×1080`, `151.6s`) + 9:16 Vertical Short (`1080×1920`, `65.0s`) · 30fps H.264 + Bilingual `.srt`
@@ -8,7 +10,7 @@
 
 ## 1. Executive Summary & Visual Engineering
 
-This episode distills overnight autonomous research breakthroughs into a Bilibili hardcore knowledge-creator explainer format:
+This technical explainer distills modern LLM inference systems engineering into a Bilibili hardcore knowledge-creator explainer format:
 - **Counter-intuitive Hook**: Opens with a concrete quantitative bottleneck or production failure mode.
 - **4-Chapter Progress Architecture**: Synchronized top chapter bar, architecture flow workbench, and code/formula inspection.
 - **Sealed Benchmark Evidence**: Zero fabricated coordinates—every metric pill and comparison bar maps to verified repository tests.
@@ -24,10 +26,10 @@ This episode distills overnight autonomous research breakthroughs into a Bilibil
 - **English Narration**:
   > Million-token LLM inference is bottlenecked by HBM bandwidth & KV Cache movement, not raw FLOPs.
 - **Chinese Narration (16:9)**:
-  > 买最贵的 GPU，跑最低的利用率，这是今天大模型推理工程最真实的痛点。当上下文长度拉到十二万八千甚至一百万 Token 时，Decode 阶段超过百分之八十的时间根本不在做矩阵乘法，而是在 HBM 显存和 SRAM 之间搬运庞大的 KV Cache。今晚我们的 AI Infra 自动化研究线推进到了第五十六阶段，一次性把 FlashInfer、SGLang、vLLM、TensorRT-LLM 以及 Mooncake 的最新底层突破扒了个底朝天。
+  > 买最贵的 GPU，跑最低的利用率，这是今天大模型推理工程最真实的痛点。当上下文长度拉到十二万八千甚至一百万 Token 时，Decode 阶段超过百分之八十的时间根本不在做矩阵乘法，而是在 HBM 显存和 SRAM 之间搬运庞大的 KV Cache。本期我们从 AI 基础设施架构师视角，系统拆解 FlashInfer、SGLang、vLLM、TensorRT-LLM 以及 Mooncake 在稀疏注意力与分离式推理上的核心工程突破。
 
 #### Architecture Flow & Verified Metrics
-- **Phase 56**: 研究演进阶段 (`Priority 65 全栈算力追踪`)
+- **Roofline Bound**: Quantitative Bottleneck (`Decode AI < 2 FLOPs/Byte`)
 - **12 大框架**: 覆盖核心引擎 (`FlashInfer/SGLang/vLLM/TRT-LLM等`)
 - **100% Pass**: 测试验证状态 (`双语架构矩阵 + 形式化校验`)
 
@@ -87,11 +89,11 @@ transfer_handle = mooncake_engine.submit_transfer_async(
 - **English Narration**:
   > Full-stack mapping from Megatron/TorchTitan FP8 training to FlashInfer/SGLang inference.
 - **Chinese Narration (16:9)**:
-  > 最后看训推一体全景。我们的研究库不仅拆解了推理侧，还把训练侧的 Megatron-LM、TransformerEngine 和 PyTorch 原生的 TorchTitan 串成了完整闭环。通过 TransformerEngine 的 Delayed Scaling 与 Block-wise FP8 量化配方，训练阶段的低精度权重可以直接对齐推理侧 TensorRT-LLM 和 vLLM 的 FP8 内核。所有五十六个阶段的双语架构文档与对比矩阵，已全部同步到 GitHub 主分支。
+  > 最后看训推一体全景。我们的研究库不仅拆解了推理侧，还把训练侧的 Megatron-LM、TransformerEngine 和 PyTorch 原生的 TorchTitan 串成了完整闭环。通过 TransformerEngine 的 Delayed Scaling 与 Block-wise FP8 量化配方，训练阶段的低精度权重可以直接对齐推理侧 TensorRT-LLM 和 vLLM 的 FP8 内核。完整的双语推理系统架构拆解与选型矩阵均已同步归档至 GitHub 主分支。
 
 #### Architecture Flow & Verified Metrics
 - **12 Repos**: 覆盖核心仓库 (`训推算子、引擎、缓存、通信全栈`)
-- **56 Phases**: 主线累计阶段 (`Priority 65 深度源码级剖析`)
+- **4 Layers**: 全栈覆盖层级 (`算子 · 推理引擎 · KV 传输 · 分布式训练`)
 - **Bilingual**: 开源文档状态 (`中英双语 Markdown + 架构图`)
 
 ```python

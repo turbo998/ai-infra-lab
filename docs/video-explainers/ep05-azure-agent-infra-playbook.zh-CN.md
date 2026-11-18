@@ -1,6 +1,8 @@
-# 📺 EP05 · 云原生智能体架构工程：如何把 AI Agent 关进零信任沙箱？Azure 企业级智能体基建 145 章实战浓缩
+# 📺 EP05 · 云原生智能体架构工程：如何把 AI Agent 关进零信任沙箱？Azure 企业级智能体基建 全栈实战浓缩
 
-> **英文标题 (English Title)**: *Zero-Trust Sandboxes for Enterprise AI Agents: 145 Chapters of Azure Infra Distilled*  
+
+> 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`ep05-azure-agent-infra-playbook.zh-CN.md`)](ep05-azure-agent-infra-playbook.zh-CN.md)** | **[🇬🇧 English (`ep05-azure-agent-infra-playbook.en.md`)](ep05-azure-agent-infra-playbook.en.md)** | **[📺 视频索引 (`README.md`)](README.md)**
+> **英文标题 (English Title)**: *Zero-Trust Sandboxes for Enterprise AI Agents: Enterprise Azure Agent Infra Distilled*  
 > **关联仓库 (Repository)**: `turbo998/ai-infra-lab & Azure-Infra-Lab` (`main` 分支实时同步)  
 > **视频规格 (Video Specs)**: 16:9 横屏深度版 (`1920×1080`, `148.1s`) + 9:16 竖屏精华版 (`1080×1920`, `96.8s`) · 30fps H.264 + 双语字幕 (`.srt`)
 
@@ -24,9 +26,9 @@
 - **核心结论标题 (Headline-as-Finding)**: **从 Demo 到生产级云底座：为什么 90% 的智能体卡在安全与治理最后一公里**
 - **英文副标题 (Subhead)**: *Enterprise Agentic Infrastructure · Identity, Isolation, Gateway & FinOps*
 - **16:9 完整解说词 (Full Narration ZH)**:
-  > 在本地笔记本上跑通一个能写代码、能调接口的 Agent 只需要半小时；但如果把它放进大型企业的生产云环境，立刻就会撞上四座大山：容器逃逸风险、MCP 工具越权、多租户 Token 账单失控，以及跨区域容灾。我们的 Azure AI Agent 基建自动化研究流已经连续演进了一百三十九个周期、一百四十四章，覆盖五个核心仓库、一百四十七项自动化测试全绿，今晚带你三分钟看懂这套生产级架构。
+  > 在本地笔记本上跑通一个能写代码、能调接口的 Agent 只需要半小时；但如果把它放进大型企业的生产云环境，立刻就会撞上四座大山：容器逃逸风险、MCP 工具越权、多租户 Token 账单失控，以及跨区域容灾。我们的 Azure AI Agent 基础设施知识库完整覆盖 28 章全栈架构手册、84 篇双语架构选型 FAQ 与 23 套生产级 IaC 蓝图，带你三分钟看懂这套企业级云底座。
 - **9:16 竖屏速览解说词 (Short Narration ZH)**:
-  > 在本地笔记本上跑通一个能写代码、能调接口的 Agent 只需要半小时；但如果把它放进大型企业的生产云环境，立刻就会撞上四座大山：容器逃逸风险、MCP 工具越权、多租户 Token 账单失控，以及跨区域容灾。我们的 Azure AI Agent 基建自动化研究流已经连续演进了一百三十九个周期、一百四十四章，覆盖五个核心仓库、一百四十七项自动化测试全绿，今晚带你三分钟看懂这套生产级架构。
+  > 在本地笔记本上跑通一个能写代码、能调接口的 Agent 只需要半小时；但如果把它放进大型企业的生产云环境，立刻就会撞上四座大山：容器逃逸风险、MCP 工具越权、多租户 Token 账单失控，以及跨区域容灾。我们的 Azure AI Agent 基础设施知识库完整覆盖 28 章全栈架构手册、84 篇双语架构选型 FAQ 与 23 套生产级 IaC 蓝图，带你三分钟看懂这套企业级云底座。
 - **英文对照解说 (English Narration)**:
   > Productionizing AI agents requires hypervisor isolation, Entra Agent ID, AI Gateway governance, and multi-region DR.
 
@@ -34,11 +36,11 @@
 1. **Entra Agent ID** — 零长效密钥 · 工作负载联邦身份
 2. **APIM AI Gateway** — 语义缓存、Token 限流与内容安全
 3. **ACA Dynamic Sessions** — Hyper-V 硬件级微虚机代码沙箱
-4. **5-Repo 联动主线** — 144 章蓝图 · 147/147 测试通过
+4. **全栈架构验证** — 28 章手册 · 84 篇选型 FAQ · 23 套蓝图
 
 #### 定量实测指标 (Verified Metrics)
-- **Cycle #139** (持续演进周期) — `累计 144 章生产级架构手册`
-- **147 / 147** (自动化验证套件) — `100% 架构与策略契约通过`
+- **28 章 + 84 篇 FAQ** (全栈知识体系) — `覆盖 8 大企业架构选型域`
+- **33 / 33** (自动化验证套件) — `100% 容量测算与架构契约通过`
 - **5 大主线库** (跨仓库同步规模) — `ai-infra-lab / Azure-Infra-Lab 等`
 
 #### 核心代码与公式验证 (Code & Formula Snippet)
@@ -51,7 +53,7 @@ LandingZone_Topology:
 ```
 
 - **💡 架构师敲黑板 (Key Takeaway)**: 从本地 Demo 到企业生产云底座，必须跨越沙箱隔离、身份治理、网关限流与多活容灾四座大山
-- **💬 精选高能弹幕 (Danmaku)**: 139个周期、144章！这简直是一部云原生智能体百科全书 / 企业落地最缺的就是这套架构蓝图 / 没有硬件级隔离真不敢让 Agent 跑代码
+- **💬 精选高能弹幕 (Danmaku)**: 28章手册加84篇选型FAQ！这简直是一部云原生智能体架构宝典 / 企业落地最缺的就是这套架构蓝图 / 没有硬件级隔离真不敢让 Agent 跑代码
 
 ### 第 2 幕 · 02 Hyper-V微虚机沙箱 (`SANDBOX · 拒绝普通容器共享内核：Hyper-V 硬件级微虚拟机与无外网围栏`)
 
@@ -125,14 +127,14 @@ resource sessionPool 'Microsoft.App/sessionPools@2024-02-02-preview' = {
 
 ### 第 4 幕 · 04 5库联动矩阵 (`ECOSYSTEM · 五大仓库同步演进：从 IaC 蓝图到双语门户全景交付`)
 
-- **核心结论标题 (Headline-as-Finding)**: **5 库联动、144 章双语架构手册、147 项契约测试：持续进化的开源基建库**
+- **核心结论标题 (Headline-as-Finding)**: **5 库联动、28 章全栈手册 + 84 篇选型 FAQ + 23 套 IaC 蓝图：持续进化的开源基建库**
 - **英文副标题 (Subhead)**: *Five-Repository Synchronized Ecosystem · Bicep/Terraform + Bilingual Docs + Live Portal*
 - **16:9 完整解说词 (Full Narration ZH)**:
-  > 这套企业级智能体基建不是纸上谈兵的 PPT，而是横跨五个 GitHub 仓库的活体工程：从 ai-infra-lab 的核心实验与契约测试，到 Azure-Infra-Lab 的生产级蓝图，再到 ai-research-public 与 Kee-Tech-Assets 的双语技术门户。每次夜班自动化巡检，都会自动完成新章节撰稿、双语对齐、一百四十七项测试回归与多库主线同步。点击简介链接即可直接复用全套源码。
+  > 这套企业级智能体基建不是纸上谈兵的 PPT，而是横跨五个 GitHub 仓库的活体工程：从 ai-infra-lab 的核心实验与契约测试，到 Azure-Infra-Lab 的生产级蓝图，再到 ai-research-public 与 Kee-Tech-Assets 的双语技术门户。所有架构选型指南、Bicep/APIM 生产蓝图与容量测算器均保持中英双语同步与自动化契约测试验证。点击简介链接即可直接复用全套源码。
 - **9:16 竖屏速览解说词 (Short Narration ZH)**:
-  > 这套企业级智能体基建不是纸上谈兵的 PPT，而是横跨五个 GitHub 仓库的活体工程：从 ai-infra-lab 的核心实验与契约测试，到 Azure-Infra-Lab 的生产级蓝图，再到 ai-research-public 与 Kee-Tech-Assets 的双语技术门户。每次夜班自动化巡检，都会自动完成新章节撰稿、双语对齐、一百四十七项测试回归与多库主线同步。
+  > 这套企业级智能体基建不是纸上谈兵的 PPT，而是横跨五个 GitHub 仓库的活体工程：从 ai-infra-lab 的核心实验与契约测试，到 Azure-Infra-Lab 的生产级蓝图，再到 ai-research-public 与 Kee-Tech-Assets 的双语技术门户。所有架构选型指南、Bicep/APIM 生产蓝图与容量测算器均保持中英双语同步与自动化契约测试验证。
 - **英文对照解说 (English Narration)**:
-  > Living engineering across 5 GitHub repos: 144 bilingual chapters and 147 contract tests on main.
+  > Living engineering across 5 GitHub repos: 28 architecture chapters, 84 bilingual selection FAQs, and 23 IaC blueprints on main.
 
 #### 核心架构流节点 (Architecture Flow Nodes)
 1. **ai-infra-lab** — 核心手册与 147 项自动化验证套件
@@ -142,12 +144,12 @@ resource sessionPool 'Microsoft.App/sessionPools@2024-02-02-preview' = {
 
 #### 定量实测指标 (Verified Metrics)
 - **5 Repos** (同步主线仓库) — `全量 main 分支零脱节`
-- **144 章** (累计手册章节) — `Cycle #139 持续演进`
-- **100%** (回归测试通过) — `147 passed in 自动化流水线`
+- **84 篇 FAQ** (场景选型指南) — `中英双语同步覆盖`
+- **100%** (回归测试通过) — `33 passed in 自动化流水线`
 
 #### 核心代码与公式验证 (Code & Formula Snippet)
 ```python
-✔ turbo998/ai-infra-lab          [main] 147/147 tests passed
+✔ turbo998/ai-infra-lab          [main] 33/33 tests passed
 ✔ turbo998/Azure-Infra-Lab       [main] Playbook & IaC synced
 ✔ turbo998/ai-research-public    [main] Bilingual edition live
 ✔ turbo998/Kee-Tech-Assets       [main] GitHub Pages published

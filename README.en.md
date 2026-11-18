@@ -1,33 +1,85 @@
-# AI Infra Lab (`turbo998/ai-infra-lab`) — English Edition
+# AI Infra Lab — Enterprise Cloud & AI Infrastructure Architecture Lab
 
-> 🌐 **Language / 语言版本切换**: **[🇬🇧 English Homepage (README.en.md)](README.en.md)** | **[🇨🇳 中文主页 (README.md)](README.md)** | **[📘 Azure Agent Infra Playbook (English)](workshops/azure-agent-infra/README.en.md)** | **[📘 Azure Agent Infra Playbook (中文)](workshops/azure-agent-infra/README.md)**
+> 🌐 **Language / 语言切换**: **[🇨🇳 中文主页 (`README.md`)](README.md)** | **English Homepage (`README.en.md`)** | **[📚 84 Architecture Selection FAQs (`docs/azure-agent-infra/`)](docs/azure-agent-infra/README.en.md)** | **[🛠️ 28-Chapter Playbook & IaC (`workshops/azure-agent-infra/`)](workshops/azure-agent-infra/README.en.md)**
 
-> **📌 Executive Overview Summary**
-> - **AI Agent Infrastructure on Azure (`AKSClaw × E2B`)**: Defines a 6-Layer Agent Infra Reference Architecture (`Build · Run · Ground · Govern`), empirical **100K Sandbox Scale Benchmarks** (**`80 ms` Firecracker microVM cold start / `108 ms` UFFD restore** on 5th-Gen AMD EPYC Turin `Standard_D96as_v7` vs **`1,420 ms` Kata VM cold boot**, **`~$148K/mo` optimized TCO** across 261 client nodes at 100K sandboxes, and Nomad heartbeat drain resilience), a **Runtime & Storage Decision Matrix** (ACA Dynamic Sessions vs AKS + Kata vs E2B vs Daytona; Azure Files NFS v4.1 vs Managed Lustre vs Blob FUSE2), and a **316-Chapter Semiconductor/AI Factory & Agent Infrastructure Encyclopedia** ([`workshops/azure-agent-infra/docs/full-monograph-archive.en.md`](workshops/azure-agent-infra/docs/full-monograph-archive.en.md)).
-> - **Alibaba Cloud AI Infrastructure (`Tong-Yun-Ge` Full-Stack Analysis)**: Covers T-Head PPU accelerators (Zhenwu 810E → J900), Panjiu AL128 supernode 5-chip datapath, HPN 7.0 dual-plane networking (SIGCOMM 2024), and PAI Lingjun tidal scheduling.
+A production-oriented reference architecture, platform trade-off catalog, capacity/TCO sizing model, and deployable Infrastructure-as-Code (IaC) repository built for **Cloud & AI Solution Architects**. Every deliverable focuses on concrete architectural decisions encountered when designing enterprise LLM inference, multi-agent orchestration, and secure sandbox platforms:
 
-### Core Architecture Diagrams
+- **Application Scenarios**: Untrusted code execution sandboxes, 1K–100K concurrent cloud browser and software-engineering agents, multi-region PTU/PAYG AI gateways, zero-trust user-delegated agent identity (`Microsoft Entra Agent ID OBO`), durable multi-agent state checkpointing, and cross-cloud AI Factory benchmarking.
+- **Reference Architectures**: The 6-layer `Build · Run · Ground · Govern` enterprise agent stack, `AKSClaw` five multi-tenant hard boundaries, `E2B on Azure VMSS` (`Standard_D96as_v7`) 100K concurrent Firecracker MicroVM topology, and L0–L3 vertical stack analysis across custom silicon, RDMA fabrics, cluster schedulers, and MaaS platforms.
+- **Platform Selection Trade-offs**: Quantitative comparisons across isolation boundaries (MicroVM vs. Hypervisor Pod VM vs. container), cold-start & UFFD snapshot restore latency (`80 ms / 108 ms` vs. `1,420 ms`), throughput predictability (reserved PTU vs. Serverless PAYG spillover vs. self-hosted AKS KAITO), and monthly TCO.
 
-![Azure AI Agent Infra 6-Layer Reference Architecture](workshops/azure-agent-infra/assets/svg/01-six-layer-architecture.svg)
-
-![100K Concurrent Sandbox Topology & 5-Step Execution Flow](workshops/azure-agent-infra/assets/svg/08-100k-sandbox-topology.svg)
-
-Full-stack AI Infrastructure architecture evaluations, runtime benchmarks, and visual atlases for **Principal AI Infrastructure Architects**, covering **AI Silicon (GPU / PPU / ASIC / CPU / Switch / SmartNIC)**, **Scale-Up & Scale-Out Cluster Networking (RDMA / RoCE / CXL / ICN)**, **Heterogeneous Scheduling**, and **Enterprise AI Agent Runtimes & Hardware-Virtualized Sandbox Infrastructure (`Azure AI Agent Infra`)**.
+![Azure AI Agent Infra Six-Layer Reference Architecture](workshops/azure-agent-infra/assets/01-azure-agent-infra-4layer-panorama.svg)
 
 ---
 
-## 📚 Research & Architecture Evaluations (Bilingual EN / 中文)
+## 🧭 Four Core Deliverable Pillars (100% Bilingual `en` / `zh-CN`)
 
-| Research Deliverable | Core Scope | Visual Assets (`SVG` + `H5` + `7-Card`) | Evidence Ledger | Review Log | Updated |
-|---|---|---|---|---|---|
-| **[Azure AI Agent Infrastructure Playbook (English Edition)](workshops/azure-agent-infra/README.en.md)** · **[中文版](workshops/azure-agent-infra/README.md)** | **L1–L6 Full-Stack Reference** (MAF · GitHub Copilot SDK · LangGraph · OpenClaw · Hermes · MCP/A2A) · **6-Tier Runtime Spectrum** (Foundry Hosted Agents · Durable Functions · ACA Dynamic Sessions · ACA Sandboxes Preview · AKS + Kata `AKSClaw` · E2B on Azure VMSS `Standard_D96as_v7` `80ms/108ms`) · **Storage & State** (Azure Files NFS v4.1 + Managed Lustre + Blob FUSE2 + HorizonDB + Firecracker UFFD/NBD Snapshot) · **Zero-Trust Control Plane** (Entra Agent ID · Unified AI Gateway · `169.254.169.254` IMDS Block · 5 Hard Boundaries) · **316 Chapters, 309 IaC Blueprints & 308 Physics Simulators (`317/317` Unit Tests Passing)** | 8 Verified SVG Diagrams + [7-Card Benchmark Report (EN)](workshops/azure-agent-infra/test-report.en.md) / [中文](workshops/azure-agent-infra/test-report.md) + [4-Page Bilingual H5 Suite](workshops/azure-agent-infra/index.html) + [316-Chapter Archive](workshops/azure-agent-infra/docs/full-monograph-archive.en.md) + [Live Demo](workshops/azure-agent-infra/demo/run_live_demo.py) | [`evidence.json`](workshops/azure-agent-infra/evidence.json) | [`review.md`](workshops/azure-agent-infra/review.md) | 2026-10-28 |
-| **[Alibaba Cloud AI Infra Full-Stack Evaluation](docs/alibaba-cloud-ai-infra/README.md)** | **L0 T-Head Silicon** (Hanguang 800, Zhenwu PPU, Yitian 710/750, ICN Switch) · **L1 Panjiu AL128 Supernode, CIPU & HPN 7.0 Dual-Plane RDMA** · **L2 PAI Platform** · **L3 Model Studio (Bailian)** | 6 SVG Diagrams + 2 Mermaid Decision Trees | [`evidence.json`](docs/alibaba-cloud-ai-infra/evidence.json) | [`review.md`](docs/alibaba-cloud-ai-infra/review.md) | 2026-10-14 |
+| Pillar | Solution Architect Scope & Key Questions Answered | Scale & Assets | Entrypoints (English / 中文) |
+|---|---|---|---|
+| **1. Azure AI & Agent Architecture Selection Library** | **8 Enterprise SA Domains**: **Sandboxes & Execution** (`ACA Dynamic Sessions` / `Foundry Code Interpreter` / `AKS Kata` / `E2B`), **Model Hosting & GPU** (`PTU` / `Serverless GPU` / `AKS KAITO`), **AI Gateway & Protocols** (`APIM Token Quotas` / `A2A + Remote MCP`), **Zero-Trust Identity & Network** (`Entra Agent ID OBO` / `Private Link`), **State Stores** (`Cosmos DB` / `Managed Redis` / `PostgreSQL pgvector`), **Enterprise Grounding** (`AI Search Hybrid RAG` / `Fabric IQ`), **Observability & FinOps**, and **Cross-Stack Orchestration** (`Copilot Studio` / `Power Automate` / `Playwright MCP`) | **84 bilingual Selection FAQs** (`168` docs) + **8 SVG** diagrams | [🇬🇧 EN Catalog](docs/azure-agent-infra/README.en.md) · [🇨🇳 中文选型总览](docs/azure-agent-infra/README.md) |
+| **2. Azure AI Agent Infra Full-Stack Playbook & Toolkit** | **28-Chapter Architecture Playbook** + **23 Production IaC Blueprints** (Bicep / AKS Kata `RuntimeClass` / Cilium IMDS block / Nomad / APIM AI Gateway XML / OTEL Collector) + **Deterministic Capacity & Cost Sizer** (`agent_infra_sizer.py`) + **7-Card 4:5 Benchmark Report** + **Interactive H5 Workbench** | 28 chapters · 23 blueprints · 16 SVGs · 33 unit tests | [🇬🇧 EN Playbook](workshops/azure-agent-infra/README.en.md) · [🇨🇳 中文版](workshops/azure-agent-infra/README.md) · [📊 7-Card Report](workshops/azure-agent-infra/test-report.en.md) |
+| **3. Alibaba Cloud Full-Stack AI Infra Evaluation (Cross-Cloud Benchmark)** | End-to-end architectural teardown of **L0 T-Head Silicon** (`Zhenwu 810E PPU` / `Yitian CPU` / `ICN Switch` / `Panmai SmartNIC` / `Zhenyue SSD`), **L1 Panjiu AL128 Supernode & HPN 7.0 Dual-Plane Fabric** (`Solar-RDMA` / `ACCL` / `CPFS`), **L2 PAI Tidal Preemption & PD Disaggregation**, and **L3 Bailian MaaS** (`Token / PTU / DTU / MU`), mapped layer-by-layer against **Azure, AWS, and GCP** | L0–L3 Deep-Dive + **6 SVG** architecture diagrams | [🇬🇧 EN Evaluation](docs/alibaba-cloud-ai-infra/README.en.md) · [🇨🇳 中文深度测评](docs/alibaba-cloud-ai-infra/README.md) |
+| **4. AI Infrastructure Architecture Video Explainers** | Concise 4-act bilingual technical storyboards for engineering & executive briefings: **EP03** (*FlashInfer 0.6 Block-Sparse Kernels & Mooncake RDMA PD Disaggregation*) and **EP05** (*Zero-Trust Hardware Sandboxes & APIM AI Gateway for Enterprise Agents*) | **2 bilingual episodes** (`EP03` · `EP05`) | [🇬🇧 Video Index](docs/video-explainers/README.en.md) · [🇨🇳 视频脚本目录](docs/video-explainers/README.md) |
 
 ---
 
-## 📊 Quick Links — Azure AI Agent Infrastructure Playbook
+## ⚡ Top Architecture Selection Trade-offs at a Glance
 
-- **Documentation (Bilingual)**: [English Playbook (`README.en.md`)](workshops/azure-agent-infra/README.en.md) · [中文 Playbook (`README.md`)](workshops/azure-agent-infra/README.md) · [Full 316-Chapter Archive (`docs/full-monograph-archive.md`)](workshops/azure-agent-infra/docs/full-monograph-archive.md) · [English 7-Card Report (`test-report.en.md`)](workshops/azure-agent-infra/test-report.en.md) · [中文 7-Card 报告 (`test-report.md`)](workshops/azure-agent-infra/test-report.md) · [Cycle #414 Deck (`benchmark-cards.en.html`)](workshops/azure-agent-infra/benchmark-cards.en.html) · [Cycle #414 Chinese Deck (`benchmark-cards.html`)](workshops/azure-agent-infra/benchmark-cards.html) · [Cycle #414 Workbench (`workbench-cycle-414.html`)](workshops/azure-agent-infra/workbench-cycle-414.html) · [Cycle #414 Daily Report](workshops/azure-agent-infra/daily-report-2026-11-14.en.md) · [Agent MCP/A2A Idempotency Key FAQ (EN)](workshops/azure-agent-infra/agent-mcp-a2a-idempotency-key-selection-faq.en.md) · [Agent MCP/A2A 幂等键策略选型 FAQ（中文）](workshops/azure-agent-infra/agent-mcp-a2a-idempotency-key-selection-faq.md) · [CSP-Locked 7-Card HTML (`cards.html`)](workshops/azure-agent-infra/cards.html)
-- **Interactive Bilingual H5 Workbench (`EN / 中文`)**: [Playbook Atlas (`index.html`)](workshops/azure-agent-infra/index.html) · [Live Simulator (`demo.html`)](workshops/azure-agent-infra/demo.html) · [Decision Engine, 100K Sizer & 280 Simulators (`selector.html`)](workshops/azure-agent-infra/selector.html) · [281 Production Blueprints (`blueprints/`)](workshops/azure-agent-infra/blueprints)
+| Scenario | Primary Recommendation | Alternative / Evolution Path | Key Quantitative Decision Boundary | Deep-Dive Guide |
+|---|---|---|---|---|
+| **Untrusted Python / Shell Code Execution** | **ACA Dynamic Sessions** (managed Hyper-V warm pools) | **AKS Kata Containers** / **E2B on VMSS** | Choose Dynamic Sessions for zero-ops sub-second pools; choose AKS Kata or E2B when requiring custom RootFS, GPUs, or `100K` concurrent `108 ms` UFFD snapshot restores | [Sandbox Selection FAQ](docs/azure-agent-infra/aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.en.md) |
+| **Enterprise LLM & Open-Weight Model Hosting** | **Foundry PTU + PAYG Spillover** (strict P99 SLA) | **ACA Serverless GPU** / **AKS KAITO** | Reserve PTUs for steady `>60%` utilization; burst to PAYG or Serverless GPU for spiky custom models; adopt AKS KAITO for multi-node vLLM/SGLang kernel control | [GPU & Endpoint FAQ](docs/azure-agent-infra/aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.en.md) |
+| **Multi-Model AI Gateway & Remote MCP Tools** | **Azure API Management (AI Gateway)** | Direct SDK calls (single-team PoC only) | Centralize `llm-token-limit` quotas, semantic caching, automatic HTTP 429 PTU-to-PAYG failover, and MCP Streamable HTTP OAuth validation in APIM | [APIM A2A+MCP FAQ](docs/azure-agent-infra/a2a-mcp-federation-apim-istio-ambient-faq.en.md) |
+| **Downstream Enterprise Data Authorization** | **Microsoft Entra Agent ID + OBO Delegation** | Managed Identity (headless background jobs only) | Never share app-wide secrets when acting for human users; enforce On-Behalf-Of (OBO) tokens to preserve SharePoint/SQL row-level ACLs and per-user audit trails | [Entra Agent ID OBO FAQ](docs/azure-agent-infra/entra-agent-id-workload-federation-cae-jit-pim-faq.en.md) |
+| **Multi-Turn Memory & Durable Checkpoints** | **Cosmos DB** (durable state) + **Managed Redis** (hot locks) | **Azure Database for PostgreSQL (`pgvector`)** | Pair Cosmos DB multi-region JSON checkpoints with Redis sub-ms idempotency locks; choose PostgreSQL when ACID relational joins with business tables dominate | [Agent State Store FAQ](docs/azure-agent-infra/cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.en.md) |
+| **Business Process & Legacy UI Automation** | **Copilot Studio** + **Power Automate** (API connectors) | **Playwright MCP** (isolated browser sandbox) | Always prefer governed API connectors; reserve sandboxed Playwright MCP strictly for legacy web apps without APIs, gated by Human-in-the-Loop (HITL) write approval | [Automation Selection FAQ](docs/azure-agent-infra/copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.en.md) |
 
+---
 
+## 🏗️ Featured Reference Architecture Diagrams
+
+### 1. 100K Concurrent Sandbox Production Topology (`Standard_D96as_v7` · `~$148K/mo` Optimized TCO)
+![100K Concurrent Sandbox Production Topology](workshops/azure-agent-infra/assets/05-e2b-on-azure-vmss-reference-architecture.svg)
+
+### 2. Azure Six-Tier Agent Runtime Spectrum (Isolation · State Durability · Restore Latency)
+![Azure Six-Tier Agent Runtime Spectrum](docs/azure-agent-infra/assets/02-runtime-spectrum-6tier-matrix.svg)
+
+### 3. Alibaba Cloud L0–L3 Full-Stack Vertical Integration (Cross-Cloud Reference)
+![Alibaba Cloud L0-L3 Stack Overview](docs/alibaba-cloud-ai-infra/assets/01-tong-yun-ge-architecture.svg)
+
+---
+
+## 🗂️ Repository Structure
+
+```text
+ai-infra-lab/
+├── README.md / README.en.md          # Bilingual repository overview & quick-decision trade-off matrix
+├── docs/
+│   ├── README.md / README.en.md      # Bilingual documentation hub index
+│   ├── azure-agent-infra/            # 84 Enterprise Azure AI & Agent Selection FAQs (168 bilingual docs + 8 SVGs)
+│   ├── alibaba-cloud-ai-infra/       # Alibaba Cloud L0–L3 AI Infra evaluation & cross-cloud mapping (bilingual + 6 SVGs)
+│   └── video-explainers/             # Bilingual 4-act architecture explainer storyboards (EP03 & EP05)
+└── workshops/
+    └── azure-agent-infra/            # 28-Chapter Playbook, 23 IaC blueprints, deterministic sizer, H5 workbench & 7-Card report
+        ├── blueprints/               # 23 production Bicep / AKS Kata / Cilium / Nomad / APIM / OTEL templates
+        ├── simulator/                # Deterministic capacity & TCO sizer (agent_infra_sizer.py) + 33 unit tests
+        ├── demo/                     # Zero-dependency end-to-end local simulation harness (run_live_demo.py)
+        └── index.html / cards.html   # Self-contained offline H5 workbench & 7-Card 4:5 visual benchmark report
+```
+
+---
+
+## 🧪 Quick Local Verification
+
+All sizing math, JSON report contracts, SVG XML schemas, Content-Security-Policy headers, and relative Markdown links are verified using Python's standard library (zero external dependencies):
+
+```powershell
+# 1. Verify deterministic capacity & TCO outputs match sealed benchmark artifacts
+python workshops/azure-agent-infra/simulator/agent_infra_sizer.py --check
+
+# 2. Run all 33 unit tests covering sizing math, CSV parity, SVG validity & link integrity
+python workshops/azure-agent-infra/simulator/test_agent_infra_sizer.py
+
+# 3. Run the end-to-end interactive sizing & runtime selection self-test
+python workshops/azure-agent-infra/demo/run_live_demo.py --self-test
+```

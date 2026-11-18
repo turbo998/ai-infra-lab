@@ -1,97 +1,184 @@
-# Azure AI Agent Infrastructure Playbook (Compact)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (84 Bilingual FAQs)
 
-> 🌐 **Language Switch**: **[🇨🇳 Chinese (`README.md`)](README.md)** | **🇬🇧 English (`README.en.md`)**  
-> 🔎 **Cycle #1511 highlights**: [benchmark-cards.en.html](benchmark-cards.en.html) · [benchmark-cards.html](benchmark-cards.html) · [workbench-cycle-1511.html](workbench-cycle-1511.html) · [daily-report-2026-11-12.en.md](daily-report-2026-11-12.en.md)
+> 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
----
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **84 structured architecture selection guides and trade-off FAQs** (`168` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
-## 1) Cycle #1511 release summary (2026-11-12)
-
-- **Scope**: Cloud-native Agent Infra (Runtime/Sandbox, AI Gateway, MCP/A2A orchestration and observability)
-- **Evidence policy**: 2026 official docs/changelogs/releases first
-- **Trace labels**: `measured` / `synthetic` / `anonymized_reported`
-- **Deliverables**:
-  1. Bilingual 7-card 4:5 visual decks (CSP self-contained)
-  2. Browser-runnable benchmark workbench
-  3. Reproducible benchmark evidence bundle (JSON/CSV)
-  4. Bilingual daily reports and monograph addendum
+Every guide follows a consistent **Solution Architect Deliverable Standard**:
+- **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
+- **Application Scenarios & Multi-Dimensional Trade-off Matrix**: Side-by-side comparison across isolation boundaries, cold-start/P95 latency, SLA, identity delegation, operational overhead, and TCO;
+- **Reference Architecture & Production Snippets**: Mermaid topology diagrams, Bicep / APIM XML policies / KQL telemetry queries, and Day-0/Day-1/Day-2 readiness checklists.
 
 ---
 
-## 2) Core navigation (existing entries preserved)
+## 1. Top 10 Solution Architect Quick-Decision Matrix
 
-| Asset | Purpose | Link |
+| Enterprise Question / Workload Scenario | Recommended Golden-Path Architecture | Deep-Dive Selection Guide |
 |---|---|---|
-| Playbook hub | Architecture and workflow entry | [`index.html`](index.html) |
-| Dual-track demo | AKSClaw × E2B simulation | [`demo.html`](demo.html) |
-| Decision + sizing | Runtime/storage selection and capacity | [`selector.html`](selector.html) |
-| Historical 7-card deck | Existing visual report entry | [`cards.html`](cards.html) |
-| **Cycle #1511 deck (EN)** | New archetype-aligned deck | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
-| **Cycle #1511 deck (ZH)** | New archetype-aligned deck | [`benchmark-cards.html`](benchmark-cards.html) |
-| **Cycle #1511 workbench** | Interactive benchmark surface | [`workbench-cycle-1511.html`](workbench-cycle-1511.html) |
+| **Where should untrusted LLM-generated Python/Shell code execute?** | **Foundry Code Interpreter** for turnkey assistant files; **ACA Dynamic Sessions** for `<250ms` Hyper-V zero-egress sandboxes; **AKS Kata Pod VM** for stateful multi-tenant workspaces | [EN](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.en.md) · [中文](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.md) |
+| **How should custom fine-tuned or open-weight models be hosted?** | **ACA Serverless GPU** for bursty/scale-to-zero workloads; **Foundry Managed Endpoints** for turnkey SLA; **AKS + KAITO / vLLM** for high-concurrency prefix-cached fleets | [EN](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.en.md) · [中文](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.md) |
+| **When should we buy Provisioned Throughput (PTU) vs. Serverless MaaS?** | Size steady-state baseline on **Regional/DataZone PTU**, overflow bursts via **APIM to Standard PAYGO**, and offload async pipelines to **50%-off Batch API** | [EN](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.en.md) · [中文](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.md) |
+| **How do we automate legacy UI apps without APIs?** | **Playwright MCP** for modern web DOM; **Power Automate Desktop RPA** for deterministic Win32/SAP clients; **Computer-Use Agent (CUA)** for dynamic exception screens | [EN](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.en.md) · [中文](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.md) |
+| **How do we govern cross-org multi-agent A2A & Remote MCP tools?** | Centralize discovery in **Azure API Center**, enforce schema pinning & **Entra OAuth 2.1 OBO** at **APIM AI Gateway**, and decouple async events via **Event Grid** | [EN](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.en.md) · [中文](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.md) |
+| **How do agents enforce end-user document & row-level permissions?** | Combine **Entra Agent ID + Graph OBO + AI Search ACL Security Trimming + PostgreSQL RLS**, eliminating shared privileged service principals | [EN](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.en.md) · [中文](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.md) |
+| **Cosmos DB vs. Managed Redis vs. PostgreSQL (`pgvector`) for agent state?** | **Azure Managed Redis** for sub-ms locks & semantic cache; **Cosmos DB DiskANN** for global active-active threads; **PostgreSQL (`pgvector`)** for ACID HTAP state | [EN](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.en.md) · [中文](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.md) |
+| **AI Search Hybrid RAG vs. GraphRAG vs. Fabric IQ Ontology?** | **Azure AI Search (Hybrid + Semantic Ranker + Agentic Retrieval)** for 90% of enterprise RAG; **Fabric IQ** for governed KPIs/ontology; **GraphRAG** for multi-hop discovery | [EN](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.en.md) · [中文](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.md) |
+| **How should teams modernize AutoGen, Semantic Kernel, or LangGraph?** | Converge onto **Microsoft Agent Framework (MAF)** with typed graph workflows, durable checkpointing, and standardized MCP tool contracts | [EN](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.en.md) · [中文](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.md) |
+| **How do we cut LLM token spend and establish LLMOps gates?** | Layer **AOAI Prompt Caching + APIM Semantic Cache + SLM Tiered Routing**, gated by **Foundry Evaluation + Application Insights OpenTelemetry** | [EN](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) · [中文](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) |
 
 ---
 
-## 3) Reproducible evidence bundle
+## 2. Reference Architecture Visual Atlas (8 Verified SVG Diagrams)
 
-- Canonical payload: [`evidence/cycle-1445-benchmark.json`](evidence/cycle-1445-benchmark.json)
-- Source ledger: [`evidence/cycle-1445-sources.json`](evidence/cycle-1445-sources.json)
-- Metric CSV files:
-  - [`cycle-1445-latency.csv`](evidence/cycle-1445-latency.csv)
-  - [`cycle-1445-throughput.csv`](evidence/cycle-1445-throughput.csv)
-  - [`cycle-1445-policy.csv`](evidence/cycle-1445-policy.csv)
-  - [`cycle-1445-cost.csv`](evidence/cycle-1445-cost.csv)
-
----
-
-## 4) Reports and visuals
-
-- Daily report (EN): [`daily-report-2026-11-12.en.md`](daily-report-2026-11-12.en.md)
-- Daily report (ZH): [`daily-report-2026-11-12.md`](daily-report-2026-11-12.md)
-- One-page SVG: [`assets/34-cycle-1445-daily-breakthroughs.svg`](assets/34-cycle-1445-daily-breakthroughs.svg)
-- Monograph addendum (EN): [`docs/full-monograph-cycle-1445.en.md`](docs/full-monograph-cycle-1445.en.md)
-- Monograph addendum (ZH): [`docs/full-monograph-cycle-1445.md`](docs/full-monograph-cycle-1445.md)
-- Selection FAQ (EN, APIM MCP Drain Threshold): [`agent-apim-mcp-drain-threshold-selection-faq.en.md`](agent-apim-mcp-drain-threshold-selection-faq.en.md)
-- Selection FAQ (ZH, APIM MCP Drain Threshold): [`agent-apim-mcp-drain-threshold-selection-faq.md`](agent-apim-mcp-drain-threshold-selection-faq.md)
-- Full archive (EN): [`docs/full-monograph-archive.en.md`](docs/full-monograph-archive.en.md)
-- Full archive (ZH): [`docs/full-monograph-archive.md`](docs/full-monograph-archive.md)
+1. [Azure AI Agent Infra 4-Layer Reference Architecture Panorama (Build · Run · Ground · Govern)](assets/01-azure-agent-infra-4layer-panorama.svg)
+2. [Azure 6-Tier Agent Runtime Responsibility, Isolation & Restore Latency Matrix](assets/02-runtime-spectrum-6tier-matrix.svg)
+3. [Two-Stage Architecture Selection Decision Tree & State Store Pairing](assets/03-scenario-decision-tree-and-routing.svg)
+4. [AKSClaw Multi-Tenant Kubernetes Agent Platform (6 Core Pillars & 5 Platform Hard Boundaries)](assets/04-aksclaw-multi-tenant-k8s-architecture.svg)
+5. [E2B on Azure VMSS Production Reference Architecture (100K+ Concurrent Firecracker Sandboxes)](assets/05-e2b-on-azure-vmss-reference-architecture.svg)
+6. [Firecracker MicroVM Internals (UFFD + NBD) & Azure v6 vs. v7 Empirical Startup Benchmarks](assets/06-e2b-microvm-internals-and-vm-benchmark.svg)
+7. [Multi-Agent Collaborative Workflow (MAF × Copilot SDK × Durable) & Checkpointer Matrix](assets/07-multi-agent-workflow-and-state-checkpoint.svg)
+8. [Azure Agent Infra Field Playbook: 6 Priority Scenarios, 4-Pillar Qualification & 5-Step Delivery](assets/08-field-playbook-5step-execution-flow.svg)
 
 ---
 
-## 5) Validation commands
+## 3. Complete 84 Architecture Selection Guides by Domain (8 SA Domains)
 
-```bash
-python workshops/azure-agent-infra/simulator/cycle_1271_pipeline.py --write
-python workshops/azure-agent-infra/simulator/cycle_1271_pipeline.py --check
-python workshops/azure-agent-infra/simulator/agent_infra_sizer.py --check
-python -m unittest workshops/azure-agent-infra/simulator/test_agent_infra_sizer.py
-```
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
----
+> Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
-## 6) Build and runtime scripts
+| # | Architecture Selection Topic (English) | Bilingual Editions |
+|---:|---|---|
+| 01 | [Azure AI Foundry Agent Service vs ACA Dynamic Sessions vs AKS vs Azure Functions: Enterprise Agent Runtime Hosting Selection and End-to-End Delivery Guide](foundry-aca-aks-functions-enterprise-hosting-selection-faq.en.md) | [🇬🇧 EN](foundry-aca-aks-functions-enterprise-hosting-selection-faq.en.md) · [🇨🇳 中文](foundry-aca-aks-functions-enterprise-hosting-selection-faq.md) |
+| 02 | [Foundry Agent Service vs ACA Dynamic Sessions vs AKS vs Functions: Enterprise Agent Runtime Hosting Selection FAQ](foundry-agent-service-vs-aca-vs-aks-vs-functions-runtime-hosting-selection-faq.en.md) | [🇬🇧 EN](foundry-agent-service-vs-aca-vs-aks-vs-functions-runtime-hosting-selection-faq.en.md) · [🇨🇳 中文](foundry-agent-service-vs-aca-vs-aks-vs-functions-runtime-hosting-selection-faq.md) |
+| 03 | [ACA Dynamic Sessions vs Foundry Code Interpreter vs AKS Sandbox: Enterprise Code-Execution Sandbox Selection FAQ](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.en.md) | [🇬🇧 EN](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.en.md) · [🇨🇳 中文](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.md) |
+| 04 | [AKS SpinKube / Wasmtime (WASI 0.2) vs Kata Containers vs ACA Hyper-V Dynamic Sessions Three-Tier Agent Tool Sandbox Architecture](spinkube-wasmtime-kata-aca-hyperv-sandbox-faq.en.md) | [🇬🇧 EN](spinkube-wasmtime-kata-aca-hyperv-sandbox-faq.en.md) · [🇨🇳 中文](spinkube-wasmtime-kata-aca-hyperv-sandbox-faq.md) |
+| 05 | [Azure Virtual Desktop (AVD) Ephemeral Pooled Hosts vs Windows 365 Enterprise Cloud PC vs AKS KubeVirt/Playwright Containers — Enterprise GUI Computer-Use Agent (CUA) Fleet Isolation, Frame-Capture Bandwidth & Intune Zero-Trust Selection Guide](avd-w365-enterprise-gui-cua-fleet-isolation-rdp-intune-faq.en.md) | [🇬🇧 EN](avd-w365-enterprise-gui-cua-fleet-isolation-rdp-intune-faq.en.md) · [🇨🇳 中文](avd-w365-enterprise-gui-cua-fleet-isolation-rdp-intune-faq.md) |
+| 06 | [Copilot Studio Computer Use vs PAD RPA vs Playwright MCP vs Strangler Pattern: Legacy UI Automation FAQ](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.en.md) | [🇬🇧 EN](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.en.md) · [🇨🇳 中文](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.md) |
+| 07 | [Azure Capacity Reservation Groups (CRG) + AKS Spot Node Pools + Compute Fleet Multi-SKU Fallback for GPU & Sandbox Agent Clusters](crg-aks-spot-compute-fleet-fallback-faq.en.md) | [🇬🇧 EN](crg-aks-spot-compute-fleet-fallback-faq.en.md) · [🇨🇳 中文](crg-aks-spot-compute-fleet-fallback-faq.md) |
+| 08 | [Enterprise Agent Delivery Blueprint: Framework, Runtime, State/Memory, RAG, and Multi-Tenant Platform Governance Selection](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.en.md) | [🇬🇧 EN](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.en.md) · [🇨🇳 中文](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.md) |
 
-- Generator pipeline: [`simulator/cycle_1271_pipeline.py`](simulator/cycle_1271_pipeline.py)
-- Runtime sizer: [`simulator/agent_infra_sizer.py`](simulator/agent_infra_sizer.py)
-- Test suite: [`simulator/test_agent_infra_sizer.py`](simulator/test_agent_infra_sizer.py)
-- Workshop runbook: [`workshop-runbook.md`](workshop-runbook.md)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (8 Guides)
 
+> Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
+| # | Architecture Selection Topic (English) | Bilingual Editions |
+|---:|---|---|
+| 09 | [Foundry/AOAI PTU vs Serverless MaaS vs AKS KAITO: Enterprise Model-Serving Selection FAQ](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.en.md) | [🇬🇧 EN](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.en.md) · [🇨🇳 中文](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.md) |
+| 10 | [ACA Serverless GPU vs Foundry Managed Endpoints vs AKS+KAITO: Enterprise Custom Model Hosting FAQ](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.en.md) | [🇬🇧 EN](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.en.md) · [🇨🇳 中文](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.md) |
+| 11 | [Azure OpenAI Nano/Mini vs Foundry Phi-4 SLM vs AKS KAITO: Enterprise Tiered Model Routing Selection FAQ](aoai-nano-mini-vs-foundry-phi4-slm-vs-aks-kaito-vs-store-edge-tiered-routing-selection-faq.en.md) | [🇬🇧 EN](aoai-nano-mini-vs-foundry-phi4-slm-vs-aks-kaito-vs-store-edge-tiered-routing-selection-faq.en.md) · [🇨🇳 中文](aoai-nano-mini-vs-foundry-phi4-slm-vs-aks-kaito-vs-store-edge-tiered-routing-selection-faq.md) |
+| 12 | [Azure OpenAI PTU + DataZone/Global Standard + 50%-Off Batch API Three-Tier Agent Inference Offloading & Deadline Escalation Plane](aoai-ptu-datazone-batch-offloading-deadline-escalation-faq.en.md) | [🇬🇧 EN](aoai-ptu-datazone-batch-offloading-deadline-escalation-faq.en.md) · [🇨🇳 中文](aoai-ptu-datazone-batch-offloading-deadline-escalation-faq.md) |
+| 13 | [Prompt+Structured Output vs RAG vs SFT vs RFT: Enterprise Model Customization and Domain Adaptation Selection FAQ](prompt-structured-output-vs-rag-vs-aoai-finetuning-sft-rft-selection-faq.en.md) | [🇬🇧 EN](prompt-structured-output-vs-rag-vs-aoai-finetuning-sft-rft-selection-faq.en.md) · [🇨🇳 中文](prompt-structured-output-vs-rag-vs-aoai-finetuning-sft-rft-selection-faq.md) |
+| 14 | [Azure AI Foundry Fine-Tuning vs AKS vLLM Multi-LoRA Dynamic Adapter Serving — GPU VRAM Slot Packing, Tenant Adapter Hot-Swap Latency & SGMV Kernel Throughput Selection Guide](foundry-ft-vllm-multilora-vram-slot-packing-hotswap-faq.en.md) | [🇬🇧 EN](foundry-ft-vllm-multilora-vram-slot-packing-hotswap-faq.en.md) · [🇨🇳 中文](foundry-ft-vllm-multilora-vram-slot-packing-hotswap-faq.md) |
+| 15 | [AKS GPU Fractional Sharing for Agent Auxiliary Models (Reranker / Guardrail / Vision-OCR / Small Router) — NVIDIA MIG vs CUDA MPS vs Time-Slicing vs Kubernetes Dynamic Resource Allocation (DRA) Selection Guide](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.en.md) | [🇬🇧 EN](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.en.md) · [🇨🇳 中文](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.md) |
+| 16 | [Azure Managed Lustre (AMLFS) vs ANF Ultra vs BlobFuse2 Storage Plane for Agentic RL / GRPO Post-Training & Trajectory Checkpoint Hydration](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.en.md) | [🇬🇧 EN](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.en.md) · [🇨🇳 中文](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.md) |
 
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (10 Guides)
 
+> Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
+| # | Architecture Selection Topic (English) | Bilingual Editions |
+|---:|---|---|
+| 17 | [Azure API Management (APIM AI Gateway) vs Azure AI Foundry Model Router vs LiteLLM / Self-Hosted Open-Source Gateway vs Direct SDK: Enterprise Multi-Model Routing, PTU+PAYGO Overflow, and FinOps Selection FAQ](apim-ai-gateway-vs-litellm-vs-foundry-router-model-governance-selection-faq.en.md) | [🇬🇧 EN](apim-ai-gateway-vs-litellm-vs-foundry-router-model-governance-selection-faq.en.md) · [🇨🇳 中文](apim-ai-gateway-vs-litellm-vs-foundry-router-model-governance-selection-faq.md) |
+| 18 | [Azure APIM Multi-Cloud AI Gateway across Azure Foundry, AWS Bedrock & Google Vertex AI: Architecture Selection FAQ](apim-multi-cloud-aws-bedrock-gcp-vertex-azure-foundry-ai-gateway-selection-faq.en.md) | [🇬🇧 EN](apim-multi-cloud-aws-bedrock-gcp-vertex-azure-foundry-ai-gateway-selection-faq.en.md) · [🇨🇳 中文](apim-multi-cloud-aws-bedrock-gcp-vertex-azure-foundry-ai-gateway-selection-faq.md) |
+| 19 | [Remote MCP on APIM vs OpenAPI Tools vs Logic Apps Agent Actions vs Power Platform Connectors: Enterprise Agent Tool Integration and Core-System Connectivity Selection FAQ](mcp-on-apim-vs-openapi-tools-vs-logic-apps-vs-power-connectors-selection-faq.en.md) | [🇬🇧 EN](mcp-on-apim-vs-openapi-tools-vs-logic-apps-vs-power-connectors-selection-faq.en.md) · [🇨🇳 中文](mcp-on-apim-vs-openapi-tools-vs-logic-apps-vs-power-connectors-selection-faq.md) |
+| 20 | [API Center+APIM vs Foundry Connected Tools vs Custom MCP Registry: Enterprise Tool-Sprawl Governance Selection FAQ](apim-mcp-registry-api-center-vs-custom-tool-gateway-enterprise-agent-tool-sprawl-selection-faq.en.md) | [🇬🇧 EN](apim-mcp-registry-api-center-vs-custom-tool-gateway-enterprise-agent-tool-sprawl-selection-faq.en.md) · [🇨🇳 中文](apim-mcp-registry-api-center-vs-custom-tool-gateway-enterprise-agent-tool-sprawl-selection-faq.md) |
+| 21 | [Azure API Center + APIM Remote MCP Server Registry, Tool-Poisoning Schema Pinning & Entra OAuth 2.1 OBO Delegation Plane](apicenter-apim-remote-mcp-obo-schema-pinning-faq.en.md) | [🇬🇧 EN](apicenter-apim-remote-mcp-obo-schema-pinning-faq.en.md) · [🇨🇳 中文](apicenter-apim-remote-mcp-obo-schema-pinning-faq.md) |
+| 22 | [Agent-to-Agent (A2A) + MCP Cross-Domain Federation on Azure APIM & AKS Istio Ambient mTLS Service Mesh](a2a-mcp-federation-apim-istio-ambient-faq.en.md) | [🇬🇧 EN](a2a-mcp-federation-apim-istio-ambient-faq.en.md) · [🇨🇳 中文](a2a-mcp-federation-apim-istio-ambient-faq.md) |
+| 23 | [APIM A2A Protocol Gateway vs Foundry Connected Agents vs Event Grid: Cross-Organization Multi-Agent Collaboration Selection FAQ](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.en.md) | [🇬🇧 EN](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.en.md) · [🇨🇳 中文](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.md) |
+| 24 | [APIM AI Gateway Weighted Fair Queuing + Token Bucket for multi-tenant agent fairness and SLO governance](apim-wfq-token-bucket-tenant-fairness-slo-faq.en.md) | [🇬🇧 EN](apim-wfq-token-bucket-tenant-fairness-slo-faq.en.md) · [🇨🇳 中文](apim-wfq-token-bucket-tenant-fairness-slo-faq.md) |
+| 25 | [Azure Front Door Premium (WAF + Bot Manager 1.1 + Private Link Origin) + APIM AI Gateway for Denial-of-Wallet token-drain defense and long-lived SSE](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.en.md) | [🇬🇧 EN](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.en.md) · [🇨🇳 中文](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.md) |
+| 26 | [Azure Web PubSub / SignalR Service vs Direct AKS/ACA Envoy WebSocket Multiplexing for Real-Time Agent Streaming & Human-in-the-Loop Approval Gateways](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.en.md) | [🇬🇧 EN](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.en.md) · [🇨🇳 中文](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.md) |
 
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (18 Guides)
 
+> Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
+| # | Architecture Selection Topic (English) | Bilingual Editions |
+|---:|---|---|
+| 27 | [Azure Cosmos DB vs Azure Managed Redis vs PostgreSQL (pgvector) vs Blob Storage: Enterprise Agent State and Memory Tiering Selection FAQ](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.en.md) | [🇬🇧 EN](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.en.md) · [🇨🇳 中文](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.md) |
+| 28 | [Azure SQL Hyperscale Vector vs PostgreSQL pgvector vs Cosmos DiskANN vs Split Search: Transactional HTAP Agent Selection FAQ](azure-sql-hyperscale-vector-vs-cosmos-diskann-vs-postgres-pgvector-transactional-htap-agent-selection-faq.en.md) | [🇬🇧 EN](azure-sql-hyperscale-vector-vs-cosmos-diskann-vs-postgres-pgvector-transactional-htap-agent-selection-faq.en.md) · [🇨🇳 中文](azure-sql-hyperscale-vector-vs-cosmos-diskann-vs-postgres-pgvector-transactional-htap-agent-selection-faq.md) |
+| 29 | [Azure SQL Database Hyperscale Native Vector Index vs Cosmos DB DiskANN vs Azure Database for PostgreSQL (`pgvector` / `pgvectorscale`) — Enterprise HTAP Transactional + Episodic Agent Memory Selection Guide](sql-hyperscale-cosmos-pgvector-htap-agent-memory-faq.en.md) | [🇬🇧 EN](sql-hyperscale-cosmos-pgvector-htap-agent-memory-faq.en.md) · [🇨🇳 中文](sql-hyperscale-cosmos-pgvector-htap-agent-memory-faq.md) |
+| 30 | [Azure Managed Redis (Enterprise Active-Active & Flash NVMe) vs APIM Semantic Cache vs Cosmos DB Lease Store — Multi-Region Agent Semantic Caching, Distributed Tool-Locking & Cache-Poisoning Guardrails Selection Guide](redis-enterprise-activegeo-semantic-cache-session-locking-faq.en.md) | [🇬🇧 EN](redis-enterprise-activegeo-semantic-cache-session-locking-faq.en.md) · [🇨🇳 中文](redis-enterprise-activegeo-semantic-cache-session-locking-faq.md) |
+| 31 | [Azure AI Search Vector Cache + Multi-Tier Episodic Memory Serving for Agent Retrieval Plane (Hot/Warm/Cold Tiering)](azure-ai-search-vector-cache-memory-tiering-faq.en.md) | [🇬🇧 EN](azure-ai-search-vector-cache-memory-tiering-faq.en.md) · [🇨🇳 中文](azure-ai-search-vector-cache-memory-tiering-faq.md) |
+| 32 | [Azure AI Search (Agentic Retrieval + Hybrid + Semantic Ranker) vs GraphRAG vs Microsoft Fabric OneLake/IQ vs Copilot Studio SharePoint Knowledge: Enterprise Knowledge, ACL Trimming, and Hybrid RAG Selection FAQ](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.en.md) | [🇬🇧 EN](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.en.md) · [🇨🇳 中文](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.md) |
+| 33 | [Microsoft Fabric IQ Ontology vs Foundry IQ Knowledge Engine vs Graph Database: Enterprise Semantic Layer Selection FAQ](fabric-iq-ontology-vs-foundry-iq-knowledge-vs-graphdb-enterprise-semantic-layer-selection-faq.en.md) | [🇬🇧 EN](fabric-iq-ontology-vs-foundry-iq-knowledge-vs-graphdb-enterprise-semantic-layer-selection-faq.en.md) · [🇨🇳 中文](fabric-iq-ontology-vs-foundry-iq-knowledge-vs-graphdb-enterprise-semantic-layer-selection-faq.md) |
+| 34 | [Cosmos Gremlin vs Fabric Graph vs GraphRAG: Enterprise Multi-hop Risk Reasoning Selection FAQ](azure-cosmos-gremlin-vs-fabric-graph-vs-ai-search-graphrag-supply-chain-risk-agent-selection-faq.en.md) | [🇬🇧 EN](azure-cosmos-gremlin-vs-fabric-graph-vs-ai-search-graphrag-supply-chain-risk-agent-selection-faq.en.md) · [🇨🇳 中文](azure-cosmos-gremlin-vs-fabric-graph-vs-ai-search-graphrag-supply-chain-risk-agent-selection-faq.md) |
+| 35 | [Cosmos DB Change Feed vs AI Search Pull Indexer vs Event Grid Push: Real-Time RAG Freshness Selection FAQ](cosmos-changefeed-vs-ai-search-pull-indexer-vs-eventgrid-push-realtime-rag-freshness-selection-faq.en.md) | [🇬🇧 EN](cosmos-changefeed-vs-ai-search-pull-indexer-vs-eventgrid-push-realtime-rag-freshness-selection-faq.en.md) · [🇨🇳 中文](cosmos-changefeed-vs-ai-search-pull-indexer-vs-eventgrid-push-realtime-rag-freshness-selection-faq.md) |
+| 36 | [Fabric Data Agent vs Power BI Semantic/DAX vs NL2SQL Warehouse: Enterprise Analytics Data-Plane Selection FAQ](fabric-data-agent-vs-powerbi-semantic-dax-vs-nl2sql-warehouse-analytics-selection-faq.en.md) | [🇬🇧 EN](fabric-data-agent-vs-powerbi-semantic-dax-vs-nl2sql-warehouse-analytics-selection-faq.en.md) · [🇨🇳 中文](fabric-data-agent-vs-powerbi-semantic-dax-vs-nl2sql-warehouse-analytics-selection-faq.md) |
+| 37 | [Microsoft Fabric OneLake Open Mirroring + Cosmos DB / PostgreSQL Zero-ETL Agent Trajectory & Episodic Memory Lakehouse Plane](fabric-onelake-zeroetl-agent-memory-lakehouse-faq.en.md) | [🇬🇧 EN](fabric-onelake-zeroetl-agent-memory-lakehouse-faq.en.md) · [🇨🇳 中文](fabric-onelake-zeroetl-agent-memory-lakehouse-faq.md) |
+| 38 | [Fabric OneLake Medallion vs Purview Lineage: Enterprise AI Knowledge Data Readiness and Garbage-In Prevention Selection FAQ](fabric-onelake-medallion-data-quality-vs-purview-lineage-garbage-in-prevention-ai-readiness-selection-faq.en.md) | [🇬🇧 EN](fabric-onelake-medallion-data-quality-vs-purview-lineage-garbage-in-prevention-ai-readiness-selection-faq.en.md) · [🇨🇳 中文](fabric-onelake-medallion-data-quality-vs-purview-lineage-garbage-in-prevention-ai-readiness-selection-faq.md) |
+| 39 | [Azure AI Content Understanding vs Azure AI Document Intelligence vs Azure OpenAI Vision (gpt-4.1/gpt-4o) vs Self-Hosted MinerU/Docling/Unstructured: Enterprise Multimodal IDP Selection FAQ](content-understanding-vs-doc-intelligence-vs-gpt4o-vision-vs-mineru-idp-selection-faq.en.md) | [🇬🇧 EN](content-understanding-vs-doc-intelligence-vs-gpt4o-vision-vs-mineru-idp-selection-faq.en.md) · [🇨🇳 中文](content-understanding-vs-doc-intelligence-vs-gpt4o-vision-vs-mineru-idp-selection-faq.md) |
+| 40 | [Document Intelligence Layout vs Foundry Content Understanding vs GPT-4o Vision: Enterprise IDP Selection FAQ](document-intelligence-layout-vs-foundry-content-understanding-vs-gpt4o-vision-idp-selection-faq.en.md) | [🇬🇧 EN](document-intelligence-layout-vs-foundry-content-understanding-vs-gpt4o-vision-idp-selection-faq.en.md) · [🇨🇳 中文](document-intelligence-layout-vs-foundry-content-understanding-vs-gpt4o-vision-idp-selection-faq.md) |
+| 41 | [Azure Document Intelligence v4 Markdown/Layout + Multimodal Vision-LLM Hybrid Ingestion Pipeline for Enterprise Agentic RAG](docint-v4-markdown-layout-multimodal-rag-ingestion-faq.en.md) | [🇬🇧 EN](docint-v4-markdown-layout-multimodal-rag-ingestion-faq.en.md) · [🇨🇳 中文](docint-v4-markdown-layout-multimodal-rag-ingestion-faq.md) |
+| 42 | [Azure AI Search Multimodal RAG vs Content Understanding Figure Captioning vs ColPali: Complex Technical Document Retrieval Selection FAQ](ai-search-multimodal-rag-vs-cu-figure-captioning-vs-colpali-engineering-drawing-selection-faq.en.md) | [🇬🇧 EN](ai-search-multimodal-rag-vs-cu-figure-captioning-vs-colpali-engineering-drawing-selection-faq.en.md) · [🇨🇳 中文](ai-search-multimodal-rag-vs-cu-figure-captioning-vs-colpali-engineering-drawing-selection-faq.md) |
+| 43 | [SharePoint Embedded vs Azure Blob Storage (CMK) vs Cosmos DB Artifact Store: Enterprise Agent Document Lifecycle Selection FAQ](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.en.md) | [🇬🇧 EN](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.en.md) · [🇨🇳 中文](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.md) |
+| 44 | [Azure Blob User Delegation SAS + Entra ABAC + WORM immutability for multi-tenant agent artifacts and sandbox file I/O](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.en.md) | [🇬🇧 EN](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.en.md) · [🇨🇳 中文](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.md) |
 
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (14 Guides)
 
+> Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
+| # | Architecture Selection Topic (English) | Bilingual Editions |
+|---:|---|---|
+| 45 | [Microsoft Agent Framework (SK + AutoGen convergence) vs LangGraph vs CrewAI vs Microsoft Copilot Studio: Enterprise Multi-Agent Orchestration Selection, Hybrid Collaboration Architecture, and Practical Evolution Guide](maf-vs-langgraph-vs-crewai-vs-copilot-studio-orchestration-selection-faq.en.md) | [🇬🇧 EN](maf-vs-langgraph-vs-crewai-vs-copilot-studio-orchestration-selection-faq.en.md) · [🇨🇳 中文](maf-vs-langgraph-vs-crewai-vs-copilot-studio-orchestration-selection-faq.md) |
+| 46 | [Migrating from AutoGen, Semantic Kernel & LangGraph to Microsoft Agent Framework: Enterprise Modernization Selection FAQ](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.en.md) | [🇬🇧 EN](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.en.md) · [🇨🇳 中文](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.md) |
+| 47 | [Durable Functions vs Logic Apps vs Temporal vs Service Bus Choreography: Long-Running Agent Workflow and HITL Engine Selection FAQ](durable-functions-vs-logic-apps-vs-temporal-vs-service-bus-long-running-agent-selection-faq.en.md) | [🇬🇧 EN](durable-functions-vs-logic-apps-vs-temporal-vs-service-bus-long-running-agent-selection-faq.en.md) · [🇨🇳 中文](durable-functions-vs-logic-apps-vs-temporal-vs-service-bus-long-running-agent-selection-faq.md) |
+| 48 | [Azure Logic Apps Standard + Enterprise Connectors (SAP / ServiceNow / Salesforce) vs Durable Functions vs Custom MCP Servers — Deterministic Agent Tool Guardrails, Hybrid VNet Integration & Saga Compensation Selection Guide](logicapps-standard-enterprise-connectors-saga-agent-tools-faq.en.md) | [🇬🇧 EN](logicapps-standard-enterprise-connectors-saga-agent-tools-faq.en.md) · [🇨🇳 中文](logicapps-standard-enterprise-connectors-saga-agent-tools-faq.md) |
+| 49 | [Event Hubs + Fabric Real-Time Intelligence vs Service Bus vs Event Grid: Proactive Event-Driven Streaming Agent Selection FAQ](eventhubs-fabric-rti-vs-servicebus-vs-eventgrid-proactive-streaming-agent-selection-faq.en.md) | [🇬🇧 EN](eventhubs-fabric-rti-vs-servicebus-vs-eventgrid-proactive-streaming-agent-selection-faq.en.md) · [🇨🇳 中文](eventhubs-fabric-rti-vs-servicebus-vs-eventgrid-proactive-streaming-agent-selection-faq.md) |
+| 50 | [Foundry Deep Research vs MAF Map-Reduce vs Agentic RAG: Enterprise Due-Diligence Selection FAQ](foundry-deep-research-agent-vs-multi-agent-parallel-map-reduce-vs-rag-enterprise-due-diligence-selection-faq.en.md) | [🇬🇧 EN](foundry-deep-research-agent-vs-multi-agent-parallel-map-reduce-vs-rag-enterprise-due-diligence-selection-faq.en.md) · [🇨🇳 中文](foundry-deep-research-agent-vs-multi-agent-parallel-map-reduce-vs-rag-enterprise-due-diligence-selection-faq.md) |
+| 51 | [M365 Copilot Agent vs Copilot Studio vs Teams Custom App vs AG-UI Web: Enterprise Agent Channel and UX Surface Selection FAQ](m365-copilot-agent-vs-copilot-studio-vs-teams-custom-app-vs-agui-web-channel-selection-faq.en.md) | [🇬🇧 EN](m365-copilot-agent-vs-copilot-studio-vs-teams-custom-app-vs-agui-web-channel-selection-faq.en.md) · [🇨🇳 中文](m365-copilot-agent-vs-copilot-studio-vs-teams-custom-app-vs-agui-web-channel-selection-faq.md) |
+| 52 | [Salesforce Agentforce vs ServiceNow Now Assist vs Dynamics 365 Copilot vs Custom Foundry: Enterprise CRM/ERP Agent Selection FAQ](salesforce-agentforce-vs-servicenow-nowassist-vs-dynamics-copilot-vs-custom-foundry-enterprise-crm-erp-selection-faq.en.md) | [🇬🇧 EN](salesforce-agentforce-vs-servicenow-nowassist-vs-dynamics-copilot-vs-custom-foundry-enterprise-crm-erp-selection-faq.en.md) · [🇨🇳 中文](salesforce-agentforce-vs-servicenow-nowassist-vs-dynamics-copilot-vs-custom-foundry-enterprise-crm-erp-selection-faq.md) |
+| 53 | [GitHub Copilot Coding Agent vs Custom Foundry SWE Agent vs Azure DevOps PR Review: Enterprise SDLC Agent Selection FAQ](github-copilot-coding-agent-vs-foundry-swe-agent-vs-ado-pr-review-enterprise-sdlc-agent-selection-faq.en.md) | [🇬🇧 EN](github-copilot-coding-agent-vs-foundry-swe-agent-vs-ado-pr-review-enterprise-sdlc-agent-selection-faq.en.md) · [🇨🇳 中文](github-copilot-coding-agent-vs-foundry-swe-agent-vs-ado-pr-review-enterprise-sdlc-agent-selection-faq.md) |
+| 54 | [Voice Live Realtime vs Speech Cascade vs AKS LiveKit vs Turnkey Contact Center: Enterprise Real-Time Voice Agent Selection FAQ](voice-live-realtime-vs-speech-cascade-vs-acs-vs-livekit-voice-agent-selection-faq.en.md) | [🇬🇧 EN](voice-live-realtime-vs-speech-cascade-vs-acs-vs-livekit-voice-agent-selection-faq.en.md) · [🇨🇳 中文](voice-live-realtime-vs-speech-cascade-vs-acs-vs-livekit-voice-agent-selection-faq.md) |
+| 55 | [ACS Call Automation + AOAI Realtime (WebRTC/WebSocket) enterprise voice-agent engineering](acs-aoai-realtime-webrtc-voice-agent-turn-bargein-faq.en.md) | [🇬🇧 EN](acs-aoai-realtime-webrtc-voice-agent-turn-bargein-faq.en.md) · [🇨🇳 中文](acs-aoai-realtime-webrtc-voice-agent-turn-bargein-faq.md) |
+| 56 | [Azure OpenAI Realtime WebRTC vs Teams Meeting Bot vs ACS Vision vs Live Avatar: Real-Time Multimodal Copilot Selection FAQ](aoai-realtime-webrtc-vs-teams-meeting-bot-vs-acs-vision-vs-live-avatar-copilot-selection-faq.en.md) | [🇬🇧 EN](aoai-realtime-webrtc-vs-teams-meeting-bot-vs-acs-vision-vs-live-avatar-copilot-selection-faq.en.md) · [🇨🇳 中文](aoai-realtime-webrtc-vs-teams-meeting-bot-vs-acs-vision-vs-live-avatar-copilot-selection-faq.md) |
+| 57 | [Azure Bot Omnichannel vs D365 Contact Center vs ACS Sidecar Assist: Enterprise Contact Center Selection FAQ](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.en.md) | [🇬🇧 EN](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.en.md) · [🇨🇳 中文](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.md) |
+| 58 | [Azure AI Translator vs AOAI LLM Localization vs Cross-Lingual RAG vs Sovereign Routing: Global Multilingual Agent Selection FAQ](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) | [🇬🇧 EN](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) · [🇨🇳 中文](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) |
 
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (11 Guides)
 
+> Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
+| # | Architecture Selection Topic (English) | Bilingual Editions |
+|---:|---|---|
+| 59 | [Microsoft Entra Agent ID + AKS OIDC workload federation + CAE + JIT/PIM identity plane](entra-agent-id-workload-federation-cae-jit-pim-faq.en.md) | [🇬🇧 EN](entra-agent-id-workload-federation-cae-jit-pim-faq.en.md) · [🇨🇳 中文](entra-agent-id-workload-federation-cae-jit-pim-faq.md) |
+| 60 | [Entra External ID CIAM vs B2B Guest vs OIDC Exchange Gateway: B2C and Partner Agent Identity Selection FAQ](entra-external-id-ciam-vs-b2b-guest-vs-apim-subscription-b2c-partner-agent-identity-selection-faq.en.md) | [🇬🇧 EN](entra-external-id-ciam-vs-b2b-guest-vs-apim-subscription-b2c-partner-agent-identity-selection-faq.en.md) · [🇨🇳 中文](entra-external-id-ciam-vs-b2b-guest-vs-apim-subscription-b2c-partner-agent-identity-selection-faq.md) |
+| 61 | [Microsoft Graph OBO vs PostgreSQL RLS vs AI Search Security Trimming vs OPA ABAC: Fine-Grained Agent Authorization Selection FAQ](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.en.md) | [🇬🇧 EN](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.en.md) · [🇨🇳 中文](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.md) |
+| 62 | [Foundry Standard VNet Setup vs Managed VNet vs APIM + WAF: Enterprise Zero-Trust Agent Network Selection FAQ](private-link-vnet-standard-agent-setup-vs-managed-vnet-vs-apim-waf-zero-trust-network-selection-faq.en.md) | [🇬🇧 EN](private-link-vnet-standard-agent-setup-vs-managed-vnet-vs-apim-waf-zero-trust-network-selection-faq.en.md) · [🇨🇳 中文](private-link-vnet-standard-agent-setup-vs-managed-vnet-vs-apim-waf-zero-trust-network-selection-faq.md) |
+| 63 | [Azure Private Link + Hub-Spoke VNet Injection & Zero-Trust Egress Topology for Foundry/AKS/ACA Agents](private-link-hubspoke-zero-trust-egress-faq.en.md) | [🇬🇧 EN](private-link-hubspoke-zero-trust-egress-faq.en.md) · [🇨🇳 中文](private-link-hubspoke-zero-trust-egress-faq.md) |
+| 64 | [Azure AI Content Safety vs NeMo Guardrails / Guardrails AI vs Microsoft Purview AI Hub vs Entra Agent Identity (OBO / Managed Identity): Enterprise Guardrails, Data Security, and Agent Identity Selection FAQ](content-safety-vs-nemo-guardrails-vs-purview-agent-security-identity-selection-faq.en.md) | [🇬🇧 EN](content-safety-vs-nemo-guardrails-vs-purview-agent-security-identity-selection-faq.en.md) · [🇨🇳 中文](content-safety-vs-nemo-guardrails-vs-purview-agent-security-identity-selection-faq.md) |
+| 65 | [Purview AI Hub DSPM vs Defender for Cloud AI Threat Protection vs Content Safety: Enterprise AI SecOps Selection FAQ](purview-ai-hub-dspm-vs-defender-for-cloud-ai-threat-protection-vs-content-safety-secops-selection-faq.en.md) | [🇬🇧 EN](purview-ai-hub-dspm-vs-defender-for-cloud-ai-threat-protection-vs-content-safety-secops-selection-faq.en.md) · [🇨🇳 中文](purview-ai-hub-dspm-vs-defender-for-cloud-ai-threat-protection-vs-content-safety-secops-selection-faq.md) |
+| 66 | [Microsoft Purview AI Compliance vs Defender for Cloud AI vs Custom Red-Teaming: Regulated AI Governance Selection FAQ](purview-ai-compliance-vs-defender-for-cloud-ai-vs-custom-redteam-regulated-governance-selection-faq.en.md) | [🇬🇧 EN](purview-ai-compliance-vs-defender-for-cloud-ai-vs-custom-redteam-regulated-governance-selection-faq.en.md) · [🇨🇳 中文](purview-ai-compliance-vs-defender-for-cloud-ai-vs-custom-redteam-regulated-governance-selection-faq.md) |
+| 67 | [Purview DLP and CMK vs Tokenization Gateway vs Confidential Clean Room: Sovereign Privacy AI Selection FAQ](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.en.md) | [🇬🇧 EN](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.en.md) · [🇨🇳 中文](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.md) |
+| 68 | [Microsoft Purview Sensitivity Label Inheritance, Inline PII Vault Tokenization & DLP Egress Gate for Enterprise Multi-Agent RAG](purview-label-pii-tokenization-dlp-egress-gate-faq.en.md) | [🇬🇧 EN](purview-label-pii-tokenization-dlp-egress-gate-faq.en.md) · [🇨🇳 中文](purview-label-pii-tokenization-dlp-egress-gate-faq.md) |
+| 69 | [Microsoft Defender for Cloud (AI + Containers) + Microsoft Sentinel Automated SOAR Quarantine Plane for Compromised Agent Sandboxes](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.en.md) | [🇬🇧 EN](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.en.md) · [🇨🇳 中文](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.md) |
 
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (7 Guides)
 
+> Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
+| # | Architecture Selection Topic (English) | Bilingual Editions |
+|---:|---|---|
+| 70 | [Foundry Eval + AppInsights vs LangSmith vs Langfuse vs Phoenix: Enterprise Agent Evaluation, Observability, and LLMOps Selection FAQ](foundry-eval-appinsights-vs-langsmith-vs-langfuse-vs-phoenix-llmops-selection-faq.en.md) | [🇬🇧 EN](foundry-eval-appinsights-vs-langsmith-vs-langfuse-vs-phoenix-llmops-selection-faq.en.md) · [🇨🇳 中文](foundry-eval-appinsights-vs-langsmith-vs-langfuse-vs-phoenix-llmops-selection-faq.md) |
+| 71 | [Azure AI Foundry Evaluation + PyRIT Automated Red-Teaming + GitHub Actions CI/CD Gates — Continuous Agent Tool-Trajectory, Groundedness & Prompt-Injection Regression Engineering Guide](foundry-agent-eval-redteam-pyrit-cicd-release-gate-faq.en.md) | [🇬🇧 EN](foundry-agent-eval-redteam-pyrit-cicd-release-gate-faq.en.md) · [🇨🇳 中文](foundry-agent-eval-redteam-pyrit-cicd-release-gate-faq.md) |
+| 72 | [Foundry Evaluation CI Gates vs APIM Shadow Mirroring vs App Configuration Canary: Enterprise Agent Release Engineering Selection FAQ](foundry-eval-ci-vs-apim-shadow-mirroring-vs-appconfig-canary-agent-release-engineering-selection-faq.en.md) | [🇬🇧 EN](foundry-eval-ci-vs-apim-shadow-mirroring-vs-appconfig-canary-agent-release-engineering-selection-faq.en.md) · [🇨🇳 中文](foundry-eval-ci-vs-apim-shadow-mirroring-vs-appconfig-canary-agent-release-engineering-selection-faq.md) |
+| 73 | [Azure App Configuration + Key Vault Managed HSM Dynamic Prompt/Routing Canary Flags & Zero-Downtime Credential Rotation for Multi-Agent Fleets](appconfig-kv-hsm-canary-flags-credential-rotation-faq.en.md) | [🇬🇧 EN](appconfig-kv-hsm-canary-flags-credential-rotation-faq.en.md) · [🇨🇳 中文](appconfig-kv-hsm-canary-flags-credential-rotation-faq.md) |
+| 74 | [Azure Deployment Environments (ADE) + Ephemeral Per-PR Agent Infra Preview & Bicep/Terraform Drift-Guard Plane](ade-ephemeral-pr-preview-drift-guard-faq.en.md) | [🇬🇧 EN](ade-ephemeral-pr-preview-drift-guard-faq.en.md) · [🇨🇳 中文](ade-ephemeral-pr-preview-drift-guard-faq.md) |
+| 75 | [APIM Semantic Cache vs AOAI Prompt Caching vs Batch API: Enterprise AI FinOps Optimization Selection FAQ](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) | [🇬🇧 EN](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) · [🇨🇳 中文](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) |
+| 76 | [B2B ISV & SaaS Agent Monetization: APIM Tenant Metering, Azure Marketplace Billing & Chargeback Selection FAQ](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) | [🇬🇧 EN](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) · [🇨🇳 中文](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) |
 
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (8 Guides)
 
+> Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
+| # | Architecture Selection Topic (English) | Bilingual Editions |
+|---:|---|---|
+| 77 | [Azure SRE Agent vs Custom AKS Ops Agent vs ServiceNow AIOps: Enterprise Incident Response Selection FAQ](azure-sre-agent-vs-custom-aks-ops-agent-vs-servicenow-aiops-incident-response-selection-faq.en.md) | [🇬🇧 EN](azure-sre-agent-vs-custom-aks-ops-agent-vs-servicenow-aiops-incident-response-selection-faq.en.md) · [🇨🇳 中文](azure-sre-agent-vs-custom-aks-ops-agent-vs-servicenow-aiops-incident-response-selection-faq.md) |
+| 78 | [Azure SRE Agent vs Monitor+Logic Apps Runbook: Enterprise AIOps and Safe Self-Healing Selection FAQ](azure-sre-agent-vs-monitor-aio-alerts-vs-logic-apps-runbook-autonomous-cloud-ops-selection-faq.en.md) | [🇬🇧 EN](azure-sre-agent-vs-monitor-aio-alerts-vs-logic-apps-runbook-autonomous-cloud-ops-selection-faq.en.md) · [🇨🇳 中文](azure-sre-agent-vs-monitor-aio-alerts-vs-logic-apps-runbook-autonomous-cloud-ops-selection-faq.md) |
+| 79 | [Azure SRE Agent + Managed Prometheus/Grafana Autonomous Live-Site Triage, Exemplar-to-Trace Correlation & Gated Remediation Plane](sre-agent-prometheus-grafana-triage-remediation-faq.en.md) | [🇬🇧 EN](sre-agent-prometheus-grafana-triage-remediation-faq.en.md) · [🇨🇳 中文](sre-agent-prometheus-grafana-triage-remediation-faq.md) |
+| 80 | [Global Standard vs DataZone vs Regional PTU: Enterprise Multi-Region Resilience, BCDR, and Data-Residency Selection FAQ](global-standard-vs-datazone-vs-regional-ptu-multi-region-bcdr-residency-selection-faq.en.md) | [🇬🇧 EN](global-standard-vs-datazone-vs-regional-ptu-multi-region-bcdr-residency-selection-faq.en.md) · [🇨🇳 中文](global-standard-vs-datazone-vs-regional-ptu-multi-region-bcdr-residency-selection-faq.md) |
+| 81 | [Azure Load Testing + LLM Simulator vs PTU Overflow + Chaos Studio: Peak Readiness Selection FAQ](azure-load-testing-llm-simulator-vs-ptu-overflow-chaos-studio-peak-readiness-selection-faq.en.md) | [🇬🇧 EN](azure-load-testing-llm-simulator-vs-ptu-overflow-chaos-studio-peak-readiness-selection-faq.en.md) · [🇨🇳 中文](azure-load-testing-llm-simulator-vs-ptu-overflow-chaos-studio-peak-readiness-selection-faq.md) |
+| 82 | [Azure Chaos Studio + Azure Load Testing Multi-Region Agent GameDay & Resilience Verification](chaos-loadtest-multiregion-gameday-faq.en.md) | [🇬🇧 EN](chaos-loadtest-multiregion-gameday-faq.en.md) · [🇨🇳 中文](chaos-loadtest-multiregion-gameday-faq.md) |
+| 83 | [Shared Hub vs Spoke Subscription vs Deployment Stamp: Enterprise Multi-Tenant AI Landing Zone Selection FAQ](shared-hub-vs-spoke-subscription-vs-deployment-stamp-ai-landing-zone-selection-faq.en.md) | [🇬🇧 EN](shared-hub-vs-spoke-subscription-vs-deployment-stamp-ai-landing-zone-selection-faq.en.md) · [🇨🇳 中文](shared-hub-vs-spoke-subscription-vs-deployment-stamp-ai-landing-zone-selection-faq.md) |
+| 84 | [Enterprise AI CoE Hub-Spoke Landing Zone vs Federated BU Operating Model Selection FAQ](enterprise-ai-coe-hub-spoke-landing-zone-vs-federated-bu-operating-model-selection-faq.en.md) | [🇬🇧 EN](enterprise-ai-coe-hub-spoke-landing-zone-vs-federated-bu-operating-model-selection-faq.en.md) · [🇨🇳 中文](enterprise-ai-coe-hub-spoke-landing-zone-vs-federated-bu-operating-model-selection-faq.md) |

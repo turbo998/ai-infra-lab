@@ -1,95 +1,184 @@
-# Azure AI Agent Infrastructure Playbook（精简版）
+# Azure AI 与企业级智能体架构选型决策知识库（84 篇双语 Selection FAQ）
 
-> 🌐 **Language / 语言切换**: **🇨🇳 中文 (`README.md`)** | **[🇬🇧 English (`README.en.md`)](README.en.md)**  
-> 🔎 **Cycle #1511 重点资产**: [benchmark-cards.html](benchmark-cards.html) · [benchmark-cards.en.html](benchmark-cards.en.html) · [workbench-cycle-1511.html](workbench-cycle-1511.html) · [daily-report-2026-11-12.md](daily-report-2026-11-12.md)
+> 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
----
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **84 个架构选型、平台对比与安全治理决策专题**（共 `168` 份中英双语文档 + `8` 张矢量参考架构图）。
 
-## 一、Cycle #1511 发布摘要（2026-11-12）
-
-- **主题**：云原生 Agent Infra（Runtime/Sandbox、AI Gateway、MCP/A2A 编排与可观测）
-- **当日证据口径**：2026 官方文档 / changelog / release notes 优先
-- **标签体系**：`measured` / `synthetic` / `anonymized_reported`
-- **核心交付**：
-  1. 双语 7-card 4:5 卡组（CSP self-contained）
-  2. 交互式工作台（浏览器可直接运行）
-  3. 可复现实验证据（JSON/CSV）
-  4. 日报双语与专著增补
+每一篇选型指南均遵循统一的 **架构师交付物标准**：
+- **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
+- **业务场景与多维平台权衡矩阵（Trade-off Matrix）**：从隔离边界、冷启动/P95 延迟、SLA、权限继承、运维复杂度与 TCO 定量横向对比；
+- **参考架构图与可落地代码片段（Reference Architecture & IaC）**：配套 Mermaid 拓扑图、Bicep / APIM XML 策略 / KQL 监控查询与 Day-0/Day-1/Day-2 上线核查表。
 
 ---
 
-## 二、核心入口（保留导航）
+## 一、高频架构选型速查表（Top 10 SA Architecture Quick-Start）
 
-| 资产 | 说明 | 链接 |
+| 典型客户提问 / 业务痛点 | 首推架构组合（Golden Path） | 深度选型指南（双语） |
 |---|---|---|
-| 全景工作台 | Playbook 导览入口 | [`index.html`](index.html) |
-| 双轨仿真 Demo | AKSClaw × E2B | [`demo.html`](demo.html) |
-| 选型与容量测算 | 决策树 + 10 万沙箱估算 | [`selector.html`](selector.html) |
-| 历史 7-card 卡组 | 既有可视化入口 | [`cards.html`](cards.html) |
-| **Cycle #1511 卡组（中文）** | 新规范 7-card | [`benchmark-cards.html`](benchmark-cards.html) |
-| **Cycle #1511 卡组（英文）** | 新规范 7-card | [`benchmark-cards.en.html`](benchmark-cards.en.html) |
-| **Cycle #1511 工作台** | 新增交互实验台 | [`workbench-cycle-1511.html`](workbench-cycle-1511.html) |
+| **Agent 动态生成并执行不可信 Python/Shell 代码，选哪种沙箱？** | 轻量 API 工具用 **Foundry Code Interpreter**；亚秒级自定义包与无外网隔离用 **ACA Dynamic Sessions**；多租户长驻工作区用 **AKS Kata Pod VM** | [中文](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.md) · [EN](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.en.md) |
+| **专精微调模型或开源权重托管，选 Serverless GPU、Foundry 还是 AKS+KAITO？** | 潮汐低频任务用 **ACA Serverless GPU**；托管 SLA 隔离用 **Foundry Managed Endpoints**；大规模共享底座与前缀缓存用 **AKS + KAITO / vLLM** | [中文](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.md) · [EN](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.en.md) |
+| **底座大模型买 PTU 预留吞吐还是按量付费（MaaS）？** | 稳态基线买 **Regional/DataZone PTU**，突发洪峰通过 **APIM 自动溢出至 Standard PAYGO**，离线异步任务走 **5 折 Batch API** | [中文](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.md) · [EN](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.en.md) |
+| **无 API 的老旧 ERP/桌面系统自动化，用 Computer Use、RPA 还是 Playwright MCP？** | 现代 Web 优先 **Playwright MCP**；Windows 厚客户端稳态流程用 **Power Automate Desktop RPA**；界面多变异常处理用 **Computer-Use Agent** | [中文](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.md) · [EN](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.en.md) |
+| **跨部门 / 跨组织多 Agent 协同与 MCP 工具治理怎么防越权？** | 统一通过 **API Center + APIM Remote MCP & A2A 网关** 做 Schema 钉扎与 **Entra OAuth 2.1 OBO** 最小权限令牌交换 | [中文](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.md) · [EN](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.en.md) |
+| **Agent 访问企业数据如何继承当前登录用户的细粒度权限？** | 统一采用 **Entra Agent ID + Graph OBO + AI Search ACL 安全裁剪 + PostgreSQL RLS** 端到端主体透传，严禁共享高权限 Service Principal | [中文](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.md) · [EN](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.en.md) |
+| **Agent 会话状态、分布式锁与长期记忆选 Cosmos DB、Redis 还是 PostgreSQL？** | 毫秒级热缓存与租约锁用 **Azure Managed Redis**；全球多活会话状态用 **Cosmos DB DiskANN**；强事务 HTAP 与关系融合用 **PostgreSQL (`pgvector`)** | [中文](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.md) · [EN](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.en.md) |
+| **企业级知识库选 AI Search 混合检索、GraphRAG 还是 Fabric IQ 语义本体？** | 90% 企业文档问答首选 **Azure AI Search（Hybrid + Semantic Ranker + Agentic Retrieval）**；跨实体治理对齐 **Fabric IQ**；全局多跳关系补充 **GraphRAG** | [中文](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.md) · [EN](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.en.md) |
+| **AutoGen / Semantic Kernel / LangGraph 项目如何平滑演进？** | 新建与演进统一收敛至 **Microsoft Agent Framework (MAF)**，保留确定性有向图工作流与 MCP 工具契约兼容 | [中文](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.md) · [EN](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.en.md) |
+| **如何系统性压降大模型 Token 成本并做多租户评测与分账？** | 组合 **AOAI Prompt Caching + APIM Semantic Cache + SLM 分级路由**，配合 **Foundry Eval + AppInsights OpenTelemetry** 闭环观测 | [中文](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) · [EN](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) |
 
 ---
 
-## 三、可复现实验与证据
+## 二、核心参考架构图谱（SVG Visual Atlas）
 
-- 基准主文件：[`evidence/cycle-1445-benchmark.json`](evidence/cycle-1445-benchmark.json)
-- 来源台账：[`evidence/cycle-1445-sources.json`](evidence/cycle-1445-sources.json)
-- 指标 CSV：
-  - [`cycle-1445-latency.csv`](evidence/cycle-1445-latency.csv)
-  - [`cycle-1445-throughput.csv`](evidence/cycle-1445-throughput.csv)
-  - [`cycle-1445-policy.csv`](evidence/cycle-1445-policy.csv)
-  - [`cycle-1445-cost.csv`](evidence/cycle-1445-cost.csv)
-
----
-
-## 四、文档与图形交付
-
-- 日报（中文）：[`daily-report-2026-11-12.md`](daily-report-2026-11-12.md)
-- 日报（英文）：[`daily-report-2026-11-12.en.md`](daily-report-2026-11-12.en.md)
-- 一图流 SVG：[`assets/34-cycle-1445-daily-breakthroughs.svg`](assets/34-cycle-1445-daily-breakthroughs.svg)
-- 专著增补（中文）：[`docs/full-monograph-cycle-1445.md`](docs/full-monograph-cycle-1445.md)
-- 专著增补（英文）：[`docs/full-monograph-cycle-1445.en.md`](docs/full-monograph-cycle-1445.en.md)
-- 选型 FAQ（中文）：[`agent-apim-mcp-drain-threshold-selection-faq.md`](agent-apim-mcp-drain-threshold-selection-faq.md)
-- 选型 FAQ（英文）：[`agent-apim-mcp-drain-threshold-selection-faq.en.md`](agent-apim-mcp-drain-threshold-selection-faq.en.md)
-- 完整历史专著（中文）：[`docs/full-monograph-archive.md`](docs/full-monograph-archive.md)
-- 完整历史专著（英文）：[`docs/full-monograph-archive.en.md`](docs/full-monograph-archive.en.md)
+1. [Azure AI Agent Infra 四层全栈参考架构全景图 (Build · Run · Ground · Govern)](assets/01-azure-agent-infra-4layer-panorama.svg)
+2. [Azure 六大 Agent Runtime 责任边界、隔离机制与恢复延迟矩阵](assets/02-runtime-spectrum-6tier-matrix.svg)
+3. [AI Agent Infra 双阶段架构选型决策树与数据底座配对图](assets/03-scenario-decision-tree-and-routing.svg)
+4. [AKSClaw 多租户 Kubernetes Agent 平台参考架构（6 大支柱与 5 道平台硬边界）](assets/04-aksclaw-multi-tenant-k8s-architecture.svg)
+5. [E2B on Azure VMSS 生产级参考架构图（10 万+ 并发 MicroVM 云端沙箱底座）](assets/05-e2b-on-azure-vmss-reference-architecture.svg)
+6. [Firecracker MicroVM 内部机理（UFFD + NBD）与 Azure v6/v7 实测启动延迟对比](assets/06-e2b-microvm-internals-and-vm-benchmark.svg)
+7. [多智能体协同工作流（MAF × Copilot SDK × Durable）与状态持久化选型矩阵](assets/07-multi-agent-workflow-and-state-checkpoint.svg)
+8. [Azure Agent Infra 六大高优场景、四维资质筛查与五步落地工作流](assets/08-field-playbook-5step-execution-flow.svg)
 
 ---
 
-## 五、验证命令（发布门禁）
+## 三、全量 84 篇架构选型决策指南分类索引（8 大架构域）
 
-```bash
-python workshops/azure-agent-infra/simulator/cycle_1271_pipeline.py --write
-python workshops/azure-agent-infra/simulator/cycle_1271_pipeline.py --check
-python workshops/azure-agent-infra/simulator/agent_infra_sizer.py --check
-python -m unittest workshops/azure-agent-infra/simulator/test_agent_infra_sizer.py
-```
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
----
+> 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
-## 六、实现与运行脚本
+| # | 选型指南主题（中文） | 双语阅读 |
+|---:|---|---|
+| 01 | [Azure AI Foundry Agent Service vs ACA Dynamic Sessions vs AKS vs Azure Functions：企业级 Agent Runtime 宿主选型与端到端架构落地指南](foundry-aca-aks-functions-enterprise-hosting-selection-faq.md) | [🇨🇳 中文](foundry-aca-aks-functions-enterprise-hosting-selection-faq.md) · [🇬🇧 EN](foundry-aca-aks-functions-enterprise-hosting-selection-faq.en.md) |
+| 02 | [Foundry Agent Service vs ACA Dynamic Sessions vs AKS vs Functions：企业 Agent 运行时托管选型 FAQ](foundry-agent-service-vs-aca-vs-aks-vs-functions-runtime-hosting-selection-faq.md) | [🇨🇳 中文](foundry-agent-service-vs-aca-vs-aks-vs-functions-runtime-hosting-selection-faq.md) · [🇬🇧 EN](foundry-agent-service-vs-aca-vs-aks-vs-functions-runtime-hosting-selection-faq.en.md) |
+| 03 | [ACA Dynamic Sessions vs Foundry Code Interpreter vs AKS Sandbox：企业代码执行与不可信沙箱选型 FAQ](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.md) | [🇨🇳 中文](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.md) · [🇬🇧 EN](aca-dynamic-sessions-vs-foundry-code-interpreter-vs-aks-sandbox-selection-faq.en.md) |
+| 04 | [AKS SpinKube / Wasmtime (WASI 0.2) vs Kata Containers vs ACA Hyper-V Dynamic Sessions：三级智能体工具沙箱选型架构](spinkube-wasmtime-kata-aca-hyperv-sandbox-faq.md) | [🇨🇳 中文](spinkube-wasmtime-kata-aca-hyperv-sandbox-faq.md) · [🇬🇧 EN](spinkube-wasmtime-kata-aca-hyperv-sandbox-faq.en.md) |
+| 05 | [Azure Virtual Desktop (AVD) 瞬态池 vs Windows 365 企业云电脑 vs AKS KubeVirt/Playwright：企业级 GUI Computer-Use Agent 隔离与管控选型指南](avd-w365-enterprise-gui-cua-fleet-isolation-rdp-intune-faq.md) | [🇨🇳 中文](avd-w365-enterprise-gui-cua-fleet-isolation-rdp-intune-faq.md) · [🇬🇧 EN](avd-w365-enterprise-gui-cua-fleet-isolation-rdp-intune-faq.en.md) |
+| 06 | [Copilot Studio Computer Use vs PAD RPA vs Playwright MCP vs 绞杀者：无 API 老系统自动化选型 FAQ](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.md) | [🇨🇳 中文](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.md) · [🇬🇧 EN](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.en.md) |
+| 07 | [Azure 容量预留组 (CRG) + AKS Spot 节点池 + Compute Fleet 多规格回退：GPU 与沙箱集群弹性供给指南](crg-aks-spot-compute-fleet-fallback-faq.md) | [🇨🇳 中文](crg-aks-spot-compute-fleet-fallback-faq.md) · [🇬🇧 EN](crg-aks-spot-compute-fleet-fallback-faq.en.md) |
+| 08 | [企业级 Agent 应用落地蓝图：编排框架、运行时宿主、状态记忆、RAG 架构与多租户平台治理选型](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.md) | [🇨🇳 中文](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.md) · [🇬🇧 EN](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.en.md) |
 
-- 生成管线：[`simulator/cycle_1271_pipeline.py`](simulator/cycle_1271_pipeline.py)
-- 运行时测算器：[`simulator/agent_infra_sizer.py`](simulator/agent_infra_sizer.py)
-- 测试集：[`simulator/test_agent_infra_sizer.py`](simulator/test_agent_infra_sizer.py)
-- 现场执行手册：[`workshop-runbook.md`](workshop-runbook.md)
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（8 篇）
 
+> 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
+| # | 选型指南主题（中文） | 双语阅读 |
+|---:|---|---|
+| 09 | [Foundry/AOAI PTU vs Serverless MaaS vs AKS KAITO：企业模型服务托管选型 FAQ](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.md) | [🇨🇳 中文](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.md) · [🇬🇧 EN](foundry-aoai-ptu-vs-serverless-maas-vs-aks-vllm-kaito-model-serving-selection-faq.en.md) |
+| 10 | [ACA Serverless GPU vs Foundry Managed Endpoint vs AKS+KAITO：企业专精模型托管选型 FAQ](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.md) | [🇨🇳 中文](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.md) · [🇬🇧 EN](aca-serverless-gpu-vs-foundry-managed-endpoints-vs-aks-kaito-custom-model-hosting-selection-faq.en.md) |
+| 11 | [Azure OpenAI Nano/Mini vs Foundry Phi-4 SLM vs AKS KAITO：企业大小模型分级路由选型 FAQ](aoai-nano-mini-vs-foundry-phi4-slm-vs-aks-kaito-vs-store-edge-tiered-routing-selection-faq.md) | [🇨🇳 中文](aoai-nano-mini-vs-foundry-phi4-slm-vs-aks-kaito-vs-store-edge-tiered-routing-selection-faq.md) · [🇬🇧 EN](aoai-nano-mini-vs-foundry-phi4-slm-vs-aks-kaito-vs-store-edge-tiered-routing-selection-faq.en.md) |
+| 12 | [Azure OpenAI PTU + DataZone/Global Standard + Batch API（5 折）三级推理卸载与 SLA 期限升级架构指南](aoai-ptu-datazone-batch-offloading-deadline-escalation-faq.md) | [🇨🇳 中文](aoai-ptu-datazone-batch-offloading-deadline-escalation-faq.md) · [🇬🇧 EN](aoai-ptu-datazone-batch-offloading-deadline-escalation-faq.en.md) |
+| 13 | [Prompt+Structured Output vs RAG vs SFT vs RFT：企业模型定制与领域适配选型 FAQ](prompt-structured-output-vs-rag-vs-aoai-finetuning-sft-rft-selection-faq.md) | [🇨🇳 中文](prompt-structured-output-vs-rag-vs-aoai-finetuning-sft-rft-selection-faq.md) · [🇬🇧 EN](prompt-structured-output-vs-rag-vs-aoai-finetuning-sft-rft-selection-faq.en.md) |
+| 14 | [Azure AI Foundry 微调托管 vs AKS vLLM Multi-LoRA 动态适配器服务：显存槽位装箱与热切换吞吐选型指南](foundry-ft-vllm-multilora-vram-slot-packing-hotswap-faq.md) | [🇨🇳 中文](foundry-ft-vllm-multilora-vram-slot-packing-hotswap-faq.md) · [🇬🇧 EN](foundry-ft-vllm-multilora-vram-slot-packing-hotswap-faq.en.md) |
+| 15 | [AKS 智能体辅助模型（Reranker / Guardrail / OCR / 路由）GPU 切分选型：NVIDIA MIG vs CUDA MPS vs Time-Slicing vs K8s DRA](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.md) | [🇨🇳 中文](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.md) · [🇬🇧 EN](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.en.md) |
+| 16 | [Azure Managed Lustre vs Azure NetApp Files Ultra vs BlobFuse2：Agentic RL / GRPO 后训练与轨迹检查点存储选型指南](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.md) | [🇨🇳 中文](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.md) · [🇬🇧 EN](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.en.md) |
 
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（10 篇）
 
+> 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
+| # | 选型指南主题（中文） | 双语阅读 |
+|---:|---|---|
+| 17 | [Azure API Management（APIM AI Gateway）vs Azure AI Foundry Model Router vs LiteLLM / 开源自建 AI 网关 vs 应用直连 SDK：企业级多模型路由、PTU+PAYGO 溢出与 FinOps 选型 FAQ](apim-ai-gateway-vs-litellm-vs-foundry-router-model-governance-selection-faq.md) | [🇨🇳 中文](apim-ai-gateway-vs-litellm-vs-foundry-router-model-governance-selection-faq.md) · [🇬🇧 EN](apim-ai-gateway-vs-litellm-vs-foundry-router-model-governance-selection-faq.en.md) |
+| 18 | [Azure APIM 多云 AI 网关：统一治理 Azure Foundry、AWS Bedrock 与 Google Vertex AI 选型 FAQ](apim-multi-cloud-aws-bedrock-gcp-vertex-azure-foundry-ai-gateway-selection-faq.md) | [🇨🇳 中文](apim-multi-cloud-aws-bedrock-gcp-vertex-azure-foundry-ai-gateway-selection-faq.md) · [🇬🇧 EN](apim-multi-cloud-aws-bedrock-gcp-vertex-azure-foundry-ai-gateway-selection-faq.en.md) |
+| 19 | [Remote MCP on APIM vs OpenAPI Tools vs Logic Apps Agent Actions vs Power Platform Connectors：企业 Agent 工具集成与核心系统连接选型 FAQ](mcp-on-apim-vs-openapi-tools-vs-logic-apps-vs-power-connectors-selection-faq.md) | [🇨🇳 中文](mcp-on-apim-vs-openapi-tools-vs-logic-apps-vs-power-connectors-selection-faq.md) · [🇬🇧 EN](mcp-on-apim-vs-openapi-tools-vs-logic-apps-vs-power-connectors-selection-faq.en.md) |
+| 20 | [API Center+APIM vs Foundry Connected Tools vs 自建 MCP Registry：企业工具泛滥治理选型 FAQ](apim-mcp-registry-api-center-vs-custom-tool-gateway-enterprise-agent-tool-sprawl-selection-faq.md) | [🇨🇳 中文](apim-mcp-registry-api-center-vs-custom-tool-gateway-enterprise-agent-tool-sprawl-selection-faq.md) · [🇬🇧 EN](apim-mcp-registry-api-center-vs-custom-tool-gateway-enterprise-agent-tool-sprawl-selection-faq.en.md) |
+| 21 | [Azure API Center + APIM 远程 MCP 注册中心、Schema 防投毒钉扎与 Entra OAuth 2.1 OBO 委派架构指南](apicenter-apim-remote-mcp-obo-schema-pinning-faq.md) | [🇨🇳 中文](apicenter-apim-remote-mcp-obo-schema-pinning-faq.md) · [🇬🇧 EN](apicenter-apim-remote-mcp-obo-schema-pinning-faq.en.md) |
+| 22 | [Agent-to-Agent (A2A) + MCP 跨域联邦架构：Azure APIM 与 AKS Istio Ambient mTLS 服务网格实战指南](a2a-mcp-federation-apim-istio-ambient-faq.md) | [🇨🇳 中文](a2a-mcp-federation-apim-istio-ambient-faq.md) · [🇬🇧 EN](a2a-mcp-federation-apim-istio-ambient-faq.en.md) |
+| 23 | [APIM A2A 协议网关 vs Foundry Connected Agents vs Event Grid：跨组织多智能体协同选型 FAQ](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.md) | [🇨🇳 中文](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.md) · [🇬🇧 EN](apim-a2a-protocol-vs-foundry-connected-agents-vs-event-grid-cross-org-multi-agent-selection-faq.en.md) |
+| 24 | [APIM AI Gateway Weighted Fair Queuing + Token Bucket：多租户 Agent 公平性与 SLO 治理工程指南](apim-wfq-token-bucket-tenant-fairness-slo-faq.md) | [🇨🇳 中文](apim-wfq-token-bucket-tenant-fairness-slo-faq.md) · [🇬🇧 EN](apim-wfq-token-bucket-tenant-fairness-slo-faq.en.md) |
+| 25 | [Azure Front Door Premium（WAF + Bot Manager 1.1 + Private Link Origin）+ APIM AI Gateway 抗 Denial-of-Wallet Token-Drain 与长连接 SSE 指南](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.md) | [🇨🇳 中文](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.md) · [🇬🇧 EN](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.en.md) |
+| 26 | [Azure Web PubSub / SignalR vs AKS/ACA Envoy 原生 WebSocket 多路复用：智能体实时流式输出与人工审批网关选型指南](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.md) | [🇨🇳 中文](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.md) · [🇬🇧 EN](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.en.md) |
 
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（18 篇）
 
+> 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
+| # | 选型指南主题（中文） | 双语阅读 |
+|---:|---|---|
+| 27 | [Azure Cosmos DB vs Azure Managed Redis vs PostgreSQL (pgvector) vs Blob Storage：企业级 Agent 会话状态与记忆分层选型 FAQ](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.md) | [🇨🇳 中文](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.md) · [🇬🇧 EN](cosmos-vs-managed-redis-vs-pgvector-agent-state-memory-selection-faq.en.md) |
+| 28 | [Azure SQL Hyperscale Vector vs PostgreSQL pgvector vs Cosmos DiskANN vs 拆库检索：事务融合选型 FAQ](azure-sql-hyperscale-vector-vs-cosmos-diskann-vs-postgres-pgvector-transactional-htap-agent-selection-faq.md) | [🇨🇳 中文](azure-sql-hyperscale-vector-vs-cosmos-diskann-vs-postgres-pgvector-transactional-htap-agent-selection-faq.md) · [🇬🇧 EN](azure-sql-hyperscale-vector-vs-cosmos-diskann-vs-postgres-pgvector-transactional-htap-agent-selection-faq.en.md) |
+| 29 | [Azure SQL Hyperscale 原生向量 vs Cosmos DB DiskANN vs PostgreSQL pgvectorscale：企业 HTAP 事务与情景记忆融合选型指南](sql-hyperscale-cosmos-pgvector-htap-agent-memory-faq.md) | [🇨🇳 中文](sql-hyperscale-cosmos-pgvector-htap-agent-memory-faq.md) · [🇬🇧 EN](sql-hyperscale-cosmos-pgvector-htap-agent-memory-faq.en.md) |
+| 30 | [Azure Managed Redis（Enterprise 多活与 Flash NVMe）vs APIM 语义缓存 vs Cosmos DB 租约锁：分布式会话锁与防缓存投毒选型指南](redis-enterprise-activegeo-semantic-cache-session-locking-faq.md) | [🇨🇳 中文](redis-enterprise-activegeo-semantic-cache-session-locking-faq.md) · [🇬🇧 EN](redis-enterprise-activegeo-semantic-cache-session-locking-faq.en.md) |
+| 31 | [Azure AI Search 向量缓存与智能体热/温/冷多级情景记忆分层架构指南](azure-ai-search-vector-cache-memory-tiering-faq.md) | [🇨🇳 中文](azure-ai-search-vector-cache-memory-tiering-faq.md) · [🇬🇧 EN](azure-ai-search-vector-cache-memory-tiering-faq.en.md) |
+| 32 | [Azure AI Search（Agentic Retrieval + Hybrid + Semantic Ranker）vs GraphRAG vs Microsoft Fabric OneLake/IQ vs Copilot Studio SharePoint Knowledge：企业级知识库、ACL 权限裁剪与混合 RAG 选型 FAQ](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.md) | [🇨🇳 中文](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.md) · [🇬🇧 EN](ai-search-hybrid-vs-graphrag-vs-fabric-iq-enterprise-rag-selection-faq.en.md) |
+| 33 | [Microsoft Fabric IQ 业务本体 vs Foundry IQ 知识引擎 vs 图数据库：企业统一语义层选型 FAQ](fabric-iq-ontology-vs-foundry-iq-knowledge-vs-graphdb-enterprise-semantic-layer-selection-faq.md) | [🇨🇳 中文](fabric-iq-ontology-vs-foundry-iq-knowledge-vs-graphdb-enterprise-semantic-layer-selection-faq.md) · [🇬🇧 EN](fabric-iq-ontology-vs-foundry-iq-knowledge-vs-graphdb-enterprise-semantic-layer-selection-faq.en.md) |
+| 34 | [Cosmos Gremlin vs Fabric Graph vs GraphRAG：企业多跳关系推理选型 FAQ](azure-cosmos-gremlin-vs-fabric-graph-vs-ai-search-graphrag-supply-chain-risk-agent-selection-faq.md) | [🇨🇳 中文](azure-cosmos-gremlin-vs-fabric-graph-vs-ai-search-graphrag-supply-chain-risk-agent-selection-faq.md) · [🇬🇧 EN](azure-cosmos-gremlin-vs-fabric-graph-vs-ai-search-graphrag-supply-chain-risk-agent-selection-faq.en.md) |
+| 35 | [Cosmos DB Change Feed vs AI Search 定时索引器 vs Event Grid 推送：企业实时 RAG 知识保鲜选型 FAQ](cosmos-changefeed-vs-ai-search-pull-indexer-vs-eventgrid-push-realtime-rag-freshness-selection-faq.md) | [🇨🇳 中文](cosmos-changefeed-vs-ai-search-pull-indexer-vs-eventgrid-push-realtime-rag-freshness-selection-faq.md) · [🇬🇧 EN](cosmos-changefeed-vs-ai-search-pull-indexer-vs-eventgrid-push-realtime-rag-freshness-selection-faq.en.md) |
+| 36 | [Fabric Data Agent vs Power BI Semantic/DAX vs NL2SQL Warehouse：企业分析型 Agent 数据面选型 FAQ](fabric-data-agent-vs-powerbi-semantic-dax-vs-nl2sql-warehouse-analytics-selection-faq.md) | [🇨🇳 中文](fabric-data-agent-vs-powerbi-semantic-dax-vs-nl2sql-warehouse-analytics-selection-faq.md) · [🇬🇧 EN](fabric-data-agent-vs-powerbi-semantic-dax-vs-nl2sql-warehouse-analytics-selection-faq.en.md) |
+| 37 | [Microsoft Fabric OneLake Open Mirroring + Cosmos DB / PostgreSQL：零 ETL 智能体轨迹与情景记忆湖仓架构指南](fabric-onelake-zeroetl-agent-memory-lakehouse-faq.md) | [🇨🇳 中文](fabric-onelake-zeroetl-agent-memory-lakehouse-faq.md) · [🇬🇧 EN](fabric-onelake-zeroetl-agent-memory-lakehouse-faq.en.md) |
+| 38 | [Fabric OneLake Medallion vs Purview Lineage：企业 AI 知识库 Data Readiness 与垃圾进垃圾出防护选型 FAQ](fabric-onelake-medallion-data-quality-vs-purview-lineage-garbage-in-prevention-ai-readiness-selection-faq.md) | [🇨🇳 中文](fabric-onelake-medallion-data-quality-vs-purview-lineage-garbage-in-prevention-ai-readiness-selection-faq.md) · [🇬🇧 EN](fabric-onelake-medallion-data-quality-vs-purview-lineage-garbage-in-prevention-ai-readiness-selection-faq.en.md) |
+| 39 | [Azure AI Content Understanding vs Azure AI Document Intelligence vs Azure OpenAI Vision（gpt-4.1/gpt-4o）vs 自建 MinerU/Docling/Unstructured：企业多模态文档与音视频智能（IDP）选型 FAQ](content-understanding-vs-doc-intelligence-vs-gpt4o-vision-vs-mineru-idp-selection-faq.md) | [🇨🇳 中文](content-understanding-vs-doc-intelligence-vs-gpt4o-vision-vs-mineru-idp-selection-faq.md) · [🇬🇧 EN](content-understanding-vs-doc-intelligence-vs-gpt4o-vision-vs-mineru-idp-selection-faq.en.md) |
+| 40 | [Document Intelligence Layout vs Foundry Content Understanding vs GPT-4o Vision：企业 IDP 选型 FAQ](document-intelligence-layout-vs-foundry-content-understanding-vs-gpt4o-vision-idp-selection-faq.md) | [🇨🇳 中文](document-intelligence-layout-vs-foundry-content-understanding-vs-gpt4o-vision-idp-selection-faq.md) · [🇬🇧 EN](document-intelligence-layout-vs-foundry-content-understanding-vs-gpt4o-vision-idp-selection-faq.en.md) |
+| 41 | [Azure Document Intelligence v4 Markdown 版面解析 + 多模态视觉大模型混合入库流水线指南](docint-v4-markdown-layout-multimodal-rag-ingestion-faq.md) | [🇨🇳 中文](docint-v4-markdown-layout-multimodal-rag-ingestion-faq.md) · [🇬🇧 EN](docint-v4-markdown-layout-multimodal-rag-ingestion-faq.en.md) |
+| 42 | [Azure AI Search 多模态 RAG vs Content Understanding 图表解析 vs ColPali 视觉检索：复杂技术文档选型 FAQ](ai-search-multimodal-rag-vs-cu-figure-captioning-vs-colpali-engineering-drawing-selection-faq.md) | [🇨🇳 中文](ai-search-multimodal-rag-vs-cu-figure-captioning-vs-colpali-engineering-drawing-selection-faq.md) · [🇬🇧 EN](ai-search-multimodal-rag-vs-cu-figure-captioning-vs-colpali-engineering-drawing-selection-faq.en.md) |
+| 43 | [SharePoint Embedded vs Azure Blob (CMK) vs Cosmos DB 产物库：企业智能体文档生命周期存储选型 FAQ](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.md) | [🇨🇳 中文](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.md) · [🇬🇧 EN](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.en.md) |
+| 44 | [Azure Blob User Delegation SAS + Entra ABAC + WORM 不可变策略：多租户 Agent 产物与沙箱文件 I/O 生产指南](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.md) | [🇨🇳 中文](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.md) · [🇬🇧 EN](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.en.md) |
 
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（14 篇）
 
+> 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
+| # | 选型指南主题（中文） | 双语阅读 |
+|---:|---|---|
+| 45 | [Microsoft Agent Framework（SK + AutoGen 统一演进）vs LangGraph vs CrewAI vs Microsoft Copilot Studio：企业级多 Agent 编排框架横向选型、混合协同架构与实战演进指南](maf-vs-langgraph-vs-crewai-vs-copilot-studio-orchestration-selection-faq.md) | [🇨🇳 中文](maf-vs-langgraph-vs-crewai-vs-copilot-studio-orchestration-selection-faq.md) · [🇬🇧 EN](maf-vs-langgraph-vs-crewai-vs-copilot-studio-orchestration-selection-faq.en.md) |
+| 46 | [从 AutoGen / Semantic Kernel / LangGraph 演进至 Microsoft Agent Framework：企业编排底座现代化指南 FAQ](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.md) | [🇨🇳 中文](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.md) · [🇬🇧 EN](migration-autogen-semantic-kernel-langgraph-to-microsoft-agent-framework-enterprise-modernization-faq.en.md) |
+| 47 | [Durable Functions vs Logic Apps vs Temporal vs Service Bus：长周期 Agent 编排与 HITL 引擎选型 FAQ](durable-functions-vs-logic-apps-vs-temporal-vs-service-bus-long-running-agent-selection-faq.md) | [🇨🇳 中文](durable-functions-vs-logic-apps-vs-temporal-vs-service-bus-long-running-agent-selection-faq.md) · [🇬🇧 EN](durable-functions-vs-logic-apps-vs-temporal-vs-service-bus-long-running-agent-selection-faq.en.md) |
+| 48 | [Azure Logic Apps Standard 企业连接器（SAP / ServiceNow / Salesforce）vs Durable Functions vs 自建 MCP：确定性工具护栏与 Saga 补偿选型指南](logicapps-standard-enterprise-connectors-saga-agent-tools-faq.md) | [🇨🇳 中文](logicapps-standard-enterprise-connectors-saga-agent-tools-faq.md) · [🇬🇧 EN](logicapps-standard-enterprise-connectors-saga-agent-tools-faq.en.md) |
+| 49 | [Event Hubs + Fabric Real-Time Intelligence vs Service Bus vs Event Grid：实时事件驱动主动式 Agent 选型 FAQ](eventhubs-fabric-rti-vs-servicebus-vs-eventgrid-proactive-streaming-agent-selection-faq.md) | [🇨🇳 中文](eventhubs-fabric-rti-vs-servicebus-vs-eventgrid-proactive-streaming-agent-selection-faq.md) · [🇬🇧 EN](eventhubs-fabric-rti-vs-servicebus-vs-eventgrid-proactive-streaming-agent-selection-faq.en.md) |
+| 50 | [Foundry Deep Research vs MAF Map-Reduce vs Agentic RAG：企业尽调深度研究选型 FAQ](foundry-deep-research-agent-vs-multi-agent-parallel-map-reduce-vs-rag-enterprise-due-diligence-selection-faq.md) | [🇨🇳 中文](foundry-deep-research-agent-vs-multi-agent-parallel-map-reduce-vs-rag-enterprise-due-diligence-selection-faq.md) · [🇬🇧 EN](foundry-deep-research-agent-vs-multi-agent-parallel-map-reduce-vs-rag-enterprise-due-diligence-selection-faq.en.md) |
+| 51 | [M365 Copilot Agent vs Copilot Studio vs Teams Custom App vs AG-UI Web：企业 Agent 渠道与交互界面选型 FAQ](m365-copilot-agent-vs-copilot-studio-vs-teams-custom-app-vs-agui-web-channel-selection-faq.md) | [🇨🇳 中文](m365-copilot-agent-vs-copilot-studio-vs-teams-custom-app-vs-agui-web-channel-selection-faq.md) · [🇬🇧 EN](m365-copilot-agent-vs-copilot-studio-vs-teams-custom-app-vs-agui-web-channel-selection-faq.en.md) |
+| 52 | [Salesforce Agentforce vs ServiceNow Now Assist vs Dynamics 365 Copilot vs Foundry 自研：企业 CRM/ERP 智能体选型 FAQ](salesforce-agentforce-vs-servicenow-nowassist-vs-dynamics-copilot-vs-custom-foundry-enterprise-crm-erp-selection-faq.md) | [🇨🇳 中文](salesforce-agentforce-vs-servicenow-nowassist-vs-dynamics-copilot-vs-custom-foundry-enterprise-crm-erp-selection-faq.md) · [🇬🇧 EN](salesforce-agentforce-vs-servicenow-nowassist-vs-dynamics-copilot-vs-custom-foundry-enterprise-crm-erp-selection-faq.en.md) |
+| 53 | [GitHub Copilot Coding Agent vs Foundry 自研研发智能体 vs Azure DevOps PR 审查：企业 SDLC 研发提效选型 FAQ](github-copilot-coding-agent-vs-foundry-swe-agent-vs-ado-pr-review-enterprise-sdlc-agent-selection-faq.md) | [🇨🇳 中文](github-copilot-coding-agent-vs-foundry-swe-agent-vs-ado-pr-review-enterprise-sdlc-agent-selection-faq.md) · [🇬🇧 EN](github-copilot-coding-agent-vs-foundry-swe-agent-vs-ado-pr-review-enterprise-sdlc-agent-selection-faq.en.md) |
+| 54 | [Voice Live Realtime vs Speech 级联 vs AKS LiveKit vs 成熟联络中心：企业实时语音 Agent 选型 FAQ](voice-live-realtime-vs-speech-cascade-vs-acs-vs-livekit-voice-agent-selection-faq.md) | [🇨🇳 中文](voice-live-realtime-vs-speech-cascade-vs-acs-vs-livekit-voice-agent-selection-faq.md) · [🇬🇧 EN](voice-live-realtime-vs-speech-cascade-vs-acs-vs-livekit-voice-agent-selection-faq.en.md) |
+| 55 | [ACS Call Automation + AOAI Realtime（WebRTC/WebSocket）企业语音 Agent 亚 500ms 转折检测与 Barge-In 工程指南](acs-aoai-realtime-webrtc-voice-agent-turn-bargein-faq.md) | [🇨🇳 中文](acs-aoai-realtime-webrtc-voice-agent-turn-bargein-faq.md) · [🇬🇧 EN](acs-aoai-realtime-webrtc-voice-agent-turn-bargein-faq.en.md) |
+| 56 | [Azure OpenAI Realtime WebRTC vs Teams 会议机器人 vs ACS 多模态音视频 vs Live Avatar：实时交互助手选型 FAQ](aoai-realtime-webrtc-vs-teams-meeting-bot-vs-acs-vision-vs-live-avatar-copilot-selection-faq.md) | [🇨🇳 中文](aoai-realtime-webrtc-vs-teams-meeting-bot-vs-acs-vision-vs-live-avatar-copilot-selection-faq.md) · [🇬🇧 EN](aoai-realtime-webrtc-vs-teams-meeting-bot-vs-acs-vision-vs-live-avatar-copilot-selection-faq.en.md) |
+| 57 | [Azure Bot Omnichannel vs D365 Contact Center vs ACS Sidecar Assist：企业全渠道联络中心选型 FAQ](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.md) | [🇨🇳 中文](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.md) · [🇬🇧 EN](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.en.md) |
+| 58 | [Azure AI Translator vs AOAI LLM Localization vs Cross-Lingual RAG vs Sovereign Routing：全球多语种智能体选型 FAQ](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) | [🇨🇳 中文](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) · [🇬🇧 EN](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) |
 
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（11 篇）
 
+> 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
+| # | 选型指南主题（中文） | 双语阅读 |
+|---:|---|---|
+| 59 | [Microsoft Entra Agent ID + AKS OIDC Workload Federation + CAE + JIT/PIM 零常驻权限身份平面](entra-agent-id-workload-federation-cae-jit-pim-faq.md) | [🇨🇳 中文](entra-agent-id-workload-federation-cae-jit-pim-faq.md) · [🇬🇧 EN](entra-agent-id-workload-federation-cae-jit-pim-faq.en.md) |
+| 60 | [Entra External ID CIAM vs B2B Guest vs OIDC换票网关：对客与伙伴智能体身份选型 FAQ](entra-external-id-ciam-vs-b2b-guest-vs-apim-subscription-b2c-partner-agent-identity-selection-faq.md) | [🇨🇳 中文](entra-external-id-ciam-vs-b2b-guest-vs-apim-subscription-b2c-partner-agent-identity-selection-faq.md) · [🇬🇧 EN](entra-external-id-ciam-vs-b2b-guest-vs-apim-subscription-b2c-partner-agent-identity-selection-faq.en.md) |
+| 61 | [Microsoft Graph OBO vs PostgreSQL RLS vs AI Search 安全裁剪 vs OPA ABAC：智能体细粒度权限控制选型 FAQ](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.md) | [🇨🇳 中文](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.md) · [🇬🇧 EN](graph-obo-vs-postgres-rls-vs-ai-search-trimming-vs-opa-abac-agent-authorization-selection-faq.en.md) |
+| 62 | [Foundry Standard VNet 注入 vs 托管虚拟网络 vs APIM + WAF：企业级零信任智能体网络隔离选型 FAQ](private-link-vnet-standard-agent-setup-vs-managed-vnet-vs-apim-waf-zero-trust-network-selection-faq.md) | [🇨🇳 中文](private-link-vnet-standard-agent-setup-vs-managed-vnet-vs-apim-waf-zero-trust-network-selection-faq.md) · [🇬🇧 EN](private-link-vnet-standard-agent-setup-vs-managed-vnet-vs-apim-waf-zero-trust-network-selection-faq.en.md) |
+| 63 | [Azure Private Link + Hub-Spoke VNet 注入与 Foundry / AKS / ACA 智能体零信任出站网络拓扑指南](private-link-hubspoke-zero-trust-egress-faq.md) | [🇨🇳 中文](private-link-hubspoke-zero-trust-egress-faq.md) · [🇬🇧 EN](private-link-hubspoke-zero-trust-egress-faq.en.md) |
+| 64 | [Azure AI Content Safety vs NeMo Guardrails / Guardrails AI vs Microsoft Purview AI Hub vs Entra Agent Identity（OBO / Managed Identity）：企业级 Guardrails、数据安全与 Agent 身份治理选型 FAQ](content-safety-vs-nemo-guardrails-vs-purview-agent-security-identity-selection-faq.md) | [🇨🇳 中文](content-safety-vs-nemo-guardrails-vs-purview-agent-security-identity-selection-faq.md) · [🇬🇧 EN](content-safety-vs-nemo-guardrails-vs-purview-agent-security-identity-selection-faq.en.md) |
+| 65 | [Purview AI Hub DSPM vs Defender for Cloud AI Threat Protection vs Content Safety：企业 AI SecOps 选型 FAQ](purview-ai-hub-dspm-vs-defender-for-cloud-ai-threat-protection-vs-content-safety-secops-selection-faq.md) | [🇨🇳 中文](purview-ai-hub-dspm-vs-defender-for-cloud-ai-threat-protection-vs-content-safety-secops-selection-faq.md) · [🇬🇧 EN](purview-ai-hub-dspm-vs-defender-for-cloud-ai-threat-protection-vs-content-safety-secops-selection-faq.en.md) |
+| 66 | [Microsoft Purview AI 合规治理 vs Defender for Cloud AI 威胁防护 vs 自建红队评测：强监管行业安全治理选型 FAQ](purview-ai-compliance-vs-defender-for-cloud-ai-vs-custom-redteam-regulated-governance-selection-faq.md) | [🇨🇳 中文](purview-ai-compliance-vs-defender-for-cloud-ai-vs-custom-redteam-regulated-governance-selection-faq.md) · [🇬🇧 EN](purview-ai-compliance-vs-defender-for-cloud-ai-vs-custom-redteam-regulated-governance-selection-faq.en.md) |
+| 67 | [Purview DLP+CMK vs 可逆脱敏网关 vs 机密清洁室：主权隐私 AI 选型 FAQ](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.md) | [🇨🇳 中文](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.md) · [🇬🇧 EN](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.en.md) |
+| 68 | [Microsoft Purview 敏感度标签继承、内联 PII 令牌化脱敏与多智能体 RAG 出站 DLP 门禁指南](purview-label-pii-tokenization-dlp-egress-gate-faq.md) | [🇨🇳 中文](purview-label-pii-tokenization-dlp-egress-gate-faq.md) · [🇬🇧 EN](purview-label-pii-tokenization-dlp-egress-gate-faq.en.md) |
+| 69 | [Microsoft Defender for Cloud（AI + 容器）+ Microsoft Sentinel：失陷智能体沙箱自动化 SOAR 隔离取证指南](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.md) | [🇨🇳 中文](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.md) · [🇬🇧 EN](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.en.md) |
 
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（7 篇）
 
+> 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
+| # | 选型指南主题（中文） | 双语阅读 |
+|---:|---|---|
+| 70 | [Foundry Eval + AppInsights vs LangSmith vs Langfuse vs Phoenix：企业 Agent 评测、可观测与 LLMOps 选型 FAQ](foundry-eval-appinsights-vs-langsmith-vs-langfuse-vs-phoenix-llmops-selection-faq.md) | [🇨🇳 中文](foundry-eval-appinsights-vs-langsmith-vs-langfuse-vs-phoenix-llmops-selection-faq.md) · [🇬🇧 EN](foundry-eval-appinsights-vs-langsmith-vs-langfuse-vs-phoenix-llmops-selection-faq.en.md) |
+| 71 | [Azure AI Foundry Evaluation + PyRIT 自动化红队 + GitHub Actions CI/CD 质量门禁工程指南](foundry-agent-eval-redteam-pyrit-cicd-release-gate-faq.md) | [🇨🇳 中文](foundry-agent-eval-redteam-pyrit-cicd-release-gate-faq.md) · [🇬🇧 EN](foundry-agent-eval-redteam-pyrit-cicd-release-gate-faq.en.md) |
+| 72 | [Foundry Eval CI 门禁 vs APIM 流量镜像 vs App Configuration 金丝雀：企业智能体发布工程选型 FAQ](foundry-eval-ci-vs-apim-shadow-mirroring-vs-appconfig-canary-agent-release-engineering-selection-faq.md) | [🇨🇳 中文](foundry-eval-ci-vs-apim-shadow-mirroring-vs-appconfig-canary-agent-release-engineering-selection-faq.md) · [🇬🇧 EN](foundry-eval-ci-vs-apim-shadow-mirroring-vs-appconfig-canary-agent-release-engineering-selection-faq.en.md) |
+| 73 | [Azure App Configuration + Key Vault Managed HSM：多智能体集群动态 Prompt/路由金丝雀发布与零停机密钥轮换指南](appconfig-kv-hsm-canary-flags-credential-rotation-faq.md) | [🇨🇳 中文](appconfig-kv-hsm-canary-flags-credential-rotation-faq.md) · [🇬🇧 EN](appconfig-kv-hsm-canary-flags-credential-rotation-faq.en.md) |
+| 74 | [Azure Deployment Environments (ADE) 按 PR 瞬态智能体预览环境与 IaC 漂移治理指南](ade-ephemeral-pr-preview-drift-guard-faq.md) | [🇨🇳 中文](ade-ephemeral-pr-preview-drift-guard-faq.md) · [🇬🇧 EN](ade-ephemeral-pr-preview-drift-guard-faq.en.md) |
+| 75 | [APIM Semantic Cache vs AOAI Prompt Caching vs Batch API：企业 AI FinOps 降本选型 FAQ](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) | [🇨🇳 中文](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.md) · [🇬🇧 EN](apim-semantic-cache-vs-aoai-prompt-caching-vs-batch-api-finops-optimization-selection-faq.en.md) |
+| 76 | [B2B ISV / SaaS 智能体商业化变现架构：APIM 多租户计量、Azure Marketplace 计费与内部分摊选型 FAQ](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) | [🇨🇳 中文](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) · [🇬🇧 EN](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) |
 
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（8 篇）
+
+> 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
+
+| # | 选型指南主题（中文） | 双语阅读 |
+|---:|---|---|
+| 77 | [Azure SRE Agent vs Custom AKS Ops Agent vs ServiceNow AIOps：企业智能运维与事件响应选型 FAQ](azure-sre-agent-vs-custom-aks-ops-agent-vs-servicenow-aiops-incident-response-selection-faq.md) | [🇨🇳 中文](azure-sre-agent-vs-custom-aks-ops-agent-vs-servicenow-aiops-incident-response-selection-faq.md) · [🇬🇧 EN](azure-sre-agent-vs-custom-aks-ops-agent-vs-servicenow-aiops-incident-response-selection-faq.en.md) |
+| 78 | [Azure SRE Agent vs Monitor+Logic Apps Runbook：企业 AIOps 与安全自愈选型 FAQ](azure-sre-agent-vs-monitor-aio-alerts-vs-logic-apps-runbook-autonomous-cloud-ops-selection-faq.md) | [🇨🇳 中文](azure-sre-agent-vs-monitor-aio-alerts-vs-logic-apps-runbook-autonomous-cloud-ops-selection-faq.md) · [🇬🇧 EN](azure-sre-agent-vs-monitor-aio-alerts-vs-logic-apps-runbook-autonomous-cloud-ops-selection-faq.en.md) |
+| 79 | [Azure SRE Agent + Managed Prometheus / Grafana：生产故障自动分诊、Exemplar 链路关联与受控自愈架构指南](sre-agent-prometheus-grafana-triage-remediation-faq.md) | [🇨🇳 中文](sre-agent-prometheus-grafana-triage-remediation-faq.md) · [🇬🇧 EN](sre-agent-prometheus-grafana-triage-remediation-faq.en.md) |
+| 80 | [Global Standard vs DataZone vs Regional PTU：企业多区域韧性、BCDR 与数据驻留选型 FAQ](global-standard-vs-datazone-vs-regional-ptu-multi-region-bcdr-residency-selection-faq.md) | [🇨🇳 中文](global-standard-vs-datazone-vs-regional-ptu-multi-region-bcdr-residency-selection-faq.md) · [🇬🇧 EN](global-standard-vs-datazone-vs-regional-ptu-multi-region-bcdr-residency-selection-faq.en.md) |
+| 81 | [Azure Load Testing + LLM 仿真靶场 vs PTU 溢出 + Chaos Studio：洪峰就绪选型 FAQ](azure-load-testing-llm-simulator-vs-ptu-overflow-chaos-studio-peak-readiness-selection-faq.md) | [🇨🇳 中文](azure-load-testing-llm-simulator-vs-ptu-overflow-chaos-studio-peak-readiness-selection-faq.md) · [🇬🇧 EN](azure-load-testing-llm-simulator-vs-ptu-overflow-chaos-studio-peak-readiness-selection-faq.en.md) |
+| 82 | [Azure Chaos Studio + Azure Load Testing：多区域企业智能体混沌工程 GameDay 与韧性验证指南](chaos-loadtest-multiregion-gameday-faq.md) | [🇨🇳 中文](chaos-loadtest-multiregion-gameday-faq.md) · [🇬🇧 EN](chaos-loadtest-multiregion-gameday-faq.en.md) |
+| 83 | [Shared Hub vs Spoke Subscription vs Deployment Stamp：企业多租户 AI Landing Zone 选型 FAQ](shared-hub-vs-spoke-subscription-vs-deployment-stamp-ai-landing-zone-selection-faq.md) | [🇨🇳 中文](shared-hub-vs-spoke-subscription-vs-deployment-stamp-ai-landing-zone-selection-faq.md) · [🇬🇧 EN](shared-hub-vs-spoke-subscription-vs-deployment-stamp-ai-landing-zone-selection-faq.en.md) |
+| 84 | [企业 AI CoE Hub-Spoke Landing Zone vs 联邦业务线运营模式选型 FAQ](enterprise-ai-coe-hub-spoke-landing-zone-vs-federated-bu-operating-model-selection-faq.md) | [🇨🇳 中文](enterprise-ai-coe-hub-spoke-landing-zone-vs-federated-bu-operating-model-selection-faq.md) · [🇬🇧 EN](enterprise-ai-coe-hub-spoke-landing-zone-vs-federated-bu-operating-model-selection-faq.en.md) |
