@@ -4,7 +4,12 @@
 from __future__ import annotations
 
 import unittest
+import sys
 from pathlib import Path
+
+SIMULATOR_DIR = Path(__file__).resolve().parent
+if str(SIMULATOR_DIR) not in sys.path:
+    sys.path.insert(0, str(SIMULATOR_DIR))
 
 from agent_infra_sizer import (
     E2B_VM_BENCHMARKS,
@@ -522,7 +527,7 @@ class TestAgentInfraSizer(unittest.TestCase):
             for p in faq_dir.glob("*.en.md")
             if p.name != "README.en.md"
         }
-        self.assertEqual(len(zh_faqs), 127)
+        self.assertEqual(len(zh_faqs), 128)
         self.assertEqual(zh_faqs, en_faqs)
 
         link_re = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
