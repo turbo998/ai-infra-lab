@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (97 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (98 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **97 structured architecture selection guides and trade-off FAQs** (`194` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **98 structured architecture selection guides and trade-off FAQs** (`196` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 97 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 98 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -136,7 +136,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 57 | [Azure Bot Omnichannel vs D365 Contact Center vs ACS Sidecar Assist: Enterprise Contact Center Selection FAQ](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.en.md) | [🇬🇧 EN](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.en.md) · [🇨🇳 中文](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.md) |
 | 58 | [Azure AI Translator vs AOAI LLM Localization vs Cross-Lingual RAG vs Sovereign Routing: Global Multilingual Agent Selection FAQ](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) | [🇬🇧 EN](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) · [🇨🇳 中文](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (11 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (12 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -153,6 +153,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 67 | [Purview DLP and CMK vs Tokenization Gateway vs Confidential Clean Room: Sovereign Privacy AI Selection FAQ](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.en.md) | [🇬🇧 EN](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.en.md) · [🇨🇳 中文](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.md) |
 | 68 | [Microsoft Purview Sensitivity Label Inheritance, Inline PII Vault Tokenization & DLP Egress Gate for Enterprise Multi-Agent RAG](purview-label-pii-tokenization-dlp-egress-gate-faq.en.md) | [🇬🇧 EN](purview-label-pii-tokenization-dlp-egress-gate-faq.en.md) · [🇨🇳 中文](purview-label-pii-tokenization-dlp-egress-gate-faq.md) |
 | 69 | [Microsoft Defender for Cloud (AI + Containers) + Microsoft Sentinel Automated SOAR Quarantine Plane for Compromised Agent Sandboxes](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.en.md) | [🇬🇧 EN](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.en.md) · [🇨🇳 中文](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.md) |
+| 98 | [EU AI Act + ISO/IEC 42001 High-Risk Agent Compliance: Purview AI Hub vs Foundry Eval vs Defender Governance Selection FAQ](eu-ai-act-iso-42001-high-risk-agent-compliance-purview-ai-hub-vs-foundry-eval-vs-defender-governance-selection-faq.en.md) | [🇬🇧 EN](eu-ai-act-iso-42001-high-risk-agent-compliance-purview-ai-hub-vs-foundry-eval-vs-defender-governance-selection-faq.en.md) · [🇨🇳 中文](eu-ai-act-iso-42001-high-risk-agent-compliance-purview-ai-hub-vs-foundry-eval-vs-defender-governance-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (7 Guides)
 

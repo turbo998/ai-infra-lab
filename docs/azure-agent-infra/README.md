@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（97 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（98 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **97 个架构选型、平台对比与安全治理决策专题**（共 `194` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **98 个架构选型、平台对比与安全治理决策专题**（共 `196` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 97 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 98 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
@@ -136,7 +136,7 @@
 | 57 | [Azure Bot Omnichannel vs D365 Contact Center vs ACS Sidecar Assist：企业全渠道联络中心选型 FAQ](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.md) | [🇨🇳 中文](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.md) · [🇬🇧 EN](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.en.md) |
 | 58 | [Azure AI Translator vs AOAI LLM Localization vs Cross-Lingual RAG vs Sovereign Routing：全球多语种智能体选型 FAQ](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) | [🇨🇳 中文](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) · [🇬🇧 EN](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（11 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（12 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -153,6 +153,7 @@
 | 67 | [Purview DLP+CMK vs 可逆脱敏网关 vs 机密清洁室：主权隐私 AI 选型 FAQ](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.md) | [🇨🇳 中文](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.md) · [🇬🇧 EN](purview-dlp-cmk-vs-presidio-tokenization-gateway-vs-confidential-cleanroom-sovereign-ai-selection-faq.en.md) |
 | 68 | [Microsoft Purview 敏感度标签继承、内联 PII 令牌化脱敏与多智能体 RAG 出站 DLP 门禁指南](purview-label-pii-tokenization-dlp-egress-gate-faq.md) | [🇨🇳 中文](purview-label-pii-tokenization-dlp-egress-gate-faq.md) · [🇬🇧 EN](purview-label-pii-tokenization-dlp-egress-gate-faq.en.md) |
 | 69 | [Microsoft Defender for Cloud（AI + 容器）+ Microsoft Sentinel：失陷智能体沙箱自动化 SOAR 隔离取证指南](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.md) | [🇨🇳 中文](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.md) · [🇬🇧 EN](defender-cloud-sentinel-soar-quarantine-agent-sandbox-faq.en.md) |
+| 98 | [EU AI Act + ISO/IEC 42001 高风险智能体合规：Purview AI Hub vs Foundry Eval vs Defender 治理选型 FAQ](eu-ai-act-iso-42001-high-risk-agent-compliance-purview-ai-hub-vs-foundry-eval-vs-defender-governance-selection-faq.md) | [🇨🇳 中文](eu-ai-act-iso-42001-high-risk-agent-compliance-purview-ai-hub-vs-foundry-eval-vs-defender-governance-selection-faq.md) · [🇬🇧 EN](eu-ai-act-iso-42001-high-risk-agent-compliance-purview-ai-hub-vs-foundry-eval-vs-defender-governance-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（7 篇）
 
