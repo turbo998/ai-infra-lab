@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (98 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (99 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **98 structured architecture selection guides and trade-off FAQs** (`196` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **99 structured architecture selection guides and trade-off FAQs** (`198` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 98 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 99 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -115,7 +115,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 43 | [SharePoint Embedded vs Azure Blob Storage (CMK) vs Cosmos DB Artifact Store: Enterprise Agent Document Lifecycle Selection FAQ](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.en.md) | [🇬🇧 EN](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.en.md) · [🇨🇳 中文](sharepoint-embedded-vs-blob-cmk-vs-cosmos-artifact-store-enterprise-document-lifecycle-selection-faq.md) |
 | 44 | [Azure Blob User Delegation SAS + Entra ABAC + WORM immutability for multi-tenant agent artifacts and sandbox file I/O](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.en.md) | [🇬🇧 EN](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.en.md) · [🇨🇳 中文](storage-blob-abac-sas-delegation-worm-agent-artifacts-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (14 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (15 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -135,6 +135,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 56 | [Azure OpenAI Realtime WebRTC vs Teams Meeting Bot vs ACS Vision vs Live Avatar: Real-Time Multimodal Copilot Selection FAQ](aoai-realtime-webrtc-vs-teams-meeting-bot-vs-acs-vision-vs-live-avatar-copilot-selection-faq.en.md) | [🇬🇧 EN](aoai-realtime-webrtc-vs-teams-meeting-bot-vs-acs-vision-vs-live-avatar-copilot-selection-faq.en.md) · [🇨🇳 中文](aoai-realtime-webrtc-vs-teams-meeting-bot-vs-acs-vision-vs-live-avatar-copilot-selection-faq.md) |
 | 57 | [Azure Bot Omnichannel vs D365 Contact Center vs ACS Sidecar Assist: Enterprise Contact Center Selection FAQ](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.en.md) | [🇬🇧 EN](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.en.md) · [🇨🇳 中文](azure-bot-service-omnichannel-d365-contact-center-vs-acs-custom-cc-agent-handoff-selection-faq.md) |
 | 58 | [Azure AI Translator vs AOAI LLM Localization vs Cross-Lingual RAG vs Sovereign Routing: Global Multilingual Agent Selection FAQ](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) | [🇬🇧 EN](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.en.md) · [🇨🇳 中文](azure-ai-translator-vs-aoai-llm-localization-vs-glossary-rag-global-multilingual-agent-selection-faq.md) |
+| 99 | [GitHub Copilot Extensions Skillsets vs Custom MCP Servers vs Copilot Coding Agent: Platform Engineering IDP Selection FAQ](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) | [🇬🇧 EN](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) · [🇨🇳 中文](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (12 Guides)
 
