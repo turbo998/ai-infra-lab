@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（158 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（159 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **158 个架构选型、平台对比与安全治理决策专题**（共 `316` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **159 个架构选型、平台对比与安全治理决策专题**（共 `318` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 158 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 159 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（10 篇）
 
@@ -79,7 +79,7 @@
 | 153 | [企业结构化生成选型：Speculative Decoding + XGrammar/llguidance 约束解码（AKS vLLM/SGLang）vs Foundry Strict Structured Outputs FAQ](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.md) | [🇨🇳 中文](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.md) · [🇬🇧 EN](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.en.md) |
 | 156 | [企业 Teacher-Student 蒸馏选型：RFT/DPO/GRPO + FP8/W8A8 量化（Foundry 托管蒸馏 vs AML+AKS TensorRT-LLM/vLLM）FAQ](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) | [🇨🇳 中文](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) · [🇬🇧 EN](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（12 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（13 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -97,6 +97,7 @@
 | 26 | [Azure Web PubSub / SignalR vs AKS/ACA Envoy 原生 WebSocket 多路复用：智能体实时流式输出与人工审批网关选型指南](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.md) | [🇨🇳 中文](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.md) · [🇬🇧 EN](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.en.md) |
 | 148 | [异步 HITL 审批回调架构选型：APIM 签名 Webhook + Durable 挂起恢复 vs Service Bus Sessions + Outbox vs Teams/Outlook Adaptive Cards FAQ](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.md) | [🇨🇳 中文](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.md) · [🇬🇧 EN](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.en.md) |
 | 154 | [企业 GraphQL/gRPC/AsyncAPI 到 MCP 工具联邦选型：APIM GraphQL 治理投影 vs Apollo Router 超图 vs Envoy gRPC Transcoding 事件桥接 FAQ](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.md) | [🇨🇳 中文](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.md) · [🇬🇧 EN](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.en.md) |
+| 159 | [企业 MCP 供应链攻防选型：APIM 工具清单 SHA-256 钉扎 + Cosign/Ratify 签名验证 vs Prompt Shields 动态扫描 vs ACA/AKS 出网气隙隔离 FAQ](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.md) | [🇨🇳 中文](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.md) · [🇬🇧 EN](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（23 篇）
 
