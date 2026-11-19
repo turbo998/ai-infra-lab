@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (140 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (141 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **140 structured architecture selection guides and trade-off FAQs** (`280` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **141 structured architecture selection guides and trade-off FAQs** (`282` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 140 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 141 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -142,7 +142,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 102 | [D365 Field Service Copilot vs Foundry Mobile Offline RAG vs Mixed-Reality Remote Assist: Utilities and Telecom Field-Agent Selection FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) | [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) · [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) |
 | 111 | [Automotive SDV In-Vehicle Voice Agent Selection: Onboard NPU SLM vs AOAI Realtime Hybrid Cloud vs Connected Fleet Fabric FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) | [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) · [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (45 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (46 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -193,6 +193,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 138 | [Agrochemical and Food/Beverage Cold-Chain Traceability and Recall Agent Selection: Fabric RTI/EPCIS Genealogy Plane vs Foundry Quality CAPA Evidence Plane vs SAP Batch Governance Action Plane FAQ](agrochemical-food-beverage-cold-chain-fsma204-traceability-recall-fabric-rti-vs-foundry-quality-capa-vs-sap-batch-selection-faq.en.md) | [🇬🇧 EN](agrochemical-food-beverage-cold-chain-fsma204-traceability-recall-fabric-rti-vs-foundry-quality-capa-vs-sap-batch-selection-faq.en.md) · [🇨🇳 中文](agrochemical-food-beverage-cold-chain-fsma204-traceability-recall-fabric-rti-vs-foundry-quality-capa-vs-sap-batch-selection-faq.md) |
 | 139 | [Luxury EV and SDV OEM Agent Selection: ADX/Fabric Cohort Engine vs Foundry UNECE Evidence Engine vs Teamcenter/Codebeamer Governed Change Engine FAQ](luxury-automotive-ev-connected-fleet-warranty-ota-homologation-adx-vs-foundry-unece-r155-rag-vs-plm-teamcenter-mcp-selection-faq.en.md) | [🇬🇧 EN](luxury-automotive-ev-connected-fleet-warranty-ota-homologation-adx-vs-foundry-unece-r155-rag-vs-plm-teamcenter-mcp-selection-faq.en.md) · [🇨🇳 中文](luxury-automotive-ev-connected-fleet-warranty-ota-homologation-adx-vs-foundry-unece-r155-rag-vs-plm-teamcenter-mcp-selection-faq.md) |
 | 140 | [Research University Grant Compliance and Academic Integrity Agent Selection: M365 Copilot for Education Productivity Track vs Foundry Tutoring and Sponsored-Research Compliance Track vs Canvas/Banner Governed Action Plane FAQ](higher-education-research-university-sis-grant-compliance-academic-integrity-foundry-vs-m365-copilot-edu-vs-canvas-lms-mcp-selection-faq.en.md) | [🇬🇧 EN](higher-education-research-university-sis-grant-compliance-academic-integrity-foundry-vs-m365-copilot-edu-vs-canvas-lms-mcp-selection-faq.en.md) · [🇨🇳 中文](higher-education-research-university-sis-grant-compliance-academic-integrity-foundry-vs-m365-copilot-edu-vs-canvas-lms-mcp-selection-faq.md) |
+| 141 | [Global Reinsurance NatCat Treaty and Catastrophe Modeling Agent Selection: Foundry Wording Evidence Plane vs Oasis LMF Deterministic HPC Simulation Plane vs Duck Creek/Guidewire Governed Action Plane FAQ](global-reinsurance-catastrophe-natcat-treaty-slip-bordereaux-foundry-cu-vs-hpc-oasis-lmf-vs-duckcreek-guidewire-mcp-selection-faq.en.md) | [🇬🇧 EN](global-reinsurance-catastrophe-natcat-treaty-slip-bordereaux-foundry-cu-vs-hpc-oasis-lmf-vs-duckcreek-guidewire-mcp-selection-faq.en.md) · [🇨🇳 中文](global-reinsurance-catastrophe-natcat-treaty-slip-bordereaux-foundry-cu-vs-hpc-oasis-lmf-vs-duckcreek-guidewire-mcp-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (7 Guides)
 
