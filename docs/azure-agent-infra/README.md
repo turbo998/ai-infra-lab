@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（155 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（156 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **155 个架构选型、平台对比与安全治理决策专题**（共 `310` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **156 个架构选型、平台对比与安全治理决策专题**（共 `312` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 155 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 156 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（9 篇）
 
@@ -59,7 +59,7 @@
 | 08 | [企业级 Agent 应用落地蓝图：编排框架、运行时宿主、状态记忆、RAG 架构与多租户平台治理选型](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.md) | [🇨🇳 中文](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.md) · [🇬🇧 EN](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.en.md) |
 | 147 | [自治 Coding Agent 临时工作空间选型：AKS Kata 预热快照池 vs GitHub Actions/Codespaces Runner vs ACA Dynamic Sessions FAQ](coding-agent-ephemeral-repo-workspace-aks-kata-devcontainers-vs-github-codespaces-actions-runners-vs-aca-dynamic-sessions-selection-faq.md) | [🇨🇳 中文](coding-agent-ephemeral-repo-workspace-aks-kata-devcontainers-vs-github-codespaces-actions-runners-vs-aca-dynamic-sessions-selection-faq.md) · [🇬🇧 EN](coding-agent-ephemeral-repo-workspace-aks-kata-devcontainers-vs-github-codespaces-actions-runners-vs-aca-dynamic-sessions-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（11 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（12 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -76,6 +76,7 @@
 | 100 | [Azure OpenAI Sora/GPT-Image vs Foundry 伙伴媒体模型 vs Adobe Firefly：企业品牌营销智能体选型 FAQ](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.md) | [🇨🇳 中文](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.md) · [🇬🇧 EN](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.en.md) |
 | 145 | [长上下文智能体推理选型：Foundry/AOAI PTU 自动缓存 vs AKS Prefill/Decode 解耦 KV 路由 vs 混合分层服务 FAQ](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.md) | [🇨🇳 中文](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.md) · [🇬🇧 EN](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.en.md) |
 | 153 | [企业结构化生成选型：Speculative Decoding + XGrammar/llguidance 约束解码（AKS vLLM/SGLang）vs Foundry Strict Structured Outputs FAQ](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.md) | [🇨🇳 中文](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.md) · [🇬🇧 EN](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.en.md) |
+| 156 | [企业 Teacher-Student 蒸馏选型：RFT/DPO/GRPO + FP8/W8A8 量化（Foundry 托管蒸馏 vs AML+AKS TensorRT-LLM/vLLM）FAQ](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) | [🇨🇳 中文](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) · [🇬🇧 EN](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（12 篇）
 
