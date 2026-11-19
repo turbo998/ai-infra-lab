@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (134 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (135 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **134 structured architecture selection guides and trade-off FAQs** (`268` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **135 structured architecture selection guides and trade-off FAQs** (`270` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 134 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 135 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -142,7 +142,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 102 | [D365 Field Service Copilot vs Foundry Mobile Offline RAG vs Mixed-Reality Remote Assist: Utilities and Telecom Field-Agent Selection FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) | [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) · [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) |
 | 111 | [Automotive SDV In-Vehicle Voice Agent Selection: Onboard NPU SLM vs AOAI Realtime Hybrid Cloud vs Connected Fleet Fabric FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) | [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) · [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (39 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (40 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -187,6 +187,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 132 | [Sovereign Tax and Customs Agent Selection: Deterministic CTC/Peppol Gateway vs Fabric Fraud Graph Plane vs Foundry Confidential Tax-Law RAG Workbench FAQ](sovereign-tax-customs-audit-e-invoicing-peppol-fraud-graph-fabric-vs-foundry-tax-code-rag-vs-confidential-compute-selection-faq.en.md) | [🇬🇧 EN](sovereign-tax-customs-audit-e-invoicing-peppol-fraud-graph-fabric-vs-foundry-tax-code-rag-vs-confidential-compute-selection-faq.en.md) · [🇨🇳 中文](sovereign-tax-customs-audit-e-invoicing-peppol-fraud-graph-fabric-vs-foundry-tax-code-rag-vs-confidential-compute-selection-faq.md) |
 | 133 | [Biotech Clinical Trial Patient Matching and Pharmacovigilance ICSR Agent Selection: Foundry Unstructured MedDRA Workbench vs FHIR+OMOP Deterministic Cohort Screening vs E2B(R3) Physician Sign-Off Regulatory Gateway FAQ](biotech-clinical-trial-patient-matching-pharmacovigilance-icsr-foundry-vs-fhir-omop-cdm-vs-fda-medwatch-selection-faq.en.md) | [🇬🇧 EN](biotech-clinical-trial-patient-matching-pharmacovigilance-icsr-foundry-vs-fhir-omop-cdm-vs-fda-medwatch-selection-faq.en.md) · [🇨🇳 中文](biotech-clinical-trial-patient-matching-pharmacovigilance-icsr-foundry-vs-fhir-omop-cdm-vs-fda-medwatch-selection-faq.md) |
 | 134 | [Upstream Oil, Gas, and Mining EHS Permit-to-Work and Asset Integrity Agent Selection: Arc Edge Safety Interlock Plane vs Foundry HAZOP/RBI Multimodal Plane vs SAP PM / Maximo Deterministic Approval Plane FAQ](mining-oil-gas-upstream-ehs-permit-to-work-asset-integrity-arc-edge-vs-foundry-hazop-rag-vs-sap-pm-selection-faq.en.md) | [🇬🇧 EN](mining-oil-gas-upstream-ehs-permit-to-work-asset-integrity-arc-edge-vs-foundry-hazop-rag-vs-sap-pm-selection-faq.en.md) · [🇨🇳 中文](mining-oil-gas-upstream-ehs-permit-to-work-asset-integrity-arc-edge-vs-foundry-hazop-rag-vs-sap-pm-selection-faq.md) |
+| 135 | [Global Maritime Shipping and Smart Port Terminal Agent Selection: AIS + Fabric RTI Event Plane vs Foundry Charterparty and Carbon Compliance Plane vs TOS/IMOS Deterministic Action Plane FAQ](maritime-port-terminal-vessel-chartering-bunker-ets-imo-cii-agent-foundry-vs-ais-fabric-rti-vs-tos-mcp-selection-faq.en.md) | [🇬🇧 EN](maritime-port-terminal-vessel-chartering-bunker-ets-imo-cii-agent-foundry-vs-ais-fabric-rti-vs-tos-mcp-selection-faq.en.md) · [🇨🇳 中文](maritime-port-terminal-vessel-chartering-bunker-ets-imo-cii-agent-foundry-vs-ais-fabric-rti-vs-tos-mcp-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (7 Guides)
 
