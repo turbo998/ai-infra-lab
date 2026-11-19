@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（147 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（148 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **147 个架构选型、平台对比与安全治理决策专题**（共 `294` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **148 个架构选型、平台对比与安全治理决策专题**（共 `296` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 147 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 148 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（9 篇）
 
@@ -76,7 +76,7 @@
 | 100 | [Azure OpenAI Sora/GPT-Image vs Foundry 伙伴媒体模型 vs Adobe Firefly：企业品牌营销智能体选型 FAQ](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.md) | [🇨🇳 中文](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.md) · [🇬🇧 EN](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.en.md) |
 | 145 | [长上下文智能体推理选型：Foundry/AOAI PTU 自动缓存 vs AKS Prefill/Decode 解耦 KV 路由 vs 混合分层服务 FAQ](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.md) | [🇨🇳 中文](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.md) · [🇬🇧 EN](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（10 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（11 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -92,6 +92,7 @@
 | 24 | [APIM AI Gateway Weighted Fair Queuing + Token Bucket：多租户 Agent 公平性与 SLO 治理工程指南](apim-wfq-token-bucket-tenant-fairness-slo-faq.md) | [🇨🇳 中文](apim-wfq-token-bucket-tenant-fairness-slo-faq.md) · [🇬🇧 EN](apim-wfq-token-bucket-tenant-fairness-slo-faq.en.md) |
 | 25 | [Azure Front Door Premium（WAF + Bot Manager 1.1 + Private Link Origin）+ APIM AI Gateway 抗 Denial-of-Wallet Token-Drain 与长连接 SSE 指南](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.md) | [🇨🇳 中文](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.md) · [🇬🇧 EN](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.en.md) |
 | 26 | [Azure Web PubSub / SignalR vs AKS/ACA Envoy 原生 WebSocket 多路复用：智能体实时流式输出与人工审批网关选型指南](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.md) | [🇨🇳 中文](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.md) · [🇬🇧 EN](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.en.md) |
+| 148 | [异步 HITL 审批回调架构选型：APIM 签名 Webhook + Durable 挂起恢复 vs Service Bus Sessions + Outbox vs Teams/Outlook Adaptive Cards FAQ](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.md) | [🇨🇳 中文](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.md) · [🇬🇧 EN](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（21 篇）
 

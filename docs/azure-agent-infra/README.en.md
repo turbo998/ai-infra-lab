@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (147 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (148 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **147 structured architecture selection guides and trade-off FAQs** (`294` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **148 structured architecture selection guides and trade-off FAQs** (`296` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 147 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 148 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (9 Guides)
 
@@ -76,7 +76,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 100 | [Azure OpenAI Sora/GPT-Image vs Foundry Partner Media Models vs Adobe Firefly: Enterprise Brand Marketing Agent Selection FAQ](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.en.md) | [🇬🇧 EN](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.en.md) · [🇨🇳 中文](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.md) |
 | 145 | [Long-Context Agent Inference Selection: Foundry/AOAI PTU Auto Caching vs AKS Disaggregated Prefill/Decode KV Routing vs Hybrid Tiered Serving FAQ](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.en.md) | [🇬🇧 EN](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.en.md) · [🇨🇳 中文](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (10 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (11 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -92,6 +92,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 24 | [APIM AI Gateway Weighted Fair Queuing + Token Bucket for multi-tenant agent fairness and SLO governance](apim-wfq-token-bucket-tenant-fairness-slo-faq.en.md) | [🇬🇧 EN](apim-wfq-token-bucket-tenant-fairness-slo-faq.en.md) · [🇨🇳 中文](apim-wfq-token-bucket-tenant-fairness-slo-faq.md) |
 | 25 | [Azure Front Door Premium (WAF + Bot Manager 1.1 + Private Link Origin) + APIM AI Gateway for Denial-of-Wallet token-drain defense and long-lived SSE](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.en.md) | [🇬🇧 EN](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.en.md) · [🇨🇳 中文](afd-waf-botmanager-apim-agent-ingress-ddos-token-drain-faq.md) |
 | 26 | [Azure Web PubSub / SignalR Service vs Direct AKS/ACA Envoy WebSocket Multiplexing for Real-Time Agent Streaming & Human-in-the-Loop Approval Gateways](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.en.md) | [🇬🇧 EN](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.en.md) · [🇨🇳 中文](webpubsub-signalr-vs-envoy-websocket-agent-streaming-faq.md) |
+| 148 | [Async HITL Approval Callback Architecture Selection: APIM Signed Webhooks + Durable Suspension/Resume vs Service Bus Sessions + Outbox vs Teams/Outlook Adaptive Cards FAQ](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.en.md) | [🇬🇧 EN](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.en.md) · [🇨🇳 中文](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (21 Guides)
 
