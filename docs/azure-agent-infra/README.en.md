@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (164 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (165 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **164 structured architecture selection guides and trade-off FAQs** (`328` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **165 structured architecture selection guides and trade-off FAQs** (`330` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 164 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 165 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (11 Guides)
 
@@ -230,7 +230,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 152 | [Enterprise Agent Evaluation Selection: Synthetic Adversarial Dataset Generation + Golden Drift Governance + Calibrated LLM Judge Jury vs Human SME Annotation Anchors FAQ](synthetic-adversarial-dataset-generation-golden-benchmark-drift-foundry-simulator-vs-autoeval-llm-judge-calibration-vs-human-annotation-selection-faq.en.md) | [🇬🇧 EN](synthetic-adversarial-dataset-generation-golden-benchmark-drift-foundry-simulator-vs-autoeval-llm-judge-calibration-vs-human-annotation-selection-faq.en.md) · [🇨🇳 中文](synthetic-adversarial-dataset-generation-golden-benchmark-drift-foundry-simulator-vs-autoeval-llm-judge-calibration-vs-human-annotation-selection-faq.md) |
 | 160 | [Multi-Tenant B2B Agent SaaS Noisy-Neighbor Isolation Selection: APIM+Redis Fair-Queuing and Tenant Token Limits vs Dedicated PTU-by-Tier Pools vs Cosmos Hierarchical Partition + AI Search Shard Isolation FAQ](multi-tenant-b2b-saas-noisy-neighbor-token-tpm-fair-queuing-apim-redis-leaky-bucket-vs-dedicated-ptu-per-tier-vs-cosmos-hierarchical-partition-selection-faq.en.md) | [🇬🇧 EN](multi-tenant-b2b-saas-noisy-neighbor-token-tpm-fair-queuing-apim-redis-leaky-bucket-vs-dedicated-ptu-per-tier-vs-cosmos-hierarchical-partition-selection-faq.en.md) · [🇨🇳 中文](multi-tenant-b2b-saas-noisy-neighbor-token-tpm-fair-queuing-apim-redis-leaky-bucket-vs-dedicated-ptu-per-tier-vs-cosmos-hierarchical-partition-selection-faq.md) |
 
-### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (26 Guides)
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (27 Guides)
 
 > Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
@@ -262,3 +262,4 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 110 | [Global Supply Chain Control Tower Agent Selection: D365 SCM Copilot vs Fabric Ontology Network vs Foundry Tariff Disruption Governance FAQ](global-supply-chain-control-tower-agent-d365-scm-vs-fabric-ontology-vs-foundry-tariff-disruption-selection-faq.en.md) | [🇬🇧 EN](global-supply-chain-control-tower-agent-d365-scm-vs-fabric-ontology-vs-foundry-tariff-disruption-selection-faq.en.md) · [🇨🇳 中文](global-supply-chain-control-tower-agent-d365-scm-vs-fabric-ontology-vs-foundry-tariff-disruption-selection-faq.md) |
 | 150 | [Fabless Semiconductor EDA Agent Selection: Azure HPC Burst + ANF/Lustre vs Foundry NDA RAG vs LSF/FlexLM MCP Governance (Tape-out Controlled Sign-off) FAQ](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.en.md) | [🇬🇧 EN](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.en.md) · [🇨🇳 中文](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.md) |
 | 155 | [Municipal Water & Wastewater Utility Agent Selection: IoT Operations + Fabric Hydraulic Twin Leak Triage vs Foundry NPDES/PFAS Compliance RAG vs ArcGIS/Cityworks/Maximo Work-Order Governance FAQ](municipal-water-wastewater-utility-scada-epa-pfas-leak-digital-twin-iot-ops-vs-foundry-permit-rag-vs-esri-arcgis-workorder-selection-faq.en.md) | [🇬🇧 EN](municipal-water-wastewater-utility-scada-epa-pfas-leak-digital-twin-iot-ops-vs-foundry-permit-rag-vs-esri-arcgis-workorder-selection-faq.en.md) · [🇨🇳 中文](municipal-water-wastewater-utility-scada-epa-pfas-leak-digital-twin-iot-ops-vs-foundry-permit-rag-vs-esri-arcgis-workorder-selection-faq.md) |
+| 165 | [Green Steel and Cement Decarbonization Agent Selection: IoT Operations Real-Time Mass-Balance Plane vs Foundry CBAM/ISO Evidence RAG vs APC Advisory MCP Governance FAQ](green-steel-cement-cbam-eaf-decarbonization-iot-ops-vs-foundry-lca-rag-vs-apc-mcp-selection-faq.en.md) | [🇬🇧 EN](green-steel-cement-cbam-eaf-decarbonization-iot-ops-vs-foundry-lca-rag-vs-apc-mcp-selection-faq.en.md) · [🇨🇳 中文](green-steel-cement-cbam-eaf-decarbonization-iot-ops-vs-foundry-lca-rag-vs-apc-mcp-selection-faq.md) |
