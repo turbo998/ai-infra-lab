@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（149 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（150 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **149 个架构选型、平台对比与安全治理决策专题**（共 `298` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **150 个架构选型、平台对比与安全治理决策专题**（共 `300` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 149 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 150 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（9 篇）
 
@@ -217,7 +217,7 @@
 | 76 | [B2B ISV / SaaS 智能体商业化变现架构：APIM 多租户计量、Azure Marketplace 计费与内部分摊选型 FAQ](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) | [🇨🇳 中文](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) · [🇬🇧 EN](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) |
 | 146 | [多智能体 LLM 可观测选型：OTel GenAI 语义约定与尾采样分流 vs Phoenix/Langfuse 自建平面 vs 商业 APM 全栈 FAQ](opentelemetry-genai-semantic-conventions-agent-trace-sampling-azure-monitor-adx-vs-arize-phoenix-vs-datadog-llm-observability-selection-faq.md) | [🇨🇳 中文](opentelemetry-genai-semantic-conventions-agent-trace-sampling-azure-monitor-adx-vs-arize-phoenix-vs-datadog-llm-observability-selection-faq.md) · [🇬🇧 EN](opentelemetry-genai-semantic-conventions-agent-trace-sampling-azure-monitor-adx-vs-arize-phoenix-vs-datadog-llm-observability-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（24 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（25 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -247,3 +247,4 @@
 | 106 | [电信 5G 自治 NOC 智能体选型：Operator Nexus + ADX vs Fabric RTI vs Foundry 3GPP ORAN 根因分析 FAQ](telco-5g-network-autonomous-noc-agent-azure-operator-nexus-vs-fabric-rti-vs-foundry-3gpp-ran-triage-selection-faq.md) | [🇨🇳 中文](telco-5g-network-autonomous-noc-agent-azure-operator-nexus-vs-fabric-rti-vs-foundry-3gpp-ran-triage-selection-faq.md) · [🇬🇧 EN](telco-5g-network-autonomous-noc-agent-azure-operator-nexus-vs-fabric-rti-vs-foundry-3gpp-ran-triage-selection-faq.en.md) |
 | 109 | [能源电网调度与 ESG Scope-3 智能体选型：Fabric Sustainability vs Foundry 预测协同 vs MILP Solver FAQ](energy-grid-dispatch-esg-scope3-agent-fabric-sustainability-vs-foundry-forecast-vs-milp-solver-selection-faq.md) | [🇨🇳 中文](energy-grid-dispatch-esg-scope3-agent-fabric-sustainability-vs-foundry-forecast-vs-milp-solver-selection-faq.md) · [🇬🇧 EN](energy-grid-dispatch-esg-scope3-agent-fabric-sustainability-vs-foundry-forecast-vs-milp-solver-selection-faq.en.md) |
 | 110 | [全球供应链控制塔智能体选型：D365 SCM Copilot vs Fabric 语义网络 vs Foundry 关税扰动治理 FAQ](global-supply-chain-control-tower-agent-d365-scm-vs-fabric-ontology-vs-foundry-tariff-disruption-selection-faq.md) | [🇨🇳 中文](global-supply-chain-control-tower-agent-d365-scm-vs-fabric-ontology-vs-foundry-tariff-disruption-selection-faq.md) · [🇬🇧 EN](global-supply-chain-control-tower-agent-d365-scm-vs-fabric-ontology-vs-foundry-tariff-disruption-selection-faq.en.md) |
+| 150 | [Fabless 半导体 EDA 智能体选型：Azure HPC Burst + ANF/Lustre vs Foundry NDA RAG vs LSF/FlexLM MCP 治理（Tape-out 受控签核）FAQ](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.md) | [🇨🇳 中文](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.md) · [🇬🇧 EN](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.en.md) |

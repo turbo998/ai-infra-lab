@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (149 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (150 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **149 structured architecture selection guides and trade-off FAQs** (`298` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **150 structured architecture selection guides and trade-off FAQs** (`300` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 149 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 150 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (9 Guides)
 
@@ -217,7 +217,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 76 | [B2B ISV & SaaS Agent Monetization: APIM Tenant Metering, Azure Marketplace Billing & Chargeback Selection FAQ](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) | [🇬🇧 EN](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.en.md) · [🇨🇳 中文](b2b-isv-saas-agent-monetization-apim-metering-marketplace-chargeback-architecture-selection-faq.md) |
 | 146 | [Multi-Agent LLM Observability Selection: OTel GenAI Semantic Conventions + Tail-Sampling Split Routing vs Self-Hosted Phoenix/Langfuse vs Commercial Full-Stack APM FAQ](opentelemetry-genai-semantic-conventions-agent-trace-sampling-azure-monitor-adx-vs-arize-phoenix-vs-datadog-llm-observability-selection-faq.en.md) | [🇬🇧 EN](opentelemetry-genai-semantic-conventions-agent-trace-sampling-azure-monitor-adx-vs-arize-phoenix-vs-datadog-llm-observability-selection-faq.en.md) · [🇨🇳 中文](opentelemetry-genai-semantic-conventions-agent-trace-sampling-azure-monitor-adx-vs-arize-phoenix-vs-datadog-llm-observability-selection-faq.md) |
 
-### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (24 Guides)
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (25 Guides)
 
 > Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
@@ -247,3 +247,4 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 106 | [Telco 5G Autonomous NOC Agent Selection: Azure Operator Nexus + ADX vs Fabric RTI vs Foundry 3GPP ORAN Triage FAQ](telco-5g-network-autonomous-noc-agent-azure-operator-nexus-vs-fabric-rti-vs-foundry-3gpp-ran-triage-selection-faq.en.md) | [🇬🇧 EN](telco-5g-network-autonomous-noc-agent-azure-operator-nexus-vs-fabric-rti-vs-foundry-3gpp-ran-triage-selection-faq.en.md) · [🇨🇳 中文](telco-5g-network-autonomous-noc-agent-azure-operator-nexus-vs-fabric-rti-vs-foundry-3gpp-ran-triage-selection-faq.md) |
 | 109 | [Energy Grid Dispatch and ESG Scope-3 Agent Selection: Fabric Sustainability vs Foundry Forecast Copilot vs MILP Solver FAQ](energy-grid-dispatch-esg-scope3-agent-fabric-sustainability-vs-foundry-forecast-vs-milp-solver-selection-faq.en.md) | [🇬🇧 EN](energy-grid-dispatch-esg-scope3-agent-fabric-sustainability-vs-foundry-forecast-vs-milp-solver-selection-faq.en.md) · [🇨🇳 中文](energy-grid-dispatch-esg-scope3-agent-fabric-sustainability-vs-foundry-forecast-vs-milp-solver-selection-faq.md) |
 | 110 | [Global Supply Chain Control Tower Agent Selection: D365 SCM Copilot vs Fabric Ontology Network vs Foundry Tariff Disruption Governance FAQ](global-supply-chain-control-tower-agent-d365-scm-vs-fabric-ontology-vs-foundry-tariff-disruption-selection-faq.en.md) | [🇬🇧 EN](global-supply-chain-control-tower-agent-d365-scm-vs-fabric-ontology-vs-foundry-tariff-disruption-selection-faq.en.md) · [🇨🇳 中文](global-supply-chain-control-tower-agent-d365-scm-vs-fabric-ontology-vs-foundry-tariff-disruption-selection-faq.md) |
+| 150 | [Fabless Semiconductor EDA Agent Selection: Azure HPC Burst + ANF/Lustre vs Foundry NDA RAG vs LSF/FlexLM MCP Governance (Tape-out Controlled Sign-off) FAQ](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.en.md) | [🇬🇧 EN](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.en.md) · [🇨🇳 中文](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.md) |
