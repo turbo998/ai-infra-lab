@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (161 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (162 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **161 structured architecture selection guides and trade-off FAQs** (`322` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **162 structured architecture selection guides and trade-off FAQs** (`324` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 161 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 162 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (10 Guides)
 
@@ -99,7 +99,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 154 | [Enterprise GraphQL/gRPC/AsyncAPI to MCP Tool Federation Selection: APIM GraphQL Policy Projection vs Apollo Router Supergraph vs Envoy gRPC Transcoding Event Bridge FAQ](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.en.md) | [🇬🇧 EN](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.en.md) · [🇨🇳 中文](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.md) |
 | 159 | [Enterprise MCP Supply-Chain Defense Selection: APIM Canonical tools/list SHA-256 Pinning + Cosign/Ratify Signature Enforcement vs Prompt Shields Dynamic Scanning vs ACA/AKS Egress Airlock FAQ](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.en.md) | [🇬🇧 EN](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.en.md) · [🇨🇳 中文](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (23 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (24 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -128,6 +128,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 144 | [Rail Transit and Freight Corridor Predictive-Maintenance Agent Selection: ADX/Eventhouse Time-Series Plane vs Foundry FMEA Evidence Plane vs Maximo Linear Governed Action Plane FAQ](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.en.md) | [🇬🇧 EN](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.en.md) · [🇨🇳 中文](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.md) |
 | 151 | [Enterprise Agentic RAG Freshness Selection: Cosmos/SQL CDC + Event Grid + AI Search Push vs Fabric OneLake Pull vs SharePoint/Graph ACL (Sub-Second Revocation Flow and Orphan-Chunk Cleanup) FAQ](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.en.md) | [🇬🇧 EN](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.en.md) · [🇨🇳 中文](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.md) |
 | 157 | [Global Patent/FTO Agent Selection: Foundry Multimodal Orchestration + AI Search CPC/IPC Hybrid Retrieval + RDKit Markush/SMILES Substructure Retrieval vs Controlled Orbit/PatSnap MCP FAQ](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) | [🇬🇧 EN](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) · [🇨🇳 中文](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) |
+| 162 | [Clinical Genomics and Precision Oncology Agent Selection: Azure HPC/Parabricks Deterministic Variant Pipeline vs Foundry OncoKB/ClinVar Evidence RAG vs FHIR/Epic Genomics Draft Sign-out MCP FAQ](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) | [🇬🇧 EN](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) · [🇨🇳 中文](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (19 Guides)
 

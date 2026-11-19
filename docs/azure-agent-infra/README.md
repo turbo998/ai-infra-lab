@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（161 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（162 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **161 个架构选型、平台对比与安全治理决策专题**（共 `322` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **162 个架构选型、平台对比与安全治理决策专题**（共 `324` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 161 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 162 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（10 篇）
 
@@ -99,7 +99,7 @@
 | 154 | [企业 GraphQL/gRPC/AsyncAPI 到 MCP 工具联邦选型：APIM GraphQL 治理投影 vs Apollo Router 超图 vs Envoy gRPC Transcoding 事件桥接 FAQ](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.md) | [🇨🇳 中文](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.md) · [🇬🇧 EN](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.en.md) |
 | 159 | [企业 MCP 供应链攻防选型：APIM 工具清单 SHA-256 钉扎 + Cosign/Ratify 签名验证 vs Prompt Shields 动态扫描 vs ACA/AKS 出网气隙隔离 FAQ](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.md) | [🇨🇳 中文](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.md) · [🇬🇧 EN](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（23 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（24 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -128,6 +128,7 @@
 | 144 | [铁路客货运走廊预测性维护智能体选型：ADX/Eventhouse 时序平面 vs Foundry FMEA 证据平面 vs Maximo Linear 治理执行平面 FAQ](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.md) | [🇨🇳 中文](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.md) · [🇬🇧 EN](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.en.md) |
 | 151 | [企业 Agentic RAG 新鲜度选型：Cosmos/SQL CDC + Event Grid + AI Search Push vs Fabric OneLake Pull vs SharePoint/Graph ACL（秒级撤权与孤儿块清理）FAQ](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.md) | [🇨🇳 中文](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.md) · [🇬🇧 EN](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.en.md) |
 | 157 | [全球专利/FTO 智能体选型：Foundry 多模态编排 + AI Search CPC/IPC 混合检索 + RDKit Markush/SMILES 子结构检索 vs Orbit/PatSnap 受控 MCP FAQ](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) | [🇨🇳 中文](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) · [🇬🇧 EN](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) |
+| 162 | [临床基因组与精准肿瘤学智能体选型：Azure HPC/Parabricks 确定性变异管线 vs Foundry OncoKB/ClinVar 证据 RAG vs FHIR/Epic Genomics 草拟签发 MCP FAQ](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) | [🇨🇳 中文](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) · [🇬🇧 EN](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（19 篇）
 
