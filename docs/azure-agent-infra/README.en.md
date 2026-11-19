@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (144 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (145 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **144 structured architecture selection guides and trade-off FAQs** (`288` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **145 structured architecture selection guides and trade-off FAQs** (`290` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 144 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 145 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
 
@@ -58,7 +58,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 07 | [Azure Capacity Reservation Groups (CRG) + AKS Spot Node Pools + Compute Fleet Multi-SKU Fallback for GPU & Sandbox Agent Clusters](crg-aks-spot-compute-fleet-fallback-faq.en.md) | [🇬🇧 EN](crg-aks-spot-compute-fleet-fallback-faq.en.md) · [🇨🇳 中文](crg-aks-spot-compute-fleet-fallback-faq.md) |
 | 08 | [Enterprise Agent Delivery Blueprint: Framework, Runtime, State/Memory, RAG, and Multi-Tenant Platform Governance Selection](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.en.md) | [🇬🇧 EN](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.en.md) · [🇨🇳 中文](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (9 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (10 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -73,6 +73,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 15 | [AKS GPU Fractional Sharing for Agent Auxiliary Models (Reranker / Guardrail / Vision-OCR / Small Router) — NVIDIA MIG vs CUDA MPS vs Time-Slicing vs Kubernetes Dynamic Resource Allocation (DRA) Selection Guide](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.en.md) | [🇬🇧 EN](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.en.md) · [🇨🇳 中文](aks-dra-mig-mps-timeslicing-gpu-fractional-agent-serving-faq.md) |
 | 16 | [Azure Managed Lustre (AMLFS) vs ANF Ultra vs BlobFuse2 Storage Plane for Agentic RL / GRPO Post-Training & Trajectory Checkpoint Hydration](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.en.md) | [🇬🇧 EN](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.en.md) · [🇨🇳 中文](amlfs-anf-ultra-blobfuse2-agentic-rl-grpo-checkpoint-hydration-faq.md) |
 | 100 | [Azure OpenAI Sora/GPT-Image vs Foundry Partner Media Models vs Adobe Firefly: Enterprise Brand Marketing Agent Selection FAQ](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.en.md) | [🇬🇧 EN](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.en.md) · [🇨🇳 中文](azure-openai-sora-gpt-image-vs-foundry-partner-media-models-vs-adobe-firefly-enterprise-brand-marketing-agent-selection-faq.md) |
+| 145 | [Long-Context Agent Inference Selection: Foundry/AOAI PTU Auto Caching vs AKS Disaggregated Prefill/Decode KV Routing vs Hybrid Tiered Serving FAQ](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.en.md) | [🇬🇧 EN](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.en.md) · [🇨🇳 中文](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (10 Guides)
 
