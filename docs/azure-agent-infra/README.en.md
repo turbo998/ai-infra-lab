@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (156 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (157 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **156 structured architecture selection guides and trade-off FAQs** (`312` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **157 structured architecture selection guides and trade-off FAQs** (`314` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 156 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 157 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (9 Guides)
 
@@ -97,7 +97,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 148 | [Async HITL Approval Callback Architecture Selection: APIM Signed Webhooks + Durable Suspension/Resume vs Service Bus Sessions + Outbox vs Teams/Outlook Adaptive Cards FAQ](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.en.md) | [🇬🇧 EN](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.en.md) · [🇨🇳 中文](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.md) |
 | 154 | [Enterprise GraphQL/gRPC/AsyncAPI to MCP Tool Federation Selection: APIM GraphQL Policy Projection vs Apollo Router Supergraph vs Envoy gRPC Transcoding Event Bridge FAQ](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.en.md) | [🇬🇧 EN](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.en.md) · [🇨🇳 中文](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (22 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (23 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -125,6 +125,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 105 | [Azure Cosmos DB Global Active-Active vs Azure SQL Failover Groups vs Redis Active Geo: Multi-Region Stateful Agent DR Selection FAQ](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.en.md) | [🇬🇧 EN](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.en.md) · [🇨🇳 中文](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.md) |
 | 144 | [Rail Transit and Freight Corridor Predictive-Maintenance Agent Selection: ADX/Eventhouse Time-Series Plane vs Foundry FMEA Evidence Plane vs Maximo Linear Governed Action Plane FAQ](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.en.md) | [🇬🇧 EN](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.en.md) · [🇨🇳 中文](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.md) |
 | 151 | [Enterprise Agentic RAG Freshness Selection: Cosmos/SQL CDC + Event Grid + AI Search Push vs Fabric OneLake Pull vs SharePoint/Graph ACL (Sub-Second Revocation Flow and Orphan-Chunk Cleanup) FAQ](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.en.md) | [🇬🇧 EN](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.en.md) · [🇨🇳 中文](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.md) |
+| 157 | [Global Patent/FTO Agent Selection: Foundry Multimodal Orchestration + AI Search CPC/IPC Hybrid Retrieval + RDKit Markush/SMILES Substructure Retrieval vs Controlled Orbit/PatSnap MCP FAQ](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) | [🇬🇧 EN](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) · [🇨🇳 中文](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (18 Guides)
 
