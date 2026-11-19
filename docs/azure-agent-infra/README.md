@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（136 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（137 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **136 个架构选型、平台对比与安全治理决策专题**（共 `272` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **137 个架构选型、平台对比与安全治理决策专题**（共 `274` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 136 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 137 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
@@ -142,7 +142,7 @@
 | 102 | [D365 Field Service Copilot vs Foundry 移动离线 RAG vs 混合现实远程协助：公用事业与电信外勤智能体选型 FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) | [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) · [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) |
 | 111 | [汽车 SDV 座舱语音智能体选型：车端 NPU SLM vs AOAI Realtime 混合云 vs 车队 Fabric 实时平面 FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) | [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) · [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（41 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（42 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -189,6 +189,7 @@
 | 134 | [采矿与油气上游 EHS 作业许可与资产完整性智能体选型：Arc 边缘安全联锁平面 vs Foundry HAZOP/RBI 多模态平面 vs SAP PM / Maximo 确定性审批平面 FAQ](mining-oil-gas-upstream-ehs-permit-to-work-asset-integrity-arc-edge-vs-foundry-hazop-rag-vs-sap-pm-selection-faq.md) | [🇨🇳 中文](mining-oil-gas-upstream-ehs-permit-to-work-asset-integrity-arc-edge-vs-foundry-hazop-rag-vs-sap-pm-selection-faq.md) · [🇬🇧 EN](mining-oil-gas-upstream-ehs-permit-to-work-asset-integrity-arc-edge-vs-foundry-hazop-rag-vs-sap-pm-selection-faq.en.md) |
 | 135 | [全球航运与智慧港口运营智能体选型：AIS+Fabric RTI 事件平面 vs Foundry 租船条款与碳合规平面 vs TOS/IMOS 确定性执行平面 FAQ](maritime-port-terminal-vessel-chartering-bunker-ets-imo-cii-agent-foundry-vs-ais-fabric-rti-vs-tos-mcp-selection-faq.md) | [🇨🇳 中文](maritime-port-terminal-vessel-chartering-bunker-ets-imo-cii-agent-foundry-vs-ais-fabric-rti-vs-tos-mcp-selection-faq.md) · [🇬🇧 EN](maritime-port-terminal-vessel-chartering-bunker-ets-imo-cii-agent-foundry-vs-ais-fabric-rti-vs-tos-mcp-selection-faq.en.md) |
 | 136 | [公共养老金与主权基金 ALM 及私募信贷契约监控智能体选型：Foundry 证据平面 vs Fabric/Batch 确定性量化平面 vs SimCorp/Aladdin 治理执行平面 FAQ](pension-sovereign-wealth-actuarial-alm-private-credit-covenant-foundry-cu-vs-fabric-monte-carlo-vs-simcorp-selection-faq.md) | [🇨🇳 中文](pension-sovereign-wealth-actuarial-alm-private-credit-covenant-foundry-cu-vs-fabric-monte-carlo-vs-simcorp-selection-faq.md) · [🇬🇧 EN](pension-sovereign-wealth-actuarial-alm-private-credit-covenant-foundry-cu-vs-fabric-monte-carlo-vs-simcorp-selection-faq.en.md) |
+| 137 | [商业地产与数据中心 EPC 变更索赔智能体选型：APS/数字孪生时空平面 vs Foundry 合同证据平面 vs Procore/Unifier/Primavera 执行治理平面 FAQ](commercial-real-estate-datacenter-epc-bim-fidic-claim-agent-foundry-rag-vs-aps-digital-twin-vs-procore-primavera-mcp-selection-faq.md) | [🇨🇳 中文](commercial-real-estate-datacenter-epc-bim-fidic-claim-agent-foundry-rag-vs-aps-digital-twin-vs-procore-primavera-mcp-selection-faq.md) · [🇬🇧 EN](commercial-real-estate-datacenter-epc-bim-fidic-claim-agent-foundry-rag-vs-aps-digital-twin-vs-procore-primavera-mcp-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（7 篇）
 
