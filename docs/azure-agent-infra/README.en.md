@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (146 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (147 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **146 structured architecture selection guides and trade-off FAQs** (`292` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **147 structured architecture selection guides and trade-off FAQs** (`294` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 146 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 147 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (8 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (9 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -57,6 +57,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 06 | [Copilot Studio Computer Use vs PAD RPA vs Playwright MCP vs Strangler Pattern: Legacy UI Automation FAQ](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.en.md) | [🇬🇧 EN](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.en.md) · [🇨🇳 中文](copilot-studio-computer-use-rpa-vs-power-automate-vs-playwright-mcp-legacy-ui-automation-selection-faq.md) |
 | 07 | [Azure Capacity Reservation Groups (CRG) + AKS Spot Node Pools + Compute Fleet Multi-SKU Fallback for GPU & Sandbox Agent Clusters](crg-aks-spot-compute-fleet-fallback-faq.en.md) | [🇬🇧 EN](crg-aks-spot-compute-fleet-fallback-faq.en.md) · [🇨🇳 中文](crg-aks-spot-compute-fleet-fallback-faq.md) |
 | 08 | [Enterprise Agent Delivery Blueprint: Framework, Runtime, State/Memory, RAG, and Multi-Tenant Platform Governance Selection](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.en.md) | [🇬🇧 EN](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.en.md) · [🇨🇳 中文](enterprise-agent-framework-runtime-memory-rag-platform-selection-faq.md) |
+| 147 | [Autonomous Coding Agent Ephemeral Workspace Selection: AKS Kata Warm Snapshot Pools vs GitHub Actions/Codespaces Runners vs ACA Dynamic Sessions FAQ](coding-agent-ephemeral-repo-workspace-aks-kata-devcontainers-vs-github-codespaces-actions-runners-vs-aca-dynamic-sessions-selection-faq.en.md) | [🇬🇧 EN](coding-agent-ephemeral-repo-workspace-aks-kata-devcontainers-vs-github-codespaces-actions-runners-vs-aca-dynamic-sessions-selection-faq.en.md) · [🇨🇳 中文](coding-agent-ephemeral-repo-workspace-aks-kata-devcontainers-vs-github-codespaces-actions-runners-vs-aca-dynamic-sessions-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (10 Guides)
 
