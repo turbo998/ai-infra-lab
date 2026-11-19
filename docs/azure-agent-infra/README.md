@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（165 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（166 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **165 个架构选型、平台对比与安全治理决策专题**（共 `330` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **166 个架构选型、平台对比与安全治理决策专题**（共 `332` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 165 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 166 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（11 篇）
 
@@ -131,7 +131,7 @@
 | 157 | [全球专利/FTO 智能体选型：Foundry 多模态编排 + AI Search CPC/IPC 混合检索 + RDKit Markush/SMILES 子结构检索 vs Orbit/PatSnap 受控 MCP FAQ](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) | [🇨🇳 中文](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) · [🇬🇧 EN](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) |
 | 162 | [临床基因组与精准肿瘤学智能体选型：Azure HPC/Parabricks 确定性变异管线 vs Foundry OncoKB/ClinVar 证据 RAG vs FHIR/Epic Genomics 草拟签发 MCP FAQ](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) | [🇨🇳 中文](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) · [🇬🇧 EN](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（20 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（21 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -157,6 +157,7 @@
 | 149 | [跨国企业司库智能体选型：Kyriba/SAP TRM 内嵌 AI vs Fabric 流动性湖仓 + Foundry ISDA/CSA 证据 RAG（SOX 双人复核闸门）FAQ](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.md) | [🇨🇳 中文](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.md) · [🇬🇧 EN](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.en.md) |
 | 161 | [全球酒店与综合度假村智能体选型：Fabric 收益中台 vs Foundry VIP Concierge vs APIM+OHIP MCP Folio/Comp 合规执行 FAQ](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.md) | [🇨🇳 中文](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.md) · [🇬🇧 EN](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.en.md) |
 | 163 | [零售媒体网络（RMN）选型：Confidential Clean Room iROAS + Fabric 归因 vs Foundry 创意合规 QA vs APIM+DSP MCP 预算闸门 FAQ](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.md) | [🇨🇳 中文](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.md) · [🇬🇧 EN](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.en.md) |
+| 166 | [保险 FNOL 与理赔反欺诈选型：Foundry 审单编排 vs Fabric 事件账本 vs APIM+Guidewire 咨询式 MCP 执行护栏 FAQ](insurance-fnol-claims-fraud-triage-foundry-vs-fabric-vs-guidewire-mcp-selection-faq.md) | [🇨🇳 中文](insurance-fnol-claims-fraud-triage-foundry-vs-fabric-vs-guidewire-mcp-selection-faq.md) · [🇬🇧 EN](insurance-fnol-claims-fraud-triage-foundry-vs-fabric-vs-guidewire-mcp-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（48 篇）
 
