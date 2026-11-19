@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (148 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (149 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **148 structured architecture selection guides and trade-off FAQs** (`296` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **149 structured architecture selection guides and trade-off FAQs** (`298` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 148 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 149 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (9 Guides)
 
@@ -122,7 +122,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 105 | [Azure Cosmos DB Global Active-Active vs Azure SQL Failover Groups vs Redis Active Geo: Multi-Region Stateful Agent DR Selection FAQ](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.en.md) | [🇬🇧 EN](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.en.md) · [🇨🇳 中文](azure-cosmos-db-global-active-active-vs-sql-failover-groups-vs-redis-active-geo-multi-region-stateful-agent-dr-selection-faq.md) |
 | 144 | [Rail Transit and Freight Corridor Predictive-Maintenance Agent Selection: ADX/Eventhouse Time-Series Plane vs Foundry FMEA Evidence Plane vs Maximo Linear Governed Action Plane FAQ](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.en.md) | [🇬🇧 EN](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.en.md) · [🇨🇳 中文](rail-transit-freight-corridor-etcs-ptc-rolling-stock-predictive-maintenance-adx-vs-foundry-fmea-rag-vs-maximo-linear-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (17 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (18 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -145,6 +145,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 99 | [GitHub Copilot Extensions Skillsets vs Custom MCP Servers vs Copilot Coding Agent: Platform Engineering IDP Selection FAQ](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) | [🇬🇧 EN](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.en.md) · [🇨🇳 中文](github-copilot-extensions-skillsets-vs-custom-mcp-servers-vs-copilot-coding-agent-platform-engineering-idp-selection-faq.md) |
 | 102 | [D365 Field Service Copilot vs Foundry Mobile Offline RAG vs Mixed-Reality Remote Assist: Utilities and Telecom Field-Agent Selection FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) | [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) · [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) |
 | 111 | [Automotive SDV In-Vehicle Voice Agent Selection: Onboard NPU SLM vs AOAI Realtime Hybrid Cloud vs Connected Fleet Fabric FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) | [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) · [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) |
+| 149 | [Corporate Treasury Agent Selection: TMS-Native AI (Kyriba/SAP TRM) vs Fabric Liquidity Lakehouse + Foundry ISDA/CSA Evidence RAG (SOX Maker-Checker Guardrails) FAQ](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.en.md) | [🇬🇧 EN](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.en.md) · [🇨🇳 中文](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (48 Guides)
 
