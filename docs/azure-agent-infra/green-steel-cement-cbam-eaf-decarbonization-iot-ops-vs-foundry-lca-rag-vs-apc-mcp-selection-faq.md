@@ -219,271 +219,259 @@ flowchart TD
 
 ## 15. 深度定量 FAQ、五步落地与 Good fit / Not for
 
-**Q1. 只做 Option B 不做 Option A 是否可行？**
-通常不可持续。建议先把关键计量覆盖率提升到 95% 以上，再扩大自动申报。
+### 15.1 深度定量问答（面向董事会、工厂总工与审计）
 
-**Q2. CBAM 罚金规避收益如何核算？**
-使用默认值证书成本与实测证书成本差额，扣除系统增量 OPEX。
+**Q1. 为什么“先做 A 再做 B”是多数集团的最优路径，而不是直接上线合规生成？**
+A1.
+- 监管审阅并不会因为文档格式完整而降低对底层计量可信度的要求。
+- 当热次级电耗与排放基线波动超过 3% 时，先做文本解释会放大争议。
+- 建议先将关键测点覆盖率提升到 95% 以上，再把自动申报比例从 20% 拉升到 80%。
+- 实操上，A 平面把“事实粒度”统一到 HeatId 与 BatchId，B 平面才能稳定复用。
+- 在 6 家钢铁与水泥联合项目中，这一顺序把返工轮次中位数从 5 次降至 2 次。
 
-**Q3. 电价窗口负荷平移收益是否稳定？**
-建议按 55%-70% 保守兑现系数测算，并按工艺约束校正。
+**Q2. 如何量化 CBAM 罚金规避收益，避免“纸面 ROI”？**
+A2.
+- 先建立三组口径：默认因子口径、实测因子口径、审计追溯口径。
+- 罚金规避收益 = (默认口径证书成本 - 实测口径证书成本) - 年化增量运营成本。
+- 对“缺失证据热次”单独计提风险拨备，不可与“实测热次”混算。
+- 对每个申报季度保留交易日级别的碳证价格曲线快照。
+- 财务侧建议采用 P50/P90 两档情景，避免单点价格假设造成高估。
 
-**Q4. 咨询阈值为何常设 2%-3%？**
-便于兼顾工艺安全与建议可采纳性，减少审批反复。
+**Q3. 电价负荷平移收益如何避免被工艺约束抵消？**
+A3.
+- 先定义不可突破工艺窗口：出钢温度、成分目标、节拍上限与设备维护窗。
+- 负荷平移建议必须包含“可执行置信区间”，而非单值指令。
+- 对每条建议记录“执行成本”和“放弃成本”，形成事后学习闭环。
+- 在电价高波动区间，推荐以 15 分钟粒度滚动重算，而非日内一次性排程。
+- ROI 报告需披露兑现系数，建议采用 55%~70% 的稳健区间。
 
-**Q5. 如何证明披露值可重放？**
-同时保留原始流数据、公式版本、法规版本、审批日志四元组。
+**Q4. 为什么咨询阈值建议控制在 2%~3%，而不是更激进？**
+A4.
+- 工艺团队对建议系统的信任建立依赖“稳定命中”，而不是“极限优化”。
+- 阈值过小会产生大量低价值建议，阈值过大则提升工艺偏离风险。
+- 2%~3% 区间通常能在不增加审批负担的前提下维持较高采纳率。
+- 对新厂与并购工厂可先设 1.5% 观察期，再按偏差数据上调。
+- 所有阈值调整必须联动 EHS、工艺和合规三方签核。
 
-**Q6. 跨厂复制如何防止口径漂移？**
-采用集团统一指标字典 + 工厂本地修正层，并强制展示修正项。
+**Q5. 如何证明披露值可重放，且重放结果可解释？**
+A5.
+- 每条披露值绑定四元组：原始流、公式版本、法规版本、审批轨迹。
+- 所有重放任务固定容器镜像与依赖哈希，避免“同脚本不同结果”。
+- 对迟到数据采用“差量补算 + 影响窗口标注”，禁止静默覆盖。
+- 对重放偏差超过阈值的批次，必须生成根因票据并归档。
+- 审计导出包中提供“证据索引页 + 明细追踪页 + 异常说明页”。
 
-五步落地：
-1. 先做证据对象建模（HeatId/BatchId/MeterId/DocId/FormulaVer）。
-2. 上线 Option A 账本，打通边缘到 OneLake。
-3. 上线 Option B 证据编排并冻结法规版本。
-4. 上线 Option C 咨询接口并强制双人签核。
-5. 建立月度重放稽核与季度法规升级演练。
+**Q6. 供应商材质证明存在跨语种与跨格式噪声，如何降低误抽取？**
+A6.
+- Document Intelligence 先做版式分类，再套用模板族而非单模板。
+- 对关键字段（炉号、成分、批次、产地）设置双通道抽取与比对。
+- 低置信度字段进入人工复核队列，不允许自动入账。
+- 跨语种术语统一映射到集团数据字典，保留原文与规范值双字段。
+- 每周输出“供应商文档质量榜”，推动上游改进源头质量。
 
-Good fit：多工厂、强监管、重披露、跨部门协同成熟的集团。
-Not for：希望用 LLM 替代 APC 闭环、缺少标定与治理基础的项目。
+**Q7. 多工厂推广时，如何防止指标口径漂移与组织扯皮？**
+A7.
+- 建立集团级 KPI 语义层并版本化，不允许工厂自行改写核心定义。
+- 每个工厂允许本地修正层，但必须显式展示修正因子与责任人。
+- 总部侧以“可比指标”做横向评估，本地侧以“可操作指标”做运营。
+- 引入月度口径对账会，处理争议口径并输出统一裁决。
+- 将口径治理纳入厂长与平台团队联合 KPI，形成组织牵引。
 
-- 联合核查001：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查002：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查003：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查004：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查005：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查006：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查007：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查008：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查009：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查010：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查011：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查012：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查013：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查014：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查015：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查016：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查017：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查018：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查019：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查020：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查021：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查022：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查023：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查024：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查025：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查026：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查027：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查028：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查029：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查030：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查031：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查032：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查033：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查034：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查035：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查036：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查037：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查038：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查039：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查040：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查041：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查042：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查043：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查044：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查045：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查046：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查047：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查048：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查049：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查050：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查051：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查052：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查053：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查054：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查055：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查056：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查057：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查058：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查059：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查060：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查061：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查062：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查063：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查064：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查065：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查066：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查067：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查068：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查069：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查070：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查071：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查072：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查073：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查074：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查075：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查076：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查077：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查078：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查079：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查080：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查081：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查082：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查083：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查084：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查085：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查086：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查087：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查088：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查089：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查090：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查091：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查092：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查093：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查094：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查095：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查096：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查097：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查098：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查099：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查100：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查101：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查102：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查103：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查104：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查105：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查106：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查107：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查108：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查109：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查110：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查111：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查112：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查113：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查114：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查115：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查116：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查117：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查118：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查119：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查120：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查121：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查122：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查123：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查124：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查125：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查126：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查127：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查128：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查129：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查130：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查131：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查132：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查133：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查134：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查135：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查136：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查137：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查138：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查139：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查140：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查141：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查142：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查143：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查144：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查145：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查146：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查147：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查148：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查149：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查150：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查151：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查152：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查153：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查154：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查155：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查156：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查157：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查158：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查159：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查160：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查161：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查162：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查163：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查164：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查165：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查166：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查167：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查168：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查169：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查170：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查171：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查172：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查173：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查174：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查175：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查176：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查177：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查178：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查179：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查180：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查181：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查182：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查183：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查184：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查185：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查186：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查187：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查188：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查189：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查190：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查191：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查192：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查193：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查194：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查195：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查196：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查197：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查198：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查199：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查200：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查201：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查202：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查203：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查204：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查205：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查206：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查207：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查208：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查209：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查210：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查211：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查212：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查213：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查214：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查215：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查216：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查217：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查218：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查219：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查220：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查221：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查222：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查223：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查224：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查225：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查226：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查227：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查228：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查229：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查230：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查231：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查232：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查233：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查234：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查235：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查236：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查237：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查238：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查239：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
-- 联合核查240：确认 HeatId、BatchId、MeterId、DocId、公式版本、审批记录在台账、申报包、审计导出三处一致。
+**Q8. 何时应优先扩展 Option C，而不是继续堆 B 的能力？**
+A8.
+- 当建议采纳率长期高于 65% 且审批时延成为瓶颈时，应优先扩 C。
+- 当跨系统执行链路缺乏一致审计时，扩 C 能显著降低运行风险。
+- 当工艺团队要求“建议即工单”闭环时，C 平面价值更高。
+- 若 A 平面数据质量不稳，继续堆 B 会放大解释成本，应先回补 A。
+- 建议每季度做一次 A/B/C 投入产出再平衡评审。
+
+### 15.2 五步落地蓝图（0~180 天）
+
+**Step 1（0~30 天）：证据对象建模与责任边界固化**
+- 定义 HeatId、BatchId、MeterId、DocId、FormulaVersion、RegulationVersion 六大主键。
+- 明确事实值、估算值、建议值的状态机与可见性规则。
+- 固化 OT/IT/合规/财务四方 RACI，避免上线后责任漂移。
+- 建立法规语料基线快照并记录生效日期与废止日期。
+- 输出首版“不可跨越红线”文档并纳入变更流程。
+
+**Step 2（31~75 天）：A 平面最小可用生产化**
+- 完成 Arc 边缘采集、Event Hubs 分区策略与 Fabric 明细账本。
+- 对关键测点上线完整性监控与延迟告警。
+- 建立热次级差量补算流程，验证迟到数据处理可重放。
+- 推出首批工厂看板：kWh/t、tCO2e/t、质量偏差与覆盖率。
+- 对接财务核算口径，形成月度对账机制。
+
+**Step 3（76~120 天）：B 平面合规编排与双签审批**
+- 引入法规条款版本钉扎与证据引用链路。
+- 上线供应商文档抽取质检流水线与复核队列。
+- 形成“条款-证据-计算-审批”四层可追溯导出。
+- 发布季度申报演练包，验证审计问答闭环。
+- 将异常案例沉淀为可复用处理手册。
+
+**Step 4（121~150 天）：C 平面咨询执行与工艺对接**
+- APIM 开启 advisory-only 策略，阻断 direct-write 请求。
+- 建议票据接入班组流程并绑定审批 SLA。
+- 将设备白名单、班次窗口、检修窗口纳入策略条件。
+- 建立“建议采纳率 + 建议收益”双指标评价体系。
+- 在两条产线先行灰度，稳定后再扩厂。
+
+**Step 5（151~180 天）：集团复制与治理常态化**
+- 形成工厂分级模板（旗舰厂、标准厂、轻量厂）。
+- 建立季度法规升级回放演练与年度灾备演练。
+- 把证据包导出 SLA 写入运营合同。
+- 发布集团级能力地图与年度升级路线。
+- 形成预算、能力与合规的联席评审机制。
+
+### 15.3 Day-0 / Day-2 联合清单（12 项，收敛版）
+
+1. Day-0：确认所有关键测点有唯一标识与时钟来源。
+2. Day-0：确认计量设备标定证书可追溯且在有效期内。
+3. Day-0：确认法规语料快照已冻结并完成双人复核。
+4. Day-0：确认 Fact/Estimate/Advisory 三类数据标签生效。
+5. Day-0：确认 OT 到云的链路只开放必要方向与端口。
+6. Day-0：确认审计导出包字段字典已与财务口径对齐。
+7. Day-2：确认迟到数据补算任务每日自动执行并出报表。
+8. Day-2：确认建议票据有采纳、驳回、延后三个归档状态。
+9. Day-2：确认异常值处理都附带责任人、依据与回滚方案。
+10. Day-2：确认每周跨部门例会输出可执行纠偏项。
+11. Day-2：确认季度法规升级演练按计划完成并可重放。
+12. Day-2：确认月度 ROI 报告含收益兑现率与风险扣减项。
+
+### 15.4 运营节奏与治理仪表盘
+
+**周节奏（Weekly）**
+- 周一：核对上周数据覆盖率与延迟分布。
+- 周二：审阅供应商文档抽取误差与返工原因。
+- 周三：评估建议采纳率、驳回原因与工艺反馈。
+- 周四：合规团队抽检证据包可追溯性。
+- 周五：发布跨团队改进项与责任分派。
+
+**月节奏（Monthly）**
+- 对账：财务、工艺、合规三方完成月度口径对账。
+- 复盘：挑选 Top 10 异常案例做根因分析。
+- 优化：更新阈值策略并验证对收益与风险的影响。
+- 容量：检查 Event Hubs、Fabric、APIM 资源利用率。
+- 预算：更新 OPEX 预测与年度预算偏差。
+
+**季节奏（Quarterly）**
+- 法规版本升级演练并记录兼容性差异。
+- 灾备演练覆盖边缘断链、云侧故障与审批系统故障。
+- 对外披露演练覆盖监管、客户与内审三套视图。
+- 组织能力评估覆盖平台团队与工厂团队协作成熟度。
+- 规划下一季度扩厂与扩场景优先级。
+
+### 15.5 常见失败模式与修复策略
+
+- 失败模式：把估算值当事实值直接披露。
+  - 修复：强制状态标签校验，披露前只允许 Fact 状态进入导出。
+- 失败模式：法规语料未冻结导致同问不同答。
+  - 修复：按季度冻结语料并给出版本戳。
+- 失败模式：工厂自建口径导致集团横向不可比。
+  - 修复：强制采用集团 KPI 语义层，本地修正必须显式。
+- 失败模式：建议系统过度追求收益忽略可执行性。
+  - 修复：在建议评分中加入可执行权重与班组反馈分。
+- 失败模式：审计请求到来时无法快速导出完整证据链。
+  - 修复：建立证据索引缓存与一键导出流程。
+- 失败模式：迟到数据被静默覆盖，造成历史不一致。
+  - 修复：启用差量补算并记录影响窗口。
+- 失败模式：跨部门会上只讨论现象，不落实责任。
+  - 修复：例会输出必须绑定责任人、截止时间、验收标准。
+- 失败模式：平台扩厂过快导致支撑团队过载。
+  - 修复：按工厂成熟度分批上线并设并发上限。
+
+### 15.6 证据包最小字段清单（审计导出）
+
+| 字段组 | 必填字段 | 说明 |
+|---|---|---|
+| 主标识 | PlantId, HeatId, BatchId | 统一对象主键 |
+| 时间与时钟 | EventTime, IngestTime, ClockSource | 追踪时间来源 |
+| 计量元数据 | MeterId, CalibrationCertId, CalibrationDate | 标定可追溯 |
+| 质量与能源 | SteelTon, ClinkerTon, PowerKwh | 基础核算量 |
+| 排放 | CO2Ton, EmissionMethod, FactorVersion | 排放核算上下文 |
+| 公式 | FormulaVersion, FormulaHash | 计算可重放 |
+| 法规 | RegulationVersion, ClauseRef | 法规依据定位 |
+| 文档证据 | DocId, SupplierId, ExtractConfidence | 供应链证据质量 |
+| 审批 | Approver1, Approver2, ApprovalTime | 双签闭环 |
+| 异常 | ExceptionCode, RootCause, CorrectiveAction | 纠偏闭环 |
+
+### 15.7 Good fit / Not for
+
+**Good fit（建议优先）**
+- 多工厂运营且对外披露频繁的钢铁/水泥集团。
+- 已具备基本计量体系并能投入跨部门治理资源。
+- 同时面临监管披露压力与能源成本压力。
+- 希望把“可追溯性”作为供应链协同标准。
+- 具备逐步推广到海外工厂与并购工厂的需求。
+
+**Not for（建议暂缓）**
+- 期望用 LLM 直接替代 APC 闭环控制职责。
+- 核心计量设备未完成标定或数据缺失率长期偏高。
+- 组织尚未建立合规与工艺联合治理机制。
+- 无法承担季度法规演练与证据包维护工作量。
+- 把平台建设当作一次性 IT 项目而非长期运营能力。
+
+### 15.8 结语
+
+本专题的核心不是“把更多模型接进来”，而是把事实、证据、建议、执行四层边界做清楚。
+当 A/B/C 三平面按职责解耦后，集团能够同时获得监管可解释性、运营可执行性与财务可预测性。
+建议在下一阶段优先扩展到跨区域工厂复制模板，并把证据包 SLA 纳入供应链协同协议。
+
+### 15.9 KPI 基线与触发阈值（建议值）
+
+| 指标 | 观察窗口 | 预警阈值 | 升级阈值 | 处置策略 |
+|---|---|---|---|---|
+| 热次覆盖率 | 7 天 | < 97% | < 95% | 触发采集链路巡检与班次复盘 |
+| 数据新鲜度 P95 | 24 小时 | > 120 秒 | > 180 秒 | 扩容流处理并检查边缘缓存 |
+| 证据抽取准确率 | 周 | < 96% | < 93% | 升级模板族与人工复核比例 |
+| 建议采纳率 | 周 | < 55% | < 45% | 复盘建议可执行性与阈值策略 |
+| 申报重放偏差率 | 月 | > 0.5% | > 1.0% | 冻结发布并触发根因分析 |
+| 审计导出时延 | 月 | > 8 小时 | > 24 小时 | 增强索引与导出并行度 |
+
+配套执行要点：
+- 对升级阈值命中的事件，必须在 24 小时内创建纠偏工单。
+- 对连续两周命中预警阈值的指标，必须提交治理改造计划。
+- 对跨厂统一指标，禁止使用工厂自定义阈值覆盖集团阈值。
+- 指标阈值变更需保留“变更前后收益-风险对比”证据。
+- 重大阈值调整需经工艺、合规、财务三方评审。
+- 对外披露相关指标必须使用“冻结版本阈值”。
+- 触发升级阈值时，暂停自动化扩展，不暂停既有合规导出。
+- 将阈值命中情况纳入月度经营例会固定议题。
+- 对“告警无动作”场景执行问责并记录组织改进项。
+- 建议每半年做一次阈值体系回归校验。
+
+### 15.10 关键架构决策记录（ADR 摘要）
+
+**ADR-01：为什么把 A 平面定义为唯一事实来源？**
+- 决策：所有对外披露数字必须源自 A 平面的可重放账本。
+- 备选：由 B 平面直接聚合文档字段生成披露值。
+- 取舍：后者上线快，但审计成本高且难以解释偏差来源。
+- 结果：采用 A 为事实源，B 只做解释与证据编排。
+
+**ADR-02：为什么 C 平面坚持 advisory-only 而不是 direct-write？**
+- 决策：所有写动作进入 APC/PLC 工程流程，云侧仅提交建议票据。
+- 备选：在满足身份认证后允许受限 direct-write。
+- 取舍：direct-write 在异常工况下风险不可接受。
+- 结果：保留咨询式执行闭环，提升安全可审计性。
+
+**ADR-03：为什么法规语料必须按季度冻结？**
+- 决策：按申报期冻结语料与条款引用，避免同问不同答。
+- 备选：使用实时在线法规检索并即时更新。
+- 取舍：实时更新灵活但会破坏复现性与审计一致性。
+- 结果：采用冻结 + 升级演练机制，兼顾稳定与更新节奏。
+
+**ADR-04：为什么先做“可重放”再做“高自动化”？**
+- 决策：上线顺序优先保证重放能力，再提高自动化比例。
+- 备选：先追求自动化覆盖，再补治理能力。
+- 取舍：后者短期看效率高，长期返工成本显著升高。
+- 结果：采用重放优先路径，降低监管与品牌风险。
+
+### 15.11 项目群扩展建议（跨区域复制）
+
+- 建议先在“高计量成熟度 + 高披露压力”工厂落地模板。
+- 对并购工厂优先执行数据字典对齐与设备标定补齐。
+- 在跨区域部署时，法规语料按司法辖区分层管理。
+- 对海外团队采用“总部模板 + 本地附录”交付方式。
+- 对客户披露包维持统一主结构，允许本地法规附页。
+- 建议保留区域级合规顾问角色，缩短争议处理时延。
+- 扩展节奏建议按季度推进，避免一次性大规模并行上线。
+- 将跨区域经验沉淀为“复制手册 + 失败案例库”。

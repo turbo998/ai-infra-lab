@@ -195,313 +195,281 @@ Twelve-month outcome snapshot:
 - Advisory recommendation adoption reached 71%.
 - Tender-stage carbon evidence SLA improved to under 24 hours.
 
-## 15. Quantitative FAQ, five-step rollout, and fit boundaries
+## 15. Quantitative FAQ, rollout blueprint, and fit boundaries
 
-**Q1. Can Option B succeed without Option A?**
-Not sustainably. Raise critical metering coverage above 95% before scaling auto-generated filings.
+### 15.1 Quantitative FAQ for board, plant, and audit leaders
 
-**Q2. How to calculate CBAM penalty avoidance value?**
-Use default-certificate cost minus measured-certificate cost minus incremental OPEX.
+**Q1. Why is “A before B” usually superior to launching compliance generation first?**
+A1.
+- Regulators do not lower evidentiary standards because document formatting looks complete.
+- If heat-level energy and emissions baselines drift by more than 3%, narrative-first programs create audit friction.
+- Raise critical metering coverage above 95% before scaling filing automation from 20% to 80%.
+- Option A establishes stable HeatId/BatchId granularity that Option B can consistently reference.
+- Across multi-plant programs, this sequence reduced median rework loops from five to two.
 
-**Q3. How stable is tariff-shifting ROI?**
-Model with 55%-70% realization factors after process constraints and delivery commitments.
+**Q2. How should teams quantify CBAM penalty avoidance without paper-only ROI?**
+A2.
+- Keep three accounting views: default-factor view, measured-factor view, and audit replay view.
+- Penalty-avoidance value = (default certificate cost - measured certificate cost) - incremental run-rate OPEX.
+- Isolate missing-evidence heats in a separate risk reserve instead of averaging them into measured heats.
+- Preserve daily carbon-price snapshots for each declaration period.
+- Publish P50 and P90 scenarios to avoid single-price optimism.
 
-**Q4. Why use 2%-3% advisory delta windows?**
-It balances process safety, operator acceptance, and approval-cycle efficiency.
+**Q3. How do tariff-shifting benefits survive process constraints?**
+A3.
+- Define non-negotiable process windows first: chemistry targets, throughput constraints, and maintenance windows.
+- Every recommendation should include an executable confidence band instead of a single-point command.
+- Track execution cost and foregone-value cost for each recommendation.
+- Recalculate every 15 minutes in high-volatility periods instead of fixed day-ahead planning.
+- Report realization factors explicitly and use conservative 55%-70% ranges.
 
-**Q5. What proves replayability?**
-Keep raw streams, formula versions, regulation versions, and approval logs as one immutable tuple.
+**Q4. Why keep advisory deltas in the 2%-3% range instead of aggressive optimization?**
+A4.
+- Operator trust forms through repeatable wins, not occasional extreme gains.
+- Very small thresholds flood teams with low-value tickets, while large deltas increase process risk.
+- The 2%-3% band typically balances adoption, safety, and approval throughput.
+- New plants can start at 1.5% observation windows and scale after stability evidence.
+- Threshold changes should require joint process, EHS, and compliance approvals.
 
-**Q6. How to avoid cross-plant metric drift?**
-Use a global KPI dictionary with explicit local adjustment layers in all dashboards.
+**Q5. What is the practical definition of replayability for disclosures?**
+A5.
+- Bind each disclosed value to raw stream, formula version, regulation version, and approval chain.
+- Pin replay jobs to immutable container images and dependency hashes.
+- Handle late data through delta recomputation with explicit impact windows.
+- Generate root-cause tickets for replay deltas that breach agreed thresholds.
+- Export evidence packages with index page, trace detail page, and exception page.
 
-Five-step rollout:
-1. Model evidence objects first (HeatId/BatchId/MeterId/DocId/FormulaVersion).
-2. Deploy Option A deterministic accounting ledger.
-3. Deploy Option B compliance synthesis with version-frozen knowledge.
-4. Deploy Option C advisory bridge with mandatory maker-checker approvals.
-5. Run monthly replay audits and quarterly regulation-upgrade drills.
+**Q6. How can teams reduce extraction error across multilingual supplier documents?**
+A6.
+- Classify layouts before extraction and use template families, not one template.
+- Apply dual-path extraction for critical fields like lot, chemistry, and origin.
+- Route low-confidence fields to human verification before ledger ingestion.
+- Map multilingual terms to a governed enterprise dictionary while keeping source text.
+- Publish weekly supplier-document quality scorecards to drive upstream improvement.
 
-Good fit: regulated multi-plant groups with strong disclosure obligations and cross-functional governance.
-Not for: teams attempting to replace deterministic control ownership with direct LLM writes.
+**Q7. How do enterprises avoid metric drift in multi-plant rollouts?**
+A7.
+- Version-control a corporate KPI semantic layer that plants cannot override.
+- Allow local adjustment layers only with explicit factors and accountable owners.
+- Use comparable metrics for headquarters and operational metrics for plant teams.
+- Run monthly metric arbitration reviews and publish binding decisions.
+- Tie governance quality to shared leadership KPIs.
 
-- Readiness 001: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 002: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 003: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 004: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 005: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 006: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 007: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 008: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 009: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 010: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 011: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 012: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 013: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 014: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 015: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 016: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 017: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 018: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 019: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 020: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 021: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 022: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 023: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 024: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 025: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 026: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 027: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 028: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 029: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 030: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 031: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 032: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 033: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 034: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 035: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 036: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 037: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 038: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 039: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 040: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 041: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 042: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 043: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 044: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 045: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 046: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 047: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 048: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 049: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 050: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 051: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 052: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 053: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 054: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 055: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 056: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 057: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 058: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 059: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 060: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 061: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 062: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 063: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 064: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 065: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 066: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 067: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 068: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 069: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 070: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 071: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 072: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 073: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 074: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 075: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 076: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 077: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 078: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 079: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 080: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 081: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 082: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 083: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 084: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 085: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 086: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 087: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 088: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 089: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 090: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 091: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 092: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 093: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 094: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 095: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 096: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 097: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 098: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 099: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 100: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 101: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 102: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 103: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 104: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 105: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 106: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 107: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 108: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 109: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 110: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 111: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 112: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 113: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 114: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 115: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 116: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 117: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 118: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 119: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 120: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 121: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 122: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 123: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 124: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 125: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 126: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 127: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 128: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 129: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 130: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 131: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 132: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 133: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 134: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 135: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 136: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 137: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 138: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 139: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 140: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 141: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 142: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 143: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 144: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 145: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 146: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 147: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 148: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 149: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 150: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 151: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 152: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 153: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 154: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 155: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 156: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 157: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 158: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 159: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 160: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 161: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 162: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 163: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 164: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 165: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 166: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 167: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 168: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 169: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 170: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 171: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 172: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 173: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 174: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 175: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 176: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 177: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 178: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 179: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 180: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 181: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 182: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 183: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 184: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 185: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 186: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 187: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 188: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 189: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 190: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 191: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 192: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 193: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 194: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 195: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 196: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 197: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 198: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 199: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 200: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 201: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 202: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 203: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 204: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 205: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 206: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 207: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 208: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 209: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 210: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 211: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 212: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 213: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 214: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 215: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 216: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 217: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 218: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 219: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 220: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 221: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 222: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 223: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 224: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 225: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 226: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 227: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 228: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 229: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 230: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 231: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 232: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 233: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 234: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 235: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 236: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 237: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 238: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 239: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 240: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 241: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 242: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 243: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 244: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 245: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 246: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 247: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 248: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 249: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 250: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 251: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 252: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 253: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 254: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 255: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 256: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 257: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 258: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 259: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 260: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 261: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 262: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 263: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 264: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 265: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 266: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 267: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 268: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 269: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 270: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 271: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 272: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 273: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 274: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 275: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 276: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 277: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 278: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 279: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
-- Readiness 280: verify one-to-one traceability of HeatId, BatchId, MeterId, DocId, formula version, and approval records across ledger, filing package, and audit export.
+**Q8. When should teams prioritize Option C expansion over adding more Option B logic?**
+A8.
+- Prioritize C when recommendation adoption stays above 65% and approval latency is the bottleneck.
+- Prioritize C when cross-system execution lacks consistent audit traceability.
+- Prioritize C when operators demand recommendation-to-ticket automation.
+- If Option A data quality is unstable, expand A first before expanding B.
+- Run quarterly A/B/C investment rebalancing reviews.
+
+### 15.2 Five-step delivery blueprint (0-180 days)
+
+**Step 1 (days 0-30): object model and responsibility boundary lock-in**
+- Define six primary keys: HeatId, BatchId, MeterId, DocId, FormulaVersion, RegulationVersion.
+- Formalize state transitions for fact, estimate, and advisory outputs.
+- Lock RACI across OT, IT, compliance, and finance before implementation.
+- Baseline regulation snapshots with effective and retirement dates.
+- Publish non-negotiable guardrails through formal change control.
+
+**Step 2 (days 31-75): production minimum for Option A**
+- Deploy Arc edge ingestion, Event Hubs partitioning, and Fabric detailed ledgers.
+- Add coverage and freshness alerts on critical meters.
+- Validate late-arriving-data replay with delta recomputation.
+- Launch first plant dashboards for kWh/t, tCO2e/t, and coverage.
+- Complete monthly finance reconciliation against accounting books.
+
+**Step 3 (days 76-120): Option B compliance orchestration with maker-checker**
+- Enable regulation version pinning and evidence citation chains.
+- Deploy supplier-document quality gates and review queues.
+- Produce clause-evidence-calculation-approval exports.
+- Run quarterly filing rehearsals with mock audit questioning.
+- Convert exception cases into reusable runbooks.
+
+**Step 4 (days 121-150): Option C advisory execution bridge**
+- Enforce advisory-only APIM policy and block direct-write calls.
+- Integrate recommendation tickets with shift-level workflows.
+- Apply equipment, shift, and maintenance window constraints.
+- Measure both adoption and realized value for recommendation tickets.
+- Start with two pilot lines, then scale by readiness gates.
+
+**Step 5 (days 151-180): group-scale replication and steady-state governance**
+- Create plant archetypes (flagship, standard, lightweight).
+- Institutionalize quarterly regulation replay and annual DR exercises.
+- Contract evidence package export SLAs as operating commitments.
+- Publish capability roadmap and yearly uplift plan.
+- Run joint budget-capability-compliance steering reviews.
+
+### 15.3 Day-0 and Day-2 joint checklist (12 crisp items)
+
+1. Day-0: every critical meter has a unique identifier and clock source.
+2. Day-0: calibration certificates are traceable and valid.
+3. Day-0: regulation corpus snapshots are frozen and dual-reviewed.
+4. Day-0: fact/estimate/advisory tags are enforced end-to-end.
+5. Day-0: OT-to-cloud connectivity follows minimum directional exposure.
+6. Day-0: audit export dictionary is reconciled with finance definitions.
+7. Day-2: late-data delta recomputation runs daily with report output.
+8. Day-2: recommendation tickets support accepted/rejected/deferred states.
+9. Day-2: every exception stores owner, rationale, and rollback plan.
+10. Day-2: weekly cross-functional reviews produce accountable actions.
+11. Day-2: quarterly regulation replay drills complete on schedule.
+12. Day-2: monthly ROI reports include realization and risk deductions.
+
+### 15.4 Operating cadence and governance dashboard
+
+**Weekly cadence**
+- Monday: review prior-week coverage and latency distributions.
+- Tuesday: review supplier extraction error and rework drivers.
+- Wednesday: review recommendation adoption and operator feedback.
+- Thursday: run compliance spot checks on package traceability.
+- Friday: publish cross-team remediation ownership.
+
+**Monthly cadence**
+- Reconciliation: finance, process, and compliance close metric differences.
+- Retrospective: complete root-cause analysis for top exceptions.
+- Optimization: tune thresholds and measure value-vs-risk impact.
+- Capacity: inspect Event Hubs, Fabric, and APIM utilization.
+- Budget: refresh OPEX forecast and variance against plan.
+
+**Quarterly cadence**
+- Execute regulation-version upgrade replay.
+- Drill disaster scenarios for edge, cloud, and approval-service failures.
+- Rehearse regulator, customer, and internal-audit reporting paths.
+- Assess platform and plant-team collaboration maturity.
+- Reprioritize next-quarter plant and scenario rollout waves.
+
+### 15.5 Common failure patterns and remediation
+
+- Failure pattern: estimated values disclosed as measured values.
+  - Remediation: enforce state-tag validation before export.
+- Failure pattern: unpinned regulation corpus causes answer drift.
+  - Remediation: freeze corpus by declaration period with immutable version IDs.
+- Failure pattern: plant-local definitions break group comparability.
+  - Remediation: mandate corporate semantic layer with explicit local overrides.
+- Failure pattern: recommendation engine optimizes value without execution realism.
+  - Remediation: include execution feasibility and operator confidence in ranking.
+- Failure pattern: audit requests cannot be served quickly.
+  - Remediation: maintain pre-indexed evidence exports and one-click package generation.
+- Failure pattern: late data silently overwrites historical records.
+  - Remediation: use delta recomputation and explicit impact-window logging.
+- Failure pattern: governance meetings produce discussion but no ownership.
+  - Remediation: require owner, due date, and acceptance criteria per action.
+- Failure pattern: rollout speed exceeds support-team capacity.
+  - Remediation: gate rollout by plant readiness and support concurrency caps.
+
+### 15.6 Minimum evidence package schema for audit export
+
+| Field group | Mandatory fields | Purpose |
+|---|---|---|
+| Primary IDs | PlantId, HeatId, BatchId | Entity traceability |
+| Time and clock | EventTime, IngestTime, ClockSource | Temporal provenance |
+| Meter metadata | MeterId, CalibrationCertId, CalibrationDate | Measurement trust |
+| Production and energy | SteelTon, ClinkerTon, PowerKwh | Core mass and energy |
+| Emissions | CO2Ton, EmissionMethod, FactorVersion | Carbon accounting context |
+| Formula metadata | FormulaVersion, FormulaHash | Replay determinism |
+| Regulation | RegulationVersion, ClauseRef | Compliance anchor |
+| Document evidence | DocId, SupplierId, ExtractConfidence | Supply-chain evidence quality |
+| Approvals | Approver1, Approver2, ApprovalTime | Maker-checker closure |
+| Exceptions | ExceptionCode, RootCause, CorrectiveAction | Corrective trace |
+
+### 15.7 Good fit and Not for
+
+**Good fit**
+- Multi-plant steel and cement groups with recurring external disclosures.
+- Organizations with baseline metering discipline and cross-functional governance.
+- Programs balancing regulatory pressure with energy-cost volatility.
+- Enterprises that treat traceability as a supply-chain operating standard.
+- Groups planning expansion across regions and acquired plants.
+
+**Not for**
+- Teams expecting LLMs to replace deterministic APC control ownership.
+- Plants with persistent calibration gaps or high measurement missingness.
+- Organizations lacking process-compliance joint governance.
+- Programs unable to sustain quarterly replay and evidence maintenance.
+- One-off IT projects without long-term operational ownership.
+
+### 15.8 Closing note
+
+The key outcome is not adding more models; it is making boundaries explicit across fact, evidence, recommendation, and execution layers.
+With clear A/B/C separation, enterprises gain explainable compliance, executable operations, and financially credible planning.
+The next phase should prioritize reusable multi-region templates and contract-grade evidence export SLAs.
+
+### 15.9 KPI baselines and trigger thresholds (recommended)
+
+| KPI | Observation window | Warning threshold | Escalation threshold | Action pattern |
+|---|---|---|---|---|
+| Heat coverage ratio | 7 days | < 97% | < 95% | Run ingestion-chain inspection and shift review |
+| Data freshness P95 | 24 hours | > 120 seconds | > 180 seconds | Scale stream capacity and validate edge buffering |
+| Evidence extraction accuracy | Weekly | < 96% | < 93% | Raise reviewer ratio and retrain template families |
+| Recommendation adoption | Weekly | < 55% | < 45% | Refit execution feasibility and threshold rules |
+| Filing replay delta rate | Monthly | > 0.5% | > 1.0% | Freeze release and trigger root-cause workflow |
+| Audit export lead time | Monthly | > 8 hours | > 24 hours | Expand indexed export throughput |
+
+Operational enforcement notes:
+- Every escalation-threshold breach requires a corrective ticket within 24 hours.
+- Two consecutive warning-threshold breaches require a governance improvement plan.
+- Corporate thresholds cannot be silently overridden by plant-local defaults.
+- Threshold changes must include pre/post value-versus-risk evidence.
+- Material threshold changes require process, compliance, and finance sign-off.
+- External-disclosure KPIs must use frozen threshold versions.
+- Escalations pause automation expansion but keep filing continuity intact.
+- Monthly operating reviews must include threshold breach heatmaps.
+- “Alert with no action” events should trigger ownership accountability.
+- Revalidate threshold logic at least every six months.
+
+### 15.10 Architecture decision record (ADR) highlights
+
+**ADR-01: Why is Option A the single source of accounting truth?**
+- Decision: all external disclosures must resolve to replayable Option A ledgers.
+- Alternative: direct disclosure synthesis from Option B document evidence.
+- Trade-off: faster output but weak replay integrity and higher audit friction.
+- Outcome: Option B remains interpretation and evidence-orchestration, not the source ledger.
+
+**ADR-02: Why enforce advisory-only mode in Option C?**
+- Decision: cloud-originated recommendations become tickets; deterministic control remains local.
+- Alternative: allow constrained direct-write calls after identity validation.
+- Trade-off: direct-write exposure is unacceptable under unstable process states.
+- Outcome: advisory-only execution preserves safety and auditability.
+
+**ADR-03: Why freeze regulation corpora by declaration period?**
+- Decision: regulation references are version-locked per reporting window.
+- Alternative: continuously updated online regulation retrieval.
+- Trade-off: continuous updates reduce reproducibility and audit consistency.
+- Outcome: adopt freeze-plus-upgrade-drill cadence.
+
+**ADR-04: Why prioritize replayability before automation coverage?**
+- Decision: replay integrity gates precede automation-rate expansion.
+- Alternative: maximize automation first and retrofit controls later.
+- Trade-off: short-term throughput gains but long-term remediation cost spikes.
+- Outcome: replay-first sequencing lowers regulatory and reputational risk.
+
+### 15.11 Multi-region expansion guidance
+
+- Start replication with plants that combine high metering maturity and high disclosure pressure.
+- For acquired plants, prioritize dictionary alignment and calibration backlog closure.
+- Segment regulation corpora by jurisdiction, not by one global document set.
+- Use a global template with local legal appendices instead of local rewrites.
+- Keep customer-facing package structure consistent across regions.
+- Assign regional compliance leads to reduce dispute turnaround time.
+- Roll out in quarterly waves, not one large parallel launch.
+- Capture transfer knowledge as a formal replication playbook and exception library.
+
+### 15.12 Executive scorecard interpretation guide
+
+- If replay delta rate is green but extraction accuracy is amber, prioritize supplier-document quality first.
+- If adoption is red while recommendation quality appears high, review shift-level feasibility constraints.
+- If audit export lead time is red, prioritize index architecture before adding model features.
+- If heat coverage is amber in one plant class, pause cross-plant benchmark conclusions.
+- If threshold breaches cluster after regulation updates, strengthen replay-drill readiness.
+- If finance variance widens without KPI alerts, audit reconciliation mapping logic.
+- If risk deductions rise faster than value realization, reset automation pacing.
+- If one plant dominates exception volume, isolate plant-specific runbook defects.
+
+### 15.13 Exit criteria for scale decision
+
+- Three consecutive months with replay delta rate at or below target.
+- At least 90% of filing packages passing first-pass compliance review.
+- Advisory recommendation adoption stabilized above the agreed floor.
+- Measurable positive net value after risk-adjusted deductions.
+- Confirmed DR and regulation-upgrade drill completion in the latest quarter.
+- No unresolved critical audit findings from prior reporting windows.

@@ -527,7 +527,7 @@ class TestAgentInfraSizer(unittest.TestCase):
             for p in faq_dir.glob("*.en.md")
             if p.name != "README.en.md"
         }
-        self.assertEqual(len(zh_faqs), 167)
+        self.assertEqual(len(zh_faqs), 165)
         self.assertEqual(zh_faqs, en_faqs)
 
         link_re = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
@@ -564,6 +564,69 @@ class TestAgentInfraSizer(unittest.TestCase):
             if ".git" in json_file.parts:
                 continue
             json.loads(json_file.read_text(encoding="utf-8"))
+
+    def test_no_synthetic_readiness_padding_and_suffix_dedup(self) -> None:
+        from collections import Counter
+        import re
+
+        repo_root = Path(__file__).resolve().parents[3]
+        faq_dir = repo_root / "docs" / "azure-agent-infra"
+        readiness_re = re.compile(r"(Readiness \d{3}:|就绪核查\d{3})")
+        suffix_counter: Counter[str] = Counter()
+
+        for md_file in faq_dir.glob("*.md"):
+            if md_file.name in {"README.md", "README.en.md"}:
+                continue
+            text = md_file.read_text(encoding="utf-8")
+            self.assertIsNone(
+                readiness_re.search(text),
+                f"Synthetic readiness padding marker found in {md_file.name}",
+            )
+            for raw_line in text.splitlines():
+                line = raw_line.strip()
+                if not line:
+                    continue
+                if line.startswith(
+                    (
+                        "```",
+                        "|",
+                        "#",
+                        "- ",
+                        "* ",
+                        "> ",
+                        "1. ",
+                        "2. ",
+                        "3. ",
+                        "4. ",
+                        "5. ",
+                        "6. ",
+                        "7. ",
+                        "8. ",
+                        "9. ",
+                    )
+                ):
+                    continue
+                if len(line) < 40:
+                    continue
+                if any(ch in line for ch in "{}<>|`@/\\"):
+                    continue
+                if "http" in line.lower():
+                    continue
+                if re.fullmatch(r"[-:= ]+", line):
+                    continue
+                if not re.search(r"[A-Za-z\u4e00-\u9fff]", line):
+                    continue
+                if not re.search(r"[。！？.!?]$", line):
+                    continue
+                suffix = line[-24:] if len(line) >= 24 else line
+                suffix_counter[suffix] += 1
+
+        max_suffix_count = max(suffix_counter.values(), default=0)
+        self.assertLessEqual(
+            max_suffix_count,
+            15,
+            f"Excessive repeated 24-char suffix detected: {max_suffix_count}",
+        )
 
     def test_repo_sa_content_hygiene(self) -> None:
         import re

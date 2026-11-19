@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (167 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (165 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **167 structured architecture selection guides and trade-off FAQs** (`334` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **165 structured architecture selection guides and trade-off FAQs** (`330` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 167 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 165 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (11 Guides)
 
@@ -131,7 +131,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 157 | [Global Patent/FTO Agent Selection: Foundry Multimodal Orchestration + AI Search CPC/IPC Hybrid Retrieval + RDKit Markush/SMILES Substructure Retrieval vs Controlled Orbit/PatSnap MCP FAQ](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) | [🇬🇧 EN](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) · [🇨🇳 中文](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) |
 | 162 | [Clinical Genomics and Precision Oncology Agent Selection: Azure HPC/Parabricks Deterministic Variant Pipeline vs Foundry OncoKB/ClinVar Evidence RAG vs FHIR/Epic Genomics Draft Sign-out MCP FAQ](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) | [🇬🇧 EN](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) · [🇨🇳 中文](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (22 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (20 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -157,8 +157,6 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 149 | [Corporate Treasury Agent Selection: TMS-Native AI (Kyriba/SAP TRM) vs Fabric Liquidity Lakehouse + Foundry ISDA/CSA Evidence RAG (SOX Maker-Checker Guardrails) FAQ](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.en.md) | [🇬🇧 EN](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.en.md) · [🇨🇳 中文](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.md) |
 | 161 | [Global Hotel & Integrated Resort Agent Selection: Fabric Revenue Intelligence vs Foundry VIP Concierge vs APIM+OHIP MCP Folio/Comp Compliance Execution FAQ](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.en.md) | [🇬🇧 EN](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.en.md) · [🇨🇳 中文](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.md) |
 | 163 | [Retail Media Network (RMN) Selection: Confidential Clean-Room iROAS + Fabric Attribution vs Foundry Creative Compliance QA vs APIM+DSP MCP Budget Guardrails FAQ](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.en.md) | [🇬🇧 EN](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.en.md) · [🇨🇳 中文](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.md) |
-| 166 | [Insurance FNOL and Claims Fraud Triage Selection: Foundry Decision Orchestration vs Fabric Event Ledger vs APIM+Guidewire Advisory MCP Guardrails FAQ](insurance-fnol-claims-fraud-triage-foundry-vs-fabric-vs-guidewire-mcp-selection-faq.en.md) | [🇬🇧 EN](insurance-fnol-claims-fraud-triage-foundry-vs-fabric-vs-guidewire-mcp-selection-faq.en.md) · [🇨🇳 中文](insurance-fnol-claims-fraud-triage-foundry-vs-fabric-vs-guidewire-mcp-selection-faq.md) |
-| 167 | [Airline Disruption and Reaccommodation Agent Selection: Fabric Ops Truth Plane vs Foundry Decision Orchestration vs APIM+Amadeus Advisory MCP Guardrails FAQ](airline-operations-disruption-reaccommodation-agent-fabric-vs-foundry-vs-amadeus-mcp-selection-faq.en.md) | [🇬🇧 EN](airline-operations-disruption-reaccommodation-agent-fabric-vs-foundry-vs-amadeus-mcp-selection-faq.en.md) · [🇨🇳 中文](airline-operations-disruption-reaccommodation-agent-fabric-vs-foundry-vs-amadeus-mcp-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (48 Guides)
 
