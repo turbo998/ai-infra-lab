@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（139 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（140 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **139 个架构选型、平台对比与安全治理决策专题**（共 `278` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **140 个架构选型、平台对比与安全治理决策专题**（共 `280` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 139 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 140 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（8 篇）
 
@@ -142,7 +142,7 @@
 | 102 | [D365 Field Service Copilot vs Foundry 移动离线 RAG vs 混合现实远程协助：公用事业与电信外勤智能体选型 FAQ](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) | [🇨🇳 中文](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.md) · [🇬🇧 EN](d365-field-service-copilot-vs-foundry-mobile-offline-rag-vs-mixed-reality-remote-assist-utilities-selection-faq.en.md) |
 | 111 | [汽车 SDV 座舱语音智能体选型：车端 NPU SLM vs AOAI Realtime 混合云 vs 车队 Fabric 实时平面 FAQ](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) | [🇨🇳 中文](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.md) · [🇬🇧 EN](automotive-sdv-in-vehicle-voice-agent-aoai-realtime-hybrid-vs-onboard-npu-slm-vs-connected-fleet-fabric-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（44 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（45 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -192,6 +192,7 @@
 | 137 | [商业地产与数据中心 EPC 变更索赔智能体选型：APS/数字孪生时空平面 vs Foundry 合同证据平面 vs Procore/Unifier/Primavera 执行治理平面 FAQ](commercial-real-estate-datacenter-epc-bim-fidic-claim-agent-foundry-rag-vs-aps-digital-twin-vs-procore-primavera-mcp-selection-faq.md) | [🇨🇳 中文](commercial-real-estate-datacenter-epc-bim-fidic-claim-agent-foundry-rag-vs-aps-digital-twin-vs-procore-primavera-mcp-selection-faq.md) · [🇬🇧 EN](commercial-real-estate-datacenter-epc-bim-fidic-claim-agent-foundry-rag-vs-aps-digital-twin-vs-procore-primavera-mcp-selection-faq.en.md) |
 | 138 | [食品饮料与农化冷链追溯召回智能体选型：Fabric RTI/EPCIS 族谱平面 vs Foundry 质量 CAPA 证据平面 vs SAP 批次管控执行平面 FAQ](agrochemical-food-beverage-cold-chain-fsma204-traceability-recall-fabric-rti-vs-foundry-quality-capa-vs-sap-batch-selection-faq.md) | [🇨🇳 中文](agrochemical-food-beverage-cold-chain-fsma204-traceability-recall-fabric-rti-vs-foundry-quality-capa-vs-sap-batch-selection-faq.md) · [🇬🇧 EN](agrochemical-food-beverage-cold-chain-fsma204-traceability-recall-fabric-rti-vs-foundry-quality-capa-vs-sap-batch-selection-faq.en.md) |
 | 139 | [豪华电动车与软件定义汽车智能体选型：ADX/Fabric 车队故障群组引擎 vs Foundry UNECE 合规证据引擎 vs Teamcenter/Codebeamer 治理执行引擎 FAQ](luxury-automotive-ev-connected-fleet-warranty-ota-homologation-adx-vs-foundry-unece-r155-rag-vs-plm-teamcenter-mcp-selection-faq.md) | [🇨🇳 中文](luxury-automotive-ev-connected-fleet-warranty-ota-homologation-adx-vs-foundry-unece-r155-rag-vs-plm-teamcenter-mcp-selection-faq.md) · [🇬🇧 EN](luxury-automotive-ev-connected-fleet-warranty-ota-homologation-adx-vs-foundry-unece-r155-rag-vs-plm-teamcenter-mcp-selection-faq.en.md) |
+| 140 | [研究型大学科研资助合规与学术诚信智能体选型：M365 Copilot 教育生产力轨道 vs Foundry 助教与经费合规审阅轨道 vs Canvas/Banner 治理执行平面 FAQ](higher-education-research-university-sis-grant-compliance-academic-integrity-foundry-vs-m365-copilot-edu-vs-canvas-lms-mcp-selection-faq.md) | [🇨🇳 中文](higher-education-research-university-sis-grant-compliance-academic-integrity-foundry-vs-m365-copilot-edu-vs-canvas-lms-mcp-selection-faq.md) · [🇬🇧 EN](higher-education-research-university-sis-grant-compliance-academic-integrity-foundry-vs-m365-copilot-edu-vs-canvas-lms-mcp-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（7 篇）
 
