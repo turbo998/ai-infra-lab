@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (199 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (200 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **199 structured architecture selection guides and trade-off FAQs** (`398` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **200 structured architecture selection guides and trade-off FAQs** (`400` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 199 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 200 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (18 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (19 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -71,6 +71,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 186 | [Enterprise Prompt-as-Code Lifecycle Selection: GitOps `.prompty` Artifact Registry with Pydantic/JSON-Schema Contract Gates vs Azure AI Foundry Prompt Catalog Collaboration vs App Configuration + Blob Sentinel Runtime Hydration (No Redeploy) vs Langfuse/MLflow Self-Hosted Registry Portability FAQ](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) | [🇬🇧 EN](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) · [🇨🇳 中文](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) |
 | 187 | [Enterprise Burst Batch Agent Compute Selection: ACA Event-Driven Jobs vs AKS NAP/Karpenter + KEDA ScaledJobs vs Azure Batch Spot Task Graphs vs Functions Flex Consumption Micro-Fan-Out with AOAI TPM Backpressure Governance FAQ](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.en.md) | [🇬🇧 EN](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.en.md) · [🇨🇳 中文](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.md) |
 | 190 | [Enterprise Wasm Component Agent Tool Sandbox Selection: AKS SpinKube/Wasmtime (`containerd-shim-spin`) vs In-Process Wasmtime/Extism Host (`fuel/epoch`) vs ACA Dynamic Sessions (Hyper-V) vs AKS Kata (Hardware Virtualization) FAQ](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.en.md) | [🇬🇧 EN](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.en.md) · [🇨🇳 中文](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.md) |
+| 200 | [Enterprise Ephemeral PR Preview Sandbox Selection: `Azure Deployment Environments (ADE)` + Bicep/Terraform Catalog vs `vCluster on AKS` (CoW DB branches) vs `Signadot/Telepresence` request-routed sandboxes vs `Microsoft Dev Box` warm pools (`500-5,000` daily preview stacks, auto-TTL teardown, and full-stack autonomous Agent QA) FAQ](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.en.md) | [🇬🇧 EN](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.en.md) · [🇨🇳 中文](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (18 Guides)
 
