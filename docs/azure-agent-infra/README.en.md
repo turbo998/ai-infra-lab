@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (166 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (167 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **166 structured architecture selection guides and trade-off FAQs** (`332` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **167 structured architecture selection guides and trade-off FAQs** (`334` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 166 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 167 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (11 Guides)
 
@@ -213,7 +213,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 142 | [Luxury Retail VIC Clienteling, Assortment Allocation, and DPP Anti-Counterfeit Agent Selection: Foundry Clienteling Plane vs Fabric Deterministic Allocation Plane vs D365/Cegid/Salesforce Governed Action Plane FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) | [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) · [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) |
 | 143 | [Global Biopharma CMC/GMP Batch Release and Deviation Agent Selection: MES/LIMS Structured Exception Plane vs Foundry ICH Evidence Plane vs SAP QM/Veeva Governed Sign-Off Plane FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) | [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) · [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (11 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (12 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -230,6 +230,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 152 | [Enterprise Agent Evaluation Selection: Synthetic Adversarial Dataset Generation + Golden Drift Governance + Calibrated LLM Judge Jury vs Human SME Annotation Anchors FAQ](synthetic-adversarial-dataset-generation-golden-benchmark-drift-foundry-simulator-vs-autoeval-llm-judge-calibration-vs-human-annotation-selection-faq.en.md) | [🇬🇧 EN](synthetic-adversarial-dataset-generation-golden-benchmark-drift-foundry-simulator-vs-autoeval-llm-judge-calibration-vs-human-annotation-selection-faq.en.md) · [🇨🇳 中文](synthetic-adversarial-dataset-generation-golden-benchmark-drift-foundry-simulator-vs-autoeval-llm-judge-calibration-vs-human-annotation-selection-faq.md) |
 | 160 | [Multi-Tenant B2B Agent SaaS Noisy-Neighbor Isolation Selection: APIM+Redis Fair-Queuing and Tenant Token Limits vs Dedicated PTU-by-Tier Pools vs Cosmos Hierarchical Partition + AI Search Shard Isolation FAQ](multi-tenant-b2b-saas-noisy-neighbor-token-tpm-fair-queuing-apim-redis-leaky-bucket-vs-dedicated-ptu-per-tier-vs-cosmos-hierarchical-partition-selection-faq.en.md) | [🇬🇧 EN](multi-tenant-b2b-saas-noisy-neighbor-token-tpm-fair-queuing-apim-redis-leaky-bucket-vs-dedicated-ptu-per-tier-vs-cosmos-hierarchical-partition-selection-faq.en.md) · [🇨🇳 中文](multi-tenant-b2b-saas-noisy-neighbor-token-tpm-fair-queuing-apim-redis-leaky-bucket-vs-dedicated-ptu-per-tier-vs-cosmos-hierarchical-partition-selection-faq.md) |
 | 166 | [Enterprise Foundation Model Retirement & Upgrade Selection: Foundry Pairwise Eval + DSPy/PromptWizard Prompt Re-Compilation vs AI Search Alias Re-Embedding Migration vs APIM Version-Pinning Fast Rollback FAQ](model-retirement-version-upgrade-foundry-eval-vs-dspy-promptwizard-vs-search-alias-reembed-selection-faq.en.md) | [🇬🇧 EN](model-retirement-version-upgrade-foundry-eval-vs-dspy-promptwizard-vs-search-alias-reembed-selection-faq.en.md) · [🇨🇳 中文](model-retirement-version-upgrade-foundry-eval-vs-dspy-promptwizard-vs-search-alias-reembed-selection-faq.md) |
+| 167 | [Enterprise Online Multi-Agent Experimentation Selection: AppConfig Conversation-Sticky A/B + CUPED/SPRT vs Redis+LinUCB Bandit vs IPS/DR Counterfactual OPE vs Human Arena FAQ](online-agent-ab-experimentation-contextual-bandit-appconfig-vs-redis-linucb-vs-ips-eval-selection-faq.en.md) | [🇬🇧 EN](online-agent-ab-experimentation-contextual-bandit-appconfig-vs-redis-linucb-vs-ips-eval-selection-faq.en.md) · [🇨🇳 中文](online-agent-ab-experimentation-contextual-bandit-appconfig-vs-redis-linucb-vs-ips-eval-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (27 Guides)
 
