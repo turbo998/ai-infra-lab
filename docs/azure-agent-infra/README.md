@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（184 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（185 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **184 个架构选型、平台对比与安全治理决策专题**（共 `368` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **185 个架构选型、平台对比与安全治理决策专题**（共 `370` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 184 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 185 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（16 篇）
 
@@ -67,6 +67,7 @@
 | 182 | [企业虚拟 Actor 智能体运行时选型：Dapr Actors（ACA/AKS Polyglot）vs Orleans Grains（AKS .NET）vs Durable Entities（Serverless）vs KubeRay Stateful Actors（Python/GPU）FAQ](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.md) | [🇨🇳 中文](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.md) · [🇬🇧 EN](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.en.md) |
 | 183 | [企业 Agent Goodput SLO 选型：TTFT/TPOT 尾延迟微对冲（APIM vs Envoy）与多窗口 Burn-Rate 降级环治理 FAQ](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) | [🇨🇳 中文](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) · [🇬🇧 EN](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.en.md) |
 | 184 | [企业 Agentic Commerce 委托支付选型：网络令牌 Mandate（AP2 / Visa Intelligent Commerce / Mastercard Agent Pay）vs PSP 虚拟卡 MCP Saga（Stripe/Adyen）vs FIDO2 + EMV 3DS 2.3 升级验证 vs 隔离 CUA 兜底结账 FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) | [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) · [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) |
+| 185 | [企业生成式 UI 协议选型：AG-UI `STATE_DELTA` RFC 6902 JSON-Patch 协同状态同步 vs Host 声明式组件目录（Adaptive Cards/Typed Props）vs MCP-UI 跨源沙箱微前端 vs LLM 临时产物隔离渲染 FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) | [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) · [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（16 篇）
 
@@ -91,7 +92,7 @@
 | 177 | [企业多模态 VLM 视觉 Token 服务选型：AOAI/Foundry PTU 自适应切片（detail low/high）vs AKS 解耦 ViT 编码池 + 张量缓存 vs pHash/SSIM 关键帧门控 + ROI 裁剪 vs 紧凑 SLM 分级升级 FAQ](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.md) | [🇨🇳 中文](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.md) · [🇬🇧 EN](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) |
 | 181 | [企业语音 STT/说话人分离/TTS 服务选型：Azure Speech（Fast/Batch + Custom Speech + CNV）vs AOAI `gpt-4o-transcribe`/`gpt-4o-mini-transcribe`/`gpt-4o-mini-tts` vs AKS `faster-whisper`+WhisperX+Pyannote GPU 池 vs 混合路由与音频 PII 双轨脱敏 FAQ](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.md) | [🇨🇳 中文](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.md) · [🇬🇧 EN](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（16 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（17 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -113,6 +114,7 @@
 | 170 | [企业动态 MCP 工具发现与上下文瘦身选型：AI Search 延迟 Schema 水合 vs 领域主管路由子代理 vs CodeAct 沙箱组合 vs APIM 会话亲和 Claim-Check FAQ](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.md) | [🇨🇳 中文](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.md) · [🇬🇧 EN](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.en.md) |
 | 176 | [企业遗留主机与 SOAP 到 MCP 现代化选型：APIM 自托管网关（本地策略面）vs Logic Apps/HIS（CICS/IMS/DB2/AS400）vs Azure Relay 出站隧道 vs MIPS 保护反腐层 FAQ](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.md) | [🇨🇳 中文](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.md) · [🇬🇧 EN](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.en.md) |
 | 180 | [企业 MCP 2025+ Streamable HTTP 选型：`Mcp-Session-Id` + `Last-Event-ID` 可恢复会话重放 vs Azure Functions Remote MCP 无状态模式 vs `elicitation/create` 反钓鱼 Schema 防火墙 vs `sampling/createMessage` + `roots/list` 零信任治理 FAQ](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.md) | [🇨🇳 中文](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.md) · [🇬🇧 EN](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) |
+| 185 | [企业生成式 UI 协议选型：AG-UI `STATE_DELTA` RFC 6902 JSON-Patch 协同状态同步 vs Host 声明式组件目录（Adaptive Cards/Typed Props）vs MCP-UI 跨源沙箱微前端 vs LLM 临时产物隔离渲染 FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) | [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) · [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（24 篇）
 

@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (184 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (185 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **184 structured architecture selection guides and trade-off FAQs** (`368` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **185 structured architecture selection guides and trade-off FAQs** (`370` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 184 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 185 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (16 Guides)
 
@@ -67,6 +67,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 182 | [Enterprise Virtual-Actor Agent Runtime Selection: Dapr Actors (ACA/AKS Polyglot) vs Orleans Grains (AKS .NET) vs Durable Entities (Serverless) vs KubeRay Stateful Actors (Python/GPU) FAQ](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.en.md) | [🇬🇧 EN](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.en.md) · [🇨🇳 中文](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.md) |
 | 183 | [Enterprise Agent Goodput SLO Selection: TTFT/TPOT Tail-Latency Micro-Hedging (APIM vs Envoy) and Multi-Window Burn-Rate Degradation-Ring Governance FAQ](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.en.md) | [🇬🇧 EN](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.en.md) · [🇨🇳 中文](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) |
 | 184 | [Enterprise Agentic Commerce Delegated Payment Selection: Network Token Mandates (AP2 / Visa Intelligent Commerce / Mastercard Agent Pay) vs PSP Virtual-Card MCP Sagas (Stripe/Adyen) vs FIDO2 + EMV 3DS 2.3 Step-Up Verification vs Isolated CUA Fallback Checkout FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) | [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) · [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) |
+| 185 | [Enterprise Generative UI Protocol Selection: AG-UI `STATE_DELTA` RFC 6902 JSON-Patch Shared-State Co-Agent Sync vs Host-Owned Declarative Component Catalogs (Adaptive Cards/Typed Props) vs MCP-UI Cross-Origin Sandboxed Micro-Frontends vs Isolated LLM Artifact Rendering FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) | [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) · [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (16 Guides)
 
@@ -91,7 +92,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 177 | [Enterprise Multimodal VLM Visual-Token Serving Selection: AOAI/Foundry PTU Adaptive Tiling (`detail low/high`) vs AKS Disaggregated ViT Encoder Pools + Tensor Cache vs pHash/SSIM Keyframe Delta Gating + ROI Cropping vs Compact SLM Cascade Escalation FAQ](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) | [🇬🇧 EN](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) · [🇨🇳 中文](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.md) |
 | 181 | [Enterprise Speech STT, Diarization, and TTS Serving Selection: Azure Speech (`Fast`/`Batch` + Custom Speech + CNV) vs AOAI `gpt-4o-transcribe`/`gpt-4o-mini-transcribe`/`gpt-4o-mini-tts` vs AKS `faster-whisper`+WhisperX+Pyannote GPU Fleet vs Hybrid Routing with Dual-Track Audio PII Redaction FAQ](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.en.md) | [🇬🇧 EN](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.en.md) · [🇨🇳 中文](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (16 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (17 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -113,6 +114,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 170 | [Enterprise Dynamic MCP Tool Discovery and Context-Bloat Elimination Selection: AI Search Deferred Schema Hydration vs Domain Supervisor Routing Sub-Agents vs CodeAct Sandbox Composition vs APIM Session Affinity and Claim-Check FAQ](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.en.md) | [🇬🇧 EN](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.en.md) · [🇨🇳 中文](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.md) |
 | 176 | [Enterprise Legacy Mainframe and SOAP-to-MCP Modernization Selection: APIM Self-Hosted Gateway Policy Plane vs Logic Apps/HIS (CICS/IMS/DB2/AS400) vs Azure Relay Outbound Tunnels vs MIPS-Shield Anti-Corruption Layer FAQ](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.en.md) | [🇬🇧 EN](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.en.md) · [🇨🇳 中文](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.md) |
 | 180 | [Enterprise MCP 2025+ Streamable HTTP Selection: `Mcp-Session-Id` + `Last-Event-ID` Resumable Session Replay vs Azure Functions Remote MCP Stateless Mode vs `elicitation/create` Anti-Phishing Schema Firewall vs `sampling/createMessage` + `roots/list` Zero-Trust Governance FAQ](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) | [🇬🇧 EN](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) · [🇨🇳 中文](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.md) |
+| 185 | [Enterprise Generative UI Protocol Selection: AG-UI `STATE_DELTA` RFC 6902 JSON-Patch Shared-State Co-Agent Sync vs Host-Owned Declarative Component Catalogs (Adaptive Cards/Typed Props) vs MCP-UI Cross-Origin Sandboxed Micro-Frontends vs Isolated LLM Artifact Rendering FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) | [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) · [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (24 Guides)
 
