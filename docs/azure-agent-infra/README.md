@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（188 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（189 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **188 个架构选型、平台对比与安全治理决策专题**（共 `376` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **189 个架构选型、平台对比与安全治理决策专题**（共 `378` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 188 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 189 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（17 篇）
 
@@ -119,7 +119,7 @@
 | 180 | [企业 MCP 2025+ Streamable HTTP 选型：`Mcp-Session-Id` + `Last-Event-ID` 可恢复会话重放 vs Azure Functions Remote MCP 无状态模式 vs `elicitation/create` 反钓鱼 Schema 防火墙 vs `sampling/createMessage` + `roots/list` 零信任治理 FAQ](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.md) | [🇨🇳 中文](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.md) · [🇬🇧 EN](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) |
 | 185 | [企业生成式 UI 协议选型：AG-UI `STATE_DELTA` RFC 6902 JSON-Patch 协同状态同步 vs Host 声明式组件目录（Adaptive Cards/Typed Props）vs MCP-UI 跨源沙箱微前端 vs LLM 临时产物隔离渲染 FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) | [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) · [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（24 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（25 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -149,6 +149,7 @@
 | 151 | [企业 Agentic RAG 新鲜度选型：Cosmos/SQL CDC + Event Grid + AI Search Push vs Fabric OneLake Pull vs SharePoint/Graph ACL（秒级撤权与孤儿块清理）FAQ](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.md) | [🇨🇳 中文](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.md) · [🇬🇧 EN](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.en.md) |
 | 157 | [全球专利/FTO 智能体选型：Foundry 多模态编排 + AI Search CPC/IPC 混合检索 + RDKit Markush/SMILES 子结构检索 vs Orbit/PatSnap 受控 MCP FAQ](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) | [🇨🇳 中文](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) · [🇬🇧 EN](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) |
 | 162 | [临床基因组与精准肿瘤学智能体选型：Azure HPC/Parabricks 确定性变异管线 vs Foundry OncoKB/ClinVar 证据 RAG vs FHIR/Epic Genomics 草拟签发 MCP FAQ](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) | [🇨🇳 中文](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) · [🇬🇧 EN](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) |
+| 189 | [企业多人协同多智能体画布状态选型：`Yjs/Automerge CRDT`（Web PubSub + Redis + Blob 压缩）vs Azure Fluid Relay `DDS` 总序广播 vs Cosmos DB `ETag` Patch 乐观并发 vs Actor 隔离分支合并 FAQ](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) | [🇨🇳 中文](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) · [🇬🇧 EN](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（21 篇）
 

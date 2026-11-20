@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (188 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (189 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **188 structured architecture selection guides and trade-off FAQs** (`376` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **189 structured architecture selection guides and trade-off FAQs** (`378` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 188 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 189 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (17 Guides)
 
@@ -119,7 +119,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 180 | [Enterprise MCP 2025+ Streamable HTTP Selection: `Mcp-Session-Id` + `Last-Event-ID` Resumable Session Replay vs Azure Functions Remote MCP Stateless Mode vs `elicitation/create` Anti-Phishing Schema Firewall vs `sampling/createMessage` + `roots/list` Zero-Trust Governance FAQ](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) | [🇬🇧 EN](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) · [🇨🇳 中文](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.md) |
 | 185 | [Enterprise Generative UI Protocol Selection: AG-UI `STATE_DELTA` RFC 6902 JSON-Patch Shared-State Co-Agent Sync vs Host-Owned Declarative Component Catalogs (Adaptive Cards/Typed Props) vs MCP-UI Cross-Origin Sandboxed Micro-Frontends vs Isolated LLM Artifact Rendering FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) | [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) · [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (24 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (25 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -149,6 +149,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 151 | [Enterprise Agentic RAG Freshness Selection: Cosmos/SQL CDC + Event Grid + AI Search Push vs Fabric OneLake Pull vs SharePoint/Graph ACL (Sub-Second Revocation Flow and Orphan-Chunk Cleanup) FAQ](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.en.md) | [🇬🇧 EN](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.en.md) · [🇨🇳 中文](agentic-rag-freshness-cdc-incremental-indexing-cosmos-eventgrid-ai-search-vs-fabric-onelake-shortcuts-vs-sharepoint-graph-acl-selection-faq.md) |
 | 157 | [Global Patent/FTO Agent Selection: Foundry Multimodal Orchestration + AI Search CPC/IPC Hybrid Retrieval + RDKit Markush/SMILES Substructure Retrieval vs Controlled Orbit/PatSnap MCP FAQ](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) | [🇬🇧 EN](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) · [🇨🇳 中文](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) |
 | 162 | [Clinical Genomics and Precision Oncology Agent Selection: Azure HPC/Parabricks Deterministic Variant Pipeline vs Foundry OncoKB/ClinVar Evidence RAG vs FHIR/Epic Genomics Draft Sign-out MCP FAQ](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) | [🇬🇧 EN](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) · [🇨🇳 中文](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) |
+| 189 | [Enterprise Collaborative Multi-Agent Canvas State Selection: `Yjs/Automerge CRDT` over Azure Web PubSub + Managed Redis + Blob Snapshot Compaction vs Azure Fluid Relay `DDS` Total-Order Broadcast vs Cosmos DB `ETag` Patch Optimistic Concurrency vs Actor-Isolated Branch-and-Merge FAQ](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) | [🇬🇧 EN](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) · [🇨🇳 中文](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (21 Guides)
 
