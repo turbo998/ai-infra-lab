@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (186 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (187 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **186 structured architecture selection guides and trade-off FAQs** (`372` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **187 structured architecture selection guides and trade-off FAQs** (`374` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 186 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 187 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (16 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (17 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -69,6 +69,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 184 | [Enterprise Agentic Commerce Delegated Payment Selection: Network Token Mandates (AP2 / Visa Intelligent Commerce / Mastercard Agent Pay) vs PSP Virtual-Card MCP Sagas (Stripe/Adyen) vs FIDO2 + EMV 3DS 2.3 Step-Up Verification vs Isolated CUA Fallback Checkout FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) | [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) · [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) |
 | 185 | [Enterprise Generative UI Protocol Selection: AG-UI `STATE_DELTA` RFC 6902 JSON-Patch Shared-State Co-Agent Sync vs Host-Owned Declarative Component Catalogs (Adaptive Cards/Typed Props) vs MCP-UI Cross-Origin Sandboxed Micro-Frontends vs Isolated LLM Artifact Rendering FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) | [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) · [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) |
 | 186 | [Enterprise Prompt-as-Code Lifecycle Selection: GitOps `.prompty` Artifact Registry with Pydantic/JSON-Schema Contract Gates vs Azure AI Foundry Prompt Catalog Collaboration vs App Configuration + Blob Sentinel Runtime Hydration (No Redeploy) vs Langfuse/MLflow Self-Hosted Registry Portability FAQ](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) | [🇬🇧 EN](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) · [🇨🇳 中文](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) |
+| 187 | [Enterprise Burst Batch Agent Compute Selection: ACA Event-Driven Jobs vs AKS NAP/Karpenter + KEDA ScaledJobs vs Azure Batch Spot Task Graphs vs Functions Flex Consumption Micro-Fan-Out with AOAI TPM Backpressure Governance FAQ](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.en.md) | [🇬🇧 EN](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.en.md) · [🇨🇳 中文](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (16 Guides)
 

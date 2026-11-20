@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（186 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（187 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **186 个架构选型、平台对比与安全治理决策专题**（共 `372` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **187 个架构选型、平台对比与安全治理决策专题**（共 `374` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 186 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 187 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（16 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（17 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -69,6 +69,7 @@
 | 184 | [企业 Agentic Commerce 委托支付选型：网络令牌 Mandate（AP2 / Visa Intelligent Commerce / Mastercard Agent Pay）vs PSP 虚拟卡 MCP Saga（Stripe/Adyen）vs FIDO2 + EMV 3DS 2.3 升级验证 vs 隔离 CUA 兜底结账 FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) | [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) · [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) |
 | 185 | [企业生成式 UI 协议选型：AG-UI `STATE_DELTA` RFC 6902 JSON-Patch 协同状态同步 vs Host 声明式组件目录（Adaptive Cards/Typed Props）vs MCP-UI 跨源沙箱微前端 vs LLM 临时产物隔离渲染 FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) | [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) · [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) |
 | 186 | [企业 Prompt-as-Code 生命周期选型：GitOps `.prompty` 工件注册表与 Pydantic/JSON-Schema 合同门禁 vs Foundry Prompt Catalog 协作治理 vs App Configuration + Blob Sentinel 热加载（免重部署）vs Langfuse/MLflow 自建 Registry 可移植性 FAQ](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) | [🇨🇳 中文](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) · [🇬🇧 EN](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) |
+| 187 | [企业突发批处理智能体算力选型：ACA Event-Driven Jobs vs AKS NAP/Karpenter + KEDA ScaledJobs vs Azure Batch Spot 任务图 vs Functions Flex Consumption 微任务扇出与 AOAI TPM 背压治理 FAQ](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.md) | [🇨🇳 中文](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.md) · [🇬🇧 EN](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（16 篇）
 
