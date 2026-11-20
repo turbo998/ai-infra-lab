@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (168 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (169 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **168 structured architecture selection guides and trade-off FAQs** (`336` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **169 structured architecture selection guides and trade-off FAQs** (`338` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 168 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 169 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (12 Guides)
 
@@ -62,7 +62,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 164 | [AKS Sandbox Zero-Trust Egress Selection: eBPF Cilium + Tetragon Synchronous Enforcement vs Azure Firewall Premium Subnet Perimeter vs Defender Asynchronous Detection FAQ](ebpf-cilium-tetragon-syscall-egress-sandboxes-aks-vs-azure-firewall-vs-defender-selection-faq.en.md) | [🇬🇧 EN](ebpf-cilium-tetragon-syscall-egress-sandboxes-aks-vs-azure-firewall-vs-defender-selection-faq.en.md) · [🇨🇳 中文](ebpf-cilium-tetragon-syscall-egress-sandboxes-aks-vs-azure-firewall-vs-defender-selection-faq.md) |
 | 168 | [High-Concurrency Ephemeral Headless Browser Fleet Selection: ACA Dynamic Sessions Custom Container Pools vs AKS KEDA+Kata CDP Grid vs Managed Browser Workspaces vs WebRTC HITL Takeover Airlock FAQ](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.en.md) | [🇬🇧 EN](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.en.md) · [🇨🇳 中文](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (12 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (13 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -80,6 +80,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 145 | [Long-Context Agent Inference Selection: Foundry/AOAI PTU Auto Caching vs AKS Disaggregated Prefill/Decode KV Routing vs Hybrid Tiered Serving FAQ](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.en.md) | [🇬🇧 EN](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.en.md) · [🇨🇳 中文](disaggregated-prefill-decode-kv-cache-routing-aks-llm-d-vllm-sglang-dynamo-vs-foundry-ptu-long-context-agent-selection-faq.md) |
 | 153 | [Enterprise Structured Generation Selection: Speculative Decoding + XGrammar/llguidance Constrained Decoding (AKS vLLM/SGLang) vs Foundry Strict Structured Outputs FAQ](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.en.md) | [🇬🇧 EN](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.en.md) · [🇨🇳 中文](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.md) |
 | 156 | [Enterprise Teacher-Student Distillation Selection: RFT/DPO/GRPO + FP8/W8A8 Quantized Serving (Foundry Managed Distillation vs AML+AKS TensorRT-LLM/vLLM) FAQ](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.en.md) | [🇬🇧 EN](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.en.md) · [🇨🇳 中文](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) |
+| 169 | [Enterprise Frontier Open-Weight MoE Hosting Selection: Foundry MaaS vs AKS NDv5 Expert Parallel vs AML/Foundry Managed Online Endpoints vs APIM Hybrid Overflow FAQ](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.en.md) | [🇬🇧 EN](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.en.md) · [🇨🇳 中文](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (13 Guides)
 
