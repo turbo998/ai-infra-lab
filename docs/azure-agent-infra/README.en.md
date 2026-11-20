@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (198 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (199 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **198 structured architecture selection guides and trade-off FAQs** (`396` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **199 structured architecture selection guides and trade-off FAQs** (`398` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 198 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 199 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (18 Guides)
 
@@ -123,7 +123,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 193 | [Enterprise Multi-Tool Transactional Integrity Selection: Orchestrated Saga (Durable/Dapr) Compensation Stack vs Transactional Outbox + Debezium/Cosmos CDC Dual-Write Elimination vs TCC Reservation/Confirm/Cancel vs APIM `Idempotency-Key` Barrier for Duplicate-Charge Prevention FAQ](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.en.md) | [🇬🇧 EN](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.en.md) · [🇨🇳 中文](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.md) |
 | 197 | [Enterprise Fine-Grained ReBAC Zanzibar Authorization Selection: `SpiceDB/OpenFGA` Tuple Graph on AKS + PostgreSQL vs `Cedar` Verified ABAC Sidecars vs `Microsoft Entra` Groups and App Roles (`Human ∩ Agent` Delegation Intersection, `ZedToken` Revocation Consistency, and RAG Pre-Filter Compilation) FAQ](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.en.md) | [🇬🇧 EN](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.en.md) · [🇨🇳 中文](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (26 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (27 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -155,6 +155,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 162 | [Clinical Genomics and Precision Oncology Agent Selection: Azure HPC/Parabricks Deterministic Variant Pipeline vs Foundry OncoKB/ClinVar Evidence RAG vs FHIR/Epic Genomics Draft Sign-out MCP FAQ](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) | [🇬🇧 EN](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) · [🇨🇳 中文](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) |
 | 189 | [Enterprise Collaborative Multi-Agent Canvas State Selection: `Yjs/Automerge CRDT` over Azure Web PubSub + Managed Redis + Blob Snapshot Compaction vs Azure Fluid Relay `DDS` Total-Order Broadcast vs Cosmos DB `ETag` Patch Optimistic Concurrency vs Actor-Isolated Branch-and-Merge FAQ](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) | [🇬🇧 EN](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) · [🇨🇳 中文](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) |
 | 194 | [Enterprise Object-Storage-Native Vector Engine Selection: LanceDB/Turbopuffer-Style on Azure Blob + `Lsv3` NVMe Cache vs AKS Qdrant/Milvus 2.5 Hot Clusters vs Managed Azure AI Search Vector Compression vs DuckDB vss Session Sidecar FAQ](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) | [🇬🇧 EN](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) · [🇨🇳 中文](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.md) |
+| 199 | [Enterprise Real-Time Agent Feature Context Serving Selection: `Feast + Azure Managed Redis + Event Hubs Flink/Spark` vs `Microsoft Fabric Eventhouse + OneLake` vs `Azure ML Managed Feature Store` (sub-`10ms` online serving, `30-second` sliding-window velocity signals, online/offline skew prevention, and `AS OF` point-in-time replay) FAQ](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) | [🇬🇧 EN](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) · [🇨🇳 中文](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (23 Guides)
 
