@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（171 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（172 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **171 个架构选型、平台对比与安全治理决策专题**（共 `342` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **172 个架构选型、平台对比与安全治理决策专题**（共 `344` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 171 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 172 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（13 篇）
 
@@ -217,7 +217,7 @@
 | 142 | [奢侈品零售 VIC 客户经营与 DPP 防伪智能体选型：Foundry 客户经营平面 vs Fabric 配货优化平面 vs D365/Cegid/Salesforce 治理执行平面 FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) | [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) · [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) |
 | 143 | [全球生物制药 CMC/GMP 批记录审查与放行智能体选型：MES/LIMS 结构化异常平面 vs Foundry ICH 证据平面 vs SAP QM/Veeva 治理签放平面 FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) | [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) · [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（12 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（13 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -235,6 +235,7 @@
 | 160 | [多租户 B2B Agent SaaS 抗噪声邻居选型：APIM+Redis 公平队列限流 vs 分层专属 PTU 资源池 vs Cosmos 分层分区与 AI Search 分片隔离 FAQ](multi-tenant-b2b-saas-noisy-neighbor-token-tpm-fair-queuing-apim-redis-leaky-bucket-vs-dedicated-ptu-per-tier-vs-cosmos-hierarchical-partition-selection-faq.md) | [🇨🇳 中文](multi-tenant-b2b-saas-noisy-neighbor-token-tpm-fair-queuing-apim-redis-leaky-bucket-vs-dedicated-ptu-per-tier-vs-cosmos-hierarchical-partition-selection-faq.md) · [🇬🇧 EN](multi-tenant-b2b-saas-noisy-neighbor-token-tpm-fair-queuing-apim-redis-leaky-bucket-vs-dedicated-ptu-per-tier-vs-cosmos-hierarchical-partition-selection-faq.en.md) |
 | 166 | [企业基础模型退役升级选型：Foundry Pairwise Eval + DSPy/PromptWizard 重编译 vs AI Search Alias 重嵌入迁移 vs APIM 版本钉扎快速回滚 FAQ](model-retirement-version-upgrade-foundry-eval-vs-dspy-promptwizard-vs-search-alias-reembed-selection-faq.md) | [🇨🇳 中文](model-retirement-version-upgrade-foundry-eval-vs-dspy-promptwizard-vs-search-alias-reembed-selection-faq.md) · [🇬🇧 EN](model-retirement-version-upgrade-foundry-eval-vs-dspy-promptwizard-vs-search-alias-reembed-selection-faq.en.md) |
 | 167 | [企业在线多智能体实验选型：AppConfig 会话粘性 A/B + CUPED/SPRT vs Redis+LinUCB Bandit vs IPS/DR 反事实评估 vs 人审 Arena FAQ](online-agent-ab-experimentation-contextual-bandit-appconfig-vs-redis-linucb-vs-ips-eval-selection-faq.md) | [🇨🇳 中文](online-agent-ab-experimentation-contextual-bandit-appconfig-vs-redis-linucb-vs-ips-eval-selection-faq.md) · [🇬🇧 EN](online-agent-ab-experimentation-contextual-bandit-appconfig-vs-redis-linucb-vs-ips-eval-selection-faq.en.md) |
+| 172 | [企业 Agent 轨迹预算与失控环路治理选型：APIM+Redis 轨迹账本熔断 vs 语义零进展检测 vs reasoning_effort 自适应 vs 软上限补预算 Saga FAQ](agentic-trajectory-budget-runaway-loop-circuit-breaker-apim-redis-vs-reasoning-effort-selection-faq.md) | [🇨🇳 中文](agentic-trajectory-budget-runaway-loop-circuit-breaker-apim-redis-vs-reasoning-effort-selection-faq.md) · [🇬🇧 EN](agentic-trajectory-budget-runaway-loop-circuit-breaker-apim-redis-vs-reasoning-effort-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（27 篇）
 
