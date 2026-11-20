@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (181 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (182 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **181 structured architecture selection guides and trade-off FAQs** (`362` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **182 structured architecture selection guides and trade-off FAQs** (`364` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 181 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 182 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (15 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (16 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -64,6 +64,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 171 | [Enterprise Large Agent Container Image Distribution Selection: ACR OverlayBD Artifact Streaming vs AKS P2P+NVMe Mirror Mesh vs Slim Runtime Image with ReadOnly Artifact Volumes vs ACA Warm Session Buffers FAQ](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) | [🇬🇧 EN](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) · [🇨🇳 中文](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.md) |
 | 174 | [Enterprise Stateful Data-Science Notebook Agent Workspace Selection: ACA Dynamic Sessions Hibernation Pools vs AKS Kata+ACStor Persistent Sandboxes vs AML/Fabric Spark Elastic Scale-Out vs Dev Box/Codespaces Collaboration FAQ](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.en.md) | [🇬🇧 EN](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.en.md) · [🇨🇳 中文](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.md) |
 | 178 | [Enterprise Mobile App-Use and Autonomous Mobile QA Sandbox Selection: AKS ARM64 Redroid/Cuttlefish Dense Android Containers vs Cloud Device Farms for iOS Real-Hardware Flows vs Accessibility+VLM Hybrid Grounding vs Zero-Trust Stubbing and Forensic Replay FAQ](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.en.md) | [🇬🇧 EN](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.en.md) · [🇨🇳 中文](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.md) |
+| 182 | [Enterprise Virtual-Actor Agent Runtime Selection: Dapr Actors (ACA/AKS Polyglot) vs Orleans Grains (AKS .NET) vs Durable Entities (Serverless) vs KubeRay Stateful Actors (Python/GPU) FAQ](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.en.md) | [🇬🇧 EN](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.en.md) · [🇨🇳 中文](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (16 Guides)
 
