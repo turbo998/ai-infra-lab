@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (192 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (193 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **192 structured architecture selection guides and trade-off FAQs** (`384` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **193 structured architecture selection guides and trade-off FAQs** (`386` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 192 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 193 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (18 Guides)
 
@@ -97,7 +97,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 188 | [Enterprise Test-Time Compute Selection: AOAI `o3/o4-mini/gpt-5` Reasoning-Effort Single-Pass vs AKS `vLLM/SGLang` Prefix-Shared `Best-of-N` + Step-Level PRM Scoring vs `Z3 SMT/Lean 4` Deterministic Verification Loops vs Adaptive Compute-Budget Controller FAQ](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.en.md) | [🇬🇧 EN](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.en.md) · [🇨🇳 中文](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.md) |
 | 191 | [Enterprise Federated Privacy-Preserving Fine-Tuning Selection: NVFlare/Flower on AKS (`FedIT`/`FFA-LoRA`) vs AML Cross-Silo Federated Pipelines vs Confidential Clean-Room Pooled Training vs Silo-Specific Adapter Routing (Zero Raw-Data Movement) FAQ](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.en.md) | [🇬🇧 EN](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.en.md) · [🇨🇳 中文](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (17 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (18 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -120,6 +120,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 176 | [Enterprise Legacy Mainframe and SOAP-to-MCP Modernization Selection: APIM Self-Hosted Gateway Policy Plane vs Logic Apps/HIS (CICS/IMS/DB2/AS400) vs Azure Relay Outbound Tunnels vs MIPS-Shield Anti-Corruption Layer FAQ](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.en.md) | [🇬🇧 EN](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.en.md) · [🇨🇳 中文](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.md) |
 | 180 | [Enterprise MCP 2025+ Streamable HTTP Selection: `Mcp-Session-Id` + `Last-Event-ID` Resumable Session Replay vs Azure Functions Remote MCP Stateless Mode vs `elicitation/create` Anti-Phishing Schema Firewall vs `sampling/createMessage` + `roots/list` Zero-Trust Governance FAQ](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) | [🇬🇧 EN](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) · [🇨🇳 中文](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.md) |
 | 185 | [Enterprise Generative UI Protocol Selection: AG-UI `STATE_DELTA` RFC 6902 JSON-Patch Shared-State Co-Agent Sync vs Host-Owned Declarative Component Catalogs (Adaptive Cards/Typed Props) vs MCP-UI Cross-Origin Sandboxed Micro-Frontends vs Isolated LLM Artifact Rendering FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) | [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) · [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) |
+| 193 | [Enterprise Multi-Tool Transactional Integrity Selection: Orchestrated Saga (Durable/Dapr) Compensation Stack vs Transactional Outbox + Debezium/Cosmos CDC Dual-Write Elimination vs TCC Reservation/Confirm/Cancel vs APIM `Idempotency-Key` Barrier for Duplicate-Charge Prevention FAQ](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.en.md) | [🇬🇧 EN](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.en.md) · [🇨🇳 中文](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (25 Guides)
 
