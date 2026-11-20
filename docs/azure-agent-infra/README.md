@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（172 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（173 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **172 个架构选型、平台对比与安全治理决策专题**（共 `344` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **173 个架构选型、平台对比与安全治理决策专题**（共 `346` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 172 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 173 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（13 篇）
 
@@ -63,7 +63,7 @@
 | 168 | [企业高并发临时无头浏览器集群选型：ACA Dynamic Sessions 自定义容器池 vs AKS KEDA+Kata CDP 网格 vs 托管浏览器工作区 vs WebRTC HITL 接管气闸 FAQ](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.md) | [🇨🇳 中文](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.md) · [🇬🇧 EN](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.en.md) |
 | 171 | [企业大体积 Agent 容器镜像分发选型：ACR OverlayBD 流式拉取 vs AKS P2P+NVMe 镜像网格 vs 轻镜像+只读工件挂载 vs ACA 预热池 FAQ](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.md) | [🇨🇳 中文](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.md) · [🇬🇧 EN](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（13 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（14 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -82,6 +82,7 @@
 | 153 | [企业结构化生成选型：Speculative Decoding + XGrammar/llguidance 约束解码（AKS vLLM/SGLang）vs Foundry Strict Structured Outputs FAQ](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.md) | [🇨🇳 中文](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.md) · [🇬🇧 EN](speculative-decoding-structured-constrained-json-grammar-serving-aks-vllm-sglang-eagle-xgrammar-vs-foundry-structured-outputs-selection-faq.en.md) |
 | 156 | [企业 Teacher-Student 蒸馏选型：RFT/DPO/GRPO + FP8/W8A8 量化（Foundry 托管蒸馏 vs AML+AKS TensorRT-LLM/vLLM）FAQ](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) | [🇨🇳 中文](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) · [🇬🇧 EN](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.en.md) |
 | 169 | [企业前沿开源权重 MoE 托管选型：Foundry MaaS vs AKS NDv5 Expert Parallel vs AML/Foundry 托管在线端点 vs APIM 混合溢出 FAQ](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.md) | [🇨🇳 中文](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.md) · [🇬🇧 EN](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.en.md) |
+| 173 | [企业高吞吐 Embedding 与 Reranker 服务选型：Foundry MaaS/Semantic Ranker vs AKS TEI/Triton GPU 池 vs MRL+BQ 两阶段 vs CPU INT8 ONNX 兜底 FAQ](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.md) | [🇨🇳 中文](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.md) · [🇬🇧 EN](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（14 篇）
 
