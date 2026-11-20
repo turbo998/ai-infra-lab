@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (194 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (195 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **194 structured architecture selection guides and trade-off FAQs** (`388` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **195 structured architecture selection guides and trade-off FAQs** (`390` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 194 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 195 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (18 Guides)
 
@@ -155,7 +155,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 189 | [Enterprise Collaborative Multi-Agent Canvas State Selection: `Yjs/Automerge CRDT` over Azure Web PubSub + Managed Redis + Blob Snapshot Compaction vs Azure Fluid Relay `DDS` Total-Order Broadcast vs Cosmos DB `ETag` Patch Optimistic Concurrency vs Actor-Isolated Branch-and-Merge FAQ](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) | [🇬🇧 EN](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) · [🇨🇳 中文](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) |
 | 194 | [Enterprise Object-Storage-Native Vector Engine Selection: LanceDB/Turbopuffer-Style on Azure Blob + `Lsv3` NVMe Cache vs AKS Qdrant/Milvus 2.5 Hot Clusters vs Managed Azure AI Search Vector Compression vs DuckDB vss Session Sidecar FAQ](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) | [🇬🇧 EN](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) · [🇨🇳 中文](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (21 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (22 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -182,6 +182,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 161 | [Global Hotel & Integrated Resort Agent Selection: Fabric Revenue Intelligence vs Foundry VIP Concierge vs APIM+OHIP MCP Folio/Comp Compliance Execution FAQ](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.en.md) | [🇬🇧 EN](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.en.md) · [🇨🇳 中文](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.md) |
 | 163 | [Retail Media Network (RMN) Selection: Confidential Clean-Room iROAS + Fabric Attribution vs Foundry Creative Compliance QA vs APIM+DSP MCP Budget Guardrails FAQ](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.en.md) | [🇬🇧 EN](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.en.md) · [🇨🇳 中文](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.md) |
 | 184 | [Enterprise Agentic Commerce Delegated Payment Selection: Network Token Mandates (AP2 / Visa Intelligent Commerce / Mastercard Agent Pay) vs PSP Virtual-Card MCP Sagas (Stripe/Adyen) vs FIDO2 + EMV 3DS 2.3 Step-Up Verification vs Isolated CUA Fallback Checkout FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) | [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) · [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) |
+| 195 | [Enterprise Million-Endpoint IoT Edge Bidirectional Agent Fabric Selection: Event Grid Namespace `MQTT v5` Topic Space ABAC vs AKS `NATS JetStream` + Outbound `Leaf Nodes` vs Azure IoT Operations Offline Survivability vs Service Bus Backend Bridge FAQ](iot-edge-fleet-pub-sub-agent-bus-azure-event-grid-mqtt-vs-nats-jetstream-aks-vs-iot-ops-selection-faq.en.md) | [🇬🇧 EN](iot-edge-fleet-pub-sub-agent-bus-azure-event-grid-mqtt-vs-nats-jetstream-aks-vs-iot-ops-selection-faq.en.md) · [🇨🇳 中文](iot-edge-fleet-pub-sub-agent-bus-azure-event-grid-mqtt-vs-nats-jetstream-aks-vs-iot-ops-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (48 Guides)
 
