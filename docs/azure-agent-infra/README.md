@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（169 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（170 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **169 个架构选型、平台对比与安全治理决策专题**（共 `338` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **170 个架构选型、平台对比与安全治理决策专题**（共 `340` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 169 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 170 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（12 篇）
 
@@ -82,7 +82,7 @@
 | 156 | [企业 Teacher-Student 蒸馏选型：RFT/DPO/GRPO + FP8/W8A8 量化（Foundry 托管蒸馏 vs AML+AKS TensorRT-LLM/vLLM）FAQ](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) | [🇨🇳 中文](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) · [🇬🇧 EN](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.en.md) |
 | 169 | [企业前沿开源权重 MoE 托管选型：Foundry MaaS vs AKS NDv5 Expert Parallel vs AML/Foundry 托管在线端点 vs APIM 混合溢出 FAQ](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.md) | [🇨🇳 中文](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.md) · [🇬🇧 EN](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（13 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（14 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -101,6 +101,7 @@
 | 148 | [异步 HITL 审批回调架构选型：APIM 签名 Webhook + Durable 挂起恢复 vs Service Bus Sessions + Outbox vs Teams/Outlook Adaptive Cards FAQ](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.md) | [🇨🇳 中文](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.md) · [🇬🇧 EN](async-hitl-approval-callback-architecture-apim-webhook-durable-functions-vs-service-bus-sessions-vs-teams-adaptive-cards-selection-faq.en.md) |
 | 154 | [企业 GraphQL/gRPC/AsyncAPI 到 MCP 工具联邦选型：APIM GraphQL 治理投影 vs Apollo Router 超图 vs Envoy gRPC Transcoding 事件桥接 FAQ](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.md) | [🇨🇳 中文](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.md) · [🇬🇧 EN](enterprise-graphql-grpc-asyncapi-to-mcp-tool-federation-apim-apollo-router-vs-envoy-grpc-transcoding-vs-event-driven-mcp-selection-faq.en.md) |
 | 159 | [企业 MCP 供应链攻防选型：APIM 工具清单 SHA-256 钉扎 + Cosign/Ratify 签名验证 vs Prompt Shields 动态扫描 vs ACA/AKS 出网气隙隔离 FAQ](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.md) | [🇨🇳 中文](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.md) · [🇬🇧 EN](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.en.md) |
+| 170 | [企业动态 MCP 工具发现与上下文瘦身选型：AI Search 延迟 Schema 水合 vs 领域主管路由子代理 vs CodeAct 沙箱组合 vs APIM 会话亲和 Claim-Check FAQ](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.md) | [🇨🇳 中文](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.md) · [🇬🇧 EN](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（24 篇）
 
