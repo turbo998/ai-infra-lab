@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (173 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (174 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **173 structured architecture selection guides and trade-off FAQs** (`346` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **174 structured architecture selection guides and trade-off FAQs** (`348` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 173 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 174 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (13 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (14 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -62,6 +62,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 164 | [AKS Sandbox Zero-Trust Egress Selection: eBPF Cilium + Tetragon Synchronous Enforcement vs Azure Firewall Premium Subnet Perimeter vs Defender Asynchronous Detection FAQ](ebpf-cilium-tetragon-syscall-egress-sandboxes-aks-vs-azure-firewall-vs-defender-selection-faq.en.md) | [🇬🇧 EN](ebpf-cilium-tetragon-syscall-egress-sandboxes-aks-vs-azure-firewall-vs-defender-selection-faq.en.md) · [🇨🇳 中文](ebpf-cilium-tetragon-syscall-egress-sandboxes-aks-vs-azure-firewall-vs-defender-selection-faq.md) |
 | 168 | [High-Concurrency Ephemeral Headless Browser Fleet Selection: ACA Dynamic Sessions Custom Container Pools vs AKS KEDA+Kata CDP Grid vs Managed Browser Workspaces vs WebRTC HITL Takeover Airlock FAQ](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.en.md) | [🇬🇧 EN](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.en.md) · [🇨🇳 中文](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.md) |
 | 171 | [Enterprise Large Agent Container Image Distribution Selection: ACR OverlayBD Artifact Streaming vs AKS P2P+NVMe Mirror Mesh vs Slim Runtime Image with ReadOnly Artifact Volumes vs ACA Warm Session Buffers FAQ](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) | [🇬🇧 EN](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) · [🇨🇳 中文](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.md) |
+| 174 | [Enterprise Stateful Data-Science Notebook Agent Workspace Selection: ACA Dynamic Sessions Hibernation Pools vs AKS Kata+ACStor Persistent Sandboxes vs AML/Fabric Spark Elastic Scale-Out vs Dev Box/Codespaces Collaboration FAQ](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.en.md) | [🇬🇧 EN](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.en.md) · [🇨🇳 中文](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (14 Guides)
 
