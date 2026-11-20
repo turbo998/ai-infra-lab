@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (187 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (188 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **187 structured architecture selection guides and trade-off FAQs** (`374` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **188 structured architecture selection guides and trade-off FAQs** (`376` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 187 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 188 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (17 Guides)
 
@@ -71,7 +71,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 186 | [Enterprise Prompt-as-Code Lifecycle Selection: GitOps `.prompty` Artifact Registry with Pydantic/JSON-Schema Contract Gates vs Azure AI Foundry Prompt Catalog Collaboration vs App Configuration + Blob Sentinel Runtime Hydration (No Redeploy) vs Langfuse/MLflow Self-Hosted Registry Portability FAQ](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) | [🇬🇧 EN](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) · [🇨🇳 中文](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) |
 | 187 | [Enterprise Burst Batch Agent Compute Selection: ACA Event-Driven Jobs vs AKS NAP/Karpenter + KEDA ScaledJobs vs Azure Batch Spot Task Graphs vs Functions Flex Consumption Micro-Fan-Out with AOAI TPM Backpressure Governance FAQ](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.en.md) | [🇬🇧 EN](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.en.md) · [🇨🇳 中文](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (16 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (17 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -93,6 +93,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 173 | [Enterprise High-Throughput Embedding and Reranker Serving Selection: Foundry MaaS/Semantic Ranker vs AKS TEI/Triton GPU Pools vs MRL+BQ Two-Stage vs CPU INT8 ONNX Fallback FAQ](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.en.md) | [🇬🇧 EN](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.en.md) · [🇨🇳 中文](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.md) |
 | 177 | [Enterprise Multimodal VLM Visual-Token Serving Selection: AOAI/Foundry PTU Adaptive Tiling (`detail low/high`) vs AKS Disaggregated ViT Encoder Pools + Tensor Cache vs pHash/SSIM Keyframe Delta Gating + ROI Cropping vs Compact SLM Cascade Escalation FAQ](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) | [🇬🇧 EN](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) · [🇨🇳 中文](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.md) |
 | 181 | [Enterprise Speech STT, Diarization, and TTS Serving Selection: Azure Speech (`Fast`/`Batch` + Custom Speech + CNV) vs AOAI `gpt-4o-transcribe`/`gpt-4o-mini-transcribe`/`gpt-4o-mini-tts` vs AKS `faster-whisper`+WhisperX+Pyannote GPU Fleet vs Hybrid Routing with Dual-Track Audio PII Redaction FAQ](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.en.md) | [🇬🇧 EN](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.en.md) · [🇨🇳 中文](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.md) |
+| 188 | [Enterprise Test-Time Compute Selection: AOAI `o3/o4-mini/gpt-5` Reasoning-Effort Single-Pass vs AKS `vLLM/SGLang` Prefix-Shared `Best-of-N` + Step-Level PRM Scoring vs `Z3 SMT/Lean 4` Deterministic Verification Loops vs Adaptive Compute-Budget Controller FAQ](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.en.md) | [🇬🇧 EN](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.en.md) · [🇨🇳 中文](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (17 Guides)
 
