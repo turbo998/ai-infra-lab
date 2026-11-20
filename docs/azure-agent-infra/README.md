@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（177 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（178 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **177 个架构选型、平台对比与安全治理决策专题**（共 `354` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **178 个架构选型、平台对比与安全治理决策专题**（共 `356` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 177 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 178 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（14 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（15 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -63,6 +63,7 @@
 | 168 | [企业高并发临时无头浏览器集群选型：ACA Dynamic Sessions 自定义容器池 vs AKS KEDA+Kata CDP 网格 vs 托管浏览器工作区 vs WebRTC HITL 接管气闸 FAQ](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.md) | [🇨🇳 中文](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.md) · [🇬🇧 EN](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.en.md) |
 | 171 | [企业大体积 Agent 容器镜像分发选型：ACR OverlayBD 流式拉取 vs AKS P2P+NVMe 镜像网格 vs 轻镜像+只读工件挂载 vs ACA 预热池 FAQ](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.md) | [🇨🇳 中文](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.md) · [🇬🇧 EN](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) |
 | 174 | [企业状态化数据科学 Notebook Agent 工作区选型：ACA Dynamic Sessions 休眠池 vs AKS Kata+ACStor 持久沙箱 vs AML/Fabric Spark 弹性扩展 vs Dev Box/Codespaces 协作交接 FAQ](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.md) | [🇨🇳 中文](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.md) · [🇬🇧 EN](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.en.md) |
+| 178 | [企业移动 App-Use 与自治移动 QA 智能体沙箱选型：AKS ARM64 Redroid/Cuttlefish 高密度 Android 容器 vs 云真机农场 iOS 能力验证 vs Accessibility+VLM 混合动作定位 vs 零信任替身注入与法证回放 FAQ](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.md) | [🇨🇳 中文](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.md) · [🇬🇧 EN](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（15 篇）
 
