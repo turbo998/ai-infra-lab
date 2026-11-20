@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (179 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (180 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **179 structured architecture selection guides and trade-off FAQs** (`358` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **180 structured architecture selection guides and trade-off FAQs** (`360` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 179 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 180 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (15 Guides)
 
@@ -87,7 +87,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 173 | [Enterprise High-Throughput Embedding and Reranker Serving Selection: Foundry MaaS/Semantic Ranker vs AKS TEI/Triton GPU Pools vs MRL+BQ Two-Stage vs CPU INT8 ONNX Fallback FAQ](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.en.md) | [🇬🇧 EN](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.en.md) · [🇨🇳 中文](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.md) |
 | 177 | [Enterprise Multimodal VLM Visual-Token Serving Selection: AOAI/Foundry PTU Adaptive Tiling (`detail low/high`) vs AKS Disaggregated ViT Encoder Pools + Tensor Cache vs pHash/SSIM Keyframe Delta Gating + ROI Cropping vs Compact SLM Cascade Escalation FAQ](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) | [🇬🇧 EN](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) · [🇨🇳 中文](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (15 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (16 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -108,6 +108,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 159 | [Enterprise MCP Supply-Chain Defense Selection: APIM Canonical tools/list SHA-256 Pinning + Cosign/Ratify Signature Enforcement vs Prompt Shields Dynamic Scanning vs ACA/AKS Egress Airlock FAQ](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.en.md) | [🇬🇧 EN](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.en.md) · [🇨🇳 中文](mcp-tool-poisoning-rug-pull-schema-attestation-sigstore-cosign-apim-hash-pinning-vs-prompt-shields-vs-aca-egress-firewall-selection-faq.md) |
 | 170 | [Enterprise Dynamic MCP Tool Discovery and Context-Bloat Elimination Selection: AI Search Deferred Schema Hydration vs Domain Supervisor Routing Sub-Agents vs CodeAct Sandbox Composition vs APIM Session Affinity and Claim-Check FAQ](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.en.md) | [🇬🇧 EN](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.en.md) · [🇨🇳 中文](mcp-dynamic-tool-discovery-context-bloat-ai-search-vs-domain-router-vs-codeact-apim-selection-faq.md) |
 | 176 | [Enterprise Legacy Mainframe and SOAP-to-MCP Modernization Selection: APIM Self-Hosted Gateway Policy Plane vs Logic Apps/HIS (CICS/IMS/DB2/AS400) vs Azure Relay Outbound Tunnels vs MIPS-Shield Anti-Corruption Layer FAQ](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.en.md) | [🇬🇧 EN](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.en.md) · [🇨🇳 中文](legacy-mainframe-soap-to-mcp-modernization-apim-self-hosted-vs-logic-apps-cics-vs-relay-selection-faq.md) |
+| 180 | [Enterprise MCP 2025+ Streamable HTTP Selection: `Mcp-Session-Id` + `Last-Event-ID` Resumable Session Replay vs Azure Functions Remote MCP Stateless Mode vs `elicitation/create` Anti-Phishing Schema Firewall vs `sampling/createMessage` + `roots/list` Zero-Trust Governance FAQ](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) | [🇬🇧 EN](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.en.md) · [🇨🇳 中文](mcp-streamable-http-resumability-elicitation-sampling-apim-redis-vs-functions-mcp-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (24 Guides)
 
