@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (195 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (196 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **195 structured architecture selection guides and trade-off FAQs** (`390` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **196 structured architecture selection guides and trade-off FAQs** (`392` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 195 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 196 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (18 Guides)
 
@@ -264,7 +264,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 186 | [Enterprise Prompt-as-Code Lifecycle Selection: GitOps `.prompty` Artifact Registry with Pydantic/JSON-Schema Contract Gates vs Azure AI Foundry Prompt Catalog Collaboration vs App Configuration + Blob Sentinel Runtime Hydration (No Redeploy) vs Langfuse/MLflow Self-Hosted Registry Portability FAQ](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) | [🇬🇧 EN](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) · [🇨🇳 中文](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) |
 | 192 | [Enterprise Deterministic Agent Trace Replay and Time-Travel Debugging Selection: Cryptographic Tool/LLM Cassette VCR vs LangGraph/MAF/Durable Step-N Checkpoint Forking vs Stateful Mock-World MCP Simulators vs Foundry/AppInsights Trace-to-Dataset Release Gates FAQ](deterministic-agent-trace-replay-time-travel-debugging-vcr-mock-vs-foundry-trace-selection-faq.en.md) | [🇬🇧 EN](deterministic-agent-trace-replay-time-travel-debugging-vcr-mock-vs-foundry-trace-selection-faq.en.md) · [🇨🇳 中文](deterministic-agent-trace-replay-time-travel-debugging-vcr-mock-vs-foundry-trace-selection-faq.md) |
 
-### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (27 Guides)
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (28 Guides)
 
 > Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
@@ -297,3 +297,4 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 150 | [Fabless Semiconductor EDA Agent Selection: Azure HPC Burst + ANF/Lustre vs Foundry NDA RAG vs LSF/FlexLM MCP Governance (Tape-out Controlled Sign-off) FAQ](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.en.md) | [🇬🇧 EN](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.en.md) · [🇨🇳 中文](semiconductor-fabless-eda-rtl-verification-tapeout-hpc-netapp-lustre-vs-foundry-ip-errata-rag-vs-synopsys-cadence-lsf-mcp-selection-faq.md) |
 | 155 | [Municipal Water & Wastewater Utility Agent Selection: IoT Operations + Fabric Hydraulic Twin Leak Triage vs Foundry NPDES/PFAS Compliance RAG vs ArcGIS/Cityworks/Maximo Work-Order Governance FAQ](municipal-water-wastewater-utility-scada-epa-pfas-leak-digital-twin-iot-ops-vs-foundry-permit-rag-vs-esri-arcgis-workorder-selection-faq.en.md) | [🇬🇧 EN](municipal-water-wastewater-utility-scada-epa-pfas-leak-digital-twin-iot-ops-vs-foundry-permit-rag-vs-esri-arcgis-workorder-selection-faq.en.md) · [🇨🇳 中文](municipal-water-wastewater-utility-scada-epa-pfas-leak-digital-twin-iot-ops-vs-foundry-permit-rag-vs-esri-arcgis-workorder-selection-faq.md) |
 | 165 | [Green Steel and Cement Decarbonization Agent Selection: IoT Operations Real-Time Mass-Balance Plane vs Foundry CBAM/ISO Evidence RAG vs APC Advisory MCP Governance FAQ](green-steel-cement-cbam-eaf-decarbonization-iot-ops-vs-foundry-lca-rag-vs-apc-mcp-selection-faq.en.md) | [🇬🇧 EN](green-steel-cement-cbam-eaf-decarbonization-iot-ops-vs-foundry-lca-rag-vs-apc-mcp-selection-faq.en.md) · [🇨🇳 中文](green-steel-cement-cbam-eaf-decarbonization-iot-ops-vs-foundry-lca-rag-vs-apc-mcp-selection-faq.md) |
+| 196 | [Enterprise Multi-Cluster Kubernetes AI Fleet GitOps Promotion and Policy Guardrail Selection: AKS Fleet `ClusterResourcePlacement` + Managed Flux v2 Ring Soak Gates vs Argo CD `ApplicationSet` + Kargo Freight Promotion vs Azure Policy Gatekeeper vs Kyverno + `ValidatingAdmissionPolicy` CEL FAQ](gitops-fleet-promotion-policy-guardrails-flux-aks-fleet-vs-argocd-vs-kyverno-gatekeeper-selection-faq.en.md) | [🇬🇧 EN](gitops-fleet-promotion-policy-guardrails-flux-aks-fleet-vs-argocd-vs-kyverno-gatekeeper-selection-faq.en.md) · [🇨🇳 中文](gitops-fleet-promotion-policy-guardrails-flux-aks-fleet-vs-argocd-vs-kyverno-gatekeeper-selection-faq.md) |
