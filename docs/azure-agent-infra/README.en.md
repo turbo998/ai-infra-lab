@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (170 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (171 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **170 structured architecture selection guides and trade-off FAQs** (`340` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **171 structured architecture selection guides and trade-off FAQs** (`342` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 170 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 171 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (12 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (13 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -61,6 +61,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 158 | [GPU Cold-Start Elimination Selection: AKS CRIUgpu/cuda-checkpoint + NVMe Weight Cache vs ACA Serverless GPU vs Foundry Managed Endpoints FAQ](cuda-criu-gpu-checkpoint-restore-fast-cold-start-aks-containerd-nvshare-vs-aca-serverless-gpu-vs-foundry-managed-endpoints-selection-faq.en.md) | [🇬🇧 EN](cuda-criu-gpu-checkpoint-restore-fast-cold-start-aks-containerd-nvshare-vs-aca-serverless-gpu-vs-foundry-managed-endpoints-selection-faq.en.md) · [🇨🇳 中文](cuda-criu-gpu-checkpoint-restore-fast-cold-start-aks-containerd-nvshare-vs-aca-serverless-gpu-vs-foundry-managed-endpoints-selection-faq.md) |
 | 164 | [AKS Sandbox Zero-Trust Egress Selection: eBPF Cilium + Tetragon Synchronous Enforcement vs Azure Firewall Premium Subnet Perimeter vs Defender Asynchronous Detection FAQ](ebpf-cilium-tetragon-syscall-egress-sandboxes-aks-vs-azure-firewall-vs-defender-selection-faq.en.md) | [🇬🇧 EN](ebpf-cilium-tetragon-syscall-egress-sandboxes-aks-vs-azure-firewall-vs-defender-selection-faq.en.md) · [🇨🇳 中文](ebpf-cilium-tetragon-syscall-egress-sandboxes-aks-vs-azure-firewall-vs-defender-selection-faq.md) |
 | 168 | [High-Concurrency Ephemeral Headless Browser Fleet Selection: ACA Dynamic Sessions Custom Container Pools vs AKS KEDA+Kata CDP Grid vs Managed Browser Workspaces vs WebRTC HITL Takeover Airlock FAQ](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.en.md) | [🇬🇧 EN](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.en.md) · [🇨🇳 中文](ephemeral-headless-browser-fleet-aca-sessions-vs-aks-keda-cdp-vs-webrtc-hitl-takeover-selection-faq.md) |
+| 171 | [Enterprise Large Agent Container Image Distribution Selection: ACR OverlayBD Artifact Streaming vs AKS P2P+NVMe Mirror Mesh vs Slim Runtime Image with ReadOnly Artifact Volumes vs ACA Warm Session Buffers FAQ](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) | [🇬🇧 EN](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) · [🇨🇳 中文](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (13 Guides)
 
