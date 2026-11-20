@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (190 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (191 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **190 structured architecture selection guides and trade-off FAQs** (`380` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **191 structured architecture selection guides and trade-off FAQs** (`382` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 190 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 191 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (18 Guides)
 
@@ -72,7 +72,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 187 | [Enterprise Burst Batch Agent Compute Selection: ACA Event-Driven Jobs vs AKS NAP/Karpenter + KEDA ScaledJobs vs Azure Batch Spot Task Graphs vs Functions Flex Consumption Micro-Fan-Out with AOAI TPM Backpressure Governance FAQ](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.en.md) | [🇬🇧 EN](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.en.md) · [🇨🇳 中文](burst-batch-agent-compute-aca-jobs-vs-aks-karpenter-scaledjobs-vs-azure-batch-selection-faq.md) |
 | 190 | [Enterprise Wasm Component Agent Tool Sandbox Selection: AKS SpinKube/Wasmtime (`containerd-shim-spin`) vs In-Process Wasmtime/Extism Host (`fuel/epoch`) vs ACA Dynamic Sessions (Hyper-V) vs AKS Kata (Hardware Virtualization) FAQ](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.en.md) | [🇬🇧 EN](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.en.md) · [🇨🇳 中文](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (17 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (18 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -95,6 +95,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 177 | [Enterprise Multimodal VLM Visual-Token Serving Selection: AOAI/Foundry PTU Adaptive Tiling (`detail low/high`) vs AKS Disaggregated ViT Encoder Pools + Tensor Cache vs pHash/SSIM Keyframe Delta Gating + ROI Cropping vs Compact SLM Cascade Escalation FAQ](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) | [🇬🇧 EN](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) · [🇨🇳 中文](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.md) |
 | 181 | [Enterprise Speech STT, Diarization, and TTS Serving Selection: Azure Speech (`Fast`/`Batch` + Custom Speech + CNV) vs AOAI `gpt-4o-transcribe`/`gpt-4o-mini-transcribe`/`gpt-4o-mini-tts` vs AKS `faster-whisper`+WhisperX+Pyannote GPU Fleet vs Hybrid Routing with Dual-Track Audio PII Redaction FAQ](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.en.md) | [🇬🇧 EN](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.en.md) · [🇨🇳 中文](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.md) |
 | 188 | [Enterprise Test-Time Compute Selection: AOAI `o3/o4-mini/gpt-5` Reasoning-Effort Single-Pass vs AKS `vLLM/SGLang` Prefix-Shared `Best-of-N` + Step-Level PRM Scoring vs `Z3 SMT/Lean 4` Deterministic Verification Loops vs Adaptive Compute-Budget Controller FAQ](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.en.md) | [🇬🇧 EN](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.en.md) · [🇨🇳 中文](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.md) |
+| 191 | [Enterprise Federated Privacy-Preserving Fine-Tuning Selection: NVFlare/Flower on AKS (`FedIT`/`FFA-LoRA`) vs AML Cross-Silo Federated Pipelines vs Confidential Clean-Room Pooled Training vs Silo-Specific Adapter Routing (Zero Raw-Data Movement) FAQ](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.en.md) | [🇬🇧 EN](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.en.md) · [🇨🇳 中文](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (17 Guides)
 
