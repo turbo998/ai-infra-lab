@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (176 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (177 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **176 structured architecture selection guides and trade-off FAQs** (`352` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **177 structured architecture selection guides and trade-off FAQs** (`354` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 176 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 177 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (14 Guides)
 
@@ -64,7 +64,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 171 | [Enterprise Large Agent Container Image Distribution Selection: ACR OverlayBD Artifact Streaming vs AKS P2P+NVMe Mirror Mesh vs Slim Runtime Image with ReadOnly Artifact Volumes vs ACA Warm Session Buffers FAQ](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) | [🇬🇧 EN](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.en.md) · [🇨🇳 中文](large-agent-container-image-streaming-acr-overlaybd-vs-aks-p2p-nvme-vs-volume-mount-selection-faq.md) |
 | 174 | [Enterprise Stateful Data-Science Notebook Agent Workspace Selection: ACA Dynamic Sessions Hibernation Pools vs AKS Kata+ACStor Persistent Sandboxes vs AML/Fabric Spark Elastic Scale-Out vs Dev Box/Codespaces Collaboration FAQ](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.en.md) | [🇬🇧 EN](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.en.md) · [🇨🇳 中文](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (14 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (15 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -84,6 +84,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 156 | [Enterprise Teacher-Student Distillation Selection: RFT/DPO/GRPO + FP8/W8A8 Quantized Serving (Foundry Managed Distillation vs AML+AKS TensorRT-LLM/vLLM) FAQ](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.en.md) | [🇬🇧 EN](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.en.md) · [🇨🇳 中文](teacher-student-agent-distillation-fp8-awq-quantization-dpo-rft-foundry-vs-aks-tensorrt-llm-vllm-serving-selection-faq.md) |
 | 169 | [Enterprise Frontier Open-Weight MoE Hosting Selection: Foundry MaaS vs AKS NDv5 Expert Parallel vs AML/Foundry Managed Online Endpoints vs APIM Hybrid Overflow FAQ](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.en.md) | [🇬🇧 EN](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.en.md) · [🇨🇳 中文](frontier-open-weight-moe-serving-foundry-maas-vs-aks-ndv5-ep-vs-aml-managed-endpoints-selection-faq.md) |
 | 173 | [Enterprise High-Throughput Embedding and Reranker Serving Selection: Foundry MaaS/Semantic Ranker vs AKS TEI/Triton GPU Pools vs MRL+BQ Two-Stage vs CPU INT8 ONNX Fallback FAQ](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.en.md) | [🇬🇧 EN](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.en.md) · [🇨🇳 中文](embedding-reranker-serving-foundry-maas-vs-aks-tei-triton-vs-matryoshka-cpu-onnx-selection-faq.md) |
+| 177 | [Enterprise Multimodal VLM Visual-Token Serving Selection: AOAI/Foundry PTU Adaptive Tiling (`detail low/high`) vs AKS Disaggregated ViT Encoder Pools + Tensor Cache vs pHash/SSIM Keyframe Delta Gating + ROI Cropping vs Compact SLM Cascade Escalation FAQ](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) | [🇬🇧 EN](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.en.md) · [🇨🇳 中文](multimodal-vlm-visual-token-serving-aoai-ptu-tiling-vs-aks-disagg-vit-vs-keyframe-slm-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (15 Guides)
 
