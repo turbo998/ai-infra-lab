@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（197 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（198 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **197 个架构选型、平台对比与安全治理决策专题**（共 `394` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **198 个架构选型、平台对比与安全治理决策专题**（共 `396` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 197 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 198 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（18 篇）
 
@@ -156,7 +156,7 @@
 | 189 | [企业多人协同多智能体画布状态选型：`Yjs/Automerge CRDT`（Web PubSub + Redis + Blob 压缩）vs Azure Fluid Relay `DDS` 总序广播 vs Cosmos DB `ETag` Patch 乐观并发 vs Actor 隔离分支合并 FAQ](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) | [🇨🇳 中文](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) · [🇬🇧 EN](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) |
 | 194 | [企业对象存储原生向量引擎选型：LanceDB/Turbopuffer-Style on Azure Blob + `Lsv3` NVMe 缓存 vs AKS Qdrant/Milvus 2.5 热库 vs Azure AI Search 托管向量压缩检索 vs DuckDB vss 会话侧车 FAQ](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.md) | [🇨🇳 中文](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.md) · [🇬🇧 EN](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（22 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（23 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -184,6 +184,7 @@
 | 163 | [零售媒体网络（RMN）选型：Confidential Clean Room iROAS + Fabric 归因 vs Foundry 创意合规 QA vs APIM+DSP MCP 预算闸门 FAQ](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.md) | [🇨🇳 中文](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.md) · [🇬🇧 EN](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.en.md) |
 | 184 | [企业 Agentic Commerce 委托支付选型：网络令牌 Mandate（AP2 / Visa Intelligent Commerce / Mastercard Agent Pay）vs PSP 虚拟卡 MCP Saga（Stripe/Adyen）vs FIDO2 + EMV 3DS 2.3 升级验证 vs 隔离 CUA 兜底结账 FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) | [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) · [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) |
 | 195 | [企业百万终端 IoT 边缘双向总线选型：Event Grid Namespace `MQTT v5`（Topic Space ABAC）vs AKS `NATS JetStream` + Outbound `Leaf Nodes` vs Azure IoT Operations 断网自治 vs Service Bus 后端桥接 FAQ](iot-edge-fleet-pub-sub-agent-bus-azure-event-grid-mqtt-vs-nats-jetstream-aks-vs-iot-ops-selection-faq.md) | [🇨🇳 中文](iot-edge-fleet-pub-sub-agent-bus-azure-event-grid-mqtt-vs-nats-jetstream-aks-vs-iot-ops-selection-faq.md) · [🇬🇧 EN](iot-edge-fleet-pub-sub-agent-bus-azure-event-grid-mqtt-vs-nats-jetstream-aks-vs-iot-ops-selection-faq.en.md) |
+| 198 | [企业 PSTN/SIP 语音智能体选型：ACS Direct Routing + Call Automation（SBC HA、双向媒体流、`SIP REFER + UUI`）vs AKS Pipecat/LiveKit SIP 低时延媒体 Pod vs CCaaS AudioHook/SIPREC 分叉协同 FAQ](pstn-sip-sbc-telephony-voice-agent-acs-direct-routing-vs-pipecat-sip-aks-vs-cc-media-selection-faq.md) | [🇨🇳 中文](pstn-sip-sbc-telephony-voice-agent-acs-direct-routing-vs-pipecat-sip-aks-vs-cc-media-selection-faq.md) · [🇬🇧 EN](pstn-sip-sbc-telephony-voice-agent-acs-direct-routing-vs-pipecat-sip-aks-vs-cc-media-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（48 篇）
 
