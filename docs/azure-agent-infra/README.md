@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（182 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（183 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **182 个架构选型、平台对比与安全治理决策专题**（共 `364` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **183 个架构选型、平台对比与安全治理决策专题**（共 `366` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 182 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 183 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（16 篇）
 
@@ -65,6 +65,7 @@
 | 174 | [企业状态化数据科学 Notebook Agent 工作区选型：ACA Dynamic Sessions 休眠池 vs AKS Kata+ACStor 持久沙箱 vs AML/Fabric Spark 弹性扩展 vs Dev Box/Codespaces 协作交接 FAQ](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.md) | [🇨🇳 中文](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.md) · [🇬🇧 EN](stateful-data-science-notebook-agent-sandbox-aca-hibernation-vs-aks-acstor-vs-aml-spark-selection-faq.en.md) |
 | 178 | [企业移动 App-Use 与自治移动 QA 智能体沙箱选型：AKS ARM64 Redroid/Cuttlefish 高密度 Android 容器 vs 云真机农场 iOS 能力验证 vs Accessibility+VLM 混合动作定位 vs 零信任替身注入与法证回放 FAQ](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.md) | [🇨🇳 中文](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.md) · [🇬🇧 EN](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.en.md) |
 | 182 | [企业虚拟 Actor 智能体运行时选型：Dapr Actors（ACA/AKS Polyglot）vs Orleans Grains（AKS .NET）vs Durable Entities（Serverless）vs KubeRay Stateful Actors（Python/GPU）FAQ](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.md) | [🇨🇳 中文](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.md) · [🇬🇧 EN](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.en.md) |
+| 183 | [企业 Agent Goodput SLO 选型：TTFT/TPOT 尾延迟微对冲（APIM vs Envoy）与多窗口 Burn-Rate 降级环治理 FAQ](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) | [🇨🇳 中文](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) · [🇬🇧 EN](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（16 篇）
 
@@ -225,7 +226,7 @@
 | 142 | [奢侈品零售 VIC 客户经营与 DPP 防伪智能体选型：Foundry 客户经营平面 vs Fabric 配货优化平面 vs D365/Cegid/Salesforce 治理执行平面 FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) | [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) · [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) |
 | 143 | [全球生物制药 CMC/GMP 批记录审查与放行智能体选型：MES/LIMS 结构化异常平面 vs Foundry ICH 证据平面 vs SAP QM/Veeva 治理签放平面 FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) | [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) · [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（15 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（16 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -246,6 +247,7 @@
 | 172 | [企业 Agent 轨迹预算与失控环路治理选型：APIM+Redis 轨迹账本熔断 vs 语义零进展检测 vs reasoning_effort 自适应 vs 软上限补预算 Saga FAQ](agentic-trajectory-budget-runaway-loop-circuit-breaker-apim-redis-vs-reasoning-effort-selection-faq.md) | [🇨🇳 中文](agentic-trajectory-budget-runaway-loop-circuit-breaker-apim-redis-vs-reasoning-effort-selection-faq.md) · [🇬🇧 EN](agentic-trajectory-budget-runaway-loop-circuit-breaker-apim-redis-vs-reasoning-effort-selection-faq.en.md) |
 | 175 | [企业 Agent 生产数据飞轮选型：Foundry 在线旁路评测 vs ADX/Fabric HDBSCAN 故障聚类 vs 一致代称脱敏/零 PII Synthetic Twin vs GitOps Golden/RFT 晋升 FAQ](agent-data-flywheel-failure-clustering-foundry-online-eval-vs-adx-hdbscan-vs-synthetic-twin-selection-faq.md) | [🇨🇳 中文](agent-data-flywheel-failure-clustering-foundry-online-eval-vs-adx-hdbscan-vs-synthetic-twin-selection-faq.md) · [🇬🇧 EN](agent-data-flywheel-failure-clustering-foundry-online-eval-vs-adx-hdbscan-vs-synthetic-twin-selection-faq.en.md) |
 | 179 | [企业碳感知 AI GreenOps 选型：ISO/IEC 21030 SCI 归因（`gCO2eq/task`）vs APIM 空间低碳路由（MOER）vs KEDA deadline-slack 碳时移 vs Azure Carbon Optimization 对账账本 FAQ](carbon-aware-ai-greenops-sci-apim-grid-routing-vs-keda-carbon-scaler-vs-azure-emissions-selection-faq.md) | [🇨🇳 中文](carbon-aware-ai-greenops-sci-apim-grid-routing-vs-keda-carbon-scaler-vs-azure-emissions-selection-faq.md) · [🇬🇧 EN](carbon-aware-ai-greenops-sci-apim-grid-routing-vs-keda-carbon-scaler-vs-azure-emissions-selection-faq.en.md) |
+| 183 | [企业 Agent Goodput SLO 选型：TTFT/TPOT 尾延迟微对冲（APIM vs Envoy）与多窗口 Burn-Rate 降级环治理 FAQ](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) | [🇨🇳 中文](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) · [🇬🇧 EN](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（27 篇）
 
