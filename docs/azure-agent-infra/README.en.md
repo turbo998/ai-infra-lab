@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (183 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (184 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **183 structured architecture selection guides and trade-off FAQs** (`366` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **184 structured architecture selection guides and trade-off FAQs** (`368` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 183 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 184 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (16 Guides)
 
@@ -66,6 +66,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 178 | [Enterprise Mobile App-Use and Autonomous Mobile QA Sandbox Selection: AKS ARM64 Redroid/Cuttlefish Dense Android Containers vs Cloud Device Farms for iOS Real-Hardware Flows vs Accessibility+VLM Hybrid Grounding vs Zero-Trust Stubbing and Forensic Replay FAQ](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.en.md) | [🇬🇧 EN](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.en.md) · [🇨🇳 中文](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.md) |
 | 182 | [Enterprise Virtual-Actor Agent Runtime Selection: Dapr Actors (ACA/AKS Polyglot) vs Orleans Grains (AKS .NET) vs Durable Entities (Serverless) vs KubeRay Stateful Actors (Python/GPU) FAQ](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.en.md) | [🇬🇧 EN](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.en.md) · [🇨🇳 中文](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.md) |
 | 183 | [Enterprise Agent Goodput SLO Selection: TTFT/TPOT Tail-Latency Micro-Hedging (APIM vs Envoy) and Multi-Window Burn-Rate Degradation-Ring Governance FAQ](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.en.md) | [🇬🇧 EN](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.en.md) · [🇨🇳 中文](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) |
+| 184 | [Enterprise Agentic Commerce Delegated Payment Selection: Network Token Mandates (AP2 / Visa Intelligent Commerce / Mastercard Agent Pay) vs PSP Virtual-Card MCP Sagas (Stripe/Adyen) vs FIDO2 + EMV 3DS 2.3 Step-Up Verification vs Isolated CUA Fallback Checkout FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) | [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) · [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (16 Guides)
 
@@ -144,7 +145,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 157 | [Global Patent/FTO Agent Selection: Foundry Multimodal Orchestration + AI Search CPC/IPC Hybrid Retrieval + RDKit Markush/SMILES Substructure Retrieval vs Controlled Orbit/PatSnap MCP FAQ](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) | [🇬🇧 EN](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) · [🇨🇳 中文](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) |
 | 162 | [Clinical Genomics and Precision Oncology Agent Selection: Azure HPC/Parabricks Deterministic Variant Pipeline vs Foundry OncoKB/ClinVar Evidence RAG vs FHIR/Epic Genomics Draft Sign-out MCP FAQ](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) | [🇬🇧 EN](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) · [🇨🇳 中文](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (20 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (21 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -170,6 +171,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 149 | [Corporate Treasury Agent Selection: TMS-Native AI (Kyriba/SAP TRM) vs Fabric Liquidity Lakehouse + Foundry ISDA/CSA Evidence RAG (SOX Maker-Checker Guardrails) FAQ](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.en.md) | [🇬🇧 EN](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.en.md) · [🇨🇳 中文](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.md) |
 | 161 | [Global Hotel & Integrated Resort Agent Selection: Fabric Revenue Intelligence vs Foundry VIP Concierge vs APIM+OHIP MCP Folio/Comp Compliance Execution FAQ](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.en.md) | [🇬🇧 EN](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.en.md) · [🇨🇳 中文](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.md) |
 | 163 | [Retail Media Network (RMN) Selection: Confidential Clean-Room iROAS + Fabric Attribution vs Foundry Creative Compliance QA vs APIM+DSP MCP Budget Guardrails FAQ](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.en.md) | [🇬🇧 EN](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.en.md) · [🇨🇳 中文](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.md) |
+| 184 | [Enterprise Agentic Commerce Delegated Payment Selection: Network Token Mandates (AP2 / Visa Intelligent Commerce / Mastercard Agent Pay) vs PSP Virtual-Card MCP Sagas (Stripe/Adyen) vs FIDO2 + EMV 3DS 2.3 Step-Up Verification vs Isolated CUA Fallback Checkout FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) | [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) · [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (48 Guides)
 

@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（183 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（184 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **183 个架构选型、平台对比与安全治理决策专题**（共 `366` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **184 个架构选型、平台对比与安全治理决策专题**（共 `368` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 183 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 184 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（16 篇）
 
@@ -66,6 +66,7 @@
 | 178 | [企业移动 App-Use 与自治移动 QA 智能体沙箱选型：AKS ARM64 Redroid/Cuttlefish 高密度 Android 容器 vs 云真机农场 iOS 能力验证 vs Accessibility+VLM 混合动作定位 vs 零信任替身注入与法证回放 FAQ](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.md) | [🇨🇳 中文](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.md) · [🇬🇧 EN](mobile-app-use-agent-sandbox-aks-arm64-redroid-vs-cloud-device-farm-vs-appium-vlm-selection-faq.en.md) |
 | 182 | [企业虚拟 Actor 智能体运行时选型：Dapr Actors（ACA/AKS Polyglot）vs Orleans Grains（AKS .NET）vs Durable Entities（Serverless）vs KubeRay Stateful Actors（Python/GPU）FAQ](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.md) | [🇨🇳 中文](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.md) · [🇬🇧 EN](virtual-actor-agent-runtime-dapr-actors-vs-orleans-aks-vs-durable-entities-vs-kuberay-selection-faq.en.md) |
 | 183 | [企业 Agent Goodput SLO 选型：TTFT/TPOT 尾延迟微对冲（APIM vs Envoy）与多窗口 Burn-Rate 降级环治理 FAQ](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) | [🇨🇳 中文](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) · [🇬🇧 EN](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.en.md) |
+| 184 | [企业 Agentic Commerce 委托支付选型：网络令牌 Mandate（AP2 / Visa Intelligent Commerce / Mastercard Agent Pay）vs PSP 虚拟卡 MCP Saga（Stripe/Adyen）vs FIDO2 + EMV 3DS 2.3 升级验证 vs 隔离 CUA 兜底结账 FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) | [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) · [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（16 篇）
 
@@ -144,7 +145,7 @@
 | 157 | [全球专利/FTO 智能体选型：Foundry 多模态编排 + AI Search CPC/IPC 混合检索 + RDKit Markush/SMILES 子结构检索 vs Orbit/PatSnap 受控 MCP FAQ](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) | [🇨🇳 中文](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.md) · [🇬🇧 EN](global-patent-ip-prosecution-prior-art-fto-claim-charting-multimodal-chemical-markush-foundry-vs-ai-search-vs-orbit-patsnap-mcp-selection-faq.en.md) |
 | 162 | [临床基因组与精准肿瘤学智能体选型：Azure HPC/Parabricks 确定性变异管线 vs Foundry OncoKB/ClinVar 证据 RAG vs FHIR/Epic Genomics 草拟签发 MCP FAQ](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) | [🇨🇳 中文](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.md) · [🇬🇧 EN](clinical-genomics-molecular-tumor-board-vcf-parabricks-vs-foundry-oncokb-rag-vs-epic-genomics-mcp-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（20 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（21 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -170,6 +171,7 @@
 | 149 | [跨国企业司库智能体选型：Kyriba/SAP TRM 内嵌 AI vs Fabric 流动性湖仓 + Foundry ISDA/CSA 证据 RAG（SOX 双人复核闸门）FAQ](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.md) | [🇨🇳 中文](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.md) · [🇬🇧 EN](corporate-treasury-fx-hedging-iso20022-swift-cash-forecasting-kyriba-sap-trm-vs-fabric-liquidity-vs-foundry-isda-csa-rag-selection-faq.en.md) |
 | 161 | [全球酒店与综合度假村智能体选型：Fabric 收益中台 vs Foundry VIP Concierge vs APIM+OHIP MCP Folio/Comp 合规执行 FAQ](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.md) | [🇨🇳 中文](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.md) · [🇬🇧 EN](global-hotel-integrated-resort-revpar-yield-opera-pms-loyalty-concierge-fabric-vs-foundry-vs-mcp-guest-folio-selection-faq.en.md) |
 | 163 | [零售媒体网络（RMN）选型：Confidential Clean Room iROAS + Fabric 归因 vs Foundry 创意合规 QA vs APIM+DSP MCP 预算闸门 FAQ](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.md) | [🇨🇳 中文](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.md) · [🇬🇧 EN](retail-media-network-adtech-clean-room-roas-fabric-vs-foundry-creative-qa-vs-dsp-mcp-selection-faq.en.md) |
+| 184 | [企业 Agentic Commerce 委托支付选型：网络令牌 Mandate（AP2 / Visa Intelligent Commerce / Mastercard Agent Pay）vs PSP 虚拟卡 MCP Saga（Stripe/Adyen）vs FIDO2 + EMV 3DS 2.3 升级验证 vs 隔离 CUA 兜底结账 FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) | [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) · [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（48 篇）
 
