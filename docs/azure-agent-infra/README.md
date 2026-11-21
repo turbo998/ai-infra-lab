@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（273 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（274 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **273 个架构选型、平台对比与安全治理决策专题**（共 `546` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **274 个架构选型、平台对比与安全治理决策专题**（共 `548` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 273 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 274 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（30 篇）
 
@@ -122,7 +122,7 @@
 | 266 | [企业 Agent 模型端点故障切换选型 FAQ：PTU 主备 vs Serverless 预热池 vs AKS KServe 金丝雀（切换 RTO、首字节时延 P95、故障期丢单率与每千请求成本平衡）](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.md) | [🇨🇳 中文](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.md) · [🇬🇧 EN](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) |
 | 273 | [企业模型权重供应链与热加载选型 FAQ：Foundry/AML Registry（谱系治理与跨区复制）vs ACR Premium ORAS + AKS `runai-model-streamer`（并行分块流式注水，`70B` 秒级就绪）vs ANF/Managed Lustre 共享只读池（多节点 `mmap` 一致性）vs Air-Gap 隔离晋级链路（`.safetensors` 转换、扫描验签与零外连交付），含 `70B/405B` 冷启动、带宽与月度 TCO 拐点](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.md) | [🇨🇳 中文](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.md) · [🇬🇧 EN](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（30 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（31 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -158,6 +158,7 @@
 | 258 | [企业 Agent 工具调用预算治理选型 FAQ：`APIM Token/Rate Quota` 网关硬护栏 vs `Tenant Credit Ledger` 精细化信用记账 vs 运行时 `Circuit Breaker + Fallback` 降级保活 vs 三段式混合闭环（误伤率、预算超支率、SLA 保持率与每千请求治理成本平衡）](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) | [🇨🇳 中文](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) · [🇬🇧 EN](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) |
 | 264 | [企业多租户 MCP 配额隔离选型 FAQ：APIM Workspace 配额域 vs Redis 令牌桶 vs 专属网关池混合模式（租户隔离强度、限流误伤率、关键租户成功率与每千会话综合成本平衡）](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.md) | [🇨🇳 中文](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.md) · [🇬🇧 EN](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.en.md) |
 | 271 | [企业混合云到本地私网 MCP 连接选型 FAQ：ExpressRoute + Private Link Service/Private NAT（确定性低时延与网段重叠治理）vs Arc + APIM 自托管网关（本地策略执行与 mTLS/Kerberos 翻译）vs Azure Relay/Entra App Proxy（零入站快速接入）vs OPDG + Logic Apps Standard（低代码连接器桥接，含 P95 RTT、吞吐、防火墙周期与月度 TCO 拐点）](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.md) | [🇨🇳 中文](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.md) · [🇬🇧 EN](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.en.md) |
+| 274 | [企业伙伴 API 静态出口与 mTLS 认证选型 FAQ：VNet 注入 + NAT Gateway（`/28` 前缀与百万级 SNAT 端口池）vs APIM + Key Vault 托管客户端证书（RFC 8705 发送者约束与零私钥驻留）vs Hub-Spoke Firewall Premium（集中审计、IDPS 与 TLS 检查）vs 每租户/每伙伴 Envoy 出口网关（多租户噪声隔离与信誉保护），含 SNAT 容量、TLS 握手 P95 与月度 TCO 拐点](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) | [🇨🇳 中文](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) · [🇬🇧 EN](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（31 篇）
 

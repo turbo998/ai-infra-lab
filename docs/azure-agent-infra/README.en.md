@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (273 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (274 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **273 structured architecture selection guides and trade-off FAQs** (`546` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **274 structured architecture selection guides and trade-off FAQs** (`548` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 273 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 274 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (30 Guides)
 
@@ -122,7 +122,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 266 | [Enterprise agent model-endpoint failover selection FAQ: PTU primary-standby vs serverless warm pools vs AKS KServe canary releases (balancing failover RTO, TTFT P95, failure-window drop rate, and cost per 1,000 requests)](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) | [🇬🇧 EN](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) · [🇨🇳 中文](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.md) |
 | 273 | [Enterprise model-weight supply-chain and hydration selection FAQ: Foundry/AML Registry as governance authority with lineage and geo-replication vs ACR Premium ORAS + AKS `runai-model-streamer` for parallel chunk hydration and sub-minute `70B` readiness vs ANF/Managed Lustre shared read-only tensor pools for multi-node `mmap` consistency vs air-gapped quarantine promotion with `.safetensors` conversion, scanning, signing, and zero-egress runtime controls, including `70B/405B` startup, bandwidth, and monthly TCO inflection analysis](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.en.md) | [🇬🇧 EN](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.en.md) · [🇨🇳 中文](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (30 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (31 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -158,6 +158,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 258 | [Enterprise agent tool-budget governance selection FAQ: `APIM token/rate quota` gateway hard guardrails vs `tenant credit ledger` fine-grained value accounting vs runtime `circuit-breaker + fallback` degradation for service continuity vs a three-stage hybrid closed loop (balancing false-block rate, budget-overrun ratio, SLA retention, and governance cost per 1,000 requests)](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) | [🇬🇧 EN](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) · [🇨🇳 中文](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) |
 | 264 | [Enterprise multi-tenant MCP quota isolation selection FAQ: APIM Workspace quota domains vs Redis token buckets vs dedicated gateway pools and hybrid layering (balancing tenant isolation strength, false-throttle rate, critical-tenant success, and blended cost per 1,000 sessions)](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.en.md) | [🇬🇧 EN](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.en.md) · [🇨🇳 中文](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.md) |
 | 271 | [Enterprise hybrid cloud-to-on-prem private MCP connectivity selection FAQ: ExpressRoute + Private Link Service/Private NAT (deterministic low-latency paths and overlapping CIDR control) vs Arc-enabled Kubernetes + APIM self-hosted gateway (local policy execution with mTLS/Kerberos translation) vs Azure Relay/Entra App Proxy (zero-inbound rapid onboarding) vs OPDG + Logic Apps Standard (low-code connector bridge, with P95 RTT, throughput, firewall lead-time, and monthly TCO inflection)](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.en.md) | [🇬🇧 EN](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.en.md) · [🇨🇳 中文](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.md) |
+| 274 | [Enterprise partner API static-egress and mTLS authentication selection FAQ: VNet injection + NAT Gateway (`/28` prefix and million-scale SNAT port budget) vs APIM + Key Vault managed client certificates (RFC 8705 sender-constrained governance with zero private-key residency in agent pods) vs Hub-Spoke Firewall Premium (central SecOps audit, IDPS, and TLS inspection) vs per-tenant/per-partner Envoy egress gateways (multi-tenant noisy-neighbor isolation and partner reputation protection), including SNAT capacity, TLS handshake P95, and monthly TCO inflection analysis](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.en.md) | [🇬🇧 EN](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.en.md) · [🇨🇳 中文](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (31 Guides)
 
