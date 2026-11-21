@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（216 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（217 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **216 个架构选型、平台对比与安全治理决策专题**（共 `432` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **217 个架构选型、平台对比与安全治理决策专题**（共 `434` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 216 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 217 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（19 篇）
 
@@ -73,7 +73,7 @@
 | 190 | [企业 Wasm Component 智能体工具沙箱选型：AKS SpinKube/Wasmtime（`containerd-shim-spin`）vs 进程内 Wasmtime/Extism Host（`fuel/epoch`）vs ACA Dynamic Sessions（Hyper-V）vs AKS Kata（硬件虚拟化）FAQ](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.md) | [🇨🇳 中文](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.md) · [🇬🇧 EN](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.en.md) |
 | 200 | [企业 PR 临时预览沙箱环境选型：`Azure Deployment Environments (ADE)` + Bicep/Terraform Catalog vs `vCluster on AKS`（CoW DB 分支）vs `Signadot/Telepresence` 请求级沙箱分流 vs `Microsoft Dev Box` 预热池（`500-5,000` 每日预览栈、自动 TTL 回收与全栈 Agent QA）FAQ](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.md) | [🇨🇳 中文](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.md) · [🇬🇧 EN](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（18 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（19 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -97,6 +97,7 @@
 | 181 | [企业语音 STT/说话人分离/TTS 服务选型：Azure Speech（Fast/Batch + Custom Speech + CNV）vs AOAI `gpt-4o-transcribe`/`gpt-4o-mini-transcribe`/`gpt-4o-mini-tts` vs AKS `faster-whisper`+WhisperX+Pyannote GPU 池 vs 混合路由与音频 PII 双轨脱敏 FAQ](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.md) | [🇨🇳 中文](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.md) · [🇬🇧 EN](speech-stt-diarization-tts-serving-azure-speech-vs-aoai-transcribe-vs-aks-whisper-gpu-selection-faq.en.md) |
 | 188 | [企业测试时计算（Test-Time Compute）选型：AOAI `o3/o4-mini/gpt-5` 推理强度单通道 vs AKS `vLLM/SGLang` 前缀共享 `Best-of-N` + PRM 逐步打分 vs `Z3 SMT/Lean 4` 确定性验证环 vs 自适应预算控制器 FAQ](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.md) | [🇨🇳 中文](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.md) · [🇬🇧 EN](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.en.md) |
 | 191 | [企业联邦隐私保真微调选型：AKS 上 NVFlare/Flower（`FedIT`/`FFA-LoRA`）vs AML Cross-Silo 联邦管道 vs 机密 Clean Room 集中训练 vs 分域适配器路由（零原始数据跨域）FAQ](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.md) | [🇨🇳 中文](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.md) · [🇬🇧 EN](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.en.md) |
+| 217 | [AKS GPU/KAITO 多轮 Agent 推理选型 FAQ：vLLM/SGLang Prefix Cache 亲和路由、Session-aware KV Locality 与长短请求隔离](aks-kaito-vllm-sglang-prefix-cache-session-kv-locality-long-short-request-isolation-selection-faq.md) | [🇨🇳 中文](aks-kaito-vllm-sglang-prefix-cache-session-kv-locality-long-short-request-isolation-selection-faq.md) · [🇬🇧 EN](aks-kaito-vllm-sglang-prefix-cache-session-kv-locality-long-short-request-isolation-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（19 篇）
 
