@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（202 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（203 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **202 个架构选型、平台对比与安全治理决策专题**（共 `404` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **203 个架构选型、平台对比与安全治理决策专题**（共 `406` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 202 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 203 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（19 篇）
 
@@ -243,7 +243,7 @@
 | 142 | [奢侈品零售 VIC 客户经营与 DPP 防伪智能体选型：Foundry 客户经营平面 vs Fabric 配货优化平面 vs D365/Cegid/Salesforce 治理执行平面 FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) | [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) · [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) |
 | 143 | [全球生物制药 CMC/GMP 批记录审查与放行智能体选型：MES/LIMS 结构化异常平面 vs Foundry ICH 证据平面 vs SAP QM/Veeva 治理签放平面 FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) | [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) · [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（18 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（19 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -267,6 +267,7 @@
 | 183 | [企业 Agent Goodput SLO 选型：TTFT/TPOT 尾延迟微对冲（APIM vs Envoy）与多窗口 Burn-Rate 降级环治理 FAQ](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) | [🇨🇳 中文](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.md) · [🇬🇧 EN](agent-goodput-slo-ttft-tpot-tail-latency-hedging-apim-vs-envoy-vs-degradation-ring-selection-faq.en.md) |
 | 186 | [企业 Prompt-as-Code 生命周期选型：GitOps `.prompty` 工件注册表与 Pydantic/JSON-Schema 合同门禁 vs Foundry Prompt Catalog 协作治理 vs App Configuration + Blob Sentinel 热加载（免重部署）vs Langfuse/MLflow 自建 Registry 可移植性 FAQ](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) | [🇨🇳 中文](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) · [🇬🇧 EN](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) |
 | 192 | [企业确定性轨迹回放与时光调试选型：密码学 Tool/LLM Cassette VCR 录放 vs LangGraph/MAF/Durable 检查点 Step-N 分叉 vs 状态化 Mock-World MCP 模拟器 vs Foundry/AppInsights Trace 数据集化门禁 FAQ](deterministic-agent-trace-replay-time-travel-debugging-vcr-mock-vs-foundry-trace-selection-faq.md) | [🇨🇳 中文](deterministic-agent-trace-replay-time-travel-debugging-vcr-mock-vs-foundry-trace-selection-faq.md) · [🇬🇧 EN](deterministic-agent-trace-replay-time-travel-debugging-vcr-mock-vs-foundry-trace-selection-faq.en.md) |
+| 203 | [企业 Agent 可观测与发布门禁选型：`Foundry Eval + Azure Monitor` vs `OTel + Langfuse/Phoenix` vs 商业 APM（OpenTelemetry 语义标准、灰度分环、自动回滚与租户级 FinOps 归因）FAQ](otel-agent-eval-release-gates-foundry-vs-langfuse-phoenix-vs-azure-monitor-selection-faq.md) | [🇨🇳 中文](otel-agent-eval-release-gates-foundry-vs-langfuse-phoenix-vs-azure-monitor-selection-faq.md) · [🇬🇧 EN](otel-agent-eval-release-gates-foundry-vs-langfuse-phoenix-vs-azure-monitor-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（30 篇）
 
