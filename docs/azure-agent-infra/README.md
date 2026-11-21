@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（257 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（258 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **257 个架构选型、平台对比与安全治理决策专题**（共 `514` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **258 个架构选型、平台对比与安全治理决策专题**（共 `516` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 257 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 258 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -116,7 +116,7 @@
 | 253 | [企业风险分层模型路由选型 FAQ：`Foundry Router` 托管路由起步 vs `APIM` 双通道策略治理（Mini/Frontier）vs `AKS` 微调 SLM 专域通道降本 vs 三层混合分层（升级命中率、漏检率、误升级率与每千请求成本平衡）](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.md) | [🇨🇳 中文](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.md) · [🇬🇧 EN](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.en.md) |
 | 257 | [企业上下文窗口路由选型 FAQ：`PTU` 长上下文旗舰通道（高风险复杂推理）vs `Mini` 短上下文经济通道（高并发低成本）vs `AKS KAITO` 专域 SLM 通道（稳定术语域）vs 三层混合闭环（升级率、TTFT、事实通过率与每千请求成本平衡）](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.md) | [🇨🇳 中文](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.md) · [🇬🇧 EN](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（27 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（28 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -149,6 +149,7 @@
 | 243 | [企业 MCP/A2A 契约破坏性演进治理选型 FAQ：`API Center + Spectral` 语法/语义双门禁与消费者回放 vs `APIM Version Sets + Revisions` 金丝雀双栈与网关双向 Schema 适配器 vs `Entra AppId -> Pinned Catalog Snapshot` 目录视图绑定与 `Deprecation/Sunset` 告警 vs `ACA/AKS Revision-Pinned Saga Draining` 在途长事务零停机排空](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) | [🇨🇳 中文](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) · [🇬🇧 EN](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) |
 | 245 | [企业公网联网搜索与提取治理选型 FAQ：`Foundry Grounding with Bing + Custom Search`（权威域白名单与引用锚点）vs `APIM 出站 DLP 代理 + Tavily/Exa`（查询脱敏与长尾语义检索）vs `ACA/AKS Firecrawl/Crawl4AI` 隔离提取池（robots/llms 合规与 HTML 蒸馏）vs `LSEG/Factiva/LexisNexis` 授权情报连接器（高价值证据版权与审计闭环）](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) | [🇨🇳 中文](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) · [🇬🇧 EN](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) |
 | 252 | [企业外部 SaaS 工具调用治理选型 FAQ：`APIM` 令牌桶配额与熔断前置治理 vs `Service Bus` 队列缓冲 + Worker 预算调度 vs 供应商代理层隔离（凭据/配额/阈值独立）vs 混合分层架构（幂等键、补偿账本、人工接管与每千调用成本拐点）](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.md) | [🇨🇳 中文](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.md) · [🇬🇧 EN](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.en.md) |
+| 258 | [企业 Agent 工具调用预算治理选型 FAQ：`APIM Token/Rate Quota` 网关硬护栏 vs `Tenant Credit Ledger` 精细化信用记账 vs 运行时 `Circuit Breaker + Fallback` 降级保活 vs 三段式混合闭环（误伤率、预算超支率、SLA 保持率与每千请求治理成本平衡）](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) | [🇨🇳 中文](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) · [🇬🇧 EN](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（30 篇）
 

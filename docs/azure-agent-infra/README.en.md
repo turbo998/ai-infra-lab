@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (257 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (258 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **257 structured architecture selection guides and trade-off FAQs** (`514` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **258 structured architecture selection guides and trade-off FAQs** (`516` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 257 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 258 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -116,7 +116,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 253 | [Enterprise risk-tier model-routing selection FAQ: `Foundry Router` managed starting point vs `APIM` dual-lane policy governance (Mini/Frontier) vs `AKS` fine-tuned domain SLM lane for cost control vs three-tier hybrid escalation (balancing escalation precision, miss rate, over-escalation, and cost per 1,000 requests)](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.en.md) | [🇬🇧 EN](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.en.md) · [🇨🇳 中文](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.md) |
 | 257 | [Enterprise context-window routing selection FAQ: `PTU` long-context flagship lane for high-risk complex reasoning vs `Mini` short-context economy lane for high-concurrency workloads vs `AKS KAITO` domain SLM lane for stable terminology domains vs a three-lane hybrid loop balancing escalation ratio, TTFT, factual pass-rate, and cost per 1,000 requests](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) | [🇬🇧 EN](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) · [🇨🇳 中文](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (27 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (28 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -149,6 +149,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 243 | [Enterprise MCP/A2A Breaking-Change Governance Selection FAQ: `API Center + Spectral` dual syntax/semantic gates with consumer replay vs `APIM Version Sets + Revisions` canary dual-stack and deterministic dual-schema adapters vs `Entra AppId -> Pinned Catalog Snapshot` projection with `Deprecation/Sunset` telemetry vs `ACA/AKS Revision-Pinned Saga Draining` for zero-downtime long-transaction retirement](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) | [🇬🇧 EN](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) · [🇨🇳 中文](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) |
 | 245 | [Enterprise web-grounding and extraction governance selection FAQ: `Foundry Grounding with Bing + Custom Search` for authority-domain allowlists and citation offsets vs `APIM outbound DLP proxy + Tavily/Exa` for query de-identification and long-tail semantic discovery vs `ACA/AKS Firecrawl/Crawl4AI` isolated extraction pools for robots/llms policy enforcement and HTML distillation vs licensed `LSEG/Factiva/LexisNexis` connectors for copyright-safe, auditable premium evidence](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) | [🇬🇧 EN](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) · [🇨🇳 中文](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) |
 | 252 | [Enterprise outbound SaaS tool-governance selection FAQ: `APIM` token-bucket quota and circuit-breaker front door vs `Service Bus` queue buffering with worker budget scheduling vs provider proxy isolation (independent credentials, quotas, and breaker thresholds) vs a layered hybrid model with idempotency keys, compensation ledgers, human takeover gates, and per-1,000-call cost inflection](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.en.md) | [🇬🇧 EN](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.en.md) · [🇨🇳 中文](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.md) |
+| 258 | [Enterprise agent tool-budget governance selection FAQ: `APIM token/rate quota` gateway hard guardrails vs `tenant credit ledger` fine-grained value accounting vs runtime `circuit-breaker + fallback` degradation for service continuity vs a three-stage hybrid closed loop (balancing false-block rate, budget-overrun ratio, SLA retention, and governance cost per 1,000 requests)](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) | [🇬🇧 EN](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) · [🇨🇳 中文](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (30 Guides)
 
