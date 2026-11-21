@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (242 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (243 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **242 structured architecture selection guides and trade-off FAQs** (`484` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **243 structured architecture selection guides and trade-off FAQs** (`486` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 242 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 243 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (25 Guides)
 
@@ -111,7 +111,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 237 | [Enterprise Heterogeneous GPU Serving Selection FAQ: Azure `ND MI300X v5` (ROCm + vLLM/SGLang for long-context throughput and memory density) vs `ND H100/H200 v5` (TensorRT-LLM for low `TTFT` interactive lanes) vs `AKS` dual-chip profile-aware routing with unified precision regression and quota resilience vs Foundry `MaaS` overflow safety rails (`70B–671B` cost-per-million-token planning)](heterogeneous-gpu-serving-azure-nd-mi300x-rocm-vllm-vs-nd-h100-h200-trtllm-vs-maas-selection-faq.en.md) | [🇬🇧 EN](heterogeneous-gpu-serving-azure-nd-mi300x-rocm-vllm-vs-nd-h100-h200-trtllm-vs-maas-selection-faq.en.md) · [🇨🇳 中文](heterogeneous-gpu-serving-azure-nd-mi300x-rocm-vllm-vs-nd-h100-h200-trtllm-vs-maas-selection-faq.md) |
 | 241 | [Enterprise Tabular and Time-Series Foundation Model Serving Selection FAQ: hosted `TabPFN v2 + Chronos-Bolt/TimesFM` pools for `100–10,000` row cold-start quantile forecasts vs `AML/Fabric AutoML LightGBM/CatBoost/XGBoost + ONNX CPU` for high-dimensional governed scoring vs `ADX/Eventhouse series_decompose_forecast` in-database forecasting vs `LLM covariate extraction + MCP quantitative endpoint` orchestration contract with `Pinball Loss/WQL` and cost-per-10k governance](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.en.md) | [🇬🇧 EN](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.en.md) · [🇨🇳 中文](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (24 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (25 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -141,6 +141,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 230 | [AKS East-West AI/MCP Gateway Selection FAQ: `Envoy AI Gateway / Gateway API Inference Extension` (`InferencePool/InferenceModel + EPP`) vs `APIM Self-Hosted Gateway` (cloud control plane with local data plane) vs `Managed APIM North-South` vs `Bifrost/LiteLLM Proxy` (hairpin removal, Pod-level LoRA/queue-aware routing, and disconnected autonomy)](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.en.md) | [🇬🇧 EN](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.en.md) · [🇨🇳 中文](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.md) |
 | 235 | [Enterprise MCP/A2A Large-Payload Transfer Selection FAQ: `APIM Valet-Key + Claim-Check` dual plane (summary + `artifact://` handle) vs MCP `resources/read` cursor paging vs gRPC/HTTP2 streaming zero-persist passthrough vs cross-org A2A signed-manifest federation (`5MB–5GB` payloads, zero binary LLM tokens, and gateway memory/bandwidth TCO controls)](mcp-a2a-large-binary-payload-claim-check-valet-key-blob-vs-streaming-resource-uri-selection-faq.en.md) | [🇬🇧 EN](mcp-a2a-large-binary-payload-claim-check-valet-key-blob-vs-streaming-resource-uri-selection-faq.en.md) · [🇨🇳 中文](mcp-a2a-large-binary-payload-claim-check-valet-key-blob-vs-streaming-resource-uri-selection-faq.md) |
 | 238 | [Enterprise Cross-Org B2B Trading Gateway Selection FAQ: `Logic Apps Standard + Integration Account` (AS2/X12/EDIFACT legal rails, `MDN/997/CONTRL` acknowledgments, and control-number dedupe) vs `APIM Partner Gateway` (mTLS, cXML/Peppol/OpenAPI bridging, and partner quota isolation) vs `Cross-Org A2A Broker + JWS` negotiation envelopes (flexible exception handling with legal fallback) vs managed `VAN/Integration Cloud` long-tail acceleration](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.en.md) | [🇬🇧 EN](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.en.md) · [🇨🇳 中文](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.md) |
+| 243 | [Enterprise MCP/A2A Breaking-Change Governance Selection FAQ: `API Center + Spectral` dual syntax/semantic gates with consumer replay vs `APIM Version Sets + Revisions` canary dual-stack and deterministic dual-schema adapters vs `Entra AppId -> Pinned Catalog Snapshot` projection with `Deprecation/Sunset` telemetry vs `ACA/AKS Revision-Pinned Saga Draining` for zero-downtime long-transaction retirement](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) | [🇬🇧 EN](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) · [🇨🇳 中文](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (28 Guides)
 
