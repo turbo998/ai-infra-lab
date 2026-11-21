@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (224 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (225 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **224 structured architecture selection guides and trade-off FAQs** (`448` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **225 structured architecture selection guides and trade-off FAQs** (`450` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 224 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 225 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (19 Guides)
 
@@ -101,7 +101,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 220 | [AKS GPU Inference Lane-Isolation Selection FAQ: Prefix-Cache Warm Pools, Session Stickiness, and Long/Short Request SLA Tiering](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) | [🇬🇧 EN](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) · [🇨🇳 中文](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.md) |
 | 223 | [AKS GPU Prefix-Cache Locality Selection FAQ: KAITO + vLLM/SGLang Session-Aware KV Affinity, Long/Short Lane Isolation, and Tail-Latency Guardrails](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) | [🇬🇧 EN](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) · [🇨🇳 中文](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (19 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (20 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -126,6 +126,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 185 | [Enterprise Generative UI Protocol Selection: AG-UI `STATE_DELTA` RFC 6902 JSON-Patch Shared-State Co-Agent Sync vs Host-Owned Declarative Component Catalogs (Adaptive Cards/Typed Props) vs MCP-UI Cross-Origin Sandboxed Micro-Frontends vs Isolated LLM Artifact Rendering FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) | [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) · [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) |
 | 193 | [Enterprise Multi-Tool Transactional Integrity Selection: Orchestrated Saga (Durable/Dapr) Compensation Stack vs Transactional Outbox + Debezium/Cosmos CDC Dual-Write Elimination vs TCC Reservation/Confirm/Cancel vs APIM `Idempotency-Key` Barrier for Duplicate-Charge Prevention FAQ](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.en.md) | [🇬🇧 EN](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.en.md) · [🇨🇳 中文](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.md) |
 | 197 | [Enterprise Fine-Grained ReBAC Zanzibar Authorization Selection: `SpiceDB/OpenFGA` Tuple Graph on AKS + PostgreSQL vs `Cedar` Verified ABAC Sidecars vs `Microsoft Entra` Groups and App Roles (`Human ∩ Agent` Delegation Intersection, `ZedToken` Revocation Consistency, and RAG Pre-Filter Compilation) FAQ](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.en.md) | [🇬🇧 EN](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.en.md) · [🇨🇳 中文](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.md) |
+| 225 | [Enterprise Agent Outbound OAuth Token Vault Selection FAQ: `APIM Credential Manager` vs `Envoy Secret-Injecting Forward Proxy + Key Vault/Vault` vs `Identity Token Vault/Token Exchange (RFC 8693)` vs `Self-Hosted OAuth Broker` (multi-SaaS secretless credential injection, refresh-token rotation, and zero-credential residency governance)](agent-outbound-oauth-token-vault-secretless-egress-apim-credential-manager-vs-envoy-proxy-selection-faq.en.md) | [🇬🇧 EN](agent-outbound-oauth-token-vault-secretless-egress-apim-credential-manager-vs-envoy-proxy-selection-faq.en.md) · [🇨🇳 中文](agent-outbound-oauth-token-vault-secretless-egress-apim-credential-manager-vs-envoy-proxy-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (27 Guides)
 

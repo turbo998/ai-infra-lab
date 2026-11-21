@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（224 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（225 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **224 个架构选型、平台对比与安全治理决策专题**（共 `448` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **225 个架构选型、平台对比与安全治理决策专题**（共 `450` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 224 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 225 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（19 篇）
 
@@ -101,7 +101,7 @@
 | 220 | [AKS GPU 推理车道隔离选型 FAQ：Prefix Cache 预热池、会话粘性与长短请求 SLA 分层](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.md) | [🇨🇳 中文](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.md) · [🇬🇧 EN](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) |
 | 223 | [AKS GPU Prefix Cache 亲和路由选型 FAQ：KAITO + vLLM/SGLang 的 Session-aware KV Locality、长短请求车道隔离与尾延迟护栏](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.md) | [🇨🇳 中文](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.md) · [🇬🇧 EN](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（19 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（20 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -126,6 +126,7 @@
 | 185 | [企业生成式 UI 协议选型：AG-UI `STATE_DELTA` RFC 6902 JSON-Patch 协同状态同步 vs Host 声明式组件目录（Adaptive Cards/Typed Props）vs MCP-UI 跨源沙箱微前端 vs LLM 临时产物隔离渲染 FAQ](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) | [🇨🇳 中文](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.md) · [🇬🇧 EN](generative-ui-ag-ui-json-patch-state-sync-vs-mcp-ui-sandbox-vs-adaptive-cards-selection-faq.en.md) |
 | 193 | [企业多工具事务一致性选型：Orchestrated Saga（Durable/Dapr）补偿栈 vs Transactional Outbox + Debezium/Cosmos CDC 消双写 vs TCC 预留确认取消 vs APIM `Idempotency-Key` 栅栏防重复扣费 FAQ](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.md) | [🇨🇳 中文](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.md) · [🇬🇧 EN](transactional-saga-outbox-mcp-tool-mutation-service-bus-vs-debezium-cdc-vs-durable-selection-faq.en.md) |
 | 197 | [企业细粒度 ReBAC Zanzibar 授权选型：AKS + PostgreSQL 上 `SpiceDB/OpenFGA` 关系图引擎 vs `Cedar` 可验证 ABAC 策略侧车 vs `Microsoft Entra` 组与 App Roles（`Human ∩ Agent` 委托交集、`ZedToken` 撤权一致性与 RAG 预过滤编译）FAQ](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.md) | [🇨🇳 中文](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.md) · [🇬🇧 EN](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.en.md) |
+| 225 | [企业 Agent 出站 OAuth Token Vault 选型 FAQ：`APIM Credential Manager` vs `Envoy Secret-Injecting Forward Proxy + Key Vault/Vault` vs `Identity Token Vault/Token Exchange (RFC 8693)` vs `Self-Hosted OAuth Broker`（多 SaaS Secretless 凭据注入、Refresh Token 轮换与零凭据驻留治理）](agent-outbound-oauth-token-vault-secretless-egress-apim-credential-manager-vs-envoy-proxy-selection-faq.md) | [🇨🇳 中文](agent-outbound-oauth-token-vault-secretless-egress-apim-credential-manager-vs-envoy-proxy-selection-faq.md) · [🇬🇧 EN](agent-outbound-oauth-token-vault-secretless-egress-apim-credential-manager-vs-envoy-proxy-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（27 篇）
 
