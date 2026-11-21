@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（200 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（201 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **200 个架构选型、平台对比与安全治理决策专题**（共 `400` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **201 个架构选型、平台对比与安全治理决策专题**（共 `402` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 200 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 201 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（19 篇）
 
@@ -268,7 +268,7 @@
 | 186 | [企业 Prompt-as-Code 生命周期选型：GitOps `.prompty` 工件注册表与 Pydantic/JSON-Schema 合同门禁 vs Foundry Prompt Catalog 协作治理 vs App Configuration + Blob Sentinel 热加载（免重部署）vs Langfuse/MLflow 自建 Registry 可移植性 FAQ](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) | [🇨🇳 中文](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.md) · [🇬🇧 EN](prompt-as-code-gitops-registry-prompty-vs-foundry-catalog-vs-appconfig-contract-selection-faq.en.md) |
 | 192 | [企业确定性轨迹回放与时光调试选型：密码学 Tool/LLM Cassette VCR 录放 vs LangGraph/MAF/Durable 检查点 Step-N 分叉 vs 状态化 Mock-World MCP 模拟器 vs Foundry/AppInsights Trace 数据集化门禁 FAQ](deterministic-agent-trace-replay-time-travel-debugging-vcr-mock-vs-foundry-trace-selection-faq.md) | [🇨🇳 中文](deterministic-agent-trace-replay-time-travel-debugging-vcr-mock-vs-foundry-trace-selection-faq.md) · [🇬🇧 EN](deterministic-agent-trace-replay-time-travel-debugging-vcr-mock-vs-foundry-trace-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（28 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（29 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -302,3 +302,4 @@
 | 155 | [市政供排水智能体选型：IoT Operations + Fabric 水力孪生漏损分诊 vs Foundry NPDES/PFAS 合规 RAG vs ArcGIS/Cityworks/Maximo 工单治理 FAQ](municipal-water-wastewater-utility-scada-epa-pfas-leak-digital-twin-iot-ops-vs-foundry-permit-rag-vs-esri-arcgis-workorder-selection-faq.md) | [🇨🇳 中文](municipal-water-wastewater-utility-scada-epa-pfas-leak-digital-twin-iot-ops-vs-foundry-permit-rag-vs-esri-arcgis-workorder-selection-faq.md) · [🇬🇧 EN](municipal-water-wastewater-utility-scada-epa-pfas-leak-digital-twin-iot-ops-vs-foundry-permit-rag-vs-esri-arcgis-workorder-selection-faq.en.md) |
 | 165 | [绿色钢铁与水泥脱碳智能体选型：IoT Operations 实时质量账本 vs Foundry CBAM/ISO 证据 RAG vs APC 咨询式 MCP 闭环治理 FAQ](green-steel-cement-cbam-eaf-decarbonization-iot-ops-vs-foundry-lca-rag-vs-apc-mcp-selection-faq.md) | [🇨🇳 中文](green-steel-cement-cbam-eaf-decarbonization-iot-ops-vs-foundry-lca-rag-vs-apc-mcp-selection-faq.md) · [🇬🇧 EN](green-steel-cement-cbam-eaf-decarbonization-iot-ops-vs-foundry-lca-rag-vs-apc-mcp-selection-faq.en.md) |
 | 196 | [企业多集群 Kubernetes AI 舰队 GitOps 晋级与策略护栏选型：AKS Fleet `ClusterResourcePlacement` + Managed Flux v2 分环 Soak 门禁 vs Argo CD `ApplicationSet` + Kargo Freight 晋级 vs Azure Policy Gatekeeper vs Kyverno + `ValidatingAdmissionPolicy` CEL FAQ](gitops-fleet-promotion-policy-guardrails-flux-aks-fleet-vs-argocd-vs-kyverno-gatekeeper-selection-faq.md) | [🇨🇳 中文](gitops-fleet-promotion-policy-guardrails-flux-aks-fleet-vs-argocd-vs-kyverno-gatekeeper-selection-faq.md) · [🇬🇧 EN](gitops-fleet-promotion-policy-guardrails-flux-aks-fleet-vs-argocd-vs-kyverno-gatekeeper-selection-faq.en.md) |
+| 201 | [企业 AI Agent Landing Zone 生产选型：`Foundry + AKS + ACA + APIM AI Gateway` 主平面 vs `AWS Bedrock + EKS` vs `GCP Vertex + GKE`（Durable 编排恢复、OpenTelemetry 评测闭环、FinOps 配额治理与多区域 BCDR 运营）FAQ](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.md) | [🇨🇳 中文](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.md) · [🇬🇧 EN](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.en.md) |
