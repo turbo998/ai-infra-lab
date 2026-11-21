@@ -597,9 +597,10 @@ class TestAgentInfraSizer(unittest.TestCase):
                     continue
                 if line.startswith("|") or line.startswith("#"):
                     continue
-                if len(line) < 28:
+                norm_line = re.sub(r"\d+", "#", line)
+                if len(norm_line) < 28:
                     continue
-                suffix = line[-24:]
+                suffix = norm_line[-24:]
                 per_file_suffix_counter[suffix] += 1
 
             per_file_max_suffix = max(per_file_suffix_counter.values(), default=0)
@@ -617,7 +618,8 @@ class TestAgentInfraSizer(unittest.TestCase):
         banned_path_re = re.compile(r"(auto-cycle|guardlane|-r\d{3,4}(?:\.|$))", re.IGNORECASE)
         banned_content_re = re.compile(
             r"(auto-cycle|guardlane|Cycle\s*#\d+|\[ZHX?\d+\]|\[ENX?\d+\]|strict_suffix_gate|workbench-cycle-"
-            r"|焊机|冻干机|冷却塔|缩脉|板壳共振|轨道力学)",
+            r"|焊机|冻干机|冷却塔|缩脉|板壳共振|轨道力学|（标记\d+）|（场景洞察\d+）|（路线[A-Z]要点\d+）"
+            r"|\((?:tag|marker|item|point|note|ref)\s*#?\d{2,3}\)|第\s*\d+\s*条强调)",
             re.IGNORECASE,
         )
         for path in repo_root.rglob("*"):
