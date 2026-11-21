@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (272 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (273 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **272 structured architecture selection guides and trade-off FAQs** (`544` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **273 structured architecture selection guides and trade-off FAQs** (`546` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 272 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 273 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (30 Guides)
 
@@ -84,7 +84,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 270 | [Enterprise confidential agent runtime selection FAQ: AKS Kata-CC (SEV-SNP) with Rego CCE and MAA/Managed HSM SKR vs ACI Confidential Containers with pinned CCE digest vs Confidential VM (TDX) plus NCCads_H100_v5 confidential GPU inference vs tiered hybrid architecture (in-use memory protection, attestation chain, P95 overhead, and monthly TCO inflection)](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.en.md) | [🇬🇧 EN](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.en.md) · [🇨🇳 中文](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.md) |
 | 272 | [Enterprise agent sandbox POSIX workspace storage selection FAQ: Azure Container Storage (ACStor) on local ephemeral NVMe with Elastic SAN hibernate snapshots (sub-millisecond RWO hot path) vs Azure NetApp Files NFSv4.1 with FlexClone (high-concurrency RWX collaboration and near-instant clones) vs Azure Files Premium NFSv4.1 (managed AKS/ACA native RWX baseline) vs BlobFuse2 CSI streaming cache (petabyte-scale read-heavy mounts), including `git status` P95, attach latency, IOPS, and monthly TCO inflection for 1,000 sandboxes](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.en.md) | [🇬🇧 EN](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.en.md) · [🇨🇳 中文](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (30 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (31 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -120,6 +120,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 257 | [Enterprise context-window routing selection FAQ: `PTU` long-context flagship lane for high-risk complex reasoning vs `Mini` short-context economy lane for high-concurrency workloads vs `AKS KAITO` domain SLM lane for stable terminology domains vs a three-lane hybrid loop balancing escalation ratio, TTFT, factual pass-rate, and cost per 1,000 requests](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) | [🇬🇧 EN](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) · [🇨🇳 中文](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.md) |
 | 262 | [Enterprise adaptive reasoning-depth routing selection FAQ: Mini economy lane vs Frontier deep lane vs two-pass verifier checks vs integrated closed-loop governance (balancing complex-task pass rate, miss-escalation rate, P95 latency, and blended cost per 1,000 requests)](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.en.md) | [🇬🇧 EN](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.en.md) · [🇨🇳 中文](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.md) |
 | 266 | [Enterprise agent model-endpoint failover selection FAQ: PTU primary-standby vs serverless warm pools vs AKS KServe canary releases (balancing failover RTO, TTFT P95, failure-window drop rate, and cost per 1,000 requests)](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) | [🇬🇧 EN](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) · [🇨🇳 中文](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.md) |
+| 273 | [Enterprise model-weight supply-chain and hydration selection FAQ: Foundry/AML Registry as governance authority with lineage and geo-replication vs ACR Premium ORAS + AKS `runai-model-streamer` for parallel chunk hydration and sub-minute `70B` readiness vs ANF/Managed Lustre shared read-only tensor pools for multi-node `mmap` consistency vs air-gapped quarantine promotion with `.safetensors` conversion, scanning, signing, and zero-egress runtime controls, including `70B/405B` startup, bandwidth, and monthly TCO inflection analysis](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.en.md) | [🇬🇧 EN](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.en.md) · [🇨🇳 中文](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (30 Guides)
 
