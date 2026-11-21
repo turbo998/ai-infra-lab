@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（220 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（221 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **220 个架构选型、平台对比与安全治理决策专题**（共 `440` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **221 个架构选型、平台对比与安全治理决策专题**（共 `442` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 220 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 221 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（19 篇）
 
@@ -283,7 +283,7 @@
 | 216 | [企业级多区域 Agent 推理选型：`Foundry + APIM` PTU 保底 + `Global Standard PAYG` 突发溢出与 Token 门禁架构指南](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.md) | [🇨🇳 中文](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.md) · [🇬🇧 EN](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.en.md) |
 | 219 | [企业 Agent 流量门禁选型：`APIM AI Gateway` Token 级 `TPM/TPS` 准入 + `Retry-After` 退避 + PTU/PAYG 突发治理](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.md) | [🇨🇳 中文](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.md) · [🇬🇧 EN](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（33 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（34 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -320,5 +320,6 @@
 | 201 | [企业 AI Agent Landing Zone 生产选型：`Foundry + AKS + ACA + APIM AI Gateway` 主平面 vs `AWS Bedrock + EKS` vs `GCP Vertex + GKE`（Durable 编排恢复、OpenTelemetry 评测闭环、FinOps 配额治理与多区域 BCDR 运营）FAQ](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.md) | [🇨🇳 中文](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.md) · [🇬🇧 EN](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.en.md) |
 | 202 | [企业级 Durable Agent 编排选型：`Durable Functions` vs `Temporal on AKS` vs `Logic Apps Standard`（Saga 补偿、重放一致性、审批超时恢复、OpenTelemetry 证据闭环与多租户成本治理）FAQ](durable-agent-orchestration-saga-compensation-durable-functions-vs-temporal-vs-logic-apps-faq.md) | [🇨🇳 中文](durable-agent-orchestration-saga-compensation-durable-functions-vs-temporal-vs-logic-apps-faq.md) · [🇬🇧 EN](durable-agent-orchestration-saga-compensation-durable-functions-vs-temporal-vs-logic-apps-faq.en.md) |
 | 218 | [企业多 Agent 持久化编排选型 FAQ：Durable Execution/Checkpoint Replay + ACA Dynamic Sessions 沙箱隔离 + 租户级 FinOps 成本归因](durable-execution-checkpoint-replay-aca-dynamic-sessions-tenant-finops-attribution-selection-faq.md) | [🇨🇳 中文](durable-execution-checkpoint-replay-aca-dynamic-sessions-tenant-finops-attribution-selection-faq.md) · [🇬🇧 EN](durable-execution-checkpoint-replay-aca-dynamic-sessions-tenant-finops-attribution-selection-faq.en.md) |
+| 221 | [企业 Agent 检查点回放与幂等合同选型 FAQ：ACA Dynamic Sessions 恢复语义 + 租户成本账本 + 故障放大抑制](agent-checkpoint-replay-idempotency-contract-aca-session-recovery-cost-ledger-selection-faq.md) | [🇨🇳 中文](agent-checkpoint-replay-idempotency-contract-aca-session-recovery-cost-ledger-selection-faq.md) · [🇬🇧 EN](agent-checkpoint-replay-idempotency-contract-aca-session-recovery-cost-ledger-selection-faq.en.md) |
 | 208 | [企业 Agent 多区域主动主动故障切换选型：`Azure Front Door + APIM Regional Gateway` vs `Traffic Manager` vs `应用内自适应路由`（会话续接幂等、区域健康探测、切换验证与成本护栏）FAQ](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.md) | [🇨🇳 中文](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.md) · [🇬🇧 EN](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.en.md) |
 | 209 | [企业 Agent 控制平面容灾选型：`APIM + GitOps` 策略发布一致性 vs `Traffic Manager` 双活入口切换 vs `应用内自愈编排`（RTO/RPO、状态回放与恢复正确性门禁）FAQ](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.md) | [🇨🇳 中文](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.md) · [🇬🇧 EN](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.en.md) |
