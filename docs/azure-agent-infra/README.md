@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（262 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（263 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **262 个架构选型、平台对比与安全治理决策专题**（共 `524` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **263 个架构选型、平台对比与安全治理决策专题**（共 `526` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 262 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 263 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -189,7 +189,7 @@
 | 244 | [企业空间智能体数据底座选型 FAQ：`PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` 同库融合 vs `Azure Maps Isochrone/Route Matrix` 路网可达 MCP 工具层 vs `ADX/Eventhouse` 高频轨迹 H3 围栏流触发 vs `AI Search/Cosmos Geo` 轻量邻近筛选（跨河派单误差治理、GeoJSON 上下文瘦身与百万次查询 TCO）](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) | [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) · [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) |
 | 251 | [企业知识工作流智能体选型 FAQ：`M365 Copilot + Graph` 原生权限继承入口层 vs `Foundry + AI Search` 跨域 RAG 平台层 vs `APIM` 前置统一治理平面 vs 双层混合架构（权限裁剪、证据可追溯、复核门禁与每千问答成本拐点）](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) | [🇨🇳 中文](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) · [🇬🇧 EN](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（32 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（33 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -227,6 +227,7 @@
 | 250 | [企业办公自动化智能体平台选型 FAQ：`Copilot Studio` 业务流程编排层 vs `Power Automate` 连接器驱动自动化总线 vs `Foundry + APIM` 工程化策略执行层 vs 双层混合治理架构（审批幂等、异常补偿、每千任务成本与并发拐点）](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.md) | [🇨🇳 中文](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.md) · [🇬🇧 EN](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.en.md) |
 | 255 | [企业高风险 Agent 操作升级授权选型 FAQ：`Entra Agent ID + OBO` 身份委托链路 vs `APIM` 能力 JWT 一次性动作令牌 vs `Durable/Logic Apps` 人审放行流 vs 风险分层混合闭环（误放行率、审批时延、可追责性与每千动作治理成本平衡）](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.md) | [🇨🇳 中文](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.md) · [🇬🇧 EN](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.en.md) |
 | 259 | [企业人机协同升级队列选型 FAQ：`Service Bus Sessions` 优先级队列 vs `Durable Functions` SLA 挂起恢复编排 vs `D365 Unified Routing` 技能派单 vs 双速混合闭环（等待 P95、FCR、违约率与每千升级 TCO 拐点）](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.md) | [🇨🇳 中文](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.md) · [🇬🇧 EN](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.en.md) |
+| 263 | [企业 Agent 人工接管状态包选型 FAQ：Service Bus Session 顺序队列 vs Durable Saga 恢复编排 vs D365 Case Routing 技能分派 vs 混合闭环（状态包完整率、接管等待 P95、恢复后一次完成率与每千接管综合成本平衡）](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.md) | [🇨🇳 中文](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.md) · [🇬🇧 EN](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（50 篇）
 

@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (262 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (263 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **262 structured architecture selection guides and trade-off FAQs** (`524` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **263 structured architecture selection guides and trade-off FAQs** (`526` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 262 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 263 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -189,7 +189,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 244 | [Enterprise geospatial agent data-plane selection FAQ: `PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` unified spatial-semantic execution vs `Azure Maps Isochrone/Route Matrix` as a road-network MCP intelligence layer vs `ADX/Eventhouse` high-frequency H3 geofence streaming triggers vs `AI Search/Cosmos Geo` lightweight nearby filtering (cross-river dispatch error reduction, GeoJSON context slimming, and million-query TCO control)](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) | [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) · [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) |
 | 251 | [Enterprise knowledge-workflow agent selection FAQ: `M365 Copilot + Graph` native permission inheritance entry layer vs `Foundry + AI Search` cross-domain RAG platform layer vs `APIM` governance front door vs a dual-layer hybrid architecture (authorization trimming, evidence traceability, human-review gates, and per-1,000-request cost inflection)](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) | [🇬🇧 EN](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) · [🇨🇳 中文](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (32 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (33 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -227,6 +227,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 250 | [Enterprise office-automation agent platform selection FAQ: `Copilot Studio` business workflow orchestration layer vs `Power Automate` connector-driven automation bus vs `Foundry + APIM` engineering policy-execution layer vs layered hybrid governance architecture (approval idempotency, compensation handling, per-1,000-task cost, and concurrency break-even)](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.en.md) | [🇬🇧 EN](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.en.md) · [🇨🇳 中文](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.md) |
 | 255 | [Enterprise high-risk agent action step-up authorization selection FAQ: `Entra Agent ID + OBO` delegated identity chain vs `APIM` one-time capability JWT action tokens vs `Durable/Logic Apps` human approval release flow vs risk-tiered hybrid closed loop (balancing false-allow rate, approval latency, accountability, and governance cost per 1,000 actions)](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.en.md) | [🇬🇧 EN](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.en.md) · [🇨🇳 中文](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.md) |
 | 259 | [Enterprise human-in-the-loop escalation queueing selection FAQ: `Service Bus Sessions` priority queues vs `Durable Functions` SLA suspend/resume orchestration vs `D365 Unified Routing` skill dispatch vs dual-speed hybrid loop (balancing wait P95, FCR, breach rate, and per-1,000-escalation TCO break-even)](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.en.md) | [🇬🇧 EN](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.en.md) · [🇨🇳 中文](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.md) |
+| 263 | [Enterprise agent human-handoff state-package selection FAQ: Service Bus Session ordering vs Durable Saga recovery orchestration vs D365 case-routing skill dispatch vs integrated hybrid loop (balancing package completeness, handoff wait P95, post-handoff first-pass completion, and blended cost per 1,000 handoffs)](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.en.md) | [🇬🇧 EN](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.en.md) · [🇨🇳 中文](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (50 Guides)
 
