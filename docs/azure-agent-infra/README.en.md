@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (232 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (233 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **232 structured architecture selection guides and trade-off FAQs** (`464` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **233 structured architecture selection guides and trade-off FAQs** (`466` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 232 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 233 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (22 Guides)
 
@@ -134,7 +134,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 227 | [Inbound SaaS Webhook Trigger Selection FAQ: `APIM Inline HMAC + Direct Service Bus` vs `Event Grid Partner Topics / Pull Namespaces` vs `Hookdeck/Svix/Envoy Debounce Gateway` vs `Functions Flex + Durable` (`<50ms` ACK decoupling, anti-replay, dedup/debounce, and token-storm governance)](inbound-saas-webhook-agent-trigger-apim-hmac-servicebus-vs-eventgrid-partner-vs-svix-selection-faq.en.md) | [🇬🇧 EN](inbound-saas-webhook-agent-trigger-apim-hmac-servicebus-vs-eventgrid-partner-vs-svix-selection-faq.en.md) · [🇨🇳 中文](inbound-saas-webhook-agent-trigger-apim-hmac-servicebus-vs-eventgrid-partner-vs-svix-selection-faq.md) |
 | 230 | [AKS East-West AI/MCP Gateway Selection FAQ: `Envoy AI Gateway / Gateway API Inference Extension` (`InferencePool/InferenceModel + EPP`) vs `APIM Self-Hosted Gateway` (cloud control plane with local data plane) vs `Managed APIM North-South` vs `Bifrost/LiteLLM Proxy` (hairpin removal, Pod-level LoRA/queue-aware routing, and disconnected autonomy)](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.en.md) | [🇬🇧 EN](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.en.md) · [🇨🇳 中文](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (27 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (28 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -167,6 +167,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 189 | [Enterprise Collaborative Multi-Agent Canvas State Selection: `Yjs/Automerge CRDT` over Azure Web PubSub + Managed Redis + Blob Snapshot Compaction vs Azure Fluid Relay `DDS` Total-Order Broadcast vs Cosmos DB `ETag` Patch Optimistic Concurrency vs Actor-Isolated Branch-and-Merge FAQ](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) | [🇬🇧 EN](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) · [🇨🇳 中文](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) |
 | 194 | [Enterprise Object-Storage-Native Vector Engine Selection: LanceDB/Turbopuffer-Style on Azure Blob + `Lsv3` NVMe Cache vs AKS Qdrant/Milvus 2.5 Hot Clusters vs Managed Azure AI Search Vector Compression vs DuckDB vss Session Sidecar FAQ](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) | [🇬🇧 EN](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) · [🇨🇳 中文](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.md) |
 | 199 | [Enterprise Real-Time Agent Feature Context Serving Selection: `Feast + Azure Managed Redis + Event Hubs Flink/Spark` vs `Microsoft Fabric Eventhouse + OneLake` vs `Azure ML Managed Feature Store` (sub-`10ms` online serving, `30-second` sliding-window velocity signals, online/offline skew prevention, and `AS OF` point-in-time replay) FAQ](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) | [🇬🇧 EN](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) · [🇨🇳 中文](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) |
+| 233 | [Enterprise Ephemeral OLAP Agent Selection FAQ: in-session `DuckDB/Polars` engines + `ADLS/OneLake Delta/Iceberg` predicate-pushdown range reads (isolating exploratory SQL storms) vs `Fabric Warehouse` (governed authority verification) vs `Databricks SQL Serverless + Unity Catalog` (cross-domain federated governance) vs always-on `ClickHouse/StarRocks/Eventhouse` hot pools (fixed high-QPS online analytics)](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) | [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) · [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (27 Guides)
 

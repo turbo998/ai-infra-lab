@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（232 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（233 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **232 个架构选型、平台对比与安全治理决策专题**（共 `464` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **233 个架构选型、平台对比与安全治理决策专题**（共 `466` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 232 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 233 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（22 篇）
 
@@ -134,7 +134,7 @@
 | 227 | [企业入站 SaaS Webhook 触发 Agent 选型 FAQ：`APIM Inline HMAC + Direct Service Bus` vs `Event Grid Partner Topics / Pull Namespaces` vs `Hookdeck/Svix/Envoy Debounce Gateway` vs `Functions Flex + Durable`（`<50ms` ACK 解耦、重放防护、去重去抖与 Token Storm 治理）](inbound-saas-webhook-agent-trigger-apim-hmac-servicebus-vs-eventgrid-partner-vs-svix-selection-faq.md) | [🇨🇳 中文](inbound-saas-webhook-agent-trigger-apim-hmac-servicebus-vs-eventgrid-partner-vs-svix-selection-faq.md) · [🇬🇧 EN](inbound-saas-webhook-agent-trigger-apim-hmac-servicebus-vs-eventgrid-partner-vs-svix-selection-faq.en.md) |
 | 230 | [企业 AKS 东西向 AI/MCP 网关选型 FAQ：`Envoy AI Gateway / Gateway API Inference Extension`（`InferencePool/InferenceModel + EPP`）vs `APIM Self-Hosted Gateway`（控制面云端、数据面本地）vs `APIM Managed North-South` vs `Bifrost/LiteLLM Proxy`（消除 Hairpin、Pod 级 LoRA/队列感知与断网自治）](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.md) | [🇨🇳 中文](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.md) · [🇬🇧 EN](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（27 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（28 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -167,6 +167,7 @@
 | 189 | [企业多人协同多智能体画布状态选型：`Yjs/Automerge CRDT`（Web PubSub + Redis + Blob 压缩）vs Azure Fluid Relay `DDS` 总序广播 vs Cosmos DB `ETag` Patch 乐观并发 vs Actor 隔离分支合并 FAQ](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) | [🇨🇳 中文](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.md) · [🇬🇧 EN](collaborative-multi-agent-canvas-state-crdt-yjs-webpubsub-vs-fluid-relay-vs-cosmos-etag-selection-faq.en.md) |
 | 194 | [企业对象存储原生向量引擎选型：LanceDB/Turbopuffer-Style on Azure Blob + `Lsv3` NVMe 缓存 vs AKS Qdrant/Milvus 2.5 热库 vs Azure AI Search 托管向量压缩检索 vs DuckDB vss 会话侧车 FAQ](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.md) | [🇨🇳 中文](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.md) · [🇬🇧 EN](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) |
 | 199 | [企业实时 Agent 特征上下文服务选型：`Feast + Azure Managed Redis + Event Hubs Flink/Spark` vs `Microsoft Fabric Eventhouse + OneLake` vs `Azure ML Managed Feature Store`（子 `10ms` 在线特征 serving、`30s` 滑窗速度信号、在线/离线 skew 防护与 `AS OF` 点时回放）FAQ](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) | [🇨🇳 中文](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) · [🇬🇧 EN](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) |
+| 233 | [企业临时 OLAP 分析智能体选型 FAQ：`DuckDB/Polars` 会话内嵌引擎 + `ADLS/OneLake Delta/Iceberg` 谓词下推直读（探索 SQL 风暴隔离）vs `Fabric Warehouse`（权威语义核验）vs `Databricks SQL Serverless + Unity Catalog`（跨域联邦治理）vs `ClickHouse/StarRocks/Eventhouse` 常驻热池（固定高 QPS 在线分析）](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) | [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) · [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（27 篇）
 
