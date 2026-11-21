@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (251 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (252 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **251 structured architecture selection guides and trade-off FAQs** (`502` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **252 structured architecture selection guides and trade-off FAQs** (`504` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 251 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 252 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -114,7 +114,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 241 | [Enterprise Tabular and Time-Series Foundation Model Serving Selection FAQ: hosted `TabPFN v2 + Chronos-Bolt/TimesFM` pools for `100–10,000` row cold-start quantile forecasts vs `AML/Fabric AutoML LightGBM/CatBoost/XGBoost + ONNX CPU` for high-dimensional governed scoring vs `ADX/Eventhouse series_decompose_forecast` in-database forecasting vs `LLM covariate extraction + MCP quantitative endpoint` orchestration contract with `Pinball Loss/WQL` and cost-per-10k governance](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.en.md) | [🇬🇧 EN](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.en.md) · [🇨🇳 中文](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.md) |
 | 247 | [Enterprise prompt-compression and context-pruning selection FAQ: inline `AKS/APIM-Envoy ExtProc + LLMLingua-2 (ONNX)` compression (`3x–6x` reduction and TTFT gains) vs verbatim `Azure AI Search Semantic Ranker / AKS TEI BGE-Reranker-v2-m3` Top-K retention for legal and numeric fidelity vs `Foundry/Azure OpenAI Prompt Caching + Mini/Nano async episodic summary` for multi-turn prefix reuse, plus hybrid “prefix-pinned + volatile-tail compression” with deterministic bypass for code, SQL, JSON syntax, UUIDs, financial figures, dates, and legal citations](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.en.md) | [🇬🇧 EN](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.en.md) · [🇨🇳 中文](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (26 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (27 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -146,6 +146,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 238 | [Enterprise Cross-Org B2B Trading Gateway Selection FAQ: `Logic Apps Standard + Integration Account` (AS2/X12/EDIFACT legal rails, `MDN/997/CONTRL` acknowledgments, and control-number dedupe) vs `APIM Partner Gateway` (mTLS, cXML/Peppol/OpenAPI bridging, and partner quota isolation) vs `Cross-Org A2A Broker + JWS` negotiation envelopes (flexible exception handling with legal fallback) vs managed `VAN/Integration Cloud` long-tail acceleration](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.en.md) | [🇬🇧 EN](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.en.md) · [🇨🇳 中文](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.md) |
 | 243 | [Enterprise MCP/A2A Breaking-Change Governance Selection FAQ: `API Center + Spectral` dual syntax/semantic gates with consumer replay vs `APIM Version Sets + Revisions` canary dual-stack and deterministic dual-schema adapters vs `Entra AppId -> Pinned Catalog Snapshot` projection with `Deprecation/Sunset` telemetry vs `ACA/AKS Revision-Pinned Saga Draining` for zero-downtime long-transaction retirement](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) | [🇬🇧 EN](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) · [🇨🇳 中文](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) |
 | 245 | [Enterprise web-grounding and extraction governance selection FAQ: `Foundry Grounding with Bing + Custom Search` for authority-domain allowlists and citation offsets vs `APIM outbound DLP proxy + Tavily/Exa` for query de-identification and long-tail semantic discovery vs `ACA/AKS Firecrawl/Crawl4AI` isolated extraction pools for robots/llms policy enforcement and HTML distillation vs licensed `LSEG/Factiva/LexisNexis` connectors for copyright-safe, auditable premium evidence](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) | [🇬🇧 EN](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) · [🇨🇳 中文](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) |
+| 252 | [Enterprise outbound SaaS tool-governance selection FAQ: `APIM` token-bucket quota and circuit-breaker front door vs `Service Bus` queue buffering with worker budget scheduling vs provider proxy isolation (independent credentials, quotas, and breaker thresholds) vs a layered hybrid model with idempotency keys, compensation ledgers, human takeover gates, and per-1,000-call cost inflection](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.en.md) | [🇬🇧 EN](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.en.md) · [🇨🇳 中文](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (30 Guides)
 

@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（251 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（252 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **251 个架构选型、平台对比与安全治理决策专题**（共 `502` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **252 个架构选型、平台对比与安全治理决策专题**（共 `504` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 251 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 252 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -114,7 +114,7 @@
 | 241 | [企业表格与时序基础模型推理选型 FAQ：`TabPFN v2 + Chronos-Bolt/TimesFM` 托管池（`100–10,000` 行冷启动分位数预测）vs `AML/Fabric AutoML LightGBM/CatBoost/XGBoost + ONNX CPU`（高维特征与强监管归因审计）vs `ADX/Eventhouse series_decompose_forecast` 库内预测 vs `LLM 协变量提取 + MCP 定量端点` 编排契约（`Pinball Loss/WQL` 指标与单万次预测 TCO）](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.md) | [🇨🇳 中文](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.md) · [🇬🇧 EN](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.en.md) |
 | 247 | [企业 Prompt 压缩与上下文裁剪选型 FAQ：`AKS/APIM-Envoy ExtProc + LLMLingua-2 (ONNX)` 内联压缩（`3x–6x` 降载与 TTFT 提升）vs `Azure AI Search Semantic Ranker / AKS TEI BGE-Reranker-v2-m3` verbatim Top-K（法规条款与数字逐字保真）vs `Foundry/Azure OpenAI Prompt Caching + Mini/Nano 异步滚动摘要`（多轮前缀复用折扣）vs “前缀钉扎 + 波动尾部压缩”混合架构（`>12k` 尾部治理与 deterministic bypass）](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.md) | [🇨🇳 中文](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.md) · [🇬🇧 EN](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（26 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（27 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -146,6 +146,7 @@
 | 238 | [企业跨组织 B2B 贸易网关选型 FAQ：`Logic Apps Standard + Integration Account`（AS2/X12/EDIFACT、`MDN/997/CONTRL` 确权与控制号去重）vs `APIM Partner Gateway`（mTLS、cXML/Peppol/OpenAPI 桥接与伙伴配额隔离）vs `Cross-Org A2A Broker + JWS` 协商信封（异常谈判后回落法定单据）vs 托管 `VAN/集成云` 长尾加速入网](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.md) | [🇨🇳 中文](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.md) · [🇬🇧 EN](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.en.md) |
 | 243 | [企业 MCP/A2A 契约破坏性演进治理选型 FAQ：`API Center + Spectral` 语法/语义双门禁与消费者回放 vs `APIM Version Sets + Revisions` 金丝雀双栈与网关双向 Schema 适配器 vs `Entra AppId -> Pinned Catalog Snapshot` 目录视图绑定与 `Deprecation/Sunset` 告警 vs `ACA/AKS Revision-Pinned Saga Draining` 在途长事务零停机排空](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) | [🇨🇳 中文](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) · [🇬🇧 EN](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) |
 | 245 | [企业公网联网搜索与提取治理选型 FAQ：`Foundry Grounding with Bing + Custom Search`（权威域白名单与引用锚点）vs `APIM 出站 DLP 代理 + Tavily/Exa`（查询脱敏与长尾语义检索）vs `ACA/AKS Firecrawl/Crawl4AI` 隔离提取池（robots/llms 合规与 HTML 蒸馏）vs `LSEG/Factiva/LexisNexis` 授权情报连接器（高价值证据版权与审计闭环）](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) | [🇨🇳 中文](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) · [🇬🇧 EN](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) |
+| 252 | [企业外部 SaaS 工具调用治理选型 FAQ：`APIM` 令牌桶配额与熔断前置治理 vs `Service Bus` 队列缓冲 + Worker 预算调度 vs 供应商代理层隔离（凭据/配额/阈值独立）vs 混合分层架构（幂等键、补偿账本、人工接管与每千调用成本拐点）](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.md) | [🇨🇳 中文](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.md) · [🇬🇧 EN](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（30 篇）
 
