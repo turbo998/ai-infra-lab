@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (219 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (220 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **219 structured architecture selection guides and trade-off FAQs** (`438` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **220 structured architecture selection guides and trade-off FAQs** (`440` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 219 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 220 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (19 Guides)
 
@@ -73,7 +73,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 190 | [Enterprise Wasm Component Agent Tool Sandbox Selection: AKS SpinKube/Wasmtime (`containerd-shim-spin`) vs In-Process Wasmtime/Extism Host (`fuel/epoch`) vs ACA Dynamic Sessions (Hyper-V) vs AKS Kata (Hardware Virtualization) FAQ](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.en.md) | [🇬🇧 EN](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.en.md) · [🇨🇳 中文](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.md) |
 | 200 | [Enterprise Ephemeral PR Preview Sandbox Selection: `Azure Deployment Environments (ADE)` + Bicep/Terraform Catalog vs `vCluster on AKS` (CoW DB branches) vs `Signadot/Telepresence` request-routed sandboxes vs `Microsoft Dev Box` warm pools (`500-5,000` daily preview stacks, auto-TTL teardown, and full-stack autonomous Agent QA) FAQ](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.en.md) | [🇬🇧 EN](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.en.md) · [🇨🇳 中文](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (19 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (20 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -98,6 +98,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 188 | [Enterprise Test-Time Compute Selection: AOAI `o3/o4-mini/gpt-5` Reasoning-Effort Single-Pass vs AKS `vLLM/SGLang` Prefix-Shared `Best-of-N` + Step-Level PRM Scoring vs `Z3 SMT/Lean 4` Deterministic Verification Loops vs Adaptive Compute-Budget Controller FAQ](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.en.md) | [🇬🇧 EN](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.en.md) · [🇨🇳 中文](test-time-compute-prm-verifier-serving-aoai-o3-vs-aks-vllm-best-of-n-vs-z3-lean-selection-faq.md) |
 | 191 | [Enterprise Federated Privacy-Preserving Fine-Tuning Selection: NVFlare/Flower on AKS (`FedIT`/`FFA-LoRA`) vs AML Cross-Silo Federated Pipelines vs Confidential Clean-Room Pooled Training vs Silo-Specific Adapter Routing (Zero Raw-Data Movement) FAQ](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.en.md) | [🇬🇧 EN](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.en.md) · [🇨🇳 中文](federated-privacy-preserving-fine-tuning-nvflare-flower-aks-vs-aml-fl-vs-clean-room-selection-faq.md) |
 | 217 | [AKS GPU/KAITO Multi-Turn Agent Inference Selection FAQ: vLLM/SGLang Prefix-Cache Affinity, Session-Aware KV Locality, and Long/Short Request Isolation](aks-kaito-vllm-sglang-prefix-cache-session-kv-locality-long-short-request-isolation-selection-faq.en.md) | [🇬🇧 EN](aks-kaito-vllm-sglang-prefix-cache-session-kv-locality-long-short-request-isolation-selection-faq.en.md) · [🇨🇳 中文](aks-kaito-vllm-sglang-prefix-cache-session-kv-locality-long-short-request-isolation-selection-faq.md) |
+| 220 | [AKS GPU Inference Lane-Isolation Selection FAQ: Prefix-Cache Warm Pools, Session Stickiness, and Long/Short Request SLA Tiering](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) | [🇬🇧 EN](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) · [🇨🇳 中文](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (19 Guides)
 
