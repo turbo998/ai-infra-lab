@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（241 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（242 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **241 个架构选型、平台对比与安全治理决策专题**（共 `482` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **242 个架构选型、平台对比与安全治理决策专题**（共 `484` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 241 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 242 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（24 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（25 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -77,6 +77,7 @@
 | 231 | [企业 MicroVM 快照分叉沙箱选型 FAQ：`Azure VMSS Nested KVM + E2B/Firecracker`（`pause/resume/fork`）vs `ACA Dynamic Sessions`（托管 Hyper-V 会话池）vs `AKS Kata`（平台化隔离）vs `Managed MicroVM Cloud`（并行分支、跨天零算力休眠与 RI 盈亏拐点）](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.md) | [🇨🇳 中文](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.md) · [🇬🇧 EN](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.en.md) |
 | 236 | [企业沙箱依赖供给反 Slopsquatting 选型 FAQ：`Artifactory + Xray / Nexus Firewall` 私网代理拦截幻觉包名投毒 vs `Azure Artifacts Upstream + @Approved Views` 受控晋级 vs `只读 uv/pnpm 内容寻址缓存` 毫秒级水合（`<200ms`）vs 分层预烘焙黄金镜像（运行时禁用 pip/npm）](sandbox-package-anti-slopsquatting-artifactory-vs-azure-artifacts-vs-uv-ro-cache-selection-faq.md) | [🇨🇳 中文](sandbox-package-anti-slopsquatting-artifactory-vs-azure-artifacts-vs-uv-ro-cache-selection-faq.md) · [🇬🇧 EN](sandbox-package-anti-slopsquatting-artifactory-vs-azure-artifacts-vs-uv-ro-cache-selection-faq.en.md) |
 | 239 | [企业 ARM64 Cobalt 100 多架构智能体宿主选型 FAQ：`AKS + NAP/Karpenter` 上 `Dpsv6/Epsv6` ARM64 主力池（高并发非 GPU 控制面）vs `Ddsv6/Dadsv6` x86 兼容隔离池（闭源 SDK/遗留驱动）vs `ACR OCI Image Index + CI 依赖轮子预检`（根除 `exec format error`）vs `ACA Consumption/Dedicated` 分层承载（万级并发宿主 TCO 盈亏线）](arm64-cobalt-100-dpsv6-epsv6-vs-x86-multi-arch-aks-nap-vs-aca-agent-runtime-tco-selection-faq.md) | [🇨🇳 中文](arm64-cobalt-100-dpsv6-epsv6-vs-x86-multi-arch-aks-nap-vs-aca-agent-runtime-tco-selection-faq.md) · [🇬🇧 EN](arm64-cobalt-100-dpsv6-epsv6-vs-x86-multi-arch-aks-nap-vs-aca-agent-runtime-tco-selection-faq.en.md) |
+| 242 | [企业 Windows 原生 MCP 工具宿主选型 FAQ：`AKS Windows 2022/2025 + Hyper-V + gMSA`（Linux 编排面与 Windows 工具面解耦）vs `App Service Premium v4/ASEv3 Windows Containers`（低 K8s 经验团队托管托底）vs `Windows VMSS 进程池`（不可容器化 DCOM/驱动遗留）vs `.NET 8/9 跨平台改造`（三年 TCO 拐点）](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.md) | [🇨🇳 中文](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.md) · [🇬🇧 EN](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（25 篇）
 
