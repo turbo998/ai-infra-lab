@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (235 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (236 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **235 structured architecture selection guides and trade-off FAQs** (`470` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **236 structured architecture selection guides and trade-off FAQs** (`472` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 235 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 236 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (22 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (23 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -75,6 +75,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 226 | [Enterprise Privileged Infrastructure Remediation Agent Selection FAQ: identity-aware session proxy with `Teleport Machine ID / HashiCorp Boundary` (`5-minute` certs, command-level audit, dual approval) vs `Azure Bastion Premium + Ephemeral Jump Pods` vs `Azure Arc / VM Run Command & AKS command invoke` vs `Read-Only Impersonation Gateways` for secretless SSH/kubectl/psql governance](privileged-infra-ssh-kubectl-agent-bastion-teleport-boundary-aks-vs-arc-run-command-selection-faq.en.md) | [🇬🇧 EN](privileged-infra-ssh-kubectl-agent-bastion-teleport-boundary-aks-vs-arc-run-command-selection-faq.en.md) · [🇨🇳 中文](privileged-infra-ssh-kubectl-agent-bastion-teleport-boundary-aks-vs-arc-run-command-selection-faq.md) |
 | 228 | [3D/CAD/BIM Engineering Workstation Agent Selection FAQ: `AKS GPU Linux Headless (EGL/Vulkan)` vs `AVD NVads A10 v5 + WebRTC/RDP Shortpath` vs `APS/Onshape Serverless CAD APIs` vs `Ephemeral GPU VMSS + ANF/Lustre` (multi-view off-screen quality checks, `<35ms` human takeover, and floating-license concurrency governance)](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.en.md) | [🇬🇧 EN](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.en.md) · [🇨🇳 中文](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.md) |
 | 231 | [Enterprise MicroVM Snapshot Fork Sandbox Selection FAQ: `Azure VMSS Nested KVM + E2B/Firecracker` (`pause/resume/fork`) vs `ACA Dynamic Sessions` (managed Hyper-V pools) vs `AKS Kata` (platform-standard isolation) vs `Managed MicroVM Clouds` (parallel branching, overnight zero-compute pause, and RI break-even inflection)](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.en.md) | [🇬🇧 EN](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.en.md) · [🇨🇳 中文](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.md) |
+| 236 | [Enterprise Sandbox Package Supply Anti-Slopsquatting Selection FAQ: `Artifactory + Xray / Nexus Firewall` private proxy for hallucinated-package blocking vs `Azure Artifacts Upstream + @Approved Views` controlled promotion vs `read-only uv/pnpm content-addressed cache` millisecond hydration (`<200ms`) vs layered golden base images (runtime pip/npm disabled)](sandbox-package-anti-slopsquatting-artifactory-vs-azure-artifacts-vs-uv-ro-cache-selection-faq.en.md) | [🇬🇧 EN](sandbox-package-anti-slopsquatting-artifactory-vs-azure-artifacts-vs-uv-ro-cache-selection-faq.en.md) · [🇨🇳 中文](sandbox-package-anti-slopsquatting-artifactory-vs-azure-artifacts-vs-uv-ro-cache-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (23 Guides)
 
