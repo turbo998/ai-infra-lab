@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（215 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（216 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **215 个架构选型、平台对比与安全治理决策专题**（共 `430` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **216 个架构选型、平台对比与安全治理决策专题**（共 `432` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 215 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 216 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（19 篇）
 
@@ -245,7 +245,7 @@
 | 142 | [奢侈品零售 VIC 客户经营与 DPP 防伪智能体选型：Foundry 客户经营平面 vs Fabric 配货优化平面 vs D365/Cegid/Salesforce 治理执行平面 FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) | [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) · [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) |
 | 143 | [全球生物制药 CMC/GMP 批记录审查与放行智能体选型：MES/LIMS 结构化异常平面 vs Foundry ICH 证据平面 vs SAP QM/Veeva 治理签放平面 FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) | [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) · [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（27 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（28 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -278,6 +278,7 @@
 | 213 | [企业 Agent 发布证据链与签名溯源门禁选型：`APIM GitOps Ring` vs `SLSA/in-toto` vs `Azure Policy` vs `Fabric Eventhouse`（发布来源验真、在线分环阻断、准入硬约束与审计回放阈值回灌）FAQ](agent-release-provenance-attestation-apim-gitops-vs-slsa-in-toto-vs-fabric-selection-faq.md) | [🇨🇳 中文](agent-release-provenance-attestation-apim-gitops-vs-slsa-in-toto-vs-fabric-selection-faq.md) · [🇬🇧 EN](agent-release-provenance-attestation-apim-gitops-vs-slsa-in-toto-vs-fabric-selection-faq.en.md) |
 | 214 | [企业 Agent 证据回放漂移检测与门禁校准选型：`APIM Replay Ring` vs `OTel Trace Replayer` vs `Azure Policy` vs `Fabric Eventhouse`（回放来源验真、分环校准阻断、准入硬约束与阈值自适应回灌）FAQ](agent-evidence-replay-drift-calibration-apim-ring-vs-otel-replayer-vs-eventhouse-selection-faq.md) | [🇨🇳 中文](agent-evidence-replay-drift-calibration-apim-ring-vs-otel-replayer-vs-eventhouse-selection-faq.md) · [🇬🇧 EN](agent-evidence-replay-drift-calibration-apim-ring-vs-otel-replayer-vs-eventhouse-selection-faq.en.md) |
 | 215 | [企业 Agent 发布环健康分与自适应门禁选型：`APIM Ring HealthScore` vs `OTel Anomaly Detector` vs `Azure Policy` vs `Fabric Eventhouse`（健康分验真、分环自适应阻断、准入硬约束与阈值闭环回灌）FAQ](agent-release-ring-healthscore-adaptive-gates-apim-vs-otel-anomaly-vs-eventhouse-selection-faq.md) | [🇨🇳 中文](agent-release-ring-healthscore-adaptive-gates-apim-vs-otel-anomaly-vs-eventhouse-selection-faq.md) · [🇬🇧 EN](agent-release-ring-healthscore-adaptive-gates-apim-vs-otel-anomaly-vs-eventhouse-selection-faq.en.md) |
+| 216 | [企业级多区域 Agent 推理选型：`Foundry + APIM` PTU 保底 + `Global Standard PAYG` 突发溢出与 Token 门禁架构指南](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.md) | [🇨🇳 中文](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.md) · [🇬🇧 EN](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（32 篇）
 
