@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（211 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（212 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **211 个架构选型、平台对比与安全治理决策专题**（共 `422` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **212 个架构选型、平台对比与安全治理决策专题**（共 `424` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 211 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 212 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（19 篇）
 
@@ -245,7 +245,7 @@
 | 142 | [奢侈品零售 VIC 客户经营与 DPP 防伪智能体选型：Foundry 客户经营平面 vs Fabric 配货优化平面 vs D365/Cegid/Salesforce 治理执行平面 FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) | [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) · [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) |
 | 143 | [全球生物制药 CMC/GMP 批记录审查与放行智能体选型：MES/LIMS 结构化异常平面 vs Foundry ICH 证据平面 vs SAP QM/Veeva 治理签放平面 FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) | [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) · [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（23 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（24 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -274,6 +274,7 @@
 | 206 | [企业 Agent 编排混沌演练选型：`Azure Chaos Studio` vs `Chaos Mesh on AKS` vs `Gremlin`（MCP/A2A 失效注入、死信重放恢复、发布门禁与多租户成本防失控）FAQ](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.md) | [🇨🇳 中文](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.md) · [🇬🇧 EN](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.en.md) |
 | 210 | [企业 Agent OTel 追踪与评测闭环选型：`Azure Monitor` vs `AKS LGTM` vs `Datadog` vs `Fabric Eventhouse`（OpenTelemetry 语义一致性、发布门禁自动化、租户级 FinOps 归因与 KQL 复盘回灌）FAQ](agent-otel-trace-eval-closure-azure-monitor-vs-lgtm-vs-datadog-vs-eventhouse-selection-faq.md) | [🇨🇳 中文](agent-otel-trace-eval-closure-azure-monitor-vs-lgtm-vs-datadog-vs-eventhouse-selection-faq.md) · [🇬🇧 EN](agent-otel-trace-eval-closure-azure-monitor-vs-lgtm-vs-datadog-vs-eventhouse-selection-faq.en.md) |
 | 211 | [企业 Agent 策略漂移与合同门禁选型：`APIM GitOps` vs `OPA Gatekeeper` vs `Kyverno` vs `Fabric Eventhouse`（策略即代码、一致性准入、签名验真与证据回灌）FAQ](agent-policy-drift-contract-gates-apim-gitops-vs-opa-gatekeeper-vs-kyverno-selection-faq.md) | [🇨🇳 中文](agent-policy-drift-contract-gates-apim-gitops-vs-opa-gatekeeper-vs-kyverno-selection-faq.md) · [🇬🇧 EN](agent-policy-drift-contract-gates-apim-gitops-vs-opa-gatekeeper-vs-kyverno-selection-faq.en.md) |
+| 212 | [企业 Agent 变更冻结与 Break-glass 治理选型：`APIM Emergency Ring` vs `Entra PIM` vs `Azure Policy` vs `Fabric Eventhouse`（紧急冻结、最小权限提权、例外治理与审计证据回灌）FAQ](agent-breakglass-change-freeze-apim-ring-vs-entra-pim-vs-azure-policy-selection-faq.md) | [🇨🇳 中文](agent-breakglass-change-freeze-apim-ring-vs-entra-pim-vs-azure-policy-selection-faq.md) · [🇬🇧 EN](agent-breakglass-change-freeze-apim-ring-vs-entra-pim-vs-azure-policy-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（32 篇）
 

@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (211 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (212 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **211 structured architecture selection guides and trade-off FAQs** (`422` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **212 structured architecture selection guides and trade-off FAQs** (`424` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 211 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 212 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (19 Guides)
 
@@ -245,7 +245,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 142 | [Luxury Retail VIC Clienteling, Assortment Allocation, and DPP Anti-Counterfeit Agent Selection: Foundry Clienteling Plane vs Fabric Deterministic Allocation Plane vs D365/Cegid/Salesforce Governed Action Plane FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) | [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) · [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) |
 | 143 | [Global Biopharma CMC/GMP Batch Release and Deviation Agent Selection: MES/LIMS Structured Exception Plane vs Foundry ICH Evidence Plane vs SAP QM/Veeva Governed Sign-Off Plane FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) | [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) · [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (23 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (24 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -274,6 +274,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 206 | [Enterprise Agent Orchestration Chaos-Drill Selection: `Azure Chaos Studio` vs `Chaos Mesh on AKS` vs `Gremlin` (MCP/A2A failure injection, dead-letter replay recovery, release gates, and multi-tenant cost blowout prevention) FAQ](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.en.md) | [🇬🇧 EN](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.en.md) · [🇨🇳 中文](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.md) |
 | 210 | [Enterprise Agent OTel Trace and Evaluation-Closure Selection: `Azure Monitor` vs `AKS LGTM` vs `Datadog` vs `Fabric Eventhouse` (OpenTelemetry semantic consistency, automated release gates, tenant-level FinOps attribution, and KQL replay feedback) FAQ](agent-otel-trace-eval-closure-azure-monitor-vs-lgtm-vs-datadog-vs-eventhouse-selection-faq.en.md) | [🇬🇧 EN](agent-otel-trace-eval-closure-azure-monitor-vs-lgtm-vs-datadog-vs-eventhouse-selection-faq.en.md) · [🇨🇳 中文](agent-otel-trace-eval-closure-azure-monitor-vs-lgtm-vs-datadog-vs-eventhouse-selection-faq.md) |
 | 211 | [Enterprise Agent Policy-Drift and Contract-Gate Selection: `APIM GitOps` vs `OPA Gatekeeper` vs `Kyverno` vs `Fabric Eventhouse` (policy-as-code, admission consistency, signature validation, and evidence feedback) FAQ](agent-policy-drift-contract-gates-apim-gitops-vs-opa-gatekeeper-vs-kyverno-selection-faq.en.md) | [🇬🇧 EN](agent-policy-drift-contract-gates-apim-gitops-vs-opa-gatekeeper-vs-kyverno-selection-faq.en.md) · [🇨🇳 中文](agent-policy-drift-contract-gates-apim-gitops-vs-opa-gatekeeper-vs-kyverno-selection-faq.md) |
+| 212 | [Enterprise Agent Change-Freeze and Break-glass Governance Selection: `APIM Emergency Ring` vs `Entra PIM` vs `Azure Policy` vs `Fabric Eventhouse` (emergency freeze control, least-privilege elevation, exemption governance, and audit evidence feedback) FAQ](agent-breakglass-change-freeze-apim-ring-vs-entra-pim-vs-azure-policy-selection-faq.en.md) | [🇬🇧 EN](agent-breakglass-change-freeze-apim-ring-vs-entra-pim-vs-azure-policy-selection-faq.en.md) · [🇨🇳 中文](agent-breakglass-change-freeze-apim-ring-vs-entra-pim-vs-azure-policy-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (32 Guides)
 
