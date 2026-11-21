@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (249 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (250 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **249 structured architecture selection guides and trade-off FAQs** (`498` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **250 structured architecture selection guides and trade-off FAQs** (`500` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 249 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 250 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -183,7 +183,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 233 | [Enterprise Ephemeral OLAP Agent Selection FAQ: in-session `DuckDB/Polars` engines + `ADLS/OneLake Delta/Iceberg` predicate-pushdown range reads (isolating exploratory SQL storms) vs `Fabric Warehouse` (governed authority verification) vs `Databricks SQL Serverless + Unity Catalog` (cross-domain federated governance) vs always-on `ClickHouse/StarRocks/Eventhouse` hot pools (fixed high-QPS online analytics)](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) | [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) · [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) |
 | 244 | [Enterprise geospatial agent data-plane selection FAQ: `PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` unified spatial-semantic execution vs `Azure Maps Isochrone/Route Matrix` as a road-network MCP intelligence layer vs `ADX/Eventhouse` high-frequency H3 geofence streaming triggers vs `AI Search/Cosmos Geo` lightweight nearby filtering (cross-river dispatch error reduction, GeoJSON context slimming, and million-query TCO control)](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) | [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) · [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (29 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (30 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -218,6 +218,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 232 | [Enterprise Async Email-Thread Agent Channel Selection FAQ: `Graph Mail Change Notifications + Exchange Shared Mailbox` (thread reconstruction and draft-only approvals) vs `ACS Email + isolated subdomain` (sender reputation isolation and Event Grid delivery telemetry) vs `Inbound Parse` (dynamic case addresses and large-attachment claim-check) vs `CRM/ITSM Email-to-Case` (SLA workflow bridge and auto-responder storm circuit breakers)](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.en.md) | [🇬🇧 EN](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.en.md) · [🇨🇳 中文](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.md) |
 | 240 | [Global B2C Social Messaging Agent Selection FAQ: `ACS Advanced Messaging + Event Grid + Service Bus Sessions` for WhatsApp-primary operations vs `APIM fast signature-verify ack + session queue + WeChat/LINE protocol adapters` for hard timeout and async callback governance vs `D365 Contact Center / global CPaaS` managed human-agent collaboration vs `Azure Bot Service` lightweight connector baseline under 24h/48h window compliance and conversation-cost FinOps](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.en.md) | [🇬🇧 EN](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.en.md) · [🇨🇳 中文](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.md) |
 | 249 | [Enterprise omnichannel customer-service agent platform selection FAQ: `Copilot Studio` low-code workflow orchestration vs `Foundry + APIM + ACA/AKS` engineering multi-agent stack vs `Dynamics 365 Contact Center` integrated service path vs dual-speed hybrid architecture (frontline fast lane + governed deep lane) with concurrency, TTFT, escalation-rate, and per-1,000-session TCO break-even analysis](omnichannel-customer-service-agent-copilot-studio-vs-foundry-aca-vs-d365-contact-center-selection-faq.en.md) | [🇬🇧 EN](omnichannel-customer-service-agent-copilot-studio-vs-foundry-aca-vs-d365-contact-center-selection-faq.en.md) · [🇨🇳 中文](omnichannel-customer-service-agent-copilot-studio-vs-foundry-aca-vs-d365-contact-center-selection-faq.md) |
+| 250 | [Enterprise office-automation agent platform selection FAQ: `Copilot Studio` business workflow orchestration layer vs `Power Automate` connector-driven automation bus vs `Foundry + APIM` engineering policy-execution layer vs layered hybrid governance architecture (approval idempotency, compensation handling, per-1,000-task cost, and concurrency break-even)](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.en.md) | [🇬🇧 EN](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.en.md) · [🇨🇳 中文](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (48 Guides)
 
