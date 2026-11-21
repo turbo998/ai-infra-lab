@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（281 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（282 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **281 个架构选型、平台对比与安全治理决策专题**（共 `562` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **282 个架构选型、平台对比与安全治理决策专题**（共 `564` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 281 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 282 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（32 篇）
 
@@ -164,7 +164,7 @@
 | 274 | [企业伙伴 API 静态出口与 mTLS 认证选型 FAQ：VNet 注入 + NAT Gateway（`/28` 前缀与百万级 SNAT 端口池）vs APIM + Key Vault 托管客户端证书（RFC 8705 发送者约束与零私钥驻留）vs Hub-Spoke Firewall Premium（集中审计、IDPS 与 TLS 检查）vs 每租户/每伙伴 Envoy 出口网关（多租户噪声隔离与信誉保护），含 SNAT 容量、TLS 握手 P95 与月度 TCO 拐点](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) | [🇨🇳 中文](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) · [🇬🇧 EN](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.en.md) |
 | 278 | [企业数据库到 MCP 工具暴露选型 FAQ：DAB + APIM MCP Gateway（声明式实体/列白名单、分页上限与 JWT 声明驱动 RLS）vs 参数化领域 API/存储过程 OpenAPI-to-MCP（强事务业务动词与不变量约束）vs 语义层 MCP（Cube/dbt + Redis 预聚合，消除多表 Join 幻觉）vs 只读 SQL MCP 沙箱（Read Replica + PgBouncer + SQLGlot AST 拦截）含 P95 延迟、并发会话、SQL 准确率与月度 TCO 对比](database-to-mcp-tool-exposure-data-api-builder-apim-vs-semantic-layer-cube-vs-readonly-sql-mcp-selection-faq.md) | [🇨🇳 中文](database-to-mcp-tool-exposure-data-api-builder-apim-vs-semantic-layer-cube-vs-readonly-sql-mcp-selection-faq.md) · [🇬🇧 EN](database-to-mcp-tool-exposure-data-api-builder-apim-vs-semantic-layer-cube-vs-readonly-sql-mcp-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（32 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（33 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -202,6 +202,7 @@
 | 251 | [企业知识工作流智能体选型 FAQ：`M365 Copilot + Graph` 原生权限继承入口层 vs `Foundry + AI Search` 跨域 RAG 平台层 vs `APIM` 前置统一治理平面 vs 双层混合架构（权限裁剪、证据可追溯、复核门禁与每千问答成本拐点）](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) | [🇨🇳 中文](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) · [🇬🇧 EN](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) |
 | 265 | [企业知识新鲜度与证据谱系选型 FAQ：Cosmos Change Feed 增量索引 vs Event Grid Webhook 编排 vs Fabric OneLake 语义快照（更新滞后 P95、旧版本误命中率、引用可追溯覆盖率与每千问答更新成本平衡）](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.md) | [🇨🇳 中文](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.md) · [🇬🇧 EN](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.en.md) |
 | 276 | [企业长期情景记忆与时序事实治理选型 FAQ：Mem0（ACA/AKS）快速记忆编排 vs Zep/Graphiti 双时态图谱（AKS + Neo4j/FalkorDB）争议回放 vs Cosmos DiskANN + Change Feed + Durable Functions + Redis 原生治理管线 vs Foundry Threads + 每用户 AI Search 托管路径（含 `valid_from/valid_until` 冲突消解、GDPR 遗忘删除、10K/500K 活跃用户 P95 与月度 TCO 拐点）](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.md) | [🇨🇳 中文](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.md) · [🇬🇧 EN](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.en.md) |
+| 282 | [多租户向量 RAG 隔离选型 FAQ：Azure AI Search 共享索引（`strictPostFilter`/`preFilter`）vs `S3HD/S2` 每租户索引（每索引 CMK 与秒级下线）vs Cosmos Sharded DiskANN（`vectorIndexShardKey: [\"/tenantId\"]` + 分层分区）vs Bridge/Silo 分层控制平面，含 `0.05%` 选择性 Recall@10、P95 时延、单 Stamp 租户上限与 5,000 租户月度 TCO 对比](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.md) | [🇨🇳 中文](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.md) · [🇬🇧 EN](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（34 篇）
 
