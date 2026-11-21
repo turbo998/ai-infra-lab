@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (246 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (247 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **246 structured architecture selection guides and trade-off FAQs** (`492` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **247 structured architecture selection guides and trade-off FAQs** (`494` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 246 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 247 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (26 Guides)
 
@@ -80,7 +80,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 242 | [Enterprise Windows-Native MCP Tool Hosting Selection FAQ: `AKS Windows 2022/2025 + Hyper-V + gMSA` with Linux control-plane / Windows execution-plane separation vs `App Service Premium v4/ASEv3 Windows Containers` for low-Kubernetes-operations teams vs `Windows VMSS process-host pools` for non-containerizable DCOM/driver workloads vs `.NET 8/9 cross-platform modernization` with 3-year TCO inflection checkpoints](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.en.md) | [🇬🇧 EN](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.en.md) · [🇨🇳 中文](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.md) |
 | 246 | [Enterprise HPC simulation-agent gang-scheduling selection FAQ: `AKS + Kueue (all-or-nothing gang admission) + JobSet/MPIJob` for cloud-native unified orchestration vs `CycleCloud + Slurm + HBv4/HXv4/NDv5` for heavy MPI plus license-aware queueing vs `Azure Batch multi-instance MPI` for managed job lifecycles, combined with a two-stage architecture (`surrogate pruning -> high-fidelity MPI`) and residual divergence early-stop watchdogs for core-hour and license TCO control](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) | [🇬🇧 EN](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) · [🇨🇳 中文](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (25 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (26 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -111,6 +111,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 234 | [Enterprise Client-Cloud Hybrid SLM Routing Selection FAQ: `Foundry Local + ONNX Runtime GenAI` (endpoint NPU/iGPU local PII minimization + offline continuity) vs browser `WebGPU` zero-install inference vs branch edge shared inference boxes (`<10ms` LAN collaboration) vs `APIM -> Foundry Nano/Mini -> Frontier PTU` cloud authority escalation (token offload and distribution-bandwidth TCO for 50k endpoints)](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.en.md) | [🇬🇧 EN](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.en.md) · [🇨🇳 中文](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.md) |
 | 237 | [Enterprise Heterogeneous GPU Serving Selection FAQ: Azure `ND MI300X v5` (ROCm + vLLM/SGLang for long-context throughput and memory density) vs `ND H100/H200 v5` (TensorRT-LLM for low `TTFT` interactive lanes) vs `AKS` dual-chip profile-aware routing with unified precision regression and quota resilience vs Foundry `MaaS` overflow safety rails (`70B–671B` cost-per-million-token planning)](heterogeneous-gpu-serving-azure-nd-mi300x-rocm-vllm-vs-nd-h100-h200-trtllm-vs-maas-selection-faq.en.md) | [🇬🇧 EN](heterogeneous-gpu-serving-azure-nd-mi300x-rocm-vllm-vs-nd-h100-h200-trtllm-vs-maas-selection-faq.en.md) · [🇨🇳 中文](heterogeneous-gpu-serving-azure-nd-mi300x-rocm-vllm-vs-nd-h100-h200-trtllm-vs-maas-selection-faq.md) |
 | 241 | [Enterprise Tabular and Time-Series Foundation Model Serving Selection FAQ: hosted `TabPFN v2 + Chronos-Bolt/TimesFM` pools for `100–10,000` row cold-start quantile forecasts vs `AML/Fabric AutoML LightGBM/CatBoost/XGBoost + ONNX CPU` for high-dimensional governed scoring vs `ADX/Eventhouse series_decompose_forecast` in-database forecasting vs `LLM covariate extraction + MCP quantitative endpoint` orchestration contract with `Pinball Loss/WQL` and cost-per-10k governance](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.en.md) | [🇬🇧 EN](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.en.md) · [🇨🇳 中文](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.md) |
+| 247 | [Enterprise prompt-compression and context-pruning selection FAQ: inline `AKS/APIM-Envoy ExtProc + LLMLingua-2 (ONNX)` compression (`3x–6x` reduction and TTFT gains) vs verbatim `Azure AI Search Semantic Ranker / AKS TEI BGE-Reranker-v2-m3` Top-K retention for legal and numeric fidelity vs `Foundry/Azure OpenAI Prompt Caching + Mini/Nano async episodic summary` for multi-turn prefix reuse, plus hybrid “prefix-pinned + volatile-tail compression” with deterministic bypass for code, SQL, JSON syntax, UUIDs, financial figures, dates, and legal citations](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.en.md) | [🇬🇧 EN](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.en.md) · [🇨🇳 中文](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (26 Guides)
 

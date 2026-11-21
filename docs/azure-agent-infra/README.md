@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（246 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（247 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **246 个架构选型、平台对比与安全治理决策专题**（共 `492` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **247 个架构选型、平台对比与安全治理决策专题**（共 `494` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 246 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 247 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（26 篇）
 
@@ -80,7 +80,7 @@
 | 242 | [企业 Windows 原生 MCP 工具宿主选型 FAQ：`AKS Windows 2022/2025 + Hyper-V + gMSA`（Linux 编排面与 Windows 工具面解耦）vs `App Service Premium v4/ASEv3 Windows Containers`（低 K8s 经验团队托管托底）vs `Windows VMSS 进程池`（不可容器化 DCOM/驱动遗留）vs `.NET 8/9 跨平台改造`（三年 TCO 拐点）](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.md) | [🇨🇳 中文](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.md) · [🇬🇧 EN](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.en.md) |
 | 246 | [企业 HPC 仿真智能体成组调度选型 FAQ：`AKS + Kueue (All-or-Nothing Gang Admission) + JobSet/MPIJob`（云原生统一编排）vs `CycleCloud + Slurm + HBv4/HXv4/NDv5`（重度 MPI 与 License-Aware 排队）vs `Azure Batch Multi-Instance MPI`（托管批作业生命周期）与“神经代理初筛 + 高保真 MPI 精算 + 残差发散熔断”双层协同架构（万核时与许可证 TCO）](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) | [🇨🇳 中文](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) · [🇬🇧 EN](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（25 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（26 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -111,6 +111,7 @@
 | 234 | [企业端云协同本地 SLM 路由选型 FAQ：`Foundry Local + ONNX Runtime GenAI`（NPU/iGPU 本地 PII 脱敏与离线兜底）vs 浏览器 `WebGPU` 零安装推理 vs 分支边缘共享推理盒子（`<10ms` 局域网协同）vs `APIM -> Foundry Nano/Mini -> Frontier PTU` 云端权威升级（5 万终端 Token 卸载与分发带宽 TCO）](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.md) | [🇨🇳 中文](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.md) · [🇬🇧 EN](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.en.md) |
 | 237 | [企业异构 GPU 推理服务选型 FAQ：Azure `ND MI300X v5`（ROCm + vLLM/SGLang，长上下文吞吐与显存密度）vs `ND H100/H200 v5`（TensorRT-LLM，交互低 `TTFT`）vs `AKS` 双芯片画像分流混部（统一精度回归与配额韧性）vs Foundry `MaaS` 溢出保底（`70B–671B` 百万 Token TCO）](heterogeneous-gpu-serving-azure-nd-mi300x-rocm-vllm-vs-nd-h100-h200-trtllm-vs-maas-selection-faq.md) | [🇨🇳 中文](heterogeneous-gpu-serving-azure-nd-mi300x-rocm-vllm-vs-nd-h100-h200-trtllm-vs-maas-selection-faq.md) · [🇬🇧 EN](heterogeneous-gpu-serving-azure-nd-mi300x-rocm-vllm-vs-nd-h100-h200-trtllm-vs-maas-selection-faq.en.md) |
 | 241 | [企业表格与时序基础模型推理选型 FAQ：`TabPFN v2 + Chronos-Bolt/TimesFM` 托管池（`100–10,000` 行冷启动分位数预测）vs `AML/Fabric AutoML LightGBM/CatBoost/XGBoost + ONNX CPU`（高维特征与强监管归因审计）vs `ADX/Eventhouse series_decompose_forecast` 库内预测 vs `LLM 协变量提取 + MCP 定量端点` 编排契约（`Pinball Loss/WQL` 指标与单万次预测 TCO）](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.md) | [🇨🇳 中文](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.md) · [🇬🇧 EN](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.en.md) |
+| 247 | [企业 Prompt 压缩与上下文裁剪选型 FAQ：`AKS/APIM-Envoy ExtProc + LLMLingua-2 (ONNX)` 内联压缩（`3x–6x` 降载与 TTFT 提升）vs `Azure AI Search Semantic Ranker / AKS TEI BGE-Reranker-v2-m3` verbatim Top-K（法规条款与数字逐字保真）vs `Foundry/Azure OpenAI Prompt Caching + Mini/Nano 异步滚动摘要`（多轮前缀复用折扣）vs “前缀钉扎 + 波动尾部压缩”混合架构（`>12k` 尾部治理与 deterministic bypass）](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.md) | [🇨🇳 中文](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.md) · [🇬🇧 EN](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（26 篇）
 
