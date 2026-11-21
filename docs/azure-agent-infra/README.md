@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（259 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（260 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **259 个架构选型、平台对比与安全治理决策专题**（共 `518` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **260 个架构选型、平台对比与安全治理决策专题**（共 `520` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 259 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 260 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -283,7 +283,7 @@
 | 143 | [全球生物制药 CMC/GMP 批记录审查与放行智能体选型：MES/LIMS 结构化异常平面 vs Foundry ICH 证据平面 vs SAP QM/Veeva 治理签放平面 FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) | [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) · [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) |
 | 256 | [企业 Agent 出站无密钥认证选型 FAQ：`Managed Identity + Workload Federation`（Azure 原生最小改造）vs `SPIFFE/SVID + mTLS`（跨云工作负载统一身份）vs `Vault Broker` 动态短租凭据（遗留系统兼容）vs 混合控制平面（身份词汇统一、审计统一与失效默认拒绝）](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.md) | [🇨🇳 中文](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.md) · [🇬🇧 EN](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（31 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（32 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -320,6 +320,7 @@
 | 219 | [企业 Agent 流量门禁选型：`APIM AI Gateway` Token 级 `TPM/TPS` 准入 + `Retry-After` 退避 + PTU/PAYG 突发治理](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.md) | [🇨🇳 中文](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.md) · [🇬🇧 EN](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.en.md) |
 | 222 | [Foundry/APIM 成本拐点治理选型 FAQ：PTU 保底 + PAYG 溢出 + Retry-After 退避与分环预算护栏](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.md) | [🇨🇳 中文](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.md) · [🇬🇧 EN](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.en.md) |
 | 254 | [企业 LLMOps 评测门禁与灰度发布选型 FAQ：`Foundry Evals` 发布前质量准入 vs `APIM` 运行时策略守门 vs `Feature Flags` 分群灰度放量 vs 三段式混合闭环（缺陷拦截率、风险拦截率、自动回退时延与每千请求成本平衡）](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.md) | [🇨🇳 中文](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.md) · [🇬🇧 EN](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.en.md) |
+| 260 | [企业 Agent 质量门禁选型 FAQ：离线 `Golden Set` 基准回归 vs 在线 `LLM Judge` 评审流 vs 生产工单反馈闭环 vs 三环融合治理（误放行、误拦截、发现时延与每千请求治理成本平衡）](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.md) | [🇨🇳 中文](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.md) · [🇬🇧 EN](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（34 篇）
 
