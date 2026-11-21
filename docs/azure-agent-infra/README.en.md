@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (282 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (283 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **282 structured architecture selection guides and trade-off FAQs** (`564` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **283 structured architecture selection guides and trade-off FAQs** (`566` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 282 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 283 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (32 Guides)
 
@@ -86,7 +86,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 275 | [Enterprise multi-tenant agent-cluster isolation selection FAQ: hardened shared AKS (`Namespace-per-Tenant + Kata + Cilium + Kyverno/Gatekeeper + APF`) for maximum bin packing vs `vCluster` virtual control planes for tenant CRD/RBAC autonomy vs Fleet Manager deployment stamps (`Cluster-per-Tier/Tenant` with staged ring rollouts) vs ACA environment sharding for reduced control-plane operations, including `apiserver` P99, tenant onboarding time, 500-tenant monthly TCO, and blast-radius inflection analysis](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.en.md) | [🇬🇧 EN](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.en.md) · [🇨🇳 中文](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.md) |
 | 279 | [Enterprise elastic scale-to-zero burst hosting selection FAQ: Functions Flex Consumption (`FC1` with selective `alwaysReady`) vs ACA hybrid tiers (Consumption + Dedicated with KEDA `http`/`cron` pre-warm) vs AKS + KEDA + NAP/Karpenter + PriorityClass headroom (`<3s` first-wave burst absorption) vs App Service Premium v4 always-on reserved pools (high duty-cycle optimization), including burst cold-start P99, max SSE duration, and 50-agent monthly TCO comparison](elastic-scale-to-zero-burst-agent-hosting-functions-flex-consumption-vs-aca-keda-vs-aks-nap-headroom-selection-faq.en.md) | [🇬🇧 EN](elastic-scale-to-zero-burst-agent-hosting-functions-flex-consumption-vs-aca-keda-vs-aks-nap-headroom-selection-faq.en.md) · [🇨🇳 中文](elastic-scale-to-zero-burst-agent-hosting-functions-flex-consumption-vs-aca-keda-vs-aks-nap-headroom-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (32 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (33 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -124,6 +124,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 266 | [Enterprise agent model-endpoint failover selection FAQ: PTU primary-standby vs serverless warm pools vs AKS KServe canary releases (balancing failover RTO, TTFT P95, failure-window drop rate, and cost per 1,000 requests)](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) | [🇬🇧 EN](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) · [🇨🇳 中文](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.md) |
 | 273 | [Enterprise model-weight supply-chain and hydration selection FAQ: Foundry/AML Registry as governance authority with lineage and geo-replication vs ACR Premium ORAS + AKS `runai-model-streamer` for parallel chunk hydration and sub-minute `70B` readiness vs ANF/Managed Lustre shared read-only tensor pools for multi-node `mmap` consistency vs air-gapped quarantine promotion with `.safetensors` conversion, scanning, signing, and zero-egress runtime controls, including `70B/405B` startup, bandwidth, and monthly TCO inflection analysis](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.en.md) | [🇬🇧 EN](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.en.md) · [🇨🇳 中文](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.md) |
 | 277 | [Enterprise tiered KV cache offloading selection FAQ: Foundry Prompt Caching (managed prefix matching with input discount) vs AKS single-node vLLM/SGLang + LMCache local DRAM/NVMe tiering for `5–45` minute pause recovery with session affinity vs LMCache/Mooncake distributed shared KV pool for cross-pod resume and multi-agent prefix reuse vs rolling context compaction + scoped RAG re-hydration for `1–24h` long pauses, including `128K` TTFT P95, GPU goodput, and monthly TCO inflection analysis](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.en.md) | [🇬🇧 EN](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.en.md) · [🇨🇳 中文](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.md) |
+| 283 | [Enterprise agent post-training platform selection FAQ: Foundry serverless FT/RFT (`GPT-4.1-mini`/`o4-mini` managed route) vs AML `ND96isr_H100_v5/NCads_H100_v5` cluster + registry backbone vs AKS + Kueue + KubeRay `veRL/TRL` rollout-coupled RL path vs Mosaic + Unity governance-first path, including cost per 100M tokens, time-to-production, GPU Ops FTE, and weight portability comparisons](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.en.md) | [🇬🇧 EN](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.en.md) · [🇨🇳 中文](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (32 Guides)
 
