@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (228 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (229 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **228 structured architecture selection guides and trade-off FAQs** (`456` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **229 structured architecture selection guides and trade-off FAQs** (`458` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 228 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 229 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (21 Guides)
 
@@ -75,7 +75,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 226 | [Enterprise Privileged Infrastructure Remediation Agent Selection FAQ: identity-aware session proxy with `Teleport Machine ID / HashiCorp Boundary` (`5-minute` certs, command-level audit, dual approval) vs `Azure Bastion Premium + Ephemeral Jump Pods` vs `Azure Arc / VM Run Command & AKS command invoke` vs `Read-Only Impersonation Gateways` for secretless SSH/kubectl/psql governance](privileged-infra-ssh-kubectl-agent-bastion-teleport-boundary-aks-vs-arc-run-command-selection-faq.en.md) | [🇬🇧 EN](privileged-infra-ssh-kubectl-agent-bastion-teleport-boundary-aks-vs-arc-run-command-selection-faq.en.md) · [🇨🇳 中文](privileged-infra-ssh-kubectl-agent-bastion-teleport-boundary-aks-vs-arc-run-command-selection-faq.md) |
 | 228 | [3D/CAD/BIM Engineering Workstation Agent Selection FAQ: `AKS GPU Linux Headless (EGL/Vulkan)` vs `AVD NVads A10 v5 + WebRTC/RDP Shortpath` vs `APS/Onshape Serverless CAD APIs` vs `Ephemeral GPU VMSS + ANF/Lustre` (multi-view off-screen quality checks, `<35ms` human takeover, and floating-license concurrency governance)](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.en.md) | [🇬🇧 EN](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.en.md) · [🇨🇳 中文](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (21 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (22 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -102,6 +102,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 217 | [AKS GPU/KAITO Multi-Turn Agent Inference Selection FAQ: vLLM/SGLang Prefix-Cache Affinity, Session-Aware KV Locality, and Long/Short Request Isolation](aks-kaito-vllm-sglang-prefix-cache-session-kv-locality-long-short-request-isolation-selection-faq.en.md) | [🇬🇧 EN](aks-kaito-vllm-sglang-prefix-cache-session-kv-locality-long-short-request-isolation-selection-faq.en.md) · [🇨🇳 中文](aks-kaito-vllm-sglang-prefix-cache-session-kv-locality-long-short-request-isolation-selection-faq.md) |
 | 220 | [AKS GPU Inference Lane-Isolation Selection FAQ: Prefix-Cache Warm Pools, Session Stickiness, and Long/Short Request SLA Tiering](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) | [🇬🇧 EN](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) · [🇨🇳 中文](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.md) |
 | 223 | [AKS GPU Prefix-Cache Locality Selection FAQ: KAITO + vLLM/SGLang Session-Aware KV Affinity, Long/Short Lane Isolation, and Tail-Latency Guardrails](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) | [🇬🇧 EN](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) · [🇨🇳 中文](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.md) |
+| 229 | [Enterprise IDE Inline FIM + Next-Edit Low-Latency Serving Selection FAQ: GitHub Copilot Business/Enterprise vs AKS SGLang `Qwen2.5-Coder/Codestral` private inference pools vs AOAI/Foundry PTU light-model lane vs dual-lane IDE intelligence gateway (`P95 <150ms` with high-cancel-rate capacity controls)](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.en.md) | [🇬🇧 EN](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.en.md) · [🇨🇳 中文](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (21 Guides)
 
