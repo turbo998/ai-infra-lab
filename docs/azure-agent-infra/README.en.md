@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (285 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (286 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **285 structured architecture selection guides and trade-off FAQs** (`570` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **286 structured architecture selection guides and trade-off FAQs** (`572` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 285 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 286 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (33 Guides)
 
@@ -347,7 +347,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 268 | [Enterprise agent FinOps chargeback selection FAQ: OpenMeter event metering vs APIM usage ledger vs Fabric Cost Lake accounting backbone (balancing cost visibility per 1,000 tasks, budget variance, anomaly-detection lag, and annual recoverable savings)](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.en.md) | [🇬🇧 EN](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.en.md) · [🇨🇳 中文](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.md) |
 | 281 | [Enterprise stateful tool-trajectory evaluation selection FAQ: Foundry Native Evaluators (`IntentResolution`/`ToolCallAccuracy`/`TaskAdherence`) vs deterministic $\tau$-bench style hermetic state-diff harness (ACA Dynamic Sessions or ephemeral containers) vs multi-turn persona policy-boundary simulator (8-15 turns) vs production implicit outcome telemetry (`human_edit_distance`/`undo_rate`/`handoff_override`), including `pass@1` vs `pass^5`/`pass^8` math, consistency-gate cost, and false-positive trade-offs](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.en.md) | [🇬🇧 EN](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.en.md) · [🇨🇳 中文](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.md) |
 
-### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (34 Guides)
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (35 Guides)
 
 > Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
@@ -387,3 +387,4 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 221 | [Enterprise Agent Checkpoint-Replay & Idempotency-Contract Selection FAQ: ACA Dynamic Sessions Recovery Semantics + Tenant Cost Ledger + Failure-Amplification Suppression](agent-checkpoint-replay-idempotency-contract-aca-session-recovery-cost-ledger-selection-faq.en.md) | [🇬🇧 EN](agent-checkpoint-replay-idempotency-contract-aca-session-recovery-cost-ledger-selection-faq.en.md) · [🇨🇳 中文](agent-checkpoint-replay-idempotency-contract-aca-session-recovery-cost-ledger-selection-faq.md) |
 | 208 | [Enterprise Agent Multi-Region Active-Active Failover Selection: `Azure Front Door + APIM Regional Gateway` vs `Traffic Manager` vs `Application-Layer Adaptive Routing` (session idempotent resume, regional health probes, failover verification, and cost guardrails) FAQ](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.en.md) | [🇬🇧 EN](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.en.md) · [🇨🇳 中文](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.md) |
 | 209 | [Enterprise Agent Control-Plane Disaster-Recovery Selection: `APIM + GitOps` policy-release parity vs `Traffic Manager` dual-active ingress failover vs `Application Self-Healing Orchestration` (RTO/RPO, state replay, and recovery-correctness guardrails) FAQ](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.en.md) | [🇬🇧 EN](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.en.md) · [🇨🇳 中文](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.md) |
+| 286 | [Cross-cloud agent migration selection FAQ: moving AWS Bedrock/AgentCore + Step Functions + OpenSearch Serverless and GCP Vertex Agent Engine + Cloud Run + Workflows to Azure Foundry + ACA/AKS + AI Search + Cosmos + APIM using `5% -> 25% -> 100%` strangler cutover, Entra federated identity (no static keys), and dual-index shadow evaluation, with cross-cloud egress, dual-run overhead, and MACC TCO comparisons](cross-cloud-agent-migration-aws-bedrock-gcp-vertex-to-azure-foundry-aca-ai-search-strangler-cutover-selection-faq.en.md) | [🇬🇧 EN](cross-cloud-agent-migration-aws-bedrock-gcp-vertex-to-azure-foundry-aca-ai-search-strangler-cutover-selection-faq.en.md) · [🇨🇳 中文](cross-cloud-agent-migration-aws-bedrock-gcp-vertex-to-azure-foundry-aca-ai-search-strangler-cutover-selection-faq.md) |
