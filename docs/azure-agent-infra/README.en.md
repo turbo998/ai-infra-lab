@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (253 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (254 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **253 structured architecture selection guides and trade-off FAQs** (`506` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **254 structured architecture selection guides and trade-off FAQs** (`508` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 253 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 254 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -278,7 +278,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 142 | [Luxury Retail VIC Clienteling, Assortment Allocation, and DPP Anti-Counterfeit Agent Selection: Foundry Clienteling Plane vs Fabric Deterministic Allocation Plane vs D365/Cegid/Salesforce Governed Action Plane FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) | [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) · [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) |
 | 143 | [Global Biopharma CMC/GMP Batch Release and Deviation Agent Selection: MES/LIMS Structured Exception Plane vs Foundry ICH Evidence Plane vs SAP QM/Veeva Governed Sign-Off Plane FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) | [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) · [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (30 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (31 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -314,6 +314,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 216 | [Enterprise Multi-Region Agent Inference Selection: `Foundry + APIM` PTU Baseline + `Global Standard PAYG` Spillover with Token-Gate Controls](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.en.md) | [🇬🇧 EN](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.en.md) · [🇨🇳 中文](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.md) |
 | 219 | [Enterprise Agent Traffic-Gate Selection: `APIM AI Gateway` Token-Level `TPM/TPS` Admission + `Retry-After` Backoff + PTU/PAYG Burst Governance](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.en.md) | [🇬🇧 EN](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.en.md) · [🇨🇳 中文](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.md) |
 | 222 | [Foundry/APIM Cost-Inflection Governance Selection FAQ: PTU Baseline + PAYG Spillover + Retry-After Backoff with Ring-Budget Guardrails](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.en.md) | [🇬🇧 EN](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.en.md) · [🇨🇳 中文](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.md) |
+| 254 | [Enterprise LLMOps evaluation-gate and canary-release selection FAQ: `Foundry Evals` pre-release quality admission vs `APIM` runtime policy guarding vs `Feature Flags` segmented progressive rollout vs a three-stage mixed control loop (balancing defect interception, risk interception, auto-rollback latency, and cost per 1,000 requests)](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.en.md) | [🇬🇧 EN](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.en.md) · [🇨🇳 中文](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (34 Guides)
 

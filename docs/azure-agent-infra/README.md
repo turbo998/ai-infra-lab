@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（253 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（254 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **253 个架构选型、平台对比与安全治理决策专题**（共 `506` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **254 个架构选型、平台对比与安全治理决策专题**（共 `508` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 253 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 254 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -278,7 +278,7 @@
 | 142 | [奢侈品零售 VIC 客户经营与 DPP 防伪智能体选型：Foundry 客户经营平面 vs Fabric 配货优化平面 vs D365/Cegid/Salesforce 治理执行平面 FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) | [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) · [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) |
 | 143 | [全球生物制药 CMC/GMP 批记录审查与放行智能体选型：MES/LIMS 结构化异常平面 vs Foundry ICH 证据平面 vs SAP QM/Veeva 治理签放平面 FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) | [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) · [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（30 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（31 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -314,6 +314,7 @@
 | 216 | [企业级多区域 Agent 推理选型：`Foundry + APIM` PTU 保底 + `Global Standard PAYG` 突发溢出与 Token 门禁架构指南](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.md) | [🇨🇳 中文](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.md) · [🇬🇧 EN](foundry-apim-multi-region-ptu-baseline-global-standard-payg-spillover-selection-faq.en.md) |
 | 219 | [企业 Agent 流量门禁选型：`APIM AI Gateway` Token 级 `TPM/TPS` 准入 + `Retry-After` 退避 + PTU/PAYG 突发治理](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.md) | [🇨🇳 中文](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.md) · [🇬🇧 EN](apim-token-level-tpm-tps-admission-retry-after-backoff-ptu-payg-burst-governance-selection-faq.en.md) |
 | 222 | [Foundry/APIM 成本拐点治理选型 FAQ：PTU 保底 + PAYG 溢出 + Retry-After 退避与分环预算护栏](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.md) | [🇨🇳 中文](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.md) · [🇬🇧 EN](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.en.md) |
+| 254 | [企业 LLMOps 评测门禁与灰度发布选型 FAQ：`Foundry Evals` 发布前质量准入 vs `APIM` 运行时策略守门 vs `Feature Flags` 分群灰度放量 vs 三段式混合闭环（缺陷拦截率、风险拦截率、自动回退时延与每千请求成本平衡）](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.md) | [🇨🇳 中文](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.md) · [🇬🇧 EN](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（34 篇）
 
