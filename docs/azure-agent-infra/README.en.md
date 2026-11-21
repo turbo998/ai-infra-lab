@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (255 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (256 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **255 structured architecture selection guides and trade-off FAQs** (`510` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **256 structured architecture selection guides and trade-off FAQs** (`512` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 255 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 256 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -224,7 +224,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 250 | [Enterprise office-automation agent platform selection FAQ: `Copilot Studio` business workflow orchestration layer vs `Power Automate` connector-driven automation bus vs `Foundry + APIM` engineering policy-execution layer vs layered hybrid governance architecture (approval idempotency, compensation handling, per-1,000-task cost, and concurrency break-even)](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.en.md) | [🇬🇧 EN](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.en.md) · [🇨🇳 中文](enterprise-office-automation-agent-copilot-studio-vs-power-automate-vs-foundry-apim-selection-faq.md) |
 | 255 | [Enterprise high-risk agent action step-up authorization selection FAQ: `Entra Agent ID + OBO` delegated identity chain vs `APIM` one-time capability JWT action tokens vs `Durable/Logic Apps` human approval release flow vs risk-tiered hybrid closed loop (balancing false-allow rate, approval latency, accountability, and governance cost per 1,000 actions)](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.en.md) | [🇬🇧 EN](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.en.md) · [🇨🇳 中文](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (48 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (49 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -278,6 +278,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 141 | [Global Reinsurance NatCat Treaty and Catastrophe Modeling Agent Selection: Foundry Wording Evidence Plane vs Oasis LMF Deterministic HPC Simulation Plane vs Duck Creek/Guidewire Governed Action Plane FAQ](global-reinsurance-catastrophe-natcat-treaty-slip-bordereaux-foundry-cu-vs-hpc-oasis-lmf-vs-duckcreek-guidewire-mcp-selection-faq.en.md) | [🇬🇧 EN](global-reinsurance-catastrophe-natcat-treaty-slip-bordereaux-foundry-cu-vs-hpc-oasis-lmf-vs-duckcreek-guidewire-mcp-selection-faq.en.md) · [🇨🇳 中文](global-reinsurance-catastrophe-natcat-treaty-slip-bordereaux-foundry-cu-vs-hpc-oasis-lmf-vs-duckcreek-guidewire-mcp-selection-faq.md) |
 | 142 | [Luxury Retail VIC Clienteling, Assortment Allocation, and DPP Anti-Counterfeit Agent Selection: Foundry Clienteling Plane vs Fabric Deterministic Allocation Plane vs D365/Cegid/Salesforce Governed Action Plane FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) | [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) · [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) |
 | 143 | [Global Biopharma CMC/GMP Batch Release and Deviation Agent Selection: MES/LIMS Structured Exception Plane vs Foundry ICH Evidence Plane vs SAP QM/Veeva Governed Sign-Off Plane FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) | [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) · [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) |
+| 256 | [Enterprise agent outbound secretless-auth selection FAQ: `Managed Identity + workload federation` (Azure-native minimum rework) vs `SPIFFE/SVID + mTLS` (cross-cloud workload identity) vs `Vault broker` dynamic leased credentials (legacy compatibility) vs a hybrid control plane (unified identity vocabulary, audit unification, and fail-closed behavior)](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) | [🇬🇧 EN](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) · [🇨🇳 中文](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (31 Guides)
 
