@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (245 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (246 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **245 structured architecture selection guides and trade-off FAQs** (`490` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **246 structured architecture selection guides and trade-off FAQs** (`492` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 245 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 246 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (25 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (26 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -78,6 +78,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 236 | [Enterprise Sandbox Package Supply Anti-Slopsquatting Selection FAQ: `Artifactory + Xray / Nexus Firewall` private proxy for hallucinated-package blocking vs `Azure Artifacts Upstream + @Approved Views` controlled promotion vs `read-only uv/pnpm content-addressed cache` millisecond hydration (`<200ms`) vs layered golden base images (runtime pip/npm disabled)](sandbox-package-anti-slopsquatting-artifactory-vs-azure-artifacts-vs-uv-ro-cache-selection-faq.en.md) | [🇬🇧 EN](sandbox-package-anti-slopsquatting-artifactory-vs-azure-artifacts-vs-uv-ro-cache-selection-faq.en.md) · [🇨🇳 中文](sandbox-package-anti-slopsquatting-artifactory-vs-azure-artifacts-vs-uv-ro-cache-selection-faq.md) |
 | 239 | [Enterprise ARM64 Cobalt 100 Multi-Architecture Agent Runtime Selection FAQ: `AKS + NAP/Karpenter` `Dpsv6/Epsv6` ARM64 primary pools for high-concurrency non-GPU control planes vs `Ddsv6/Dadsv6` x86 compatibility isolation lanes for closed-source SDK/legacy drivers vs `ACR OCI Image Index + CI wheel preflight` to eliminate `exec format error` vs `ACA Consumption/Dedicated` layered hosting with 10k-concurrency host-TCO break-even gates](arm64-cobalt-100-dpsv6-epsv6-vs-x86-multi-arch-aks-nap-vs-aca-agent-runtime-tco-selection-faq.en.md) | [🇬🇧 EN](arm64-cobalt-100-dpsv6-epsv6-vs-x86-multi-arch-aks-nap-vs-aca-agent-runtime-tco-selection-faq.en.md) · [🇨🇳 中文](arm64-cobalt-100-dpsv6-epsv6-vs-x86-multi-arch-aks-nap-vs-aca-agent-runtime-tco-selection-faq.md) |
 | 242 | [Enterprise Windows-Native MCP Tool Hosting Selection FAQ: `AKS Windows 2022/2025 + Hyper-V + gMSA` with Linux control-plane / Windows execution-plane separation vs `App Service Premium v4/ASEv3 Windows Containers` for low-Kubernetes-operations teams vs `Windows VMSS process-host pools` for non-containerizable DCOM/driver workloads vs `.NET 8/9 cross-platform modernization` with 3-year TCO inflection checkpoints](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.en.md) | [🇬🇧 EN](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.en.md) · [🇨🇳 中文](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.md) |
+| 246 | [Enterprise HPC simulation-agent gang-scheduling selection FAQ: `AKS + Kueue (all-or-nothing gang admission) + JobSet/MPIJob` for cloud-native unified orchestration vs `CycleCloud + Slurm + HBv4/HXv4/NDv5` for heavy MPI plus license-aware queueing vs `Azure Batch multi-instance MPI` for managed job lifecycles, combined with a two-stage architecture (`surrogate pruning -> high-fidelity MPI`) and residual divergence early-stop watchdogs for core-hour and license TCO control](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) | [🇬🇧 EN](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) · [🇨🇳 中文](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (25 Guides)
 
