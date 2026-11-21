@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (227 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (228 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **227 structured architecture selection guides and trade-off FAQs** (`454` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **228 structured architecture selection guides and trade-off FAQs** (`456` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 227 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 228 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (20 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (21 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -73,6 +73,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 190 | [Enterprise Wasm Component Agent Tool Sandbox Selection: AKS SpinKube/Wasmtime (`containerd-shim-spin`) vs In-Process Wasmtime/Extism Host (`fuel/epoch`) vs ACA Dynamic Sessions (Hyper-V) vs AKS Kata (Hardware Virtualization) FAQ](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.en.md) | [🇬🇧 EN](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.en.md) · [🇨🇳 中文](wasm-component-agent-tool-sandbox-aks-spin-wasmtime-vs-aca-sessions-vs-kata-vm-selection-faq.md) |
 | 200 | [Enterprise Ephemeral PR Preview Sandbox Selection: `Azure Deployment Environments (ADE)` + Bicep/Terraform Catalog vs `vCluster on AKS` (CoW DB branches) vs `Signadot/Telepresence` request-routed sandboxes vs `Microsoft Dev Box` warm pools (`500-5,000` daily preview stacks, auto-TTL teardown, and full-stack autonomous Agent QA) FAQ](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.en.md) | [🇬🇧 EN](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.en.md) · [🇨🇳 中文](ephemeral-pr-preview-sandbox-environments-ade-bicep-vs-vcluster-aks-vs-devbox-agent-qa-selection-faq.md) |
 | 226 | [Enterprise Privileged Infrastructure Remediation Agent Selection FAQ: identity-aware session proxy with `Teleport Machine ID / HashiCorp Boundary` (`5-minute` certs, command-level audit, dual approval) vs `Azure Bastion Premium + Ephemeral Jump Pods` vs `Azure Arc / VM Run Command & AKS command invoke` vs `Read-Only Impersonation Gateways` for secretless SSH/kubectl/psql governance](privileged-infra-ssh-kubectl-agent-bastion-teleport-boundary-aks-vs-arc-run-command-selection-faq.en.md) | [🇬🇧 EN](privileged-infra-ssh-kubectl-agent-bastion-teleport-boundary-aks-vs-arc-run-command-selection-faq.en.md) · [🇨🇳 中文](privileged-infra-ssh-kubectl-agent-bastion-teleport-boundary-aks-vs-arc-run-command-selection-faq.md) |
+| 228 | [3D/CAD/BIM Engineering Workstation Agent Selection FAQ: `AKS GPU Linux Headless (EGL/Vulkan)` vs `AVD NVads A10 v5 + WebRTC/RDP Shortpath` vs `APS/Onshape Serverless CAD APIs` vs `Ephemeral GPU VMSS + ANF/Lustre` (multi-view off-screen quality checks, `<35ms` human takeover, and floating-license concurrency governance)](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.en.md) | [🇬🇧 EN](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.en.md) · [🇨🇳 中文](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (21 Guides)
 
