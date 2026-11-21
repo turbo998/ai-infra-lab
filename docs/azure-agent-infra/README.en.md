@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (275 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (276 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **275 structured architecture selection guides and trade-off FAQs** (`550` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **276 structured architecture selection guides and trade-off FAQs** (`552` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 275 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 276 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (31 Guides)
 
@@ -161,7 +161,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 271 | [Enterprise hybrid cloud-to-on-prem private MCP connectivity selection FAQ: ExpressRoute + Private Link Service/Private NAT (deterministic low-latency paths and overlapping CIDR control) vs Arc-enabled Kubernetes + APIM self-hosted gateway (local policy execution with mTLS/Kerberos translation) vs Azure Relay/Entra App Proxy (zero-inbound rapid onboarding) vs OPDG + Logic Apps Standard (low-code connector bridge, with P95 RTT, throughput, firewall lead-time, and monthly TCO inflection)](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.en.md) | [🇬🇧 EN](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.en.md) · [🇨🇳 中文](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.md) |
 | 274 | [Enterprise partner API static-egress and mTLS authentication selection FAQ: VNet injection + NAT Gateway (`/28` prefix and million-scale SNAT port budget) vs APIM + Key Vault managed client certificates (RFC 8705 sender-constrained governance with zero private-key residency in agent pods) vs Hub-Spoke Firewall Premium (central SecOps audit, IDPS, and TLS inspection) vs per-tenant/per-partner Envoy egress gateways (multi-tenant noisy-neighbor isolation and partner reputation protection), including SNAT capacity, TLS handshake P95, and monthly TCO inflection analysis](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.en.md) | [🇬🇧 EN](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.en.md) · [🇨🇳 中文](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (31 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (32 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -198,6 +198,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 244 | [Enterprise geospatial agent data-plane selection FAQ: `PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` unified spatial-semantic execution vs `Azure Maps Isochrone/Route Matrix` as a road-network MCP intelligence layer vs `ADX/Eventhouse` high-frequency H3 geofence streaming triggers vs `AI Search/Cosmos Geo` lightweight nearby filtering (cross-river dispatch error reduction, GeoJSON context slimming, and million-query TCO control)](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) | [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) · [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) |
 | 251 | [Enterprise knowledge-workflow agent selection FAQ: `M365 Copilot + Graph` native permission inheritance entry layer vs `Foundry + AI Search` cross-domain RAG platform layer vs `APIM` governance front door vs a dual-layer hybrid architecture (authorization trimming, evidence traceability, human-review gates, and per-1,000-request cost inflection)](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) | [🇬🇧 EN](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) · [🇨🇳 中文](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) |
 | 265 | [Enterprise knowledge freshness and evidence lineage selection FAQ: Cosmos Change Feed incremental indexing vs Event Grid webhook orchestration vs Fabric OneLake semantic snapshots (balancing update lag P95, stale-version hit rate, citation traceability coverage, and update cost per 1,000 answers)](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.en.md) | [🇬🇧 EN](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.en.md) · [🇨🇳 中文](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.md) |
+| 276 | [Enterprise long-term episodic and temporal agent memory selection FAQ: Mem0 on ACA/AKS for rapid memory orchestration vs Zep/Graphiti bi-temporal graph on AKS with Neo4j/FalkorDB for dispute replay vs Cosmos DiskANN + Change Feed + Durable Functions + Redis Azure-native governance pipeline vs Foundry Threads + per-user AI Search managed memory path (including `valid_from/valid_until` contradiction control, GDPR right-to-be-forgotten deletion, and 10K/500K active-user P95 plus monthly TCO inflection)](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.en.md) | [🇬🇧 EN](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.en.md) · [🇨🇳 中文](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (33 Guides)
 

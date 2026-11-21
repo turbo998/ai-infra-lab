@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（275 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（276 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **275 个架构选型、平台对比与安全治理决策专题**（共 `550` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **276 个架构选型、平台对比与安全治理决策专题**（共 `552` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 275 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 276 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（31 篇）
 
@@ -161,7 +161,7 @@
 | 271 | [企业混合云到本地私网 MCP 连接选型 FAQ：ExpressRoute + Private Link Service/Private NAT（确定性低时延与网段重叠治理）vs Arc + APIM 自托管网关（本地策略执行与 mTLS/Kerberos 翻译）vs Azure Relay/Entra App Proxy（零入站快速接入）vs OPDG + Logic Apps Standard（低代码连接器桥接，含 P95 RTT、吞吐、防火墙周期与月度 TCO 拐点）](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.md) | [🇨🇳 中文](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.md) · [🇬🇧 EN](hybrid-onprem-private-mcp-connectivity-privatelink-expressroute-vs-azure-relay-vs-apim-arc-gateway-selection-faq.en.md) |
 | 274 | [企业伙伴 API 静态出口与 mTLS 认证选型 FAQ：VNet 注入 + NAT Gateway（`/28` 前缀与百万级 SNAT 端口池）vs APIM + Key Vault 托管客户端证书（RFC 8705 发送者约束与零私钥驻留）vs Hub-Spoke Firewall Premium（集中审计、IDPS 与 TLS 检查）vs 每租户/每伙伴 Envoy 出口网关（多租户噪声隔离与信誉保护），含 SNAT 容量、TLS 握手 P95 与月度 TCO 拐点](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) | [🇨🇳 中文](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) · [🇬🇧 EN](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（31 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（32 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -198,6 +198,7 @@
 | 244 | [企业空间智能体数据底座选型 FAQ：`PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` 同库融合 vs `Azure Maps Isochrone/Route Matrix` 路网可达 MCP 工具层 vs `ADX/Eventhouse` 高频轨迹 H3 围栏流触发 vs `AI Search/Cosmos Geo` 轻量邻近筛选（跨河派单误差治理、GeoJSON 上下文瘦身与百万次查询 TCO）](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) | [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) · [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) |
 | 251 | [企业知识工作流智能体选型 FAQ：`M365 Copilot + Graph` 原生权限继承入口层 vs `Foundry + AI Search` 跨域 RAG 平台层 vs `APIM` 前置统一治理平面 vs 双层混合架构（权限裁剪、证据可追溯、复核门禁与每千问答成本拐点）](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) | [🇨🇳 中文](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) · [🇬🇧 EN](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) |
 | 265 | [企业知识新鲜度与证据谱系选型 FAQ：Cosmos Change Feed 增量索引 vs Event Grid Webhook 编排 vs Fabric OneLake 语义快照（更新滞后 P95、旧版本误命中率、引用可追溯覆盖率与每千问答更新成本平衡）](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.md) | [🇨🇳 中文](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.md) · [🇬🇧 EN](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.en.md) |
+| 276 | [企业长期情景记忆与时序事实治理选型 FAQ：Mem0（ACA/AKS）快速记忆编排 vs Zep/Graphiti 双时态图谱（AKS + Neo4j/FalkorDB）争议回放 vs Cosmos DiskANN + Change Feed + Durable Functions + Redis 原生治理管线 vs Foundry Threads + 每用户 AI Search 托管路径（含 `valid_from/valid_until` 冲突消解、GDPR 遗忘删除、10K/500K 活跃用户 P95 与月度 TCO 拐点）](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.md) | [🇨🇳 中文](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.md) · [🇬🇧 EN](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（33 篇）
 
