@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（250 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（251 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **250 个架构选型、平台对比与安全治理决策专题**（共 `500` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **251 个架构选型、平台对比与安全治理决策专题**（共 `502` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 250 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 251 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -147,7 +147,7 @@
 | 243 | [企业 MCP/A2A 契约破坏性演进治理选型 FAQ：`API Center + Spectral` 语法/语义双门禁与消费者回放 vs `APIM Version Sets + Revisions` 金丝雀双栈与网关双向 Schema 适配器 vs `Entra AppId -> Pinned Catalog Snapshot` 目录视图绑定与 `Deprecation/Sunset` 告警 vs `ACA/AKS Revision-Pinned Saga Draining` 在途长事务零停机排空](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) | [🇨🇳 中文](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) · [🇬🇧 EN](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) |
 | 245 | [企业公网联网搜索与提取治理选型 FAQ：`Foundry Grounding with Bing + Custom Search`（权威域白名单与引用锚点）vs `APIM 出站 DLP 代理 + Tavily/Exa`（查询脱敏与长尾语义检索）vs `ACA/AKS Firecrawl/Crawl4AI` 隔离提取池（robots/llms 合规与 HTML 蒸馏）vs `LSEG/Factiva/LexisNexis` 授权情报连接器（高价值证据版权与审计闭环）](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) | [🇨🇳 中文](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) · [🇬🇧 EN](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（29 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（30 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -182,6 +182,7 @@
 | 199 | [企业实时 Agent 特征上下文服务选型：`Feast + Azure Managed Redis + Event Hubs Flink/Spark` vs `Microsoft Fabric Eventhouse + OneLake` vs `Azure ML Managed Feature Store`（子 `10ms` 在线特征 serving、`30s` 滑窗速度信号、在线/离线 skew 防护与 `AS OF` 点时回放）FAQ](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) | [🇨🇳 中文](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) · [🇬🇧 EN](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) |
 | 233 | [企业临时 OLAP 分析智能体选型 FAQ：`DuckDB/Polars` 会话内嵌引擎 + `ADLS/OneLake Delta/Iceberg` 谓词下推直读（探索 SQL 风暴隔离）vs `Fabric Warehouse`（权威语义核验）vs `Databricks SQL Serverless + Unity Catalog`（跨域联邦治理）vs `ClickHouse/StarRocks/Eventhouse` 常驻热池（固定高 QPS 在线分析）](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) | [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) · [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) |
 | 244 | [企业空间智能体数据底座选型 FAQ：`PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` 同库融合 vs `Azure Maps Isochrone/Route Matrix` 路网可达 MCP 工具层 vs `ADX/Eventhouse` 高频轨迹 H3 围栏流触发 vs `AI Search/Cosmos Geo` 轻量邻近筛选（跨河派单误差治理、GeoJSON 上下文瘦身与百万次查询 TCO）](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) | [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) · [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) |
+| 251 | [企业知识工作流智能体选型 FAQ：`M365 Copilot + Graph` 原生权限继承入口层 vs `Foundry + AI Search` 跨域 RAG 平台层 vs `APIM` 前置统一治理平面 vs 双层混合架构（权限裁剪、证据可追溯、复核门禁与每千问答成本拐点）](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) | [🇨🇳 中文](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) · [🇬🇧 EN](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（30 篇）
 

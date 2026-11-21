@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (250 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (251 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **250 structured architecture selection guides and trade-off FAQs** (`500` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **251 structured architecture selection guides and trade-off FAQs** (`502` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 250 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 251 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -147,7 +147,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 243 | [Enterprise MCP/A2A Breaking-Change Governance Selection FAQ: `API Center + Spectral` dual syntax/semantic gates with consumer replay vs `APIM Version Sets + Revisions` canary dual-stack and deterministic dual-schema adapters vs `Entra AppId -> Pinned Catalog Snapshot` projection with `Deprecation/Sunset` telemetry vs `ACA/AKS Revision-Pinned Saga Draining` for zero-downtime long-transaction retirement](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) | [🇬🇧 EN](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) · [🇨🇳 中文](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) |
 | 245 | [Enterprise web-grounding and extraction governance selection FAQ: `Foundry Grounding with Bing + Custom Search` for authority-domain allowlists and citation offsets vs `APIM outbound DLP proxy + Tavily/Exa` for query de-identification and long-tail semantic discovery vs `ACA/AKS Firecrawl/Crawl4AI` isolated extraction pools for robots/llms policy enforcement and HTML distillation vs licensed `LSEG/Factiva/LexisNexis` connectors for copyright-safe, auditable premium evidence](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) | [🇬🇧 EN](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) · [🇨🇳 中文](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (29 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (30 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -182,6 +182,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 199 | [Enterprise Real-Time Agent Feature Context Serving Selection: `Feast + Azure Managed Redis + Event Hubs Flink/Spark` vs `Microsoft Fabric Eventhouse + OneLake` vs `Azure ML Managed Feature Store` (sub-`10ms` online serving, `30-second` sliding-window velocity signals, online/offline skew prevention, and `AS OF` point-in-time replay) FAQ](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) | [🇬🇧 EN](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) · [🇨🇳 中文](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) |
 | 233 | [Enterprise Ephemeral OLAP Agent Selection FAQ: in-session `DuckDB/Polars` engines + `ADLS/OneLake Delta/Iceberg` predicate-pushdown range reads (isolating exploratory SQL storms) vs `Fabric Warehouse` (governed authority verification) vs `Databricks SQL Serverless + Unity Catalog` (cross-domain federated governance) vs always-on `ClickHouse/StarRocks/Eventhouse` hot pools (fixed high-QPS online analytics)](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) | [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) · [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) |
 | 244 | [Enterprise geospatial agent data-plane selection FAQ: `PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` unified spatial-semantic execution vs `Azure Maps Isochrone/Route Matrix` as a road-network MCP intelligence layer vs `ADX/Eventhouse` high-frequency H3 geofence streaming triggers vs `AI Search/Cosmos Geo` lightweight nearby filtering (cross-river dispatch error reduction, GeoJSON context slimming, and million-query TCO control)](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) | [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) · [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) |
+| 251 | [Enterprise knowledge-workflow agent selection FAQ: `M365 Copilot + Graph` native permission inheritance entry layer vs `Foundry + AI Search` cross-domain RAG platform layer vs `APIM` governance front door vs a dual-layer hybrid architecture (authorization trimming, evidence traceability, human-review gates, and per-1,000-request cost inflection)](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) | [🇬🇧 EN](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) · [🇨🇳 中文](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (30 Guides)
 
