@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (265 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (266 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **265 structured architecture selection guides and trade-off FAQs** (`530` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **266 structured architecture selection guides and trade-off FAQs** (`532` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 265 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 266 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -81,7 +81,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 246 | [Enterprise HPC simulation-agent gang-scheduling selection FAQ: `AKS + Kueue (all-or-nothing gang admission) + JobSet/MPIJob` for cloud-native unified orchestration vs `CycleCloud + Slurm + HBv4/HXv4/NDv5` for heavy MPI plus license-aware queueing vs `Azure Batch multi-instance MPI` for managed job lifecycles, combined with a two-stage architecture (`surrogate pruning -> high-fidelity MPI`) and residual divergence early-stop watchdogs for core-hour and license TCO control](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) | [🇬🇧 EN](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) · [🇨🇳 中文](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) |
 | 248 | [Enterprise database-branching sandbox selection FAQ: serverless CoW branching with `Azure Native Neon Serverless Postgres / Databricks Lakebase` (`<1–2s` zero-copy forks) vs `ANF FlexClone + AKS CloudNativePG/SQL containers` (multi-TB realistic stats and high IOPS) vs `Azure PostgreSQL/Azure SQL PITR + masked subset refresh` (regulated backbone) vs `Testcontainers on ACA/AKS Kata` (zero-PII synthetic fixtures)](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.en.md) | [🇬🇧 EN](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.en.md) · [🇨🇳 中文](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (29 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (30 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -116,6 +116,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 253 | [Enterprise risk-tier model-routing selection FAQ: `Foundry Router` managed starting point vs `APIM` dual-lane policy governance (Mini/Frontier) vs `AKS` fine-tuned domain SLM lane for cost control vs three-tier hybrid escalation (balancing escalation precision, miss rate, over-escalation, and cost per 1,000 requests)](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.en.md) | [🇬🇧 EN](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.en.md) · [🇨🇳 中文](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.md) |
 | 257 | [Enterprise context-window routing selection FAQ: `PTU` long-context flagship lane for high-risk complex reasoning vs `Mini` short-context economy lane for high-concurrency workloads vs `AKS KAITO` domain SLM lane for stable terminology domains vs a three-lane hybrid loop balancing escalation ratio, TTFT, factual pass-rate, and cost per 1,000 requests](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) | [🇬🇧 EN](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) · [🇨🇳 中文](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.md) |
 | 262 | [Enterprise adaptive reasoning-depth routing selection FAQ: Mini economy lane vs Frontier deep lane vs two-pass verifier checks vs integrated closed-loop governance (balancing complex-task pass rate, miss-escalation rate, P95 latency, and blended cost per 1,000 requests)](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.en.md) | [🇬🇧 EN](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.en.md) · [🇨🇳 中文](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.md) |
+| 266 | [Enterprise agent model-endpoint failover selection FAQ: PTU primary-standby vs serverless warm pools vs AKS KServe canary releases (balancing failover RTO, TTFT P95, failure-window drop rate, and cost per 1,000 requests)](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) | [🇬🇧 EN](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) · [🇨🇳 中文](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (29 Guides)
 
