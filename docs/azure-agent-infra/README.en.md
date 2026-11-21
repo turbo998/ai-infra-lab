@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (233 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (234 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **233 structured architecture selection guides and trade-off FAQs** (`466` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **234 structured architecture selection guides and trade-off FAQs** (`468` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 233 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 234 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (22 Guides)
 
@@ -76,7 +76,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 228 | [3D/CAD/BIM Engineering Workstation Agent Selection FAQ: `AKS GPU Linux Headless (EGL/Vulkan)` vs `AVD NVads A10 v5 + WebRTC/RDP Shortpath` vs `APS/Onshape Serverless CAD APIs` vs `Ephemeral GPU VMSS + ANF/Lustre` (multi-view off-screen quality checks, `<35ms` human takeover, and floating-license concurrency governance)](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.en.md) | [🇬🇧 EN](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.en.md) · [🇨🇳 中文](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.md) |
 | 231 | [Enterprise MicroVM Snapshot Fork Sandbox Selection FAQ: `Azure VMSS Nested KVM + E2B/Firecracker` (`pause/resume/fork`) vs `ACA Dynamic Sessions` (managed Hyper-V pools) vs `AKS Kata` (platform-standard isolation) vs `Managed MicroVM Clouds` (parallel branching, overnight zero-compute pause, and RI break-even inflection)](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.en.md) | [🇬🇧 EN](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.en.md) · [🇨🇳 中文](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (22 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (23 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -104,6 +104,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 220 | [AKS GPU Inference Lane-Isolation Selection FAQ: Prefix-Cache Warm Pools, Session Stickiness, and Long/Short Request SLA Tiering](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) | [🇬🇧 EN](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) · [🇨🇳 中文](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.md) |
 | 223 | [AKS GPU Prefix-Cache Locality Selection FAQ: KAITO + vLLM/SGLang Session-Aware KV Affinity, Long/Short Lane Isolation, and Tail-Latency Guardrails](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) | [🇬🇧 EN](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) · [🇨🇳 中文](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.md) |
 | 229 | [Enterprise IDE Inline FIM + Next-Edit Low-Latency Serving Selection FAQ: GitHub Copilot Business/Enterprise vs AKS SGLang `Qwen2.5-Coder/Codestral` private inference pools vs AOAI/Foundry PTU light-model lane vs dual-lane IDE intelligence gateway (`P95 <150ms` with high-cancel-rate capacity controls)](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.en.md) | [🇬🇧 EN](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.en.md) · [🇨🇳 中文](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.md) |
+| 234 | [Enterprise Client-Cloud Hybrid SLM Routing Selection FAQ: `Foundry Local + ONNX Runtime GenAI` (endpoint NPU/iGPU local PII minimization + offline continuity) vs browser `WebGPU` zero-install inference vs branch edge shared inference boxes (`<10ms` LAN collaboration) vs `APIM -> Foundry Nano/Mini -> Frontier PTU` cloud authority escalation (token offload and distribution-bandwidth TCO for 50k endpoints)](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.en.md) | [🇬🇧 EN](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.en.md) · [🇨🇳 中文](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (22 Guides)
 

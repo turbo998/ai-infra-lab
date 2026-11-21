@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（233 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（234 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **233 个架构选型、平台对比与安全治理决策专题**（共 `466` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **234 个架构选型、平台对比与安全治理决策专题**（共 `468` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 233 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 234 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（22 篇）
 
@@ -76,7 +76,7 @@
 | 228 | [企业 3D/CAD/BIM 工程工作站智能体选型 FAQ：`AKS GPU Linux Headless(EGL/Vulkan)` vs `AVD NVads A10 v5 + WebRTC/RDP Shortpath` vs `APS/Onshape Serverless CAD API` vs `Ephemeral GPU VMSS + ANF/Lustre`（多视角离屏质检、`<35ms` 人类接管与浮动许可证并发治理）](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.md) | [🇨🇳 中文](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.md) · [🇬🇧 EN](gpu-3d-cad-bim-workstation-agent-aks-egl-vulkan-headless-vs-avd-nvads-v5-webrtc-selection-faq.en.md) |
 | 231 | [企业 MicroVM 快照分叉沙箱选型 FAQ：`Azure VMSS Nested KVM + E2B/Firecracker`（`pause/resume/fork`）vs `ACA Dynamic Sessions`（托管 Hyper-V 会话池）vs `AKS Kata`（平台化隔离）vs `Managed MicroVM Cloud`（并行分支、跨天零算力休眠与 RI 盈亏拐点）](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.md) | [🇨🇳 中文](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.md) · [🇬🇧 EN](microvm-snapshot-fork-sandbox-e2b-firecracker-azure-vmss-vs-aca-sessions-vs-aks-kata-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（22 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（23 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -104,6 +104,7 @@
 | 220 | [AKS GPU 推理车道隔离选型 FAQ：Prefix Cache 预热池、会话粘性与长短请求 SLA 分层](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.md) | [🇨🇳 中文](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.md) · [🇬🇧 EN](aks-gpu-inference-lane-isolation-prefix-cache-warm-pool-sla-selection-faq.en.md) |
 | 223 | [AKS GPU Prefix Cache 亲和路由选型 FAQ：KAITO + vLLM/SGLang 的 Session-aware KV Locality、长短请求车道隔离与尾延迟护栏](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.md) | [🇨🇳 中文](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.md) · [🇬🇧 EN](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) |
 | 229 | [企业 IDE 行内 FIM 补全与 Next-Edit 低延迟服务选型 FAQ：GitHub Copilot Business/Enterprise vs AKS SGLang `Qwen2.5-Coder/Codestral` 私有推理池 vs AOAI/Foundry PTU 轻量模型层 vs IDE 智能网关快慢双环（`P95 <150ms` 与高取消率容量治理）](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.md) | [🇨🇳 中文](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.md) · [🇬🇧 EN](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.en.md) |
+| 234 | [企业端云协同本地 SLM 路由选型 FAQ：`Foundry Local + ONNX Runtime GenAI`（NPU/iGPU 本地 PII 脱敏与离线兜底）vs 浏览器 `WebGPU` 零安装推理 vs 分支边缘共享推理盒子（`<10ms` 局域网协同）vs `APIM -> Foundry Nano/Mini -> Frontier PTU` 云端权威升级（5 万终端 Token 卸载与分发带宽 TCO）](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.md) | [🇨🇳 中文](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.md) · [🇬🇧 EN](hybrid-client-cloud-slm-routing-foundry-local-npu-onnx-vs-webgpu-vs-foundry-cloud-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（22 篇）
 
