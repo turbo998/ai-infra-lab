@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（248 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（249 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **248 个架构选型、平台对比与安全治理决策专题**（共 `496` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **249 个架构选型、平台对比与安全治理决策专题**（共 `498` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 248 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 249 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -183,7 +183,7 @@
 | 233 | [企业临时 OLAP 分析智能体选型 FAQ：`DuckDB/Polars` 会话内嵌引擎 + `ADLS/OneLake Delta/Iceberg` 谓词下推直读（探索 SQL 风暴隔离）vs `Fabric Warehouse`（权威语义核验）vs `Databricks SQL Serverless + Unity Catalog`（跨域联邦治理）vs `ClickHouse/StarRocks/Eventhouse` 常驻热池（固定高 QPS 在线分析）](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) | [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) · [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) |
 | 244 | [企业空间智能体数据底座选型 FAQ：`PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` 同库融合 vs `Azure Maps Isochrone/Route Matrix` 路网可达 MCP 工具层 vs `ADX/Eventhouse` 高频轨迹 H3 围栏流触发 vs `AI Search/Cosmos Geo` 轻量邻近筛选（跨河派单误差治理、GeoJSON 上下文瘦身与百万次查询 TCO）](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) | [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) · [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（28 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（29 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -217,6 +217,7 @@
 | 224 | [Durable Agent SAGA 选型 FAQ：检查点压缩、回放窗口、ACA Dynamic Sessions 恢复与租户级 FinOps 成本归因](durable-agent-saga-checkpoint-compaction-replay-window-aca-sessions-tenant-finops-selection-faq.md) | [🇨🇳 中文](durable-agent-saga-checkpoint-compaction-replay-window-aca-sessions-tenant-finops-selection-faq.md) · [🇬🇧 EN](durable-agent-saga-checkpoint-compaction-replay-window-aca-sessions-tenant-finops-selection-faq.en.md) |
 | 232 | [企业异步邮件线程智能体通道选型 FAQ：`Graph Mail Change Notifications + Exchange Shared Mailbox`（线程重建与 Draft-Only 审批）vs `ACS Email + 独立子域`（信誉隔离与 Event Grid 回执）vs `Inbound Parse`（动态案宗地址与大附件 Claim-Check）vs `CRM/ITSM Email-to-Case`（SLA 工单桥接与自动回复风暴熔断）](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.md) | [🇨🇳 中文](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.md) · [🇬🇧 EN](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.en.md) |
 | 240 | [全球 B2C 社交消息智能体选型 FAQ：`ACS Advanced Messaging + Event Grid + Service Bus Sessions`（WhatsApp 主通道）vs `APIM 快回验签 + 会话队列 + 微信/LINE 协议适配层`（5 秒超时与异步回推解耦）vs `D365 Contact Center / 全球 CPaaS` 人机协同全托管 vs `Azure Bot Service` 轻量连接基线（24h/48h 窗口合规与会话计费 FinOps）](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.md) | [🇨🇳 中文](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.md) · [🇬🇧 EN](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.en.md) |
+| 249 | [企业全渠道客服智能体平台选型 FAQ：`Copilot Studio` 低代码流程编排 vs `Foundry + APIM + ACA/AKS` 工程化多代理栈 vs `Dynamics 365 Contact Center` 业务一体化路径 vs “前台快层 + 后台稳层”双速混合架构（并发、TTFT、转人工率与每千会话 TCO 拐点）](omnichannel-customer-service-agent-copilot-studio-vs-foundry-aca-vs-d365-contact-center-selection-faq.md) | [🇨🇳 中文](omnichannel-customer-service-agent-copilot-studio-vs-foundry-aca-vs-d365-contact-center-selection-faq.md) · [🇬🇧 EN](omnichannel-customer-service-agent-copilot-studio-vs-foundry-aca-vs-d365-contact-center-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（48 篇）
 
