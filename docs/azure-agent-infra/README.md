@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（256 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（257 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **256 个架构选型、平台对比与安全治理决策专题**（共 `512` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **257 个架构选型、平台对比与安全治理决策专题**（共 `514` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 256 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 257 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -81,7 +81,7 @@
 | 246 | [企业 HPC 仿真智能体成组调度选型 FAQ：`AKS + Kueue (All-or-Nothing Gang Admission) + JobSet/MPIJob`（云原生统一编排）vs `CycleCloud + Slurm + HBv4/HXv4/NDv5`（重度 MPI 与 License-Aware 排队）vs `Azure Batch Multi-Instance MPI`（托管批作业生命周期）与“神经代理初筛 + 高保真 MPI 精算 + 残差发散熔断”双层协同架构（万核时与许可证 TCO）](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) | [🇨🇳 中文](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) · [🇬🇧 EN](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) |
 | 248 | [企业数据库分支沙箱选型 FAQ：`Azure Native Neon Serverless Postgres / Databricks Lakebase` CoW 分支（`<1–2s` 零拷贝分叉）vs `ANF FlexClone + AKS CloudNativePG/SQL Containers`（多 TB 真实统计与高 IOPS）vs `Azure PostgreSQL/Azure SQL PITR + 脱敏子集刷新`（强监管主干）vs `Testcontainers on ACA/AKS Kata`（零 PII 合成夹具）](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.md) | [🇨🇳 中文](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.md) · [🇬🇧 EN](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（27 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（28 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -114,6 +114,7 @@
 | 241 | [企业表格与时序基础模型推理选型 FAQ：`TabPFN v2 + Chronos-Bolt/TimesFM` 托管池（`100–10,000` 行冷启动分位数预测）vs `AML/Fabric AutoML LightGBM/CatBoost/XGBoost + ONNX CPU`（高维特征与强监管归因审计）vs `ADX/Eventhouse series_decompose_forecast` 库内预测 vs `LLM 协变量提取 + MCP 定量端点` 编排契约（`Pinball Loss/WQL` 指标与单万次预测 TCO）](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.md) | [🇨🇳 中文](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.md) · [🇬🇧 EN](tabular-timeseries-foundation-model-serving-tabpfn-chronos-aks-vs-aml-lightgbm-vs-llm-selection-faq.en.md) |
 | 247 | [企业 Prompt 压缩与上下文裁剪选型 FAQ：`AKS/APIM-Envoy ExtProc + LLMLingua-2 (ONNX)` 内联压缩（`3x–6x` 降载与 TTFT 提升）vs `Azure AI Search Semantic Ranker / AKS TEI BGE-Reranker-v2-m3` verbatim Top-K（法规条款与数字逐字保真）vs `Foundry/Azure OpenAI Prompt Caching + Mini/Nano 异步滚动摘要`（多轮前缀复用折扣）vs “前缀钉扎 + 波动尾部压缩”混合架构（`>12k` 尾部治理与 deterministic bypass）](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.md) | [🇨🇳 中文](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.md) · [🇬🇧 EN](prompt-compression-context-pruning-aks-llmlingua2-onnx-vs-reranker-vs-foundry-cache-selection-faq.en.md) |
 | 253 | [企业风险分层模型路由选型 FAQ：`Foundry Router` 托管路由起步 vs `APIM` 双通道策略治理（Mini/Frontier）vs `AKS` 微调 SLM 专域通道降本 vs 三层混合分层（升级命中率、漏检率、误升级率与每千请求成本平衡）](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.md) | [🇨🇳 中文](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.md) · [🇬🇧 EN](risk-tier-model-routing-frontier-vs-mini-vs-finetuned-slm-aks-vs-apim-policy-selection-faq.en.md) |
+| 257 | [企业上下文窗口路由选型 FAQ：`PTU` 长上下文旗舰通道（高风险复杂推理）vs `Mini` 短上下文经济通道（高并发低成本）vs `AKS KAITO` 专域 SLM 通道（稳定术语域）vs 三层混合闭环（升级率、TTFT、事实通过率与每千请求成本平衡）](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.md) | [🇨🇳 中文](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.md) · [🇬🇧 EN](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（27 篇）
 
