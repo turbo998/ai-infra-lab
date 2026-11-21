@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (268 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (270 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **269 structured architecture selection guides and trade-off FAQs** (`538` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **270 structured architecture selection guides and trade-off FAQs** (`540` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 269 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 270 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (28 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (29 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -81,6 +81,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 246 | [Enterprise HPC simulation-agent gang-scheduling selection FAQ: `AKS + Kueue (all-or-nothing gang admission) + JobSet/MPIJob` for cloud-native unified orchestration vs `CycleCloud + Slurm + HBv4/HXv4/NDv5` for heavy MPI plus license-aware queueing vs `Azure Batch multi-instance MPI` for managed job lifecycles, combined with a two-stage architecture (`surrogate pruning -> high-fidelity MPI`) and residual divergence early-stop watchdogs for core-hour and license TCO control](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) | [🇬🇧 EN](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) · [🇨🇳 中文](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) |
 | 248 | [Enterprise database-branching sandbox selection FAQ: serverless CoW branching with `Azure Native Neon Serverless Postgres / Databricks Lakebase` (`<1–2s` zero-copy forks) vs `ANF FlexClone + AKS CloudNativePG/SQL containers` (multi-TB realistic stats and high IOPS) vs `Azure PostgreSQL/Azure SQL PITR + masked subset refresh` (regulated backbone) vs `Testcontainers on ACA/AKS Kata` (zero-PII synthetic fixtures)](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.en.md) | [🇬🇧 EN](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.en.md) · [🇨🇳 中文](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.md) |
 | 267 | [Enterprise browser-agent session-hosting selection FAQ: ACA Dynamic Sessions vs AKS Playwright Grid vs managed cloud browser pools (balancing session isolation strength, concurrency capacity, task success rate, and cost per 1,000 tasks)](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.en.md) | [🇬🇧 EN](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.en.md) · [🇨🇳 中文](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.md) |
+| 270 | [Enterprise confidential agent runtime selection FAQ: AKS Kata-CC (SEV-SNP) with Rego CCE and MAA/Managed HSM SKR vs ACI Confidential Containers with pinned CCE digest vs Confidential VM (TDX) plus NCCads_H100_v5 confidential GPU inference vs tiered hybrid architecture (in-use memory protection, attestation chain, P95 overhead, and monthly TCO inflection)](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.en.md) | [🇬🇧 EN](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.en.md) · [🇨🇳 中文](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (30 Guides)
 

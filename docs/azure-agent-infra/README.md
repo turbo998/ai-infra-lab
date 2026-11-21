@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（269 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（270 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **269 个架构选型、平台对比与安全治理决策专题**（共 `538` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **270 个架构选型、平台对比与安全治理决策专题**（共 `540` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 269 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 270 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（28 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（29 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -81,6 +81,7 @@
 | 246 | [企业 HPC 仿真智能体成组调度选型 FAQ：`AKS + Kueue (All-or-Nothing Gang Admission) + JobSet/MPIJob`（云原生统一编排）vs `CycleCloud + Slurm + HBv4/HXv4/NDv5`（重度 MPI 与 License-Aware 排队）vs `Azure Batch Multi-Instance MPI`（托管批作业生命周期）与“神经代理初筛 + 高保真 MPI 精算 + 残差发散熔断”双层协同架构（万核时与许可证 TCO）](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) | [🇨🇳 中文](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) · [🇬🇧 EN](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) |
 | 248 | [企业数据库分支沙箱选型 FAQ：`Azure Native Neon Serverless Postgres / Databricks Lakebase` CoW 分支（`<1–2s` 零拷贝分叉）vs `ANF FlexClone + AKS CloudNativePG/SQL Containers`（多 TB 真实统计与高 IOPS）vs `Azure PostgreSQL/Azure SQL PITR + 脱敏子集刷新`（强监管主干）vs `Testcontainers on ACA/AKS Kata`（零 PII 合成夹具）](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.md) | [🇨🇳 中文](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.md) · [🇬🇧 EN](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.en.md) |
 | 267 | [企业 Browser Agent 会话宿主选型 FAQ：ACA Dynamic Sessions vs AKS Playwright Grid vs 托管云浏览器池（会话隔离强度、并发承载、任务成功率与每千任务成本平衡）](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.md) | [🇨🇳 中文](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.md) · [🇬🇧 EN](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.en.md) |
+| 270 | [企业机密 Agent Runtime 选型 FAQ：AKS Kata-CC（SEV-SNP）+ Rego CCE + MAA/Managed HSM SKR vs ACI Confidential Containers（固定 CCE Digest）vs Confidential VM（TDX）+ NCCads_H100_v5 机密 GPU 推理 vs 分层混合架构（内存在用保护、证明链、P95 开销与月度 TCO 拐点）](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.md) | [🇨🇳 中文](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.md) · [🇬🇧 EN](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（30 篇）
 
