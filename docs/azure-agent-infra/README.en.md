@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (274 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (275 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **274 structured architecture selection guides and trade-off FAQs** (`548` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **275 structured architecture selection guides and trade-off FAQs** (`550` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 274 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 275 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (30 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (31 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -83,6 +83,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 267 | [Enterprise browser-agent session-hosting selection FAQ: ACA Dynamic Sessions vs AKS Playwright Grid vs managed cloud browser pools (balancing session isolation strength, concurrency capacity, task success rate, and cost per 1,000 tasks)](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.en.md) | [🇬🇧 EN](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.en.md) · [🇨🇳 中文](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.md) |
 | 270 | [Enterprise confidential agent runtime selection FAQ: AKS Kata-CC (SEV-SNP) with Rego CCE and MAA/Managed HSM SKR vs ACI Confidential Containers with pinned CCE digest vs Confidential VM (TDX) plus NCCads_H100_v5 confidential GPU inference vs tiered hybrid architecture (in-use memory protection, attestation chain, P95 overhead, and monthly TCO inflection)](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.en.md) | [🇬🇧 EN](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.en.md) · [🇨🇳 中文](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.md) |
 | 272 | [Enterprise agent sandbox POSIX workspace storage selection FAQ: Azure Container Storage (ACStor) on local ephemeral NVMe with Elastic SAN hibernate snapshots (sub-millisecond RWO hot path) vs Azure NetApp Files NFSv4.1 with FlexClone (high-concurrency RWX collaboration and near-instant clones) vs Azure Files Premium NFSv4.1 (managed AKS/ACA native RWX baseline) vs BlobFuse2 CSI streaming cache (petabyte-scale read-heavy mounts), including `git status` P95, attach latency, IOPS, and monthly TCO inflection for 1,000 sandboxes](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.en.md) | [🇬🇧 EN](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.en.md) · [🇨🇳 中文](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.md) |
+| 275 | [Enterprise multi-tenant agent-cluster isolation selection FAQ: hardened shared AKS (`Namespace-per-Tenant + Kata + Cilium + Kyverno/Gatekeeper + APF`) for maximum bin packing vs `vCluster` virtual control planes for tenant CRD/RBAC autonomy vs Fleet Manager deployment stamps (`Cluster-per-Tier/Tenant` with staged ring rollouts) vs ACA environment sharding for reduced control-plane operations, including `apiserver` P99, tenant onboarding time, 500-tenant monthly TCO, and blast-radius inflection analysis](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.en.md) | [🇬🇧 EN](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.en.md) · [🇨🇳 中文](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (31 Guides)
 

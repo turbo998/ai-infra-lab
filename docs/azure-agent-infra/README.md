@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（274 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（275 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **274 个架构选型、平台对比与安全治理决策专题**（共 `548` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **275 个架构选型、平台对比与安全治理决策专题**（共 `550` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 274 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 275 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（30 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（31 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -83,6 +83,7 @@
 | 267 | [企业 Browser Agent 会话宿主选型 FAQ：ACA Dynamic Sessions vs AKS Playwright Grid vs 托管云浏览器池（会话隔离强度、并发承载、任务成功率与每千任务成本平衡）](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.md) | [🇨🇳 中文](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.md) · [🇬🇧 EN](browser-agent-session-hosting-aca-dynamic-sessions-vs-aks-playwright-grid-vs-managed-cloud-browser-selection-faq.en.md) |
 | 270 | [企业机密 Agent Runtime 选型 FAQ：AKS Kata-CC（SEV-SNP）+ Rego CCE + MAA/Managed HSM SKR vs ACI Confidential Containers（固定 CCE Digest）vs Confidential VM（TDX）+ NCCads_H100_v5 机密 GPU 推理 vs 分层混合架构（内存在用保护、证明链、P95 开销与月度 TCO 拐点）](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.md) | [🇨🇳 中文](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.md) · [🇬🇧 EN](confidential-agent-runtime-tee-aks-kata-cc-sev-snp-vs-aci-cce-vs-ncc-h100-v5-skr-selection-faq.en.md) |
 | 272 | [企业 Agent 沙箱 POSIX 工作区存储选型 FAQ：ACStor 本地 NVMe + Elastic SAN（亚毫秒 RWO 热盘与休眠快照回写）vs Azure NetApp Files NFSv4.1 + FlexClone（高并发 RWX 协作与秒级克隆）vs Azure Files Premium NFSv4.1（AKS/ACA 原生挂载与托管平衡）vs BlobFuse2 CSI Streaming Cache（PB 级读密集数据挂载，含 `git status` P95、挂载时延、IOPS 与每千沙箱月度 TCO 拐点）](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.md) | [🇨🇳 中文](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.md) · [🇬🇧 EN](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.en.md) |
+| 275 | [企业多租户 Agent 集群隔离选型 FAQ：共享 AKS（`Namespace-per-Tenant + Kata + Cilium + Kyverno/Gatekeeper + APF`）高装箱路径 vs `vCluster` 虚拟控制面（租户 CRD/RBAC 独立）vs Fleet Manager Deployment Stamps（`Cluster-per-Tier/Tenant` 灰度环发布）vs ACA Environment 分片（低控制面运维），含 `apiserver` P99、租户上手时长、500 租户月度 TCO 与故障爆炸半径拐点](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.md) | [🇨🇳 中文](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.md) · [🇬🇧 EN](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（31 篇）
 
