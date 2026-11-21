@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (280 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (281 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **280 structured architecture selection guides and trade-off FAQs** (`560` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **281 structured architecture selection guides and trade-off FAQs** (`562` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 280 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 281 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (32 Guides)
 
@@ -302,7 +302,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 261 | [Enterprise agent privacy-gate selection FAQ: `Purview` discovery baseline vs `APIM` ingress/egress DLP policy gates vs runtime `Sidecar Tokenization` field controls vs a three-layer integrated zero-trust loop (balancing leakage rate, false-redaction rate, block latency, and governance cost per 1,000 requests)](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) | [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) · [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) |
 | 269 | [Enterprise agent authorization selection FAQ: Entra PIM + JIT consent vs APIM JWT capability claims vs OPA policy-graph decision plane (balancing least privilege, temporary elevation, auditable evidence, and P95/TCO inflection points)](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) | [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) · [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (33 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (34 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -341,6 +341,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 254 | [Enterprise LLMOps evaluation-gate and canary-release selection FAQ: `Foundry Evals` pre-release quality admission vs `APIM` runtime policy guarding vs `Feature Flags` segmented progressive rollout vs a three-stage mixed control loop (balancing defect interception, risk interception, auto-rollback latency, and cost per 1,000 requests)](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.en.md) | [🇬🇧 EN](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.en.md) · [🇨🇳 中文](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.md) |
 | 260 | [Enterprise agent quality-gate selection FAQ: offline `Golden Set` regression vs online `LLM Judge` review flow vs production feedback-loop gates vs three-ring integrated governance (balancing false-allow rate, false-block rate, detection latency, and governance cost per 1,000 requests)](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.en.md) | [🇬🇧 EN](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.en.md) · [🇨🇳 中文](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.md) |
 | 268 | [Enterprise agent FinOps chargeback selection FAQ: OpenMeter event metering vs APIM usage ledger vs Fabric Cost Lake accounting backbone (balancing cost visibility per 1,000 tasks, budget variance, anomaly-detection lag, and annual recoverable savings)](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.en.md) | [🇬🇧 EN](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.en.md) · [🇨🇳 中文](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.md) |
+| 281 | [Enterprise stateful tool-trajectory evaluation selection FAQ: Foundry Native Evaluators (`IntentResolution`/`ToolCallAccuracy`/`TaskAdherence`) vs deterministic $\tau$-bench style hermetic state-diff harness (ACA Dynamic Sessions or ephemeral containers) vs multi-turn persona policy-boundary simulator (8-15 turns) vs production implicit outcome telemetry (`human_edit_distance`/`undo_rate`/`handoff_override`), including `pass@1` vs `pass^5`/`pass^8` math, consistency-gate cost, and false-positive trade-offs](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.en.md) | [🇬🇧 EN](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.en.md) · [🇨🇳 中文](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (34 Guides)
 
