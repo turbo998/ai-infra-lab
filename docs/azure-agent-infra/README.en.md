@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (229 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (230 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **229 structured architecture selection guides and trade-off FAQs** (`458` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **230 structured architecture selection guides and trade-off FAQs** (`460` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 229 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 230 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (21 Guides)
 
@@ -104,7 +104,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 223 | [AKS GPU Prefix-Cache Locality Selection FAQ: KAITO + vLLM/SGLang Session-Aware KV Affinity, Long/Short Lane Isolation, and Tail-Latency Guardrails](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) | [🇬🇧 EN](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.en.md) · [🇨🇳 中文](aks-gpu-kaito-vllm-sglang-kv-cache-locality-prefix-affinity-long-short-lane-selection-faq.md) |
 | 229 | [Enterprise IDE Inline FIM + Next-Edit Low-Latency Serving Selection FAQ: GitHub Copilot Business/Enterprise vs AKS SGLang `Qwen2.5-Coder/Codestral` private inference pools vs AOAI/Foundry PTU light-model lane vs dual-lane IDE intelligence gateway (`P95 <150ms` with high-cancel-rate capacity controls)](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.en.md) | [🇬🇧 EN](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.en.md) · [🇨🇳 中文](ide-code-fim-next-edit-serving-github-copilot-vs-aks-sglang-qwen-codestral-vs-ptu-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (21 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (22 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -131,6 +131,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 197 | [Enterprise Fine-Grained ReBAC Zanzibar Authorization Selection: `SpiceDB/OpenFGA` Tuple Graph on AKS + PostgreSQL vs `Cedar` Verified ABAC Sidecars vs `Microsoft Entra` Groups and App Roles (`Human ∩ Agent` Delegation Intersection, `ZedToken` Revocation Consistency, and RAG Pre-Filter Compilation) FAQ](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.en.md) | [🇬🇧 EN](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.en.md) · [🇨🇳 中文](fine-grained-rebac-zanzibar-authorization-openfga-spicedb-aks-vs-cedar-vs-entra-abac-selection-faq.md) |
 | 225 | [Enterprise Agent Outbound OAuth Token Vault Selection FAQ: `APIM Credential Manager` vs `Envoy Secret-Injecting Forward Proxy + Key Vault/Vault` vs `Identity Token Vault/Token Exchange (RFC 8693)` vs `Self-Hosted OAuth Broker` (multi-SaaS secretless credential injection, refresh-token rotation, and zero-credential residency governance)](agent-outbound-oauth-token-vault-secretless-egress-apim-credential-manager-vs-envoy-proxy-selection-faq.en.md) | [🇬🇧 EN](agent-outbound-oauth-token-vault-secretless-egress-apim-credential-manager-vs-envoy-proxy-selection-faq.en.md) · [🇨🇳 中文](agent-outbound-oauth-token-vault-secretless-egress-apim-credential-manager-vs-envoy-proxy-selection-faq.md) |
 | 227 | [Inbound SaaS Webhook Trigger Selection FAQ: `APIM Inline HMAC + Direct Service Bus` vs `Event Grid Partner Topics / Pull Namespaces` vs `Hookdeck/Svix/Envoy Debounce Gateway` vs `Functions Flex + Durable` (`<50ms` ACK decoupling, anti-replay, dedup/debounce, and token-storm governance)](inbound-saas-webhook-agent-trigger-apim-hmac-servicebus-vs-eventgrid-partner-vs-svix-selection-faq.en.md) | [🇬🇧 EN](inbound-saas-webhook-agent-trigger-apim-hmac-servicebus-vs-eventgrid-partner-vs-svix-selection-faq.en.md) · [🇨🇳 中文](inbound-saas-webhook-agent-trigger-apim-hmac-servicebus-vs-eventgrid-partner-vs-svix-selection-faq.md) |
+| 230 | [AKS East-West AI/MCP Gateway Selection FAQ: `Envoy AI Gateway / Gateway API Inference Extension` (`InferencePool/InferenceModel + EPP`) vs `APIM Self-Hosted Gateway` (cloud control plane with local data plane) vs `Managed APIM North-South` vs `Bifrost/LiteLLM Proxy` (hairpin removal, Pod-level LoRA/queue-aware routing, and disconnected autonomy)](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.en.md) | [🇬🇧 EN](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.en.md) · [🇨🇳 中文](k8s-gateway-api-inference-extension-envoy-ai-gateway-vs-apim-self-hosted-east-west-mcp-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (27 Guides)
 
