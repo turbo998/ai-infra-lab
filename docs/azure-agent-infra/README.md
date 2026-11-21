@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（239 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（240 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **239 个架构选型、平台对比与安全治理决策专题**（共 `478` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **240 个架构选型、平台对比与安全治理决策专题**（共 `480` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 239 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 240 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（24 篇）
 
@@ -175,7 +175,7 @@
 | 199 | [企业实时 Agent 特征上下文服务选型：`Feast + Azure Managed Redis + Event Hubs Flink/Spark` vs `Microsoft Fabric Eventhouse + OneLake` vs `Azure ML Managed Feature Store`（子 `10ms` 在线特征 serving、`30s` 滑窗速度信号、在线/离线 skew 防护与 `AS OF` 点时回放）FAQ](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) | [🇨🇳 中文](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) · [🇬🇧 EN](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) |
 | 233 | [企业临时 OLAP 分析智能体选型 FAQ：`DuckDB/Polars` 会话内嵌引擎 + `ADLS/OneLake Delta/Iceberg` 谓词下推直读（探索 SQL 风暴隔离）vs `Fabric Warehouse`（权威语义核验）vs `Databricks SQL Serverless + Unity Catalog`（跨域联邦治理）vs `ClickHouse/StarRocks/Eventhouse` 常驻热池（固定高 QPS 在线分析）](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) | [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) · [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（27 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（28 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -208,6 +208,7 @@
 | 207 | [企业多租户 A2A/MCP 零信任互联选型：`APIM + mTLS/JWT` vs `Istio Ambient + SPIFFE` vs `Dapr Sidecar + ACL`（租户边界、委托链审计、最小权限策略与发布门禁联动）FAQ](a2a-mcp-multitenant-zero-trust-apim-vs-istio-ambient-vs-dapr-selection-faq.md) | [🇨🇳 中文](a2a-mcp-multitenant-zero-trust-apim-vs-istio-ambient-vs-dapr-selection-faq.md) · [🇬🇧 EN](a2a-mcp-multitenant-zero-trust-apim-vs-istio-ambient-vs-dapr-selection-faq.en.md) |
 | 224 | [Durable Agent SAGA 选型 FAQ：检查点压缩、回放窗口、ACA Dynamic Sessions 恢复与租户级 FinOps 成本归因](durable-agent-saga-checkpoint-compaction-replay-window-aca-sessions-tenant-finops-selection-faq.md) | [🇨🇳 中文](durable-agent-saga-checkpoint-compaction-replay-window-aca-sessions-tenant-finops-selection-faq.md) · [🇬🇧 EN](durable-agent-saga-checkpoint-compaction-replay-window-aca-sessions-tenant-finops-selection-faq.en.md) |
 | 232 | [企业异步邮件线程智能体通道选型 FAQ：`Graph Mail Change Notifications + Exchange Shared Mailbox`（线程重建与 Draft-Only 审批）vs `ACS Email + 独立子域`（信誉隔离与 Event Grid 回执）vs `Inbound Parse`（动态案宗地址与大附件 Claim-Check）vs `CRM/ITSM Email-to-Case`（SLA 工单桥接与自动回复风暴熔断）](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.md) | [🇨🇳 中文](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.md) · [🇬🇧 EN](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.en.md) |
+| 240 | [全球 B2C 社交消息智能体选型 FAQ：`ACS Advanced Messaging + Event Grid + Service Bus Sessions`（WhatsApp 主通道）vs `APIM 快回验签 + 会话队列 + 微信/LINE 协议适配层`（5 秒超时与异步回推解耦）vs `D365 Contact Center / 全球 CPaaS` 人机协同全托管 vs `Azure Bot Service` 轻量连接基线（24h/48h 窗口合规与会话计费 FinOps）](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.md) | [🇨🇳 中文](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.md) · [🇬🇧 EN](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（48 篇）
 

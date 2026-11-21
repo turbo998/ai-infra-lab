@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (239 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (240 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **239 structured architecture selection guides and trade-off FAQs** (`478` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **240 structured architecture selection guides and trade-off FAQs** (`480` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 239 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 240 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (24 Guides)
 
@@ -175,7 +175,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 199 | [Enterprise Real-Time Agent Feature Context Serving Selection: `Feast + Azure Managed Redis + Event Hubs Flink/Spark` vs `Microsoft Fabric Eventhouse + OneLake` vs `Azure ML Managed Feature Store` (sub-`10ms` online serving, `30-second` sliding-window velocity signals, online/offline skew prevention, and `AS OF` point-in-time replay) FAQ](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) | [🇬🇧 EN](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) · [🇨🇳 中文](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) |
 | 233 | [Enterprise Ephemeral OLAP Agent Selection FAQ: in-session `DuckDB/Polars` engines + `ADLS/OneLake Delta/Iceberg` predicate-pushdown range reads (isolating exploratory SQL storms) vs `Fabric Warehouse` (governed authority verification) vs `Databricks SQL Serverless + Unity Catalog` (cross-domain federated governance) vs always-on `ClickHouse/StarRocks/Eventhouse` hot pools (fixed high-QPS online analytics)](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) | [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) · [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (27 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (28 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -208,6 +208,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 207 | [Enterprise Multi-Tenant A2A/MCP Zero-Trust Interconnect Selection: `APIM + mTLS/JWT` vs `Istio Ambient + SPIFFE` vs `Dapr Sidecar + ACL` (tenant boundary enforcement, delegation-chain auditability, least-privilege policy, and release-gate integration) FAQ](a2a-mcp-multitenant-zero-trust-apim-vs-istio-ambient-vs-dapr-selection-faq.en.md) | [🇬🇧 EN](a2a-mcp-multitenant-zero-trust-apim-vs-istio-ambient-vs-dapr-selection-faq.en.md) · [🇨🇳 中文](a2a-mcp-multitenant-zero-trust-apim-vs-istio-ambient-vs-dapr-selection-faq.md) |
 | 224 | [Durable Agent SAGA Selection FAQ: Checkpoint Compaction, Replay Windows, ACA Dynamic Sessions Recovery, and Tenant-Level FinOps Attribution](durable-agent-saga-checkpoint-compaction-replay-window-aca-sessions-tenant-finops-selection-faq.en.md) | [🇬🇧 EN](durable-agent-saga-checkpoint-compaction-replay-window-aca-sessions-tenant-finops-selection-faq.en.md) · [🇨🇳 中文](durable-agent-saga-checkpoint-compaction-replay-window-aca-sessions-tenant-finops-selection-faq.md) |
 | 232 | [Enterprise Async Email-Thread Agent Channel Selection FAQ: `Graph Mail Change Notifications + Exchange Shared Mailbox` (thread reconstruction and draft-only approvals) vs `ACS Email + isolated subdomain` (sender reputation isolation and Event Grid delivery telemetry) vs `Inbound Parse` (dynamic case addresses and large-attachment claim-check) vs `CRM/ITSM Email-to-Case` (SLA workflow bridge and auto-responder storm circuit breakers)](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.en.md) | [🇬🇧 EN](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.en.md) · [🇨🇳 中文](async-email-thread-agent-channel-graph-mail-webhook-vs-acs-email-vs-inbound-parse-selection-faq.md) |
+| 240 | [Global B2C Social Messaging Agent Selection FAQ: `ACS Advanced Messaging + Event Grid + Service Bus Sessions` for WhatsApp-primary operations vs `APIM fast signature-verify ack + session queue + WeChat/LINE protocol adapters` for hard timeout and async callback governance vs `D365 Contact Center / global CPaaS` managed human-agent collaboration vs `Azure Bot Service` lightweight connector baseline under 24h/48h window compliance and conversation-cost FinOps](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.en.md) | [🇬🇧 EN](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.en.md) · [🇨🇳 中文](social-messaging-whatsapp-wechat-line-b2c-agent-acs-advanced-messaging-vs-apim-queue-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (48 Guides)
 
