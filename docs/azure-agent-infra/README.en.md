@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (264 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (265 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **264 structured architecture selection guides and trade-off FAQs** (`528` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **265 structured architecture selection guides and trade-off FAQs** (`530` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 264 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 265 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -153,7 +153,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 258 | [Enterprise agent tool-budget governance selection FAQ: `APIM token/rate quota` gateway hard guardrails vs `tenant credit ledger` fine-grained value accounting vs runtime `circuit-breaker + fallback` degradation for service continuity vs a three-stage hybrid closed loop (balancing false-block rate, budget-overrun ratio, SLA retention, and governance cost per 1,000 requests)](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) | [🇬🇧 EN](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) · [🇨🇳 中文](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) |
 | 264 | [Enterprise multi-tenant MCP quota isolation selection FAQ: APIM Workspace quota domains vs Redis token buckets vs dedicated gateway pools and hybrid layering (balancing tenant isolation strength, false-throttle rate, critical-tenant success, and blended cost per 1,000 sessions)](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.en.md) | [🇬🇧 EN](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.en.md) · [🇨🇳 中文](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (30 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (31 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -189,6 +189,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 233 | [Enterprise Ephemeral OLAP Agent Selection FAQ: in-session `DuckDB/Polars` engines + `ADLS/OneLake Delta/Iceberg` predicate-pushdown range reads (isolating exploratory SQL storms) vs `Fabric Warehouse` (governed authority verification) vs `Databricks SQL Serverless + Unity Catalog` (cross-domain federated governance) vs always-on `ClickHouse/StarRocks/Eventhouse` hot pools (fixed high-QPS online analytics)](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) | [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) · [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) |
 | 244 | [Enterprise geospatial agent data-plane selection FAQ: `PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` unified spatial-semantic execution vs `Azure Maps Isochrone/Route Matrix` as a road-network MCP intelligence layer vs `ADX/Eventhouse` high-frequency H3 geofence streaming triggers vs `AI Search/Cosmos Geo` lightweight nearby filtering (cross-river dispatch error reduction, GeoJSON context slimming, and million-query TCO control)](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) | [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) · [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) |
 | 251 | [Enterprise knowledge-workflow agent selection FAQ: `M365 Copilot + Graph` native permission inheritance entry layer vs `Foundry + AI Search` cross-domain RAG platform layer vs `APIM` governance front door vs a dual-layer hybrid architecture (authorization trimming, evidence traceability, human-review gates, and per-1,000-request cost inflection)](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) | [🇬🇧 EN](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) · [🇨🇳 中文](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) |
+| 265 | [Enterprise knowledge freshness and evidence lineage selection FAQ: Cosmos Change Feed incremental indexing vs Event Grid webhook orchestration vs Fabric OneLake semantic snapshots (balancing update lag P95, stale-version hit rate, citation traceability coverage, and update cost per 1,000 answers)](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.en.md) | [🇬🇧 EN](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.en.md) · [🇨🇳 中文](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (33 Guides)
 

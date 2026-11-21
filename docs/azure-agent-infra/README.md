@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（264 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（265 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **264 个架构选型、平台对比与安全治理决策专题**（共 `528` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **265 个架构选型、平台对比与安全治理决策专题**（共 `530` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 264 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 265 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -153,7 +153,7 @@
 | 258 | [企业 Agent 工具调用预算治理选型 FAQ：`APIM Token/Rate Quota` 网关硬护栏 vs `Tenant Credit Ledger` 精细化信用记账 vs 运行时 `Circuit Breaker + Fallback` 降级保活 vs 三段式混合闭环（误伤率、预算超支率、SLA 保持率与每千请求治理成本平衡）](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) | [🇨🇳 中文](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) · [🇬🇧 EN](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) |
 | 264 | [企业多租户 MCP 配额隔离选型 FAQ：APIM Workspace 配额域 vs Redis 令牌桶 vs 专属网关池混合模式（租户隔离强度、限流误伤率、关键租户成功率与每千会话综合成本平衡）](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.md) | [🇨🇳 中文](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.md) · [🇬🇧 EN](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（30 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（31 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -189,6 +189,7 @@
 | 233 | [企业临时 OLAP 分析智能体选型 FAQ：`DuckDB/Polars` 会话内嵌引擎 + `ADLS/OneLake Delta/Iceberg` 谓词下推直读（探索 SQL 风暴隔离）vs `Fabric Warehouse`（权威语义核验）vs `Databricks SQL Serverless + Unity Catalog`（跨域联邦治理）vs `ClickHouse/StarRocks/Eventhouse` 常驻热池（固定高 QPS 在线分析）](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) | [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) · [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) |
 | 244 | [企业空间智能体数据底座选型 FAQ：`PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` 同库融合 vs `Azure Maps Isochrone/Route Matrix` 路网可达 MCP 工具层 vs `ADX/Eventhouse` 高频轨迹 H3 围栏流触发 vs `AI Search/Cosmos Geo` 轻量邻近筛选（跨河派单误差治理、GeoJSON 上下文瘦身与百万次查询 TCO）](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) | [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) · [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) |
 | 251 | [企业知识工作流智能体选型 FAQ：`M365 Copilot + Graph` 原生权限继承入口层 vs `Foundry + AI Search` 跨域 RAG 平台层 vs `APIM` 前置统一治理平面 vs 双层混合架构（权限裁剪、证据可追溯、复核门禁与每千问答成本拐点）](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) | [🇨🇳 中文](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.md) · [🇬🇧 EN](enterprise-knowledge-workflow-agent-sharepoint-graph-copilot-vs-foundry-rag-governance-selection-faq.en.md) |
+| 265 | [企业知识新鲜度与证据谱系选型 FAQ：Cosmos Change Feed 增量索引 vs Event Grid Webhook 编排 vs Fabric OneLake 语义快照（更新滞后 P95、旧版本误命中率、引用可追溯覆盖率与每千问答更新成本平衡）](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.md) | [🇨🇳 中文](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.md) · [🇬🇧 EN](knowledge-freshness-lineage-rag-cosmos-changefeed-vs-eventgrid-webhook-vs-fabric-onelake-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（33 篇）
 
