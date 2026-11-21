@@ -1,6 +1,6 @@
 # AI Infra Lab — 云原生与企业级 AI 基础设施架构实验室
 
-> 🌐 **Language / 语言切换**: **中文主页 (`README.md`)** | **[🇬🇧 English Homepage (`README.en.md`)](README.en.md)** | **[📚 209 篇架构选型决策库 (`docs/azure-agent-infra/`)](docs/azure-agent-infra/README.md)** | **[🛠️ 28 章全栈手册与蓝图 (`workshops/azure-agent-infra/`)](workshops/azure-agent-infra/README.md)**
+> 🌐 **Language / 语言切换**: **中文主页 (`README.md`)** | **[🇬🇧 English Homepage (`README.en.md`)](README.en.md)** | **[📚 210 篇架构选型决策库 (`docs/azure-agent-infra/`)](docs/azure-agent-infra/README.md)** | **[🛠️ 28 章全栈手册与蓝图 (`workshops/azure-agent-infra/`)](workshops/azure-agent-infra/README.md)**
 
 面向 **Cloud & AI Solution Architect（云与 AI 解决方案架构师）** 的生产级参考架构、平台选型权衡（Trade-offs）、容量与 TCO 测算模型以及可部署基础设施即代码（IaC）知识库。本仓库聚焦企业在落地大规模 LLM 推理、多智能体编排与安全沙箱时的真实架构决策：
 
@@ -16,7 +16,7 @@
 
 | 模块 | 架构师核心问题与覆盖范围 | 资产规模 | 快速入口（中文 / English） |
 |---|---|---|---|
-| **1. Azure AI 与智能体架构选型决策库** | 8 大企业架构域：**沙箱与执行环境**（ACA Dynamic Sessions / Foundry Code Interpreter / AKS Kata / E2B）、**模型托管与 GPU**（PTU / Serverless GPU / AKS KAITO）、**AI Gateway 与协议**（APIM 令牌治理 / A2A + Remote MCP）、**零信任身份与网络**（Entra Agent ID OBO / Private Link）、**状态存储**（Cosmos DB / Managed Redis / PostgreSQL `pgvector`）、**企业知识底座**（AI Search Hybrid RAG / Fabric IQ）、**可观测与 FinOps**、**跨栈编排**（Copilot Studio / Power Automate / Playwright MCP） | **209 篇**双语选型 FAQ（`418` 份文档）+ **8 张**矢量架构图 | [🇨🇳 中文选型总览](docs/azure-agent-infra/README.md) · [🇬🇧 EN Catalog](docs/azure-agent-infra/README.en.md) |
+| **1. Azure AI 与智能体架构选型决策库** | 8 大企业架构域：**沙箱与执行环境**（ACA Dynamic Sessions / Foundry Code Interpreter / AKS Kata / E2B）、**模型托管与 GPU**（PTU / Serverless GPU / AKS KAITO）、**AI Gateway 与协议**（APIM 令牌治理 / A2A + Remote MCP）、**零信任身份与网络**（Entra Agent ID OBO / Private Link）、**状态存储**（Cosmos DB / Managed Redis / PostgreSQL `pgvector`）、**企业知识底座**（AI Search Hybrid RAG / Fabric IQ）、**可观测与 FinOps**、**跨栈编排**（Copilot Studio / Power Automate / Playwright MCP） | **210 篇**双语选型 FAQ（`420` 份文档）+ **8 张**矢量架构图 | [🇨🇳 中文选型总览](docs/azure-agent-infra/README.md) · [🇬🇧 EN Catalog](docs/azure-agent-infra/README.en.md) |
 | **2. Azure AI Agent Infra 全栈架构手册与工程套件** | **28 章全栈架构 Playbook** + **23 套生产级 IaC 蓝图**（Bicep / AKS Kata RuntimeClass / Cilium IMDS 封禁 / Nomad / APIM AI Gateway XML / OTEL Collector）+ **确定性容量与成本测算器**（`agent_infra_sizer.py`）+ **7-Card 4:5 基准测试报告** + **交互式 H5 仿真工作台** | 28 章手册 · 23 套蓝图 · 16 张 SVG · 34 项单测 | [🇨🇳 Playbook 中文版](workshops/azure-agent-infra/README.md) · [🇬🇧 EN Playbook](workshops/azure-agent-infra/README.en.md) · [📊 7-Card 评测](workshops/azure-agent-infra/test-report.md) |
 | **3. 阿里云 AI Infra 全栈架构深度测评（跨云对标）** | 系统拆解 **L0 平头哥自研芯片**（真武 810E PPU / 倚天 CPU / ICN 交换芯片 / 磐脉网卡 / 镇岳主控）、**L1 磐久 AL128 超节点与 HPN 7.0 双平面网络**（Solar-RDMA / ACCL / CPFS）、**L2 PAI 潮汐配额与 PD 分离推理**、**L3 百炼平台（Token / PTU / DTU / MU）**，并与 **Azure / AWS / GCP** 逐层横向对标 | L0–L3 深度报告 + **6 张**高清矢量架构图 | [🇨🇳 中文深度测评](docs/alibaba-cloud-ai-infra/README.md) · [🇬🇧 EN Evaluation](docs/alibaba-cloud-ai-infra/README.en.md) |
 | **4. AI 基础设施硬核架构视频脚本库** | 面向技术分享与高管汇报的分幕双语脚本：**EP03**（FlashInfer 0.6 块稀疏算子与 Mooncake RDMA PD 分离架构）与 **EP05**（Azure 企业级零信任 Agent 硬件沙箱与 APIM AI Gateway） | **2 期**完整四幕双语分镜脚本 | [🇨🇳 视频脚本目录](docs/video-explainers/README.md) · [🇬🇧 Video Index](docs/video-explainers/README.en.md) |
@@ -56,7 +56,7 @@ ai-infra-lab/
 ├── README.md / README.en.md          # 中英双语仓库总览与高频选型矩阵
 ├── docs/
 │   ├── README.md / README.en.md      # 文档中心总索引（中英双语）
-│   ├── azure-agent-infra/            # 209 篇企业级 Azure AI 与智能体架构选型 FAQ（418 份双语文档 + 8 张 SVG）
+│   ├── azure-agent-infra/            # 210 篇企业级 Azure AI 与智能体架构选型 FAQ（420 份双语文档 + 8 张 SVG）
 │   ├── alibaba-cloud-ai-infra/       # 阿里云 L0–L3 AI Infra 全栈测评与跨云对标报告（双语 + 6 张 SVG）
 │   └── video-explainers/             # AI 基础设施硬核架构科普视频分镜脚本（EP03 · EP05 双语）
 └── workshops/
