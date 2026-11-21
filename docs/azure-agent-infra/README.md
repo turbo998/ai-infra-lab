@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（247 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（248 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **247 个架构选型、平台对比与安全治理决策专题**（共 `494` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **248 个架构选型、平台对比与安全治理决策专题**（共 `496` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 247 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 248 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（26 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -79,6 +79,7 @@
 | 239 | [企业 ARM64 Cobalt 100 多架构智能体宿主选型 FAQ：`AKS + NAP/Karpenter` 上 `Dpsv6/Epsv6` ARM64 主力池（高并发非 GPU 控制面）vs `Ddsv6/Dadsv6` x86 兼容隔离池（闭源 SDK/遗留驱动）vs `ACR OCI Image Index + CI 依赖轮子预检`（根除 `exec format error`）vs `ACA Consumption/Dedicated` 分层承载（万级并发宿主 TCO 盈亏线）](arm64-cobalt-100-dpsv6-epsv6-vs-x86-multi-arch-aks-nap-vs-aca-agent-runtime-tco-selection-faq.md) | [🇨🇳 中文](arm64-cobalt-100-dpsv6-epsv6-vs-x86-multi-arch-aks-nap-vs-aca-agent-runtime-tco-selection-faq.md) · [🇬🇧 EN](arm64-cobalt-100-dpsv6-epsv6-vs-x86-multi-arch-aks-nap-vs-aca-agent-runtime-tco-selection-faq.en.md) |
 | 242 | [企业 Windows 原生 MCP 工具宿主选型 FAQ：`AKS Windows 2022/2025 + Hyper-V + gMSA`（Linux 编排面与 Windows 工具面解耦）vs `App Service Premium v4/ASEv3 Windows Containers`（低 K8s 经验团队托管托底）vs `Windows VMSS 进程池`（不可容器化 DCOM/驱动遗留）vs `.NET 8/9 跨平台改造`（三年 TCO 拐点）](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.md) | [🇨🇳 中文](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.md) · [🇬🇧 EN](windows-container-legacy-dotnet-com-mcp-host-aks-windows-hyperv-gmsa-vs-app-service-selection-faq.en.md) |
 | 246 | [企业 HPC 仿真智能体成组调度选型 FAQ：`AKS + Kueue (All-or-Nothing Gang Admission) + JobSet/MPIJob`（云原生统一编排）vs `CycleCloud + Slurm + HBv4/HXv4/NDv5`（重度 MPI 与 License-Aware 排队）vs `Azure Batch Multi-Instance MPI`（托管批作业生命周期）与“神经代理初筛 + 高保真 MPI 精算 + 残差发散熔断”双层协同架构（万核时与许可证 TCO）](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) | [🇨🇳 中文](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.md) · [🇬🇧 EN](hpc-mpi-gang-scheduling-simulation-agent-aks-kueue-jobset-vs-cyclecloud-slurm-vs-batch-selection-faq.en.md) |
+| 248 | [企业数据库分支沙箱选型 FAQ：`Azure Native Neon Serverless Postgres / Databricks Lakebase` CoW 分支（`<1–2s` 零拷贝分叉）vs `ANF FlexClone + AKS CloudNativePG/SQL Containers`（多 TB 真实统计与高 IOPS）vs `Azure PostgreSQL/Azure SQL PITR + 脱敏子集刷新`（强监管主干）vs `Testcontainers on ACA/AKS Kata`（零 PII 合成夹具）](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.md) | [🇨🇳 中文](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.md) · [🇬🇧 EN](database-branching-cow-sandbox-neon-lakebase-vs-anf-flexclone-cnpg-vs-testcontainers-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（26 篇）
 
