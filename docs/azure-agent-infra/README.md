@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（207 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（208 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **207 个架构选型、平台对比与安全治理决策专题**（共 `414` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **208 个架构选型、平台对比与安全治理决策专题**（共 `416` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 207 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 208 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（19 篇）
 
@@ -273,7 +273,7 @@
 | 204 | [企业 Agent FinOps 配额治理选型：`APIM AI Gateway` 预算门禁 vs `Cost Management + FinOps Hubs` vs `Kubecost/OpenCost`（发布分环预算约束、PTU/PAYG 溢出治理与租户级单位经济性归因）FAQ](finops-agent-quota-governance-apim-ai-gateway-budget-rings-ptu-payg-selection-faq.md) | [🇨🇳 中文](finops-agent-quota-governance-apim-ai-gateway-budget-rings-ptu-payg-selection-faq.md) · [🇬🇧 EN](finops-agent-quota-governance-apim-ai-gateway-budget-rings-ptu-payg-selection-faq.en.md) |
 | 206 | [企业 Agent 编排混沌演练选型：`Azure Chaos Studio` vs `Chaos Mesh on AKS` vs `Gremlin`（MCP/A2A 失效注入、死信重放恢复、发布门禁与多租户成本防失控）FAQ](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.md) | [🇨🇳 中文](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.md) · [🇬🇧 EN](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（30 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（31 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -309,3 +309,4 @@
 | 196 | [企业多集群 Kubernetes AI 舰队 GitOps 晋级与策略护栏选型：AKS Fleet `ClusterResourcePlacement` + Managed Flux v2 分环 Soak 门禁 vs Argo CD `ApplicationSet` + Kargo Freight 晋级 vs Azure Policy Gatekeeper vs Kyverno + `ValidatingAdmissionPolicy` CEL FAQ](gitops-fleet-promotion-policy-guardrails-flux-aks-fleet-vs-argocd-vs-kyverno-gatekeeper-selection-faq.md) | [🇨🇳 中文](gitops-fleet-promotion-policy-guardrails-flux-aks-fleet-vs-argocd-vs-kyverno-gatekeeper-selection-faq.md) · [🇬🇧 EN](gitops-fleet-promotion-policy-guardrails-flux-aks-fleet-vs-argocd-vs-kyverno-gatekeeper-selection-faq.en.md) |
 | 201 | [企业 AI Agent Landing Zone 生产选型：`Foundry + AKS + ACA + APIM AI Gateway` 主平面 vs `AWS Bedrock + EKS` vs `GCP Vertex + GKE`（Durable 编排恢复、OpenTelemetry 评测闭环、FinOps 配额治理与多区域 BCDR 运营）FAQ](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.md) | [🇨🇳 中文](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.md) · [🇬🇧 EN](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.en.md) |
 | 202 | [企业级 Durable Agent 编排选型：`Durable Functions` vs `Temporal on AKS` vs `Logic Apps Standard`（Saga 补偿、重放一致性、审批超时恢复、OpenTelemetry 证据闭环与多租户成本治理）FAQ](durable-agent-orchestration-saga-compensation-durable-functions-vs-temporal-vs-logic-apps-faq.md) | [🇨🇳 中文](durable-agent-orchestration-saga-compensation-durable-functions-vs-temporal-vs-logic-apps-faq.md) · [🇬🇧 EN](durable-agent-orchestration-saga-compensation-durable-functions-vs-temporal-vs-logic-apps-faq.en.md) |
+| 208 | [企业 Agent 多区域主动主动故障切换选型：`Azure Front Door + APIM Regional Gateway` vs `Traffic Manager` vs `应用内自适应路由`（会话续接幂等、区域健康探测、切换验证与成本护栏）FAQ](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.md) | [🇨🇳 中文](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.md) · [🇬🇧 EN](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.en.md) |
