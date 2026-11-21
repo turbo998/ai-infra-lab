@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (267 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (268 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **267 structured architecture selection guides and trade-off FAQs** (`534` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **268 structured architecture selection guides and trade-off FAQs** (`536` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 267 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 268 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (28 Guides)
 
@@ -290,7 +290,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 256 | [Enterprise agent outbound secretless-auth selection FAQ: `Managed Identity + workload federation` (Azure-native minimum rework) vs `SPIFFE/SVID + mTLS` (cross-cloud workload identity) vs `Vault broker` dynamic leased credentials (legacy compatibility) vs a hybrid control plane (unified identity vocabulary, audit unification, and fail-closed behavior)](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) | [🇬🇧 EN](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) · [🇨🇳 中文](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.md) |
 | 261 | [Enterprise agent privacy-gate selection FAQ: `Purview` discovery baseline vs `APIM` ingress/egress DLP policy gates vs runtime `Sidecar Tokenization` field controls vs a three-layer integrated zero-trust loop (balancing leakage rate, false-redaction rate, block latency, and governance cost per 1,000 requests)](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) | [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) · [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (32 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (33 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -328,6 +328,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 222 | [Foundry/APIM Cost-Inflection Governance Selection FAQ: PTU Baseline + PAYG Spillover + Retry-After Backoff with Ring-Budget Guardrails](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.en.md) | [🇬🇧 EN](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.en.md) · [🇨🇳 中文](foundry-apim-ptu-payg-cost-inflection-retry-backoff-ring-governance-selection-faq.md) |
 | 254 | [Enterprise LLMOps evaluation-gate and canary-release selection FAQ: `Foundry Evals` pre-release quality admission vs `APIM` runtime policy guarding vs `Feature Flags` segmented progressive rollout vs a three-stage mixed control loop (balancing defect interception, risk interception, auto-rollback latency, and cost per 1,000 requests)](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.en.md) | [🇬🇧 EN](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.en.md) · [🇨🇳 中文](llmops-evaluation-gates-canary-shadow-release-foundry-evals-vs-apim-policies-vs-feature-flags-selection-faq.md) |
 | 260 | [Enterprise agent quality-gate selection FAQ: offline `Golden Set` regression vs online `LLM Judge` review flow vs production feedback-loop gates vs three-ring integrated governance (balancing false-allow rate, false-block rate, detection latency, and governance cost per 1,000 requests)](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.en.md) | [🇬🇧 EN](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.en.md) · [🇨🇳 中文](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.md) |
+| 268 | [Enterprise agent FinOps chargeback selection FAQ: OpenMeter event metering vs APIM usage ledger vs Fabric Cost Lake accounting backbone (balancing cost visibility per 1,000 tasks, budget variance, anomaly-detection lag, and annual recoverable savings)](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.en.md) | [🇬🇧 EN](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.en.md) · [🇨🇳 中文](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (34 Guides)
 
