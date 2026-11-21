@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (260 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (261 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **260 structured architecture selection guides and trade-off FAQs** (`520` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **261 structured architecture selection guides and trade-off FAQs** (`522` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 260 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 261 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -227,7 +227,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 255 | [Enterprise high-risk agent action step-up authorization selection FAQ: `Entra Agent ID + OBO` delegated identity chain vs `APIM` one-time capability JWT action tokens vs `Durable/Logic Apps` human approval release flow vs risk-tiered hybrid closed loop (balancing false-allow rate, approval latency, accountability, and governance cost per 1,000 actions)](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.en.md) | [🇬🇧 EN](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.en.md) · [🇨🇳 中文](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.md) |
 | 259 | [Enterprise human-in-the-loop escalation queueing selection FAQ: `Service Bus Sessions` priority queues vs `Durable Functions` SLA suspend/resume orchestration vs `D365 Unified Routing` skill dispatch vs dual-speed hybrid loop (balancing wait P95, FCR, breach rate, and per-1,000-escalation TCO break-even)](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.en.md) | [🇬🇧 EN](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.en.md) · [🇨🇳 中文](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (49 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (50 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -282,6 +282,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 142 | [Luxury Retail VIC Clienteling, Assortment Allocation, and DPP Anti-Counterfeit Agent Selection: Foundry Clienteling Plane vs Fabric Deterministic Allocation Plane vs D365/Cegid/Salesforce Governed Action Plane FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) | [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) · [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) |
 | 143 | [Global Biopharma CMC/GMP Batch Release and Deviation Agent Selection: MES/LIMS Structured Exception Plane vs Foundry ICH Evidence Plane vs SAP QM/Veeva Governed Sign-Off Plane FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) | [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) · [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) |
 | 256 | [Enterprise agent outbound secretless-auth selection FAQ: `Managed Identity + workload federation` (Azure-native minimum rework) vs `SPIFFE/SVID + mTLS` (cross-cloud workload identity) vs `Vault broker` dynamic leased credentials (legacy compatibility) vs a hybrid control plane (unified identity vocabulary, audit unification, and fail-closed behavior)](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) | [🇬🇧 EN](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) · [🇨🇳 中文](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.md) |
+| 261 | [Enterprise agent privacy-gate selection FAQ: `Purview` discovery baseline vs `APIM` ingress/egress DLP policy gates vs runtime `Sidecar Tokenization` field controls vs a three-layer integrated zero-trust loop (balancing leakage rate, false-redaction rate, block latency, and governance cost per 1,000 requests)](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) | [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) · [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (32 Guides)
 

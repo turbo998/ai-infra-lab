@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（260 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（261 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **260 个架构选型、平台对比与安全治理决策专题**（共 `520` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **261 个架构选型、平台对比与安全治理决策专题**（共 `522` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 260 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 261 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（27 篇）
 
@@ -227,7 +227,7 @@
 | 255 | [企业高风险 Agent 操作升级授权选型 FAQ：`Entra Agent ID + OBO` 身份委托链路 vs `APIM` 能力 JWT 一次性动作令牌 vs `Durable/Logic Apps` 人审放行流 vs 风险分层混合闭环（误放行率、审批时延、可追责性与每千动作治理成本平衡）](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.md) | [🇨🇳 中文](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.md) · [🇬🇧 EN](high-risk-agent-action-step-up-authorization-entra-obo-vs-apim-jwt-vs-approval-flow-selection-faq.en.md) |
 | 259 | [企业人机协同升级队列选型 FAQ：`Service Bus Sessions` 优先级队列 vs `Durable Functions` SLA 挂起恢复编排 vs `D365 Unified Routing` 技能派单 vs 双速混合闭环（等待 P95、FCR、违约率与每千升级 TCO 拐点）](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.md) | [🇨🇳 中文](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.md) · [🇬🇧 EN](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（49 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（50 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -282,6 +282,7 @@
 | 142 | [奢侈品零售 VIC 客户经营与 DPP 防伪智能体选型：Foundry 客户经营平面 vs Fabric 配货优化平面 vs D365/Cegid/Salesforce 治理执行平面 FAQ](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) | [🇨🇳 中文](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.md) · [🇬🇧 EN](luxury-retail-clienteling-merchandising-assortment-anti-counterfeit-dpp-foundry-vs-fabric-demand-vs-d365-commerce-mcp-selection-faq.en.md) |
 | 143 | [全球生物制药 CMC/GMP 批记录审查与放行智能体选型：MES/LIMS 结构化异常平面 vs Foundry ICH 证据平面 vs SAP QM/Veeva 治理签放平面 FAQ](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) | [🇨🇳 中文](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.md) · [🇬🇧 EN](global-pharma-cmc-gmp-batch-release-deviation-lims-mes-werum-pasx-vs-foundry-ich-q7-q10-rag-vs-sap-qm-mcp-selection-faq.en.md) |
 | 256 | [企业 Agent 出站无密钥认证选型 FAQ：`Managed Identity + Workload Federation`（Azure 原生最小改造）vs `SPIFFE/SVID + mTLS`（跨云工作负载统一身份）vs `Vault Broker` 动态短租凭据（遗留系统兼容）vs 混合控制平面（身份词汇统一、审计统一与失效默认拒绝）](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.md) | [🇨🇳 中文](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.md) · [🇬🇧 EN](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) |
+| 261 | [企业 Agent 隐私脱敏门禁选型 FAQ：`Purview` 数据发现基线 vs `APIM` 入出站 DLP 策略 vs 运行时 `Sidecar Tokenization` 细粒度脱敏 vs 三层混合零信任闭环（泄露率、误脱敏率、阻断时延与每千请求治理成本平衡）](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) | [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) · [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（32 篇）
 
