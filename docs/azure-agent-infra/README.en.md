@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (263 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (264 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **263 structured architecture selection guides and trade-off FAQs** (`526` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **264 structured architecture selection guides and trade-off FAQs** (`528` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 263 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 264 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (27 Guides)
 
@@ -117,7 +117,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 257 | [Enterprise context-window routing selection FAQ: `PTU` long-context flagship lane for high-risk complex reasoning vs `Mini` short-context economy lane for high-concurrency workloads vs `AKS KAITO` domain SLM lane for stable terminology domains vs a three-lane hybrid loop balancing escalation ratio, TTFT, factual pass-rate, and cost per 1,000 requests](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) | [🇬🇧 EN](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.en.md) · [🇨🇳 中文](context-window-routing-ptu-longcontext-vs-mini-vs-kaito-slm-cost-latency-selection-faq.md) |
 | 262 | [Enterprise adaptive reasoning-depth routing selection FAQ: Mini economy lane vs Frontier deep lane vs two-pass verifier checks vs integrated closed-loop governance (balancing complex-task pass rate, miss-escalation rate, P95 latency, and blended cost per 1,000 requests)](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.en.md) | [🇬🇧 EN](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.en.md) · [🇨🇳 中文](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (28 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (29 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -151,6 +151,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 245 | [Enterprise web-grounding and extraction governance selection FAQ: `Foundry Grounding with Bing + Custom Search` for authority-domain allowlists and citation offsets vs `APIM outbound DLP proxy + Tavily/Exa` for query de-identification and long-tail semantic discovery vs `ACA/AKS Firecrawl/Crawl4AI` isolated extraction pools for robots/llms policy enforcement and HTML distillation vs licensed `LSEG/Factiva/LexisNexis` connectors for copyright-safe, auditable premium evidence](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) | [🇬🇧 EN](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.en.md) · [🇨🇳 中文](enterprise-web-grounding-search-foundry-bing-vs-apim-tavily-exa-vs-firecrawl-dlp-selection-faq.md) |
 | 252 | [Enterprise outbound SaaS tool-governance selection FAQ: `APIM` token-bucket quota and circuit-breaker front door vs `Service Bus` queue buffering with worker budget scheduling vs provider proxy isolation (independent credentials, quotas, and breaker thresholds) vs a layered hybrid model with idempotency keys, compensation ledgers, human takeover gates, and per-1,000-call cost inflection](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.en.md) | [🇬🇧 EN](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.en.md) · [🇨🇳 中文](outbound-saas-tool-governance-apim-quota-circuit-breaker-vs-queue-buffer-vs-provider-proxy-selection-faq.md) |
 | 258 | [Enterprise agent tool-budget governance selection FAQ: `APIM token/rate quota` gateway hard guardrails vs `tenant credit ledger` fine-grained value accounting vs runtime `circuit-breaker + fallback` degradation for service continuity vs a three-stage hybrid closed loop (balancing false-block rate, budget-overrun ratio, SLA retention, and governance cost per 1,000 requests)](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) | [🇬🇧 EN](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.en.md) · [🇨🇳 中文](agent-tool-budget-governance-apim-token-quota-vs-credit-ledger-vs-runtime-circuit-breaker-selection-faq.md) |
+| 264 | [Enterprise multi-tenant MCP quota isolation selection FAQ: APIM Workspace quota domains vs Redis token buckets vs dedicated gateway pools and hybrid layering (balancing tenant isolation strength, false-throttle rate, critical-tenant success, and blended cost per 1,000 sessions)](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.en.md) | [🇬🇧 EN](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.en.md) · [🇨🇳 中文](multi-tenant-mcp-quota-isolation-apim-workspace-vs-redis-token-bucket-vs-dedicated-gateway-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (30 Guides)
 
