@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (204 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (205 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **204 structured architecture selection guides and trade-off FAQs** (`408` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **205 structured architecture selection guides and trade-off FAQs** (`410` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 204 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 205 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (19 Guides)
 
@@ -158,7 +158,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 194 | [Enterprise Object-Storage-Native Vector Engine Selection: LanceDB/Turbopuffer-Style on Azure Blob + `Lsv3` NVMe Cache vs AKS Qdrant/Milvus 2.5 Hot Clusters vs Managed Azure AI Search Vector Compression vs DuckDB vss Session Sidecar FAQ](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) | [🇬🇧 EN](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) · [🇨🇳 中文](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.md) |
 | 199 | [Enterprise Real-Time Agent Feature Context Serving Selection: `Feast + Azure Managed Redis + Event Hubs Flink/Spark` vs `Microsoft Fabric Eventhouse + OneLake` vs `Azure ML Managed Feature Store` (sub-`10ms` online serving, `30-second` sliding-window velocity signals, online/offline skew prevention, and `AS OF` point-in-time replay) FAQ](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) | [🇬🇧 EN](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) · [🇨🇳 中文](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (23 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (24 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -187,6 +187,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 184 | [Enterprise Agentic Commerce Delegated Payment Selection: Network Token Mandates (AP2 / Visa Intelligent Commerce / Mastercard Agent Pay) vs PSP Virtual-Card MCP Sagas (Stripe/Adyen) vs FIDO2 + EMV 3DS 2.3 Step-Up Verification vs Isolated CUA Fallback Checkout FAQ](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) | [🇬🇧 EN](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.en.md) · [🇨🇳 中文](agentic-commerce-delegated-payment-mandate-network-token-vs-psp-mcp-vs-fido2-3ds-selection-faq.md) |
 | 195 | [Enterprise Million-Endpoint IoT Edge Bidirectional Agent Fabric Selection: Event Grid Namespace `MQTT v5` Topic Space ABAC vs AKS `NATS JetStream` + Outbound `Leaf Nodes` vs Azure IoT Operations Offline Survivability vs Service Bus Backend Bridge FAQ](iot-edge-fleet-pub-sub-agent-bus-azure-event-grid-mqtt-vs-nats-jetstream-aks-vs-iot-ops-selection-faq.en.md) | [🇬🇧 EN](iot-edge-fleet-pub-sub-agent-bus-azure-event-grid-mqtt-vs-nats-jetstream-aks-vs-iot-ops-selection-faq.en.md) · [🇨🇳 中文](iot-edge-fleet-pub-sub-agent-bus-azure-event-grid-mqtt-vs-nats-jetstream-aks-vs-iot-ops-selection-faq.md) |
 | 198 | [Enterprise PSTN/SIP Telephony Voice Agent Infrastructure Selection: ACS Direct Routing + Call Automation (SBC HA, bidirectional media streaming, `SIP REFER + UUI`) vs AKS Pipecat/LiveKit SIP low-latency media pods vs CCaaS AudioHook/SIPREC cooperative model FAQ](pstn-sip-sbc-telephony-voice-agent-acs-direct-routing-vs-pipecat-sip-aks-vs-cc-media-selection-faq.en.md) | [🇬🇧 EN](pstn-sip-sbc-telephony-voice-agent-acs-direct-routing-vs-pipecat-sip-aks-vs-cc-media-selection-faq.en.md) · [🇨🇳 中文](pstn-sip-sbc-telephony-voice-agent-acs-direct-routing-vs-pipecat-sip-aks-vs-cc-media-selection-faq.md) |
+| 205 | [Enterprise MCP/A2A Production Orchestration Bus Selection: `Azure Service Bus Sessions` (ordered idempotent saga) vs `Event Hubs` (high-throughput streaming fan-out) vs `Redis Streams` (low-latency work queues) with `DLQ`, replay recovery, OpenTelemetry observability, and multi-tenant cost governance FAQ](mcp-a2a-orchestration-idempotency-dlq-servicebus-vs-eventhubs-vs-redis-streams-selection-faq.en.md) | [🇬🇧 EN](mcp-a2a-orchestration-idempotency-dlq-servicebus-vs-eventhubs-vs-redis-streams-selection-faq.en.md) · [🇨🇳 中文](mcp-a2a-orchestration-idempotency-dlq-servicebus-vs-eventhubs-vs-redis-streams-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (48 Guides)
 
