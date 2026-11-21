@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (208 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (209 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **208 structured architecture selection guides and trade-off FAQs** (`416` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **209 structured architecture selection guides and trade-off FAQs** (`418` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 208 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 209 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (19 Guides)
 
@@ -273,7 +273,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 204 | [Enterprise Agent FinOps Quota-Governance Selection: `APIM AI Gateway` Budget Gates vs `Cost Management + FinOps Hubs` vs `Kubecost/OpenCost` (ring-budget constraints, PTU/PAYG spillover governance, and tenant-level unit-economics attribution) FAQ](finops-agent-quota-governance-apim-ai-gateway-budget-rings-ptu-payg-selection-faq.en.md) | [🇬🇧 EN](finops-agent-quota-governance-apim-ai-gateway-budget-rings-ptu-payg-selection-faq.en.md) · [🇨🇳 中文](finops-agent-quota-governance-apim-ai-gateway-budget-rings-ptu-payg-selection-faq.md) |
 | 206 | [Enterprise Agent Orchestration Chaos-Drill Selection: `Azure Chaos Studio` vs `Chaos Mesh on AKS` vs `Gremlin` (MCP/A2A failure injection, dead-letter replay recovery, release gates, and multi-tenant cost blowout prevention) FAQ](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.en.md) | [🇬🇧 EN](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.en.md) · [🇨🇳 中文](agent-orchestration-chaos-drill-failure-injection-chaos-studio-vs-chaos-mesh-vs-gremlin-selection-faq.md) |
 
-### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (31 Guides)
+### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (32 Guides)
 
 > Covers Azure SRE Agent triage & safe remediation, multi-region BCDR & Chaos Studio load testing, and Enterprise AI CoE Hub-Spoke / Stamp landing zones.
 
@@ -310,3 +310,4 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 201 | [Enterprise AI Agent Landing Zone Production Selection: `Foundry + AKS + ACA + APIM AI Gateway` as primary control plane vs `AWS Bedrock + EKS` vs `GCP Vertex + GKE` (durable orchestration recovery, OpenTelemetry evaluation closure, FinOps quota governance, and multi-region BCDR operations) FAQ](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.en.md) | [🇬🇧 EN](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.en.md) · [🇨🇳 中文](ai-agent-landing-zone-foundry-aks-aca-apim-multi-cloud-durable-otel-finops-selection-faq.md) |
 | 202 | [Enterprise Durable Agent Orchestration Selection: `Durable Functions` vs `Temporal on AKS` vs `Logic Apps Standard` (saga compensation, replay consistency, approval-timeout recovery, OpenTelemetry evidence closure, and multi-tenant cost governance) FAQ](durable-agent-orchestration-saga-compensation-durable-functions-vs-temporal-vs-logic-apps-faq.en.md) | [🇬🇧 EN](durable-agent-orchestration-saga-compensation-durable-functions-vs-temporal-vs-logic-apps-faq.en.md) · [🇨🇳 中文](durable-agent-orchestration-saga-compensation-durable-functions-vs-temporal-vs-logic-apps-faq.md) |
 | 208 | [Enterprise Agent Multi-Region Active-Active Failover Selection: `Azure Front Door + APIM Regional Gateway` vs `Traffic Manager` vs `Application-Layer Adaptive Routing` (session idempotent resume, regional health probes, failover verification, and cost guardrails) FAQ](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.en.md) | [🇬🇧 EN](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.en.md) · [🇨🇳 中文](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.md) |
+| 209 | [Enterprise Agent Control-Plane Disaster-Recovery Selection: `APIM + GitOps` policy-release parity vs `Traffic Manager` dual-active ingress failover vs `Application Self-Healing Orchestration` (RTO/RPO, state replay, and recovery-correctness guardrails) FAQ](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.en.md) | [🇬🇧 EN](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.en.md) · [🇨🇳 中文](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.md) |
