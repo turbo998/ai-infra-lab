@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (243 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (244 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **243 structured architecture selection guides and trade-off FAQs** (`486` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **244 structured architecture selection guides and trade-off FAQs** (`488` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 243 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 244 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (25 Guides)
 
@@ -143,7 +143,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 238 | [Enterprise Cross-Org B2B Trading Gateway Selection FAQ: `Logic Apps Standard + Integration Account` (AS2/X12/EDIFACT legal rails, `MDN/997/CONTRL` acknowledgments, and control-number dedupe) vs `APIM Partner Gateway` (mTLS, cXML/Peppol/OpenAPI bridging, and partner quota isolation) vs `Cross-Org A2A Broker + JWS` negotiation envelopes (flexible exception handling with legal fallback) vs managed `VAN/Integration Cloud` long-tail acceleration](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.en.md) | [🇬🇧 EN](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.en.md) · [🇨🇳 中文](b2b-trading-partner-edi-x12-edifact-as2-to-a2a-mcp-logic-apps-vs-apim-partner-gateway-selection-faq.md) |
 | 243 | [Enterprise MCP/A2A Breaking-Change Governance Selection FAQ: `API Center + Spectral` dual syntax/semantic gates with consumer replay vs `APIM Version Sets + Revisions` canary dual-stack and deterministic dual-schema adapters vs `Entra AppId -> Pinned Catalog Snapshot` projection with `Deprecation/Sunset` telemetry vs `ACA/AKS Revision-Pinned Saga Draining` for zero-downtime long-transaction retirement](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) | [🇬🇧 EN](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.en.md) · [🇨🇳 中文](mcp-a2a-schema-versioning-breaking-change-apicenter-apim-revisions-vs-dual-adapter-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (28 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (29 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -177,6 +177,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 194 | [Enterprise Object-Storage-Native Vector Engine Selection: LanceDB/Turbopuffer-Style on Azure Blob + `Lsv3` NVMe Cache vs AKS Qdrant/Milvus 2.5 Hot Clusters vs Managed Azure AI Search Vector Compression vs DuckDB vss Session Sidecar FAQ](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) | [🇬🇧 EN](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.en.md) · [🇨🇳 中文](object-storage-serverless-vector-engine-lancedb-turbopuffer-blob-vs-qdrant-milvus-aks-selection-faq.md) |
 | 199 | [Enterprise Real-Time Agent Feature Context Serving Selection: `Feast + Azure Managed Redis + Event Hubs Flink/Spark` vs `Microsoft Fabric Eventhouse + OneLake` vs `Azure ML Managed Feature Store` (sub-`10ms` online serving, `30-second` sliding-window velocity signals, online/offline skew prevention, and `AS OF` point-in-time replay) FAQ](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) | [🇬🇧 EN](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.en.md) · [🇨🇳 中文](realtime-agent-feature-context-serving-feast-redis-vs-fabric-eventhouse-vs-aml-feature-selection-faq.md) |
 | 233 | [Enterprise Ephemeral OLAP Agent Selection FAQ: in-session `DuckDB/Polars` engines + `ADLS/OneLake Delta/Iceberg` predicate-pushdown range reads (isolating exploratory SQL storms) vs `Fabric Warehouse` (governed authority verification) vs `Databricks SQL Serverless + Unity Catalog` (cross-domain federated governance) vs always-on `ClickHouse/StarRocks/Eventhouse` hot pools (fixed high-QPS online analytics)](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) | [🇬🇧 EN](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.en.md) · [🇨🇳 中文](ephemeral-olap-agent-duckdb-polars-adls-iceberg-vs-fabric-warehouse-databricks-sql-selection-faq.md) |
+| 244 | [Enterprise geospatial agent data-plane selection FAQ: `PostgreSQL Flexible Server + PostGIS GiST + H3 + pgvector` unified spatial-semantic execution vs `Azure Maps Isochrone/Route Matrix` as a road-network MCP intelligence layer vs `ADX/Eventhouse` high-frequency H3 geofence streaming triggers vs `AI Search/Cosmos Geo` lightweight nearby filtering (cross-river dispatch error reduction, GeoJSON context slimming, and million-query TCO control)](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) | [🇬🇧 EN](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.en.md) · [🇨🇳 中文](geospatial-postgis-h3-pgvector-vs-azure-maps-isochrone-vs-adx-spatial-agent-data-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (28 Guides)
 
