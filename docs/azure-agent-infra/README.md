@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（276 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（277 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **276 个架构选型、平台对比与安全治理决策专题**（共 `552` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **277 个架构选型、平台对比与安全治理决策专题**（共 `554` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 276 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 277 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（31 篇）
 
@@ -85,7 +85,7 @@
 | 272 | [企业 Agent 沙箱 POSIX 工作区存储选型 FAQ：ACStor 本地 NVMe + Elastic SAN（亚毫秒 RWO 热盘与休眠快照回写）vs Azure NetApp Files NFSv4.1 + FlexClone（高并发 RWX 协作与秒级克隆）vs Azure Files Premium NFSv4.1（AKS/ACA 原生挂载与托管平衡）vs BlobFuse2 CSI Streaming Cache（PB 级读密集数据挂载，含 `git status` P95、挂载时延、IOPS 与每千沙箱月度 TCO 拐点）](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.md) | [🇨🇳 中文](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.md) · [🇬🇧 EN](agent-sandbox-posix-workspace-storage-acstor-elastic-san-vs-azure-files-nfs-vs-anf-vs-blobfuse2-selection-faq.en.md) |
 | 275 | [企业多租户 Agent 集群隔离选型 FAQ：共享 AKS（`Namespace-per-Tenant + Kata + Cilium + Kyverno/Gatekeeper + APF`）高装箱路径 vs `vCluster` 虚拟控制面（租户 CRD/RBAC 独立）vs Fleet Manager Deployment Stamps（`Cluster-per-Tier/Tenant` 灰度环发布）vs ACA Environment 分片（低控制面运维），含 `apiserver` P99、租户上手时长、500 租户月度 TCO 与故障爆炸半径拐点](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.md) | [🇨🇳 中文](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.md) · [🇬🇧 EN](multi-tenant-agent-cluster-isolation-aks-fleet-manager-stamps-vs-vcluster-vs-kata-namespace-vs-aca-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（31 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（32 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -122,6 +122,7 @@
 | 262 | [企业 Agent 自适应推理深度路由选型 FAQ：Mini 经济通道 vs Frontier 高深度通道 vs 双阶段 Verifier 复核 vs 混合闭环（复杂任务通过率、漏升率、P95 时延与每千请求综合成本平衡）](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.md) | [🇨🇳 中文](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.md) · [🇬🇧 EN](adaptive-reasoning-depth-routing-mini-vs-frontier-vs-two-pass-verifier-cost-accuracy-selection-faq.en.md) |
 | 266 | [企业 Agent 模型端点故障切换选型 FAQ：PTU 主备 vs Serverless 预热池 vs AKS KServe 金丝雀（切换 RTO、首字节时延 P95、故障期丢单率与每千请求成本平衡）](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.md) | [🇨🇳 中文](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.md) · [🇬🇧 EN](agent-model-endpoint-failover-ptu-vs-serverless-warm-pool-vs-aks-kserve-canary-selection-faq.en.md) |
 | 273 | [企业模型权重供应链与热加载选型 FAQ：Foundry/AML Registry（谱系治理与跨区复制）vs ACR Premium ORAS + AKS `runai-model-streamer`（并行分块流式注水，`70B` 秒级就绪）vs ANF/Managed Lustre 共享只读池（多节点 `mmap` 一致性）vs Air-Gap 隔离晋级链路（`.safetensors` 转换、扫描验签与零外连交付），含 `70B/405B` 冷启动、带宽与月度 TCO 拐点](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.md) | [🇨🇳 中文](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.md) · [🇬🇧 EN](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.en.md) |
+| 277 | [企业分层 KV Cache Offloading 选型 FAQ：Foundry Prompt Caching（托管前缀块匹配与输入折扣）vs AKS 单节点 vLLM/SGLang + LMCache 本地 DRAM/NVMe 分层下沉（会话粘性延长 `5–45` 分钟停顿恢复）vs LMCache/Mooncake 分布式共享 KV 池（跨 Pod/抢占后恢复与多 Agent 前缀复用）vs 上下文压缩 + Scoped RAG 再水合（`1–24h` 长停顿经济切换），含 `128K` TTFT P95、GPU goodput 与月度 TCO 拐点](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.md) | [🇨🇳 中文](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.md) · [🇬🇧 EN](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（31 篇）
 
