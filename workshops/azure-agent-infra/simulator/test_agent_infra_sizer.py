@@ -527,7 +527,7 @@ class TestAgentInfraSizer(unittest.TestCase):
             for p in faq_dir.glob("*.en.md")
             if p.name != "README.en.md"
         }
-        self.assertEqual(len(zh_faqs), 299)
+        self.assertEqual(len(zh_faqs), 300)
         self.assertEqual(zh_faqs, en_faqs)
 
         link_re = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")

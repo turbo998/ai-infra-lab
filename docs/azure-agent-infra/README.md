@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（299 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（300 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **299 个架构选型、平台对比与安全治理决策专题**（共 `598` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **300 个架构选型、平台对比与安全治理决策专题**（共 `600` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 299 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 300 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（35 篇）
 
@@ -173,7 +173,7 @@
 | 289 | [企业长时异步 MCP/OpenAPI 工具执行选型 FAQ：Pattern A（Streamable HTTP MCP `notifications/progress` + SSE 心跳 `15s` 保活与 `notifications/cancelled` 取消下传）vs Pattern B（`202 Accepted` 票据 + Durable/Dapr 确定性轮询，零 LLM 轮询 Token 风暴）vs Pattern C（Event Grid/Service Bus 回调 + claim-check 结果水合与幂等去重）vs Pattern D（A2A `submitted -> working -> completed` 异步任务生命周期），含 `5/15/30` 轮 Token 浪费对比、Azure `240s` 边界治理与月度 TCO 对照](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.md) | [🇨🇳 中文](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.md) · [🇬🇧 EN](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.en.md) |
 | 295 | [企业可变更 MCP 工具爆炸半径预演与双阶段提交治理选型 FAQ：Pattern A（MCP 注解 + 后端 `dry_run` 影响面模拟，输出实体计数、字段差异与金额变动）vs Pattern B（APIM + Managed Redis 两阶段 `Preview -> Commit-Token`，基于 RFC 8785 JCS 规范化哈希 + `ETag/RowVersion` 防 TOCTOU + Cedar/OPA 阈值策略）vs Pattern C（`Plan -> Signed Bundle -> Apply` 异步签名流水线，用于 Tier-0 控制面变更）vs Pattern D（软提交托管 + `60–180s` 撤销窗口，Service Bus 延迟入队 + 一键 Undo），含审批疲劳误放行率、参数漂移拒绝率、时延开销与月度 TCO 对比](mutating-mcp-tool-dry-run-blast-radius-preview-commit-token-apim-gate-vs-gitops-plan-apply-vs-soft-undo-selection-faq.md) | [🇨🇳 中文](mutating-mcp-tool-dry-run-blast-radius-preview-commit-token-apim-gate-vs-gitops-plan-apply-vs-soft-undo-selection-faq.md) · [🇬🇧 EN](mutating-mcp-tool-dry-run-blast-radius-preview-commit-token-apim-gate-vs-gitops-plan-apply-vs-soft-undo-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（35 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（36 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -257,6 +257,7 @@
 | 280 | [企业自治定时唤醒智能体选型 FAQ：Service Bus `ScheduledEnqueueTimeUtc` + `SequenceNumber` 取消（百万级动态延迟消息）vs Durable Timers/Entities（`WhenAny` 回执竞态与跨周 Saga）vs ACA Scheduled Jobs + Logic Apps（`10–500` 静态批次定时）vs Dapr Reminders/Temporal（低抖动时区/节假日日历语义），含最大动态定时、抖动 P95、防惊群评分与 100K/5M 月度 TCO](scheduled-autonomous-agent-timers-service-bus-scheduled-messages-vs-durable-timers-vs-aca-jobs-vs-dapr-reminders-selection-faq.md) | [🇨🇳 中文](scheduled-autonomous-agent-timers-service-bus-scheduled-messages-vs-durable-timers-vs-aca-jobs-vs-dapr-reminders-selection-faq.md) · [🇬🇧 EN](scheduled-autonomous-agent-timers-service-bus-scheduled-messages-vs-durable-timers-vs-aca-jobs-vs-dapr-reminders-selection-faq.en.md) |
 | 291 | [企业多智能体编排拓扑选型 FAQ：Topology A（MAF Workflow Graph 确定性 DAG 并行 fan-out）vs Topology B（Supervisor-Worker 分层监督与上下文切片）vs Topology C（Swarm Direct Handoff 直连交接与 hop 断路）vs Topology D（Magentic Task/Progress Ledger 动态重规划），含 `3-agent/8-agent` Token Multiplier、`p^k` 复合成功率、P95 时延与每千任务成本对比](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.md) | [🇨🇳 中文](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.md) · [🇬🇧 EN](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.en.md) |
 | 298 | [企业 Mid-Flight 执行中断与实时改道选型 FAQ：Pattern A（协作取消树 + Redis 带外 Cancel Bus：`SSE/WebSocket Abort -> APIM -> MAF CancellationToken -> MCP notifications/cancelled -> ACA SIGTERM`，并强制写入 `[Cancelled by user]` 工具桩避免 orphaned `tool_call_id`）vs Pattern B（Turn-Boundary 优先级改道队列：软改道保留 `75–90%` 前缀缓存）vs Pattern C（单调 `run_epoch` 栅栏 + Durable 补偿 Saga 阻断取消后迟到写）vs Pattern D（Checkpoint Fork 分支化改道），含僵尸 token 浪费公式、线程腐化状态机、三年 TCO 与 Day-0/Day-2 清单](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.md) | [🇨🇳 中文](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.md) · [🇬🇧 EN](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.en.md) |
+| 300 | [企业 Agent 上下文工程选型 FAQ：Architecture A（缓存对齐 Epoch 压缩 + 可逆 Blob 句柄替换：冻结 1,024-token 前缀、32K 水位离散压缩，避免滑窗导致 Prompt Cache 从高命中跌至近零）vs Architecture B（工作区暂存页虚拟内存：`plan.md/ledger/tables` 外置与尾部高注意力复述）vs Architecture C（子 Agent 上下文防火墙：清洁室隔离 `60K–100K` 噪声轨迹，仅回传 `1K–2K` 强类型摘要 + 来源 URI）vs Architecture D（Responses API/Foundry 托管上下文截断），含 `O(N^2)` 与稳态缓存成本公式、Recall 退化曲线、生产级 Compactor 代码、三年 TCO 与 Day-0/Day-2 清单](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.md) | [🇨🇳 中文](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.md) · [🇬🇧 EN](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
