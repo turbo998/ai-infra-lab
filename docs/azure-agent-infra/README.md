@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（293 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（294 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **293 个架构选型、平台对比与安全治理决策专题**（共 `586` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **294 个架构选型、平台对比与安全治理决策专题**（共 `588` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 293 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 294 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（34 篇）
 
@@ -171,7 +171,7 @@
 | 284 | [企业 MCP 工具响应整形与上下文保护选型 FAQ：APIM 出站 Liquid/C# 投影 + Byte/Token 上限（80%–90% 冗余字段剥离）vs Thin MCP Façade（`concise`/`detailed` 双模式与语义分页）vs GraphQL/OData `$select/$top` 协议级字段裁剪 vs CodeAct 溢写沙箱（`>32KB` 自动落盘句柄 + 300-token 摘要），含 token 降幅、多轮准确率、PTU TPM 节省与月度 TCO 对比](mcp-tool-response-shaping-context-protection-apim-liquid-projection-vs-thin-mcp-facade-vs-codeact-spillover-selection-faq.md) | [🇨🇳 中文](mcp-tool-response-shaping-context-protection-apim-liquid-projection-vs-thin-mcp-facade-vs-codeact-spillover-selection-faq.md) · [🇬🇧 EN](mcp-tool-response-shaping-context-protection-apim-liquid-projection-vs-thin-mcp-facade-vs-codeact-spillover-selection-faq.en.md) |
 | 289 | [企业长时异步 MCP/OpenAPI 工具执行选型 FAQ：Pattern A（Streamable HTTP MCP `notifications/progress` + SSE 心跳 `15s` 保活与 `notifications/cancelled` 取消下传）vs Pattern B（`202 Accepted` 票据 + Durable/Dapr 确定性轮询，零 LLM 轮询 Token 风暴）vs Pattern C（Event Grid/Service Bus 回调 + claim-check 结果水合与幂等去重）vs Pattern D（A2A `submitted -> working -> completed` 异步任务生命周期），含 `5/15/30` 轮 Token 浪费对比、Azure `240s` 边界治理与月度 TCO 对照](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.md) | [🇨🇳 中文](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.md) · [🇬🇧 EN](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（34 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（35 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -211,6 +211,7 @@
 | 276 | [企业长期情景记忆与时序事实治理选型 FAQ：Mem0（ACA/AKS）快速记忆编排 vs Zep/Graphiti 双时态图谱（AKS + Neo4j/FalkorDB）争议回放 vs Cosmos DiskANN + Change Feed + Durable Functions + Redis 原生治理管线 vs Foundry Threads + 每用户 AI Search 托管路径（含 `valid_from/valid_until` 冲突消解、GDPR 遗忘删除、10K/500K 活跃用户 P95 与月度 TCO 拐点）](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.md) | [🇨🇳 中文](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.md) · [🇬🇧 EN](long-term-episodic-temporal-agent-memory-mem0-vs-zep-graphiti-aks-vs-cosmos-diskann-changefeed-selection-faq.en.md) |
 | 282 | [多租户向量 RAG 隔离选型 FAQ：Azure AI Search 共享索引（`strictPostFilter`/`preFilter`）vs `S3HD/S2` 每租户索引（每索引 CMK 与秒级下线）vs Cosmos Sharded DiskANN（`vectorIndexShardKey: [\"/tenantId\"]` + 分层分区）vs Bridge/Silo 分层控制平面，含 `0.05%` 选择性 Recall@10、P95 时延、单 Stamp 租户上限与 5,000 租户月度 TCO 对比](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.md) | [🇨🇳 中文](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.md) · [🇬🇧 EN](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.en.md) |
 | 288 | [企业 Context-Preserving RAG 索引选型 FAQ：Contextual Retrieval（文档级前缀情境化）vs Parent-Child Small-to-Big（`256` 子块召回 + `1,500–3,000` 父段回填）vs Late Chunking（长上下文先编码后 span pooling）vs Layout/Proposition 结构命题化（避免中表切割），含 Recall@10/NDCG@10、每百万页成本、重建放大与存储膨胀对比](contextual-retrieval-parent-child-late-chunking-rag-indexing-ai-search-vs-aoai-prompt-cache-batch-vs-aks-tei-selection-faq.md) | [🇨🇳 中文](contextual-retrieval-parent-child-late-chunking-rag-indexing-ai-search-vs-aoai-prompt-cache-batch-vs-aks-tei-selection-faq.md) · [🇬🇧 EN](contextual-retrieval-parent-child-late-chunking-rag-indexing-ai-search-vs-aoai-prompt-cache-batch-vs-aks-tei-selection-faq.en.md) |
+| 294 | [企业 Agentic Retrieval 查询规划与纠错检索选型 FAQ：Azure AI Search KnowledgeAgent（托管会话分解 + 并行子查询 + 语义合并）vs MAF/LangGraph 自定义 CRAG 回路（`max_hops=3` 证据评分与显式拒答）vs Multi-Query+HyDE+RRF 无状态并行扇出（`P95 < 900ms`）vs 跨模态联邦路由（AI Search + Fabric IQ/SQL + 外部许可源冲突裁决），含 `Recall@10/Faithfulness/Abstention Precision`、`1.1s/2.4s/4.8s` 延迟与 `1.4x/3.2x/5.5x` Token 放大对比](agentic-retrieval-query-planning-ai-search-knowledge-agent-vs-custom-crag-loop-vs-hyde-rrf-vs-federated-router-selection-faq.md) | [🇨🇳 中文](agentic-retrieval-query-planning-ai-search-knowledge-agent-vs-custom-crag-loop-vs-hyde-rrf-vs-federated-router-selection-faq.md) · [🇬🇧 EN](agentic-retrieval-query-planning-ai-search-knowledge-agent-vs-custom-crag-loop-vs-hyde-rrf-vs-federated-router-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（35 篇）
 
