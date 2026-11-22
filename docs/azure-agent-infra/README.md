@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（288 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（289 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **288 个架构选型、平台对比与安全治理决策专题**（共 `576` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **289 个架构选型、平台对比与安全治理决策专题**（共 `578` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 288 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 289 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（33 篇）
 
@@ -128,7 +128,7 @@
 | 283 | [企业 Agent 后训练平台选型 FAQ：Foundry Serverless FT/RFT（`GPT-4.1-mini`/`o4-mini` 托管路径）vs AML `ND96isr_H100_v5/NCads_H100_v5` 集群与 Registry 主线 vs AKS + Kueue + KubeRay `veRL/TRL` 在线 rollout 耦合路径 vs Mosaic + Unity Catalog 治理优先路径，含每 100M token 成本、上线时长、GPU Ops FTE 与权重可移植性对比](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.md) | [🇨🇳 中文](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.md) · [🇬🇧 EN](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.en.md) |
 | 287 | [企业 Compound Inference DAG 服务选型 FAQ：AKS + KubeRay Ray Serve `DeploymentGraph`（异构 CPU/L4S/A10/H100 节点池与阶段独立扩缩容）vs AKS + KServe `InferenceGraph`（`Sequence/Switch/Splitter` 声明式路由）vs Triton Ensemble/BLS（共享内存零序列化链路）vs Foundry+APIM 托管链式编排（`3–5` hop 税 `+25–65ms`），含 `8:2:1` 阶段扩缩容比例、`P95 < 500–800ms` 预算、300 RPS 场景与月度 TCO 对比](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.md) | [🇨🇳 中文](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.md) · [🇬🇧 EN](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（33 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（34 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -167,6 +167,7 @@
 | 274 | [企业伙伴 API 静态出口与 mTLS 认证选型 FAQ：VNet 注入 + NAT Gateway（`/28` 前缀与百万级 SNAT 端口池）vs APIM + Key Vault 托管客户端证书（RFC 8705 发送者约束与零私钥驻留）vs Hub-Spoke Firewall Premium（集中审计、IDPS 与 TLS 检查）vs 每租户/每伙伴 Envoy 出口网关（多租户噪声隔离与信誉保护），含 SNAT 容量、TLS 握手 P95 与月度 TCO 拐点](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) | [🇨🇳 中文](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.md) · [🇬🇧 EN](partner-api-static-egress-mtls-snat-nat-gateway-vs-apim-client-cert-keyvault-vs-firewall-selection-faq.en.md) |
 | 278 | [企业数据库到 MCP 工具暴露选型 FAQ：DAB + APIM MCP Gateway（声明式实体/列白名单、分页上限与 JWT 声明驱动 RLS）vs 参数化领域 API/存储过程 OpenAPI-to-MCP（强事务业务动词与不变量约束）vs 语义层 MCP（Cube/dbt + Redis 预聚合，消除多表 Join 幻觉）vs 只读 SQL MCP 沙箱（Read Replica + PgBouncer + SQLGlot AST 拦截）含 P95 延迟、并发会话、SQL 准确率与月度 TCO 对比](database-to-mcp-tool-exposure-data-api-builder-apim-vs-semantic-layer-cube-vs-readonly-sql-mcp-selection-faq.md) | [🇨🇳 中文](database-to-mcp-tool-exposure-data-api-builder-apim-vs-semantic-layer-cube-vs-readonly-sql-mcp-selection-faq.md) · [🇬🇧 EN](database-to-mcp-tool-exposure-data-api-builder-apim-vs-semantic-layer-cube-vs-readonly-sql-mcp-selection-faq.en.md) |
 | 284 | [企业 MCP 工具响应整形与上下文保护选型 FAQ：APIM 出站 Liquid/C# 投影 + Byte/Token 上限（80%–90% 冗余字段剥离）vs Thin MCP Façade（`concise`/`detailed` 双模式与语义分页）vs GraphQL/OData `$select/$top` 协议级字段裁剪 vs CodeAct 溢写沙箱（`>32KB` 自动落盘句柄 + 300-token 摘要），含 token 降幅、多轮准确率、PTU TPM 节省与月度 TCO 对比](mcp-tool-response-shaping-context-protection-apim-liquid-projection-vs-thin-mcp-facade-vs-codeact-spillover-selection-faq.md) | [🇨🇳 中文](mcp-tool-response-shaping-context-protection-apim-liquid-projection-vs-thin-mcp-facade-vs-codeact-spillover-selection-faq.md) · [🇬🇧 EN](mcp-tool-response-shaping-context-protection-apim-liquid-projection-vs-thin-mcp-facade-vs-codeact-spillover-selection-faq.en.md) |
+| 289 | [企业长时异步 MCP/OpenAPI 工具执行选型 FAQ：Pattern A（Streamable HTTP MCP `notifications/progress` + SSE 心跳 `15s` 保活与 `notifications/cancelled` 取消下传）vs Pattern B（`202 Accepted` 票据 + Durable/Dapr 确定性轮询，零 LLM 轮询 Token 风暴）vs Pattern C（Event Grid/Service Bus 回调 + claim-check 结果水合与幂等去重）vs Pattern D（A2A `submitted -> working -> completed` 异步任务生命周期），含 `5/15/30` 轮 Token 浪费对比、Azure `240s` 边界治理与月度 TCO 对照](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.md) | [🇨🇳 中文](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.md) · [🇬🇧 EN](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（34 篇）
 
