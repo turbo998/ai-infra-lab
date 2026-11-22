@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（307 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（308 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **307 个架构选型、平台对比与安全治理决策专题**（共 `614` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **308 个架构选型、平台对比与安全治理决策专题**（共 `616` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 307 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 308 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（36 篇）
 
@@ -135,7 +135,7 @@
 
 | 302 | [企业混合在线推理与离线批处理 GPU 产能回收选型 FAQ：Architecture A（AKS + `Kueue` `Cohort` 借额与优先级抢占：夜间批任务借用在线闲置 GPU，白天流量回升时 `<15–30s` 回收，配合 `10–15%` 热备与 whole-GPU/MIG 边界）vs Architecture B（`NVIDIA KAI Scheduler`/`Volcano` 分层公平 + 拓扑感知 Gang 调度 + 抢占后 Blob/ANF 检查点恢复）vs Architecture C（预留在线池 + Spot 批池物理分离与 IMDS Scheduled Events 驱逐治理）vs Architecture D（AOAI PTU 夜间动态回填 + Batch API 5 折独立配额），含日周期利用率与 effective `$/GPU-hour` 公式、`64x H100` 三年 TCO、生产级 Kueue YAML 与 PTU 回填控制器代码](mixed-online-batch-gpu-harvesting-aks-kueue-preemption-vs-kai-scheduler-mig-vs-spot-pool-vs-ptu-batch-selection-faq.md) | [🇨🇳 中文](mixed-online-batch-gpu-harvesting-aks-kueue-preemption-vs-kai-scheduler-mig-vs-spot-pool-vs-ptu-batch-selection-faq.md) · [🇬🇧 EN](mixed-online-batch-gpu-harvesting-aks-kueue-preemption-vs-kai-scheduler-mig-vs-spot-pool-vs-ptu-batch-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（36 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（37 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -177,6 +177,7 @@
 | 289 | [企业长时异步 MCP/OpenAPI 工具执行选型 FAQ：Pattern A（Streamable HTTP MCP `notifications/progress` + SSE 心跳 `15s` 保活与 `notifications/cancelled` 取消下传）vs Pattern B（`202 Accepted` 票据 + Durable/Dapr 确定性轮询，零 LLM 轮询 Token 风暴）vs Pattern C（Event Grid/Service Bus 回调 + claim-check 结果水合与幂等去重）vs Pattern D（A2A `submitted -> working -> completed` 异步任务生命周期），含 `5/15/30` 轮 Token 浪费对比、Azure `240s` 边界治理与月度 TCO 对照](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.md) | [🇨🇳 中文](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.md) · [🇬🇧 EN](long-running-async-mcp-tool-execution-202-ticket-durable-poller-vs-mcp-progress-sse-vs-eventgrid-callback-selection-faq.en.md) |
 | 295 | [企业可变更 MCP 工具爆炸半径预演与双阶段提交治理选型 FAQ：Pattern A（MCP 注解 + 后端 `dry_run` 影响面模拟，输出实体计数、字段差异与金额变动）vs Pattern B（APIM + Managed Redis 两阶段 `Preview -> Commit-Token`，基于 RFC 8785 JCS 规范化哈希 + `ETag/RowVersion` 防 TOCTOU + Cedar/OPA 阈值策略）vs Pattern C（`Plan -> Signed Bundle -> Apply` 异步签名流水线，用于 Tier-0 控制面变更）vs Pattern D（软提交托管 + `60–180s` 撤销窗口，Service Bus 延迟入队 + 一键 Undo），含审批疲劳误放行率、参数漂移拒绝率、时延开销与月度 TCO 对比](mutating-mcp-tool-dry-run-blast-radius-preview-commit-token-apim-gate-vs-gitops-plan-apply-vs-soft-undo-selection-faq.md) | [🇨🇳 中文](mutating-mcp-tool-dry-run-blast-radius-preview-commit-token-apim-gate-vs-gitops-plan-apply-vs-soft-undo-selection-faq.md) · [🇬🇧 EN](mutating-mcp-tool-dry-run-blast-radius-preview-commit-token-apim-gate-vs-gitops-plan-apply-vs-soft-undo-selection-faq.en.md) |
 | 301 | [企业 A2A Agent Card 发现与能力协商选型 FAQ：Pattern A（去中心化 `/.well-known/agent.json` + JWS Detached Signature + `did:web` 绑定 + 回调域名/SAN 校验，防伪冒与回调劫持）vs Pattern B（API Center + APIM 双层公开卡与 `authenticatedExtendedCard` 按调用方投影，阻断内部技能泄露）vs Pattern C（语义能力 Broker：AI Search 混合匹配 + Namespace Authority + 实时 `SLO/Cost/Residency` 交集过滤，抑制 capability squatting）vs Pattern D（GitOps 静态清单 + Istio Ambient/K8s 服务发现低时延确定性拓扑），含缓存失效/发现时延公式、能力劫持威胁矩阵、生产级签名卡与策略代码、三年 TCO 与 Day-0/Day-2 清单](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) | [🇨🇳 中文](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) · [🇬🇧 EN](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.en.md) |
+| 308 | [企业 Programmatic Tool Calling（Code Mode）消除 MCP `N+1` 工具调用风暴选型 FAQ：Pattern A（ACA Dynamic Sessions 中一次生成脚本、回合级只读 capability token 经 APIM 回调、沙箱内循环聚合后仅回传蒸馏结果）vs Pattern B（Batch MCP + DataLoader `10–25ms` 聚合窗口 + Graph/OData `$batch` 转译）vs Pattern C（Logic Apps/Dapr/组合 API 宏工具固化高频多系统流程）vs Pattern D（Native `parallel_tool_calls` 浅链快路），含 `820K/94s -> 19K/6.8s` 定量对照、生产级 Python Stub 生成器与 APIM 策略 XML、三年 TCO 与 Day-0/Day-2 清单](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) | [🇨🇳 中文](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) · [🇬🇧 EN](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（37 篇）
 
