@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（321 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（322 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **321 个架构选型、平台对比与安全治理决策专题**（共 `642` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **322 个架构选型、平台对比与安全治理决策专题**（共 `644` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 321 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 322 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（38 篇）
 
@@ -139,7 +139,7 @@
 | 309 | [企业海量离线 LLM/VLM 语料批推理选型 FAQ：Architecture A（AKS + KubeRay Ray Data + vLLM Offline，前缀排序 + 长度分桶微批与 Spot 分片幂等 checkpoint）vs Architecture B（AOAI/Foundry Global & DataZone Batch API：`100K` 请求 / `200MB` `.jsonl` 分片、`custom_id` 回拼、死信重放）vs Architecture C（Fabric AI Functions / Databricks `ai_query()` 湖仓原位推理）vs Architecture D（AML ParallelRunStep / Azure Batch 托管并行），含 `205B` token 规模、吞吐与 `$/1M` token 交叉测算、生产级 Ray+vLLM 与 Durable 编排代码、三年 TCO 与 Day-0/Day-2 清单](massive-offline-llm-batch-inference-aks-ray-data-vllm-vs-aoai-global-batch-api-vs-fabric-databricks-ai-query-selection-faq.md) | [🇨🇳 中文](massive-offline-llm-batch-inference-aks-ray-data-vllm-vs-aoai-global-batch-api-vs-fabric-databricks-ai-query-selection-faq.md) · [🇬🇧 EN](massive-offline-llm-batch-inference-aks-ray-data-vllm-vs-aoai-global-batch-api-vs-fabric-databricks-ai-query-selection-faq.en.md) |
 | 316 | [企业多模态图像与视频 DiT 推理基础设施选型 FAQ：Architecture A（AKS `NC/ND H100 v5` + `xDiT` USP/PipeFusion + `FP8/TensorRT` + `ANF/NVMe` 热切换 LoRA/ControlNet）vs Architecture B（ACA Serverless GPU Headless ComfyUI DAG，Service Bus 工单 + Blob Claim-Check + C2PA）vs Architecture C（Foundry 托管 `GPT-Image-1`/`Sora` + APIM + Content Safety）vs Architecture D（Hero-to-Variant 混合流水线），覆盖 DiT FLOPs/显存预算、KEDA 队列伸缩公式、利用率断点、三年 TCO 与 Day-0/Day-2 清单](diffusion-image-video-dit-serving-aks-xdit-tensorrt-lora-vs-aca-serverless-gpu-comfyui-vs-aoai-sora-gpt-image-selection-faq.md) | [🇨🇳 中文](diffusion-image-video-dit-serving-aks-xdit-tensorrt-lora-vs-aca-serverless-gpu-comfyui-vs-aoai-sora-gpt-image-selection-faq.md) · [🇬🇧 EN](diffusion-image-video-dit-serving-aks-xdit-tensorrt-lora-vs-aca-serverless-gpu-comfyui-vs-aoai-sora-gpt-image-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（38 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（39 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -183,6 +183,7 @@
 | 301 | [企业 A2A Agent Card 发现与能力协商选型 FAQ：Pattern A（去中心化 `/.well-known/agent.json` + JWS Detached Signature + `did:web` 绑定 + 回调域名/SAN 校验，防伪冒与回调劫持）vs Pattern B（API Center + APIM 双层公开卡与 `authenticatedExtendedCard` 按调用方投影，阻断内部技能泄露）vs Pattern C（语义能力 Broker：AI Search 混合匹配 + Namespace Authority + 实时 `SLO/Cost/Residency` 交集过滤，抑制 capability squatting）vs Pattern D（GitOps 静态清单 + Istio Ambient/K8s 服务发现低时延确定性拓扑），含缓存失效/发现时延公式、能力劫持威胁矩阵、生产级签名卡与策略代码、三年 TCO 与 Day-0/Day-2 清单](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) | [🇨🇳 中文](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) · [🇬🇧 EN](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.en.md) |
 | 308 | [企业 Programmatic Tool Calling（Code Mode）消除 MCP `N+1` 工具调用风暴选型 FAQ：Pattern A（ACA Dynamic Sessions 中一次生成脚本、回合级只读 capability token 经 APIM 回调、沙箱内循环聚合后仅回传蒸馏结果）vs Pattern B（Batch MCP + DataLoader `10–25ms` 聚合窗口 + Graph/OData `$batch` 转译）vs Pattern C（Logic Apps/Dapr/组合 API 宏工具固化高频多系统流程）vs Pattern D（Native `parallel_tool_calls` 浅链快路），含 `820K/94s -> 19K/6.8s` 定量对照、生产级 Python Stub 生成器与 APIM 策略 XML、三年 TCO 与 Day-0/Day-2 清单](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) | [🇨🇳 中文](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) · [🇬🇧 EN](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.en.md) |
 | 315 | [企业 Remote MCP OAuth 2.1 授权与受众绑定治理选型 FAQ：`RFC 9728` 受保护资源元数据 + `RFC 8707` Resource Indicators 经 APIM 映射到 Entra `api://` scope，结合 CIMD/受控 DCR 客户端注册治理、`RFC 9449 DPoP` 发送方约束与可选 mTLS 证书绑定、以及联邦授权服务器 Broker（Keycloak/Ory/Duende）跨组织扩展，覆盖 Confused-Deputy 爆炸半径概率、DPoP `jti` 反重放开销、目录对象容量风险、三年 TCO 与 Day-0/Day-2 清单](mcp-oauth21-authorization-rfc9728-rfc8707-cimd-dpop-apim-entra-id-vs-dcr-proxy-vs-mtls-federated-as-selection-faq.md) | [🇨🇳 中文](mcp-oauth21-authorization-rfc9728-rfc8707-cimd-dpop-apim-entra-id-vs-dcr-proxy-vs-mtls-federated-as-selection-faq.md) · [🇬🇧 EN](mcp-oauth21-authorization-rfc9728-rfc8707-cimd-dpop-apim-entra-id-vs-dcr-proxy-vs-mtls-federated-as-selection-faq.en.md) |
+| 322 | [企业 MCP 资源订阅反应式更新选型 FAQ：Architecture A（`Event Grid + Redis` 尾缘合并 + `Web PubSub/APIM SSE` 脏 URI 指针推送并前置 CAE/RBAC 复核）vs Architecture B（`Service Bus` 持久游标与休眠会话追平）vs Architecture C（`APIM ETag/If-None-Match` 条件轮询 `304` 吸收）vs Architecture D（物质性门控双阶段反应环），含轮询风暴公式、连接容量、令牌放大成本与三年 TCO](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.md) | [🇨🇳 中文](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.md) · [🇬🇧 EN](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（39 篇）
 
