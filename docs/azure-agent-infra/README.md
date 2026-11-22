@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（318 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（319 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **318 个架构选型、平台对比与安全治理决策专题**（共 `636` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **319 个架构选型、平台对比与安全治理决策专题**（共 `638` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 317 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 319 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（38 篇）
 
@@ -229,7 +229,7 @@
 | 307 | [企业复杂 Excel 工作簿 RAG 与 Agent 推理选型 FAQ：Architecture A（SpreadsheetLLM 风格结构压缩 `15x–25x` + Azure AI Search 拓扑索引 + ACA Dynamic Sessions 公式 DAG 复算，强制 `Sheet!Cell` 归因）vs Architecture B（多区域表头归一到 DuckDB/Polars）vs Architecture C（Graph Workbook API 原生会话写回）vs Architecture D（视觉语义混合：渲染图像 + VLM 布局 grounding），含 `380K -> 16.4K` 压缩与 `31% -> <0.4%` 误差对照、生产级压缩器与归因执行工具、三年 TCO 与 Day-0/Day-2 清单](enterprise-excel-workbook-rag-spreadsheetllm-compression-ai-search-vs-duckdb-sandbox-vs-graph-workbook-api-selection-faq.md) | [🇨🇳 中文](enterprise-excel-workbook-rag-spreadsheetllm-compression-ai-search-vs-duckdb-sandbox-vs-graph-workbook-api-selection-faq.md) · [🇬🇧 EN](enterprise-excel-workbook-rag-spreadsheetllm-compression-ai-search-vs-duckdb-sandbox-vs-graph-workbook-api-selection-faq.en.md) |
 | 314 | [企业双时态知识版本化与条款覆盖冲突仲裁选型 FAQ：Architecture A（`Azure AI Search` 双时态 `as_of` 预过滤 + 权威层级评分）vs Architecture B（`Cosmos/Fabric Graph` 条款级 `SUPERSEDES/AMENDS_SECTION/JURISDICTION_OVERRIDE` 覆盖图）vs Architecture C（入库 NLI 冲突扫描 + Change Feed 原子 `valid_to` 闭区间）vs Architecture D（查询时冲突矩阵重排与显式分歧披露），含版本碰撞概率、`24% -> <1.2%` 混合答案错误率、P95 延迟预算与三年 TCO](bitemporal-rag-policy-supersession-contradiction-resolution-ai-search-as-of-filter-vs-amendment-graph-vs-ingestion-nli-selection-faq.md) | [🇨🇳 中文](bitemporal-rag-policy-supersession-contradiction-resolution-ai-search-as-of-filter-vs-amendment-graph-vs-ingestion-nli-selection-faq.md) · [🇬🇧 EN](bitemporal-rag-policy-supersession-contradiction-resolution-ai-search-as-of-filter-vs-amendment-graph-vs-ingestion-nli-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（38 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（39 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -273,6 +273,7 @@
 | 298 | [企业 Mid-Flight 执行中断与实时改道选型 FAQ：Pattern A（协作取消树 + Redis 带外 Cancel Bus：`SSE/WebSocket Abort -> APIM -> MAF CancellationToken -> MCP notifications/cancelled -> ACA SIGTERM`，并强制写入 `[Cancelled by user]` 工具桩避免 orphaned `tool_call_id`）vs Pattern B（Turn-Boundary 优先级改道队列：软改道保留 `75–90%` 前缀缓存）vs Pattern C（单调 `run_epoch` 栅栏 + Durable 补偿 Saga 阻断取消后迟到写）vs Pattern D（Checkpoint Fork 分支化改道），含僵尸 token 浪费公式、线程腐化状态机、三年 TCO 与 Day-0/Day-2 清单](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.md) | [🇨🇳 中文](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.md) · [🇬🇧 EN](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.en.md) |
 | 305 | [企业跨平台 ChatOps 战情室智能体编排选型 FAQ：Architecture A（APIM Webhook 验签 + `<200ms` Fast-ACK 去重 + Service Bus Sessions 线程归一化 + `500–800ms` 渐进流式合并）vs Architecture B（Slack Socket Mode 零入站私网池 + Teams 出站通道）vs Architecture C（Graph RSC 上下文读取 + 发起人绑定 Entra OBO 执行 + 签名 Step-Up 卡片）vs Architecture D（M365 Copilot/Slack AI 声明式扩展），含 `3s` 超时与 `429` 节流数学、生产策略代码、三年 TCO 与 Day-0/Day-2 清单](enterprise-chatops-warroom-agent-m365-agents-sdk-teams-rsc-vs-slack-socket-events-apim-vs-unified-bus-selection-faq.md) | [🇨🇳 中文](enterprise-chatops-warroom-agent-m365-agents-sdk-teams-rsc-vs-slack-socket-events-apim-vs-unified-bus-selection-faq.md) · [🇬🇧 EN](enterprise-chatops-warroom-agent-m365-agents-sdk-teams-rsc-vs-slack-socket-events-apim-vs-unified-bus-selection-faq.en.md) |
 | 312 | [企业高风险多智能体验证与共识编排选型 FAQ：Architecture A（`MAF + Foundry/APIM` 跨家族 Blind Maker-Checker + CoT-Stripped 上下文防火墙）vs Architecture B（`ACA Dynamic Sessions` 神经-符号验证环：Python/Z3/OPA/SQL-AST）vs Architecture C（`Best-of-N` 并行共识 + 分歧熵门控 `Durable Functions` HITL 升级）vs Architecture D（Advocate/Skeptic/Judge 对抗式法庭辩论），含相关错误概率公式、`1.8x/1.3x/3.1x/6.5x` 延迟与 token 经济学、生产策略与三年 TCO](multi-agent-maker-checker-verification-cross-family-blind-critic-vs-neuro-symbolic-aca-verifier-vs-best-of-n-hitl-selection-faq.md) | [🇨🇳 中文](multi-agent-maker-checker-verification-cross-family-blind-critic-vs-neuro-symbolic-aca-verifier-vs-best-of-n-hitl-selection-faq.md) · [🇬🇧 EN](multi-agent-maker-checker-verification-cross-family-blind-critic-vs-neuro-symbolic-aca-verifier-vs-best-of-n-hitl-selection-faq.en.md) |
+| 319 | [企业工作站 In-Context Co-Pilot 渠道选型 FAQ：Architecture A（`Edge for Business/Chrome Enterprise` `Manifest V3` `chrome.sidePanel` 强制安装 + `runtime_allowed_hosts/runtime_blocked_hosts` + Web PubSub 可恢复流）vs Architecture B（`Office.js` 统一加载项 + `NAA` 原生代理 SSO + `Word.run/Excel.run/Outlook` 结构化操作）vs Architecture C（`WebView2/Tauri` 签名桌面伴随应用 + Named-Pipe 本地 `MCP` 桥接）vs Architecture D（宿主内嵌 `AG-UI` 类型化状态桥），覆盖上下文切换 ROI 公式、MV3 `30s` 挂起重连数学、`<120ms` 清洗预算、`10,000` 席位推广速度与三年 TCO](in-context-workstation-copilot-channel-edge-mv3-sidepanel-extension-vs-officejs-naa-addin-vs-desktop-webview2-mcp-selection-faq.md) | [🇨🇳 中文](in-context-workstation-copilot-channel-edge-mv3-sidepanel-extension-vs-officejs-naa-addin-vs-desktop-webview2-mcp-selection-faq.md) · [🇬🇧 EN](in-context-workstation-copilot-channel-edge-mv3-sidepanel-extension-vs-officejs-naa-addin-vs-desktop-webview2-mcp-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
