@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（300 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（301 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **300 个架构选型、平台对比与安全治理决策专题**（共 `600` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **301 个架构选型、平台对比与安全治理决策专题**（共 `602` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 300 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 301 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（35 篇）
 
@@ -131,7 +131,7 @@
 | 287 | [企业 Compound Inference DAG 服务选型 FAQ：AKS + KubeRay Ray Serve `DeploymentGraph`（异构 CPU/L4S/A10/H100 节点池与阶段独立扩缩容）vs AKS + KServe `InferenceGraph`（`Sequence/Switch/Splitter` 声明式路由）vs Triton Ensemble/BLS（共享内存零序列化链路）vs Foundry+APIM 托管链式编排（`3–5` hop 税 `+25–65ms`），含 `8:2:1` 阶段扩缩容比例、`P95 < 500–800ms` 预算、300 RPS 场景与月度 TCO 对比](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.md) | [🇨🇳 中文](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.md) · [🇬🇧 EN](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.en.md) |
 | 293 | [企业 LLM 感知 GPU 推理弹性与冷启动遮蔽选型 FAQ：AKS + KEDA 复合指标（`vllm:num_requests_waiting` / `gpu_cache_usage_perc` / `latency_p95`）+ NAP 预热气球 Pod + ACR 流式拉取 vs KServe/Knative KPAM 双窗口弹性 vs ACA Serverless GPU 低占空比按秒计费 vs APIM 队列深度溢出 MaaS（`TTFT P99 < 1.5s`、`90–240s` 扩容窗口、`20/55/85%` 占空比月度 TCO）](llm-gpu-inference-autoscaling-cold-start-masking-aks-keda-vllm-kv-metrics-vs-kserve-knative-vs-aca-gpu-vs-apim-maas-spillover-selection-faq.md) | [🇨🇳 中文](llm-gpu-inference-autoscaling-cold-start-masking-aks-keda-vllm-kv-metrics-vs-kserve-knative-vs-aca-gpu-vs-apim-maas-spillover-selection-faq.md) · [🇬🇧 EN](llm-gpu-inference-autoscaling-cold-start-masking-aks-keda-vllm-kv-metrics-vs-kserve-knative-vs-aca-gpu-vs-apim-maas-spillover-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（35 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（36 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -258,6 +258,7 @@
 | 291 | [企业多智能体编排拓扑选型 FAQ：Topology A（MAF Workflow Graph 确定性 DAG 并行 fan-out）vs Topology B（Supervisor-Worker 分层监督与上下文切片）vs Topology C（Swarm Direct Handoff 直连交接与 hop 断路）vs Topology D（Magentic Task/Progress Ledger 动态重规划），含 `3-agent/8-agent` Token Multiplier、`p^k` 复合成功率、P95 时延与每千任务成本对比](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.md) | [🇨🇳 中文](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.md) · [🇬🇧 EN](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.en.md) |
 | 298 | [企业 Mid-Flight 执行中断与实时改道选型 FAQ：Pattern A（协作取消树 + Redis 带外 Cancel Bus：`SSE/WebSocket Abort -> APIM -> MAF CancellationToken -> MCP notifications/cancelled -> ACA SIGTERM`，并强制写入 `[Cancelled by user]` 工具桩避免 orphaned `tool_call_id`）vs Pattern B（Turn-Boundary 优先级改道队列：软改道保留 `75–90%` 前缀缓存）vs Pattern C（单调 `run_epoch` 栅栏 + Durable 补偿 Saga 阻断取消后迟到写）vs Pattern D（Checkpoint Fork 分支化改道），含僵尸 token 浪费公式、线程腐化状态机、三年 TCO 与 Day-0/Day-2 清单](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.md) | [🇨🇳 中文](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.md) · [🇬🇧 EN](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.en.md) |
 | 300 | [企业 Agent 上下文工程选型 FAQ：Architecture A（缓存对齐 Epoch 压缩 + 可逆 Blob 句柄替换：冻结 1,024-token 前缀、32K 水位离散压缩，避免滑窗导致 Prompt Cache 从高命中跌至近零）vs Architecture B（工作区暂存页虚拟内存：`plan.md/ledger/tables` 外置与尾部高注意力复述）vs Architecture C（子 Agent 上下文防火墙：清洁室隔离 `60K–100K` 噪声轨迹，仅回传 `1K–2K` 强类型摘要 + 来源 URI）vs Architecture D（Responses API/Foundry 托管上下文截断），含 `O(N^2)` 与稳态缓存成本公式、Recall 退化曲线、生产级 Compactor 代码、三年 TCO 与 Day-0/Day-2 清单](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.md) | [🇨🇳 中文](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.md) · [🇬🇧 EN](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.en.md) |
+| 301 | [企业 A2A Agent Card 发现与能力协商选型 FAQ：Pattern A（去中心化 `/.well-known/agent.json` + JWS Detached Signature + `did:web` 绑定 + 回调域名/SAN 校验，防伪冒与回调劫持）vs Pattern B（API Center + APIM 双层公开卡与 `authenticatedExtendedCard` 按调用方投影，阻断内部技能泄露）vs Pattern C（语义能力 Broker：AI Search 混合匹配 + Namespace Authority + 实时 `SLO/Cost/Residency` 交集过滤，抑制 capability squatting）vs Pattern D（GitOps 静态清单 + Istio Ambient/K8s 服务发现低时延确定性拓扑），含缓存失效/发现时延公式、能力劫持威胁矩阵、生产级签名卡与策略代码、三年 TCO 与 Day-0/Day-2 清单](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) | [🇨🇳 中文](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) · [🇬🇧 EN](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
