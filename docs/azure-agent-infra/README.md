@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（314 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（315 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **314 个架构选型、平台对比与安全治理决策专题**（共 `628` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **315 个架构选型、平台对比与安全治理决策专题**（共 `630` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 314 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 315 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（37 篇）
 
@@ -137,7 +137,7 @@
 | 302 | [企业混合在线推理与离线批处理 GPU 产能回收选型 FAQ：Architecture A（AKS + `Kueue` `Cohort` 借额与优先级抢占：夜间批任务借用在线闲置 GPU，白天流量回升时 `<15–30s` 回收，配合 `10–15%` 热备与 whole-GPU/MIG 边界）vs Architecture B（`NVIDIA KAI Scheduler`/`Volcano` 分层公平 + 拓扑感知 Gang 调度 + 抢占后 Blob/ANF 检查点恢复）vs Architecture C（预留在线池 + Spot 批池物理分离与 IMDS Scheduled Events 驱逐治理）vs Architecture D（AOAI PTU 夜间动态回填 + Batch API 5 折独立配额），含日周期利用率与 effective `$/GPU-hour` 公式、`64x H100` 三年 TCO、生产级 Kueue YAML 与 PTU 回填控制器代码](mixed-online-batch-gpu-harvesting-aks-kueue-preemption-vs-kai-scheduler-mig-vs-spot-pool-vs-ptu-batch-selection-faq.md) | [🇨🇳 中文](mixed-online-batch-gpu-harvesting-aks-kueue-preemption-vs-kai-scheduler-mig-vs-spot-pool-vs-ptu-batch-selection-faq.md) · [🇬🇧 EN](mixed-online-batch-gpu-harvesting-aks-kueue-preemption-vs-kai-scheduler-mig-vs-spot-pool-vs-ptu-batch-selection-faq.en.md) |
 | 309 | [企业海量离线 LLM/VLM 语料批推理选型 FAQ：Architecture A（AKS + KubeRay Ray Data + vLLM Offline，前缀排序 + 长度分桶微批与 Spot 分片幂等 checkpoint）vs Architecture B（AOAI/Foundry Global & DataZone Batch API：`100K` 请求 / `200MB` `.jsonl` 分片、`custom_id` 回拼、死信重放）vs Architecture C（Fabric AI Functions / Databricks `ai_query()` 湖仓原位推理）vs Architecture D（AML ParallelRunStep / Azure Batch 托管并行），含 `205B` token 规模、吞吐与 `$/1M` token 交叉测算、生产级 Ray+vLLM 与 Durable 编排代码、三年 TCO 与 Day-0/Day-2 清单](massive-offline-llm-batch-inference-aks-ray-data-vllm-vs-aoai-global-batch-api-vs-fabric-databricks-ai-query-selection-faq.md) | [🇨🇳 中文](massive-offline-llm-batch-inference-aks-ray-data-vllm-vs-aoai-global-batch-api-vs-fabric-databricks-ai-query-selection-faq.md) · [🇬🇧 EN](massive-offline-llm-batch-inference-aks-ray-data-vllm-vs-aoai-global-batch-api-vs-fabric-databricks-ai-query-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（37 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（38 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -180,6 +180,7 @@
 | 295 | [企业可变更 MCP 工具爆炸半径预演与双阶段提交治理选型 FAQ：Pattern A（MCP 注解 + 后端 `dry_run` 影响面模拟，输出实体计数、字段差异与金额变动）vs Pattern B（APIM + Managed Redis 两阶段 `Preview -> Commit-Token`，基于 RFC 8785 JCS 规范化哈希 + `ETag/RowVersion` 防 TOCTOU + Cedar/OPA 阈值策略）vs Pattern C（`Plan -> Signed Bundle -> Apply` 异步签名流水线，用于 Tier-0 控制面变更）vs Pattern D（软提交托管 + `60–180s` 撤销窗口，Service Bus 延迟入队 + 一键 Undo），含审批疲劳误放行率、参数漂移拒绝率、时延开销与月度 TCO 对比](mutating-mcp-tool-dry-run-blast-radius-preview-commit-token-apim-gate-vs-gitops-plan-apply-vs-soft-undo-selection-faq.md) | [🇨🇳 中文](mutating-mcp-tool-dry-run-blast-radius-preview-commit-token-apim-gate-vs-gitops-plan-apply-vs-soft-undo-selection-faq.md) · [🇬🇧 EN](mutating-mcp-tool-dry-run-blast-radius-preview-commit-token-apim-gate-vs-gitops-plan-apply-vs-soft-undo-selection-faq.en.md) |
 | 301 | [企业 A2A Agent Card 发现与能力协商选型 FAQ：Pattern A（去中心化 `/.well-known/agent.json` + JWS Detached Signature + `did:web` 绑定 + 回调域名/SAN 校验，防伪冒与回调劫持）vs Pattern B（API Center + APIM 双层公开卡与 `authenticatedExtendedCard` 按调用方投影，阻断内部技能泄露）vs Pattern C（语义能力 Broker：AI Search 混合匹配 + Namespace Authority + 实时 `SLO/Cost/Residency` 交集过滤，抑制 capability squatting）vs Pattern D（GitOps 静态清单 + Istio Ambient/K8s 服务发现低时延确定性拓扑），含缓存失效/发现时延公式、能力劫持威胁矩阵、生产级签名卡与策略代码、三年 TCO 与 Day-0/Day-2 清单](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) | [🇨🇳 中文](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) · [🇬🇧 EN](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.en.md) |
 | 308 | [企业 Programmatic Tool Calling（Code Mode）消除 MCP `N+1` 工具调用风暴选型 FAQ：Pattern A（ACA Dynamic Sessions 中一次生成脚本、回合级只读 capability token 经 APIM 回调、沙箱内循环聚合后仅回传蒸馏结果）vs Pattern B（Batch MCP + DataLoader `10–25ms` 聚合窗口 + Graph/OData `$batch` 转译）vs Pattern C（Logic Apps/Dapr/组合 API 宏工具固化高频多系统流程）vs Pattern D（Native `parallel_tool_calls` 浅链快路），含 `820K/94s -> 19K/6.8s` 定量对照、生产级 Python Stub 生成器与 APIM 策略 XML、三年 TCO 与 Day-0/Day-2 清单](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) | [🇨🇳 中文](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) · [🇬🇧 EN](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.en.md) |
+| 315 | [企业 Remote MCP OAuth 2.1 授权与受众绑定治理选型 FAQ：`RFC 9728` 受保护资源元数据 + `RFC 8707` Resource Indicators 经 APIM 映射到 Entra `api://` scope，结合 CIMD/受控 DCR 客户端注册治理、`RFC 9449 DPoP` 发送方约束与可选 mTLS 证书绑定、以及联邦授权服务器 Broker（Keycloak/Ory/Duende）跨组织扩展，覆盖 Confused-Deputy 爆炸半径概率、DPoP `jti` 反重放开销、目录对象容量风险、三年 TCO 与 Day-0/Day-2 清单](mcp-oauth21-authorization-rfc9728-rfc8707-cimd-dpop-apim-entra-id-vs-dcr-proxy-vs-mtls-federated-as-selection-faq.md) | [🇨🇳 中文](mcp-oauth21-authorization-rfc9728-rfc8707-cimd-dpop-apim-entra-id-vs-dcr-proxy-vs-mtls-federated-as-selection-faq.md) · [🇬🇧 EN](mcp-oauth21-authorization-rfc9728-rfc8707-cimd-dpop-apim-entra-id-vs-dcr-proxy-vs-mtls-federated-as-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（38 篇）
 
