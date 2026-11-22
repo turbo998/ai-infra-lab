@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（313 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（314 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **313 个架构选型、平台对比与安全治理决策专题**（共 `626` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **314 个架构选型、平台对比与安全治理决策专题**（共 `628` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 313 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 314 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（37 篇）
 
@@ -181,7 +181,7 @@
 | 301 | [企业 A2A Agent Card 发现与能力协商选型 FAQ：Pattern A（去中心化 `/.well-known/agent.json` + JWS Detached Signature + `did:web` 绑定 + 回调域名/SAN 校验，防伪冒与回调劫持）vs Pattern B（API Center + APIM 双层公开卡与 `authenticatedExtendedCard` 按调用方投影，阻断内部技能泄露）vs Pattern C（语义能力 Broker：AI Search 混合匹配 + Namespace Authority + 实时 `SLO/Cost/Residency` 交集过滤，抑制 capability squatting）vs Pattern D（GitOps 静态清单 + Istio Ambient/K8s 服务发现低时延确定性拓扑），含缓存失效/发现时延公式、能力劫持威胁矩阵、生产级签名卡与策略代码、三年 TCO 与 Day-0/Day-2 清单](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) | [🇨🇳 中文](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.md) · [🇬🇧 EN](a2a-agent-card-discovery-capability-negotiation-well-known-jws-vs-apicenter-extended-card-vs-semantic-broker-selection-faq.en.md) |
 | 308 | [企业 Programmatic Tool Calling（Code Mode）消除 MCP `N+1` 工具调用风暴选型 FAQ：Pattern A（ACA Dynamic Sessions 中一次生成脚本、回合级只读 capability token 经 APIM 回调、沙箱内循环聚合后仅回传蒸馏结果）vs Pattern B（Batch MCP + DataLoader `10–25ms` 聚合窗口 + Graph/OData `$batch` 转译）vs Pattern C（Logic Apps/Dapr/组合 API 宏工具固化高频多系统流程）vs Pattern D（Native `parallel_tool_calls` 浅链快路），含 `820K/94s -> 19K/6.8s` 定量对照、生产级 Python Stub 生成器与 APIM 策略 XML、三年 TCO 与 Day-0/Day-2 清单](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) | [🇨🇳 中文](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) · [🇬🇧 EN](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（37 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（38 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -224,6 +224,7 @@
 | 294 | [企业 Agentic Retrieval 查询规划与纠错检索选型 FAQ：Azure AI Search KnowledgeAgent（托管会话分解 + 并行子查询 + 语义合并）vs MAF/LangGraph 自定义 CRAG 回路（`max_hops=3` 证据评分与显式拒答）vs Multi-Query+HyDE+RRF 无状态并行扇出（`P95 < 900ms`）vs 跨模态联邦路由（AI Search + Fabric IQ/SQL + 外部许可源冲突裁决），含 `Recall@10/Faithfulness/Abstention Precision`、`1.1s/2.4s/4.8s` 延迟与 `1.4x/3.2x/5.5x` Token 放大对比](agentic-retrieval-query-planning-ai-search-knowledge-agent-vs-custom-crag-loop-vs-hyde-rrf-vs-federated-router-selection-faq.md) | [🇨🇳 中文](agentic-retrieval-query-planning-ai-search-knowledge-agent-vs-custom-crag-loop-vs-hyde-rrf-vs-federated-router-selection-faq.md) · [🇬🇧 EN](agentic-retrieval-query-planning-ai-search-knowledge-agent-vs-custom-crag-loop-vs-hyde-rrf-vs-federated-router-selection-faq.en.md) |
 | 300 | [企业 Agent 上下文工程选型 FAQ：Architecture A（缓存对齐 Epoch 压缩 + 可逆 Blob 句柄替换：冻结 1,024-token 前缀、32K 水位离散压缩，避免滑窗导致 Prompt Cache 从高命中跌至近零）vs Architecture B（工作区暂存页虚拟内存：`plan.md/ledger/tables` 外置与尾部高注意力复述）vs Architecture C（子 Agent 上下文防火墙：清洁室隔离 `60K–100K` 噪声轨迹，仅回传 `1K–2K` 强类型摘要 + 来源 URI）vs Architecture D（Responses API/Foundry 托管上下文截断），含 `O(N^2)` 与稳态缓存成本公式、Recall 退化曲线、生产级 Compactor 代码、三年 TCO 与 Day-0/Day-2 清单](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.md) | [🇨🇳 中文](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.md) · [🇬🇧 EN](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.en.md) |
 | 307 | [企业复杂 Excel 工作簿 RAG 与 Agent 推理选型 FAQ：Architecture A（SpreadsheetLLM 风格结构压缩 `15x–25x` + Azure AI Search 拓扑索引 + ACA Dynamic Sessions 公式 DAG 复算，强制 `Sheet!Cell` 归因）vs Architecture B（多区域表头归一到 DuckDB/Polars）vs Architecture C（Graph Workbook API 原生会话写回）vs Architecture D（视觉语义混合：渲染图像 + VLM 布局 grounding），含 `380K -> 16.4K` 压缩与 `31% -> <0.4%` 误差对照、生产级压缩器与归因执行工具、三年 TCO 与 Day-0/Day-2 清单](enterprise-excel-workbook-rag-spreadsheetllm-compression-ai-search-vs-duckdb-sandbox-vs-graph-workbook-api-selection-faq.md) | [🇨🇳 中文](enterprise-excel-workbook-rag-spreadsheetllm-compression-ai-search-vs-duckdb-sandbox-vs-graph-workbook-api-selection-faq.md) · [🇬🇧 EN](enterprise-excel-workbook-rag-spreadsheetllm-compression-ai-search-vs-duckdb-sandbox-vs-graph-workbook-api-selection-faq.en.md) |
+| 314 | [企业双时态知识版本化与条款覆盖冲突仲裁选型 FAQ：Architecture A（`Azure AI Search` 双时态 `as_of` 预过滤 + 权威层级评分）vs Architecture B（`Cosmos/Fabric Graph` 条款级 `SUPERSEDES/AMENDS_SECTION/JURISDICTION_OVERRIDE` 覆盖图）vs Architecture C（入库 NLI 冲突扫描 + Change Feed 原子 `valid_to` 闭区间）vs Architecture D（查询时冲突矩阵重排与显式分歧披露），含版本碰撞概率、`24% -> <1.2%` 混合答案错误率、P95 延迟预算与三年 TCO](bitemporal-rag-policy-supersession-contradiction-resolution-ai-search-as-of-filter-vs-amendment-graph-vs-ingestion-nli-selection-faq.md) | [🇨🇳 中文](bitemporal-rag-policy-supersession-contradiction-resolution-ai-search-as-of-filter-vs-amendment-graph-vs-ingestion-nli-selection-faq.md) · [🇬🇧 EN](bitemporal-rag-policy-supersession-contradiction-resolution-ai-search-as-of-filter-vs-amendment-graph-vs-ingestion-nli-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（38 篇）
 
