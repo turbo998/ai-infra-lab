@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（308 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（309 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **308 个架构选型、平台对比与安全治理决策专题**（共 `616` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **309 个架构选型、平台对比与安全治理决策专题**（共 `618` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 308 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 309 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（36 篇）
 
@@ -91,7 +91,7 @@
 
 | 303 | [企业超大 Monorepo Coding Agent 工作区水合与分布式构建选型 FAQ：Architecture A（AKS `Kata` 薄沙箱 + 节点 NVMe/ANF 只读 Git 引用仓 + `Scalar` `--filter=blob:none` + cone sparse-checkout + `fsmonitor` + Bazel RBE 远程执行，`180GB` 仓库工作区水合 `<2.5s`）vs Architecture B（EdenFS/VFS 延迟挂载 + Nx Cloud/Turborepo/Gradle Develocity 任务图缓存，降低 Bazel 迁移门槛）vs Architecture C（Codespaces/Dev Box/增量快照预构建池 + 预计算 `clangd/jdtls/Roslyn/SCIP` 索引，削峰冷索引风暴）vs Architecture D（子图投影 + 只读搜索 API + 轻量 ACA 验证），含主 CAS 只读 + 任务覆盖层写入防投毒边界、`28min -> 1.9s` 量化对比与 `100/500/2500` 日运行三年 TCO](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.md) | [🇨🇳 中文](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.md) · [🇬🇧 EN](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（36 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（37 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -134,6 +134,7 @@
 | 293 | [企业 LLM 感知 GPU 推理弹性与冷启动遮蔽选型 FAQ：AKS + KEDA 复合指标（`vllm:num_requests_waiting` / `gpu_cache_usage_perc` / `latency_p95`）+ NAP 预热气球 Pod + ACR 流式拉取 vs KServe/Knative KPAM 双窗口弹性 vs ACA Serverless GPU 低占空比按秒计费 vs APIM 队列深度溢出 MaaS（`TTFT P99 < 1.5s`、`90–240s` 扩容窗口、`20/55/85%` 占空比月度 TCO）](llm-gpu-inference-autoscaling-cold-start-masking-aks-keda-vllm-kv-metrics-vs-kserve-knative-vs-aca-gpu-vs-apim-maas-spillover-selection-faq.md) | [🇨🇳 中文](llm-gpu-inference-autoscaling-cold-start-masking-aks-keda-vllm-kv-metrics-vs-kserve-knative-vs-aca-gpu-vs-apim-maas-spillover-selection-faq.md) · [🇬🇧 EN](llm-gpu-inference-autoscaling-cold-start-masking-aks-keda-vllm-kv-metrics-vs-kserve-knative-vs-aca-gpu-vs-apim-maas-spillover-selection-faq.en.md) |
 
 | 302 | [企业混合在线推理与离线批处理 GPU 产能回收选型 FAQ：Architecture A（AKS + `Kueue` `Cohort` 借额与优先级抢占：夜间批任务借用在线闲置 GPU，白天流量回升时 `<15–30s` 回收，配合 `10–15%` 热备与 whole-GPU/MIG 边界）vs Architecture B（`NVIDIA KAI Scheduler`/`Volcano` 分层公平 + 拓扑感知 Gang 调度 + 抢占后 Blob/ANF 检查点恢复）vs Architecture C（预留在线池 + Spot 批池物理分离与 IMDS Scheduled Events 驱逐治理）vs Architecture D（AOAI PTU 夜间动态回填 + Batch API 5 折独立配额），含日周期利用率与 effective `$/GPU-hour` 公式、`64x H100` 三年 TCO、生产级 Kueue YAML 与 PTU 回填控制器代码](mixed-online-batch-gpu-harvesting-aks-kueue-preemption-vs-kai-scheduler-mig-vs-spot-pool-vs-ptu-batch-selection-faq.md) | [🇨🇳 中文](mixed-online-batch-gpu-harvesting-aks-kueue-preemption-vs-kai-scheduler-mig-vs-spot-pool-vs-ptu-batch-selection-faq.md) · [🇬🇧 EN](mixed-online-batch-gpu-harvesting-aks-kueue-preemption-vs-kai-scheduler-mig-vs-spot-pool-vs-ptu-batch-selection-faq.en.md) |
+| 309 | [企业海量离线 LLM/VLM 语料批推理选型 FAQ：Architecture A（AKS + KubeRay Ray Data + vLLM Offline，前缀排序 + 长度分桶微批与 Spot 分片幂等 checkpoint）vs Architecture B（AOAI/Foundry Global & DataZone Batch API：`100K` 请求 / `200MB` `.jsonl` 分片、`custom_id` 回拼、死信重放）vs Architecture C（Fabric AI Functions / Databricks `ai_query()` 湖仓原位推理）vs Architecture D（AML ParallelRunStep / Azure Batch 托管并行），含 `205B` token 规模、吞吐与 `$/1M` token 交叉测算、生产级 Ray+vLLM 与 Durable 编排代码、三年 TCO 与 Day-0/Day-2 清单](massive-offline-llm-batch-inference-aks-ray-data-vllm-vs-aoai-global-batch-api-vs-fabric-databricks-ai-query-selection-faq.md) | [🇨🇳 中文](massive-offline-llm-batch-inference-aks-ray-data-vllm-vs-aoai-global-batch-api-vs-fabric-databricks-ai-query-selection-faq.md) · [🇬🇧 EN](massive-offline-llm-batch-inference-aks-ray-data-vllm-vs-aoai-global-batch-api-vs-fabric-databricks-ai-query-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（37 篇）
 
