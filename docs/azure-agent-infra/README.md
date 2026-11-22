@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（290 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（291 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **290 个架构选型、平台对比与安全治理决策专题**（共 `580` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **291 个架构选型、平台对比与安全治理决策专题**（共 `582` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 290 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 291 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（34 篇）
 
@@ -211,7 +211,7 @@
 | 282 | [多租户向量 RAG 隔离选型 FAQ：Azure AI Search 共享索引（`strictPostFilter`/`preFilter`）vs `S3HD/S2` 每租户索引（每索引 CMK 与秒级下线）vs Cosmos Sharded DiskANN（`vectorIndexShardKey: [\"/tenantId\"]` + 分层分区）vs Bridge/Silo 分层控制平面，含 `0.05%` 选择性 Recall@10、P95 时延、单 Stamp 租户上限与 5,000 租户月度 TCO 对比](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.md) | [🇨🇳 中文](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.md) · [🇬🇧 EN](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.en.md) |
 | 288 | [企业 Context-Preserving RAG 索引选型 FAQ：Contextual Retrieval（文档级前缀情境化）vs Parent-Child Small-to-Big（`256` 子块召回 + `1,500–3,000` 父段回填）vs Late Chunking（长上下文先编码后 span pooling）vs Layout/Proposition 结构命题化（避免中表切割），含 Recall@10/NDCG@10、每百万页成本、重建放大与存储膨胀对比](contextual-retrieval-parent-child-late-chunking-rag-indexing-ai-search-vs-aoai-prompt-cache-batch-vs-aks-tei-selection-faq.md) | [🇨🇳 中文](contextual-retrieval-parent-child-late-chunking-rag-indexing-ai-search-vs-aoai-prompt-cache-batch-vs-aks-tei-selection-faq.md) · [🇬🇧 EN](contextual-retrieval-parent-child-late-chunking-rag-indexing-ai-search-vs-aoai-prompt-cache-batch-vs-aks-tei-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（34 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（35 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -251,6 +251,8 @@
 | 259 | [企业人机协同升级队列选型 FAQ：`Service Bus Sessions` 优先级队列 vs `Durable Functions` SLA 挂起恢复编排 vs `D365 Unified Routing` 技能派单 vs 双速混合闭环（等待 P95、FCR、违约率与每千升级 TCO 拐点）](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.md) | [🇨🇳 中文](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.md) · [🇬🇧 EN](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.en.md) |
 | 263 | [企业 Agent 人工接管状态包选型 FAQ：Service Bus Session 顺序队列 vs Durable Saga 恢复编排 vs D365 Case Routing 技能分派 vs 混合闭环（状态包完整率、接管等待 P95、恢复后一次完成率与每千接管综合成本平衡）](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.md) | [🇨🇳 中文](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.md) · [🇬🇧 EN](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.en.md) |
 | 280 | [企业自治定时唤醒智能体选型 FAQ：Service Bus `ScheduledEnqueueTimeUtc` + `SequenceNumber` 取消（百万级动态延迟消息）vs Durable Timers/Entities（`WhenAny` 回执竞态与跨周 Saga）vs ACA Scheduled Jobs + Logic Apps（`10–500` 静态批次定时）vs Dapr Reminders/Temporal（低抖动时区/节假日日历语义），含最大动态定时、抖动 P95、防惊群评分与 100K/5M 月度 TCO](scheduled-autonomous-agent-timers-service-bus-scheduled-messages-vs-durable-timers-vs-aca-jobs-vs-dapr-reminders-selection-faq.md) | [🇨🇳 中文](scheduled-autonomous-agent-timers-service-bus-scheduled-messages-vs-durable-timers-vs-aca-jobs-vs-dapr-reminders-selection-faq.md) · [🇬🇧 EN](scheduled-autonomous-agent-timers-service-bus-scheduled-messages-vs-durable-timers-vs-aca-jobs-vs-dapr-reminders-selection-faq.en.md) |
+
+| 291 | [企业多智能体编排拓扑选型 FAQ：Topology A（MAF Workflow Graph 确定性 DAG 并行 fan-out）vs Topology B（Supervisor-Worker 分层监督与上下文切片）vs Topology C（Swarm Direct Handoff 直连交接与 hop 断路）vs Topology D（Magentic Task/Progress Ledger 动态重规划），含 `3-agent/8-agent` Token Multiplier、`p^k` 复合成功率、P95 时延与每千任务成本对比](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.md) | [🇨🇳 中文](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.md) · [🇬🇧 EN](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 

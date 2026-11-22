@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (290 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (291 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **290 structured architecture selection guides and trade-off FAQs** (`580` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **291 structured architecture selection guides and trade-off FAQs** (`582` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 290 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 291 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (34 Guides)
 
@@ -212,7 +212,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 282 | [Multi-tenant vector and hybrid RAG isolation selection FAQ: Azure AI Search shared index (`strictPostFilter`/`preFilter`) vs `S3HD/S2` index-per-tenant (per-index CMK and sub-second tenant offboarding) vs Cosmos Sharded DiskANN (`vectorIndexShardKey: [\"/tenantId\"]` + hierarchical partitioning) vs Bridge/Silo tiered control plane, including Recall@10 at `0.05%` selectivity, P95 latency, tenants-per-stamp ceiling, and monthly TCO at 5,000 tenants](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.en.md) | [🇬🇧 EN](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.en.md) · [🇨🇳 中文](multi-tenant-vector-rag-isolation-ai-search-s3hd-index-per-tenant-vs-shared-prefilter-vs-cosmos-sharded-diskann-selection-faq.md) |
 | 288 | [Enterprise context-preserving RAG indexing selection FAQ: Contextual Retrieval (document-prefix situating headers) vs Parent-Child Small-to-Big (`256` child recall + `1,500–3,000` parent hydration) vs Late Chunking (long-context encode-first span pooling) vs Layout/Proposition structural decomposition (preventing mid-table splits), including Recall@10/NDCG@10 uplift, cost per 1M pages, re-index amplification, and storage bloat comparison](contextual-retrieval-parent-child-late-chunking-rag-indexing-ai-search-vs-aoai-prompt-cache-batch-vs-aks-tei-selection-faq.en.md) | [🇬🇧 EN](contextual-retrieval-parent-child-late-chunking-rag-indexing-ai-search-vs-aoai-prompt-cache-batch-vs-aks-tei-selection-faq.en.md) · [🇨🇳 中文](contextual-retrieval-parent-child-late-chunking-rag-indexing-ai-search-vs-aoai-prompt-cache-batch-vs-aks-tei-selection-faq.md) |
 
-### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (34 Guides)
+### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (35 Guides)
 
 > Covers Microsoft Agent Framework (MAF) modernization, durable HITL workflows, WebRTC/ACS real-time voice & avatars, and M365/CRM/SDLC channels.
 
@@ -252,6 +252,8 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 259 | [Enterprise human-in-the-loop escalation queueing selection FAQ: `Service Bus Sessions` priority queues vs `Durable Functions` SLA suspend/resume orchestration vs `D365 Unified Routing` skill dispatch vs dual-speed hybrid loop (balancing wait P95, FCR, breach rate, and per-1,000-escalation TCO break-even)](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.en.md) | [🇬🇧 EN](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.en.md) · [🇨🇳 中文](human-in-loop-escalation-queueing-servicebus-sessions-vs-durable-functions-vs-d365-unified-routing-selection-faq.md) |
 | 263 | [Enterprise agent human-handoff state-package selection FAQ: Service Bus Session ordering vs Durable Saga recovery orchestration vs D365 case-routing skill dispatch vs integrated hybrid loop (balancing package completeness, handoff wait P95, post-handoff first-pass completion, and blended cost per 1,000 handoffs)](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.en.md) | [🇬🇧 EN](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.en.md) · [🇨🇳 中文](agent-human-handoff-state-package-servicebus-session-vs-durable-saga-vs-d365-case-routing-selection-faq.md) |
 | 280 | [Enterprise scheduled autonomous timer selection FAQ: Service Bus `ScheduledEnqueueTimeUtc` with `SequenceNumber` cancellation (million-scale dynamic delayed wake-ups) vs Durable Timers/Entities (`WhenAny` external-reply race handling for multi-week sagas) vs ACA Scheduled Jobs + Logic Apps Standard recurrence (`10–500` static batch schedules) vs Dapr Actor Reminders/Temporal (low-jitter timezone and holiday-aware calendar semantics), including max dynamic timers, jitter P95, thundering-herd protection score, and 100K/5M monthly TCO](scheduled-autonomous-agent-timers-service-bus-scheduled-messages-vs-durable-timers-vs-aca-jobs-vs-dapr-reminders-selection-faq.en.md) | [🇬🇧 EN](scheduled-autonomous-agent-timers-service-bus-scheduled-messages-vs-durable-timers-vs-aca-jobs-vs-dapr-reminders-selection-faq.en.md) · [🇨🇳 中文](scheduled-autonomous-agent-timers-service-bus-scheduled-messages-vs-durable-timers-vs-aca-jobs-vs-dapr-reminders-selection-faq.md) |
+
+| 291 | [Enterprise multi-agent orchestration topology selection FAQ: Topology A (MAF workflow graph deterministic DAG fan-out) vs Topology B (hierarchical supervisor-worker with scoped context slicing) vs Topology C (swarm direct handoff with hop circuit breakers) vs Topology D (Magentic task/progress ledger dynamic replanning), including `3-agent/8-agent` token multiplier, compounded `p^k` success math, P95 latency, and cost-per-1,000-resolved-task comparisons](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.en.md) | [🇬🇧 EN](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.en.md) · [🇨🇳 中文](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.md) |
 
 ### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (51 Guides)
 
