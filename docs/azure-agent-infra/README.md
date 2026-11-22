@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（311 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（312 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **311 个架构选型、平台对比与安全治理决策专题**（共 `622` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **312 个架构选型、平台对比与安全治理决策专题**（共 `624` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 311 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 312 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（37 篇）
 
@@ -225,7 +225,7 @@
 | 300 | [企业 Agent 上下文工程选型 FAQ：Architecture A（缓存对齐 Epoch 压缩 + 可逆 Blob 句柄替换：冻结 1,024-token 前缀、32K 水位离散压缩，避免滑窗导致 Prompt Cache 从高命中跌至近零）vs Architecture B（工作区暂存页虚拟内存：`plan.md/ledger/tables` 外置与尾部高注意力复述）vs Architecture C（子 Agent 上下文防火墙：清洁室隔离 `60K–100K` 噪声轨迹，仅回传 `1K–2K` 强类型摘要 + 来源 URI）vs Architecture D（Responses API/Foundry 托管上下文截断），含 `O(N^2)` 与稳态缓存成本公式、Recall 退化曲线、生产级 Compactor 代码、三年 TCO 与 Day-0/Day-2 清单](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.md) | [🇨🇳 中文](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.md) · [🇬🇧 EN](agent-context-engineering-compaction-cache-aligned-epoch-vs-reversible-blob-scratchpad-vs-subagent-firewall-vs-responses-api-selection-faq.en.md) |
 | 307 | [企业复杂 Excel 工作簿 RAG 与 Agent 推理选型 FAQ：Architecture A（SpreadsheetLLM 风格结构压缩 `15x–25x` + Azure AI Search 拓扑索引 + ACA Dynamic Sessions 公式 DAG 复算，强制 `Sheet!Cell` 归因）vs Architecture B（多区域表头归一到 DuckDB/Polars）vs Architecture C（Graph Workbook API 原生会话写回）vs Architecture D（视觉语义混合：渲染图像 + VLM 布局 grounding），含 `380K -> 16.4K` 压缩与 `31% -> <0.4%` 误差对照、生产级压缩器与归因执行工具、三年 TCO 与 Day-0/Day-2 清单](enterprise-excel-workbook-rag-spreadsheetllm-compression-ai-search-vs-duckdb-sandbox-vs-graph-workbook-api-selection-faq.md) | [🇨🇳 中文](enterprise-excel-workbook-rag-spreadsheetllm-compression-ai-search-vs-duckdb-sandbox-vs-graph-workbook-api-selection-faq.md) · [🇬🇧 EN](enterprise-excel-workbook-rag-spreadsheetllm-compression-ai-search-vs-duckdb-sandbox-vs-graph-workbook-api-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（37 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（38 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -268,6 +268,7 @@
 | 291 | [企业多智能体编排拓扑选型 FAQ：Topology A（MAF Workflow Graph 确定性 DAG 并行 fan-out）vs Topology B（Supervisor-Worker 分层监督与上下文切片）vs Topology C（Swarm Direct Handoff 直连交接与 hop 断路）vs Topology D（Magentic Task/Progress Ledger 动态重规划），含 `3-agent/8-agent` Token Multiplier、`p^k` 复合成功率、P95 时延与每千任务成本对比](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.md) | [🇨🇳 中文](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.md) · [🇬🇧 EN](multi-agent-orchestration-topology-hierarchical-supervisor-vs-swarm-handoff-vs-magentic-ledger-vs-dag-maf-foundry-selection-faq.en.md) |
 | 298 | [企业 Mid-Flight 执行中断与实时改道选型 FAQ：Pattern A（协作取消树 + Redis 带外 Cancel Bus：`SSE/WebSocket Abort -> APIM -> MAF CancellationToken -> MCP notifications/cancelled -> ACA SIGTERM`，并强制写入 `[Cancelled by user]` 工具桩避免 orphaned `tool_call_id`）vs Pattern B（Turn-Boundary 优先级改道队列：软改道保留 `75–90%` 前缀缓存）vs Pattern C（单调 `run_epoch` 栅栏 + Durable 补偿 Saga 阻断取消后迟到写）vs Pattern D（Checkpoint Fork 分支化改道），含僵尸 token 浪费公式、线程腐化状态机、三年 TCO 与 Day-0/Day-2 清单](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.md) | [🇨🇳 中文](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.md) · [🇬🇧 EN](mid-flight-agent-cancellation-live-steering-cooperative-abort-mcp-cancel-vs-turn-boundary-queue-vs-epoch-fencing-selection-faq.en.md) |
 | 305 | [企业跨平台 ChatOps 战情室智能体编排选型 FAQ：Architecture A（APIM Webhook 验签 + `<200ms` Fast-ACK 去重 + Service Bus Sessions 线程归一化 + `500–800ms` 渐进流式合并）vs Architecture B（Slack Socket Mode 零入站私网池 + Teams 出站通道）vs Architecture C（Graph RSC 上下文读取 + 发起人绑定 Entra OBO 执行 + 签名 Step-Up 卡片）vs Architecture D（M365 Copilot/Slack AI 声明式扩展），含 `3s` 超时与 `429` 节流数学、生产策略代码、三年 TCO 与 Day-0/Day-2 清单](enterprise-chatops-warroom-agent-m365-agents-sdk-teams-rsc-vs-slack-socket-events-apim-vs-unified-bus-selection-faq.md) | [🇨🇳 中文](enterprise-chatops-warroom-agent-m365-agents-sdk-teams-rsc-vs-slack-socket-events-apim-vs-unified-bus-selection-faq.md) · [🇬🇧 EN](enterprise-chatops-warroom-agent-m365-agents-sdk-teams-rsc-vs-slack-socket-events-apim-vs-unified-bus-selection-faq.en.md) |
+| 312 | [企业高风险多智能体验证与共识编排选型 FAQ：Architecture A（`MAF + Foundry/APIM` 跨家族 Blind Maker-Checker + CoT-Stripped 上下文防火墙）vs Architecture B（`ACA Dynamic Sessions` 神经-符号验证环：Python/Z3/OPA/SQL-AST）vs Architecture C（`Best-of-N` 并行共识 + 分歧熵门控 `Durable Functions` HITL 升级）vs Architecture D（Advocate/Skeptic/Judge 对抗式法庭辩论），含相关错误概率公式、`1.8x/1.3x/3.1x/6.5x` 延迟与 token 经济学、生产策略与三年 TCO](multi-agent-maker-checker-verification-cross-family-blind-critic-vs-neuro-symbolic-aca-verifier-vs-best-of-n-hitl-selection-faq.md) | [🇨🇳 中文](multi-agent-maker-checker-verification-cross-family-blind-critic-vs-neuro-symbolic-aca-verifier-vs-best-of-n-hitl-selection-faq.md) · [🇬🇧 EN](multi-agent-maker-checker-verification-cross-family-blind-critic-vs-neuro-symbolic-aca-verifier-vs-best-of-n-hitl-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
