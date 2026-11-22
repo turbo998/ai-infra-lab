@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（316 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（317 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **316 个架构选型、平台对比与安全治理决策专题**（共 `632` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **317 个架构选型、平台对比与安全治理决策专题**（共 `634` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 316 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 317 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（37 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（38 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -91,6 +91,7 @@
 
 | 303 | [企业超大 Monorepo Coding Agent 工作区水合与分布式构建选型 FAQ：Architecture A（AKS `Kata` 薄沙箱 + 节点 NVMe/ANF 只读 Git 引用仓 + `Scalar` `--filter=blob:none` + cone sparse-checkout + `fsmonitor` + Bazel RBE 远程执行，`180GB` 仓库工作区水合 `<2.5s`）vs Architecture B（EdenFS/VFS 延迟挂载 + Nx Cloud/Turborepo/Gradle Develocity 任务图缓存，降低 Bazel 迁移门槛）vs Architecture C（Codespaces/Dev Box/增量快照预构建池 + 预计算 `clangd/jdtls/Roslyn/SCIP` 索引，削峰冷索引风暴）vs Architecture D（子图投影 + 只读搜索 API + 轻量 ACA 验证），含主 CAS 只读 + 任务覆盖层写入防投毒边界、`28min -> 1.9s` 量化对比与 `100/500/2500` 日运行三年 TCO](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.md) | [🇨🇳 中文](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.md) · [🇬🇧 EN](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.en.md) |
 | 310 | [企业预热沙箱池声明式水位与原子 `1:1` 会话绑定选型 FAQ：Architecture A（AKS + `kubernetes-sigs/agent-sandbox` `SandboxWarmPool/SandboxClaim` + Kata/gVisor，`Warm -> Claimed -> Terminated` 单向污染销毁）vs Architecture B（ACA Dynamic Sessions `readySessionInstances` 预热池）vs Architecture C（Agones `Ready -> Allocated -> Shutdown` 高 churn 分配）vs Architecture D（冷启动 Job/ACI），含水位公式、生产 YAML/Bicep/Python、三年 TCO 与 Day-0/Day-2 清单](prewarmed-sandbox-pool-claim-lifecycle-aks-k8s-agent-sandbox-crd-kata-vs-aca-ready-sessions-vs-agones-selection-faq.md) | [🇨🇳 中文](prewarmed-sandbox-pool-claim-lifecycle-aks-k8s-agent-sandbox-crd-kata-vs-aca-ready-sessions-vs-agones-selection-faq.md) · [🇬🇧 EN](prewarmed-sandbox-pool-claim-lifecycle-aks-k8s-agent-sandbox-crd-kata-vs-aca-ready-sessions-vs-agones-selection-faq.en.md) |
+| 317 | [企业不可信文件与附件隔离净化沙箱选型 FAQ：Architecture A（Blob 双区 `untrusted->clean` + Defender for Storage 上传判定 + Event Grid Gate + AKS Kata 零出网 CDR 单次作业）vs Architecture B（ACA Dynamic Sessions 会话级 Hyper-V Airlock）vs Architecture C（托管 Document Intelligence/Content Understanding 解析链路）vs Architecture D（Glasswall/MetaDefender 结构化 CDR + Wasmtime 规则验证 + Blob WORM 取证），覆盖归档炸弹扩张比、KEDA 扩容公式、利用率断点、三年 TCO 与 Day-0/Day-2 清单](untrusted-file-attachment-airlock-sandbox-defender-storage-cdr-aks-kata-vs-aca-dynamic-sessions-vs-managed-doc-parsing-selection-faq.md) | [🇨🇳 中文](untrusted-file-attachment-airlock-sandbox-defender-storage-cdr-aks-kata-vs-aca-dynamic-sessions-vs-managed-doc-parsing-selection-faq.md) · [🇬🇧 EN](untrusted-file-attachment-airlock-sandbox-defender-storage-cdr-aks-kata-vs-aca-dynamic-sessions-vs-managed-doc-parsing-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（38 篇）
 

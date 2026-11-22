@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (316 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (317 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **316 structured architecture selection guides and trade-off FAQs** (`632` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **317 structured architecture selection guides and trade-off FAQs** (`634` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 316 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 317 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (37 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (38 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -92,6 +92,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 | 303 | [Enterprise large-monorepo coding-agent workspace selection FAQ: Architecture A (AKS `Kata` thin sandboxes + node-local NVMe/ANF read-only Git object reference stores + `Scalar` `--filter=blob:none` + cone sparse-checkout + `fsmonitor` + Bazel RBE offload, achieving `<2.5s` hydration on `180GB` repositories) vs Architecture B (EdenFS/VFS-style lazy mount + Nx Cloud/Turborepo/Gradle Develocity remote task-graph cache for lower migration friction) vs Architecture C (Codespaces/Dev Box/incremental snapshot warm pools with precomputed `clangd/jdtls/Roslyn/SCIP` indexes to suppress cold-index storms) vs Architecture D (sub-graph projection + read-only search APIs + lightweight ACA verification), including read-only main CAS + per-task overlay anti-poisoning boundaries, `28min -> 1.9s` checkout delta, and `100/500/2500` daily-run 3-year TCO](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.en.md) | [🇬🇧 EN](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.en.md) · [🇨🇳 中文](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.md) |
 | 310 | [Enterprise pre-warmed sandbox-pool watermarking and atomic `1:1` session claim-binding selection FAQ: Architecture A (AKS + `kubernetes-sigs/agent-sandbox` `SandboxWarmPool/SandboxClaim` on Kata/gVisor with strict `Warm -> Claimed -> Terminated` taint-destruction lifecycle) vs Architecture B (ACA Dynamic Sessions `readySessionInstances` managed warm buffers) vs Architecture C (Agones `Ready -> Allocated -> Shutdown` high-churn allocator lane) vs Architecture D (cold-spawn Job/ACI), including warm-watermark sizing math, production YAML/Bicep/Python snippets, 3-year TCO, and Day-0/Day-2 checklists](prewarmed-sandbox-pool-claim-lifecycle-aks-k8s-agent-sandbox-crd-kata-vs-aca-ready-sessions-vs-agones-selection-faq.en.md) | [🇬🇧 EN](prewarmed-sandbox-pool-claim-lifecycle-aks-k8s-agent-sandbox-crd-kata-vs-aca-ready-sessions-vs-agones-selection-faq.en.md) · [🇨🇳 中文](prewarmed-sandbox-pool-claim-lifecycle-aks-k8s-agent-sandbox-crd-kata-vs-aca-ready-sessions-vs-agones-selection-faq.md) |
+| 317 | [Enterprise untrusted file/attachment quarantine and sanitization sandbox selection FAQ: Architecture A (dual-zone blob `untrusted->clean`, Defender for Storage verdict gate, Event Grid routing, and AKS Kata zero-egress single-use CDR jobs) vs Architecture B (ACA Dynamic Sessions per-upload Hyper-V airlock) vs Architecture C (managed Document Intelligence/Content Understanding parsing pipeline) vs Architecture D (Glasswall/MetaDefender structural CDR with Wasmtime validation and Blob WORM forensics), including archive-bomb expansion math, KEDA scaling formula, utilization break-even, 3-year TCO, and Day-0/Day-2 checklists](untrusted-file-attachment-airlock-sandbox-defender-storage-cdr-aks-kata-vs-aca-dynamic-sessions-vs-managed-doc-parsing-selection-faq.en.md) | [🇬🇧 EN](untrusted-file-attachment-airlock-sandbox-defender-storage-cdr-aks-kata-vs-aca-dynamic-sessions-vs-managed-doc-parsing-selection-faq.en.md) · [🇨🇳 中文](untrusted-file-attachment-airlock-sandbox-defender-storage-cdr-aks-kata-vs-aca-dynamic-sessions-vs-managed-doc-parsing-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (38 Guides)
 
