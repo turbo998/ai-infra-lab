@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（310 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（311 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **310 个架构选型、平台对比与安全治理决策专题**（共 `620` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **311 个架构选型、平台对比与安全治理决策专题**（共 `622` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 310 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 311 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（37 篇）
 
@@ -371,7 +371,7 @@
 | 299 | [企业 Agent 结果计费商业化选型 FAQ：Model A（预付费 AI Credit Wallet 两阶段 `Reserve -> Commit -> Refund`：Redis Lua 原子预留 + PostgreSQL/Cosmos 双分录子账本，防 50 并发线程将 `$500` 余额打穿至 `-$1,400`）vs Model B（可验证结果计费 Oracle + `72h` 冷却结算，按 ASC 606 / IFRS 15 处理可变对价）vs Model C（Seat + Commit Pool + Overage 合同打包）vs Model D（实时毛利地板护栏：当租户毛利跌破 `70%` 自动降级推理与路由），含单位经济与三年 TCO 对比](outcome-based-agent-pricing-prepaid-wallet-two-phase-reservation-vs-verified-outcome-oracle-vs-gross-margin-guardrail-selection-faq.md) | [🇨🇳 中文](outcome-based-agent-pricing-prepaid-wallet-two-phase-reservation-vs-verified-outcome-oracle-vs-gross-margin-guardrail-selection-faq.md) · [🇬🇧 EN](outcome-based-agent-pricing-prepaid-wallet-two-phase-reservation-vs-verified-outcome-oracle-vs-gross-margin-guardrail-selection-faq.en.md) |
 | 306 | [企业受监管模型风险管理与机器可读 AI-BOM 治理选型 FAQ：Architecture A（GitOps `CycloneDX 1.6 ML-BOM` + ACR ORAS 工件图 + 重要性分级变更包，非实质变更在预批准等价边界内 `<2h` 自动放行）vs Architecture B（2LoD 独立清洁室挑战：独立订阅、盲测 holdout、跨家族 challenger judge 与防篡改签署）vs Architecture C（ValidMind/Monitaur/Credo AI 与 ServiceNow IRM/Archer/OpenPages 平台化生命周期）vs Architecture D（Foundry + Purview 目录与手工签署基线），含 `18 weeks` 到 `<2h + 10 days` 时间数学、TOST/Bootstrap 非劣判定、生产级 AI-BOM 与门限评估器代码、三年 TCO 与 Day-0/Day-2 清单](sr11-7-model-risk-management-mrm-aibom-cyclonedx-foundry-lineage-vs-2lod-challenger-vs-validmind-grc-selection-faq.md) | [🇨🇳 中文](sr11-7-model-risk-management-mrm-aibom-cyclonedx-foundry-lineage-vs-2lod-challenger-vs-validmind-grc-selection-faq.md) · [🇬🇧 EN](sr11-7-model-risk-management-mrm-aibom-cyclonedx-foundry-lineage-vs-2lod-challenger-vs-validmind-grc-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（37 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（38 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -414,3 +414,4 @@
 | 286 | [跨云 Agent 迁移选型 FAQ：AWS Bedrock/AgentCore + Step Functions + OpenSearch Serverless 与 GCP Vertex Agent Engine + Cloud Run + Workflows 迁移到 Azure Foundry + ACA/AKS + AI Search + Cosmos + APIM，采用 `5% -> 25% -> 100%` Strangler 切流、Entra 联邦身份（无静态密钥）与双索引影子评测，含跨云出站、双运行窗口与 MACC TCO 对比](cross-cloud-agent-migration-aws-bedrock-gcp-vertex-to-azure-foundry-aca-ai-search-strangler-cutover-selection-faq.md) | [🇨🇳 中文](cross-cloud-agent-migration-aws-bedrock-gcp-vertex-to-azure-foundry-aca-ai-search-strangler-cutover-selection-faq.md) · [🇬🇧 EN](cross-cloud-agent-migration-aws-bedrock-gcp-vertex-to-azure-foundry-aca-ai-search-strangler-cutover-selection-faq.en.md) |
 | 297 | [企业 AI Landing Zone IPv4 枯竭治理选型 FAQ：AKS `Azure CNI Overlay` + `100.64.0.0/10` CGNAT Pod 网段复用 vs `AVNM IPAM` 双 CIDR Spoke（小型可路由 `/24 or /25` + 非路由高密地址池）vs Hub 侧 Private Endpoint 汇聚 + `PLS` 跨重叠 Spoke 共享后端 vs 双栈 `IPv4/IPv6` 渐进式落地，含 Azure 子网 `5` 保留地址、升级峰值公式、ACA `/23`/`/27` 规划与三年网络改造 TCO](ai-landing-zone-ipv4-exhaustion-aks-cni-overlay-cgnat-vs-avnm-ipam-dual-cidr-vs-privatelink-nat-vs-ipv6-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-ipv4-exhaustion-aks-cni-overlay-cgnat-vs-avnm-ipam-dual-cidr-vs-privatelink-nat-vs-ipv6-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-ipv4-exhaustion-aks-cni-overlay-cgnat-vs-avnm-ipam-dual-cidr-vs-privatelink-nat-vs-ipv6-selection-faq.en.md) |
 | 304 | [企业 AI Agent 状态不可变网络恢复选型 FAQ：Architecture A（跨租户逻辑气隙：独立 Cyber-Vault Entra 租户 + Backup Vault Locked Immutability + Blob Locked WORM + Cross-Tenant MUA Resource Guard）vs Architecture B（同租户 PITR/AKS Backup 快速回滚）vs Architecture C（清洁室法证重建与污染时间窗切断）vs Architecture D（Commvault/Rubrik/Veeam 统一恢复平台），含 `50M*800=40B` token 重算瓶颈与 `~38 min` 向量回灌恢复对比、Bicep 保护模板、异步 AI Search 重建代码与三年 TCO](immutable-cyber-recovery-ransomware-bcdr-ai-state-worm-vault-mua-resource-guard-vs-pitr-vs-cleanroom-rebuild-selection-faq.md) | [🇨🇳 中文](immutable-cyber-recovery-ransomware-bcdr-ai-state-worm-vault-mua-resource-guard-vs-pitr-vs-cleanroom-rebuild-selection-faq.md) · [🇬🇧 EN](immutable-cyber-recovery-ransomware-bcdr-ai-state-worm-vault-mua-resource-guard-vs-pitr-vs-cleanroom-rebuild-selection-faq.en.md) |
+| 311 | [企业 AI Landing Zone 私网 DNS 分治与 Spoke 发放选型 FAQ：Architecture A（Hub `Private DNS Zones` + `DNS Private Resolver` + `DINE` 自动修复 `privateDnsZoneGroups`）vs Architecture B（Infoblox/BlueCat/AD DNS 混合权威条件转发）vs Architecture C（Hub-Spoke VNet Link 直连）vs Architecture D（AVM `lz-vending` 订阅自动发放），含 `300` Spoke 规模数学、`10,000 qps` 解析容量、跨区 RTO、生产 Bicep/Policy 与三年 TCO](ai-landing-zone-private-dns-spoke-vending-dns-private-resolver-dine-policy-vs-infoblox-hybrid-vs-avm-vending-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-private-dns-spoke-vending-dns-private-resolver-dine-policy-vs-infoblox-hybrid-vs-avm-vending-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-private-dns-spoke-vending-dns-private-resolver-dine-policy-vs-infoblox-hybrid-vs-avm-vending-selection-faq.en.md) |
