@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (295 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (296 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **295 structured architecture selection guides and trade-off FAQs** (`590` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **296 structured architecture selection guides and trade-off FAQs** (`592` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 295 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 296 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (34 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (35 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -88,6 +88,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 285 | [Enterprise stateful agent zero-downtime rollout and graceful-drain selection FAQ: ACA Multiple Revisions with session-sticky routing (`90/10` canary and natural drain) vs AKS + Argo Rollouts + header pinning + `preStop` checkpoint flush + `PDB` (node-upgrade eviction safety) vs Service Bus Topic SQL-filtered version-sharded workers (`v1/v2` side-by-side drain) vs Durable Functions side-by-side orchestration versions (deterministic replay for long workflows), including interrupted-run drop rate, drain-tail latency, double-billing overhead, and monthly TCO comparison](stateful-agent-zero-downtime-rollout-drain-aca-multi-revision-vs-aks-argo-rollouts-pdb-vs-versioned-queue-workers-selection-faq.en.md) | [🇬🇧 EN](stateful-agent-zero-downtime-rollout-drain-aca-multi-revision-vs-aks-argo-rollouts-pdb-vs-versioned-queue-workers-selection-faq.en.md) · [🇨🇳 中文](stateful-agent-zero-downtime-rollout-drain-aca-multi-revision-vs-aks-argo-rollouts-pdb-vs-versioned-queue-workers-selection-faq.md) |
 
 | 290 | [Enterprise agent Kubernetes platform-tiering selection FAQ: AKS Automatic (managed NAP/Karpenter + Cilium overlay + deployment safeguards + VPA) vs AKS Standard (Kata/Kata-CC, RDMA, Windows/ARM64 mixed pools, deep CNI controls) vs AKS+ACI Virtual Nodes (`0->500` burst pod spillover) vs ACA Dedicated/Consumption hybrid (low-ops product delivery), including `15/80/300` service-scale SRE FTE and TCO modeling, cold-start comparisons, and production Bicep + RuntimeClass policy templates](aks-automatic-vs-aks-standard-nap-kata-vs-aci-virtual-nodes-vs-aca-dedicated-agent-platform-selection-faq.en.md) | [🇬🇧 EN](aks-automatic-vs-aks-standard-nap-kata-vs-aci-virtual-nodes-vs-aca-dedicated-agent-platform-selection-faq.en.md) · [🇨🇳 中文](aks-automatic-vs-aks-standard-nap-kata-vs-aci-virtual-nodes-vs-aca-dedicated-agent-platform-selection-faq.md) |
+| 296 | [Enterprise zero-privilege container build and nested `docker compose`/`Testcontainers` execution selection FAQ: AKS `Kata` guest-VM nested `dockerd` (full integration-test semantics) vs rootless `BuildKit` (high-density unprivileged image pipelines) vs thin sandbox with remote `ACR Tasks/BuildKit` offload (multi-arch compile plus unified scan/sign) vs single-use ephemeral VM runners (untrusted external PRs and SLSA-grade provenance), including `1.5GB` Java/.NET/Python cold/warm build P50/P95, cache-hit ratios, escape blast-radius deltas, and `5K/50K/250K` monthly TCO curves](unprivileged-container-build-nested-docker-sandbox-aks-kata-vs-rootless-buildkit-vs-acr-tasks-vs-managed-devops-pools-selection-faq.en.md) | [🇬🇧 EN](unprivileged-container-build-nested-docker-sandbox-aks-kata-vs-rootless-buildkit-vs-acr-tasks-vs-managed-devops-pools-selection-faq.en.md) · [🇨🇳 中文](unprivileged-container-build-nested-docker-sandbox-aks-kata-vs-rootless-buildkit-vs-acr-tasks-vs-managed-devops-pools-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (35 Guides)
 
