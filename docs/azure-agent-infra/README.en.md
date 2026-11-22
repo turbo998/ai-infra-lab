@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (298 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (299 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **298 structured architecture selection guides and trade-off FAQs** (`596` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **299 structured architecture selection guides and trade-off FAQs** (`598` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 298 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 299 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (35 Guides)
 
@@ -317,7 +317,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 261 | [Enterprise agent privacy-gate selection FAQ: `Purview` discovery baseline vs `APIM` ingress/egress DLP policy gates vs runtime `Sidecar Tokenization` field controls vs a three-layer integrated zero-trust loop (balancing leakage rate, false-redaction rate, block latency, and governance cost per 1,000 requests)](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) | [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) · [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) |
 | 269 | [Enterprise agent authorization selection FAQ: Entra PIM + JIT consent vs APIM JWT capability claims vs OPA policy-graph decision plane (balancing least privilege, temporary elevation, auditable evidence, and P95/TCO inflection points)](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) | [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) · [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (35 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (36 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -358,6 +358,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 268 | [Enterprise agent FinOps chargeback selection FAQ: OpenMeter event metering vs APIM usage ledger vs Fabric Cost Lake accounting backbone (balancing cost visibility per 1,000 tasks, budget variance, anomaly-detection lag, and annual recoverable savings)](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.en.md) | [🇬🇧 EN](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.en.md) · [🇨🇳 中文](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.md) |
 | 281 | [Enterprise stateful tool-trajectory evaluation selection FAQ: Foundry Native Evaluators (`IntentResolution`/`ToolCallAccuracy`/`TaskAdherence`) vs deterministic $\tau$-bench style hermetic state-diff harness (ACA Dynamic Sessions or ephemeral containers) vs multi-turn persona policy-boundary simulator (8-15 turns) vs production implicit outcome telemetry (`human_edit_distance`/`undo_rate`/`handoff_override`), including `pass@1` vs `pass^5`/`pass^8` math, consistency-gate cost, and false-positive trade-offs](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.en.md) | [🇬🇧 EN](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.en.md) · [🇨🇳 中文](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.md) |
 | 292 | [Enterprise GenAI trace and prompt/tool payload telemetry tiering selection FAQ: Log Analytics Auxiliary multi-stream DCR split vs ADX/Eventhouse TB-scale analytical plane vs OTel claim-check blob offload (with `1/15/60 TB-month` TCO math, sub-second triage goals, seven-year retention controls, and tail-sampling/redaction guardrails)](genai-trace-payload-telemetry-storage-finops-log-analytics-auxiliary-vs-adx-eventhouse-vs-otel-blob-offload-selection-faq.en.md) | [🇬🇧 EN](genai-trace-payload-telemetry-storage-finops-log-analytics-auxiliary-vs-adx-eventhouse-vs-otel-blob-offload-selection-faq.en.md) · [🇨🇳 中文](genai-trace-payload-telemetry-storage-finops-log-analytics-auxiliary-vs-adx-eventhouse-vs-otel-blob-offload-selection-faq.md) |
+| 299 | [Enterprise outcome-based agent pricing selection FAQ: Model A (prepaid AI credit wallet with two-phase `Reserve -> Commit -> Refund` using Redis Lua atomic holds and PostgreSQL/Cosmos immutable double-entry sub-ledgers to prevent `50` concurrent threads overdrafting `$500` into `-$1,400`) vs Model B (verified outcome-pricing oracle with `72h` cooling-window settlement aligned to ASC 606 / IFRS 15 variable consideration) vs Model C (hybrid seat + pooled commit drawdown + elastic overage packaging) vs Model D (real-time gross-margin floor guardrail that degrades reasoning/routing when tenant margin falls below `70%`), including unit-economics formulas and 3-year SaaS margin TCO](outcome-based-agent-pricing-prepaid-wallet-two-phase-reservation-vs-verified-outcome-oracle-vs-gross-margin-guardrail-selection-faq.en.md) | [🇬🇧 EN](outcome-based-agent-pricing-prepaid-wallet-two-phase-reservation-vs-verified-outcome-oracle-vs-gross-margin-guardrail-selection-faq.en.md) · [🇨🇳 中文](outcome-based-agent-pricing-prepaid-wallet-two-phase-reservation-vs-verified-outcome-oracle-vs-gross-margin-guardrail-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (36 Guides)
 
