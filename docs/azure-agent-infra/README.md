@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（291 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（292 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **291 个架构选型、平台对比与安全治理决策专题**（共 `582` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **292 个架构选型、平台对比与安全治理决策专题**（共 `584` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 291 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 292 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（34 篇）
 
@@ -312,7 +312,7 @@
 | 261 | [企业 Agent 隐私脱敏门禁选型 FAQ：`Purview` 数据发现基线 vs `APIM` 入出站 DLP 策略 vs 运行时 `Sidecar Tokenization` 细粒度脱敏 vs 三层混合零信任闭环（泄露率、误脱敏率、阻断时延与每千请求治理成本平衡）](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) | [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) · [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) |
 | 269 | [企业级 Agent 授权选型 FAQ：Entra PIM + JIT 同意 vs APIM JWT 能力声明 vs OPA Policy Graph 决策平面（最小权限、临时升级、审计可追溯与 P95/TCO 拐点平衡）](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) | [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) · [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（34 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（35 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -352,6 +352,7 @@
 | 260 | [企业 Agent 质量门禁选型 FAQ：离线 `Golden Set` 基准回归 vs 在线 `LLM Judge` 评审流 vs 生产工单反馈闭环 vs 三环融合治理（误放行、误拦截、发现时延与每千请求治理成本平衡）](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.md) | [🇨🇳 中文](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.md) · [🇬🇧 EN](agent-quality-gates-offline-golden-set-vs-online-judge-vs-production-feedback-loop-selection-faq.en.md) |
 | 268 | [企业 Agent FinOps 分摊选型 FAQ：OpenMeter 事件计量 vs APIM 用量网关账本 vs Fabric Cost Lake 成本湖仓（每千任务成本可见率、预算偏差率、异常发现时延与年化可回收节省率平衡）](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.md) | [🇨🇳 中文](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.md) · [🇬🇧 EN](agent-finops-chargeback-unit-economics-openmeter-vs-apim-usage-vs-fabric-costlake-selection-faq.en.md) |
 | 281 | [企业 Agent 轨迹与状态化工具评测选型 FAQ：Foundry Native Evaluators（`IntentResolution`/`ToolCallAccuracy`/`TaskAdherence`）vs $\tau$-bench 式 Hermetic 状态差分（ACA Dynamic Sessions/短生命周期容器）vs Persona 多轮策略边界模拟器（8-15 轮诱导压测）vs 生产隐式结果遥测（`human_edit_distance`/`undo_rate`/`handoff_override`），含 `pass@1` 与 `pass^5`/`pass^8` 数学、一致性门禁成本与误报对比](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.md) | [🇨🇳 中文](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.md) · [🇬🇧 EN](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.en.md) |
+| 292 | [企业 GenAI 轨迹与 Prompt/Tool Payload 遥测存储分层选型 FAQ：Log Analytics Auxiliary 多流 DCR 分流 vs ADX/Eventhouse TB 级查询平面 vs OTel Claim-Check Blob Offload（`1/15/60 TB/月` 成本模型、亚秒级排障、7 年留存与 Tail Sampling/脱敏治理）](genai-trace-payload-telemetry-storage-finops-log-analytics-auxiliary-vs-adx-eventhouse-vs-otel-blob-offload-selection-faq.md) | [🇨🇳 中文](genai-trace-payload-telemetry-storage-finops-log-analytics-auxiliary-vs-adx-eventhouse-vs-otel-blob-offload-selection-faq.md) · [🇬🇧 EN](genai-trace-payload-telemetry-storage-finops-log-analytics-auxiliary-vs-adx-eventhouse-vs-otel-blob-offload-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（35 篇）
 
