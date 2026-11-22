@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（296 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（297 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **296 个架构选型、平台对比与安全治理决策专题**（共 `592` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **297 个架构选型、平台对比与安全治理决策专题**（共 `594` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 296 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 297 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（35 篇）
 
@@ -358,7 +358,7 @@
 | 281 | [企业 Agent 轨迹与状态化工具评测选型 FAQ：Foundry Native Evaluators（`IntentResolution`/`ToolCallAccuracy`/`TaskAdherence`）vs $\tau$-bench 式 Hermetic 状态差分（ACA Dynamic Sessions/短生命周期容器）vs Persona 多轮策略边界模拟器（8-15 轮诱导压测）vs 生产隐式结果遥测（`human_edit_distance`/`undo_rate`/`handoff_override`），含 `pass@1` 与 `pass^5`/`pass^8` 数学、一致性门禁成本与误报对比](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.md) | [🇨🇳 中文](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.md) · [🇬🇧 EN](agent-trajectory-stateful-tool-evaluation-foundry-agent-evaluators-vs-tau-bench-state-diff-vs-persona-simulator-selection-faq.en.md) |
 | 292 | [企业 GenAI 轨迹与 Prompt/Tool Payload 遥测存储分层选型 FAQ：Log Analytics Auxiliary 多流 DCR 分流 vs ADX/Eventhouse TB 级查询平面 vs OTel Claim-Check Blob Offload（`1/15/60 TB/月` 成本模型、亚秒级排障、7 年留存与 Tail Sampling/脱敏治理）](genai-trace-payload-telemetry-storage-finops-log-analytics-auxiliary-vs-adx-eventhouse-vs-otel-blob-offload-selection-faq.md) | [🇨🇳 中文](genai-trace-payload-telemetry-storage-finops-log-analytics-auxiliary-vs-adx-eventhouse-vs-otel-blob-offload-selection-faq.md) · [🇬🇧 EN](genai-trace-payload-telemetry-storage-finops-log-analytics-auxiliary-vs-adx-eventhouse-vs-otel-blob-offload-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（35 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（36 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -399,3 +399,4 @@
 | 208 | [企业 Agent 多区域主动主动故障切换选型：`Azure Front Door + APIM Regional Gateway` vs `Traffic Manager` vs `应用内自适应路由`（会话续接幂等、区域健康探测、切换验证与成本护栏）FAQ](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.md) | [🇨🇳 中文](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.md) · [🇬🇧 EN](agent-multiregion-active-active-failover-frontdoor-apim-vs-traffic-manager-selection-faq.en.md) |
 | 209 | [企业 Agent 控制平面容灾选型：`APIM + GitOps` 策略发布一致性 vs `Traffic Manager` 双活入口切换 vs `应用内自愈编排`（RTO/RPO、状态回放与恢复正确性门禁）FAQ](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.md) | [🇨🇳 中文](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.md) · [🇬🇧 EN](agent-control-plane-dr-rto-rpo-apim-gitops-vs-traffic-manager-vs-self-healing-selection-faq.en.md) |
 | 286 | [跨云 Agent 迁移选型 FAQ：AWS Bedrock/AgentCore + Step Functions + OpenSearch Serverless 与 GCP Vertex Agent Engine + Cloud Run + Workflows 迁移到 Azure Foundry + ACA/AKS + AI Search + Cosmos + APIM，采用 `5% -> 25% -> 100%` Strangler 切流、Entra 联邦身份（无静态密钥）与双索引影子评测，含跨云出站、双运行窗口与 MACC TCO 对比](cross-cloud-agent-migration-aws-bedrock-gcp-vertex-to-azure-foundry-aca-ai-search-strangler-cutover-selection-faq.md) | [🇨🇳 中文](cross-cloud-agent-migration-aws-bedrock-gcp-vertex-to-azure-foundry-aca-ai-search-strangler-cutover-selection-faq.md) · [🇬🇧 EN](cross-cloud-agent-migration-aws-bedrock-gcp-vertex-to-azure-foundry-aca-ai-search-strangler-cutover-selection-faq.en.md) |
+| 297 | [企业 AI Landing Zone IPv4 枯竭治理选型 FAQ：AKS `Azure CNI Overlay` + `100.64.0.0/10` CGNAT Pod 网段复用 vs `AVNM IPAM` 双 CIDR Spoke（小型可路由 `/24 or /25` + 非路由高密地址池）vs Hub 侧 Private Endpoint 汇聚 + `PLS` 跨重叠 Spoke 共享后端 vs 双栈 `IPv4/IPv6` 渐进式落地，含 Azure 子网 `5` 保留地址、升级峰值公式、ACA `/23`/`/27` 规划与三年网络改造 TCO](ai-landing-zone-ipv4-exhaustion-aks-cni-overlay-cgnat-vs-avnm-ipam-dual-cidr-vs-privatelink-nat-vs-ipv6-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-ipv4-exhaustion-aks-cni-overlay-cgnat-vs-avnm-ipam-dual-cidr-vs-privatelink-nat-vs-ipv6-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-ipv4-exhaustion-aks-cni-overlay-cgnat-vs-avnm-ipam-dual-cidr-vs-privatelink-nat-vs-ipv6-selection-faq.en.md) |
