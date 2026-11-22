@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（302 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（303 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **302 个架构选型、平台对比与安全治理决策专题**（共 `604` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **303 个架构选型、平台对比与安全治理决策专题**（共 `606` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 302 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 303 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（35 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（36 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -88,6 +88,8 @@
 | 279 | [企业弹性 Scale-to-Zero 突发 Agent 宿主选型 FAQ：Functions Flex Consumption（`FC1` + selective `alwaysReady`）vs ACA Hybrid（Consumption + Dedicated + KEDA `http`/`cron` 预热）vs AKS + KEDA + NAP/Karpenter + PriorityClass Headroom（`<3s` 首波吸收）vs App Service Premium v4 常驻池（高 duty cycle 预留优化），含 P99 冷启动、最大 SSE 时长与 50-Agent 月度 TCO 对比](elastic-scale-to-zero-burst-agent-hosting-functions-flex-consumption-vs-aca-keda-vs-aks-nap-headroom-selection-faq.md) | [🇨🇳 中文](elastic-scale-to-zero-burst-agent-hosting-functions-flex-consumption-vs-aca-keda-vs-aks-nap-headroom-selection-faq.md) · [🇬🇧 EN](elastic-scale-to-zero-burst-agent-hosting-functions-flex-consumption-vs-aca-keda-vs-aks-nap-headroom-selection-faq.en.md) |
 | 285 | [企业状态化 Agent 零停机发布与平滑排空选型 FAQ：ACA Multiple Revisions + 会话粘滞路由（`90/10` 灰度与自然排空）vs AKS + Argo Rollouts + Header Pinning + `preStop` Checkpoint Flush + `PDB`（节点升级驱逐安全）vs Service Bus Topic SQL Filter 版本分片 Worker（`v1/v2` 并行排空）vs Durable Functions 并行版本编排（长流程 deterministic replay），含中断掉单率、排空尾延迟、双计费开销与月度 TCO 对比](stateful-agent-zero-downtime-rollout-drain-aca-multi-revision-vs-aks-argo-rollouts-pdb-vs-versioned-queue-workers-selection-faq.md) | [🇨🇳 中文](stateful-agent-zero-downtime-rollout-drain-aca-multi-revision-vs-aks-argo-rollouts-pdb-vs-versioned-queue-workers-selection-faq.md) · [🇬🇧 EN](stateful-agent-zero-downtime-rollout-drain-aca-multi-revision-vs-aks-argo-rollouts-pdb-vs-versioned-queue-workers-selection-faq.en.md) |
 | 296 | [企业零特权容器构建与嵌套 `docker compose`/`Testcontainers` 执行选型 FAQ：AKS `Kata` Guest VM 嵌套 `dockerd`（完整集成测试语义）vs Rootless `BuildKit`（高密度无特权镜像构建）vs 薄沙箱 + 远端 `ACR Tasks/BuildKit` 卸载（多架构编译与统一扫描签名）vs 单次任务 Ephemeral VM Runner（外部 PR 与 SLSA 级证据），含 `1.5GB` Java/.NET/Python 冷热构建 P50/P95、缓存命中率、逃逸爆炸半径与 `5K/50K/250K` 月度 TCO](unprivileged-container-build-nested-docker-sandbox-aks-kata-vs-rootless-buildkit-vs-acr-tasks-vs-managed-devops-pools-selection-faq.md) | [🇨🇳 中文](unprivileged-container-build-nested-docker-sandbox-aks-kata-vs-rootless-buildkit-vs-acr-tasks-vs-managed-devops-pools-selection-faq.md) · [🇬🇧 EN](unprivileged-container-build-nested-docker-sandbox-aks-kata-vs-rootless-buildkit-vs-acr-tasks-vs-managed-devops-pools-selection-faq.en.md) |
+
+| 303 | [企业超大 Monorepo Coding Agent 工作区水合与分布式构建选型 FAQ：Architecture A（AKS `Kata` 薄沙箱 + 节点 NVMe/ANF 只读 Git 引用仓 + `Scalar` `--filter=blob:none` + cone sparse-checkout + `fsmonitor` + Bazel RBE 远程执行，`180GB` 仓库工作区水合 `<2.5s`）vs Architecture B（EdenFS/VFS 延迟挂载 + Nx Cloud/Turborepo/Gradle Develocity 任务图缓存，降低 Bazel 迁移门槛）vs Architecture C（Codespaces/Dev Box/增量快照预构建池 + 预计算 `clangd/jdtls/Roslyn/SCIP` 索引，削峰冷索引风暴）vs Architecture D（子图投影 + 只读搜索 API + 轻量 ACA 验证），含主 CAS 只读 + 任务覆盖层写入防投毒边界、`28min -> 1.9s` 量化对比与 `100/500/2500` 日运行三年 TCO](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.md) | [🇨🇳 中文](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.md) · [🇬🇧 EN](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（36 篇）
 

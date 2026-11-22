@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (302 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (303 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **302 structured architecture selection guides and trade-off FAQs** (`604` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **303 structured architecture selection guides and trade-off FAQs** (`606` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 302 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 303 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (35 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (36 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -89,6 +89,8 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 | 290 | [Enterprise agent Kubernetes platform-tiering selection FAQ: AKS Automatic (managed NAP/Karpenter + Cilium overlay + deployment safeguards + VPA) vs AKS Standard (Kata/Kata-CC, RDMA, Windows/ARM64 mixed pools, deep CNI controls) vs AKS+ACI Virtual Nodes (`0->500` burst pod spillover) vs ACA Dedicated/Consumption hybrid (low-ops product delivery), including `15/80/300` service-scale SRE FTE and TCO modeling, cold-start comparisons, and production Bicep + RuntimeClass policy templates](aks-automatic-vs-aks-standard-nap-kata-vs-aci-virtual-nodes-vs-aca-dedicated-agent-platform-selection-faq.en.md) | [🇬🇧 EN](aks-automatic-vs-aks-standard-nap-kata-vs-aci-virtual-nodes-vs-aca-dedicated-agent-platform-selection-faq.en.md) · [🇨🇳 中文](aks-automatic-vs-aks-standard-nap-kata-vs-aci-virtual-nodes-vs-aca-dedicated-agent-platform-selection-faq.md) |
 | 296 | [Enterprise zero-privilege container build and nested `docker compose`/`Testcontainers` execution selection FAQ: AKS `Kata` guest-VM nested `dockerd` (full integration-test semantics) vs rootless `BuildKit` (high-density unprivileged image pipelines) vs thin sandbox with remote `ACR Tasks/BuildKit` offload (multi-arch compile plus unified scan/sign) vs single-use ephemeral VM runners (untrusted external PRs and SLSA-grade provenance), including `1.5GB` Java/.NET/Python cold/warm build P50/P95, cache-hit ratios, escape blast-radius deltas, and `5K/50K/250K` monthly TCO curves](unprivileged-container-build-nested-docker-sandbox-aks-kata-vs-rootless-buildkit-vs-acr-tasks-vs-managed-devops-pools-selection-faq.en.md) | [🇬🇧 EN](unprivileged-container-build-nested-docker-sandbox-aks-kata-vs-rootless-buildkit-vs-acr-tasks-vs-managed-devops-pools-selection-faq.en.md) · [🇨🇳 中文](unprivileged-container-build-nested-docker-sandbox-aks-kata-vs-rootless-buildkit-vs-acr-tasks-vs-managed-devops-pools-selection-faq.md) |
+
+| 303 | [Enterprise large-monorepo coding-agent workspace selection FAQ: Architecture A (AKS `Kata` thin sandboxes + node-local NVMe/ANF read-only Git object reference stores + `Scalar` `--filter=blob:none` + cone sparse-checkout + `fsmonitor` + Bazel RBE offload, achieving `<2.5s` hydration on `180GB` repositories) vs Architecture B (EdenFS/VFS-style lazy mount + Nx Cloud/Turborepo/Gradle Develocity remote task-graph cache for lower migration friction) vs Architecture C (Codespaces/Dev Box/incremental snapshot warm pools with precomputed `clangd/jdtls/Roslyn/SCIP` indexes to suppress cold-index storms) vs Architecture D (sub-graph projection + read-only search APIs + lightweight ACA verification), including read-only main CAS + per-task overlay anti-poisoning boundaries, `28min -> 1.9s` checkout delta, and `100/500/2500` daily-run 3-year TCO](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.en.md) | [🇬🇧 EN](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.en.md) · [🇨🇳 中文](large-monorepo-coding-agent-workspace-scalar-sparse-git-anf-vs-bazel-rbe-cache-vs-codespaces-prebuilds-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (36 Guides)
 
