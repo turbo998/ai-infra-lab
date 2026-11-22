@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (292 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (293 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **292 structured architecture selection guides and trade-off FAQs** (`584` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **293 structured architecture selection guides and trade-off FAQs** (`586` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 292 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 293 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (34 Guides)
 
@@ -89,7 +89,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 | 290 | [Enterprise agent Kubernetes platform-tiering selection FAQ: AKS Automatic (managed NAP/Karpenter + Cilium overlay + deployment safeguards + VPA) vs AKS Standard (Kata/Kata-CC, RDMA, Windows/ARM64 mixed pools, deep CNI controls) vs AKS+ACI Virtual Nodes (`0->500` burst pod spillover) vs ACA Dedicated/Consumption hybrid (low-ops product delivery), including `15/80/300` service-scale SRE FTE and TCO modeling, cold-start comparisons, and production Bicep + RuntimeClass policy templates](aks-automatic-vs-aks-standard-nap-kata-vs-aci-virtual-nodes-vs-aca-dedicated-agent-platform-selection-faq.en.md) | [🇬🇧 EN](aks-automatic-vs-aks-standard-nap-kata-vs-aci-virtual-nodes-vs-aca-dedicated-agent-platform-selection-faq.en.md) · [🇨🇳 中文](aks-automatic-vs-aks-standard-nap-kata-vs-aci-virtual-nodes-vs-aca-dedicated-agent-platform-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (34 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (35 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -129,6 +129,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 277 | [Enterprise tiered KV cache offloading selection FAQ: Foundry Prompt Caching (managed prefix matching with input discount) vs AKS single-node vLLM/SGLang + LMCache local DRAM/NVMe tiering for `5–45` minute pause recovery with session affinity vs LMCache/Mooncake distributed shared KV pool for cross-pod resume and multi-agent prefix reuse vs rolling context compaction + scoped RAG re-hydration for `1–24h` long pauses, including `128K` TTFT P95, GPU goodput, and monthly TCO inflection analysis](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.en.md) | [🇬🇧 EN](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.en.md) · [🇨🇳 中文](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.md) |
 | 283 | [Enterprise agent post-training platform selection FAQ: Foundry serverless FT/RFT (`GPT-4.1-mini`/`o4-mini` managed route) vs AML `ND96isr_H100_v5/NCads_H100_v5` cluster + registry backbone vs AKS + Kueue + KubeRay `veRL/TRL` rollout-coupled RL path vs Mosaic + Unity governance-first path, including cost per 100M tokens, time-to-production, GPU Ops FTE, and weight portability comparisons](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.en.md) | [🇬🇧 EN](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.en.md) · [🇨🇳 中文](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.md) |
 | 287 | [Enterprise compound inference DAG serving selection FAQ: AKS + KubeRay Ray Serve `DeploymentGraph` (heterogeneous CPU/L4S/A10/H100 pools with stage-level autoscaling) vs AKS + KServe `InferenceGraph` (`Sequence/Switch/Splitter` declarative routing) vs Triton Ensemble/BLS (shared-memory near-zero serialization chaining) vs Foundry+APIM managed chaining (`3–5` hop tax with `+25–65ms` overhead), including `8:2:1` stage scaling ratios, `P95 < 500–800ms` budgets, 300 RPS scenario analysis, and monthly TCO comparison](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.en.md) | [🇬🇧 EN](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.en.md) · [🇨🇳 中文](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.md) |
+| 293 | [Enterprise LLM-aware GPU inference autoscaling and cold-start masking selection FAQ: AKS + KEDA composite metrics (`vllm:num_requests_waiting` / `gpu_cache_usage_perc` / `latency_p95`) + NAP headroom balloons + ACR artifact streaming vs KServe/Knative KPAM dual-window elasticity vs ACA Serverless GPU for low-duty second-level billing vs APIM queue-depth spillover to MaaS (targeting `TTFT P99 < 1.5s`, absorbing `90–240s` scale lag, and comparing monthly TCO across `20/55/85%` duty cycles)](llm-gpu-inference-autoscaling-cold-start-masking-aks-keda-vllm-kv-metrics-vs-kserve-knative-vs-aca-gpu-vs-apim-maas-spillover-selection-faq.en.md) | [🇬🇧 EN](llm-gpu-inference-autoscaling-cold-start-masking-aks-keda-vllm-kv-metrics-vs-kserve-knative-vs-aca-gpu-vs-apim-maas-spillover-selection-faq.en.md) · [🇨🇳 中文](llm-gpu-inference-autoscaling-cold-start-masking-aks-keda-vllm-kv-metrics-vs-kserve-knative-vs-aca-gpu-vs-apim-maas-spillover-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (34 Guides)
 
