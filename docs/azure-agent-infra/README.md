@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（286 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（287 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **286 个架构选型、平台对比与安全治理决策专题**（共 `572` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **287 个架构选型、平台对比与安全治理决策专题**（共 `574` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 286 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 287 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（33 篇）
 
@@ -87,7 +87,7 @@
 | 279 | [企业弹性 Scale-to-Zero 突发 Agent 宿主选型 FAQ：Functions Flex Consumption（`FC1` + selective `alwaysReady`）vs ACA Hybrid（Consumption + Dedicated + KEDA `http`/`cron` 预热）vs AKS + KEDA + NAP/Karpenter + PriorityClass Headroom（`<3s` 首波吸收）vs App Service Premium v4 常驻池（高 duty cycle 预留优化），含 P99 冷启动、最大 SSE 时长与 50-Agent 月度 TCO 对比](elastic-scale-to-zero-burst-agent-hosting-functions-flex-consumption-vs-aca-keda-vs-aks-nap-headroom-selection-faq.md) | [🇨🇳 中文](elastic-scale-to-zero-burst-agent-hosting-functions-flex-consumption-vs-aca-keda-vs-aks-nap-headroom-selection-faq.md) · [🇬🇧 EN](elastic-scale-to-zero-burst-agent-hosting-functions-flex-consumption-vs-aca-keda-vs-aks-nap-headroom-selection-faq.en.md) |
 | 285 | [企业状态化 Agent 零停机发布与平滑排空选型 FAQ：ACA Multiple Revisions + 会话粘滞路由（`90/10` 灰度与自然排空）vs AKS + Argo Rollouts + Header Pinning + `preStop` Checkpoint Flush + `PDB`（节点升级驱逐安全）vs Service Bus Topic SQL Filter 版本分片 Worker（`v1/v2` 并行排空）vs Durable Functions 并行版本编排（长流程 deterministic replay），含中断掉单率、排空尾延迟、双计费开销与月度 TCO 对比](stateful-agent-zero-downtime-rollout-drain-aca-multi-revision-vs-aks-argo-rollouts-pdb-vs-versioned-queue-workers-selection-faq.md) | [🇨🇳 中文](stateful-agent-zero-downtime-rollout-drain-aca-multi-revision-vs-aks-argo-rollouts-pdb-vs-versioned-queue-workers-selection-faq.md) · [🇬🇧 EN](stateful-agent-zero-downtime-rollout-drain-aca-multi-revision-vs-aks-argo-rollouts-pdb-vs-versioned-queue-workers-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（33 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（34 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -126,6 +126,7 @@
 | 273 | [企业模型权重供应链与热加载选型 FAQ：Foundry/AML Registry（谱系治理与跨区复制）vs ACR Premium ORAS + AKS `runai-model-streamer`（并行分块流式注水，`70B` 秒级就绪）vs ANF/Managed Lustre 共享只读池（多节点 `mmap` 一致性）vs Air-Gap 隔离晋级链路（`.safetensors` 转换、扫描验签与零外连交付），含 `70B/405B` 冷启动、带宽与月度 TCO 拐点](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.md) | [🇨🇳 中文](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.md) · [🇬🇧 EN](model-weight-supply-chain-hydration-foundry-registry-vs-acr-oras-runai-streamer-vs-anf-safetensors-selection-faq.en.md) |
 | 277 | [企业分层 KV Cache Offloading 选型 FAQ：Foundry Prompt Caching（托管前缀块匹配与输入折扣）vs AKS 单节点 vLLM/SGLang + LMCache 本地 DRAM/NVMe 分层下沉（会话粘性延长 `5–45` 分钟停顿恢复）vs LMCache/Mooncake 分布式共享 KV 池（跨 Pod/抢占后恢复与多 Agent 前缀复用）vs 上下文压缩 + Scoped RAG 再水合（`1–24h` 长停顿经济切换），含 `128K` TTFT P95、GPU goodput 与月度 TCO 拐点](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.md) | [🇨🇳 中文](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.md) · [🇬🇧 EN](tiered-kv-cache-offloading-foundry-prompt-caching-vs-aks-vllm-dram-nvme-vs-lmcache-mooncake-pool-selection-faq.en.md) |
 | 283 | [企业 Agent 后训练平台选型 FAQ：Foundry Serverless FT/RFT（`GPT-4.1-mini`/`o4-mini` 托管路径）vs AML `ND96isr_H100_v5/NCads_H100_v5` 集群与 Registry 主线 vs AKS + Kueue + KubeRay `veRL/TRL` 在线 rollout 耦合路径 vs Mosaic + Unity Catalog 治理优先路径，含每 100M token 成本、上线时长、GPU Ops FTE 与权重可移植性对比](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.md) | [🇨🇳 中文](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.md) · [🇬🇧 EN](agent-post-training-platform-foundry-serverless-ft-rft-vs-aml-ndv5-vs-aks-kuberay-verl-vs-mosaic-selection-faq.en.md) |
+| 287 | [企业 Compound Inference DAG 服务选型 FAQ：AKS + KubeRay Ray Serve `DeploymentGraph`（异构 CPU/L4S/A10/H100 节点池与阶段独立扩缩容）vs AKS + KServe `InferenceGraph`（`Sequence/Switch/Splitter` 声明式路由）vs Triton Ensemble/BLS（共享内存零序列化链路）vs Foundry+APIM 托管链式编排（`3–5` hop 税 `+25–65ms`），含 `8:2:1` 阶段扩缩容比例、`P95 < 500–800ms` 预算、300 RPS 场景与月度 TCO 对比](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.md) | [🇨🇳 中文](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.md) · [🇬🇧 EN](compound-inference-pipeline-serving-aks-kuberay-ray-serve-vs-kserve-inferencegraph-vs-triton-ensemble-vs-foundry-apim-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（33 篇）
 
