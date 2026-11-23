@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（339 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（340 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **339 个架构选型、平台对比与安全治理决策专题**（共 `678` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **340 个架构选型、平台对比与安全治理决策专题**（共 `680` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 339 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 340 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（41 篇）
 
@@ -241,7 +241,7 @@
 | 328 | [企业 RAG 近重复语料治理与 ACL 安全去重选型 FAQ：Architecture A（归一化 `SHA-256` 精确去重 + `Cosmos DB` ACL 来源映射重算）vs Architecture B（`Fabric Spark` `128` 维 MinHash + LSH 聚类 + boilerplate/delta span ACL 拆分）vs Architecture C（语义 ANN 聚类 + 权威源主副本选举）vs Architecture D（查询时 `top_k=50` over-fetch + `MMR λ=0.65` 折叠），覆盖 LSH 阈值数学、Echo-Chamber 多样性、HNSW 内存节省与三年 TCO](enterprise-rag-near-duplicate-corpus-hygiene-acl-safe-dedup-fabric-minhash-lsh-vs-ai-search-subindex-mmr-vs-embedding-ann-clustering-selection-faq.md) | [🇨🇳 中文](enterprise-rag-near-duplicate-corpus-hygiene-acl-safe-dedup-fabric-minhash-lsh-vs-ai-search-subindex-mmr-vs-embedding-ann-clustering-selection-faq.md) · [🇬🇧 EN](enterprise-rag-near-duplicate-corpus-hygiene-acl-safe-dedup-fabric-minhash-lsh-vs-ai-search-subindex-mmr-vs-embedding-ann-clustering-selection-faq.en.md) |
 | 335 | [企业长视频与屏幕录制 Temporal RAG 选型 FAQ：Architecture A（`Azure AI Content Understanding` Shot 对齐结构化抽取 + `AI Search` 时间片段索引）vs Architecture B（`Video Indexer` 云边协同 + Arc 边缘索引）vs Architecture C（`AKS GPU` 自适应关键帧 + clip embedding 多向量召回）vs Architecture D（粗召回 + Byte-Range/HLS 两阶段 VLM 核验），覆盖 token 成本爆炸、tIoU、WAN 节省与 ACL 撤权 SLA 三年 TCO](enterprise-long-form-video-screenshare-temporal-rag-content-understanding-vs-video-indexer-vs-clip-embedding-vlm-drilldown-selection-faq.md) | [🇨🇳 中文](enterprise-long-form-video-screenshare-temporal-rag-content-understanding-vs-video-indexer-vs-clip-embedding-vlm-drilldown-selection-faq.md) · [🇬🇧 EN](enterprise-long-form-video-screenshare-temporal-rag-content-understanding-vs-video-indexer-vs-clip-embedding-vlm-drilldown-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（41 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（42 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -288,6 +288,7 @@
 | 319 | [企业工作站 In-Context Co-Pilot 渠道选型 FAQ：Architecture A（`Edge for Business/Chrome Enterprise` `Manifest V3` `chrome.sidePanel` 强制安装 + `runtime_allowed_hosts/runtime_blocked_hosts` + Web PubSub 可恢复流）vs Architecture B（`Office.js` 统一加载项 + `NAA` 原生代理 SSO + `Word.run/Excel.run/Outlook` 结构化操作）vs Architecture C（`WebView2/Tauri` 签名桌面伴随应用 + Named-Pipe 本地 `MCP` 桥接）vs Architecture D（宿主内嵌 `AG-UI` 类型化状态桥），覆盖上下文切换 ROI 公式、MV3 `30s` 挂起重连数学、`<120ms` 清洗预算、`10,000` 席位推广速度与三年 TCO](in-context-workstation-copilot-channel-edge-mv3-sidepanel-extension-vs-officejs-naa-addin-vs-desktop-webview2-mcp-selection-faq.md) | [🇨🇳 中文](in-context-workstation-copilot-channel-edge-mv3-sidepanel-extension-vs-officejs-naa-addin-vs-desktop-webview2-mcp-selection-faq.md) · [🇬🇧 EN](in-context-workstation-copilot-channel-edge-mv3-sidepanel-extension-vs-officejs-naa-addin-vs-desktop-webview2-mcp-selection-faq.en.md) |
 | 326 | [企业主动外呼通知升级疲劳治理选型 FAQ：Architecture A（`Durable Functions` `WhenAny` 升级阶梯 + `Cosmos DB` 原子回执令牌）vs Architecture B（`Microsoft Graph` Activity Feed + Teams Proactive Bot + Outlook Actionable Messages）vs Architecture C（`Event Grid` + `Azure Managed Redis` 滑动窗口摘要合并 + `Notification Hubs` Tag 分群）vs Architecture D（`ACS Advanced Messaging` / `Dynamics 365` 合规外呼平面 + quiet-hours 与同意账本硬门禁），覆盖跨渠道去重、`4 rps/app/tenant` 节流、每消息成本与三年 TCO](proactive-agent-outbound-notification-escalation-fatigue-governance-durable-notification-hubs-vs-teams-graph-vs-acs-cpaas-selection-faq.md) | [🇨🇳 中文](proactive-agent-outbound-notification-escalation-fatigue-governance-durable-notification-hubs-vs-teams-graph-vs-acs-cpaas-selection-faq.md) · [🇬🇧 EN](proactive-agent-outbound-notification-escalation-fatigue-governance-durable-notification-hubs-vs-teams-graph-vs-acs-cpaas-selection-faq.en.md) |
 | 333 | [企业语音 Agent PCI-DSS 与 PII 去范围化选型 FAQ：Architecture A（`ACS + AOAI Realtime` 在线语音 + OOB 签名支付链接 + Event Grid 快速恢复）vs Architecture B（SBC 边缘 `RFC 4733` + 声学 DTMF Clamping + 令牌化）vs Architecture C（`ACS StartRecognizing(Dtmf)` + `mute_llm_audio_bridge` + `input_audio_buffer.clear` 安全捕获）vs Architecture D（`SIP REFER` 回切既有 PCI Level-1 IVR），覆盖审计范围缩减、混合终端转化、泄露窗口与转接损失三年 TCO](voice-agent-pci-dss-pii-descoping-sbc-dtmf-clamping-vs-acs-mute-bridge-vs-oob-payment-link-vs-sip-refer-ivr-selection-faq.md) | [🇨🇳 中文](voice-agent-pci-dss-pii-descoping-sbc-dtmf-clamping-vs-acs-mute-bridge-vs-oob-payment-link-vs-sip-refer-ivr-selection-faq.md) · [🇬🇧 EN](voice-agent-pci-dss-pii-descoping-sbc-dtmf-clamping-vs-acs-mute-bridge-vs-oob-payment-link-vs-sip-refer-ivr-selection-faq.en.md) |
+| 340 | [企业实时语音 Agent 慢工具延迟掩蔽选型 FAQ：Architecture A（`AOAI Realtime` Fast-Talker/Slow-Thinker 双环 + 语音状态门控回注）vs Architecture B（ANI + 部分转写只读预测预取 + Redis 热缓存）vs Architecture C（`ACS PlaySource` 分级占位 + Redis 幂等围栏）vs Architecture D（`>15s` 异步状态卡/回拨转移），覆盖死寂挂断概率、预取命中收益、音频 token 成本与三年 TCO](realtime-voice-agent-slow-tool-latency-masking-dual-loop-talker-thinker-aoai-realtime-vs-speculative-prefetch-vs-acs-async-bridge-selection-faq.md) | [🇨🇳 中文](realtime-voice-agent-slow-tool-latency-masking-dual-loop-talker-thinker-aoai-realtime-vs-speculative-prefetch-vs-acs-async-bridge-selection-faq.md) · [🇬🇧 EN](realtime-voice-agent-slow-tool-latency-masking-dual-loop-talker-thinker-aoai-realtime-vs-speculative-prefetch-vs-acs-async-bridge-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
