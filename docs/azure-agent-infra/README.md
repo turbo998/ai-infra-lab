@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（336 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（337 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **336 个架构选型、平台对比与安全治理决策专题**（共 `672` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **337 个架构选型、平台对比与安全治理决策专题**（共 `674` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 336 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 337 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（40 篇）
 
@@ -95,7 +95,7 @@
 | 324 | [企业 Stateful Interactive PTY/LSP 会话沙箱选型 FAQ：Architecture A（AKS Kata `pty-mcp-daemon` + 持久 `tmux`/PTY + 热 Unix-socket `LSP` + 分层休眠 `0–15min` 热 RAM 与 `15min–24h` `CRIU`/快照恢复）vs Architecture B（ACA Dynamic Sessions `cooldownPeriodInSeconds=300–3600` + 命令日志重放）vs Architecture C（提交键 `SCIP` + 共享只读 `jdtls/clangd/tsserver` 语义池 + 薄执行沙箱）vs Architecture D（Dev Box/Codespaces 工作站主机 `<1s` 人工接管），覆盖 `85–92%` 思考时段常驻税、`12–38s` 冷重建 vs `<35ms` 热诊断、ANSI 回压与 `PR_SET_CHILD_SUBREAPER` 进程回收、三年 TCO 与 Day-0/Day-2 清单](stateful-interactive-pty-lsp-session-sandbox-aks-kata-tmux-daemon-vs-aca-dynamic-sessions-vs-remote-lsp-scip-pool-selection-faq.md) | [🇨🇳 中文](stateful-interactive-pty-lsp-session-sandbox-aks-kata-tmux-daemon-vs-aca-dynamic-sessions-vs-remote-lsp-scip-pool-selection-faq.md) · [🇬🇧 EN](stateful-interactive-pty-lsp-session-sandbox-aks-kata-tmux-daemon-vs-aca-dynamic-sessions-vs-remote-lsp-scip-pool-selection-faq.en.md) |
 | 331 | [企业多区域地理分布式沙箱布点与会话粘性选型 FAQ：Architecture A（`Front Door Premium + APIM Regional + Redis Active-Geo` 会话目录）vs Architecture B（`AKS Fleet + Kata` 主动主动 Stamp）vs Architecture C（Compute-to-Data 主权固定 + Anycast 加速）vs Architecture D（单枢纽池 + Geo 工件复制），覆盖数据重力盈亏点、`sqrt(K)` 暖池碎片税、RTO/RPO 演算与三年 TCO](multi-region-geo-distributed-sandbox-placement-session-pinning-front-door-aca-stamps-vs-aks-fleet-kata-vs-compute-to-data-selection-faq.md) | [🇨🇳 中文](multi-region-geo-distributed-sandbox-placement-session-pinning-front-door-aca-stamps-vs-aks-fleet-kata-vs-compute-to-data-selection-faq.md) · [🇬🇧 EN](multi-region-geo-distributed-sandbox-placement-session-pinning-front-door-aca-stamps-vs-aks-fleet-kata-vs-compute-to-data-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（40 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（41 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -142,6 +142,7 @@
 | 316 | [企业多模态图像与视频 DiT 推理基础设施选型 FAQ：Architecture A（AKS `NC/ND H100 v5` + `xDiT` USP/PipeFusion + `FP8/TensorRT` + `ANF/NVMe` 热切换 LoRA/ControlNet）vs Architecture B（ACA Serverless GPU Headless ComfyUI DAG，Service Bus 工单 + Blob Claim-Check + C2PA）vs Architecture C（Foundry 托管 `GPT-Image-1`/`Sora` + APIM + Content Safety）vs Architecture D（Hero-to-Variant 混合流水线），覆盖 DiT FLOPs/显存预算、KEDA 队列伸缩公式、利用率断点、三年 TCO 与 Day-0/Day-2 清单](diffusion-image-video-dit-serving-aks-xdit-tensorrt-lora-vs-aca-serverless-gpu-comfyui-vs-aoai-sora-gpt-image-selection-faq.md) | [🇨🇳 中文](diffusion-image-video-dit-serving-aks-xdit-tensorrt-lora-vs-aca-serverless-gpu-comfyui-vs-aoai-sora-gpt-image-selection-faq.md) · [🇬🇧 EN](diffusion-image-video-dit-serving-aks-xdit-tensorrt-lora-vs-aca-serverless-gpu-comfyui-vs-aoai-sora-gpt-image-selection-faq.en.md) |
 | 323 | [企业领域知识注入与灾难性遗忘防护选型 FAQ：Architecture A（Azure ML `ND96isr_H100_v5` Replay-Buffered CPT + `20%` 通用/指令/工具回放 + WSD 日程 + Post-CPT SFT/DPO 重锚）vs Architecture B（MergeKit `TIES/DARE-TIES/SLERP` 低成本权重合并）vs Architecture C（vLLM/SGLang Multi-LoRA 运行时隔离组合）vs Architecture D（Foundry SFT + Azure AI Search Hybrid RAG 的参数-检索分拆），覆盖 tokenizer fertility/perplexity 准入、GPU 小时公式、保持率门禁与三年 TCO](domain-continual-pretraining-catastrophic-forgetting-aml-replay-cpt-vs-mergekit-ties-dare-vs-multilora-rag-selection-faq.md) | [🇨🇳 中文](domain-continual-pretraining-catastrophic-forgetting-aml-replay-cpt-vs-mergekit-ties-dare-vs-multilora-rag-selection-faq.md) · [🇬🇧 EN](domain-continual-pretraining-catastrophic-forgetting-aml-replay-cpt-vs-mergekit-ties-dare-vs-multilora-rag-selection-faq.en.md) |
 | 330 | [企业 Agent RFT/RLVR 可验证奖励 Grader 架构选型 FAQ：Architecture A（`Azure AI Foundry/AOAI` 声明式多 Grader：`StringCheck + PythonGrader + ScoreModelGrader` 乘法零闸门）vs Architecture B（`ACA Dynamic Sessions/AKS Kata` 高并发执行验证暖池）vs Architecture C（`AOAI Batch` 拒绝采样 + 重型 Oracle 离线筛选）vs Architecture D（`AKS Ray + Redis/Cosmos CoW` 多轮 MCP 工具世界 Gym），覆盖 `GPU_Goodput` 公式、反投机奖励、Batch 产率成本与三年 TCO](agent-rft-rlvr-verifiable-grader-architecture-foundry-multi-grader-vs-aca-execution-sandbox-vs-batch-rejection-sampling-selection-faq.md) | [🇨🇳 中文](agent-rft-rlvr-verifiable-grader-architecture-foundry-multi-grader-vs-aca-execution-sandbox-vs-batch-rejection-sampling-selection-faq.md) · [🇬🇧 EN](agent-rft-rlvr-verifiable-grader-architecture-foundry-multi-grader-vs-aca-execution-sandbox-vs-batch-rejection-sampling-selection-faq.en.md) |
+| 337 | [企业 LLM 校准置信度与选择性弃权服务平面选型 FAQ：Architecture A（`top_logprobs` + 温度/等值回归 + Split Conformal）vs Architecture B（Cross-Encoder Verifier/Hidden-State Probe）vs Architecture C（Prefix-Shared `n=3..5` 语义熵）vs Architecture D（不对称奖励 `NOUL/<abstain>` RFT），覆盖 ECE/Brier/AURC、三段动作门控与三年 TCO](llm-calibrated-confidence-selective-abstention-serving-logprobs-conformal-prediction-vs-router-probe-vs-semantic-entropy-rft-selection-faq.md) | [🇨🇳 中文](llm-calibrated-confidence-selective-abstention-serving-logprobs-conformal-prediction-vs-router-probe-vs-semantic-entropy-rft-selection-faq.md) · [🇬🇧 EN](llm-calibrated-confidence-selective-abstention-serving-logprobs-conformal-prediction-vs-router-probe-vs-semantic-entropy-rft-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（41 篇）
 
