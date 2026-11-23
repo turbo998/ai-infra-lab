@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（334 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（335 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **334 个架构选型、平台对比与安全治理决策专题**（共 `668` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **335 个架构选型、平台对比与安全治理决策专题**（共 `670` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 334 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 335 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（40 篇）
 
@@ -190,7 +190,7 @@
 | 322 | [企业 MCP 资源订阅反应式更新选型 FAQ：Architecture A（`Event Grid + Redis` 尾缘合并 + `Web PubSub/APIM SSE` 脏 URI 指针推送并前置 CAE/RBAC 复核）vs Architecture B（`Service Bus` 持久游标与休眠会话追平）vs Architecture C（`APIM ETag/If-None-Match` 条件轮询 `304` 吸收）vs Architecture D（物质性门控双阶段反应环），含轮询风暴公式、连接容量、令牌放大成本与三年 TCO](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.md) | [🇨🇳 中文](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.md) · [🇬🇧 EN](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.en.md) |
 | 329 | [企业终端 Shadow `stdio` MCP 蔓延治理与混合本地到远端 MCP 架构选型 FAQ：Architecture A（`Azure API Center + APIM + ACA/AKS` Remote-First Registry Allowlist）vs Architecture B（`ACR + Notation/Cosign` 签名 OCI 本地沙箱 + Intune AppControl）vs Architecture C（`Dev Box/Codespaces + VNet + Firewall` 云工作站边界）vs Architecture D（Endpoint `MCP Loopback Policy Broker` + `Azure Artifacts` 检疫源 + OTel 审计），覆盖凭据暴露面公式、供应链妥协概率、`<5ms` 本地与 `35–90ms` 远端延迟、三年 TCO 与落地清单](workstation-shadow-stdio-mcp-governance-remote-apim-registry-vs-signed-oci-sandbox-vs-devbox-vnet-broker-selection-faq.md) | [🇨🇳 中文](workstation-shadow-stdio-mcp-governance-remote-apim-registry-vs-signed-oci-sandbox-vs-devbox-vnet-broker-selection-faq.md) · [🇬🇧 EN](workstation-shadow-stdio-mcp-governance-remote-apim-registry-vs-signed-oci-sandbox-vs-devbox-vnet-broker-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（40 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（41 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -236,6 +236,7 @@
 | 314 | [企业双时态知识版本化与条款覆盖冲突仲裁选型 FAQ：Architecture A（`Azure AI Search` 双时态 `as_of` 预过滤 + 权威层级评分）vs Architecture B（`Cosmos/Fabric Graph` 条款级 `SUPERSEDES/AMENDS_SECTION/JURISDICTION_OVERRIDE` 覆盖图）vs Architecture C（入库 NLI 冲突扫描 + Change Feed 原子 `valid_to` 闭区间）vs Architecture D（查询时冲突矩阵重排与显式分歧披露），含版本碰撞概率、`24% -> <1.2%` 混合答案错误率、P95 延迟预算与三年 TCO](bitemporal-rag-policy-supersession-contradiction-resolution-ai-search-as-of-filter-vs-amendment-graph-vs-ingestion-nli-selection-faq.md) | [🇨🇳 中文](bitemporal-rag-policy-supersession-contradiction-resolution-ai-search-as-of-filter-vs-amendment-graph-vs-ingestion-nli-selection-faq.md) · [🇬🇧 EN](bitemporal-rag-policy-supersession-contradiction-resolution-ai-search-as-of-filter-vs-amendment-graph-vs-ingestion-nli-selection-faq.en.md) |
 | 321 | [企业多仓与遗留代码库智能 RAG 选型 FAQ：Architecture A（Tree-Sitter cAST 语法边界切分 + Merkle SHA-256 去重 + Azure AI Search 安全裁剪）vs Architecture B（SCIP/LSIF 跨仓符号与调用图平面）vs Architecture C（AKS Zoekt trigram 词法检索平面）vs Architecture D（三模态代码 MCP 路由 + PR Delta Overlay），含去重比例、`<15s` 新鲜度 SLA、Recall@10 与三年 TCO](enterprise-codebase-rag-tree-sitter-ast-merkle-sync-ai-search-vs-scip-call-graph-vs-zoekt-trigram-mcp-selection-faq.md) | [🇨🇳 中文](enterprise-codebase-rag-tree-sitter-ast-merkle-sync-ai-search-vs-scip-call-graph-vs-zoekt-trigram-mcp-selection-faq.md) · [🇬🇧 EN](enterprise-codebase-rag-tree-sitter-ast-merkle-sync-ai-search-vs-scip-call-graph-vs-zoekt-trigram-mcp-selection-faq.en.md) |
 | 328 | [企业 RAG 近重复语料治理与 ACL 安全去重选型 FAQ：Architecture A（归一化 `SHA-256` 精确去重 + `Cosmos DB` ACL 来源映射重算）vs Architecture B（`Fabric Spark` `128` 维 MinHash + LSH 聚类 + boilerplate/delta span ACL 拆分）vs Architecture C（语义 ANN 聚类 + 权威源主副本选举）vs Architecture D（查询时 `top_k=50` over-fetch + `MMR λ=0.65` 折叠），覆盖 LSH 阈值数学、Echo-Chamber 多样性、HNSW 内存节省与三年 TCO](enterprise-rag-near-duplicate-corpus-hygiene-acl-safe-dedup-fabric-minhash-lsh-vs-ai-search-subindex-mmr-vs-embedding-ann-clustering-selection-faq.md) | [🇨🇳 中文](enterprise-rag-near-duplicate-corpus-hygiene-acl-safe-dedup-fabric-minhash-lsh-vs-ai-search-subindex-mmr-vs-embedding-ann-clustering-selection-faq.md) · [🇬🇧 EN](enterprise-rag-near-duplicate-corpus-hygiene-acl-safe-dedup-fabric-minhash-lsh-vs-ai-search-subindex-mmr-vs-embedding-ann-clustering-selection-faq.en.md) |
+| 335 | [企业长视频与屏幕录制 Temporal RAG 选型 FAQ：Architecture A（`Azure AI Content Understanding` Shot 对齐结构化抽取 + `AI Search` 时间片段索引）vs Architecture B（`Video Indexer` 云边协同 + Arc 边缘索引）vs Architecture C（`AKS GPU` 自适应关键帧 + clip embedding 多向量召回）vs Architecture D（粗召回 + Byte-Range/HLS 两阶段 VLM 核验），覆盖 token 成本爆炸、tIoU、WAN 节省与 ACL 撤权 SLA 三年 TCO](enterprise-long-form-video-screenshare-temporal-rag-content-understanding-vs-video-indexer-vs-clip-embedding-vlm-drilldown-selection-faq.md) | [🇨🇳 中文](enterprise-long-form-video-screenshare-temporal-rag-content-understanding-vs-video-indexer-vs-clip-embedding-vlm-drilldown-selection-faq.md) · [🇬🇧 EN](enterprise-long-form-video-screenshare-temporal-rag-content-understanding-vs-video-indexer-vs-clip-embedding-vlm-drilldown-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（41 篇）
 
