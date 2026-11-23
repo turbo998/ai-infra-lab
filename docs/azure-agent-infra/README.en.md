@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (351 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (352 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **351 structured architecture selection guides and trade-off FAQs** (`702` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **352 structured architecture selection guides and trade-off FAQs** (`704` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 351 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 352 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (42 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (43 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -97,6 +97,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 331 | [Enterprise multi-region geo-distributed sandbox placement and session-pinning selection FAQ: Architecture A (`Front Door Premium + APIM Regional + Redis Active-Geo` session directory) vs Architecture B (`AKS Fleet + Kata` active-active stamps) vs Architecture C (compute-to-data sovereign pinning with backbone acceleration) vs Architecture D (single-hub pool with geo-replicated artifacts), covering data-gravity break-even math, `sqrt(K)` warm-pool fragmentation tax, failover RTO/RPO equations, and 3-year TCO](multi-region-geo-distributed-sandbox-placement-session-pinning-front-door-aca-stamps-vs-aks-fleet-kata-vs-compute-to-data-selection-faq.en.md) | [🇬🇧 EN](multi-region-geo-distributed-sandbox-placement-session-pinning-front-door-aca-stamps-vs-aks-fleet-kata-vs-compute-to-data-selection-faq.en.md) · [🇨🇳 中文](multi-region-geo-distributed-sandbox-placement-session-pinning-front-door-aca-stamps-vs-aks-fleet-kata-vs-compute-to-data-selection-faq.md) |
 | 338 | [Enterprise authenticated browser/CUA session-vault and web-bot-auth selection FAQ: Architecture A (secretless egress proxy credential injection with response stripping) vs Architecture B (deterministic non-LLM auth worker plus KMS-sealed `storageState`) vs Architecture C (`AVD/Windows 365 + Entra PRT + Intune` compliant-device binding) vs Architecture D (`RFC 9421` Ed25519 signed bot identity plus WebRTC human airlock), covering session-exfiltration blast radius, conditional-access pass rate, WAF false blocks, and 3-year TCO](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.en.md) | [🇬🇧 EN](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.en.md) · [🇨🇳 中文](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.md) |
 | 345 | [Enterprise spiky-memory agent sandbox elastic right-sizing selection FAQ: Architecture A (`AKS` in-place pod vertical scaling with `resizePolicy: NotRequired` plus pre-tool memory estimation) vs Architecture B (`ACA/AKS` `S/M/L` tiered pool promotion with workspace rebind) vs Architecture C (thin stateful session plus `ACA Jobs/KubeRay` remote heavy-worker offload) vs Architecture D (static peak-sized `Guaranteed` pools), covering `R_pack`, `E[C_oom]`, `H_buf`, and 3-year TCO for `500/3000/15000` concurrent sessions](spiky-memory-agent-sandbox-elastic-right-sizing-aks-inplace-vertical-pod-scaling-vs-aca-tiered-session-pools-vs-remote-worker-offload-selection-faq.en.md) | [🇬🇧 EN](spiky-memory-agent-sandbox-elastic-right-sizing-aks-inplace-vertical-pod-scaling-vs-aca-tiered-session-pools-vs-remote-worker-offload-selection-faq.en.md) · [🇨🇳 中文](spiky-memory-agent-sandbox-elastic-right-sizing-aks-inplace-vertical-pod-scaling-vs-aca-tiered-session-pools-vs-remote-worker-offload-selection-faq.md) |
+| 352 | [Enterprise submillisecond Python Code-Act micro-sandbox selection FAQ: Architecture A (embedded `Monty/Starlark` deterministic interpreter with fuel/heap budgets) vs Architecture B (`Pyodide` Wasm snapshot restore) vs Architecture C (`AKS` co-located `Kata/gVisor + nsjail` pre-forked CPython pool) vs Architecture D (managed `ACA Dynamic Sessions` Hyper-V session isolation), covering `L_total`, `isolates/GB`, break-even escalation threshold `N*`, and 3-year TCO](submillisecond-python-codeact-micro-sandbox-monty-starlark-vs-pyodide-wasm-snapshot-vs-aks-kata-nsjail-vs-aca-dynamic-sessions-selection-faq.en.md) | [🇬🇧 EN](submillisecond-python-codeact-micro-sandbox-monty-starlark-vs-pyodide-wasm-snapshot-vs-aks-kata-nsjail-vs-aca-dynamic-sessions-selection-faq.en.md) · [🇨🇳 中文](submillisecond-python-codeact-micro-sandbox-monty-starlark-vs-pyodide-wasm-snapshot-vs-aks-kata-nsjail-vs-aca-dynamic-sessions-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (43 Guides)
 
