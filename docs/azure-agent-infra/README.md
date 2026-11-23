@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（350 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（351 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **350 个架构选型、平台对比与安全治理决策专题**（共 `700` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **351 个架构选型、平台对比与安全治理决策专题**（共 `702` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 350 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 351 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（42 篇）
 
@@ -97,7 +97,7 @@
 | 338 | [企业认证浏览器/CUA 会话金库与 Web Bot Auth 选型 FAQ：Architecture A（Secretless Egress Proxy 凭据注入与回包剥离）vs Architecture B（非 LLM 认证工人 + KMS 密封 `storageState`）vs Architecture C（`AVD/Windows 365 + Entra PRT + Intune` 合规设备绑定）vs Architecture D（`RFC 9421` Ed25519 签名身份 + WebRTC 人工 Airlock），覆盖会话泄漏半径、条件访问通过率、WAF 误拦截与三年 TCO](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.md) | [🇨🇳 中文](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.md) · [🇬🇧 EN](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.en.md) |
 | 345 | [企业突发内存 Agent 沙箱弹性右尺寸选型 FAQ：Architecture A（`AKS` In-Place Pod Vertical Scaling + `resizePolicy: NotRequired` + 预工具内存估算）vs Architecture B（`ACA/AKS` `S/M/L` 分层池晋升与工作区重绑定）vs Architecture C（薄状态会话 + `ACA Jobs/KubeRay` 远端重任务 Offload）vs Architecture D（静态峰值 `Guaranteed` 池），覆盖 `R_pack`、`E[C_oom]`、`H_buf` 与 `500/3000/15000` 并发三年 TCO](spiky-memory-agent-sandbox-elastic-right-sizing-aks-inplace-vertical-pod-scaling-vs-aca-tiered-session-pools-vs-remote-worker-offload-selection-faq.md) | [🇨🇳 中文](spiky-memory-agent-sandbox-elastic-right-sizing-aks-inplace-vertical-pod-scaling-vs-aca-tiered-session-pools-vs-remote-worker-offload-selection-faq.md) · [🇬🇧 EN](spiky-memory-agent-sandbox-elastic-right-sizing-aks-inplace-vertical-pod-scaling-vs-aca-tiered-session-pools-vs-remote-worker-offload-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（42 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（43 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -146,6 +146,7 @@
 | 330 | [企业 Agent RFT/RLVR 可验证奖励 Grader 架构选型 FAQ：Architecture A（`Azure AI Foundry/AOAI` 声明式多 Grader：`StringCheck + PythonGrader + ScoreModelGrader` 乘法零闸门）vs Architecture B（`ACA Dynamic Sessions/AKS Kata` 高并发执行验证暖池）vs Architecture C（`AOAI Batch` 拒绝采样 + 重型 Oracle 离线筛选）vs Architecture D（`AKS Ray + Redis/Cosmos CoW` 多轮 MCP 工具世界 Gym），覆盖 `GPU_Goodput` 公式、反投机奖励、Batch 产率成本与三年 TCO](agent-rft-rlvr-verifiable-grader-architecture-foundry-multi-grader-vs-aca-execution-sandbox-vs-batch-rejection-sampling-selection-faq.md) | [🇨🇳 中文](agent-rft-rlvr-verifiable-grader-architecture-foundry-multi-grader-vs-aca-execution-sandbox-vs-batch-rejection-sampling-selection-faq.md) · [🇬🇧 EN](agent-rft-rlvr-verifiable-grader-architecture-foundry-multi-grader-vs-aca-execution-sandbox-vs-batch-rejection-sampling-selection-faq.en.md) |
 | 337 | [企业 LLM 校准置信度与选择性弃权服务平面选型 FAQ：Architecture A（`top_logprobs` + 温度/等值回归 + Split Conformal）vs Architecture B（Cross-Encoder Verifier/Hidden-State Probe）vs Architecture C（Prefix-Shared `n=3..5` 语义熵）vs Architecture D（不对称奖励 `NOUL/<abstain>` RFT），覆盖 ECE/Brier/AURC、三段动作门控与三年 TCO](llm-calibrated-confidence-selective-abstention-serving-logprobs-conformal-prediction-vs-router-probe-vs-semantic-entropy-rft-selection-faq.md) | [🇨🇳 中文](llm-calibrated-confidence-selective-abstention-serving-logprobs-conformal-prediction-vs-router-probe-vs-semantic-entropy-rft-selection-faq.md) · [🇬🇧 EN](llm-calibrated-confidence-selective-abstention-serving-logprobs-conformal-prediction-vs-router-probe-vs-semantic-entropy-rft-selection-faq.en.md) |
 | 344 | [企业 LLM 机器遗忘与 RTBF 权重擦除选型 FAQ：Architecture A（Compartmentalized Multi-LoRA 适配器隔离 + CMK 密钥粉碎）vs Architecture B（`AML NDv5` SISA 分片切片回放重训）vs Architecture C（`NPO/RMU` 近似后处理遗忘 + `APIM` 输出抽取护栏）vs Architecture D（参数层零事实化 + `Azure AI Search/Cosmos` 可删检索分拆），覆盖 `C_SISA = C_full / S * (1 - idx/K)`、`Exposure_bits`、MIA/TruthRatio 门禁与三年 TCO](enterprise-llm-machine-unlearning-rtbf-weight-erasure-compartmentalized-multilora-vs-sisa-aml-vs-npo-rmu-rag-split-selection-faq.md) | [🇨🇳 中文](enterprise-llm-machine-unlearning-rtbf-weight-erasure-compartmentalized-multilora-vs-sisa-aml-vs-npo-rmu-rag-split-selection-faq.md) · [🇬🇧 EN](enterprise-llm-machine-unlearning-rtbf-weight-erasure-compartmentalized-multilora-vs-sisa-aml-vs-npo-rmu-rag-split-selection-faq.en.md) |
+| 351 | [企业超长 `1M` 上下文 LLM 托管选型 FAQ：Architecture A（`AKS ND H100/H200/MI300X` 上 `FP8(E4M3)/INT4` KV Cache 量化 + chunked prefill）vs Architecture B（`Ring Attention + DeepSpeed-Ulysses` `TPxCP` 上下文并行）vs Architecture C（`1:7` Hybrid Linear Attention/SSM 混合架构）vs Architecture D（`Azure AI Foundry/Azure OpenAI` 托管 `1M` 通道 + `APIM` 按 token 长度分层路由），覆盖 `KV_VRAM(S,b_kv,r_full)`、`T_prefill(S)` 与重尾 duty-cycle 盈亏点三年 TCO](ultra-long-1m-context-llm-serving-aks-fp8-kv-cache-quantization-vs-ring-ulysses-context-parallelism-vs-hybrid-linear-attention-vs-foundry-1m-selection-faq.md) | [🇨🇳 中文](ultra-long-1m-context-llm-serving-aks-fp8-kv-cache-quantization-vs-ring-ulysses-context-parallelism-vs-hybrid-linear-attention-vs-foundry-1m-selection-faq.md) · [🇬🇧 EN](ultra-long-1m-context-llm-serving-aks-fp8-kv-cache-quantization-vs-ring-ulysses-context-parallelism-vs-hybrid-linear-attention-vs-foundry-1m-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（43 篇）
 
