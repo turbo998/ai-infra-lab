@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（347 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（348 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **347 个架构选型、平台对比与安全治理决策专题**（共 `694` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **348 个架构选型、平台对比与安全治理决策专题**（共 `696` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 347 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 348 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（42 篇）
 
@@ -353,7 +353,7 @@
 | 261 | [企业 Agent 隐私脱敏门禁选型 FAQ：`Purview` 数据发现基线 vs `APIM` 入出站 DLP 策略 vs 运行时 `Sidecar Tokenization` 细粒度脱敏 vs 三层混合零信任闭环（泄露率、误脱敏率、阻断时延与每千请求治理成本平衡）](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) | [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) · [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) |
 | 269 | [企业级 Agent 授权选型 FAQ：Entra PIM + JIT 同意 vs APIM JWT 能力声明 vs OPA Policy Graph 决策平面（最小权限、临时升级、审计可追溯与 P95/TCO 拐点平衡）](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) | [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) · [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（42 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（43 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -401,6 +401,7 @@
 | 327 | [企业 B2B AI SaaS BYOK/BYO-Foundry-PTU 商业化选型 FAQ：Architecture A（ISV 托管多租户 PTU 池 + Marketplace SaaS 计量）vs Architecture B（`Entra` 跨租户联合身份 + 客户侧 Foundry PTU 私网调用）vs Architecture C（`Key Vault Managed HSM` 凭据经纪 + `APIM` 动态后端与契约探针）vs Architecture D（`Azure Marketplace Managed Application` 客户侧数据面），覆盖 SLA 归因边界、MACC 对齐、`50/300/1500` 租户三年 TCO 与毛利模型](b2b-saas-byok-byo-foundry-ptu-monetization-entra-cross-tenant-privatelink-vs-isv-hosted-pool-vs-managed-app-selection-faq.md) | [🇨🇳 中文](b2b-saas-byok-byo-foundry-ptu-monetization-entra-cross-tenant-privatelink-vs-isv-hosted-pool-vs-managed-app-selection-faq.md) · [🇬🇧 EN](b2b-saas-byok-byo-foundry-ptu-monetization-entra-cross-tenant-privatelink-vs-isv-hosted-pool-vs-managed-app-selection-faq.en.md) |
 | 334 | [企业 AI SaaS PLG 免费试用与反女巫治理选型 FAQ：Architecture A（`Entra External ID` 渐进信任 + `APIM` 分层能力钱包）vs Architecture B（卡指纹绑定反向试用）vs Architecture C（零 COGS 回放 + BYOK 深评估）vs Architecture D（`Event Hubs -> ADX` 实时滥用降级环），覆盖 CAC、攻击半径、ARR 盈亏点与 `10K/100K/500K` 注册三年毛利影响](ai-saas-plg-free-trial-unit-economics-anti-sybil-progressive-trust-entra-apim-vs-card-gated-trial-vs-byok-sandbox-selection-faq.md) | [🇨🇳 中文](ai-saas-plg-free-trial-unit-economics-anti-sybil-progressive-trust-entra-apim-vs-card-gated-trial-vs-byok-sandbox-selection-faq.md) · [🇬🇧 EN](ai-saas-plg-free-trial-unit-economics-anti-sybil-progressive-trust-entra-apim-vs-card-gated-trial-vs-byok-sandbox-selection-faq.en.md) |
 | 341 | [企业 B2B AI SaaS 多轨商业化与实时权益选型 FAQ：Architecture A（`PostgreSQL/Cosmos + App Configuration + Redis` 解耦权益平面 + APIM `<3ms` 门控）vs Architecture B（`Metronome/Orb` 用量评级与 commit 子账）vs Architecture C（`Marketplace Fulfillment v2 + Metering API` 小时 outbox 与 `<24h` 重放）vs Architecture D（`Stripe Billing Meters + Entitlements` 直连），覆盖 MACC 成交速度、漏收风险与三年 TCO](b2b-ai-saas-entitlement-multi-rail-billing-marketplace-private-offer-macc-vs-metronome-orb-vs-apim-redis-entitlement-plane-selection-faq.md) | [🇨🇳 中文](b2b-ai-saas-entitlement-multi-rail-billing-marketplace-private-offer-macc-vs-metronome-orb-vs-apim-redis-entitlement-plane-selection-faq.md) · [🇬🇧 EN](b2b-ai-saas-entitlement-multi-rail-billing-marketplace-private-offer-macc-vs-metronome-orb-vs-apim-redis-entitlement-plane-selection-faq.en.md) |
+| 348 | [企业 Agent Prompt Cache 命中率工程 FinOps 选型 FAQ：Architecture A（Canonical Prefix Stable Context Compiler）vs Architecture B（APIM 一致性哈希亲和 + `prompt_cache_key`）vs Architecture C（`K=12-16` Epoch 块压缩）vs Architecture D（跨提供方显式 Cache-Control 断点适配），覆盖缓存命中率、TTFT、输入成本与三年 TCO](agent-prompt-cache-hit-rate-engineering-finops-canonical-prefix-compiler-vs-apim-consistent-hash-affinity-vs-epoch-compaction-selection-faq.md) | [🇨🇳 中文](agent-prompt-cache-hit-rate-engineering-finops-canonical-prefix-compiler-vs-apim-consistent-hash-affinity-vs-epoch-compaction-selection-faq.md) · [🇬🇧 EN](agent-prompt-cache-hit-rate-engineering-finops-canonical-prefix-compiler-vs-apim-consistent-hash-affinity-vs-epoch-compaction-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（43 篇）
 
