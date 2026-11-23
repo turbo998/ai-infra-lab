@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（362 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（363 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **362 个架构选型、平台对比与安全治理决策专题**（共 `724` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **363 个架构选型、平台对比与安全治理决策专题**（共 `726` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 362 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 363 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（44 篇）
 
@@ -202,7 +202,7 @@
 | 350 | [企业 Streaming SSE AI Gateway 中途拦截选型 FAQ：Architecture A（`Envoy/Istio ext_proc` `W=64/O=16` 重叠 Ring Buffer + 侧车检测）vs Architecture B（`APIM` 后分句微批 + `Azure AI Content Safety/Purview`）vs Architecture C（`APIM` 双通道：乐观文本流 + tool_call 全缓冲）vs Architecture D（`APIM buffer-response=true` 全回合提交门），覆盖 Chunk-Boundary Split Bypass、TTFT 与零泄漏合规平衡](streaming-sse-ai-gateway-midstream-guardrail-dlp-interception-envoy-ext-proc-ringbuffer-vs-apim-dual-lane-vs-clause-microbatch-selection-faq.md) | [🇨🇳 中文](streaming-sse-ai-gateway-midstream-guardrail-dlp-interception-envoy-ext-proc-ringbuffer-vs-apim-dual-lane-vs-clause-microbatch-selection-faq.md) · [🇬🇧 EN](streaming-sse-ai-gateway-midstream-guardrail-dlp-interception-envoy-ext-proc-ringbuffer-vs-apim-dual-lane-vs-clause-microbatch-selection-faq.en.md) |
 | 357 | [企业 XPIA 间接提示注入防护选型 FAQ：Architecture A（APIM Prompt Shields + Spotlighting 数据标记）vs Architecture B（CaMeL 双模型特权规划/隔离读取）vs Architecture C（IFC 污点传播 + OPA/APIM Sink 门禁）vs Architecture D（Split-Agent 断开 Lethal Trifecta），覆盖 `P_breach = 1-(1-ASR)^K` 复合残余风险、Markdown URL 外带与 CSP 封堵、字段投毒双源校验、`1M/10M/50M` 不可信读取三年 TCO](xpia-indirect-prompt-injection-apim-prompt-shields-spotlighting-vs-camel-dual-llm-vs-ifc-taint-masking-vs-split-agent-selection-faq.md) | [🇨🇳 中文](xpia-indirect-prompt-injection-apim-prompt-shields-spotlighting-vs-camel-dual-llm-vs-ifc-taint-masking-vs-split-agent-selection-faq.md) · [🇬🇧 EN](xpia-indirect-prompt-injection-apim-prompt-shields-spotlighting-vs-camel-dual-llm-vs-ifc-taint-masking-vs-split-agent-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（44 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（45 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -252,6 +252,7 @@
 | 342 | [企业向量索引量化与重排序 FinOps 选型 FAQ：Architecture A（`Azure AI Search` Binary/Scalar + `truncationDimension` + `enableRescoring`）vs Architecture B（`PostgreSQL pgvectorscale` StreamingDiskANN + `SBQ`）vs Architecture C（`Cosmos DB DiskANN/quantizedFlat` + 分区键治理）vs Architecture D（`AKS` 自建 `PQ/BQ` + NVMe 热层），覆盖 Recall@10 回归门禁、`k_candidates = defaultOversampling * k` IOPS 预算与 `10M/100M/1B` 三年 TCO](vector-index-quantization-oversampling-rescore-finops-ai-search-binary-scalar-mrl-vs-pgvectorscale-sbq-vs-cosmos-diskann-selection-faq.md) | [🇨🇳 中文](vector-index-quantization-oversampling-rescore-finops-ai-search-binary-scalar-mrl-vs-pgvectorscale-sbq-vs-cosmos-diskann-selection-faq.md) · [🇬🇧 EN](vector-index-quantization-oversampling-rescore-finops-ai-search-binary-scalar-mrl-vs-pgvectorscale-sbq-vs-cosmos-diskann-selection-faq.en.md) |
 | 349 | [企业邮件与 Teams 线程图谱 RAG 选型 FAQ：Architecture A（`MGDC -> OneLake` 线程 DAG 去重 + 附件上下文绑定 + `AI Search` 逐消息 ACL）vs Architecture B（`M365 Copilot Retrieval API / Graph Connectors` 零拷贝原地 grounding）vs Architecture C（`Graph Delta/Webhook + Event Hubs + Document Intelligence v4` `<30s` 增量）vs Architecture D（双时间 `PROPOSES/REJECTS/RATIFIES` 决策状态账本），覆盖引用级联污染、附件孤儿风险与时序 supersession 判定](enterprise-email-teams-thread-graph-rag-mgdc-onelake-quoted-reply-dedup-attachment-binding-ai-search-vs-m365-retrieval-api-selection-faq.md) | [🇨🇳 中文](enterprise-email-teams-thread-graph-rag-mgdc-onelake-quoted-reply-dedup-attachment-binding-ai-search-vs-m365-retrieval-api-selection-faq.md) · [🇬🇧 EN](enterprise-email-teams-thread-graph-rag-mgdc-onelake-quoted-reply-dedup-attachment-binding-ai-search-vs-m365-retrieval-api-selection-faq.en.md) |
 | 356 | [企业 GraphRAG 成本与 ACL 安全增量同步选型 FAQ：Architecture A（LazyGraphRAG 查询时延迟构图）vs Architecture B（Full Leiden 批处理社区摘要）vs Architecture C（LightRAG 双键增量检索）vs Architecture D（GLiNER + Fabric Graph），覆盖 `Q_global*` 拐点、ACL 混合泄露证明、RTBF tombstone `ref_count` 清理、85/15 路由与 `5M/50M/500M` 语料三年 TCO](graphrag-cost-acl-incremental-sync-lazygraphrag-vs-full-leiden-batch-vs-lightrag-dual-key-vs-gliner-fabric-graph-selection-faq.md) | [🇨🇳 中文](graphrag-cost-acl-incremental-sync-lazygraphrag-vs-full-leiden-batch-vs-lightrag-dual-key-vs-gliner-fabric-graph-selection-faq.md) · [🇬🇧 EN](graphrag-cost-acl-incremental-sync-lazygraphrag-vs-full-leiden-batch-vs-lightrag-dual-key-vs-gliner-fabric-graph-selection-faq.en.md) |
+| 363 | [企业 PowerPoint Pitchbook 幻灯片 RAG 选型 FAQ：Architecture A（`OOXML DrawingML` EMU 空间 AST + `/ppt/charts/chartN.xml` 数值缓存与嵌入 `.xlsx` 双通道抽取 + VLM 缩略图核验）vs Architecture B（`ColPali/ColQwen2` 视觉晚交互多向量索引）vs Architecture C（`Azure AI Content Understanding/Document Intelligence` 统一托管管线）vs Architecture D（`Microsoft 365 Copilot/M365 Retrieval API` 原位检索），覆盖 Z-order 与二维阅读顺序偏差修复、`show=\"0\"` 隐藏页治理、`1030` patch 向量压缩数学与 `50K/500K/5M` 三年 TCO](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.md) | [🇨🇳 中文](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.md) · [🇬🇧 EN](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（45 篇）
 
