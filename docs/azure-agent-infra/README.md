@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（348 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（349 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **348 个架构选型、平台对比与安全治理决策专题**（共 `696` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **349 个架构选型、平台对比与安全治理决策专题**（共 `698` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 348 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 349 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（42 篇）
 
@@ -196,7 +196,7 @@
 | 336 | [企业 A2A 多跳委派衰减与环路预算治理选型 FAQ：Architecture A（RFC 8693 `act` + Entra OBO 交集）vs Architecture B（Biscuit/Macaroons 离线衰减能力票据）vs Architecture C（`APIM + Redis` 根运行 DAG 环检测与预算原子仲裁）vs Architecture D（Supervisor 星型拓扑 `max_hop=1`），覆盖 `B^D` 放大、JWT 膨胀、多跳时延与三年 TCO](a2a-multi-hop-delegation-attenuation-cycle-budget-governance-rfc8693-act-obo-vs-biscuit-macaroon-vs-apim-redis-callgraph-selection-faq.md) | [🇨🇳 中文](a2a-multi-hop-delegation-attenuation-cycle-budget-governance-rfc8693-act-obo-vs-biscuit-macaroon-vs-apim-redis-callgraph-selection-faq.md) · [🇬🇧 EN](a2a-multi-hop-delegation-attenuation-cycle-budget-governance-rfc8693-act-obo-vs-biscuit-macaroon-vs-apim-redis-callgraph-selection-faq.en.md) |
 | 343 | [企业 MCP 主体透传与 SAP 身份桥接选型 FAQ：Architecture A（`APIM` Entra OBO -> `RFC 7522` SAML Bearer -> SAP OAuth2SAMLBearerAssertion）vs Architecture B（Application Proxy/Arc SHGW + Kerberos KCD）vs Architecture C（Logic Apps SAP Connector / BTP IAS Destination）vs Architecture D（Autonomous Agent 最小权限映射 + JWS Initiator Envelope），覆盖 SOX 审计链、`SY-UNAME` 保真与三年 TCO](enterprise-mcp-principal-propagation-sap-saml-bearer-rfc7522-apim-vs-kerberos-kcd-vs-btp-logicapps-selection-faq.md) | [🇨🇳 中文](enterprise-mcp-principal-propagation-sap-saml-bearer-rfc7522-apim-vs-kerberos-kcd-vs-btp-logicapps-selection-faq.md) · [🇬🇧 EN](enterprise-mcp-principal-propagation-sap-saml-bearer-rfc7522-apim-vs-kerberos-kcd-vs-btp-logicapps-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（42 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（43 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -244,6 +244,7 @@
 | 328 | [企业 RAG 近重复语料治理与 ACL 安全去重选型 FAQ：Architecture A（归一化 `SHA-256` 精确去重 + `Cosmos DB` ACL 来源映射重算）vs Architecture B（`Fabric Spark` `128` 维 MinHash + LSH 聚类 + boilerplate/delta span ACL 拆分）vs Architecture C（语义 ANN 聚类 + 权威源主副本选举）vs Architecture D（查询时 `top_k=50` over-fetch + `MMR λ=0.65` 折叠），覆盖 LSH 阈值数学、Echo-Chamber 多样性、HNSW 内存节省与三年 TCO](enterprise-rag-near-duplicate-corpus-hygiene-acl-safe-dedup-fabric-minhash-lsh-vs-ai-search-subindex-mmr-vs-embedding-ann-clustering-selection-faq.md) | [🇨🇳 中文](enterprise-rag-near-duplicate-corpus-hygiene-acl-safe-dedup-fabric-minhash-lsh-vs-ai-search-subindex-mmr-vs-embedding-ann-clustering-selection-faq.md) · [🇬🇧 EN](enterprise-rag-near-duplicate-corpus-hygiene-acl-safe-dedup-fabric-minhash-lsh-vs-ai-search-subindex-mmr-vs-embedding-ann-clustering-selection-faq.en.md) |
 | 335 | [企业长视频与屏幕录制 Temporal RAG 选型 FAQ：Architecture A（`Azure AI Content Understanding` Shot 对齐结构化抽取 + `AI Search` 时间片段索引）vs Architecture B（`Video Indexer` 云边协同 + Arc 边缘索引）vs Architecture C（`AKS GPU` 自适应关键帧 + clip embedding 多向量召回）vs Architecture D（粗召回 + Byte-Range/HLS 两阶段 VLM 核验），覆盖 token 成本爆炸、tIoU、WAN 节省与 ACL 撤权 SLA 三年 TCO](enterprise-long-form-video-screenshare-temporal-rag-content-understanding-vs-video-indexer-vs-clip-embedding-vlm-drilldown-selection-faq.md) | [🇨🇳 中文](enterprise-long-form-video-screenshare-temporal-rag-content-understanding-vs-video-indexer-vs-clip-embedding-vlm-drilldown-selection-faq.md) · [🇬🇧 EN](enterprise-long-form-video-screenshare-temporal-rag-content-understanding-vs-video-indexer-vs-clip-embedding-vlm-drilldown-selection-faq.en.md) |
 | 342 | [企业向量索引量化与重排序 FinOps 选型 FAQ：Architecture A（`Azure AI Search` Binary/Scalar + `truncationDimension` + `enableRescoring`）vs Architecture B（`PostgreSQL pgvectorscale` StreamingDiskANN + `SBQ`）vs Architecture C（`Cosmos DB DiskANN/quantizedFlat` + 分区键治理）vs Architecture D（`AKS` 自建 `PQ/BQ` + NVMe 热层），覆盖 Recall@10 回归门禁、`k_candidates = defaultOversampling * k` IOPS 预算与 `10M/100M/1B` 三年 TCO](vector-index-quantization-oversampling-rescore-finops-ai-search-binary-scalar-mrl-vs-pgvectorscale-sbq-vs-cosmos-diskann-selection-faq.md) | [🇨🇳 中文](vector-index-quantization-oversampling-rescore-finops-ai-search-binary-scalar-mrl-vs-pgvectorscale-sbq-vs-cosmos-diskann-selection-faq.md) · [🇬🇧 EN](vector-index-quantization-oversampling-rescore-finops-ai-search-binary-scalar-mrl-vs-pgvectorscale-sbq-vs-cosmos-diskann-selection-faq.en.md) |
+| 349 | [企业邮件与 Teams 线程图谱 RAG 选型 FAQ：Architecture A（`MGDC -> OneLake` 线程 DAG 去重 + 附件上下文绑定 + `AI Search` 逐消息 ACL）vs Architecture B（`M365 Copilot Retrieval API / Graph Connectors` 零拷贝原地 grounding）vs Architecture C（`Graph Delta/Webhook + Event Hubs + Document Intelligence v4` `<30s` 增量）vs Architecture D（双时间 `PROPOSES/REJECTS/RATIFIES` 决策状态账本），覆盖引用级联污染、附件孤儿风险与时序 supersession 判定](enterprise-email-teams-thread-graph-rag-mgdc-onelake-quoted-reply-dedup-attachment-binding-ai-search-vs-m365-retrieval-api-selection-faq.md) | [🇨🇳 中文](enterprise-email-teams-thread-graph-rag-mgdc-onelake-quoted-reply-dedup-attachment-binding-ai-search-vs-m365-retrieval-api-selection-faq.md) · [🇬🇧 EN](enterprise-email-teams-thread-graph-rag-mgdc-onelake-quoted-reply-dedup-attachment-binding-ai-search-vs-m365-retrieval-api-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（43 篇）
 
