@@ -99,20 +99,20 @@ Tier-1 默认强阻断并使用 `detachAll`，Tier-2 保持发布敏捷性。
 
 ## 9. 12 维定量对比矩阵
 
-| 维度 | A Deployment Stacks | B Terraform OPA Sentinel | C Bicep What-If ARG | D Two-Tier Split-Stack |
+| 维度 | 架构 A：`deploymentStacks` + `denySettings` | 架构 B：Terraform/OpenTofu + OPA/Sentinel | 架构 C：Bicep + `What-If` + PSRule + ARG | 架构 D：双层 Split-Stack（推荐） |
 |---|---|---|---|---|
-| 阻断位置 | ARM admission pre-write | CI plan gate pre-apply | Precheck and post-change telemetry | Tier-1 ARM plus Tier-2 process gate |
-| 删除防护 | denyWriteAndDelete hard block | Policy block on delete and replace | Warn unless external block | Tier-1 hard block Tier-2 controlled delete |
-| Owner 绕过能力 | High except excluded principals | Medium if direct control-plane edits | Low without deny assignments | High in Tier-1 medium in Tier-2 |
-| 状态恢复风险 | Near zero under strict deny | Medium when gate is bypassed | High in detect-after-change mode | Low for Tier-1 bounded for Tier-2 |
-| 漂移发现时延 | Low because mutation is constrained | Medium by refresh cadence | Medium high by ARG lag | Low medium with split observability |
-| 上限压力 | 800 resources per stack | No stack cap state growth risk | No stack cap weaker stop line | Tier-1 800 cap with independent Tier-2 |
-| 私网密钥链保护 | Strong when protected set includes PE KV | Good if policies enumerate all types | Moderate with warning-only gates | Strong in Tier-1 foundation lane |
-| 误报噪声 | Low after deny scope tuning | Medium policy quality dependent | Higher what-if computed noise | Medium with risk-scoring suppression |
-| 交付敏捷性 | Medium governance biased | High developer friendly | High lightweight process | High with lane separation |
-| 运维复杂度 | Medium stack lifecycle governance | Medium high state and policy lifecycle | Low medium observability focused | High dual-tier orchestration |
-| 典型 RTO 影响 | Additional RTO near 0h when blocked | 2 to 18h if destructive apply slips | 4 to 24h in late detection cases | Tier-1 near 0h Tier-2 often under 1h |
-| 适配规模 | 10 to 300 spokes strict compliance | 5 to 200 spokes cross-cloud teams | 1 to 80 spokes light governance | 20 to 250 spokes enterprise default |
+| 阻断生效层级 | ARM 控制面写入前硬阻断，`denyWriteAndDelete` 对删除与改写均生效 | CI `plan-json` 阶段阻断，需确保所有变更都走 pipeline | 预检与事后观测为主，默认不具备硬阻断 | Tier-1 走 ARM 硬阻断，Tier-2 走发布门禁与审批 |
+| 对高权限主体约束 | 默认可约束 Subscription Owner，仅 `excludedPrincipals` 放行 | 无法约束绕过 IaC 的控制面直改 | 无原生 deny assignment，Owner 可直接改动 | Tier-1 约束强，Tier-2 通过流程约束 |
+| 删除与替换拦截 | `delete` 与高风险 `write` 可在入口拒绝，额外 RTO 接近 `0h` | 可拦截 `delete`/`delete+create`，但依赖策略覆盖完整性 | `What-If` 可提示但不自动拒绝，漏拦截风险较高 | Tier-1 删除默认拒绝，Tier-2 允许受控替换 |
+| 漂移发现时延 | 未授权变更通常在提交阶段即失败，告警延迟常 `<5min` | 取决于 `refresh-only` 周期，常见 `15–60min` | ARG 变更采集+分析链路常见 `10–45min` | Tier-1 低时延阻断，Tier-2 以 `15–30min` 观测收敛 |
+| 状态资产恢复暴露 | 误删窗口最小，AI Search/Cosmos/CMK 链路破坏概率最低 | 若策略漏拦截，状态恢复常见 `2–18h` | 事后发现模式下极端可达 `4–24h` | Tier-1 接近 `0h`，Tier-2 通常 `<1h` 回滚 |
+| 资源上限与分片压力 | 单 stack 上限 `800` 受管资源，建议 `650–790` 提前分片 | 无 stack 上限，但 state 文件膨胀和锁冲突显著 | 无 stack 上限，治理压力转移到规则维护 | Tier-1 按 `800` 规则分片，Tier-2 独立扩展 |
+| 私网与密钥链保护 | `Private Endpoint`、`Key Vault`、CMK 依赖可纳入硬保护集 | 依赖策略白名单完整度，遗漏即有暴露面 | 以提示为主，难以保证关键链路不被替换 | Tier-1 强保护，避免快发版误触核心链路 |
+| 误报噪声与运维摩擦 | 规则稳定后误报较低，但前期建模复杂度中等 | 策略质量决定误报率，跨模块规则易冲突 | `What-If` computed diff 噪声相对更高 | 通过风险评分器过滤噪声，审批更可解释 |
+| 交付敏捷性 | 治理优先，发布速度中等 | 工程体验较好，发布速度高 | 最轻量、上手快，适合早期团队 | 兼顾速度与安全，适合中大型组织 |
+| 典型单次发布附加时延 | 常见新增门禁时延 `+5~12min` | 常见 `+3~10min`（视策略复杂度） | 常见 `+2~6min` | Tier-1 `+8~20min`，Tier-2 `+3~8min` |
+| 三年 TCO 与风险收益 | 平台成本较高但损失避免收益显著，净收益稳定 | 成本适中，收益受策略执行一致性影响 | 平台成本低，但高价值场景风险暴露大 | 综合净收益最高，适配 `20–250` Spokes |
+| 适配组织规模与场景 | 强合规行业、核心状态资产密集平台 | 跨云团队、IaC 工程能力成熟组织 | 轻治理与早期平台验证场景 | 企业主流落地形态，适合自治代理规模化 |
 
 ## 10. 800 资源上限与分片拓扑
 
@@ -457,4 +457,6 @@ flowchart TD
 补充判定条款四：当业务方要求缩短审批时延时，优先优化风险打分解释质量、策略噪声抑制和审批并行化，而不是直接下调阻断阈值，因为阈值下调会把短期效率收益转化为长期事故债务，最终在年度审计与停机损失中成倍偿还。
 
 最终落地建议是把“状态资产识别、控制面阻断、策略解释、审批闭环、证据归档、季度调参”视作同一治理产品的六个不可拆环节，并通过统一指标看板持续验证其有效性；只有当这六个环节都可量化、可审计、可回滚时，AI Landing Zone 的自治变更能力才真正具备企业级可持续性。
-该结论同样意味着平台治理必须长期投入自动化验证与证据工程，而不能依赖一次性项目冲刺完成后自然维持。并持续审计改进。确保长期稳定。已落地。
+该结论同样意味着平台治理必须长期投入自动化验证与证据工程，而不能依赖一次性项目冲刺完成后自然维持；只有把审计改进、策略回写和运行度量纳入持续闭环，平台架构才能在多年演进中保持稳定与可审计。
+进一步地，组织应把 Tier-1 资产目录、变更工单、风险评分、审批记录、ARG 漂移事件和恢复演练报告统一到同一证据索引中，并以季度为周期输出“策略有效性与误阻断成本”联合报告，确保治理团队既能持续降低事故暴露，也能持续压缩不必要的发布摩擦。
+同时建议在年度预算阶段把“误删避免损失、审批摩擦成本、漂移治理人力、恢复演练投入”统一纳入平台治理财务模型，以便管理层能够持续评估双层栈策略在风险收敛与交付效率之间的真实收益曲线，并据此进行阈值调优与资源再分配。
