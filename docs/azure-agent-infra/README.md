@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（337 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（338 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **337 个架构选型、平台对比与安全治理决策专题**（共 `674` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **338 个架构选型、平台对比与安全治理决策专题**（共 `676` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 337 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 338 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（40 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（41 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -94,6 +94,7 @@
 | 317 | [企业不可信文件与附件隔离净化沙箱选型 FAQ：Architecture A（Blob 双区 `untrusted->clean` + Defender for Storage 上传判定 + Event Grid Gate + AKS Kata 零出网 CDR 单次作业）vs Architecture B（ACA Dynamic Sessions 会话级 Hyper-V Airlock）vs Architecture C（托管 Document Intelligence/Content Understanding 解析链路）vs Architecture D（Glasswall/MetaDefender 结构化 CDR + Wasmtime 规则验证 + Blob WORM 取证），覆盖归档炸弹扩张比、KEDA 扩容公式、利用率断点、三年 TCO 与 Day-0/Day-2 清单](untrusted-file-attachment-airlock-sandbox-defender-storage-cdr-aks-kata-vs-aca-dynamic-sessions-vs-managed-doc-parsing-selection-faq.md) | [🇨🇳 中文](untrusted-file-attachment-airlock-sandbox-defender-storage-cdr-aks-kata-vs-aca-dynamic-sessions-vs-managed-doc-parsing-selection-faq.md) · [🇬🇧 EN](untrusted-file-attachment-airlock-sandbox-defender-storage-cdr-aks-kata-vs-aca-dynamic-sessions-vs-managed-doc-parsing-selection-faq.en.md) |
 | 324 | [企业 Stateful Interactive PTY/LSP 会话沙箱选型 FAQ：Architecture A（AKS Kata `pty-mcp-daemon` + 持久 `tmux`/PTY + 热 Unix-socket `LSP` + 分层休眠 `0–15min` 热 RAM 与 `15min–24h` `CRIU`/快照恢复）vs Architecture B（ACA Dynamic Sessions `cooldownPeriodInSeconds=300–3600` + 命令日志重放）vs Architecture C（提交键 `SCIP` + 共享只读 `jdtls/clangd/tsserver` 语义池 + 薄执行沙箱）vs Architecture D（Dev Box/Codespaces 工作站主机 `<1s` 人工接管），覆盖 `85–92%` 思考时段常驻税、`12–38s` 冷重建 vs `<35ms` 热诊断、ANSI 回压与 `PR_SET_CHILD_SUBREAPER` 进程回收、三年 TCO 与 Day-0/Day-2 清单](stateful-interactive-pty-lsp-session-sandbox-aks-kata-tmux-daemon-vs-aca-dynamic-sessions-vs-remote-lsp-scip-pool-selection-faq.md) | [🇨🇳 中文](stateful-interactive-pty-lsp-session-sandbox-aks-kata-tmux-daemon-vs-aca-dynamic-sessions-vs-remote-lsp-scip-pool-selection-faq.md) · [🇬🇧 EN](stateful-interactive-pty-lsp-session-sandbox-aks-kata-tmux-daemon-vs-aca-dynamic-sessions-vs-remote-lsp-scip-pool-selection-faq.en.md) |
 | 331 | [企业多区域地理分布式沙箱布点与会话粘性选型 FAQ：Architecture A（`Front Door Premium + APIM Regional + Redis Active-Geo` 会话目录）vs Architecture B（`AKS Fleet + Kata` 主动主动 Stamp）vs Architecture C（Compute-to-Data 主权固定 + Anycast 加速）vs Architecture D（单枢纽池 + Geo 工件复制），覆盖数据重力盈亏点、`sqrt(K)` 暖池碎片税、RTO/RPO 演算与三年 TCO](multi-region-geo-distributed-sandbox-placement-session-pinning-front-door-aca-stamps-vs-aks-fleet-kata-vs-compute-to-data-selection-faq.md) | [🇨🇳 中文](multi-region-geo-distributed-sandbox-placement-session-pinning-front-door-aca-stamps-vs-aks-fleet-kata-vs-compute-to-data-selection-faq.md) · [🇬🇧 EN](multi-region-geo-distributed-sandbox-placement-session-pinning-front-door-aca-stamps-vs-aks-fleet-kata-vs-compute-to-data-selection-faq.en.md) |
+| 338 | [企业认证浏览器/CUA 会话金库与 Web Bot Auth 选型 FAQ：Architecture A（Secretless Egress Proxy 凭据注入与回包剥离）vs Architecture B（非 LLM 认证工人 + KMS 密封 `storageState`）vs Architecture C（`AVD/Windows 365 + Entra PRT + Intune` 合规设备绑定）vs Architecture D（`RFC 9421` Ed25519 签名身份 + WebRTC 人工 Airlock），覆盖会话泄漏半径、条件访问通过率、WAF 误拦截与三年 TCO](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.md) | [🇨🇳 中文](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.md) · [🇬🇧 EN](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（41 篇）
 
