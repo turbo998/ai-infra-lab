@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (358 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (359 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **358 structured architecture selection guides and trade-off FAQs** (`716` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **359 structured architecture selection guides and trade-off FAQs** (`718` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 358 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 359 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (43 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (44 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -98,6 +98,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 338 | [Enterprise authenticated browser/CUA session-vault and web-bot-auth selection FAQ: Architecture A (secretless egress proxy credential injection with response stripping) vs Architecture B (deterministic non-LLM auth worker plus KMS-sealed `storageState`) vs Architecture C (`AVD/Windows 365 + Entra PRT + Intune` compliant-device binding) vs Architecture D (`RFC 9421` Ed25519 signed bot identity plus WebRTC human airlock), covering session-exfiltration blast radius, conditional-access pass rate, WAF false blocks, and 3-year TCO](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.en.md) | [🇬🇧 EN](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.en.md) · [🇨🇳 中文](authenticated-browser-cua-session-vault-web-bot-auth-rfc9421-mitm-proxy-vs-sealed-storagestate-vs-avd-entra-prt-selection-faq.md) |
 | 345 | [Enterprise spiky-memory agent sandbox elastic right-sizing selection FAQ: Architecture A (`AKS` in-place pod vertical scaling with `resizePolicy: NotRequired` plus pre-tool memory estimation) vs Architecture B (`ACA/AKS` `S/M/L` tiered pool promotion with workspace rebind) vs Architecture C (thin stateful session plus `ACA Jobs/KubeRay` remote heavy-worker offload) vs Architecture D (static peak-sized `Guaranteed` pools), covering `R_pack`, `E[C_oom]`, `H_buf`, and 3-year TCO for `500/3000/15000` concurrent sessions](spiky-memory-agent-sandbox-elastic-right-sizing-aks-inplace-vertical-pod-scaling-vs-aca-tiered-session-pools-vs-remote-worker-offload-selection-faq.en.md) | [🇬🇧 EN](spiky-memory-agent-sandbox-elastic-right-sizing-aks-inplace-vertical-pod-scaling-vs-aca-tiered-session-pools-vs-remote-worker-offload-selection-faq.en.md) · [🇨🇳 中文](spiky-memory-agent-sandbox-elastic-right-sizing-aks-inplace-vertical-pod-scaling-vs-aca-tiered-session-pools-vs-remote-worker-offload-selection-faq.md) |
 | 352 | [Enterprise submillisecond Python Code-Act micro-sandbox selection FAQ: Architecture A (embedded `Monty/Starlark` deterministic interpreter with fuel/heap budgets) vs Architecture B (`Pyodide` Wasm snapshot restore) vs Architecture C (`AKS` co-located `Kata/gVisor + nsjail` pre-forked CPython pool) vs Architecture D (managed `ACA Dynamic Sessions` Hyper-V session isolation), covering `L_total`, `isolates/GB`, break-even escalation threshold `N*`, and 3-year TCO](submillisecond-python-codeact-micro-sandbox-monty-starlark-vs-pyodide-wasm-snapshot-vs-aks-kata-nsjail-vs-aca-dynamic-sessions-selection-faq.en.md) | [🇬🇧 EN](submillisecond-python-codeact-micro-sandbox-monty-starlark-vs-pyodide-wasm-snapshot-vs-aks-kata-nsjail-vs-aca-dynamic-sessions-selection-faq.en.md) · [🇨🇳 中文](submillisecond-python-codeact-micro-sandbox-monty-starlark-vs-pyodide-wasm-snapshot-vs-aks-kata-nsjail-vs-aca-dynamic-sessions-selection-faq.md) |
+| 359 | [Enterprise GPU code-interpreter and ML-agent sandbox selection FAQ: Architecture A (`ACA Serverless GPU` full-GPU Hyper-V sessions with per-second billing and scale-to-zero) vs Architecture B (`AKS` `MIG 1g.10gb/2g.20gb` + `Kata VFIO/DRA` warm-claim pool with HBM scrubbing) vs Architecture C (CPU REPL primary session plus `Arrow Flight` one-shot remote GPU burst offload) vs Architecture D (`AML` managed sessions/Serverless Spark GPU governance-first path), covering `η_gpu = T_kernel/(T_llm_think+T_user_read+T_kernel)` duty-cycle math, `Time-Slicing/MPS` hostile-tenant limits, cold-start hydration architecture, and 3-year TCO across `500/10,000/100,000` monthly sessions](gpu-code-interpreter-ml-agent-sandbox-aca-serverless-gpu-vs-aks-mig-kata-vfio-vs-cpu-repl-ray-gpu-offload-vs-aml-selection-faq.en.md) | [🇬🇧 EN](gpu-code-interpreter-ml-agent-sandbox-aca-serverless-gpu-vs-aks-mig-kata-vfio-vs-cpu-repl-ray-gpu-offload-vs-aml-selection-faq.en.md) · [🇨🇳 中文](gpu-code-interpreter-ml-agent-sandbox-aca-serverless-gpu-vs-aks-mig-kata-vfio-vs-cpu-repl-ray-gpu-offload-vs-aml-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (44 Guides)
 
