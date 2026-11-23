@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（353 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（354 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **353 个架构选型、平台对比与安全治理决策专题**（共 `706` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **354 个架构选型、平台对比与安全治理决策专题**（共 `708` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 353 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 354 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（43 篇）
 
@@ -249,7 +249,7 @@
 | 342 | [企业向量索引量化与重排序 FinOps 选型 FAQ：Architecture A（`Azure AI Search` Binary/Scalar + `truncationDimension` + `enableRescoring`）vs Architecture B（`PostgreSQL pgvectorscale` StreamingDiskANN + `SBQ`）vs Architecture C（`Cosmos DB DiskANN/quantizedFlat` + 分区键治理）vs Architecture D（`AKS` 自建 `PQ/BQ` + NVMe 热层），覆盖 Recall@10 回归门禁、`k_candidates = defaultOversampling * k` IOPS 预算与 `10M/100M/1B` 三年 TCO](vector-index-quantization-oversampling-rescore-finops-ai-search-binary-scalar-mrl-vs-pgvectorscale-sbq-vs-cosmos-diskann-selection-faq.md) | [🇨🇳 中文](vector-index-quantization-oversampling-rescore-finops-ai-search-binary-scalar-mrl-vs-pgvectorscale-sbq-vs-cosmos-diskann-selection-faq.md) · [🇬🇧 EN](vector-index-quantization-oversampling-rescore-finops-ai-search-binary-scalar-mrl-vs-pgvectorscale-sbq-vs-cosmos-diskann-selection-faq.en.md) |
 | 349 | [企业邮件与 Teams 线程图谱 RAG 选型 FAQ：Architecture A（`MGDC -> OneLake` 线程 DAG 去重 + 附件上下文绑定 + `AI Search` 逐消息 ACL）vs Architecture B（`M365 Copilot Retrieval API / Graph Connectors` 零拷贝原地 grounding）vs Architecture C（`Graph Delta/Webhook + Event Hubs + Document Intelligence v4` `<30s` 增量）vs Architecture D（双时间 `PROPOSES/REJECTS/RATIFIES` 决策状态账本），覆盖引用级联污染、附件孤儿风险与时序 supersession 判定](enterprise-email-teams-thread-graph-rag-mgdc-onelake-quoted-reply-dedup-attachment-binding-ai-search-vs-m365-retrieval-api-selection-faq.md) | [🇨🇳 中文](enterprise-email-teams-thread-graph-rag-mgdc-onelake-quoted-reply-dedup-attachment-binding-ai-search-vs-m365-retrieval-api-selection-faq.md) · [🇬🇧 EN](enterprise-email-teams-thread-graph-rag-mgdc-onelake-quoted-reply-dedup-attachment-binding-ai-search-vs-m365-retrieval-api-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（43 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（44 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -298,6 +298,7 @@
 | 333 | [企业语音 Agent PCI-DSS 与 PII 去范围化选型 FAQ：Architecture A（`ACS + AOAI Realtime` 在线语音 + OOB 签名支付链接 + Event Grid 快速恢复）vs Architecture B（SBC 边缘 `RFC 4733` + 声学 DTMF Clamping + 令牌化）vs Architecture C（`ACS StartRecognizing(Dtmf)` + `mute_llm_audio_bridge` + `input_audio_buffer.clear` 安全捕获）vs Architecture D（`SIP REFER` 回切既有 PCI Level-1 IVR），覆盖审计范围缩减、混合终端转化、泄露窗口与转接损失三年 TCO](voice-agent-pci-dss-pii-descoping-sbc-dtmf-clamping-vs-acs-mute-bridge-vs-oob-payment-link-vs-sip-refer-ivr-selection-faq.md) | [🇨🇳 中文](voice-agent-pci-dss-pii-descoping-sbc-dtmf-clamping-vs-acs-mute-bridge-vs-oob-payment-link-vs-sip-refer-ivr-selection-faq.md) · [🇬🇧 EN](voice-agent-pci-dss-pii-descoping-sbc-dtmf-clamping-vs-acs-mute-bridge-vs-oob-payment-link-vs-sip-refer-ivr-selection-faq.en.md) |
 | 340 | [企业实时语音 Agent 慢工具延迟掩蔽选型 FAQ：Architecture A（`AOAI Realtime` Fast-Talker/Slow-Thinker 双环 + 语音状态门控回注）vs Architecture B（ANI + 部分转写只读预测预取 + Redis 热缓存）vs Architecture C（`ACS PlaySource` 分级占位 + Redis 幂等围栏）vs Architecture D（`>15s` 异步状态卡/回拨转移），覆盖死寂挂断概率、预取命中收益、音频 token 成本与三年 TCO](realtime-voice-agent-slow-tool-latency-masking-dual-loop-talker-thinker-aoai-realtime-vs-speculative-prefetch-vs-acs-async-bridge-selection-faq.md) | [🇨🇳 中文](realtime-voice-agent-slow-tool-latency-masking-dual-loop-talker-thinker-aoai-realtime-vs-speculative-prefetch-vs-acs-async-bridge-selection-faq.md) · [🇬🇧 EN](realtime-voice-agent-slow-tool-latency-masking-dual-loop-talker-thinker-aoai-realtime-vs-speculative-prefetch-vs-acs-async-bridge-selection-faq.en.md) |
 | 347 | [企业多方会议环境语音 Agent 被呼叫方识别选型 FAQ：Architecture A（Teams/LiveKit 每参与者 Unmixed Track + `SSRC -> Entra OID` 绑定 + `<80ms` 被呼叫方门控）vs Architecture B（会议室阵列麦 + `Azure AI Speech ConversationTranscriber` 实时 Diarization）vs Architecture C（静默环境记录员 + Teams Adaptive Cards/AG-UI 视觉侧信道 + 显式 `@Agent` 触发）vs Architecture D（Mixed-Mono 直入 `AOAI Realtime` + Prompt 约束），覆盖 `WDER`、`1-(1-p_fp)^N_turns`、选择性音频门控 token 节省与 `50K/500K/3M` 会议分钟三年 TCO](multiparty-meeting-ambient-voice-agent-addressee-detection-teams-unmixed-media-vs-speech-diarization-vs-livekit-sfu-sidechannel-selection-faq.md) | [🇨🇳 中文](multiparty-meeting-ambient-voice-agent-addressee-detection-teams-unmixed-media-vs-speech-diarization-vs-livekit-sfu-sidechannel-selection-faq.md) · [🇬🇧 EN](multiparty-meeting-ambient-voice-agent-addressee-detection-teams-unmixed-media-vs-speech-diarization-vs-livekit-sfu-sidechannel-selection-faq.en.md) |
+| 354 | [企业出站语音 Agent AMD/TCPA 合规选型 FAQ：Architecture A（乐观真人接入 + 并行亚 `600ms` 判机 + beep 同步 `PlaySource` 切换）vs Architecture B（`ACS/SBC` 同步 `CPA/AMD`）vs Architecture C（短信/富信预热 + `WebRTC` 分流）vs Architecture D（企业 `CCaaS` 合规拨号桥接 Azure AI），覆盖 `C_1000`、`Loss`、`Window_allowed`、`STIR/SHAKEN A`、CPS 整形与 `100K/1M/10M` 三年 TCO](outbound-voice-agent-amd-tcpa-compliance-parallel-stream-classifier-vs-acs-sync-amd-vs-sms-webrtc-warmup-vs-ccaas-dialer-selection-faq.md) | [🇨🇳 中文](outbound-voice-agent-amd-tcpa-compliance-parallel-stream-classifier-vs-acs-sync-amd-vs-sms-webrtc-warmup-vs-ccaas-dialer-selection-faq.md) · [🇬🇧 EN](outbound-voice-agent-amd-tcpa-compliance-parallel-stream-classifier-vs-acs-sync-amd-vs-sms-webrtc-warmup-vs-ccaas-dialer-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
