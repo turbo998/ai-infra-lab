@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（338 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（339 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **338 个架构选型、平台对比与安全治理决策专题**（共 `676` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **339 个架构选型、平台对比与安全治理决策专题**（共 `678` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 338 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 339 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（41 篇）
 
@@ -395,7 +395,7 @@
 | 327 | [企业 B2B AI SaaS BYOK/BYO-Foundry-PTU 商业化选型 FAQ：Architecture A（ISV 托管多租户 PTU 池 + Marketplace SaaS 计量）vs Architecture B（`Entra` 跨租户联合身份 + 客户侧 Foundry PTU 私网调用）vs Architecture C（`Key Vault Managed HSM` 凭据经纪 + `APIM` 动态后端与契约探针）vs Architecture D（`Azure Marketplace Managed Application` 客户侧数据面），覆盖 SLA 归因边界、MACC 对齐、`50/300/1500` 租户三年 TCO 与毛利模型](b2b-saas-byok-byo-foundry-ptu-monetization-entra-cross-tenant-privatelink-vs-isv-hosted-pool-vs-managed-app-selection-faq.md) | [🇨🇳 中文](b2b-saas-byok-byo-foundry-ptu-monetization-entra-cross-tenant-privatelink-vs-isv-hosted-pool-vs-managed-app-selection-faq.md) · [🇬🇧 EN](b2b-saas-byok-byo-foundry-ptu-monetization-entra-cross-tenant-privatelink-vs-isv-hosted-pool-vs-managed-app-selection-faq.en.md) |
 | 334 | [企业 AI SaaS PLG 免费试用与反女巫治理选型 FAQ：Architecture A（`Entra External ID` 渐进信任 + `APIM` 分层能力钱包）vs Architecture B（卡指纹绑定反向试用）vs Architecture C（零 COGS 回放 + BYOK 深评估）vs Architecture D（`Event Hubs -> ADX` 实时滥用降级环），覆盖 CAC、攻击半径、ARR 盈亏点与 `10K/100K/500K` 注册三年毛利影响](ai-saas-plg-free-trial-unit-economics-anti-sybil-progressive-trust-entra-apim-vs-card-gated-trial-vs-byok-sandbox-selection-faq.md) | [🇨🇳 中文](ai-saas-plg-free-trial-unit-economics-anti-sybil-progressive-trust-entra-apim-vs-card-gated-trial-vs-byok-sandbox-selection-faq.md) · [🇬🇧 EN](ai-saas-plg-free-trial-unit-economics-anti-sybil-progressive-trust-entra-apim-vs-card-gated-trial-vs-byok-sandbox-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（41 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（42 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -442,3 +442,4 @@
 | 318 | [企业 AI Landing Zone 数据外泄防护选型 FAQ：Architecture A（`Azure Network Security Perimeter (NSP)` `Learning/Transition -> Enforced` 平台级边界 + 同租户 Private Endpoint 准入策略）vs Architecture B（`Entra Tenant Restrictions v2` + `Storage Service Endpoint Policies` 存储白名单）vs Architecture C（`Azure Firewall Premium` TLS Inspection + `DNS Private Resolver` RPZ 下沉）vs Architecture D（四层防线：NSP + 同租户 Private Link 策略 + Entra 租户限制 + 非 Azure 外联防火墙），覆盖 `Internet HTTPS`、`Rogue SAS`、`Cross-Tenant OAuth`、`Rogue Private Endpoint` 四类外泄路径、切换爆炸半径公式、生产 Bicep/Policy/KQL 与三年 TCO](ai-landing-zone-data-exfiltration-prevention-nsp-perimeter-vs-entra-tenant-restrictions-v2-vs-firewall-tls-inspection-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-data-exfiltration-prevention-nsp-perimeter-vs-entra-tenant-restrictions-v2-vs-firewall-tls-inspection-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-data-exfiltration-prevention-nsp-perimeter-vs-entra-tenant-restrictions-v2-vs-firewall-tls-inspection-selection-faq.en.md) |
 | 325 | [企业 AI Landing Zone IaC 爆炸半径防护选型 FAQ：Architecture A（`Microsoft.Resources/deploymentStacks` + `denySettings` `denyWriteAndDelete` / `denyDelete` + `actionOnUnmanage`）vs Architecture B（Terraform/OpenTofu + OPA/Sentinel `plan-json` 删除拦截 + `prevent_destroy` / `moved` / `removed`）vs Architecture C（Bicep + What-If + PSRule + ARG Change Analysis）vs Architecture D（Tier-1 状态基础栈 + Tier-2 快发布栈双层 Split-Stack），覆盖 `800` 资源上限分片、误删损失公式、风险评分器与三年 TCO](ai-landing-zone-iac-blast-radius-guardrails-azure-deployment-stacks-denysettings-vs-terraform-opa-sentinel-vs-whatif-arg-drift-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-iac-blast-radius-guardrails-azure-deployment-stacks-denysettings-vs-terraform-opa-sentinel-vs-whatif-arg-drift-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-iac-blast-radius-guardrails-azure-deployment-stacks-denysettings-vs-terraform-opa-sentinel-vs-whatif-arg-drift-selection-faq.en.md) |
 | 332 | [企业 AI Landing Zone 僵尸 GPU 与孤儿资源治理选型 FAQ：Architecture A（`Policy Lease Tags + ARG + Monitor + Durable Reaper` 三信号并发）vs Architecture B（`ADE TTL + Dev Box Auto-Stop` 出生即到期）vs Architecture C（`FOCUS + FinOps Hub + Quota Freeze` 非破坏性治理）vs Architecture D（`KEDA/ACA/Foundry min_instances=0` 结构性缩零），覆盖误删概率、配额回收速度、软隔离恢复成本与 20/80/250 spoke 三年 TCO](ai-landing-zone-zombie-gpu-orphaned-resource-governance-arg-durable-reaper-vs-ade-ttl-vs-finops-focus-vs-keda-autostop-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-zombie-gpu-orphaned-resource-governance-arg-durable-reaper-vs-ade-ttl-vs-finops-focus-vs-keda-autostop-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-zombie-gpu-orphaned-resource-governance-arg-durable-reaper-vs-ade-ttl-vs-finops-focus-vs-keda-autostop-selection-faq.en.md) |
+| 339 | [企业 AI Landing Zone ARM 限流与订阅规模上限治理选型 FAQ：Architecture A（控制平面与数据平面分界 + Azure ABAC 条件授权收敛）vs Architecture B（ALZ 多订阅 Stamp 分片与水位治理）vs Architecture C（`ARG + Event Grid` 零轮询资源投影）vs Architecture D（主体隔离 IaC + Retry-After 令牌桶整形），覆盖 `4,000` RBAC、`800` Deployment、ARM 令牌桶与三年 TCO](ai-landing-zone-arm-throttling-subscription-scale-limits-stamp-sharding-vs-dataplane-multiplexing-vs-arg-eventgrid-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-arm-throttling-subscription-scale-limits-stamp-sharding-vs-dataplane-multiplexing-vs-arg-eventgrid-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-arm-throttling-subscription-scale-limits-stamp-sharding-vs-dataplane-multiplexing-vs-arg-eventgrid-selection-faq.en.md) |
