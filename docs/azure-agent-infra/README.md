@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（359 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（360 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **359 个架构选型、平台对比与安全治理决策专题**（共 `718` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **360 个架构选型、平台对比与安全治理决策专题**（共 `720` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 359 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 360 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（44 篇）
 
@@ -413,7 +413,7 @@
 | 348 | [企业 Agent Prompt Cache 命中率工程 FinOps 选型 FAQ：Architecture A（Canonical Prefix Stable Context Compiler）vs Architecture B（APIM 一致性哈希亲和 + `prompt_cache_key`）vs Architecture C（`K=12-16` Epoch 块压缩）vs Architecture D（跨提供方显式 Cache-Control 断点适配），覆盖缓存命中率、TTFT、输入成本与三年 TCO](agent-prompt-cache-hit-rate-engineering-finops-canonical-prefix-compiler-vs-apim-consistent-hash-affinity-vs-epoch-compaction-selection-faq.md) | [🇨🇳 中文](agent-prompt-cache-hit-rate-engineering-finops-canonical-prefix-compiler-vs-apim-consistent-hash-affinity-vs-epoch-compaction-selection-faq.md) · [🇬🇧 EN](agent-prompt-cache-hit-rate-engineering-finops-canonical-prefix-compiler-vs-apim-consistent-hash-affinity-vs-epoch-compaction-selection-faq.en.md) |
 | 355 | [企业语音 Agent 声学评测选型 FAQ：Architecture A（合成来电噪声仿真）vs Architecture B（多模态音频评审）vs Architecture C（DSP Turn-Gap 门禁 + 重 ASR 产物校验）vs Architecture D（影子 MOS 审计飞轮），覆盖 `T_turn_gap`、`R_collision`、`SNR` 退化曲线、ABX/MOS 校准与 `500/5,000/50,000` 通话分钟三年 TCO](voice-agent-acoustic-eval-synthetic-caller-noise-sim-vs-multimodal-audio-judge-vs-dsp-turngap-gate-vs-shadow-mos-audit-selection-faq.md) | [🇨🇳 中文](voice-agent-acoustic-eval-synthetic-caller-noise-sim-vs-multimodal-audio-judge-vs-dsp-turngap-gate-vs-shadow-mos-audit-selection-faq.md) · [🇬🇧 EN](voice-agent-acoustic-eval-synthetic-caller-noise-sim-vs-multimodal-audio-judge-vs-dsp-turngap-gate-vs-shadow-mos-audit-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（44 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（45 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -463,3 +463,4 @@
 | 339 | [企业 AI Landing Zone ARM 限流与订阅规模上限治理选型 FAQ：Architecture A（控制平面与数据平面分界 + Azure ABAC 条件授权收敛）vs Architecture B（ALZ 多订阅 Stamp 分片与水位治理）vs Architecture C（`ARG + Event Grid` 零轮询资源投影）vs Architecture D（主体隔离 IaC + Retry-After 令牌桶整形），覆盖 `4,000` RBAC、`800` Deployment、ARM 令牌桶与三年 TCO](ai-landing-zone-arm-throttling-subscription-scale-limits-stamp-sharding-vs-dataplane-multiplexing-vs-arg-eventgrid-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-arm-throttling-subscription-scale-limits-stamp-sharding-vs-dataplane-multiplexing-vs-arg-eventgrid-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-arm-throttling-subscription-scale-limits-stamp-sharding-vs-dataplane-multiplexing-vs-arg-eventgrid-selection-faq.en.md) |
 | 346 | [企业 AI Landing Zone 全球转运与防火墙回针消除选型 FAQ：Architecture A（`vWAN` Secured Hub + Routing Intent）vs Architecture B（`AVNM` Hub-Spoke 信任域选择性旁路 + `NSP`）vs Architecture C（`ExpressRoute Direct` `100Gbps` + `FastPath` 直达 Spoke PE）vs Architecture D（`Front Door Premium -> Private Link -> APIM` 的 L7 零传递 Cell Stamp），覆盖 `C_hairpin`、SSE 多跳尾延迟、`400` UDR/FastPath 路由预算与 `50TB/250TB/1PB` 三年 TCO](ai-landing-zone-global-transit-firewall-hairpin-vwan-routing-intent-vs-avnm-nsp-bypass-vs-expressroute-fastpath-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-global-transit-firewall-hairpin-vwan-routing-intent-vs-avnm-nsp-bypass-vs-expressroute-fastpath-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-global-transit-firewall-hairpin-vwan-routing-intent-vs-avnm-nsp-bypass-vs-expressroute-fastpath-selection-faq.en.md) |
 | 353 | [企业多租户 Agent BYOK/CMK 加密销毁选型 FAQ：Architecture A（共享数据面 + 应用层 Envelope DEK）vs Architecture B（原生 PaaS 子资源 CMK）vs Architecture C（租户专属 Stamp）vs Architecture D（MHSM + SKR 机密计算），覆盖 `T_effective_revoke`、`R_unwrap`、跨租户 UAMI/FIC、向量 opaque-ID 与 25/250/2,000 租户三年 TCO](multi-tenant-agent-byok-cmk-crypto-shredding-envelope-dek-vs-native-encryption-scopes-vs-dedicated-stamp-vs-mhsm-skr-selection-faq.md) | [🇨🇳 中文](multi-tenant-agent-byok-cmk-crypto-shredding-envelope-dek-vs-native-encryption-scopes-vs-dedicated-stamp-vs-mhsm-skr-selection-faq.md) · [🇬🇧 EN](multi-tenant-agent-byok-cmk-crypto-shredding-envelope-dek-vs-native-encryption-scopes-vs-dedicated-stamp-vs-mhsm-skr-selection-faq.en.md) |
+| 360 | [企业 AI Landing Zone 后量子迁移选型 FAQ：Architecture A（边界/WAN `X25519MLKEM768` Hybrid 终止）vs Architecture B（Mesh mTLS Hybrid KEM + 24h `ECDSA` 短证书）vs Architecture C（`ML-KEM` Envelope + `ECDSA+ML-DSA` 双签 HSM 台账）vs Architecture D（CycloneDX `CBOM` 敏捷治理与分层迁移），覆盖 `X_retention + Y_migration > Z_crqc`、`16.2KB > 14.6KB initcwnd` 包预算与 `Commercial/DORA/CNSA` 三年迁移 TCO](ai-landing-zone-post-quantum-pqc-migration-hybrid-mlkem-envoy-gateway-vs-mesh-mtls-vs-mldsa-envelope-hsm-vs-cbom-agility-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-post-quantum-pqc-migration-hybrid-mlkem-envoy-gateway-vs-mesh-mtls-vs-mldsa-envelope-hsm-vs-cbom-agility-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-post-quantum-pqc-migration-hybrid-mlkem-envoy-gateway-vs-mesh-mtls-vs-mldsa-envelope-hsm-vs-cbom-agility-selection-faq.en.md) |
