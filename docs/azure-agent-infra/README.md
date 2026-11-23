@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（328 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（329 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **328 个架构选型、平台对比与安全治理决策专题**（共 `656` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **329 个架构选型、平台对比与安全治理决策专题**（共 `658` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 328 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 329 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（39 篇）
 
@@ -141,7 +141,7 @@
 | 316 | [企业多模态图像与视频 DiT 推理基础设施选型 FAQ：Architecture A（AKS `NC/ND H100 v5` + `xDiT` USP/PipeFusion + `FP8/TensorRT` + `ANF/NVMe` 热切换 LoRA/ControlNet）vs Architecture B（ACA Serverless GPU Headless ComfyUI DAG，Service Bus 工单 + Blob Claim-Check + C2PA）vs Architecture C（Foundry 托管 `GPT-Image-1`/`Sora` + APIM + Content Safety）vs Architecture D（Hero-to-Variant 混合流水线），覆盖 DiT FLOPs/显存预算、KEDA 队列伸缩公式、利用率断点、三年 TCO 与 Day-0/Day-2 清单](diffusion-image-video-dit-serving-aks-xdit-tensorrt-lora-vs-aca-serverless-gpu-comfyui-vs-aoai-sora-gpt-image-selection-faq.md) | [🇨🇳 中文](diffusion-image-video-dit-serving-aks-xdit-tensorrt-lora-vs-aca-serverless-gpu-comfyui-vs-aoai-sora-gpt-image-selection-faq.md) · [🇬🇧 EN](diffusion-image-video-dit-serving-aks-xdit-tensorrt-lora-vs-aca-serverless-gpu-comfyui-vs-aoai-sora-gpt-image-selection-faq.en.md) |
 | 323 | [企业领域知识注入与灾难性遗忘防护选型 FAQ：Architecture A（Azure ML `ND96isr_H100_v5` Replay-Buffered CPT + `20%` 通用/指令/工具回放 + WSD 日程 + Post-CPT SFT/DPO 重锚）vs Architecture B（MergeKit `TIES/DARE-TIES/SLERP` 低成本权重合并）vs Architecture C（vLLM/SGLang Multi-LoRA 运行时隔离组合）vs Architecture D（Foundry SFT + Azure AI Search Hybrid RAG 的参数-检索分拆），覆盖 tokenizer fertility/perplexity 准入、GPU 小时公式、保持率门禁与三年 TCO](domain-continual-pretraining-catastrophic-forgetting-aml-replay-cpt-vs-mergekit-ties-dare-vs-multilora-rag-selection-faq.md) | [🇨🇳 中文](domain-continual-pretraining-catastrophic-forgetting-aml-replay-cpt-vs-mergekit-ties-dare-vs-multilora-rag-selection-faq.md) · [🇬🇧 EN](domain-continual-pretraining-catastrophic-forgetting-aml-replay-cpt-vs-mergekit-ties-dare-vs-multilora-rag-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（39 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（40 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -186,6 +186,7 @@
 | 308 | [企业 Programmatic Tool Calling（Code Mode）消除 MCP `N+1` 工具调用风暴选型 FAQ：Pattern A（ACA Dynamic Sessions 中一次生成脚本、回合级只读 capability token 经 APIM 回调、沙箱内循环聚合后仅回传蒸馏结果）vs Pattern B（Batch MCP + DataLoader `10–25ms` 聚合窗口 + Graph/OData `$batch` 转译）vs Pattern C（Logic Apps/Dapr/组合 API 宏工具固化高频多系统流程）vs Pattern D（Native `parallel_tool_calls` 浅链快路），含 `820K/94s -> 19K/6.8s` 定量对照、生产级 Python Stub 生成器与 APIM 策略 XML、三年 TCO 与 Day-0/Day-2 清单](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) | [🇨🇳 中文](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.md) · [🇬🇧 EN](programmatic-tool-calling-code-mode-mcp-n-plus-one-aca-sessions-apim-vs-batch-dataloader-vs-macro-tool-selection-faq.en.md) |
 | 315 | [企业 Remote MCP OAuth 2.1 授权与受众绑定治理选型 FAQ：`RFC 9728` 受保护资源元数据 + `RFC 8707` Resource Indicators 经 APIM 映射到 Entra `api://` scope，结合 CIMD/受控 DCR 客户端注册治理、`RFC 9449 DPoP` 发送方约束与可选 mTLS 证书绑定、以及联邦授权服务器 Broker（Keycloak/Ory/Duende）跨组织扩展，覆盖 Confused-Deputy 爆炸半径概率、DPoP `jti` 反重放开销、目录对象容量风险、三年 TCO 与 Day-0/Day-2 清单](mcp-oauth21-authorization-rfc9728-rfc8707-cimd-dpop-apim-entra-id-vs-dcr-proxy-vs-mtls-federated-as-selection-faq.md) | [🇨🇳 中文](mcp-oauth21-authorization-rfc9728-rfc8707-cimd-dpop-apim-entra-id-vs-dcr-proxy-vs-mtls-federated-as-selection-faq.md) · [🇬🇧 EN](mcp-oauth21-authorization-rfc9728-rfc8707-cimd-dpop-apim-entra-id-vs-dcr-proxy-vs-mtls-federated-as-selection-faq.en.md) |
 | 322 | [企业 MCP 资源订阅反应式更新选型 FAQ：Architecture A（`Event Grid + Redis` 尾缘合并 + `Web PubSub/APIM SSE` 脏 URI 指针推送并前置 CAE/RBAC 复核）vs Architecture B（`Service Bus` 持久游标与休眠会话追平）vs Architecture C（`APIM ETag/If-None-Match` 条件轮询 `304` 吸收）vs Architecture D（物质性门控双阶段反应环），含轮询风暴公式、连接容量、令牌放大成本与三年 TCO](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.md) | [🇨🇳 中文](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.md) · [🇬🇧 EN](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.en.md) |
+| 329 | [企业终端 Shadow `stdio` MCP 蔓延治理与混合本地到远端 MCP 架构选型 FAQ：Architecture A（`Azure API Center + APIM + ACA/AKS` Remote-First Registry Allowlist）vs Architecture B（`ACR + Notation/Cosign` 签名 OCI 本地沙箱 + Intune AppControl）vs Architecture C（`Dev Box/Codespaces + VNet + Firewall` 云工作站边界）vs Architecture D（Endpoint `MCP Loopback Policy Broker` + `Azure Artifacts` 检疫源 + OTel 审计），覆盖凭据暴露面公式、供应链妥协概率、`<5ms` 本地与 `35–90ms` 远端延迟、三年 TCO 与落地清单](workstation-shadow-stdio-mcp-governance-remote-apim-registry-vs-signed-oci-sandbox-vs-devbox-vnet-broker-selection-faq.md) | [🇨🇳 中文](workstation-shadow-stdio-mcp-governance-remote-apim-registry-vs-signed-oci-sandbox-vs-devbox-vnet-broker-selection-faq.md) · [🇬🇧 EN](workstation-shadow-stdio-mcp-governance-remote-apim-registry-vs-signed-oci-sandbox-vs-devbox-vnet-broker-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（40 篇）
 
