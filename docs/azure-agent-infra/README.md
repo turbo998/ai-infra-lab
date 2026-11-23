@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（342 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（343 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **342 个架构选型、平台对比与安全治理决策专题**（共 `684` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **343 个架构选型、平台对比与安全治理决策专题**（共 `686` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 342 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 343 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（41 篇）
 
@@ -145,7 +145,7 @@
 | 330 | [企业 Agent RFT/RLVR 可验证奖励 Grader 架构选型 FAQ：Architecture A（`Azure AI Foundry/AOAI` 声明式多 Grader：`StringCheck + PythonGrader + ScoreModelGrader` 乘法零闸门）vs Architecture B（`ACA Dynamic Sessions/AKS Kata` 高并发执行验证暖池）vs Architecture C（`AOAI Batch` 拒绝采样 + 重型 Oracle 离线筛选）vs Architecture D（`AKS Ray + Redis/Cosmos CoW` 多轮 MCP 工具世界 Gym），覆盖 `GPU_Goodput` 公式、反投机奖励、Batch 产率成本与三年 TCO](agent-rft-rlvr-verifiable-grader-architecture-foundry-multi-grader-vs-aca-execution-sandbox-vs-batch-rejection-sampling-selection-faq.md) | [🇨🇳 中文](agent-rft-rlvr-verifiable-grader-architecture-foundry-multi-grader-vs-aca-execution-sandbox-vs-batch-rejection-sampling-selection-faq.md) · [🇬🇧 EN](agent-rft-rlvr-verifiable-grader-architecture-foundry-multi-grader-vs-aca-execution-sandbox-vs-batch-rejection-sampling-selection-faq.en.md) |
 | 337 | [企业 LLM 校准置信度与选择性弃权服务平面选型 FAQ：Architecture A（`top_logprobs` + 温度/等值回归 + Split Conformal）vs Architecture B（Cross-Encoder Verifier/Hidden-State Probe）vs Architecture C（Prefix-Shared `n=3..5` 语义熵）vs Architecture D（不对称奖励 `NOUL/<abstain>` RFT），覆盖 ECE/Brier/AURC、三段动作门控与三年 TCO](llm-calibrated-confidence-selective-abstention-serving-logprobs-conformal-prediction-vs-router-probe-vs-semantic-entropy-rft-selection-faq.md) | [🇨🇳 中文](llm-calibrated-confidence-selective-abstention-serving-logprobs-conformal-prediction-vs-router-probe-vs-semantic-entropy-rft-selection-faq.md) · [🇬🇧 EN](llm-calibrated-confidence-selective-abstention-serving-logprobs-conformal-prediction-vs-router-probe-vs-semantic-entropy-rft-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（41 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（42 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -192,6 +192,7 @@
 | 322 | [企业 MCP 资源订阅反应式更新选型 FAQ：Architecture A（`Event Grid + Redis` 尾缘合并 + `Web PubSub/APIM SSE` 脏 URI 指针推送并前置 CAE/RBAC 复核）vs Architecture B（`Service Bus` 持久游标与休眠会话追平）vs Architecture C（`APIM ETag/If-None-Match` 条件轮询 `304` 吸收）vs Architecture D（物质性门控双阶段反应环），含轮询风暴公式、连接容量、令牌放大成本与三年 TCO](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.md) | [🇨🇳 中文](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.md) · [🇬🇧 EN](mcp-resource-subscriptions-reactive-push-coalescing-event-grid-webpubsub-apim-sse-vs-service-bus-cursor-vs-etag-polling-selection-faq.en.md) |
 | 329 | [企业终端 Shadow `stdio` MCP 蔓延治理与混合本地到远端 MCP 架构选型 FAQ：Architecture A（`Azure API Center + APIM + ACA/AKS` Remote-First Registry Allowlist）vs Architecture B（`ACR + Notation/Cosign` 签名 OCI 本地沙箱 + Intune AppControl）vs Architecture C（`Dev Box/Codespaces + VNet + Firewall` 云工作站边界）vs Architecture D（Endpoint `MCP Loopback Policy Broker` + `Azure Artifacts` 检疫源 + OTel 审计），覆盖凭据暴露面公式、供应链妥协概率、`<5ms` 本地与 `35–90ms` 远端延迟、三年 TCO 与落地清单](workstation-shadow-stdio-mcp-governance-remote-apim-registry-vs-signed-oci-sandbox-vs-devbox-vnet-broker-selection-faq.md) | [🇨🇳 中文](workstation-shadow-stdio-mcp-governance-remote-apim-registry-vs-signed-oci-sandbox-vs-devbox-vnet-broker-selection-faq.md) · [🇬🇧 EN](workstation-shadow-stdio-mcp-governance-remote-apim-registry-vs-signed-oci-sandbox-vs-devbox-vnet-broker-selection-faq.en.md) |
 | 336 | [企业 A2A 多跳委派衰减与环路预算治理选型 FAQ：Architecture A（RFC 8693 `act` + Entra OBO 交集）vs Architecture B（Biscuit/Macaroons 离线衰减能力票据）vs Architecture C（`APIM + Redis` 根运行 DAG 环检测与预算原子仲裁）vs Architecture D（Supervisor 星型拓扑 `max_hop=1`），覆盖 `B^D` 放大、JWT 膨胀、多跳时延与三年 TCO](a2a-multi-hop-delegation-attenuation-cycle-budget-governance-rfc8693-act-obo-vs-biscuit-macaroon-vs-apim-redis-callgraph-selection-faq.md) | [🇨🇳 中文](a2a-multi-hop-delegation-attenuation-cycle-budget-governance-rfc8693-act-obo-vs-biscuit-macaroon-vs-apim-redis-callgraph-selection-faq.md) · [🇬🇧 EN](a2a-multi-hop-delegation-attenuation-cycle-budget-governance-rfc8693-act-obo-vs-biscuit-macaroon-vs-apim-redis-callgraph-selection-faq.en.md) |
+| 343 | [企业 MCP 主体透传与 SAP 身份桥接选型 FAQ：Architecture A（`APIM` Entra OBO -> `RFC 7522` SAML Bearer -> SAP OAuth2SAMLBearerAssertion）vs Architecture B（Application Proxy/Arc SHGW + Kerberos KCD）vs Architecture C（Logic Apps SAP Connector / BTP IAS Destination）vs Architecture D（Autonomous Agent 最小权限映射 + JWS Initiator Envelope），覆盖 SOX 审计链、`SY-UNAME` 保真与三年 TCO](enterprise-mcp-principal-propagation-sap-saml-bearer-rfc7522-apim-vs-kerberos-kcd-vs-btp-logicapps-selection-faq.md) | [🇨🇳 中文](enterprise-mcp-principal-propagation-sap-saml-bearer-rfc7522-apim-vs-kerberos-kcd-vs-btp-logicapps-selection-faq.md) · [🇬🇧 EN](enterprise-mcp-principal-propagation-sap-saml-bearer-rfc7522-apim-vs-kerberos-kcd-vs-btp-logicapps-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（42 篇）
 
