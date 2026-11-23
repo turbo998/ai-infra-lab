@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (354 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (355 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **354 structured architecture selection guides and trade-off FAQs** (`708` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **355 structured architecture selection guides and trade-off FAQs** (`710` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 354 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 355 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (43 Guides)
 
@@ -358,7 +358,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 261 | [Enterprise agent privacy-gate selection FAQ: `Purview` discovery baseline vs `APIM` ingress/egress DLP policy gates vs runtime `Sidecar Tokenization` field controls vs a three-layer integrated zero-trust loop (balancing leakage rate, false-redaction rate, block latency, and governance cost per 1,000 requests)](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) | [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) · [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) |
 | 269 | [Enterprise agent authorization selection FAQ: Entra PIM + JIT consent vs APIM JWT capability claims vs OPA policy-graph decision plane (balancing least privilege, temporary elevation, auditable evidence, and P95/TCO inflection points)](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) | [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) · [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (43 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (44 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -407,6 +407,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 334 | [Enterprise AI SaaS PLG free-trial unit-economics and anti-sybil selection FAQ: Architecture A (`Entra External ID` progressive trust with `APIM` capability wallets) vs Architecture B (card-fingerprint reverse trial) vs Architecture C (zero-COGS replay with BYOK deep evaluation) vs Architecture D (`Event Hubs -> ADX` realtime abuse downgrade ring), covering CAC, blast-radius caps, ARR break-even, and 3-year margin impact across `10K/100K/500K` signups](ai-saas-plg-free-trial-unit-economics-anti-sybil-progressive-trust-entra-apim-vs-card-gated-trial-vs-byok-sandbox-selection-faq.en.md) | [🇬🇧 EN](ai-saas-plg-free-trial-unit-economics-anti-sybil-progressive-trust-entra-apim-vs-card-gated-trial-vs-byok-sandbox-selection-faq.en.md) · [🇨🇳 中文](ai-saas-plg-free-trial-unit-economics-anti-sybil-progressive-trust-entra-apim-vs-card-gated-trial-vs-byok-sandbox-selection-faq.md) |
 | 341 | [Enterprise B2B AI SaaS multi-rail monetization and realtime entitlement selection FAQ: Architecture A (`PostgreSQL/Cosmos + App Configuration + Redis` decoupled entitlement plane with APIM `<3ms` policy gate) vs Architecture B (`Metronome/Orb` usage rating and commit sub-ledger) vs Architecture C (`Marketplace Fulfillment v2 + Metering API` hourly outbox with `<24h` replay) vs Architecture D (`Stripe Billing Meters + Entitlements` direct sync), covering MACC deal velocity, leakage risk, and 3-year TCO](b2b-ai-saas-entitlement-multi-rail-billing-marketplace-private-offer-macc-vs-metronome-orb-vs-apim-redis-entitlement-plane-selection-faq.en.md) | [🇬🇧 EN](b2b-ai-saas-entitlement-multi-rail-billing-marketplace-private-offer-macc-vs-metronome-orb-vs-apim-redis-entitlement-plane-selection-faq.en.md) · [🇨🇳 中文](b2b-ai-saas-entitlement-multi-rail-billing-marketplace-private-offer-macc-vs-metronome-orb-vs-apim-redis-entitlement-plane-selection-faq.md) |
 | 348 | [Enterprise agent prompt-cache hit-rate engineering FinOps selection FAQ: Architecture A (canonical prefix-stable context compiler) vs Architecture B (APIM consistent-hash affinity + `prompt_cache_key`) vs Architecture C (`K=12-16` epoch block compaction) vs Architecture D (cross-provider explicit cache-control breakpoints), covering hit ratio, TTFT, input cost, and 3-year TCO](agent-prompt-cache-hit-rate-engineering-finops-canonical-prefix-compiler-vs-apim-consistent-hash-affinity-vs-epoch-compaction-selection-faq.en.md) | [🇬🇧 EN](agent-prompt-cache-hit-rate-engineering-finops-canonical-prefix-compiler-vs-apim-consistent-hash-affinity-vs-epoch-compaction-selection-faq.en.md) · [🇨🇳 中文](agent-prompt-cache-hit-rate-engineering-finops-canonical-prefix-compiler-vs-apim-consistent-hash-affinity-vs-epoch-compaction-selection-faq.md) |
+| 355 | [Enterprise voice-agent acoustic evaluation selection FAQ: Architecture A (synthetic caller noise simulation) vs Architecture B (multimodal audio judge) vs Architecture C (DSP turn-gap gate plus re-ASR spoken-artifact lint) vs Architecture D (shadow MOS audit flywheel), covering `T_turn_gap`, `R_collision`, `SNR` degradation curves, ABX/MOS calibration, and 3-year TCO at `500/5,000/50,000` sampled call-minutes](voice-agent-acoustic-eval-synthetic-caller-noise-sim-vs-multimodal-audio-judge-vs-dsp-turngap-gate-vs-shadow-mos-audit-selection-faq.en.md) | [🇬🇧 EN](voice-agent-acoustic-eval-synthetic-caller-noise-sim-vs-multimodal-audio-judge-vs-dsp-turngap-gate-vs-shadow-mos-audit-selection-faq.en.md) · [🇨🇳 中文](voice-agent-acoustic-eval-synthetic-caller-noise-sim-vs-multimodal-audio-judge-vs-dsp-turngap-gate-vs-shadow-mos-audit-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (44 Guides)
 
