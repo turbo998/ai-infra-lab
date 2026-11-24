@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（394 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（395 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **394 个架构选型、平台对比与安全治理决策专题**（共 `788` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **395 个架构选型、平台对比与安全治理决策专题**（共 `790` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 394 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 395 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（49 篇）
 
@@ -443,7 +443,7 @@
 | 383 | [企业 LLMOps 评测污染防御与密封留出治理选型 FAQ：Architecture A（Sealed Rolling Holdout Vault + Canary GUID + MinHash/向量去污染网关）vs Architecture B（参数化/变形动态评测 + 程序化 Oracle）vs Architecture C（Min-K%++ 记忆取证 + 交换性探针）vs Architecture D（静态金集回流反模式），覆盖污染通胀偏差 `θ_obs = (1-α)θ_true + αθ_mem`、记忆差距 `Δ_mem` 与 `Startup/Enterprise/Regulated` 三档 TCO](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.md) | [🇨🇳 中文](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.md) · [🇬🇧 EN](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.en.md) |
 | 390 | [企业自动化 Prompt 优化与轨迹编译选型 FAQ：Architecture A（`DSPy MIPROv2` 贝叶斯联合搜索 + Batch Eval + Sealed Holdout 门禁）vs Architecture B（`GEPA/TextGrad` 反思式 Pareto 进化）vs Architecture C（`RFT/LoRA` 蒸馏摊销 few-shot 前缀税）vs Architecture D（手工 Vibe-Prompting 反模式），覆盖 `C_compile = M_trials × |D_dev| × c_rollout_bar`、`V*` 断点与 `sqrt(ln(M)/(2|D_dev|))` 过拟合边界及三档 TCO](automated-prompt-optimization-dspy-miprov2-vs-gepa-pareto-vs-rft-distill-selection-faq.md) | [🇨🇳 中文](automated-prompt-optimization-dspy-miprov2-vs-gepa-pareto-vs-rft-distill-selection-faq.md) · [🇬🇧 EN](automated-prompt-optimization-dspy-miprov2-vs-gepa-pareto-vs-rft-distill-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（49 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（50 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -498,3 +498,4 @@
 | 374 | [企业多主权云 AI Landing Zone 选型 FAQ：Architecture A（自治主权 Stamp + `ORAS/Notation/Cosign` 签名气闸推广）vs Architecture B（跨权威云 Entra B2B 协作 + 主权数据面锚定）vs Architecture C（合规去标识跨境能力借用中介）vs Architecture D（主权云 + 断连 `Azure Local/Arc` 边缘 Stamp），覆盖 `environment().suffixes` 端点参数化、`Score = w1*quality + w2*safety + w3*latency + w4*cost` 能力替代门禁、遥测防泄漏与 `2-cloud/3-cloud/4-cloud+Azure Local` 三年 TCO](multi-sovereign-cloud-ai-landing-zone-azure-china-21vianet-azure-gov-bleu-delos-split-horizon-control-plane-selection-faq.md) | [🇨🇳 中文](multi-sovereign-cloud-ai-landing-zone-azure-china-21vianet-azure-gov-bleu-delos-split-horizon-control-plane-selection-faq.md) · [🇬🇧 EN](multi-sovereign-cloud-ai-landing-zone-azure-china-21vianet-azure-gov-bleu-delos-split-horizon-control-plane-selection-faq.en.md) |
 | 381 | [企业 AI Landing Zone 监管压力退出选型 FAQ：Architecture A（Portable Core on Managed Azure）vs Architecture B（Cloud-Agnostic K8s-Everywhere）vs Architecture C（Warm-Standby Escrow）vs Architecture D（Paper Exit Anti-Pattern），覆盖 `EU DORA Article 28(8)`、`PRA SS2/21`、退出 RTO 模型 `T_exit = T_provision + N_chunks/R_embed + T_HNSW_build + T_eval_gate` 与 `10M/200M/2B` 三档 TCO](dora-stressed-exit-escrow-portable-core-vs-cloud-agnostic-k8s-vs-warm-standby-selection-faq.md) | [🇨🇳 中文](dora-stressed-exit-escrow-portable-core-vs-cloud-agnostic-k8s-vs-warm-standby-selection-faq.md) · [🇬🇧 EN](dora-stressed-exit-escrow-portable-core-vs-cloud-agnostic-k8s-vs-warm-standby-selection-faq.en.md) |
 | 388 | [企业 AI Agent 灰故障检测选型 FAQ：Architecture A（`x-canary-mode: dry-run` 语义探针网格）vs Architecture B（`median+MAD` 同伴离群逐戳排空）vs Architecture C（OTel 因果 DAG 告警压缩与 SRE Agent 去重）vs Architecture D（浅层 `200 OK` 健康探测反模式），覆盖 `MTTD≈Δt/2+kΔt`、稳健 Z 分数误逐出概率与告警压缩比及三档 TCO](aiops-gray-failure-semantic-canary-vs-peer-outlier-ejection-vs-dag-alert-corr-selection-faq.md) | [🇨🇳 中文](aiops-gray-failure-semantic-canary-vs-peer-outlier-ejection-vs-dag-alert-corr-selection-faq.md) · [🇬🇧 EN](aiops-gray-failure-semantic-canary-vs-peer-outlier-ejection-vs-dag-alert-corr-selection-faq.en.md) |
+| 395 | [企业主机现代化选型 FAQ：Architecture A（`ASG/Spec-First` 语义抽取 + 云原生重写 + 影子双跑等价工厂）vs Architecture B（主机仿真重宿主与机械转译）vs Architecture C（读侧绞杀共存）vs Architecture D（Prompt 逐行直译反模式），覆盖 IBM `R4HA` 降本曲线、双跑并行税 `T_dual_run`、`EBCDIC`/`UTF-8` 控制断裂与 `COMP-3` 漂移边界、`N_tx` `99.9999%` 等价门禁及 `1,500/8,000/35,000 MIPS` 三档三年 TCO](mainframe-cobol-jcl-modernization-spec-dual-run-vs-rehost-vs-strangler-selection-faq.md) | [🇨🇳 中文](mainframe-cobol-jcl-modernization-spec-dual-run-vs-rehost-vs-strangler-selection-faq.md) · [🇬🇧 EN](mainframe-cobol-jcl-modernization-spec-dual-run-vs-rehost-vs-strangler-selection-faq.en.md) |
