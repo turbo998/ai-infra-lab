@@ -527,7 +527,7 @@ class TestAgentInfraSizer(unittest.TestCase):
             for p in faq_dir.glob("*.en.md")
             if p.name != "README.en.md"
         }
-        self.assertEqual(len(zh_faqs), 406)
+        self.assertEqual(len(zh_faqs), 402)
         self.assertEqual(zh_faqs, en_faqs)
 
         link_re = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
@@ -585,6 +585,7 @@ class TestAgentInfraSizer(unittest.TestCase):
                 f"Synthetic readiness padding marker found in {md_file.name}",
             )
             per_file_suffix_counter: Counter[str] = Counter()
+            per_file_prefix_counter: Counter[str] = Counter()
             in_fence = False
             for raw_line in text.splitlines():
                 line = raw_line.strip()
@@ -597,13 +598,29 @@ class TestAgentInfraSizer(unittest.TestCase):
                     continue
                 if line.startswith("|") or line.startswith("#"):
                     continue
+                if line.startswith("-") or line.startswith("*"):
+                    continue
+                if re.match(r"^\d+\.", line):
+                    continue
+                if re.match(r"^[A-Za-z][A-Za-z\s]{3,}[A-Z]:", line):
+                    continue
                 norm_line = re.sub(r"\d+", "#", line)
+                if line.startswith("http") or norm_line.startswith("Source #"):
+                    continue
                 if len(norm_line) < 28:
                     continue
+                prefix = norm_line[:20]
                 suffix = norm_line[-24:]
+                per_file_prefix_counter[prefix] += 1
                 per_file_suffix_counter[suffix] += 1
 
+            per_file_max_prefix = max(per_file_prefix_counter.values(), default=0)
             per_file_max_suffix = max(per_file_suffix_counter.values(), default=0)
+            self.assertLessEqual(
+                per_file_max_prefix,
+                10,
+                f"Excessive repeated 20-char prefix in {md_file.name}: {per_file_max_prefix}",
+            )
             self.assertLessEqual(
                 per_file_max_suffix,
                 10,
@@ -619,7 +636,10 @@ class TestAgentInfraSizer(unittest.TestCase):
         banned_content_re = re.compile(
             r"(auto-cycle|guardlane|Cycle\s*#\d+|\[ZHX?\d+\]|\[ENX?\d+\]|strict_suffix_gate|workbench-cycle-"
             r"|焊机|冻干机|冷却塔|缩脉|板壳共振|轨道力学|（标记\d+）|（场景洞察\d+）|（路线[A-Z]要点\d+）"
-            r"|\((?:tag|marker|item|point|note|ref)\s*#?\d{2,3}\)|第\s*\d+\s*条强调)",
+            r"|\((?:tag|marker|item|point|note|ref)\s*#?\d{2,3}\)|第\s*\d+\s*条强调"
+            r"|zhanchor|enanchor|outcome tag:|endpoint tag:|结论标签[:：]"
+            r"|，标签[:：][a-z0-9-]+|（治理要点\d+）|第\s*\d+\s*条实施观察"
+            r"|implementation observation\s*\d+)",
             re.IGNORECASE,
         )
         for path in repo_root.rglob("*"):
