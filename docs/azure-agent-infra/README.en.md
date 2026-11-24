@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (393 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (394 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **393 structured architecture selection guides and trade-off FAQs** (`786` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **394 structured architecture selection guides and trade-off FAQs** (`788` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 393 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 394 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (48 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (49 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -103,6 +103,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 373 | [Enterprise NetOps network digital-twin verification sandbox selection FAQ: Architecture A (`Batfish+Z3` on `ACA` formal control/data-plane exhaustive verification) vs Architecture B (`Containerlab+SONiC/FRR/cEOS/SR Linux` on `AKS Kata` dynamic protocol simulation) vs Architecture C (`CML/EVE-NG` on `Dv5/Ev5` nested virtualization vendor-parity twin) vs Architecture D (two-stage gate: `<5s` Batfish differential baseline plus high-risk deep replay), covering equivalence-class proof vs packet sampling completeness, `Mem_total = N * Mem_router + Mem_fabric + Mem_margin`, `commit confirmed 5`/atomic `gNMI` handoff, and 3-year TCO across `500/5,000/30,000` monthly verifications](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.en.md) | [🇬🇧 EN](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.en.md) · [🇨🇳 中文](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.md) |
 | 380 | [Industrial physical-AI and robotics PLC SIL/HIL verification sandbox selection FAQ: Architecture A (`FMI 3.0/FM U` + SoftPLC on ACA/AKS Kata) vs Architecture B (`Gazebo Harmonic + ROS 2 Jazzy` on AKS) vs Architecture C (`Isaac Sim/Isaac Lab` GPU-vectorized simulation) vs Architecture D (`Azure IoT Operations` edge zero-actuation shadow HIL), covering `S_warp`, CBF violation capture, DDS isolation, and 3-year TCO across `5K/100K/2M`](industrial-physical-ai-robotics-plc-sil-hil-sandbox-fmu-softplc-aca-vs-gazebo-ros2-aks-vs-isaac-sim-gpu-vs-iot-ops-shadow-selection-faq.en.md) | [🇬🇧 EN](industrial-physical-ai-robotics-plc-sil-hil-sandbox-fmu-softplc-aca-vs-gazebo-ros2-aks-vs-isaac-sim-gpu-vs-iot-ops-shadow-selection-faq.en.md) · [🇨🇳 中文](industrial-physical-ai-robotics-plc-sil-hil-sandbox-fmu-softplc-aca-vs-gazebo-ros2-aks-vs-isaac-sim-gpu-vs-iot-ops-shadow-selection-faq.md) |
 | 387 | [Enterprise ephemeral sandbox forensic flight-recorder and replay selection FAQ: Architecture A (`rrweb` structural DOM stream + `asciinema v2` PTY stream + OTel hash-chain to `ADLS Gen2` WORM) vs Architecture B (action-boundary adaptive keyframes + `VP9/AV1` visual ring buffer + OCR redaction) vs Architecture C (risk-gated `WebRTC/Web PubSub` live supervisor shadow stream) vs Architecture D (always-on unredacted video or zero-telemetry self-destruct anti-pattern), covering `S_monthly`, `T_flush`, redaction CPU/latency tax, and `50K/1M/10M` monthly-session TCO](sandbox-flight-recorder-replay-rrweb-pty-worm-vs-keyframe-vp9-vs-webrtc-shadow-selection-faq.en.md) | [🇬🇧 EN](sandbox-flight-recorder-replay-rrweb-pty-worm-vs-keyframe-vp9-vs-webrtc-shadow-selection-faq.en.md) · [🇨🇳 中文](sandbox-flight-recorder-replay-rrweb-pty-worm-vs-keyframe-vp9-vs-webrtc-shadow-selection-faq.md) |
+| 394 | [Enterprise deterministic simulation testing sandbox selection FAQ for distributed-systems Coding Agents: Architecture A (Antithesis-class deterministic VMM with seed-controlled clock/net plus `rr` replay) vs Architecture B (`Turmoil/MadSim` in-process high-density seed sweep) vs Architecture C (`AKS + Chaos Studio/Chaos Mesh` kernel-real chaos validation) vs Architecture D (wall-clock `sleep()` and shared staging anti-pattern), covering `P_detect`, `S_warp`, flake poisoning rate, and three-year TCO at `200/3,000/25,000 PRs per month`](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.en.md) | [🇬🇧 EN](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.en.md) · [🇨🇳 中文](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (49 Guides)
 
