@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（378 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（379 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **378 个架构选型、平台对比与安全治理决策专题**（共 `756` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **379 个架构选型、平台对比与安全治理决策专题**（共 `758` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 378 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 379 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（46 篇）
 
@@ -101,7 +101,7 @@
 | 366 | [企业微服务集成 Coding Agent 沙箱选型 FAQ：Architecture A（`W3C Baggage` 共享基线分流 + delta Pod）vs Architecture B（`mirrord/Telepresence` 集群投影进 `Kata/ACA` 编码沙箱）vs Architecture C（`Microcks/WireMock` + `Azure API Center` 契约虚拟化 airlock）vs Architecture D（`vCluster` 全拓扑克隆升级层），覆盖内存密度公式、Service Bus `CorrelationRuleFilter` 异步隔离、零信任 guardrail 与 `50/400/2500` 并发三年 TCO](microservice-integration-coding-agent-sandbox-aks-envoy-baggage-routing-vs-mirrord-traffic-projection-vs-microcks-virtualization-selection-faq.md) | [🇨🇳 中文](microservice-integration-coding-agent-sandbox-aks-envoy-baggage-routing-vs-mirrord-traffic-projection-vs-microcks-virtualization-selection-faq.md) · [🇬🇧 EN](microservice-integration-coding-agent-sandbox-aks-envoy-baggage-routing-vs-mirrord-traffic-projection-vs-microcks-virtualization-selection-faq.en.md) |
 | 373 | [企业 NetOps 网络数字孪生验证沙箱选型 FAQ：Architecture A（`Batfish+Z3` on `ACA` 形式化控制/数据平面穷尽验证）vs Architecture B（`Containerlab+SONiC/FRR/cEOS/SR Linux` on `AKS Kata` 动态协议仿真）vs Architecture C（`CML/EVE-NG` on `Dv5/Ev5` nested-virt 厂商设备等价孪生）vs Architecture D（两阶段门禁：`<5s` Batfish 差分普筛 + 高风险升级深检），覆盖等价类证明 vs 采样完备性、`Mem_total = N * Mem_router + Mem_fabric + Mem_margin`、`commit confirmed 5`/`gNMI` 原子交接与 `500/5,000/30,000` 月验证三年 TCO](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.md) | [🇨🇳 中文](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.md) · [🇬🇧 EN](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（46 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（47 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -154,6 +154,7 @@
 | 358 | [企业 LLM 水印与反蒸馏防护选型 FAQ：Architecture A（AKS `vLLM/SGLang` 熵门控采样水印 `H(p_t)>=H_min` + 结构 token 旁路）vs Architecture B（APIM 零失真来源账本 + `C2PA` + `SimHash/Embedding` 双指纹）vs Architecture C（`logprobs/reasoning` 暴露面收敛 + `D_cov` 查询覆盖异常检测与诱捕分流）vs Architecture D（Foundry 结构化零失真 + AKS 放射性水印的混合分层），覆盖 `z = (G-γT)/sqrt(Tγ(1-γ))` 检测、`5x–18x` 蒸馏成本放大、改写翻译稳健性与 `50M/500M/5B` token 三年 ROI](llm-watermarking-anti-distillation-serving-aks-vllm-synthid-vs-apim-c2pa-simhash-vs-logprob-shield-extraction-defense-selection-faq.md) | [🇨🇳 中文](llm-watermarking-anti-distillation-serving-aks-vllm-synthid-vs-apim-c2pa-simhash-vs-logprob-shield-extraction-defense-selection-faq.md) · [🇬🇧 EN](llm-watermarking-anti-distillation-serving-aks-vllm-synthid-vs-apim-c2pa-simhash-vs-logprob-shield-extraction-defense-selection-faq.en.md) |
 | 365 | [企业并行文本生成低时延选型 FAQ：Architecture A（AKS 上 `dLLM/Fast-dLLM` 块并行去噪 `B=32–64`、`K=4–8` + `τ_conf` 自适应解罩）vs Architecture B（`MTP + EAGLE-3` 无损 speculative）vs Architecture C（AOAI Predicted Outputs / ngram lookup 小改动快路）vs Architecture D（`RFC6902` JSON Patch / SEARCH-REPLACE 输出压缩），覆盖 HBM3 访存墙、`r_diff` 计费反转阈值、并发坍塌曲线与 `5M/50M/500M` 三年 TCO](parallel-text-generation-block-diffusion-dllm-aks-vs-mtp-eagle3-speculative-vs-aoai-predicted-outputs-vs-diff-patch-selection-faq.md) | [🇨🇳 中文](parallel-text-generation-block-diffusion-dllm-aks-vs-mtp-eagle3-speculative-vs-aoai-predicted-outputs-vs-diff-patch-selection-faq.md) · [🇬🇧 EN](parallel-text-generation-block-diffusion-dllm-aks-vs-mtp-eagle3-speculative-vs-aoai-predicted-outputs-vs-diff-patch-selection-faq.en.md) |
 | 372 | [企业品牌语音流式 TTS 选型 FAQ：Architecture A（`Azure Speech CNV/Dragon HD` + `SSML IPA` 词典 + 同意门禁 + 水印）vs Architecture B（`AOAI` 可控情感 TTS）vs Architecture C（`AKS CosyVoice/Orpheus` + `AudioSeal` + HSM 声纹白名单）vs Architecture D（固定披露缓存 + 实时变量槽拼接），覆盖 `TTFAB_total = TTFT_llm + T_punct_buffer + TTFAB_tts`、`Streams_max = floor(η_batch / RTF_p99)` 与 `5M/50M/500M` 三年 TCO](enterprise-brand-voice-streaming-tts-serving-azure-speech-cnv-hd-vs-aoai-steerable-tts-vs-aks-cosyvoice-audioseal-selection-faq.md) | [🇨🇳 中文](enterprise-brand-voice-streaming-tts-serving-azure-speech-cnv-hd-vs-aoai-steerable-tts-vs-aks-cosyvoice-audioseal-selection-faq.md) · [🇬🇧 EN](enterprise-brand-voice-streaming-tts-serving-azure-speech-cnv-hd-vs-aoai-steerable-tts-vs-aks-cosyvoice-audioseal-selection-faq.en.md) |
+| 379 | [企业推理时激活引导与 SAE 条件钳制选型 FAQ：Architecture A（AKS `vLLM/SGLang` CAA/RepE + APIM 签名 `X-Steering-Profile`）vs Architecture B（SAE 探针 + CAST 条件钳制 + ADX 机理审计）vs Architecture C（LoReFT 子空间干预 / Multi-LoRA 租户槽）vs Architecture D（Foundry/AOAI 闭源 Guardrail + 分类器 + 周期 DPO），覆盖 `ΔVRAM_SAE`、`||Δh||/||h||` 与 `10M/100M/1B` 三年 TCO](inference-time-activation-steering-sae-clamping-aks-vllm-repe-vs-loreft-multilora-vs-foundry-guardrail-dpo-selection-faq.md) | [🇨🇳 中文](inference-time-activation-steering-sae-clamping-aks-vllm-repe-vs-loreft-multilora-vs-foundry-guardrail-dpo-selection-faq.md) · [🇬🇧 EN](inference-time-activation-steering-sae-clamping-aks-vllm-repe-vs-loreft-multilora-vs-foundry-guardrail-dpo-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（47 篇）
 
