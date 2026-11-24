@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（374 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（375 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **374 个架构选型、平台对比与安全治理决策专题**（共 `748` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **375 个架构选型、平台对比与安全治理决策专题**（共 `750` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 374 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 375 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（46 篇）
 
@@ -261,7 +261,7 @@
 | 363 | [企业 PowerPoint Pitchbook 幻灯片 RAG 选型 FAQ：Architecture A（`OOXML DrawingML` EMU 空间 AST + `/ppt/charts/chartN.xml` 数值缓存与嵌入 `.xlsx` 双通道抽取 + VLM 缩略图核验）vs Architecture B（`ColPali/ColQwen2` 视觉晚交互多向量索引）vs Architecture C（`Azure AI Content Understanding/Document Intelligence` 统一托管管线）vs Architecture D（`Microsoft 365 Copilot/M365 Retrieval API` 原位检索），覆盖 Z-order 与二维阅读顺序偏差修复、`show=\"0\"` 隐藏页治理、`1030` patch 向量压缩数学与 `50K/500K/5M` 三年 TCO](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.md) | [🇨🇳 中文](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.md) · [🇬🇧 EN](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.en.md) |
 | 370 | [企业实体解析与 Golden-ID 归一化选型 FAQ：Architecture A（`Fabric + Splink` 多阶段 Blocking + Fellegi-Sunter + `Foundry` 灰区裁决）vs Architecture B（`Profisee + Purview` 治理型 MDM survivorship）vs Architecture C（在线 NEL 熵门限交互消歧）vs Architecture D（类型化 `SAME_AS/UBO` 图谱可逆 Unmerge），覆盖 `RR = 1 - |C|/(N(N-1)/2)`、`log2(m/u)`、`entity_confidence >= 0.97` 写门禁与 `500K/10M/100M` 三年 TCO](enterprise-entity-resolution-golden-id-rag-fabric-splink-llm-adjudicator-vs-profisee-purview-mdm-vs-online-nel-crosswalk-selection-faq.md) | [🇨🇳 中文](enterprise-entity-resolution-golden-id-rag-fabric-splink-llm-adjudicator-vs-profisee-purview-mdm-vs-online-nel-crosswalk-selection-faq.md) · [🇬🇧 EN](enterprise-entity-resolution-golden-id-rag-fabric-splink-llm-adjudicator-vs-profisee-purview-mdm-vs-online-nel-crosswalk-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（46 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（47 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -313,6 +313,7 @@
 | 354 | [企业出站语音 Agent AMD/TCPA 合规选型 FAQ：Architecture A（乐观真人接入 + 并行亚 `600ms` 判机 + beep 同步 `PlaySource` 切换）vs Architecture B（`ACS/SBC` 同步 `CPA/AMD`）vs Architecture C（短信/富信预热 + `WebRTC` 分流）vs Architecture D（企业 `CCaaS` 合规拨号桥接 Azure AI），覆盖 `C_1000`、`Loss`、`Window_allowed`、`STIR/SHAKEN A`、CPS 整形与 `100K/1M/10M` 三年 TCO](outbound-voice-agent-amd-tcpa-compliance-parallel-stream-classifier-vs-acs-sync-amd-vs-sms-webrtc-warmup-vs-ccaas-dialer-selection-faq.md) | [🇨🇳 中文](outbound-voice-agent-amd-tcpa-compliance-parallel-stream-classifier-vs-acs-sync-amd-vs-sms-webrtc-warmup-vs-ccaas-dialer-selection-faq.md) · [🇬🇧 EN](outbound-voice-agent-amd-tcpa-compliance-parallel-stream-classifier-vs-acs-sync-amd-vs-sms-webrtc-warmup-vs-ccaas-dialer-selection-faq.en.md) |
 | 361 | [企业 In-Flight Durable Agent 工作流版本演进选型 FAQ：Architecture A（`Durable Functions TaskHub-v1/v2` 或 `Temporal BuildId` 版本钉住并行 draining）vs Architecture B（`workflow.patched()/deprecate_patch()` 与版本化子编排 replay-safe 门控）vs Architecture C（`MAF/LangGraph` `schema_version` 懒升级 upcaster 链 + 退役节点重定向）vs Architecture D（里程碑 `ContinueAsNew(target_version=\"v2\")` 切版压缩），覆盖确定性命令索引失配根因、`N_revisions = λ_deploy * T_p99_duration` 长尾成本、500 条历史回放影子门禁与 `5K/100K/2M` 三年 TCO](inflight-durable-agent-workflow-versioning-replay-safety-taskhub-buildid-pinning-vs-inline-patch-vs-checkpoint-upcaster-selection-faq.md) | [🇨🇳 中文](inflight-durable-agent-workflow-versioning-replay-safety-taskhub-buildid-pinning-vs-inline-patch-vs-checkpoint-upcaster-selection-faq.md) · [🇬🇧 EN](inflight-durable-agent-workflow-versioning-replay-safety-taskhub-buildid-pinning-vs-inline-patch-vs-checkpoint-upcaster-selection-faq.en.md) |
 | 368 | [企业多智能体共识与辩论编排选型 FAQ：Architecture A（盲评跨家族并行提案 + 工具校验仲裁）vs Architecture B（分歧触发置信级联升级）vs Architecture C（对抗式批判者交叉质询 + 证据锁）vs Architecture D（分层 MoA 综合），覆盖相关性误差 `ρ`、反迎合状态隔离、`p99 = F^-1(0.99^(1/K))` 慢尾预算与 `50K/500K/5M` 三年 TCO](multi-agent-consensus-debate-moa-orchestration-blind-cross-family-jury-apim-foundry-vs-confidence-cascade-vs-adversarial-critic-selection-faq.md) | [🇨🇳 中文](multi-agent-consensus-debate-moa-orchestration-blind-cross-family-jury-apim-foundry-vs-confidence-cascade-vs-adversarial-critic-selection-faq.md) · [🇬🇧 EN](multi-agent-consensus-debate-moa-orchestration-blind-cross-family-jury-apim-foundry-vs-confidence-cascade-vs-adversarial-critic-selection-faq.en.md) |
+| 375 | [企业事件溯源 CQRS 智能体账本选型 FAQ：Architecture A（Cosmos DB 分层分区 append-only + Change Feed 投影）vs Architecture B（PostgreSQL Marten/Kurrent 事务内联投影）vs Architecture C（Event Hubs 流式骨干 + Flink 物化）vs Architecture D（可变当前态覆盖 + 审计旁路），覆盖 `K* = sqrt(2 * C_snap / C_event_read)` 快照间隔、`expected_seq` 并发栅栏、`150–800ms` 投影水位一致性与 `50K/1M/25M` 三年 TCO](event-sourced-cqrs-agent-ledger-cosmos-changefeed-projections-vs-postgres-martendb-kurrent-vs-mutable-state-overwrite-selection-faq.md) | [🇨🇳 中文](event-sourced-cqrs-agent-ledger-cosmos-changefeed-projections-vs-postgres-martendb-kurrent-vs-mutable-state-overwrite-selection-faq.md) · [🇬🇧 EN](event-sourced-cqrs-agent-ledger-cosmos-changefeed-projections-vs-postgres-martendb-kurrent-vs-mutable-state-overwrite-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
