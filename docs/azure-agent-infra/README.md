@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（383 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（384 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **383 个架构选型、平台对比与安全治理决策专题**（共 `766` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **384 个架构选型、平台对比与安全治理决策专题**（共 `768` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 383 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 384 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（47 篇）
 
@@ -102,7 +102,7 @@
 | 373 | [企业 NetOps 网络数字孪生验证沙箱选型 FAQ：Architecture A（`Batfish+Z3` on `ACA` 形式化控制/数据平面穷尽验证）vs Architecture B（`Containerlab+SONiC/FRR/cEOS/SR Linux` on `AKS Kata` 动态协议仿真）vs Architecture C（`CML/EVE-NG` on `Dv5/Ev5` nested-virt 厂商设备等价孪生）vs Architecture D（两阶段门禁：`<5s` Batfish 差分普筛 + 高风险升级深检），覆盖等价类证明 vs 采样完备性、`Mem_total = N * Mem_router + Mem_fabric + Mem_margin`、`commit confirmed 5`/`gNMI` 原子交接与 `500/5,000/30,000` 月验证三年 TCO](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.md) | [🇨🇳 中文](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.md) · [🇬🇧 EN](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.en.md) |
 | 380 | [工业 Physical-AI 与机器人 PLC SIL/HIL 验证沙箱选型 FAQ：Architecture A（`FMI 3.0/FM U` + SoftPLC on ACA/AKS Kata）vs Architecture B（`Gazebo Harmonic + ROS 2 Jazzy` on AKS）vs Architecture C（`Isaac Sim/Isaac Lab` GPU 向量化仿真）vs Architecture D（`Azure IoT Operations` 边缘零执行 Shadow HIL），覆盖 `S_warp`、CBF 违规捕获、DDS 隔离与 `5K/100K/2M` 三年 TCO](industrial-physical-ai-robotics-plc-sil-hil-sandbox-fmu-softplc-aca-vs-gazebo-ros2-aks-vs-isaac-sim-gpu-vs-iot-ops-shadow-selection-faq.md) | [🇨🇳 中文](industrial-physical-ai-robotics-plc-sil-hil-sandbox-fmu-softplc-aca-vs-gazebo-ros2-aks-vs-isaac-sim-gpu-vs-iot-ops-shadow-selection-faq.md) · [🇬🇧 EN](industrial-physical-ai-robotics-plc-sil-hil-sandbox-fmu-softplc-aca-vs-gazebo-ros2-aks-vs-isaac-sim-gpu-vs-iot-ops-shadow-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（47 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（48 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -156,6 +156,7 @@
 | 365 | [企业并行文本生成低时延选型 FAQ：Architecture A（AKS 上 `dLLM/Fast-dLLM` 块并行去噪 `B=32–64`、`K=4–8` + `τ_conf` 自适应解罩）vs Architecture B（`MTP + EAGLE-3` 无损 speculative）vs Architecture C（AOAI Predicted Outputs / ngram lookup 小改动快路）vs Architecture D（`RFC6902` JSON Patch / SEARCH-REPLACE 输出压缩），覆盖 HBM3 访存墙、`r_diff` 计费反转阈值、并发坍塌曲线与 `5M/50M/500M` 三年 TCO](parallel-text-generation-block-diffusion-dllm-aks-vs-mtp-eagle3-speculative-vs-aoai-predicted-outputs-vs-diff-patch-selection-faq.md) | [🇨🇳 中文](parallel-text-generation-block-diffusion-dllm-aks-vs-mtp-eagle3-speculative-vs-aoai-predicted-outputs-vs-diff-patch-selection-faq.md) · [🇬🇧 EN](parallel-text-generation-block-diffusion-dllm-aks-vs-mtp-eagle3-speculative-vs-aoai-predicted-outputs-vs-diff-patch-selection-faq.en.md) |
 | 372 | [企业品牌语音流式 TTS 选型 FAQ：Architecture A（`Azure Speech CNV/Dragon HD` + `SSML IPA` 词典 + 同意门禁 + 水印）vs Architecture B（`AOAI` 可控情感 TTS）vs Architecture C（`AKS CosyVoice/Orpheus` + `AudioSeal` + HSM 声纹白名单）vs Architecture D（固定披露缓存 + 实时变量槽拼接），覆盖 `TTFAB_total = TTFT_llm + T_punct_buffer + TTFAB_tts`、`Streams_max = floor(η_batch / RTF_p99)` 与 `5M/50M/500M` 三年 TCO](enterprise-brand-voice-streaming-tts-serving-azure-speech-cnv-hd-vs-aoai-steerable-tts-vs-aks-cosyvoice-audioseal-selection-faq.md) | [🇨🇳 中文](enterprise-brand-voice-streaming-tts-serving-azure-speech-cnv-hd-vs-aoai-steerable-tts-vs-aks-cosyvoice-audioseal-selection-faq.md) · [🇬🇧 EN](enterprise-brand-voice-streaming-tts-serving-azure-speech-cnv-hd-vs-aoai-steerable-tts-vs-aks-cosyvoice-audioseal-selection-faq.en.md) |
 | 379 | [企业推理时激活引导与 SAE 条件钳制选型 FAQ：Architecture A（AKS `vLLM/SGLang` CAA/RepE + APIM 签名 `X-Steering-Profile`）vs Architecture B（SAE 探针 + CAST 条件钳制 + ADX 机理审计）vs Architecture C（LoReFT 子空间干预 / Multi-LoRA 租户槽）vs Architecture D（Foundry/AOAI 闭源 Guardrail + 分类器 + 周期 DPO），覆盖 `ΔVRAM_SAE`、`||Δh||/||h||` 与 `10M/100M/1B` 三年 TCO](inference-time-activation-steering-sae-clamping-aks-vllm-repe-vs-loreft-multilora-vs-foundry-guardrail-dpo-selection-faq.md) | [🇨🇳 中文](inference-time-activation-steering-sae-clamping-aks-vllm-repe-vs-loreft-multilora-vs-foundry-guardrail-dpo-selection-faq.md) · [🇬🇧 EN](inference-time-activation-steering-sae-clamping-aks-vllm-repe-vs-loreft-multilora-vs-foundry-guardrail-dpo-selection-faq.en.md) |
+| 384 | [企业模型服务容量治理选型 FAQ：Architecture A（PTU 基线通道）vs Architecture B（Serverless PAYGO 突发通道）vs Architecture C（AKS vLLM 领域池）vs Architecture D（Batch API 离线卸载通道），覆盖 `SLO = w1*Availability + w2*(1/Latency_P95) + w3*(1/Cost_per_1K)`、突发队列削峰与 `5M/50M/500M` 三档 TCO](enterprise-model-serving-capacity-governance-ptu-baseline-vs-paygo-burst-vs-aks-vllm-domain-pool-vs-batch-offload-selection-faq.md) | [🇨🇳 中文](enterprise-model-serving-capacity-governance-ptu-baseline-vs-paygo-burst-vs-aks-vllm-domain-pool-vs-batch-offload-selection-faq.md) · [🇬🇧 EN](enterprise-model-serving-capacity-governance-ptu-baseline-vs-paygo-burst-vs-aks-vllm-domain-pool-vs-batch-offload-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（47 篇）
 
