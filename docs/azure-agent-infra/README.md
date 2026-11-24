@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（390 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（391 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **390 个架构选型、平台对比与安全治理决策专题**（共 `780` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **391 个架构选型、平台对比与安全治理决策专题**（共 `782` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 390 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 391 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（48 篇）
 
@@ -214,7 +214,7 @@
 | 378 | [企业自治智能体 Step-Up 交易签名选型 FAQ：Architecture A（Entra Auth Context + RFC 9396 RAR + APIM `insufficient_claims`）vs Architecture B（OpenID CIBA 回通道审批 + `binding_message` + JWS 回执）vs Architecture C（`2-of-N` HSM/FIDO2 门限签名 + Verified ID + Confidential Ledger）vs Architecture D（聊天卡片/OTP 同通道反模式），覆盖 TOCTOU 防护、payload 摘要绑定、`T_approval` 挂起成本与 `50K/1M/10M` 三年 TCO](agent-stepup-transaction-signing-openid-ciba-rfc9396-rar-vs-entra-ca-auth-context-vs-hsm-quorum-selection-faq.md) | [🇨🇳 中文](agent-stepup-transaction-signing-openid-ciba-rfc9396-rar-vs-entra-ca-auth-context-vs-hsm-quorum-selection-faq.md) · [🇬🇧 EN](agent-stepup-transaction-signing-openid-ciba-rfc9396-rar-vs-entra-ca-auth-context-vs-hsm-quorum-selection-faq.en.md) |
 | 385 | [企业 MCP Reverse-RPC 治理选型 FAQ：Architecture A（禁用 `sampling` 的服务器自有模型身份与成本中心）vs Architecture B（Host Airlock 强制 `includeContext=none` + 深度/配额上限）vs Architecture C（结构化 `elicitation` 反钓鱼 + OAuth URL 重定向 + 虚拟 `roots`）vs Architecture D（透传 `allServers` 与自由表单反模式），覆盖递归 token 放大、Token Parasitism 爆炸半径、拒绝精度与时延开销、以及三档企业 TCO](mcp-sampling-elicitation-roots-governance-byo-model-vs-host-airlock-vs-oauth-url-selection-faq.md) | [🇨🇳 中文](mcp-sampling-elicitation-roots-governance-byo-model-vs-host-airlock-vs-oauth-url-selection-faq.md) · [🇬🇧 EN](mcp-sampling-elicitation-roots-governance-byo-model-vs-host-airlock-vs-oauth-url-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（48 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（49 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -268,6 +268,7 @@
 | 370 | [企业实体解析与 Golden-ID 归一化选型 FAQ：Architecture A（`Fabric + Splink` 多阶段 Blocking + Fellegi-Sunter + `Foundry` 灰区裁决）vs Architecture B（`Profisee + Purview` 治理型 MDM survivorship）vs Architecture C（在线 NEL 熵门限交互消歧）vs Architecture D（类型化 `SAME_AS/UBO` 图谱可逆 Unmerge），覆盖 `RR = 1 - |C|/(N(N-1)/2)`、`log2(m/u)`、`entity_confidence >= 0.97` 写门禁与 `500K/10M/100M` 三年 TCO](enterprise-entity-resolution-golden-id-rag-fabric-splink-llm-adjudicator-vs-profisee-purview-mdm-vs-online-nel-crosswalk-selection-faq.md) | [🇨🇳 中文](enterprise-entity-resolution-golden-id-rag-fabric-splink-llm-adjudicator-vs-profisee-purview-mdm-vs-online-nel-crosswalk-selection-faq.md) · [🇬🇧 EN](enterprise-entity-resolution-golden-id-rag-fabric-splink-llm-adjudicator-vs-profisee-purview-mdm-vs-online-nel-crosswalk-selection-faq.en.md) |
 | 377 | [企业 RAG 语料投毒防御与来源权威隔离选型 FAQ：Architecture A（入库检疫气闸 + `trust_tier` 优先级）vs Architecture B（单源隔离 inspect-and-vote + `max_chunks_per_doc_owner = 1`）vs Architecture C（签名权威语料双审发布）vs Architecture D（双索引物理隔离 + 不可信参数权限降级），覆盖 `P(poison >= τ in top-k)`、`Skewness > 4.0` 检疫规则、`chunk_id -> run_id -> cached_response_id` 清除链与 `500K/10M/100M` 三年 TCO](enterprise-rag-corpus-poisoning-defense-provenance-trust-quarantine-ai-search-vs-robustrag-isolated-passage-voting-vs-signed-authoritative-kb-selection-faq.md) | [🇨🇳 中文](enterprise-rag-corpus-poisoning-defense-provenance-trust-quarantine-ai-search-vs-robustrag-isolated-passage-voting-vs-signed-authoritative-kb-selection-faq.md) · [🇬🇧 EN](enterprise-rag-corpus-poisoning-defense-provenance-trust-quarantine-ai-search-vs-robustrag-isolated-passage-voting-vs-signed-authoritative-kb-selection-faq.en.md) |
 | 384 | [企业 RAG 向量模型零停机迁移选型 FAQ：Architecture A（Blue-Green `Index Alias` 原子切换 + Canonical Chunk Store `AOAI Batch` 回填 + `Event Hubs` CDC 追平）vs Architecture B（`vec_v1/vec_v2` 双向量并行渐进切流）vs Architecture C（Orthogonal Procrustes 桥接应急迁移）vs Architecture D（同列覆写/全量重 OCR 反模式），覆盖 `T_backfill`、`C_OCR_saved`、`λ_CDC < μ_drain` 收敛条件与 `10M/100M/1B` 三档 TCO](rag-embedding-migration-blue-green-alias-vs-dual-vector-vs-procrustes-bridge-selection-faq.md) | [🇨🇳 中文](rag-embedding-migration-blue-green-alias-vs-dual-vector-vs-procrustes-bridge-selection-faq.md) · [🇬🇧 EN](rag-embedding-migration-blue-green-alias-vs-dual-vector-vs-procrustes-bridge-selection-faq.en.md) |
+| 391 | [企业 RAG 可验证引用与坐标级证据选型 FAQ：Architecture A（`Document Intelligence v4` `Span-ID + polygon` 坐标侧车 + `Quote-Then-Synthesize` 确定性子串校验）vs Architecture B（`Groundedness/NLI` 原子 claim 蕴含门禁）vs Architecture C（流式句边界后归因 `citation.resolved`）vs Architecture D（自由 `[1]` 脚注反模式），覆盖 `F1_cite`、`ΔS_poly ≈ N_span × B_poly`、`L_total` 时延权衡与 `50K/1M/20M` 三档 TCO](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.md) | [🇨🇳 中文](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.md) · [🇬🇧 EN](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（49 篇）
 
