@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（398 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（399 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **398 个架构选型、平台对比与安全治理决策专题**（共 `796` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **399 个架构选型、平台对比与安全治理决策专题**（共 `798` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 398 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 399 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（49 篇）
 
@@ -161,7 +161,7 @@
 | 386 | [企业 LLM 退役切换与快照治理选型 FAQ：Architecture A（`NoAutoUpgrade` 快照钉扎 + APIM 异步 Shadow + `20%` 阶梯 PTU 交换 + PAYGO 缓冲）vs Architecture B（能力别名中台与参数语义翻译）vs Architecture C（AKS 开源权重多年度留存与 bit-exact 复现）vs Architecture D（自动升级与退役周大切换反模式），覆盖 `U_bridge` 头寸公式、McNemar 漂移检验与监管重验证/自托管盈亏平衡](llm-retirement-cutover-pinned-shadow-ptu-vs-alias-router-vs-aks-weight-escrow-selection-faq.md) | [🇨🇳 中文](llm-retirement-cutover-pinned-shadow-ptu-vs-alias-router-vs-aks-weight-escrow-selection-faq.md) · [🇬🇧 EN](llm-retirement-cutover-pinned-shadow-ptu-vs-alias-router-vs-aks-weight-escrow-selection-faq.en.md) |
 | 393 | [企业 Blackwell `GB200 NVL72` 机架级 `NVFP4 Wide-EP` 选型 FAQ：Architecture A（`AKS + LeaderWorkerSet + DRA ComputeDomain/IMEX` 的 `MNNVL` 拓扑）vs Architecture B（`ND H200 v5` `8-GPU FP8` 故障域隔离）vs Architecture C（Foundry PTU 托管容量）vs Architecture D（跨节点 IB 高阶 TP 或未校准统一 INT4 路由反模式），覆盖 `1.8 TB/s vs 400 Gb/s`、`A_clique = A_VM^m`、`4.5 bpw vs 8.0 bpw` 与 `500/15,000/150,000 tok/s` 三年 TCO](blackwell-gb200-nvl72-nvfp4-wide-ep-aks-vs-nd-h200-fp8-vs-foundry-ptu-selection-faq.md) | [🇨🇳 中文](blackwell-gb200-nvl72-nvfp4-wide-ep-aks-vs-nd-h200-fp8-vs-foundry-ptu-selection-faq.md) · [🇬🇧 EN](blackwell-gb200-nvl72-nvfp4-wide-ep-aks-vs-nd-h200-fp8-vs-foundry-ptu-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（49 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（50 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -216,6 +216,7 @@
 | 378 | [企业自治智能体 Step-Up 交易签名选型 FAQ：Architecture A（Entra Auth Context + RFC 9396 RAR + APIM `insufficient_claims`）vs Architecture B（OpenID CIBA 回通道审批 + `binding_message` + JWS 回执）vs Architecture C（`2-of-N` HSM/FIDO2 门限签名 + Verified ID + Confidential Ledger）vs Architecture D（聊天卡片/OTP 同通道反模式），覆盖 TOCTOU 防护、payload 摘要绑定、`T_approval` 挂起成本与 `50K/1M/10M` 三年 TCO](agent-stepup-transaction-signing-openid-ciba-rfc9396-rar-vs-entra-ca-auth-context-vs-hsm-quorum-selection-faq.md) | [🇨🇳 中文](agent-stepup-transaction-signing-openid-ciba-rfc9396-rar-vs-entra-ca-auth-context-vs-hsm-quorum-selection-faq.md) · [🇬🇧 EN](agent-stepup-transaction-signing-openid-ciba-rfc9396-rar-vs-entra-ca-auth-context-vs-hsm-quorum-selection-faq.en.md) |
 | 385 | [企业 MCP Reverse-RPC 治理选型 FAQ：Architecture A（禁用 `sampling` 的服务器自有模型身份与成本中心）vs Architecture B（Host Airlock 强制 `includeContext=none` + 深度/配额上限）vs Architecture C（结构化 `elicitation` 反钓鱼 + OAuth URL 重定向 + 虚拟 `roots`）vs Architecture D（透传 `allServers` 与自由表单反模式），覆盖递归 token 放大、Token Parasitism 爆炸半径、拒绝精度与时延开销、以及三档企业 TCO](mcp-sampling-elicitation-roots-governance-byo-model-vs-host-airlock-vs-oauth-url-selection-faq.md) | [🇨🇳 中文](mcp-sampling-elicitation-roots-governance-byo-model-vs-host-airlock-vs-oauth-url-selection-faq.md) · [🇬🇧 EN](mcp-sampling-elicitation-roots-governance-byo-model-vs-host-airlock-vs-oauth-url-selection-faq.en.md) |
 | 392 | [企业 MCP 工具调用读缓存与失效治理选型 FAQ：Architecture A（`APIM + Redis` 的 OBO-ACL 绑定 `JCS` 键与 `surrogate + write_epoch` RYW 失效）vs Architecture B（`Singleflight + XFetch + ETag` 并发塌缩）vs Architecture C（`CDC/Webhook -> Event Grid` 主动驱逐）vs Architecture D（`POST` 直通或主体盲 TTL 反模式），覆盖 `1 - H_eff`、`XFetch` 防击穿概率、`P(dup_write)` 与 `1M/25M/250M` 三档 TCO](mcp-tool-call-cache-acl-jcs-singleflight-vs-surrogate-ryw-vs-cdc-evict-selection-faq.md) | [🇨🇳 中文](mcp-tool-call-cache-acl-jcs-singleflight-vs-surrogate-ryw-vs-cdc-evict-selection-faq.md) · [🇬🇧 EN](mcp-tool-call-cache-acl-jcs-singleflight-vs-surrogate-ryw-vs-cdc-evict-selection-faq.en.md) |
+| 399 | [企业 OT/IT `IEC 62443` L3.5 IDMZ `OPC-UA/Modbus` MCP 网关与写入安全治理选型 FAQ：Route A（L3.5 Brokered Conduit + 物理包络/斜率门禁 + 双阶段签核）vs Route B（数据二极管只读影子）vs Route C（APIM + Relay 直连适配）vs Route D（直写 PLC 反模式），覆盖 `U_comm` 轮询裕度、`|Δu/Δt|` 物理约束、闭环时效门禁与三年 TCO](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.md) | [🇨🇳 中文](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.md) · [🇬🇧 EN](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（50 篇）
 
