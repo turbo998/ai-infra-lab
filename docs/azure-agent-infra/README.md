@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（388 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（389 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **388 个架构选型、平台对比与安全治理决策专题**（共 `776` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **389 个架构选型、平台对比与安全治理决策专题**（共 `778` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 388 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 389 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（48 篇）
 
@@ -269,7 +269,7 @@
 | 377 | [企业 RAG 语料投毒防御与来源权威隔离选型 FAQ：Architecture A（入库检疫气闸 + `trust_tier` 优先级）vs Architecture B（单源隔离 inspect-and-vote + `max_chunks_per_doc_owner = 1`）vs Architecture C（签名权威语料双审发布）vs Architecture D（双索引物理隔离 + 不可信参数权限降级），覆盖 `P(poison >= τ in top-k)`、`Skewness > 4.0` 检疫规则、`chunk_id -> run_id -> cached_response_id` 清除链与 `500K/10M/100M` 三年 TCO](enterprise-rag-corpus-poisoning-defense-provenance-trust-quarantine-ai-search-vs-robustrag-isolated-passage-voting-vs-signed-authoritative-kb-selection-faq.md) | [🇨🇳 中文](enterprise-rag-corpus-poisoning-defense-provenance-trust-quarantine-ai-search-vs-robustrag-isolated-passage-voting-vs-signed-authoritative-kb-selection-faq.md) · [🇬🇧 EN](enterprise-rag-corpus-poisoning-defense-provenance-trust-quarantine-ai-search-vs-robustrag-isolated-passage-voting-vs-signed-authoritative-kb-selection-faq.en.md) |
 | 384 | [企业 RAG 向量模型零停机迁移选型 FAQ：Architecture A（Blue-Green `Index Alias` 原子切换 + Canonical Chunk Store `AOAI Batch` 回填 + `Event Hubs` CDC 追平）vs Architecture B（`vec_v1/vec_v2` 双向量并行渐进切流）vs Architecture C（Orthogonal Procrustes 桥接应急迁移）vs Architecture D（同列覆写/全量重 OCR 反模式），覆盖 `T_backfill`、`C_OCR_saved`、`λ_CDC < μ_drain` 收敛条件与 `10M/100M/1B` 三档 TCO](rag-embedding-migration-blue-green-alias-vs-dual-vector-vs-procrustes-bridge-selection-faq.md) | [🇨🇳 中文](rag-embedding-migration-blue-green-alias-vs-dual-vector-vs-procrustes-bridge-selection-faq.md) · [🇬🇧 EN](rag-embedding-migration-blue-green-alias-vs-dual-vector-vs-procrustes-bridge-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（48 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（49 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -323,6 +323,7 @@
 | 368 | [企业多智能体共识与辩论编排选型 FAQ：Architecture A（盲评跨家族并行提案 + 工具校验仲裁）vs Architecture B（分歧触发置信级联升级）vs Architecture C（对抗式批判者交叉质询 + 证据锁）vs Architecture D（分层 MoA 综合），覆盖相关性误差 `ρ`、反迎合状态隔离、`p99 = F^-1(0.99^(1/K))` 慢尾预算与 `50K/500K/5M` 三年 TCO](multi-agent-consensus-debate-moa-orchestration-blind-cross-family-jury-apim-foundry-vs-confidence-cascade-vs-adversarial-critic-selection-faq.md) | [🇨🇳 中文](multi-agent-consensus-debate-moa-orchestration-blind-cross-family-jury-apim-foundry-vs-confidence-cascade-vs-adversarial-critic-selection-faq.md) · [🇬🇧 EN](multi-agent-consensus-debate-moa-orchestration-blind-cross-family-jury-apim-foundry-vs-confidence-cascade-vs-adversarial-critic-selection-faq.en.md) |
 | 375 | [企业事件溯源 CQRS 智能体账本选型 FAQ：Architecture A（Cosmos DB 分层分区 append-only + Change Feed 投影）vs Architecture B（PostgreSQL Marten/Kurrent 事务内联投影）vs Architecture C（Event Hubs 流式骨干 + Flink 物化）vs Architecture D（可变当前态覆盖 + 审计旁路），覆盖 `K* = sqrt(2 * C_snap / C_event_read)` 快照间隔、`expected_seq` 并发栅栏、`150–800ms` 投影水位一致性与 `50K/1M/25M` 三年 TCO](event-sourced-cqrs-agent-ledger-cosmos-changefeed-projections-vs-postgres-martendb-kurrent-vs-mutable-state-overwrite-selection-faq.md) | [🇨🇳 中文](event-sourced-cqrs-agent-ledger-cosmos-changefeed-projections-vs-postgres-martendb-kurrent-vs-mutable-state-overwrite-selection-faq.md) · [🇬🇧 EN](event-sourced-cqrs-agent-ledger-cosmos-changefeed-projections-vs-postgres-martendb-kurrent-vs-mutable-state-overwrite-selection-faq.en.md) |
 | 382 | [企业多跳智能体背压与重试亚稳态防御选型 FAQ：Architecture A（Little's Law `Gradient2/Vegas` RTT 自适应并发）vs Architecture B（端到端 `deadline` 传播 + `CoDel` 拥塞丢弃 + 重试预算）vs Architecture C（Service Bus Premium `credit lease-pull` + KEDA 队列滞后扩缩）vs Architecture D（无界 fan-out + 每跳盲重试反模式），覆盖 `A_retry = Π(1 + p_fail_i * r_i)` 放大模型、goodput 崩塌抑制与 `50/500/5000 RPS` 三档 TCO](agent-backpressure-metastable-retry-gradient2-vs-deadline-codel-vs-servicebus-pull-selection-faq.md) | [🇨🇳 中文](agent-backpressure-metastable-retry-gradient2-vs-deadline-codel-vs-servicebus-pull-selection-faq.md) · [🇬🇧 EN](agent-backpressure-metastable-retry-gradient2-vs-deadline-codel-vs-servicebus-pull-selection-faq.en.md) |
+| 389 | [企业实时语音 Agent 轮转结束判定与打断控制选型 FAQ：Architecture A（Native `semantic_vad` + 动态 `eagerness`）vs Architecture B（边缘降噪 + Prosodic/Lexical EoU + 两阶段 backchannel 安全 barge-in）vs Architecture C（`Push-to-Talk/Hold-to-Speak` 显式地板控制 + 可视侧信道）vs Architecture D（固定 `silence_duration_ms` 能量阈值反模式），覆盖误截断-轮转延迟 Pareto、`-18dB/180ms` 软压制与硬 `truncate` 体验权衡、PSTN vs WebRTC SNR 差异与三档 TCO](voice-turn-detection-barge-in-semantic-vad-vs-prosodic-eou-slm-vs-ptt-floor-selection-faq.md) | [🇨🇳 中文](voice-turn-detection-barge-in-semantic-vad-vs-prosodic-eou-slm-vs-ptt-floor-selection-faq.md) · [🇬🇧 EN](voice-turn-detection-barge-in-semantic-vad-vs-prosodic-eou-slm-vs-ptt-floor-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
