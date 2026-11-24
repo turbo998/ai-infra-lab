@@ -316,23 +316,3 @@ D 看似简单，但会把系统推向配额崩溃或越权泄露两种高风险
 在治理实践中，应围绕“跨云 API 波动”建立量化阈值、值班手册与故障回放剧本，确保问题处理具有可重复验证结果，落点：跨云 API 波动。
 在治理实践中，应围绕“多租户公平性”建立量化阈值、值班手册与故障回放剧本，确保问题处理具有可重复验证结果，落点：多租户公平性。
 在治理实践中，应围绕“异常工单映射”建立量化阈值、值班手册与故障回放剧本，确保问题处理具有可重复验证结果，落点：异常工单映射。
-建议将跨租户缓存穿透事件纳入月度专项复盘，并形成授权边界核验闭环，结论标签：tenant-boundary-closure。
-建议将工具参数 canonicalization 变更纳入变更评审模板，避免哈希漂移造成命中回退，结论标签：canonicalization-drift-guard。
-建议把 Singleflight 锁争用热力图接入值班大屏，缩短并发拥塞定位时间，结论标签：singleflight-contention-heatmap。
-建议在写后读验证路径增加故障注入演练，检验 epoch 绕过逻辑稳健性，结论标签：ryw-fault-injection.
-建议把 surrogate 分组规模作为容量门槛，超过阈值自动拆分，结论标签：surrogate-cardinality-cap。
-建议对 XFetch 触发分布做分租户审视，防止某类租户长期过度提前刷新，结论标签：xfetch-fairness-watch。
-建议将 ETag 再验证命中与下游计费账单关联，验证真实降本效果，结论标签：etag-cost-attribution。
-建议在 CDC 管道引入乱序重排窗口监测，确保驱逐逻辑对事件顺序不敏感，结论标签：cdc-order-robustness。
-建议把缓存旁路审计日志与 SIEM 规则联动，提升越权迹象检测速度，结论标签：bypass-audit-linkage。
-建议将会话级 write_epoch 泄漏异常做独立告警，防止跨会话污染，结论标签：epoch-leakage-sentinel。
-建议将热点实体的 TTL 策略改为按风险分层配置，避免一刀切，结论标签：risk-tier-ttl-policy。
-建议将重复写事件按业务后果分级，优先治理高损失链路，结论标签：duplicate-write-severity-map。
-建议把缓存节点扩容策略与上游配额窗口联动，避免单侧扩容无效，结论标签：capacity-quota-coupling。
-建议对代理工具注册清单执行每日漂移核对，减少策略漏挂风险，结论标签：registry-drift-reconcile。
-建议在跨区域容灾演练中覆盖缓存失效广播延迟指标，结论标签：geo-eviction-latency-drill。
-建议将异常重试退避参数固化到治理基线，避免临时改动引发雪崩，结论标签：retry-backoff-baseline。
-建议把缓存命中收益按业务域拆账，提升治理投入产出可解释性，结论标签：domain-finops-ledger。
-建议将强一致链路与高吞吐链路在策略上分轨治理，结论标签：consistency-throughput-separation。
-建议把每次策略回滚原因写入知识库并结构化标签化，结论标签：rollback-cause-taxonomy。
-建议持续以“权限安全、因果一致、成本透明”三准则审阅缓存控制面，结论标签：triad-governance-principle。

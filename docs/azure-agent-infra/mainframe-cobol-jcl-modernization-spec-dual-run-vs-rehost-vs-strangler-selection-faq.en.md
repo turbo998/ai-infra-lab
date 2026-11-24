@@ -1,340 +1,261 @@
-# Enterprise mainframe modernization selection FAQ: spec-first shadow dual-run equivalence vs emulator rehost vs read-offload strangler
-> **Audience**: Cloud and AI Solution Architects, core banking platform owners, mainframe retirement PMO, and audit governance boards.
-> **Core question**: how to decommission COBOL/JCL/VSAM/DB2/CICS estates on Azure while preserving bit-exact transactional semantics and regulator-grade evidence.
-> **Recommendation**: choose A for maintainable cloud-native end state, choose B for accelerated MIPS retirement windows, choose C for regulated coexistence, and block D by policy.
+# Enterprise mainframe modernization selection FAQ: spec-first dual-run equivalence vs rehost transpilation vs event-driven strangler
+> **Audience**: Cloud and AI Solution Architects, core banking platform owners, mainframe retirement PMO, and risk and audit leaders.
+> **Goal**: migrate COBOL/JCL/VSAM/DB2/CICS workloads to Azure with measurable semantic parity, controlled blast radius, and regulator-grade evidence.
 
-## 1. Executive summary
-Mainframe modernization fails when teams treat it as syntax translation instead of semantic migration.
-Architecture A applies ASG extraction, typed rule specs, and automated shadow dual-run equivalence gates.
-Architecture B uses emulator rehost and mechanical transpilation to cut R4HA exposure quickly.
-Architecture C offloads read-heavy workloads with CDC-backed digital planes while preserving write cores.
-Architecture D performs prompt-only line conversion without spec traceability or dual-run evidence.
-This guide quantifies R4HA savings curves, dual-run overlap tax `T_dual_run`, EBCDIC control-break divergence, and COMP-3 drift bounds.
+## 1. Executive Summary
+Mainframe modernization succeeds only when semantic equivalence is treated as a product, not a side effect.
+Architecture A builds AST/ASG rule assets first, then generates target-domain services and validates them through dual-run parity gates.
+Architecture B prioritizes contract-window MIPS reduction by rehosting and transpilation, often at the expense of long-term code health.
+Architecture C uses CDC and capability facades to offload reads and gradually reduce dependency on mainframe execution paths.
+Architecture D performs direct prompt-to-code conversion and big-bang cutover without semantic controls, creating material audit risk.
+The practical enterprise strategy is usually A as destination, with B or C as transitional lanes under explicit governance.
 
-## 2. Context and constraints
-Large financial platforms depend on COBOL programs, CICS online transactions, and JCL batch DAG execution.
-Any semantic mismatch can trigger silent balance drift, tax miscalculation, or statutory reporting errors.
-Delivery therefore requires replayability, explainability, accountability, and reversible rollout controls.
-SME scarcity and contract-renewal deadlines mean the target architecture must be both technically and operationally feasible.
+## 2. Problem Definition
+Core systems combine online CICS transactions and batch JCL pipelines, so migration must preserve both latency and accounting correctness.
+Online paths require predictable P99, idempotent retries, and immediate rollback capability.
+Batch paths require restart-safe checkpoint semantics, generation-file discipline, and deterministic ordering behavior.
+Regulators do not accept “it compiles” as proof; they require field-level equivalence and traceable evidence chains.
+Without a common semantic model, `REDEFINES`, `ODO`, `COMP-3`, and collation behavior become latent failure sources.
 
-## 3. Four candidate architectures
-Architecture A: ASG/spec-first extraction, idiomatic cloud-native rewrite, and automated shadow dual-run parity factory.
-Architecture B: emulator rehost plus mechanical transpilation to exit peak mainframe billing windows rapidly.
-Architecture C: read-offload strangler with CDC into Cosmos or Fabric while preserving write-path settlement on mainframe.
-Architecture D: prompt-only line-by-line conversion without ASG semantics or equivalence gates.
-
-## 4. Topology comparison across the four approaches
+## 3. Architecture Panorama
 ```mermaid
 flowchart LR
-  MF[COBOL CICS JCL DB2 VSAM estate] --> TAP[CDC MQ tap]
-  TAP --> A1[ASG and rule-spec extraction]
-  A1 --> A2[AKS ACA cloud-native services]
-  A2 --> A3[Shadow dual-run parity gate]
-  MF --> B1[Rehost emulator on Azure Ev5]
-  B1 --> B2[SQL MI and compatibility bridge]
-  TAP --> C1[Read-offload strangler plane]
-  C1 --> C2[Cosmos DB and Fabric read tier]
-  D1[Prompt-only translation] --> D2[Semantic drift risk]
+  Z[IBM z16 core estate] --> E[CDC and transaction tap]
+  E --> A[Spec-first dual-run factory]
+  E --> C[Strangler capability plane]
+  Z --> B[Rehost transpile lane]
+  A --> A1[AKS and ACA target services]
+  B --> B1[Emulator runtime on VM or AKS]
+  C --> C1[APIM MCP A2A facade]
+  A1 --> G[Parity and audit gate]
+  B1 --> G
+  C1 --> G
+  D[Prompt big-bang lane] --> X[Unbounded semantic drift]
 ```
 
-## 5. Architecture A deep dive
-A begins with structural parsing of COBOL, Copybook, and JCL into ASG rather than textual substitution.
-Rule specs must encode decimal scale, truncation mode, overflow behavior, and signed packed-decimal semantics.
-`REDEFINES`, union overlays, and variable-length structures must remain explicit in target contracts.
-JCL job control statements are transformed into deterministic DAG orchestration with typed dependencies.
-Generated target services in .NET 9 or Java 21 are validated through 30-90 day shadow dual-run parity.
-The key value of A is deterministic counterexample localization and automatic patch feedback into modernization agents.
+## 4. Architecture A: Spec-First Semantic Extraction and Dual-Run Factory
+A starts by parsing COBOL, copybooks, and JCL into AST/ASG and business-rule graphs before generating target code.
+Rule assets explicitly encode decimal scale, rounding semantics, overflow behavior, branch predicates, and batch step dependencies.
+Generated Java 21 or .NET 9 services are validated against replayed baseline events through Event Hubs and Azure SQL Business Critical.
+Every mismatch record includes rule identifier, input snapshot, baseline output, candidate output, classification, and owner mapping.
+A provides the strongest long-term maintainability and audit posture but requires disciplined upfront modeling investment.
+On large programs, A consistently shortens root-cause latency because evidence is attached to semantic assets instead of ad hoc logs.
 
-## 6. Architecture B deep dive
-B is selected when organizations must reduce IBM contract exposure before renewal deadlines.
-It preserves EBCDIC collation and legacy file access semantics with minimal initial refactoring.
-B can reduce MIPS-driven billing quickly, but often prolongs proprietary runtime lock-in.
-Developer velocity and modern CI/CD ergonomics remain constrained unless further transformation follows.
+## 5. Architecture B: Rehost and Automated Line-by-Line Transpilation
+B uses tooling such as IBM watsonx Code Assistant for Z, Micro Focus Enterprise Server, or Raincode to accelerate migration kickoff.
+The main objective is rapid R4HA reduction before contractual billing cliffs.
+B can preserve many runtime assumptions with lower immediate change risk, which is operationally attractive in time-constrained windows.
+However, organizations often inherit JOBOL-style artifacts and proprietary runtime coupling that limits future engineering velocity.
+B is valuable as a business stabilization lane, but it should not be mistaken for a strategic end state.
 
-## 7. Architecture C deep dive
-C offloads inquiry-heavy and AI-facing read workloads first, reducing high-frequency read MIPS pressure.
-CDC streams from DB2 and VSAM are materialized into cloud-native read planes with explicit freshness SLOs.
-Core settlement writes remain on mainframe until semantic confidence and domain ownership are mature.
-C is typically the lowest-risk path under strict regulatory freeze periods.
+## 6. Architecture C: Event-Driven Strangler with Capability Facade
+C streams DB2 or VSAM changes with IIDR or Debezium IFI 306, then exposes capabilities through APIM and MCP/A2A facades.
+Read-heavy channels migrate first, reducing mainframe pressure while retaining high-risk writes on baseline systems.
+This lane is effective under regulatory freeze periods because it limits blast radius and supports reversible rollout increments.
+C still requires explicit freshness SLOs, reconciliation controls, and escalation procedures when lag budgets are breached.
+C is typically strongest when paired with A for eventual semantic hardening of migrated write domains.
 
-## 8. Architecture D anti-pattern
-D ignores packed-decimal semantics and character ordering nuances during direct prompt translation.
-The pattern appears fast in pilots but fails under month-end and year-end reconciliation pressure.
-Without parity gates, D cannot produce regulator-grade evidence of semantic equivalence.
+## 7. Architecture D: Naive Prompt Translation and Big-Bang Cutover
+D skips ASG, skips dual-run gates, and assumes generated code is equivalent if basic tests pass.
+This pattern routinely misses packed-decimal edge behavior, collation-dependent sort boundaries, and restart idempotency semantics.
+It may look fast in pilots, but production reconciliation failures become expensive and politically difficult to unwind.
+D should remain explicitly prohibited in architecture standards and delivery checklists.
 
-## 9. Dual-run equivalence sequence
+## 8. 12-Dimension Horizontal Selection Matrix
+| Engineering Dimension | A Spec-First Dual-Run | B Rehost/Transpile | C Strangler Coexistence | D Prompt Big-Bang |
+|---|---|---|---|---|
+| Batch Window and CICS P99 | Stable after controlled tuning | Near-baseline initially | Read path improves quickly | Unpredictable after cutover |
+| `COMP-3` Fidelity | High with traceable rule mapping | Medium and tool-dependent | Medium with write path retained | Low and error-prone |
+| `EBCDIC` and `DFSORT` Parity | High with explicit key mapping | Medium with case-by-case fixes | Medium with facade normalization | Low with inversion risk |
+| `REDEFINES` and `ODO` Safety | High via ASG discriminators | Medium with structural flattening risk | Medium by domain slicing | Low due implicit assumptions |
+| JCL `GDG/COND` Restart Semantics | High through modeled DAG contracts | Medium and runtime-coupled | Medium while batch remains anchored | Low and brittle |
+| R4HA MIPS During Migration | Medium with dual-run tax | High short-term savings | Medium-high from read offload | Low due rework overhead |
+| Blast Radius and Rollback | High controllability by wave | Medium due runtime dependencies | High with reversible facade routing | Low in one-shot switches |
+| SOX and Banking Audit Proof | High-quality evidentiary chain | Medium granularity | Medium-high with extra controls | Weak and hard to defend |
+| COBOL SME Burden | Medium upfront | Medium-low early | Medium focused on selected domains | High during firefighting |
+| Target Code Maintainability | High and evolvable | Medium with JOBOL exposure | High for newly carved domains | Low with technical debt growth |
+| Time-to-First-Value | Medium | High | High | Superficially high but unstable |
+| Three-Year TCO Profile | Low-medium, improves over time | Medium-high | Medium, depends on dwell time | High due defect recovery |
+
+## 9. Dual-Run Shadow Replay and Cutover Sequence
 ```mermaid
 sequenceDiagram
-  participant MF as Mainframe run
-  participant TAP as CDC MQ tap
-  participant AZ as Azure replay runtime
-  participant REC as COMP-3 EBCDIC reconciler
-  participant AG as Modernization agent
-  MF->>TAP: online and batch outputs
-  TAP->>AZ: ordered replay stream
-  AZ-->>REC: candidate records
-  MF-->>REC: baseline records
-  REC-->>AG: minimal failing counterexample
-  AG->>AZ: patch with spec traceability
+  participant MF as Mainframe transaction or batch
+  participant CDC as IIDR or Debezium stream
+  participant AZ as Azure target services
+  participant PAR as Field parity engine
+  participant GOV as Cutover board
+  MF->>CDC: baseline outputs
+  CDC->>AZ: ordered replay
+  AZ-->>PAR: candidate records
+  MF-->>PAR: baseline records
+  PAR-->>GOV: diff report and severity
+  GOV->>AZ: promote wave or rollback
 ```
 
-## 10. Selection decision tree
-```mermaid
-flowchart TD
-  A{Need long-term maintainable cloud-native core?}
-  A -->|Yes| B[Select Architecture A]
-  A -->|No| C{Need fast contract-window MIPS exit?}
-  C -->|Yes| D[Select Architecture B]
-  C -->|No| E{Regulatory freeze or SME scarcity?}
-  E -->|Yes| F[Select Architecture C]
-  E -->|No| B
-  B --> G[Block Architecture D]
-  D --> G
-  F --> G
-```
-
-## 11. Quantitative models
-Dual-run overlap tax: `Cost_dual = (C_mainframe + C_azure_shadow) * T_dual_run`.
-R4HA savings curve: `Savings(t) = MIPS_offloaded(t) * Price_R4HA - ShadowTax(t)`.
-Zero-critical-diff gate sample size: `N_tx >= ln(1-0.999999) / ln(1-p)` for 99.9999% confidence.
-COMP-3 drift bound: `|Δ_decimal| <= 10^{-scale}`, where any breach is a release blocker.
-Control-break divergence risk is evaluated by comparing EBCDIC and UTF-8 order classes per domain key.
-
-## 12. Three-year TCO tiers (1,500 / 8,000 / 35,000 MIPS)
-| Tier | Architecture A | Architecture B | Architecture C | Recommendation |
-|---|---:|---:|---:|---|
-| 1,500 MIPS | `3Y TCO≈$18.6M` | `3Y TCO≈$21.9M` | `3Y TCO≈$16.8M` | Start with C, converge to A |
-| 8,000 MIPS | `3Y TCO≈$72.4M` | `3Y TCO≈$89.7M` | `3Y TCO≈$69.9M` | A+C layered path |
-| 35,000 MIPS | `3Y TCO≈$246.0M` | `3Y TCO≈$311.0M` | `3Y TCO≈$255.0M` | A as strategic target |
-
-## 13. EBCDIC and COMP-3 parity verifier snippet
+## 10. Python Implementation Snippet: COMP-3 BCD, CP037 Collation, and Parity
 ```python
-from decimal import Decimal, ROUND_DOWN
+from decimal import Decimal, ROUND_HALF_UP, ROUND_HALF_EVEN
 import codecs
 
-def ebcdic_key(value: str) -> bytes:
-    return codecs.encode(value, 'cp037')
+def unpack_comp3(hex_bytes: bytes, scale: int) -> Decimal:
+    nibbles = ''.join(f'{b:02x}' for b in hex_bytes)
+    sign = nibbles[-1]
+    body = nibbles[:-1]
+    signed = -1 if sign in {'d', 'b'} else 1
+    return signed * (Decimal(int(body)) / (Decimal(10) ** scale))
 
-def comp3_fixed(value: str, scale: int) -> Decimal:
-    quant = Decimal('1').scaleb(-scale)
-    return Decimal(value).quantize(quant, rounding=ROUND_DOWN)
+def rounded(value: Decimal, scale: int, mode: str) -> Decimal:
+    q = Decimal('1').scaleb(-scale)
+    r = ROUND_HALF_UP if mode == 'away_from_zero' else ROUND_HALF_EVEN
+    return value.quantize(q, rounding=r)
 
-def classify_mismatch(baseline: dict, candidate: dict) -> dict:
-    mismatches = {}
-    for field, base in baseline.items():
-        cand = candidate.get(field)
-        if field.endswith('_amount'):
-            if comp3_fixed(str(base), 2) != comp3_fixed(str(cand), 2):
-                mismatches[field] = {'type': 'decimal', 'baseline': str(base), 'candidate': str(cand)}
-        elif field.endswith('_sort_key'):
-            if ebcdic_key(str(base)) != ebcdic_key(str(cand)):
-                mismatches[field] = {'type': 'collation', 'baseline': base, 'candidate': cand}
-        elif base != cand:
-            mismatches[field] = {'type': 'generic', 'baseline': base, 'candidate': cand}
-    severity = 'critical' if any(v['type'] == 'decimal' for v in mismatches.values()) else 'non_critical'
-    return {'severity': severity, 'mismatches': mismatches}
+def cp037_key(text: str) -> bytes:
+    return codecs.encode(text, 'cp037')
+
+def parity_check(baseline: dict, candidate: dict) -> dict:
+    diffs = []
+    for field, left in baseline.items():
+        right = candidate.get(field)
+        if left != right:
+            diffs.append({'field': field, 'baseline': left, 'candidate': right})
+    severity = 'critical' if any('amount' in d['field'] for d in diffs) else 'warning'
+    return {'severity': severity, 'diffs': diffs}
 ```
 
-## 14. Nightly batch dual-run reconciliation pipeline
+## 11. YAML Pipeline Snippet: Event Hubs Replay and Immutable WORM Audit
 ```yaml
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: mainframe-dualrun-wave-gate
+  name: mainframe-dualrun-reconcile
 spec:
-  schedule: "30 2 * * *"
+  schedule: "15 1 * * *"
   jobTemplate:
     spec:
       template:
         spec:
           restartPolicy: Never
           containers:
-            - name: replay-reconcile
-              image: ghcr.io/example/mainframe-dualrun:latest
+            - name: parity-worker
+              image: ghcr.io/example/dualrun-worker:stable
               env:
-                - name: CDC_STREAM
-                  value: "eventhubs://core-ledger-cdc"
-                - name: BASELINE_DATA
-                  value: "abfss://baseline@acct.dfs.core.windows.net/nightly"
-                - name: CANDIDATE_DATA
-                  value: "abfss://candidate@acct.dfs.core.windows.net/nightly"
+                - name: EVENTHUB_STREAM
+                  value: "eh://mainframe-shadow-replay"
+                - name: WORM_AUDIT_PATH
+                  value: "abfss://audit-worm@acct.dfs.core.windows.net/parity"
                 - name: BLOCK_ON_CRITICAL_DIFF
                   value: "true"
 ```
 
-### Q1. Why is spec-first extraction mandatory before code generation
-Mainframe transformation fails less from missing technology and more from missing evidence contracts, ownership clarity, and staged risk control.
-Each decision should bind architecture intent to measurable parity criteria, rollback plans, and audit-ready traceability across teams.
-Weekly governance should include platform, risk, legal, and business owners so modernization decisions remain executable rather than aspirational.
+## 12. Quantitative Selection Decision Tree
+```mermaid
+flowchart TD
+  A{Need regulator-grade semantic evidence?}
+  A -->|Yes| B[Select A as strategic lane]
+  A -->|No| C{Contract renewal within 12 months?}
+  C -->|Yes| D[Use B for rapid MIPS reduction]
+  C -->|No| E{Freeze period or SME scarcity?}
+  E -->|Yes| F[Start with C strangler coexistence]
+  E -->|No| B
+  B --> G[Run dual-run wave gate before promotion]
+  D --> G
+  F --> G
+```
 
-### Q2. When should emulator rehost be preferred over direct cloud-native rewrite
-Mainframe transformation fails less from missing technology and more from missing evidence contracts, ownership clarity, and staged risk control.
-Each decision should bind architecture intent to measurable parity criteria, rollback plans, and audit-ready traceability across teams.
-Weekly governance should include platform, risk, legal, and business owners so modernization decisions remain executable rather than aspirational.
+### Q1: `PIC S9(13)V99 COMP-3` truncation versus `ROUNDED` drift across 50M postings
+The highest-risk pattern is mixed rounding behavior between intermediate and final ledger writes.
+A baseline that uses nearest-away-from-zero and a target that defaults to half-even can diverge by cents at scale.
+At 50 million postings, tiny per-row differences can become material reconciliation exceptions in treasury controls.
+The mitigation is explicit decimal policy tracing per field and replay evidence for each sensitive product category.
+Do not accept aggregate-only reconciliation; require field-level and path-level drift decomposition.
 
-### Q3. How does read-offload strangler reduce risk under regulatory freezes
-Mainframe transformation fails less from missing technology and more from missing evidence contracts, ownership clarity, and staged risk control.
-Each decision should bind architecture intent to measurable parity criteria, rollback plans, and audit-ready traceability across teams.
-Weekly governance should include platform, risk, legal, and business owners so modernization decisions remain executable rather than aspirational.
+### Q2: `EBCDIC` vs `UTF-8` control-break inversion and ICU collation remediation
+CP037 and CP1140 key order differs from UTF-8 lexical order, especially across mixed digit and alphabetic keys.
+That difference can invert `SORT/MERGE` breakpoints and alter downstream batch grouping totals.
+VSAM KSDS range scans can return a different boundary set if key normalization is inconsistent across services.
+Use generated collation keys, explicit sort contracts, and parity suites over month-end and quarter-end datasets.
+Any control-break divergence affecting financial grouping must be treated as a critical release blocker.
 
-### Q4. How should teams define dual-run completion and cutover thresholds
-Mainframe transformation fails less from missing technology and more from missing evidence contracts, ownership clarity, and staged risk control.
-Each decision should bind architecture intent to measurable parity criteria, rollback plans, and audit-ready traceability across teams.
-Weekly governance should include platform, risk, legal, and business owners so modernization decisions remain executable rather than aspirational.
+### Q3: Resolving `REDEFINES`, `66 RENAMES`, and `ODO` overlays into modern type systems
+Overlay semantics represent multiple valid interpretations of a shared byte region, not independent fields.
+ASG discriminator slicing is required to map those interpretations into Java sealed records or C# explicit structs.
+`ODO` contracts must propagate through parsing, validation, persistence, and serialization boundaries.
+If one layer ignores the discriminator contract, data may appear valid while business semantics are corrupted.
+Teams should maintain generated structure maps and review them as first-class architecture artifacts.
 
-### Q5. What governance model prevents migration drift and accountability gaps
-Mainframe transformation fails less from missing technology and more from missing evidence contracts, ownership clarity, and staged risk control.
-Each decision should bind architecture intent to measurable parity criteria, rollback plans, and audit-ready traceability across teams.
-Weekly governance should include platform, risk, legal, and business owners so modernization decisions remain executable rather than aspirational.
+### Q4: Mapping JCL `COND`, `GDG`, and `DISP` restart semantics to Azure workflows
+JCL branch semantics decide whether downstream steps execute, which generation files are read, and which outputs persist.
+Durable Functions, ADF, or Argo must encode those semantics explicitly with checkpoint keys and idempotent restart contracts.
+`DISP=(NEW,CATLG,DELETE)` behavior must be preserved in failure branches to avoid generation contamination.
+Migration acceptance requires proving that interrupted jobs resume without duplicate accounting side effects.
+Operational runbooks should include forced-interruption drills as part of every wave readiness gate.
 
-### Q6. Where are the practical Good fit and Not for boundaries
-Mainframe transformation fails less from missing technology and more from missing evidence contracts, ownership clarity, and staged risk control.
-Each decision should bind architecture intent to measurable parity criteria, rollback plans, and audit-ready traceability across teams.
-Weekly governance should include platform, risk, legal, and business owners so modernization decisions remain executable rather than aspirational.
+### Q5: Modeling z16 R4HA impact from dual-run capture and CDC overhead
+R4HA billing is driven by rolling four-hour averages, so added CDC and replay capture can temporarily raise effective load.
+The cost model must include `ΔMIPS_CDC`, zIIP offload ratio, cloud replay spend, and governance labor.
+Compute monthly net value as mainframe savings minus dual-run tax and remediation overhead.
+When net value is persistently positive and critical-diff rate is near zero, the program can expand migration waves.
+When net value degrades, narrow scope and prioritize high-yield, low-risk product domains.
 
-## 15. Wave-gate observability metrics
-| Metric | Target | Action when breached |
-|---|---|---|
-| Critical field mismatch ratio | `<=1e-7` | immediate release block and replay triage |
-| Nightly batch completion SLO | `>=99.95%` | rollback to baseline batch route |
-| CICS online transaction P95 | `<=120ms` | trigger traffic reversal runbook |
-| CDC freshness P95 | `<=3s` | halt read-offload expansion |
-| Reconciliation backlog age | `<=4h` | escalate to cross-functional incident board |
+### Q6: Statistical gate `N_tx >= -ln(alpha)/p_crit` before decommissioning
+Cutover confidence must be calculated, not guessed, and must cover month-end, quarter-end, year-end, and leap-year paths.
+Use stratified samples across product, channel, currency, region, and temporal windows to avoid biased acceptance.
+Critical differences require zero tolerance; non-critical differences require bounded risk and explicit remediation plans.
+Governance sign-off should be multi-party across architecture, business, risk, and audit functions.
+A decommission decision without quantitative evidence should be treated as a policy violation.
 
-## 16. Five-step rollout blueprint
-Step 1: build semantic asset maps for COBOL sections, copybook fields, JCL DAG edges, and VSAM lifecycle constraints.
-Step 2: stand up shadow dual-run factories with deterministic replay, field-level parity checks, and automated counterexample packaging.
-Step 3: execute read-offload strangler waves for inquiry workloads while validating freshness and consumer SLOs.
-Step 4: migrate write paths in risk-tiered waves only after each wave passes `N_tx` zero-critical-diff evidence gates.
-Step 5: complete retirement controls across licensing, operations, audit archives, and business continuity rehearsals.
+## 13. Enterprise Scenarios
+### Scenario A: Tier-1 Retail Bank, 18,000 MIPS core deposit and nightly interest batch
+Regulatory profile is OCC/SOX intensive, with strict scrutiny on rounding integrity and replay evidence.
+Recommended approach is A as destination, with C used to offload read workloads before staged write migration.
+### Scenario B: Global P&C Insurer, 4,200 MIPS policy and claims estate
+SME availability is fragmented across regions, so C provides practical coexistence while semantic assets are built for A.
+Claims settlement fields still require full dual-run parity before retirement of baseline execution paths.
 
-## 17. Implementation deep-dive appendix
-In implementation observation 1, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aaa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aaa.
-In implementation observation 2, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aba.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aba.
-In implementation observation 3, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aca.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aca.
-In implementation observation 4, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-ada.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-ada.
-In implementation observation 5, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aea.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aea.
-In implementation observation 6, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-afa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-afa.
-In implementation observation 7, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aga.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aga.
-In implementation observation 8, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aha.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aha.
-In implementation observation 9, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aia.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aia.
-In implementation observation 10, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aja.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aja.
-In implementation observation 11, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aka.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aka.
-In implementation observation 12, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-ala.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-ala.
-In implementation observation 13, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-ama.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-ama.
-In implementation observation 14, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-ana.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-ana.
-In implementation observation 15, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aoa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aoa.
-In implementation observation 16, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-apa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-apa.
-In implementation observation 17, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aqa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aqa.
-In implementation observation 18, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-ara.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-ara.
-In implementation observation 19, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-asa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-asa.
-In implementation observation 20, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-ata.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-ata.
-In implementation observation 21, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aua.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aua.
-In implementation observation 22, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-ava.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-ava.
-In implementation observation 23, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-awa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-awa.
-In implementation observation 24, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-axa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-axa.
-In implementation observation 25, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aya.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aya.
-In implementation observation 26, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-aza.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-aza.
-In implementation observation 27, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-baa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-baa.
-In implementation observation 28, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bba.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bba.
-In implementation observation 29, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bca.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bca.
-In implementation observation 30, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bda.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bda.
-In implementation observation 31, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bea.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bea.
-In implementation observation 32, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bfa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bfa.
-In implementation observation 33, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bga.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bga.
-In implementation observation 34, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bha.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bha.
-In implementation observation 35, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bia.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bia.
-In implementation observation 36, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bja.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bja.
-In implementation observation 37, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bka.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bka.
-In implementation observation 38, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bla.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bla.
-In implementation observation 39, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bma.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bma.
-In implementation observation 40, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bna.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bna.
-In implementation observation 41, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-boa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-boa.
-In implementation observation 42, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bpa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bpa.
-In implementation observation 43, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bqa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bqa.
-In implementation observation 44, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bra.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bra.
-In implementation observation 45, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bsa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bsa.
-In implementation observation 46, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bta.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bta.
-In implementation observation 47, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bua.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bua.
-In implementation observation 48, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bva.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bva.
-In implementation observation 49, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bwa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bwa.
-In implementation observation 50, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bxa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bxa.
-In implementation observation 51, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bya.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bya.
-In implementation observation 52, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-bza.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-bza.
-In implementation observation 53, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-caa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-caa.
-In implementation observation 54, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-cba.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-cba.
-In implementation observation 55, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-cca.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-cca.
-In implementation observation 56, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-cda.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-cda.
-In implementation observation 57, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-cea.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-cea.
-In implementation observation 58, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-cfa.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-cfa.
-In implementation observation 59, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-cga.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-cga.
-In implementation observation 60, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-cha.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-cha.
-In implementation observation 61, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-cia.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-cia.
-In implementation observation 62, parity slices are stratified by product family, currency lane, clearing route, and temporal segment to avoid blind-spot approvals enanchor-cja.
-The same observation requires every mismatch to map to a rule-spec identifier, commit lineage, replay trace, and remediation ownership contract for audit continuity enanchor-cja.
+## 14. Three-Year TCO Table
+| Scale | A Spec-First | B Rehost/Transpile | C Strangler |
+|---|---:|---:|---:|
+| 1,500 MIPS | `$17M-$22M` | `$19M-$25M` | `$16M-$21M` |
+| 8,000 MIPS | `$68M-$79M` | `$82M-$96M` | `$64M-$76M` |
+| 35,000 MIPS | `$230M-$265M` | `$286M-$332M` | `$238M-$276M` |
+A typically outperforms B after year two, while C performance depends on how quickly write domains converge to A.
 
-## 18. Good fit vs Not for
-Good fit: organizations with explicit retirement mandates, strict audit requirements, and commitment to durable cloud-native engineering.
-Not for: pilot-only initiatives without dual-run budget, weak SME access, or no governance capacity for evidence-driven cutovers.
-Final recommendation: use A as the strategic destination, combine B and C as transitional levers, and block D by default policy.
+## 15. Go-Live and Decommission Checklist
+1. Critical fields show zero-diff parity with traceable evidence packages.
+2. CICS online and batch SLOs pass under interruption and restart drills.
+3. `COMP-3`, `EBCDIC`, and `REDEFINES/ODO` suites pass across boundary calendars.
+4. Rollback runbooks, on-call routing, audit archives, and approvals are signed.
+5. Post-cutover operations, licensing, and compliance artifacts are fully transitioned.
+
+## 16. Risk Register and Mitigation Plan
+Risk 1: prolonged overlap windows can lock in dual-run cost inflation, so programs need explicit monthly stop-loss thresholds.
+Risk 2: incomplete semantic-rule coverage weakens mismatch explainability, so each wave needs rule-coverage reviews before promotion.
+Risk 3: ambiguous ownership causes unresolved defects, so every parity issue must have one accountable owner and escalation path.
+Risk 4: implicit collation inheritance causes hidden divergence, so encoding and sort policies should be codified as shared contracts.
+Risk 5: partial restart mapping can trigger duplicate financial side effects, so interruption drills must be mandatory release criteria.
+Risk 6: aggregate-only reconciliation can hide critical field drift, so programs must keep field-level parity gates for sensitive domains.
+Risk 7: migration waves that collide with peak business periods increase operational risk, so rollout calendars must align with business calendars.
+Risk 8: inconsistent evidence packaging increases audit friction, so organizations should standardize artifact schemas and retention controls.
+
+## 17. Operating Model and Team Topology
+Use a dual-track model where domain squads own rule extraction and target behavior, while platform squads own replay and gate infrastructure.
+Each domain squad should include business analysts, mainframe SMEs, cloud engineers, and test leadership to reduce translation loss.
+Platform squads should maintain shared services for replay ingestion, mismatch classification, evidence packaging, and approval workflows.
+Governance cadence should include daily triage, wave-level promotion councils, and monthly risk and value retrospectives.
+Status communication should use common fields: diff severity, business impact, remediation ETA, rollback readiness, and audit disposition.
+Treat rollback capability as a first-class product requirement rather than an optional contingency artifact.
+If an organization must dwell in B or C temporarily, define explicit exit criteria and date-bound transition commitments.
+Any temporary waiver from dual-run policy must include expiry, compensating controls, and tracked remediation obligations.
+
+## 18. Final Recommendation
+Treat A as strategic architecture, use B and C as economically justified transition mechanisms, and prohibit D.
+The non-negotiable baseline is semantic-first design, evidence-first promotion, and reversible wave governance.
+Programs that optimize for provable correctness outperform programs that optimize for migration speed alone.
+Institutionalize wave outcomes in a reusable rule-asset catalog so future migrations start with validated semantic contracts.
+Run at least two seasonal replay drills after decommissioning to verify resilience under quarter-end and year-end edge behavior.
+Track semantic-asset health as a platform KPI, including coverage ratio, stale-rule debt, and unresolved parity variance.
+Maintain an architecture review checkpoint for every material rounding, collation, or restart-policy change in downstream services.
+Preserve cross-team ownership maps so reconciliation incidents route directly to accountable domain and platform leads.
+Keep immutable audit bundles discoverable for regulators, internal audit, and incident postmortems without ad hoc reconstruction.
+Treat modernization as a durable capability program, not a one-off migration project, to protect long-term engineering economics.

@@ -304,24 +304,3 @@ D 反模式会同时侵蚀性能和正确性，应被系统性排除。
 在持续治理中，应围绕“模型升级灰度门禁”建立固定度量与责任人机制，确保发现、处置、复盘三环节具备可追踪证据，落点：模型升级灰度门禁。
 在持续治理中，应围绕“回滚路径压测复核”建立固定度量与责任人机制，确保发现、处置、复盘三环节具备可追踪证据，落点：回滚路径压测复核。
 在持续治理中，应围绕“网络抖动容忍评估”建立固定度量与责任人机制，确保发现、处置、复盘三环节具备可追踪证据，落点：网络抖动容忍评估。
-建议将 `A_clique` 估算结果与财务预算系统联动，防止高可用目标与资本投入脱节，标签：ha-capital-alignment。
-建议在压测报告中同时公布 ITL P95 与工具调用成功率，避免单看吞吐误判质量，标签：latency-quality-coupling。
-建议将量化策略变更纳入双人评审与回滚预案，降低误配置风险，标签：quant-change-governance。
-建议把机架维护日历与应用发布节奏统一治理，减少叠加风险，标签：maintenance-release-sync。
-建议建立跨层追踪链路，把拓扑事件映射到业务告警，标签：topology-business-linkage。
-建议对高风险租户启用更严格精度守门阈值，避免统一阈值带来盲区，标签：risk-tier-accuracy-gate。
-建议将 PTU 与自管集群进行月度对账，动态修正路由比例，标签：managed-selfhost-rebalance。
-建议将专家分布漂移纳入异常判定，不仅依赖硬件告警，标签：expert-drift-sentinel。
-建议对跨区域容灾切换执行季度全链路演练，标签：geo-failover-drill。
-建议将网络链路抖动与 token 级延迟共建面板，标签：network-itl-correlation。
-建议对 clique 扩缩容动作设置冷却窗口，避免频繁震荡，标签：clique-scaling-cooldown。
-建议将精度回归失败样本自动归档到治理库，标签：accuracy-regression-archive。
-建议把成本异常检测加入日级巡检，标签：cost-anomaly-watch.
-建议将故障隔离成功率纳入平台 SLO，标签：fault-isolation-slo。
-建议持续以“吞吐、正确性、可运维”三目标审阅路线，标签：triple-objective-governance。
-建议把液冷维护窗口与业务促销窗口解耦，避免风险峰值叠加，标签：liquid-cooling-window-decouple。
-建议对跨节点专家重平衡动作设置审计流水，确保每次迁移可追溯，标签：expert-rebalance-audit.
-建议在季度预算会上同步展示 clique 利用率与闲置率，避免资本误判，标签：clique-utilization-balance。
-建议将跨模型共享基础镜像版本纳入一致性治理，减少升级碎片化风险，标签：runtime-image-coherence。
-建议把 APIM 路由权重变更纳入灰度审批，防止突发负载倾斜，标签：route-weight-governance。
-建议在演练中覆盖“单分区失效 + 跨区回切”复合故障，标签：compound-failure-drill。
