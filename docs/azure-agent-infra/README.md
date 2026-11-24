@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（370 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（371 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **370 个架构选型、平台对比与安全治理决策专题**（共 `740` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **371 个架构选型、平台对比与安全治理决策专题**（共 `742` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 370 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 371 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（45 篇）
 
@@ -153,7 +153,7 @@
 | 358 | [企业 LLM 水印与反蒸馏防护选型 FAQ：Architecture A（AKS `vLLM/SGLang` 熵门控采样水印 `H(p_t)>=H_min` + 结构 token 旁路）vs Architecture B（APIM 零失真来源账本 + `C2PA` + `SimHash/Embedding` 双指纹）vs Architecture C（`logprobs/reasoning` 暴露面收敛 + `D_cov` 查询覆盖异常检测与诱捕分流）vs Architecture D（Foundry 结构化零失真 + AKS 放射性水印的混合分层），覆盖 `z = (G-γT)/sqrt(Tγ(1-γ))` 检测、`5x–18x` 蒸馏成本放大、改写翻译稳健性与 `50M/500M/5B` token 三年 ROI](llm-watermarking-anti-distillation-serving-aks-vllm-synthid-vs-apim-c2pa-simhash-vs-logprob-shield-extraction-defense-selection-faq.md) | [🇨🇳 中文](llm-watermarking-anti-distillation-serving-aks-vllm-synthid-vs-apim-c2pa-simhash-vs-logprob-shield-extraction-defense-selection-faq.md) · [🇬🇧 EN](llm-watermarking-anti-distillation-serving-aks-vllm-synthid-vs-apim-c2pa-simhash-vs-logprob-shield-extraction-defense-selection-faq.en.md) |
 | 365 | [企业并行文本生成低时延选型 FAQ：Architecture A（AKS 上 `dLLM/Fast-dLLM` 块并行去噪 `B=32–64`、`K=4–8` + `τ_conf` 自适应解罩）vs Architecture B（`MTP + EAGLE-3` 无损 speculative）vs Architecture C（AOAI Predicted Outputs / ngram lookup 小改动快路）vs Architecture D（`RFC6902` JSON Patch / SEARCH-REPLACE 输出压缩），覆盖 HBM3 访存墙、`r_diff` 计费反转阈值、并发坍塌曲线与 `5M/50M/500M` 三年 TCO](parallel-text-generation-block-diffusion-dllm-aks-vs-mtp-eagle3-speculative-vs-aoai-predicted-outputs-vs-diff-patch-selection-faq.md) | [🇨🇳 中文](parallel-text-generation-block-diffusion-dllm-aks-vs-mtp-eagle3-speculative-vs-aoai-predicted-outputs-vs-diff-patch-selection-faq.md) · [🇬🇧 EN](parallel-text-generation-block-diffusion-dllm-aks-vs-mtp-eagle3-speculative-vs-aoai-predicted-outputs-vs-diff-patch-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（45 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（46 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -204,6 +204,7 @@
 | 350 | [企业 Streaming SSE AI Gateway 中途拦截选型 FAQ：Architecture A（`Envoy/Istio ext_proc` `W=64/O=16` 重叠 Ring Buffer + 侧车检测）vs Architecture B（`APIM` 后分句微批 + `Azure AI Content Safety/Purview`）vs Architecture C（`APIM` 双通道：乐观文本流 + tool_call 全缓冲）vs Architecture D（`APIM buffer-response=true` 全回合提交门），覆盖 Chunk-Boundary Split Bypass、TTFT 与零泄漏合规平衡](streaming-sse-ai-gateway-midstream-guardrail-dlp-interception-envoy-ext-proc-ringbuffer-vs-apim-dual-lane-vs-clause-microbatch-selection-faq.md) | [🇨🇳 中文](streaming-sse-ai-gateway-midstream-guardrail-dlp-interception-envoy-ext-proc-ringbuffer-vs-apim-dual-lane-vs-clause-microbatch-selection-faq.md) · [🇬🇧 EN](streaming-sse-ai-gateway-midstream-guardrail-dlp-interception-envoy-ext-proc-ringbuffer-vs-apim-dual-lane-vs-clause-microbatch-selection-faq.en.md) |
 | 357 | [企业 XPIA 间接提示注入防护选型 FAQ：Architecture A（APIM Prompt Shields + Spotlighting 数据标记）vs Architecture B（CaMeL 双模型特权规划/隔离读取）vs Architecture C（IFC 污点传播 + OPA/APIM Sink 门禁）vs Architecture D（Split-Agent 断开 Lethal Trifecta），覆盖 `P_breach = 1-(1-ASR)^K` 复合残余风险、Markdown URL 外带与 CSP 封堵、字段投毒双源校验、`1M/10M/50M` 不可信读取三年 TCO](xpia-indirect-prompt-injection-apim-prompt-shields-spotlighting-vs-camel-dual-llm-vs-ifc-taint-masking-vs-split-agent-selection-faq.md) | [🇨🇳 中文](xpia-indirect-prompt-injection-apim-prompt-shields-spotlighting-vs-camel-dual-llm-vs-ifc-taint-masking-vs-split-agent-selection-faq.md) · [🇬🇧 EN](xpia-indirect-prompt-injection-apim-prompt-shields-spotlighting-vs-camel-dual-llm-vs-ifc-taint-masking-vs-split-agent-selection-faq.en.md) |
 | 364 | [企业多模态视觉排版提示注入防护选型 FAQ：Architecture A（网关侧 `CLAHE` 增强 OCR + 元数据剥离 + 随机重编码预盾）vs Architecture B（Tool-less VLM 转录到严格 JSON Schema Airlock）vs Architecture C（CUA `ROI`/边缘遮罩差分一致性门 + DOM 可访问树核验）vs Architecture D（Foundry 单通道多模态安全基线），覆盖 `L_inf` 对抗补丁破坏与 OCR 保真权衡、跨模态 split payload 联合检测、`100K/2M/25M` 三年 TCO](multimodal-visual-typographic-prompt-injection-gateway-clahe-ocr-shield-vs-schema-airlock-vlm-vs-roi-saliency-gate-selection-faq.md) | [🇨🇳 中文](multimodal-visual-typographic-prompt-injection-gateway-clahe-ocr-shield-vs-schema-airlock-vlm-vs-roi-saliency-gate-selection-faq.md) · [🇬🇧 EN](multimodal-visual-typographic-prompt-injection-gateway-clahe-ocr-shield-vs-schema-airlock-vlm-vs-roi-saliency-gate-selection-faq.en.md) |
+| 371 | [企业 Shadow AI 浏览器外泄治理选型 FAQ：Architecture A（`Entra Internet Access + Purview Endpoint/Edge` 预 TLS DLP + `MDA`）vs Architecture B（TLS 解密 SWG/CASB 负载解析）vs Architecture C（`APIM + Foundry` 内部多模型 Paved-Road）vs Architecture D（API 模式 CASB + OAuth 治理），覆盖共享域名租户判别、TLS 钉扎悖论、`P_bypass` 导流经济学与 `1K/10K/50K` 三年 TCO/暴露面下降](enterprise-shadow-ai-browser-casb-dlp-entra-internet-access-purview-edge-vs-tls-swg-vs-apim-foundry-paved-road-selection-faq.md) | [🇨🇳 中文](enterprise-shadow-ai-browser-casb-dlp-entra-internet-access-purview-edge-vs-tls-swg-vs-apim-foundry-paved-road-selection-faq.md) · [🇬🇧 EN](enterprise-shadow-ai-browser-casb-dlp-entra-internet-access-purview-edge-vs-tls-swg-vs-apim-foundry-paved-road-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（46 篇）
 
