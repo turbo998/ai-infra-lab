@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（386 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（387 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **386 个架构选型、平台对比与安全治理决策专题**（共 `772` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **387 个架构选型、平台对比与安全治理决策专题**（共 `774` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 386 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 387 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（47 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（48 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -101,6 +101,7 @@
 | 366 | [企业微服务集成 Coding Agent 沙箱选型 FAQ：Architecture A（`W3C Baggage` 共享基线分流 + delta Pod）vs Architecture B（`mirrord/Telepresence` 集群投影进 `Kata/ACA` 编码沙箱）vs Architecture C（`Microcks/WireMock` + `Azure API Center` 契约虚拟化 airlock）vs Architecture D（`vCluster` 全拓扑克隆升级层），覆盖内存密度公式、Service Bus `CorrelationRuleFilter` 异步隔离、零信任 guardrail 与 `50/400/2500` 并发三年 TCO](microservice-integration-coding-agent-sandbox-aks-envoy-baggage-routing-vs-mirrord-traffic-projection-vs-microcks-virtualization-selection-faq.md) | [🇨🇳 中文](microservice-integration-coding-agent-sandbox-aks-envoy-baggage-routing-vs-mirrord-traffic-projection-vs-microcks-virtualization-selection-faq.md) · [🇬🇧 EN](microservice-integration-coding-agent-sandbox-aks-envoy-baggage-routing-vs-mirrord-traffic-projection-vs-microcks-virtualization-selection-faq.en.md) |
 | 373 | [企业 NetOps 网络数字孪生验证沙箱选型 FAQ：Architecture A（`Batfish+Z3` on `ACA` 形式化控制/数据平面穷尽验证）vs Architecture B（`Containerlab+SONiC/FRR/cEOS/SR Linux` on `AKS Kata` 动态协议仿真）vs Architecture C（`CML/EVE-NG` on `Dv5/Ev5` nested-virt 厂商设备等价孪生）vs Architecture D（两阶段门禁：`<5s` Batfish 差分普筛 + 高风险升级深检），覆盖等价类证明 vs 采样完备性、`Mem_total = N * Mem_router + Mem_fabric + Mem_margin`、`commit confirmed 5`/`gNMI` 原子交接与 `500/5,000/30,000` 月验证三年 TCO](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.md) | [🇨🇳 中文](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.md) · [🇬🇧 EN](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.en.md) |
 | 380 | [工业 Physical-AI 与机器人 PLC SIL/HIL 验证沙箱选型 FAQ：Architecture A（`FMI 3.0/FM U` + SoftPLC on ACA/AKS Kata）vs Architecture B（`Gazebo Harmonic + ROS 2 Jazzy` on AKS）vs Architecture C（`Isaac Sim/Isaac Lab` GPU 向量化仿真）vs Architecture D（`Azure IoT Operations` 边缘零执行 Shadow HIL），覆盖 `S_warp`、CBF 违规捕获、DDS 隔离与 `5K/100K/2M` 三年 TCO](industrial-physical-ai-robotics-plc-sil-hil-sandbox-fmu-softplc-aca-vs-gazebo-ros2-aks-vs-isaac-sim-gpu-vs-iot-ops-shadow-selection-faq.md) | [🇨🇳 中文](industrial-physical-ai-robotics-plc-sil-hil-sandbox-fmu-softplc-aca-vs-gazebo-ros2-aks-vs-isaac-sim-gpu-vs-iot-ops-shadow-selection-faq.md) · [🇬🇧 EN](industrial-physical-ai-robotics-plc-sil-hil-sandbox-fmu-softplc-aca-vs-gazebo-ros2-aks-vs-isaac-sim-gpu-vs-iot-ops-shadow-selection-faq.en.md) |
+| 387 | [企业临时沙箱飞行记录与取证回放选型 FAQ：Architecture A（`rrweb` 结构 DOM 事件流 + `asciinema v2` PTY + OTel 哈希链 + `ADLS Gen2` WORM）vs Architecture B（动作边界关键帧 + `VP9/AV1` 视觉环形缓冲 + OCR 脱敏）vs Architecture C（风险门控 `WebRTC/Web PubSub` 实时监管影子流）vs Architecture D（全时未脱敏视频或零遥测自毁反模式），覆盖 `S_monthly`、`T_flush` 与脱敏 CPU/时延税及 `50K/1M/10M` 月会话 TCO](sandbox-flight-recorder-replay-rrweb-pty-worm-vs-keyframe-vp9-vs-webrtc-shadow-selection-faq.md) | [🇨🇳 中文](sandbox-flight-recorder-replay-rrweb-pty-worm-vs-keyframe-vp9-vs-webrtc-shadow-selection-faq.md) · [🇬🇧 EN](sandbox-flight-recorder-replay-rrweb-pty-worm-vs-keyframe-vp9-vs-webrtc-shadow-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（48 篇）
 
