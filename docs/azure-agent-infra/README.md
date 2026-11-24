@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（387 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（388 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **387 个架构选型、平台对比与安全治理决策专题**（共 `774` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **388 个架构选型、平台对比与安全治理决策专题**（共 `776` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 387 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 388 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（48 篇）
 
@@ -437,7 +437,7 @@
 | 376 | [企业 B2B 智能体合同 SLA、误差预算与服务积分归因选型 FAQ：Architecture A（责任域归因 turn 完成度 SLI + `14.4x/6x` MWMBR + ADX 不可变账本）vs Architecture B（每 `60s` 合成金路径探针）vs Architecture C（`N>=10` 混合区间 + 合成回填）vs Architecture D（网关 `5xx` 可用性 + 人工月结），覆盖 `SLA_serial = Π A_i` 与 `1 - (1 - A_stamp)^2`、SSE 终帧契约、签名免责证据与 `25/250/2,000` 租户三年暴露 TCO](b2b-agent-contractual-sla-error-budget-service-credit-attribution-multi-burn-prometheus-adx-vs-synthetic-canary-vs-customer-exclusion-selection-faq.md) | [🇨🇳 中文](b2b-agent-contractual-sla-error-budget-service-credit-attribution-multi-burn-prometheus-adx-vs-synthetic-canary-vs-customer-exclusion-selection-faq.md) · [🇬🇧 EN](b2b-agent-contractual-sla-error-budget-service-credit-attribution-multi-burn-prometheus-adx-vs-synthetic-canary-vs-customer-exclusion-selection-faq.en.md) |
 | 383 | [企业 LLMOps 评测污染防御与密封留出治理选型 FAQ：Architecture A（Sealed Rolling Holdout Vault + Canary GUID + MinHash/向量去污染网关）vs Architecture B（参数化/变形动态评测 + 程序化 Oracle）vs Architecture C（Min-K%++ 记忆取证 + 交换性探针）vs Architecture D（静态金集回流反模式），覆盖污染通胀偏差 `θ_obs = (1-α)θ_true + αθ_mem`、记忆差距 `Δ_mem` 与 `Startup/Enterprise/Regulated` 三档 TCO](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.md) | [🇨🇳 中文](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.md) · [🇬🇧 EN](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（48 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（49 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -491,3 +491,4 @@
 | 367 | [企业多 Entra 租户并购 AI Landing Zone 选型 FAQ：Architecture A（跨租户 `Private Link` + 多租户 `FIC` Secretless 交换）vs Architecture B（`Azure Lighthouse` 控制面投影 + `MTO` 身份同步）vs Architecture C（目录迁移单租户收敛）vs Architecture D（可剥离自治 Stamp + `A2A/MCP` 合同边界），覆盖 `10.0.0.0/8` CIDR 冲突、`TRv2` 精准放行、数据面/控制面边界与三年 TCO](multi-entra-tenant-mna-ai-landing-zone-cross-tenant-privatelink-fic-vs-azure-lighthouse-mto-vs-subscription-transfer-selection-faq.md) | [🇨🇳 中文](multi-entra-tenant-mna-ai-landing-zone-cross-tenant-privatelink-fic-vs-azure-lighthouse-mto-vs-subscription-transfer-selection-faq.md) · [🇬🇧 EN](multi-entra-tenant-mna-ai-landing-zone-cross-tenant-privatelink-fic-vs-azure-lighthouse-mto-vs-subscription-transfer-selection-faq.en.md) |
 | 374 | [企业多主权云 AI Landing Zone 选型 FAQ：Architecture A（自治主权 Stamp + `ORAS/Notation/Cosign` 签名气闸推广）vs Architecture B（跨权威云 Entra B2B 协作 + 主权数据面锚定）vs Architecture C（合规去标识跨境能力借用中介）vs Architecture D（主权云 + 断连 `Azure Local/Arc` 边缘 Stamp），覆盖 `environment().suffixes` 端点参数化、`Score = w1*quality + w2*safety + w3*latency + w4*cost` 能力替代门禁、遥测防泄漏与 `2-cloud/3-cloud/4-cloud+Azure Local` 三年 TCO](multi-sovereign-cloud-ai-landing-zone-azure-china-21vianet-azure-gov-bleu-delos-split-horizon-control-plane-selection-faq.md) | [🇨🇳 中文](multi-sovereign-cloud-ai-landing-zone-azure-china-21vianet-azure-gov-bleu-delos-split-horizon-control-plane-selection-faq.md) · [🇬🇧 EN](multi-sovereign-cloud-ai-landing-zone-azure-china-21vianet-azure-gov-bleu-delos-split-horizon-control-plane-selection-faq.en.md) |
 | 381 | [企业 AI Landing Zone 监管压力退出选型 FAQ：Architecture A（Portable Core on Managed Azure）vs Architecture B（Cloud-Agnostic K8s-Everywhere）vs Architecture C（Warm-Standby Escrow）vs Architecture D（Paper Exit Anti-Pattern），覆盖 `EU DORA Article 28(8)`、`PRA SS2/21`、退出 RTO 模型 `T_exit = T_provision + N_chunks/R_embed + T_HNSW_build + T_eval_gate` 与 `10M/200M/2B` 三档 TCO](dora-stressed-exit-escrow-portable-core-vs-cloud-agnostic-k8s-vs-warm-standby-selection-faq.md) | [🇨🇳 中文](dora-stressed-exit-escrow-portable-core-vs-cloud-agnostic-k8s-vs-warm-standby-selection-faq.md) · [🇬🇧 EN](dora-stressed-exit-escrow-portable-core-vs-cloud-agnostic-k8s-vs-warm-standby-selection-faq.en.md) |
+| 388 | [企业 AI Agent 灰故障检测选型 FAQ：Architecture A（`x-canary-mode: dry-run` 语义探针网格）vs Architecture B（`median+MAD` 同伴离群逐戳排空）vs Architecture C（OTel 因果 DAG 告警压缩与 SRE Agent 去重）vs Architecture D（浅层 `200 OK` 健康探测反模式），覆盖 `MTTD≈Δt/2+kΔt`、稳健 Z 分数误逐出概率与告警压缩比及三档 TCO](aiops-gray-failure-semantic-canary-vs-peer-outlier-ejection-vs-dag-alert-corr-selection-faq.md) | [🇨🇳 中文](aiops-gray-failure-semantic-canary-vs-peer-outlier-ejection-vs-dag-alert-corr-selection-faq.md) · [🇬🇧 EN](aiops-gray-failure-semantic-canary-vs-peer-outlier-ejection-vs-dag-alert-corr-selection-faq.en.md) |
