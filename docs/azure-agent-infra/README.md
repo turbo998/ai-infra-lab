@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（367 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（368 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **367 个架构选型、平台对比与安全治理决策专题**（共 `734` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **368 个架构选型、平台对比与安全治理决策专题**（共 `736` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 367 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 368 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（45 篇）
 
@@ -257,7 +257,7 @@
 | 356 | [企业 GraphRAG 成本与 ACL 安全增量同步选型 FAQ：Architecture A（LazyGraphRAG 查询时延迟构图）vs Architecture B（Full Leiden 批处理社区摘要）vs Architecture C（LightRAG 双键增量检索）vs Architecture D（GLiNER + Fabric Graph），覆盖 `Q_global*` 拐点、ACL 混合泄露证明、RTBF tombstone `ref_count` 清理、85/15 路由与 `5M/50M/500M` 语料三年 TCO](graphrag-cost-acl-incremental-sync-lazygraphrag-vs-full-leiden-batch-vs-lightrag-dual-key-vs-gliner-fabric-graph-selection-faq.md) | [🇨🇳 中文](graphrag-cost-acl-incremental-sync-lazygraphrag-vs-full-leiden-batch-vs-lightrag-dual-key-vs-gliner-fabric-graph-selection-faq.md) · [🇬🇧 EN](graphrag-cost-acl-incremental-sync-lazygraphrag-vs-full-leiden-batch-vs-lightrag-dual-key-vs-gliner-fabric-graph-selection-faq.en.md) |
 | 363 | [企业 PowerPoint Pitchbook 幻灯片 RAG 选型 FAQ：Architecture A（`OOXML DrawingML` EMU 空间 AST + `/ppt/charts/chartN.xml` 数值缓存与嵌入 `.xlsx` 双通道抽取 + VLM 缩略图核验）vs Architecture B（`ColPali/ColQwen2` 视觉晚交互多向量索引）vs Architecture C（`Azure AI Content Understanding/Document Intelligence` 统一托管管线）vs Architecture D（`Microsoft 365 Copilot/M365 Retrieval API` 原位检索），覆盖 Z-order 与二维阅读顺序偏差修复、`show=\"0\"` 隐藏页治理、`1030` patch 向量压缩数学与 `50K/500K/5M` 三年 TCO](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.md) | [🇨🇳 中文](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.md) · [🇬🇧 EN](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（45 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（46 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -308,6 +308,7 @@
 | 347 | [企业多方会议环境语音 Agent 被呼叫方识别选型 FAQ：Architecture A（Teams/LiveKit 每参与者 Unmixed Track + `SSRC -> Entra OID` 绑定 + `<80ms` 被呼叫方门控）vs Architecture B（会议室阵列麦 + `Azure AI Speech ConversationTranscriber` 实时 Diarization）vs Architecture C（静默环境记录员 + Teams Adaptive Cards/AG-UI 视觉侧信道 + 显式 `@Agent` 触发）vs Architecture D（Mixed-Mono 直入 `AOAI Realtime` + Prompt 约束），覆盖 `WDER`、`1-(1-p_fp)^N_turns`、选择性音频门控 token 节省与 `50K/500K/3M` 会议分钟三年 TCO](multiparty-meeting-ambient-voice-agent-addressee-detection-teams-unmixed-media-vs-speech-diarization-vs-livekit-sfu-sidechannel-selection-faq.md) | [🇨🇳 中文](multiparty-meeting-ambient-voice-agent-addressee-detection-teams-unmixed-media-vs-speech-diarization-vs-livekit-sfu-sidechannel-selection-faq.md) · [🇬🇧 EN](multiparty-meeting-ambient-voice-agent-addressee-detection-teams-unmixed-media-vs-speech-diarization-vs-livekit-sfu-sidechannel-selection-faq.en.md) |
 | 354 | [企业出站语音 Agent AMD/TCPA 合规选型 FAQ：Architecture A（乐观真人接入 + 并行亚 `600ms` 判机 + beep 同步 `PlaySource` 切换）vs Architecture B（`ACS/SBC` 同步 `CPA/AMD`）vs Architecture C（短信/富信预热 + `WebRTC` 分流）vs Architecture D（企业 `CCaaS` 合规拨号桥接 Azure AI），覆盖 `C_1000`、`Loss`、`Window_allowed`、`STIR/SHAKEN A`、CPS 整形与 `100K/1M/10M` 三年 TCO](outbound-voice-agent-amd-tcpa-compliance-parallel-stream-classifier-vs-acs-sync-amd-vs-sms-webrtc-warmup-vs-ccaas-dialer-selection-faq.md) | [🇨🇳 中文](outbound-voice-agent-amd-tcpa-compliance-parallel-stream-classifier-vs-acs-sync-amd-vs-sms-webrtc-warmup-vs-ccaas-dialer-selection-faq.md) · [🇬🇧 EN](outbound-voice-agent-amd-tcpa-compliance-parallel-stream-classifier-vs-acs-sync-amd-vs-sms-webrtc-warmup-vs-ccaas-dialer-selection-faq.en.md) |
 | 361 | [企业 In-Flight Durable Agent 工作流版本演进选型 FAQ：Architecture A（`Durable Functions TaskHub-v1/v2` 或 `Temporal BuildId` 版本钉住并行 draining）vs Architecture B（`workflow.patched()/deprecate_patch()` 与版本化子编排 replay-safe 门控）vs Architecture C（`MAF/LangGraph` `schema_version` 懒升级 upcaster 链 + 退役节点重定向）vs Architecture D（里程碑 `ContinueAsNew(target_version=\"v2\")` 切版压缩），覆盖确定性命令索引失配根因、`N_revisions = λ_deploy * T_p99_duration` 长尾成本、500 条历史回放影子门禁与 `5K/100K/2M` 三年 TCO](inflight-durable-agent-workflow-versioning-replay-safety-taskhub-buildid-pinning-vs-inline-patch-vs-checkpoint-upcaster-selection-faq.md) | [🇨🇳 中文](inflight-durable-agent-workflow-versioning-replay-safety-taskhub-buildid-pinning-vs-inline-patch-vs-checkpoint-upcaster-selection-faq.md) · [🇬🇧 EN](inflight-durable-agent-workflow-versioning-replay-safety-taskhub-buildid-pinning-vs-inline-patch-vs-checkpoint-upcaster-selection-faq.en.md) |
+| 368 | [企业多智能体共识与辩论编排选型 FAQ：Architecture A（盲评跨家族并行提案 + 工具校验仲裁）vs Architecture B（分歧触发置信级联升级）vs Architecture C（对抗式批判者交叉质询 + 证据锁）vs Architecture D（分层 MoA 综合），覆盖相关性误差 `ρ`、反迎合状态隔离、`p99 = F^-1(0.99^(1/K))` 慢尾预算与 `50K/500K/5M` 三年 TCO](multi-agent-consensus-debate-moa-orchestration-blind-cross-family-jury-apim-foundry-vs-confidence-cascade-vs-adversarial-critic-selection-faq.md) | [🇨🇳 中文](multi-agent-consensus-debate-moa-orchestration-blind-cross-family-jury-apim-foundry-vs-confidence-cascade-vs-adversarial-critic-selection-faq.md) · [🇬🇧 EN](multi-agent-consensus-debate-moa-orchestration-blind-cross-family-jury-apim-foundry-vs-confidence-cascade-vs-adversarial-critic-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
