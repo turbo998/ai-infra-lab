@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（372 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（373 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **372 个架构选型、平台对比与安全治理决策专题**（共 `744` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **373 个架构选型、平台对比与安全治理决策专题**（共 `746` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 372 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 373 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（45 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（46 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -99,6 +99,7 @@
 | 352 | [企业亚毫秒 Python Code-Act 微沙箱选型 FAQ：Architecture A（嵌入式 `Monty/Starlark` 确定性解释器 + fuel/heap 预算）vs Architecture B（`Pyodide` Wasm 快照恢复）vs Architecture C（`AKS` 上 `Kata/gVisor + nsjail` 预派生 CPython 池）vs Architecture D（托管 `ACA Dynamic Sessions` Hyper-V 会话隔离），覆盖 `L_total`、`isolates/GB`、升级阈值 `N*` 与三年 TCO](submillisecond-python-codeact-micro-sandbox-monty-starlark-vs-pyodide-wasm-snapshot-vs-aks-kata-nsjail-vs-aca-dynamic-sessions-selection-faq.md) | [🇨🇳 中文](submillisecond-python-codeact-micro-sandbox-monty-starlark-vs-pyodide-wasm-snapshot-vs-aks-kata-nsjail-vs-aca-dynamic-sessions-selection-faq.md) · [🇬🇧 EN](submillisecond-python-codeact-micro-sandbox-monty-starlark-vs-pyodide-wasm-snapshot-vs-aks-kata-nsjail-vs-aca-dynamic-sessions-selection-faq.en.md) |
 | 359 | [企业 GPU Code Interpreter 与 ML Agent 沙箱选型 FAQ：Architecture A（`ACA Serverless GPU` 全 GPU Hyper-V 会话，按秒计费 + Scale-to-Zero）vs Architecture B（`AKS` `MIG 1g.10gb/2g.20gb` + `Kata VFIO/DRA` 预热池与 HBM 擦除）vs Architecture C（CPU REPL 主会话 + `Arrow Flight` 远端一次性 GPU Burst Offload）vs Architecture D（`AML` 托管会话/Serverless Spark GPU 治理优先），覆盖 `η_gpu = T_kernel/(T_llm_think+T_user_read+T_kernel)` 占空比、`Time-Slicing/MPS` 失效边界、冷启动镜像水合与 `500/10,000/100,000` 会话三年 TCO](gpu-code-interpreter-ml-agent-sandbox-aca-serverless-gpu-vs-aks-mig-kata-vfio-vs-cpu-repl-ray-gpu-offload-vs-aml-selection-faq.md) | [🇨🇳 中文](gpu-code-interpreter-ml-agent-sandbox-aca-serverless-gpu-vs-aks-mig-kata-vfio-vs-cpu-repl-ray-gpu-offload-vs-aml-selection-faq.md) · [🇬🇧 EN](gpu-code-interpreter-ml-agent-sandbox-aca-serverless-gpu-vs-aks-mig-kata-vfio-vs-cpu-repl-ray-gpu-offload-vs-aml-selection-faq.en.md) |
 | 366 | [企业微服务集成 Coding Agent 沙箱选型 FAQ：Architecture A（`W3C Baggage` 共享基线分流 + delta Pod）vs Architecture B（`mirrord/Telepresence` 集群投影进 `Kata/ACA` 编码沙箱）vs Architecture C（`Microcks/WireMock` + `Azure API Center` 契约虚拟化 airlock）vs Architecture D（`vCluster` 全拓扑克隆升级层），覆盖内存密度公式、Service Bus `CorrelationRuleFilter` 异步隔离、零信任 guardrail 与 `50/400/2500` 并发三年 TCO](microservice-integration-coding-agent-sandbox-aks-envoy-baggage-routing-vs-mirrord-traffic-projection-vs-microcks-virtualization-selection-faq.md) | [🇨🇳 中文](microservice-integration-coding-agent-sandbox-aks-envoy-baggage-routing-vs-mirrord-traffic-projection-vs-microcks-virtualization-selection-faq.md) · [🇬🇧 EN](microservice-integration-coding-agent-sandbox-aks-envoy-baggage-routing-vs-mirrord-traffic-projection-vs-microcks-virtualization-selection-faq.en.md) |
+| 373 | [企业 NetOps 网络数字孪生验证沙箱选型 FAQ：Architecture A（`Batfish+Z3` on `ACA` 形式化控制/数据平面穷尽验证）vs Architecture B（`Containerlab+SONiC/FRR/cEOS/SR Linux` on `AKS Kata` 动态协议仿真）vs Architecture C（`CML/EVE-NG` on `Dv5/Ev5` nested-virt 厂商设备等价孪生）vs Architecture D（两阶段门禁：`<5s` Batfish 差分普筛 + 高风险升级深检），覆盖等价类证明 vs 采样完备性、`Mem_total = N * Mem_router + Mem_fabric + Mem_margin`、`commit confirmed 5`/`gNMI` 原子交接与 `500/5,000/30,000` 月验证三年 TCO](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.md) | [🇨🇳 中文](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.md) · [🇬🇧 EN](netops-network-digital-twin-verification-sandbox-batfish-z3-aca-vs-containerlab-sonic-frr-aks-kata-vs-nested-virt-cml-eveng-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（46 篇）
 
