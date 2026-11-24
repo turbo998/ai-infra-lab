@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（382 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（383 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **382 个架构选型、平台对比与安全治理决策专题**（共 `764` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **383 个架构选型、平台对比与安全治理决策专题**（共 `766` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 382 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 383 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（47 篇）
 
@@ -211,7 +211,7 @@
 | 371 | [企业 Shadow AI 浏览器外泄治理选型 FAQ：Architecture A（`Entra Internet Access + Purview Endpoint/Edge` 预 TLS DLP + `MDA`）vs Architecture B（TLS 解密 SWG/CASB 负载解析）vs Architecture C（`APIM + Foundry` 内部多模型 Paved-Road）vs Architecture D（API 模式 CASB + OAuth 治理），覆盖共享域名租户判别、TLS 钉扎悖论、`P_bypass` 导流经济学与 `1K/10K/50K` 三年 TCO/暴露面下降](enterprise-shadow-ai-browser-casb-dlp-entra-internet-access-purview-edge-vs-tls-swg-vs-apim-foundry-paved-road-selection-faq.md) | [🇨🇳 中文](enterprise-shadow-ai-browser-casb-dlp-entra-internet-access-purview-edge-vs-tls-swg-vs-apim-foundry-paved-road-selection-faq.md) · [🇬🇧 EN](enterprise-shadow-ai-browser-casb-dlp-entra-internet-access-purview-edge-vs-tls-swg-vs-apim-foundry-paved-road-selection-faq.en.md) |
 | 378 | [企业自治智能体 Step-Up 交易签名选型 FAQ：Architecture A（Entra Auth Context + RFC 9396 RAR + APIM `insufficient_claims`）vs Architecture B（OpenID CIBA 回通道审批 + `binding_message` + JWS 回执）vs Architecture C（`2-of-N` HSM/FIDO2 门限签名 + Verified ID + Confidential Ledger）vs Architecture D（聊天卡片/OTP 同通道反模式），覆盖 TOCTOU 防护、payload 摘要绑定、`T_approval` 挂起成本与 `50K/1M/10M` 三年 TCO](agent-stepup-transaction-signing-openid-ciba-rfc9396-rar-vs-entra-ca-auth-context-vs-hsm-quorum-selection-faq.md) | [🇨🇳 中文](agent-stepup-transaction-signing-openid-ciba-rfc9396-rar-vs-entra-ca-auth-context-vs-hsm-quorum-selection-faq.md) · [🇬🇧 EN](agent-stepup-transaction-signing-openid-ciba-rfc9396-rar-vs-entra-ca-auth-context-vs-hsm-quorum-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（47 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（48 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -264,6 +264,7 @@
 | 363 | [企业 PowerPoint Pitchbook 幻灯片 RAG 选型 FAQ：Architecture A（`OOXML DrawingML` EMU 空间 AST + `/ppt/charts/chartN.xml` 数值缓存与嵌入 `.xlsx` 双通道抽取 + VLM 缩略图核验）vs Architecture B（`ColPali/ColQwen2` 视觉晚交互多向量索引）vs Architecture C（`Azure AI Content Understanding/Document Intelligence` 统一托管管线）vs Architecture D（`Microsoft 365 Copilot/M365 Retrieval API` 原位检索），覆盖 Z-order 与二维阅读顺序偏差修复、`show=\"0\"` 隐藏页治理、`1030` patch 向量压缩数学与 `50K/500K/5M` 三年 TCO](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.md) | [🇨🇳 中文](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.md) · [🇬🇧 EN](enterprise-powerpoint-pitchbook-slide-rag-ooxml-chart-vlm-hybrid-ai-search-vs-colpali-visual-vs-content-understanding-selection-faq.en.md) |
 | 370 | [企业实体解析与 Golden-ID 归一化选型 FAQ：Architecture A（`Fabric + Splink` 多阶段 Blocking + Fellegi-Sunter + `Foundry` 灰区裁决）vs Architecture B（`Profisee + Purview` 治理型 MDM survivorship）vs Architecture C（在线 NEL 熵门限交互消歧）vs Architecture D（类型化 `SAME_AS/UBO` 图谱可逆 Unmerge），覆盖 `RR = 1 - |C|/(N(N-1)/2)`、`log2(m/u)`、`entity_confidence >= 0.97` 写门禁与 `500K/10M/100M` 三年 TCO](enterprise-entity-resolution-golden-id-rag-fabric-splink-llm-adjudicator-vs-profisee-purview-mdm-vs-online-nel-crosswalk-selection-faq.md) | [🇨🇳 中文](enterprise-entity-resolution-golden-id-rag-fabric-splink-llm-adjudicator-vs-profisee-purview-mdm-vs-online-nel-crosswalk-selection-faq.md) · [🇬🇧 EN](enterprise-entity-resolution-golden-id-rag-fabric-splink-llm-adjudicator-vs-profisee-purview-mdm-vs-online-nel-crosswalk-selection-faq.en.md) |
 | 377 | [企业 RAG 语料投毒防御与来源权威隔离选型 FAQ：Architecture A（入库检疫气闸 + `trust_tier` 优先级）vs Architecture B（单源隔离 inspect-and-vote + `max_chunks_per_doc_owner = 1`）vs Architecture C（签名权威语料双审发布）vs Architecture D（双索引物理隔离 + 不可信参数权限降级），覆盖 `P(poison >= τ in top-k)`、`Skewness > 4.0` 检疫规则、`chunk_id -> run_id -> cached_response_id` 清除链与 `500K/10M/100M` 三年 TCO](enterprise-rag-corpus-poisoning-defense-provenance-trust-quarantine-ai-search-vs-robustrag-isolated-passage-voting-vs-signed-authoritative-kb-selection-faq.md) | [🇨🇳 中文](enterprise-rag-corpus-poisoning-defense-provenance-trust-quarantine-ai-search-vs-robustrag-isolated-passage-voting-vs-signed-authoritative-kb-selection-faq.md) · [🇬🇧 EN](enterprise-rag-corpus-poisoning-defense-provenance-trust-quarantine-ai-search-vs-robustrag-isolated-passage-voting-vs-signed-authoritative-kb-selection-faq.en.md) |
+| 383 | [企业 RAG 知识面数据平面选型 FAQ：Architecture A（`AI Search` Hybrid 主检索）vs Architecture B（`Cosmos DB DiskANN` 低延迟动态平面）vs Architecture C（`PostgreSQL pgvector` 关系一致性平面）vs Architecture D（`Fabric OneLake` 湖仓治理回流），覆盖 `Gain = α*Recall + β*ACL_Precision - γ*Latency`、`Cost_per_answer` 与 `5M/50M/500M` 三档 TCO](enterprise-rag-knowledge-plane-ai-search-vs-cosmos-diskann-vs-postgres-pgvector-vs-fabric-onelake-selection-faq.md) | [🇨🇳 中文](enterprise-rag-knowledge-plane-ai-search-vs-cosmos-diskann-vs-postgres-pgvector-vs-fabric-onelake-selection-faq.md) · [🇬🇧 EN](enterprise-rag-knowledge-plane-ai-search-vs-cosmos-diskann-vs-postgres-pgvector-vs-fabric-onelake-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（48 篇）
 
