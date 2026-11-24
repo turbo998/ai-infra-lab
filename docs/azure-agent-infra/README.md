@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（373 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（374 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **373 个架构选型、平台对比与安全治理决策专题**（共 `746` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **374 个架构选型、平台对比与安全治理决策专题**（共 `748` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 373 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 374 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（46 篇）
 
@@ -425,7 +425,7 @@
 | 362 | [企业多智能体根因定位选型 FAQ：Architecture A（`Microsoft Agent Framework` 每跳 handoff 不变量门禁，输出 `gen_ai.step.fault`）vs Architecture B（`Cosmos` 检查点二分反事实回放，`ceil(log2 N)` 锁定决定性跃迁 `[t*-1 -> t*]`）vs Architecture C（`Azure Monitor/Eventhouse` KQL 因果 DAG 逆向依赖归责）vs Architecture D（`Foundry Batch Eval/Azure ML` 夜间 Shapley 组件归因矩阵），覆盖 `t* = min { t : Q*(S_{t-1}) - Q*(S_t) >= Δ_crit }`、线性 `O(T)` 与二分成本对比、外部工具瞬时空结果与参数幻觉分责、及 `50K/1M/10M` 月运行三年 TCO/MTTR ROI](multi-agent-root-cause-fault-localization-handoff-invariants-vs-counterfactual-bisect-replay-vs-eventhouse-dag-critic-selection-faq.md) | [🇨🇳 中文](multi-agent-root-cause-fault-localization-handoff-invariants-vs-counterfactual-bisect-replay-vs-eventhouse-dag-critic-selection-faq.md) · [🇬🇧 EN](multi-agent-root-cause-fault-localization-handoff-invariants-vs-counterfactual-bisect-replay-vs-eventhouse-dag-critic-selection-faq.en.md) |
 | 369 | [企业多语种跨区域智能体评测一致性选型 FAQ：Architecture A（原生本地化题库 + `ICU/Unicode Bidi` 确定性验证）vs Architecture B（语言无关 Claim-Graph 枢轴评测）vs Architecture C（CodeSwitch/转写跨脚本红队）vs Architecture D（`F_locale` Fertility 归一配额与分桶遥测），覆盖回译 Judge 偏置、`UAX #9`/NFKC/区域数日期陷阱、Simpson 悖论分桶门禁与 `5/18/35` 区域三年 TCO](multilingual-cross-locale-agent-eval-parity-native-foundry-rubric-vs-claim-graph-pivot-vs-codeswitch-redteam-vs-fertility-finops-selection-faq.md) | [🇨🇳 中文](multilingual-cross-locale-agent-eval-parity-native-foundry-rubric-vs-claim-graph-pivot-vs-codeswitch-redteam-vs-fertility-finops-selection-faq.md) · [🇬🇧 EN](multilingual-cross-locale-agent-eval-parity-native-foundry-rubric-vs-claim-graph-pivot-vs-codeswitch-redteam-vs-fertility-finops-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（46 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（47 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -477,3 +477,4 @@
 | 353 | [企业多租户 Agent BYOK/CMK 加密销毁选型 FAQ：Architecture A（共享数据面 + 应用层 Envelope DEK）vs Architecture B（原生 PaaS 子资源 CMK）vs Architecture C（租户专属 Stamp）vs Architecture D（MHSM + SKR 机密计算），覆盖 `T_effective_revoke`、`R_unwrap`、跨租户 UAMI/FIC、向量 opaque-ID 与 25/250/2,000 租户三年 TCO](multi-tenant-agent-byok-cmk-crypto-shredding-envelope-dek-vs-native-encryption-scopes-vs-dedicated-stamp-vs-mhsm-skr-selection-faq.md) | [🇨🇳 中文](multi-tenant-agent-byok-cmk-crypto-shredding-envelope-dek-vs-native-encryption-scopes-vs-dedicated-stamp-vs-mhsm-skr-selection-faq.md) · [🇬🇧 EN](multi-tenant-agent-byok-cmk-crypto-shredding-envelope-dek-vs-native-encryption-scopes-vs-dedicated-stamp-vs-mhsm-skr-selection-faq.en.md) |
 | 360 | [企业 AI Landing Zone 后量子迁移选型 FAQ：Architecture A（边界/WAN `X25519MLKEM768` Hybrid 终止）vs Architecture B（Mesh mTLS Hybrid KEM + 24h `ECDSA` 短证书）vs Architecture C（`ML-KEM` Envelope + `ECDSA+ML-DSA` 双签 HSM 台账）vs Architecture D（CycloneDX `CBOM` 敏捷治理与分层迁移），覆盖 `X_retention + Y_migration > Z_crqc`、`16.2KB > 14.6KB initcwnd` 包预算与 `Commercial/DORA/CNSA` 三年迁移 TCO](ai-landing-zone-post-quantum-pqc-migration-hybrid-mlkem-envoy-gateway-vs-mesh-mtls-vs-mldsa-envelope-hsm-vs-cbom-agility-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-post-quantum-pqc-migration-hybrid-mlkem-envoy-gateway-vs-mesh-mtls-vs-mldsa-envelope-hsm-vs-cbom-agility-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-post-quantum-pqc-migration-hybrid-mlkem-envoy-gateway-vs-mesh-mtls-vs-mldsa-envelope-hsm-vs-cbom-agility-selection-faq.en.md) |
 | 367 | [企业多 Entra 租户并购 AI Landing Zone 选型 FAQ：Architecture A（跨租户 `Private Link` + 多租户 `FIC` Secretless 交换）vs Architecture B（`Azure Lighthouse` 控制面投影 + `MTO` 身份同步）vs Architecture C（目录迁移单租户收敛）vs Architecture D（可剥离自治 Stamp + `A2A/MCP` 合同边界），覆盖 `10.0.0.0/8` CIDR 冲突、`TRv2` 精准放行、数据面/控制面边界与三年 TCO](multi-entra-tenant-mna-ai-landing-zone-cross-tenant-privatelink-fic-vs-azure-lighthouse-mto-vs-subscription-transfer-selection-faq.md) | [🇨🇳 中文](multi-entra-tenant-mna-ai-landing-zone-cross-tenant-privatelink-fic-vs-azure-lighthouse-mto-vs-subscription-transfer-selection-faq.md) · [🇬🇧 EN](multi-entra-tenant-mna-ai-landing-zone-cross-tenant-privatelink-fic-vs-azure-lighthouse-mto-vs-subscription-transfer-selection-faq.en.md) |
+| 374 | [企业多主权云 AI Landing Zone 选型 FAQ：Architecture A（自治主权 Stamp + `ORAS/Notation/Cosign` 签名气闸推广）vs Architecture B（跨权威云 Entra B2B 协作 + 主权数据面锚定）vs Architecture C（合规去标识跨境能力借用中介）vs Architecture D（主权云 + 断连 `Azure Local/Arc` 边缘 Stamp），覆盖 `environment().suffixes` 端点参数化、`Score = w1*quality + w2*safety + w3*latency + w4*cost` 能力替代门禁、遥测防泄漏与 `2-cloud/3-cloud/4-cloud+Azure Local` 三年 TCO](multi-sovereign-cloud-ai-landing-zone-azure-china-21vianet-azure-gov-bleu-delos-split-horizon-control-plane-selection-faq.md) | [🇨🇳 中文](multi-sovereign-cloud-ai-landing-zone-azure-china-21vianet-azure-gov-bleu-delos-split-horizon-control-plane-selection-faq.md) · [🇬🇧 EN](multi-sovereign-cloud-ai-landing-zone-azure-china-21vianet-azure-gov-bleu-delos-split-horizon-control-plane-selection-faq.en.md) |
