@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（389 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（390 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **389 个架构选型、平台对比与安全治理决策专题**（共 `778` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **390 个架构选型、平台对比与安全治理决策专题**（共 `780` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 389 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 390 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（48 篇）
 
@@ -383,7 +383,7 @@
 | 261 | [企业 Agent 隐私脱敏门禁选型 FAQ：`Purview` 数据发现基线 vs `APIM` 入出站 DLP 策略 vs 运行时 `Sidecar Tokenization` 细粒度脱敏 vs 三层混合零信任闭环（泄露率、误脱敏率、阻断时延与每千请求治理成本平衡）](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) | [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) · [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) |
 | 269 | [企业级 Agent 授权选型 FAQ：Entra PIM + JIT 同意 vs APIM JWT 能力声明 vs OPA Policy Graph 决策平面（最小权限、临时升级、审计可追溯与 P95/TCO 拐点平衡）](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) | [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) · [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（48 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（49 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -437,6 +437,7 @@
 | 369 | [企业多语种跨区域智能体评测一致性选型 FAQ：Architecture A（原生本地化题库 + `ICU/Unicode Bidi` 确定性验证）vs Architecture B（语言无关 Claim-Graph 枢轴评测）vs Architecture C（CodeSwitch/转写跨脚本红队）vs Architecture D（`F_locale` Fertility 归一配额与分桶遥测），覆盖回译 Judge 偏置、`UAX #9`/NFKC/区域数日期陷阱、Simpson 悖论分桶门禁与 `5/18/35` 区域三年 TCO](multilingual-cross-locale-agent-eval-parity-native-foundry-rubric-vs-claim-graph-pivot-vs-codeswitch-redteam-vs-fertility-finops-selection-faq.md) | [🇨🇳 中文](multilingual-cross-locale-agent-eval-parity-native-foundry-rubric-vs-claim-graph-pivot-vs-codeswitch-redteam-vs-fertility-finops-selection-faq.md) · [🇬🇧 EN](multilingual-cross-locale-agent-eval-parity-native-foundry-rubric-vs-claim-graph-pivot-vs-codeswitch-redteam-vs-fertility-finops-selection-faq.en.md) |
 | 376 | [企业 B2B 智能体合同 SLA、误差预算与服务积分归因选型 FAQ：Architecture A（责任域归因 turn 完成度 SLI + `14.4x/6x` MWMBR + ADX 不可变账本）vs Architecture B（每 `60s` 合成金路径探针）vs Architecture C（`N>=10` 混合区间 + 合成回填）vs Architecture D（网关 `5xx` 可用性 + 人工月结），覆盖 `SLA_serial = Π A_i` 与 `1 - (1 - A_stamp)^2`、SSE 终帧契约、签名免责证据与 `25/250/2,000` 租户三年暴露 TCO](b2b-agent-contractual-sla-error-budget-service-credit-attribution-multi-burn-prometheus-adx-vs-synthetic-canary-vs-customer-exclusion-selection-faq.md) | [🇨🇳 中文](b2b-agent-contractual-sla-error-budget-service-credit-attribution-multi-burn-prometheus-adx-vs-synthetic-canary-vs-customer-exclusion-selection-faq.md) · [🇬🇧 EN](b2b-agent-contractual-sla-error-budget-service-credit-attribution-multi-burn-prometheus-adx-vs-synthetic-canary-vs-customer-exclusion-selection-faq.en.md) |
 | 383 | [企业 LLMOps 评测污染防御与密封留出治理选型 FAQ：Architecture A（Sealed Rolling Holdout Vault + Canary GUID + MinHash/向量去污染网关）vs Architecture B（参数化/变形动态评测 + 程序化 Oracle）vs Architecture C（Min-K%++ 记忆取证 + 交换性探针）vs Architecture D（静态金集回流反模式），覆盖污染通胀偏差 `θ_obs = (1-α)θ_true + αθ_mem`、记忆差距 `Δ_mem` 与 `Startup/Enterprise/Regulated` 三档 TCO](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.md) | [🇨🇳 中文](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.md) · [🇬🇧 EN](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.en.md) |
+| 390 | [企业自动化 Prompt 优化与轨迹编译选型 FAQ：Architecture A（`DSPy MIPROv2` 贝叶斯联合搜索 + Batch Eval + Sealed Holdout 门禁）vs Architecture B（`GEPA/TextGrad` 反思式 Pareto 进化）vs Architecture C（`RFT/LoRA` 蒸馏摊销 few-shot 前缀税）vs Architecture D（手工 Vibe-Prompting 反模式），覆盖 `C_compile = M_trials × |D_dev| × c_rollout_bar`、`V*` 断点与 `sqrt(ln(M)/(2|D_dev|))` 过拟合边界及三档 TCO](automated-prompt-optimization-dspy-miprov2-vs-gepa-pareto-vs-rft-distill-selection-faq.md) | [🇨🇳 中文](automated-prompt-optimization-dspy-miprov2-vs-gepa-pareto-vs-rft-distill-selection-faq.md) · [🇬🇧 EN](automated-prompt-optimization-dspy-miprov2-vs-gepa-pareto-vs-rft-distill-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（49 篇）
 
