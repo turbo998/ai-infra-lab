@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (416 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (417 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **416 structured architecture selection guides and trade-off FAQs** (`832` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **417 structured architecture selection guides and trade-off FAQs** (`834` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 416 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 417 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (52 Guides)
 
@@ -344,7 +344,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 403 | [Enterprise cross-modal omnichannel session continuity selection FAQ: Route A (`ACS Call Automation + AOAI Realtime + Web PubSub` live companion with `5-minute` PoP/passkey-bound `JWE`) vs Route B (`ACS Advanced Messaging WhatsApp/RCS + Durable + Cosmos TTL` asynchronous `24h–72h` resume) vs Route C (`Dynamics 365 Contact Center + Copilot Studio` integrated agent and supervisor operations) vs Route D (authenticated in-app deep-link step-up with PII-masked co-browse and zero SMS execution surface), covering `P_fork`, `W_replay`, cross-tenant confusion risk, and three-year TCO](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.en.md) | [🇬🇧 EN](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.en.md) · [🇨🇳 中文](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.md) |
 | 411 | [Enterprise realtime contact-center whisper-coach selection FAQ: Route A (SBC `SIPREC` out-of-band stereo fork plus `AKS` media ingress) vs Route B (CCaaS `AudioHook/AudioStream` WebSocket streaming) vs Route C (agent-workstation sidecar capture) vs Route D (`Dynamics 365 Contact Center` native realtime Copilot), covering `<800ms` coach-card latency, compliance pause-resume synchronization, cognitive card-throttling, and three-year TCO](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.en.md) | [🇬🇧 EN](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.en.md) · [🇨🇳 中文](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (52 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (53 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -402,6 +402,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 261 | [Enterprise agent privacy-gate selection FAQ: `Purview` discovery baseline vs `APIM` ingress/egress DLP policy gates vs runtime `Sidecar Tokenization` field controls vs a three-layer integrated zero-trust loop (balancing leakage rate, false-redaction rate, block latency, and governance cost per 1,000 requests)](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) | [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) · [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) |
 | 269 | [Enterprise agent authorization selection FAQ: Entra PIM + JIT consent vs APIM JWT capability claims vs OPA policy-graph decision plane (balancing least privilege, temporary elevation, auditable evidence, and P95/TCO inflection points)](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) | [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) · [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) |
 | 409 | [Enterprise sovereign HYOK and double-key encryption selection FAQ: Route A (Purview DKE plus customer key broker plus attested worker) vs Route B (colocated HYOK reversible FPE proxy plus managed frontier model) vs Route C (Managed HSM plus secure-key-release plus confidential CPU/GPU compute) vs Route D (sovereign partner cloud or disconnected edge), covering BYOK vs HYOK boundary, `<60s` revoke SLA, semantic fidelity, and three-year TCO](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.en.md) | [🇬🇧 EN](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.en.md) · [🇨🇳 中文](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.md) |
+| 417 | [Agentic zero-click covert-exfiltration defense selection FAQ: Route A (streaming Markdown AST airlock + citation-origin allowlist + `AFD` HMAC-signed proxy + strict `CSP` and unfurl suppression) vs Route B (`APIM` session-taint ledger + MCP outbound recipient/tenant boundary gate + entropy and DLP inspection) vs Route C (Purview + Entra Internet Access + Defender for Cloud AI managed controls) vs Route D (backend-only egress-deny anti-pattern), covering URL channel capacity, split-chunk bypass resistance, SSRF/IMDS connect-hook defense, and three-year TCO](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.en.md) | [🇬🇧 EN](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.en.md) · [🇨🇳 中文](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (52 Guides)
 
