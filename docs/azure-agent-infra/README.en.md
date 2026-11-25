@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (422 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (423 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **422 structured architecture selection guides and trade-off FAQs** (`844` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **423 structured architecture selection guides and trade-off FAQs** (`846` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 422 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 423 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (52 Guides)
 
@@ -108,7 +108,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 408 | [Enterprise legacy terminal and thick-client sandbox selection FAQ: Route A (protocol-native `TN3270/TN5250` headless containers) vs Route B (AVD `UIA/SAP GUI Scripting` plus VLM fallback) vs Route C (Citrix pixel double-hop VLM with pre-commit OCR readback assertion) vs Route D (managed Hosted RPA machine groups), covering LU-pool backpressure, per-agent identity auditing, destructive commit interlocks, and three-year TCO](legacy-terminal-thick-client-agent-sandbox-tn3270-aca-vs-avd-uia-vlm-vs-hosted-rpa-selection-faq.en.md) | [🇬🇧 EN](legacy-terminal-thick-client-agent-sandbox-tn3270-aca-vs-avd-uia-vlm-vs-hosted-rpa-selection-faq.en.md) · [🇨🇳 中文](legacy-terminal-thick-client-agent-sandbox-tn3270-aca-vs-avd-uia-vlm-vs-hosted-rpa-selection-faq.md) |
 | 416 | [Code-Mode programmatic tool-composition sandbox selection FAQ: Route A (AKS `V8 Isolate` capability-scoped worker pool + APIM OBO) vs Route B (`QuickJS + Wasmtime` deterministic fuel and linear-memory caps) vs Route C (`ACA Dynamic Sessions` Hyper-V isolated session pools) vs Route D (in-process `node:vm/eval` and 20-turn sequential JSON anti-pattern), covering `K`-step latency and token equations, MCP Schema to `.d.ts` static gates, RPC budget/concurrency limits, idempotent compensation, and three-year TCO](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.en.md) | [🇬🇧 EN](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.en.md) · [🇨🇳 中文](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (52 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (53 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -166,6 +166,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 400 | [Enterprise batch-invariant and bitwise-reproducible LLM inference selection FAQ: Route A (AKS `vLLM/SGLang` fixed-tile and fixed Split-K kernels) vs Route B (PTU plus `seed`, `system_fingerprint`, and immutable audit ledger) vs Route C (teacher-forced verification lane) vs Route D (shared dynamic-batching determinism anti-pattern), covering `P_div(L)` divergence probability, `η_inv` throughput tax, `|Δl|` tolerance bounds, and three-year TCO](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.en.md) | [🇬🇧 EN](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.en.md) · [🇨🇳 中文](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.md) |
 | 407 | [Enterprise omni-modal audio+video agent serving selection FAQ: Route A (Foundry Omni/PTU managed realtime serving with overflow) vs Route B (AKS self-hosted `Phi-4-Multimodal/Qwen2.5-Omni`) vs Route C (disaggregated encoder tier plus frontier planner) vs Route D (Speech/Vision/Text managed cascade), covering continuous token burn, P95 latency decomposition, GPU VRAM packing, and three-year TCO](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.en.md) | [🇬🇧 EN](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.en.md) · [🇨🇳 中文](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.md) |
 | 415 | [Sovereign-script and symbolic-DSL token fertility optimization selection FAQ: Route A (`AML` vocabulary surgery `+24k-48k` + `FOCUS/WECHSEL/FVT` warm-start + two-stage CPT + dedicated AKS vLLM lane) vs Route B (stock `200k-256k` multilingual vocab on PTU/AKS) vs Route C (frozen tokenizer + Multi-LoRA shared-base serving) vs Route D (random append + LoRA-only and JSON structural-token mismatch anti-pattern), covering superlinear `F` economics, `lm_head` tax, UAG/EAGLE compatibility, and three-year TCO](sovereign-domain-tokenizer-extension-fertility-optimization-aml-focus-cpt-vs-stock-vocab-ptu-selection-faq.en.md) | [🇬🇧 EN](sovereign-domain-tokenizer-extension-fertility-optimization-aml-focus-cpt-vs-stock-vocab-ptu-selection-faq.en.md) · [🇨🇳 中文](sovereign-domain-tokenizer-extension-fertility-optimization-aml-focus-cpt-vs-stock-vocab-ptu-selection-faq.md) |
+| 423 | [Enterprise GPU-free auxiliary model serving selection FAQ: Route A (AKS `Ddsv6/Dpsv6` + ONNX/OpenVINO encoder lane) vs Route B (BitNet/INT4 `llama.cpp` CPU generative SLM lane) vs Route C (ACA Serverless GPU or Foundry Serverless escalation lane) vs Route D (BF16 dense CPU serving or low-RPS 24x7 dedicated GPU anti-pattern), covering `TPS_max` memory-bandwidth bounds, `RPS/$` break-even, cold-start windows, and sovereign escalation policy](gpu-free-cpu-slm-encoder-serving-aks-dsv6-cobalt-openvino-onnx-vs-bitnet-llamacpp-vs-aca-serverless-gpu-selection-faq.en.md) | [🇬🇧 EN](gpu-free-cpu-slm-encoder-serving-aks-dsv6-cobalt-openvino-onnx-vs-bitnet-llamacpp-vs-aca-serverless-gpu-selection-faq.en.md) · [🇨🇳 中文](gpu-free-cpu-slm-encoder-serving-aks-dsv6-cobalt-openvino-onnx-vs-bitnet-llamacpp-vs-aca-serverless-gpu-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (53 Guides)
 
