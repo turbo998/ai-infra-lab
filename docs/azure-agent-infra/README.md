@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（402 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（403 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **402 个架构选型、平台对比与安全治理决策专题**（共 `804` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **403 个架构选型、平台对比与安全治理决策专题**（共 `806` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 402 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 403 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（50 篇）
 
@@ -277,7 +277,7 @@
 | 391 | [企业 RAG 可验证引用与坐标级证据选型 FAQ：Architecture A（`Document Intelligence v4` `Span-ID + polygon` 坐标侧车 + `Quote-Then-Synthesize` 确定性子串校验）vs Architecture B（`Groundedness/NLI` 原子 claim 蕴含门禁）vs Architecture C（流式句边界后归因 `citation.resolved`）vs Architecture D（自由 `[1]` 脚注反模式），覆盖 `F1_cite`、`ΔS_poly ≈ N_span × B_poly`、`L_total` 时延权衡与 `50K/1M/20M` 三档 TCO](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.md) | [🇨🇳 中文](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.md) · [🇬🇧 EN](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.en.md) |
 | 398 | [企业 RAG 冲突来源权威裁决选型 FAQ：Architecture A（Authority-DAG + `Lex Specialis/Lex Posterior` 条款覆盖解析）vs Architecture B（NLI contradiction cluster 运行时冲突聚类升级）vs Architecture C（新鲜度/信任度加权重排）vs Architecture D（Naive Top-K 拼接反模式），覆盖 Superseded-Policy Hallucination、`O(k^2)` NLI 预算约束、紧急撤销切换 SLA 与三年治理 TCO](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.md) | [🇨🇳 中文](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.md) · [🇬🇧 EN](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（50 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（51 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -333,6 +333,7 @@
 | 382 | [企业多跳智能体背压与重试亚稳态防御选型 FAQ：Architecture A（Little's Law `Gradient2/Vegas` RTT 自适应并发）vs Architecture B（端到端 `deadline` 传播 + `CoDel` 拥塞丢弃 + 重试预算）vs Architecture C（Service Bus Premium `credit lease-pull` + KEDA 队列滞后扩缩）vs Architecture D（无界 fan-out + 每跳盲重试反模式），覆盖 `A_retry = Π(1 + p_fail_i * r_i)` 放大模型、goodput 崩塌抑制与 `50/500/5000 RPS` 三档 TCO](agent-backpressure-metastable-retry-gradient2-vs-deadline-codel-vs-servicebus-pull-selection-faq.md) | [🇨🇳 中文](agent-backpressure-metastable-retry-gradient2-vs-deadline-codel-vs-servicebus-pull-selection-faq.md) · [🇬🇧 EN](agent-backpressure-metastable-retry-gradient2-vs-deadline-codel-vs-servicebus-pull-selection-faq.en.md) |
 | 389 | [企业实时语音 Agent 轮转结束判定与打断控制选型 FAQ：Architecture A（Native `semantic_vad` + 动态 `eagerness`）vs Architecture B（边缘降噪 + Prosodic/Lexical EoU + 两阶段 backchannel 安全 barge-in）vs Architecture C（`Push-to-Talk/Hold-to-Speak` 显式地板控制 + 可视侧信道）vs Architecture D（固定 `silence_duration_ms` 能量阈值反模式），覆盖误截断-轮转延迟 Pareto、`-18dB/180ms` 软压制与硬 `truncate` 体验权衡、PSTN vs WebRTC SNR 差异与三档 TCO](voice-turn-detection-barge-in-semantic-vad-vs-prosodic-eou-slm-vs-ptt-floor-selection-faq.md) | [🇨🇳 中文](voice-turn-detection-barge-in-semantic-vad-vs-prosodic-eou-slm-vs-ptt-floor-selection-faq.md) · [🇬🇧 EN](voice-turn-detection-barge-in-semantic-vad-vs-prosodic-eou-slm-vs-ptt-floor-selection-faq.en.md) |
 | 396 | [企业语音 Agent 深伪防护选型 FAQ：Architecture A（SBC/ACS 媒体分叉声学活体与深伪检测）vs Architecture B（风险触发 OOB Passkey/Verified ID）vs Architecture C（会话微挑战 + 声纹验证）vs Architecture D（静态声纹/KBA 反模式），覆盖 G.711 窄带 EER、Bayes 后验基率陷阱、`tx_hash` 交易绑定闸控与 `1.8M/4.5M` 呼叫场景三年 TCO](voice-agent-deepfake-liveness-sbc-spectral-detector-vs-oob-passkey-vs-kba-selection-faq.md) | [🇨🇳 中文](voice-agent-deepfake-liveness-sbc-spectral-detector-vs-oob-passkey-vs-kba-selection-faq.md) · [🇬🇧 EN](voice-agent-deepfake-liveness-sbc-spectral-detector-vs-oob-passkey-vs-kba-selection-faq.en.md) |
+| 403 | [企业跨模态全渠道会话连续性选型 FAQ：Route A（`ACS Call Automation + AOAI Realtime + Web PubSub` 实时伴随画布，`5-min` PoP/Passkey 绑定 `JWE`）vs Route B（`ACS Advanced Messaging WhatsApp/RCS + Durable + Cosmos TTL` `24h–72h` 异步恢复）vs Route C（`Dynamics 365 Contact Center + Copilot Studio` 一体化座席与主管插入）vs Route D（App 内深链接 Step-Up + PII-Masked Co-Browse 零 SMS 执行面），覆盖 `P_fork`、`W_replay`、跨租户混淆风险与三年 TCO](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.md) | [🇨🇳 中文](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.md) · [🇬🇧 EN](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（51 篇）
 
