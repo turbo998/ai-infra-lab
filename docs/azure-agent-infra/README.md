@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（406 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（407 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **406 个架构选型、平台对比与安全治理决策专题**（共 `812` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **407 个架构选型、平台对比与安全治理决策专题**（共 `814` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 406 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 407 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（50 篇）
 
@@ -105,7 +105,7 @@
 | 394 | [企业分布式系统 Coding Agent 确定性仿真沙箱选型 FAQ：Architecture A（Antithesis 类 VMM 确定性时钟/网络 + `rr` 反例重放）vs Architecture B（`Turmoil/MadSim` 进程内高密度种子扫描）vs Architecture C（`AKS + Chaos Studio/Chaos Mesh` 真实内核混沌验证）vs Architecture D（wall-clock `sleep()`/共享 staging 反模式），覆盖 `P_detect`、`S_warp`、flake 污染率与 `200/3,000/25,000 PRs/mo` 三年 TCO](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.md) | [🇨🇳 中文](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.md) · [🇬🇧 EN](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.en.md) |
 | 401 | [企业 Agent 代码沙箱出站隔离选型 FAQ：Route A（AKS Kata + Out-of-Band Phantom-Token Envoy + DNS Sinkhole + IMDS 阻断）vs Route B（ACA Dynamic Sessions `EgressDisabled` + Host Broker）vs Route C（VNet + Azure Firewall Premium + DNS Private Resolver）vs Route D（明文 `.env` / IMDS 直通 / `0.0.0.0/0` 外联反模式），覆盖 `C_dns`、`ΔT_proxy`、`E_cred` 与三年治理 TCO](sandbox-egress-phantom-token-envoy-proxy-aks-kata-vs-aca-zero-egress-selection-faq.md) | [🇨🇳 中文](sandbox-egress-phantom-token-envoy-proxy-aks-kata-vs-aca-zero-egress-selection-faq.md) · [🇬🇧 EN](sandbox-egress-phantom-token-envoy-proxy-aks-kata-vs-aca-zero-egress-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（50 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（51 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -162,6 +162,7 @@
 | 386 | [企业 LLM 退役切换与快照治理选型 FAQ：Architecture A（`NoAutoUpgrade` 快照钉扎 + APIM 异步 Shadow + `20%` 阶梯 PTU 交换 + PAYGO 缓冲）vs Architecture B（能力别名中台与参数语义翻译）vs Architecture C（AKS 开源权重多年度留存与 bit-exact 复现）vs Architecture D（自动升级与退役周大切换反模式），覆盖 `U_bridge` 头寸公式、McNemar 漂移检验与监管重验证/自托管盈亏平衡](llm-retirement-cutover-pinned-shadow-ptu-vs-alias-router-vs-aks-weight-escrow-selection-faq.md) | [🇨🇳 中文](llm-retirement-cutover-pinned-shadow-ptu-vs-alias-router-vs-aks-weight-escrow-selection-faq.md) · [🇬🇧 EN](llm-retirement-cutover-pinned-shadow-ptu-vs-alias-router-vs-aks-weight-escrow-selection-faq.en.md) |
 | 393 | [企业 Blackwell `GB200 NVL72` 机架级 `NVFP4 Wide-EP` 选型 FAQ：Architecture A（`AKS + LeaderWorkerSet + DRA ComputeDomain/IMEX` 的 `MNNVL` 拓扑）vs Architecture B（`ND H200 v5` `8-GPU FP8` 故障域隔离）vs Architecture C（Foundry PTU 托管容量）vs Architecture D（跨节点 IB 高阶 TP 或未校准统一 INT4 路由反模式），覆盖 `1.8 TB/s vs 400 Gb/s`、`A_clique = A_VM^m`、`4.5 bpw vs 8.0 bpw` 与 `500/15,000/150,000 tok/s` 三年 TCO](blackwell-gb200-nvl72-nvfp4-wide-ep-aks-vs-nd-h200-fp8-vs-foundry-ptu-selection-faq.md) | [🇨🇳 中文](blackwell-gb200-nvl72-nvfp4-wide-ep-aks-vs-nd-h200-fp8-vs-foundry-ptu-selection-faq.md) · [🇬🇧 EN](blackwell-gb200-nvl72-nvfp4-wide-ep-aks-vs-nd-h200-fp8-vs-foundry-ptu-selection-faq.en.md) |
 | 400 | [企业批次不变与位级可复现 LLM 推理选型 FAQ：Route A（AKS `vLLM/SGLang` 固定 Tile 与固定 Split-K 批次不变内核）vs Route B（PTU + `seed` + `system_fingerprint` + 不可变审计账本）vs Route C（Teacher-forced 核验通道）vs Route D（共享动态批次确定性反模式），覆盖 `P_div(L)` 分叉概率、`η_inv` 吞吐税、`|Δl|` 容差边界与三年 TCO](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.md) | [🇨🇳 中文](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.md) · [🇬🇧 EN](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.en.md) |
+| 407 | [企业全模态音视频智能体托管选型 FAQ：Route A（Foundry Omni/PTU 托管实时推理 + 溢出）vs Route B（AKS `Phi-4-Multimodal/Qwen2.5-Omni` 自托管）vs Route C（编码器解耦 + 前沿推理规划）vs Route D（Speech/Vision/Text 多服务级联），覆盖持续 token burn、P95 时延分解、GPU 显存装箱与三年 TCO](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.md) | [🇨🇳 中文](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.md) · [🇬🇧 EN](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（51 篇）
 

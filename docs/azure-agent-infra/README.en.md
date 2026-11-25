@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (406 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (407 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **406 structured architecture selection guides and trade-off FAQs** (`812` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **407 structured architecture selection guides and trade-off FAQs** (`814` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 406 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 407 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (50 Guides)
 
@@ -106,7 +106,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 394 | [Enterprise deterministic simulation testing sandbox selection FAQ for distributed-systems Coding Agents: Architecture A (Antithesis-class deterministic VMM with seed-controlled clock/net plus `rr` replay) vs Architecture B (`Turmoil/MadSim` in-process high-density seed sweep) vs Architecture C (`AKS + Chaos Studio/Chaos Mesh` kernel-real chaos validation) vs Architecture D (wall-clock `sleep()` and shared staging anti-pattern), covering `P_detect`, `S_warp`, flake poisoning rate, and three-year TCO at `200/3,000/25,000 PRs per month`](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.en.md) | [🇬🇧 EN](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.en.md) · [🇨🇳 中文](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.md) |
 | 401 | [Enterprise agent code-sandbox outbound isolation selection FAQ: Route A (AKS Kata plus out-of-band phantom-token Envoy proxy with DNS sinkhole and IMDS block) vs Route B (ACA Dynamic Sessions `EgressDisabled` with host-orchestrator broker) vs Route C (VNet + Azure Firewall Premium + DNS Private Resolver policy) vs Route D (plaintext `.env`, IMDS exposure, and `0.0.0.0/0` egress anti-pattern), covering `C_dns`, `ΔT_proxy`, `E_cred`, and three-year governance TCO](sandbox-egress-phantom-token-envoy-proxy-aks-kata-vs-aca-zero-egress-selection-faq.en.md) | [🇬🇧 EN](sandbox-egress-phantom-token-envoy-proxy-aks-kata-vs-aca-zero-egress-selection-faq.en.md) · [🇨🇳 中文](sandbox-egress-phantom-token-envoy-proxy-aks-kata-vs-aca-zero-egress-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (50 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (51 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -162,6 +162,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 386 | [Enterprise LLM retirement cutover and snapshot-governance selection FAQ: Architecture A (`NoAutoUpgrade` snapshot pinning + async APIM shadow replay + `20%` stepwise PTU bridge with PAYGO cushion) vs Architecture B (capability-alias control plane with parameter-semantic translation) vs Architecture C (AKS open-weight multi-year escrow with bit-exact reproducibility) vs Architecture D (auto-upgrade plus retirement-week big-bang anti-pattern), covering `U_bridge` capacity math, McNemar drift discordance, and regulated revalidation vs self-hosted break-even](llm-retirement-cutover-pinned-shadow-ptu-vs-alias-router-vs-aks-weight-escrow-selection-faq.en.md) | [🇬🇧 EN](llm-retirement-cutover-pinned-shadow-ptu-vs-alias-router-vs-aks-weight-escrow-selection-faq.en.md) · [🇨🇳 中文](llm-retirement-cutover-pinned-shadow-ptu-vs-alias-router-vs-aks-weight-escrow-selection-faq.md) |
 | 393 | [Enterprise Blackwell `GB200 NVL72` rack-scale `NVFP4 Wide-EP` serving selection FAQ: Architecture A (`AKS + LeaderWorkerSet + DRA ComputeDomain/IMEX` with `MNNVL`) vs Architecture B (`ND H200 v5` 8-GPU `FP8` fault-isolated domains) vs Architecture C (Foundry PTU managed capacity) vs Architecture D (cross-node IB high-order TP or uncalibrated uniform INT4 router anti-pattern), covering `1.8 TB/s vs 400 Gb/s`, `A_clique = A_VM^m`, `4.5 bpw vs 8.0 bpw`, and three-year TCO at `500/15,000/150,000 tok/s`](blackwell-gb200-nvl72-nvfp4-wide-ep-aks-vs-nd-h200-fp8-vs-foundry-ptu-selection-faq.en.md) | [🇬🇧 EN](blackwell-gb200-nvl72-nvfp4-wide-ep-aks-vs-nd-h200-fp8-vs-foundry-ptu-selection-faq.en.md) · [🇨🇳 中文](blackwell-gb200-nvl72-nvfp4-wide-ep-aks-vs-nd-h200-fp8-vs-foundry-ptu-selection-faq.md) |
 | 400 | [Enterprise batch-invariant and bitwise-reproducible LLM inference selection FAQ: Route A (AKS `vLLM/SGLang` fixed-tile and fixed Split-K kernels) vs Route B (PTU plus `seed`, `system_fingerprint`, and immutable audit ledger) vs Route C (teacher-forced verification lane) vs Route D (shared dynamic-batching determinism anti-pattern), covering `P_div(L)` divergence probability, `η_inv` throughput tax, `|Δl|` tolerance bounds, and three-year TCO](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.en.md) | [🇬🇧 EN](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.en.md) · [🇨🇳 中文](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.md) |
+| 407 | [Enterprise omni-modal audio+video agent serving selection FAQ: Route A (Foundry Omni/PTU managed realtime serving with overflow) vs Route B (AKS self-hosted `Phi-4-Multimodal/Qwen2.5-Omni`) vs Route C (disaggregated encoder tier plus frontier planner) vs Route D (Speech/Vision/Text managed cascade), covering continuous token burn, P95 latency decomposition, GPU VRAM packing, and three-year TCO](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.en.md) | [🇬🇧 EN](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.en.md) · [🇨🇳 中文](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (51 Guides)
 
