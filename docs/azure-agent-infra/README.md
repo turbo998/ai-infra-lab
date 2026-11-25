@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（417 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（418 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **417 个架构选型、平台对比与安全治理决策专题**（共 `834` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **418 个架构选型、平台对比与安全治理决策专题**（共 `836` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 417 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 418 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（52 篇）
 
@@ -463,7 +463,7 @@
 | 404 | [企业零 PII LLMOps 可观测与可调试选型 FAQ：Route A（Claim-Check 包络加密 Span Vault + Entra PIM `15min` Break-Glass）vs Route B（Collector 内联 HMAC 伪名化）vs Route C（零内容结构遥测 + `ε`-DP 失败聚类）vs Route D（用户显式报错快照 + 合成环境全捕获），覆盖 `P_residual = 1 - R^k`、删除 SLA、评审保真度与三年 TCO](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.md) | [🇨🇳 中文](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.md) · [🇬🇧 EN](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.en.md) |
 | 412 | [企业静默模型行为漂移检测选型 FAQ：Route A（Seeded Probe + Top-K Logprob JSD + CUSUM 顺序告警）vs Route B（OTel 真实流量结构遥测 + 分层分布漂移）vs Route C（在线评测影子镜像等价门禁）vs Route D（AKS 自托管不可变权重），覆盖 `1.5% -> 4.0%` 结构破坏检测时间、PTU 与 Spillover 等价判据、抗振荡回切与三年 TCO](silent-model-behavioral-drift-detection-seeded-logprob-sentinel-cusum-eventhouse-vs-online-eval-selection-faq.md) | [🇨🇳 中文](silent-model-behavioral-drift-detection-seeded-logprob-sentinel-cusum-eventhouse-vs-online-eval-selection-faq.md) · [🇬🇧 EN](silent-model-behavioral-drift-detection-seeded-logprob-sentinel-cusum-eventhouse-vs-online-eval-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（52 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（53 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -521,3 +521,4 @@
 | 395 | [企业主机现代化选型 FAQ：Architecture A（`ASG/Spec-First` 语义抽取 + 云原生重写 + 影子双跑等价工厂）vs Architecture B（主机仿真重宿主与机械转译）vs Architecture C（读侧绞杀共存）vs Architecture D（Prompt 逐行直译反模式），覆盖 IBM `R4HA` 降本曲线、双跑并行税 `T_dual_run`、`EBCDIC`/`UTF-8` 控制断裂与 `COMP-3` 漂移边界、`N_tx` `99.9999%` 等价门禁及 `1,500/8,000/35,000 MIPS` 三档三年 TCO](mainframe-cobol-jcl-modernization-spec-dual-run-vs-rehost-vs-strangler-selection-faq.md) | [🇨🇳 中文](mainframe-cobol-jcl-modernization-spec-dual-run-vs-rehost-vs-strangler-selection-faq.md) · [🇬🇧 EN](mainframe-cobol-jcl-modernization-spec-dual-run-vs-rehost-vs-strangler-selection-faq.en.md) |
 | 402 | [企业 AI Landing Zone `47-day` TLS/mTLS PKI 生命周期自动化选型 FAQ：Route A（边缘托管 ACME + AKS cert-manager + AKV/CSI + SDS 热切）vs Route B（Mesh `24h` 短证书 `12h` 轮换）vs Route C（APIM + AKV + Event Grid 续期管线）vs Route D（人工工单/PFX/重启反模式），覆盖 `T_renew`、`B_grace`、`M_ops` 与双 CA 重叠不变量](ai-landing-zone-47day-tls-mtls-pki-rotation-cert-manager-akv-vs-mesh-ca-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-47day-tls-mtls-pki-rotation-cert-manager-akv-vs-mesh-ca-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-47day-tls-mtls-pki-rotation-cert-manager-akv-vs-mesh-ca-selection-faq.en.md) |
 | 410 | [企业级 Cell-Based + Shuffle Sharding 与四级 Brownout 韧性选型 FAQ：Route A（`APIM` 租户 HMAC `N-choose-K` 虚拟 Cell 路由 + `AKS/ACA` 分片配额）vs Route B（Shared-Nothing Deployment Stamps）vs Route C（Adaptive Graceful Brownout）vs Route D（共享池朴素跨区切流反模式），覆盖毒丸隔离、重试风暴遏制、分环发布回滚与三年 TCO](cell-based-shuffle-sharding-graceful-brownout-agent-resilience-apim-stamps-selection-faq.md) | [🇨🇳 中文](cell-based-shuffle-sharding-graceful-brownout-agent-resilience-apim-stamps-selection-faq.md) · [🇬🇧 EN](cell-based-shuffle-sharding-graceful-brownout-agent-resilience-apim-stamps-selection-faq.en.md) |
+| 418 | [AI Landing Zone 零中断节点维护选型 FAQ：Route A（`Kubernetes Fleet Manager` 分环 UpdateRun + `AKS` Blue-Green NodePool）vs Route B（配额受限 In-Place 升级 + `Scheduled Events` 预检点 + APIM 溢出）vs Route C（不可变 Deployment Stamp 蓝绿切换）vs Route D（托管卸载对照与跨区同时自动升级反模式），覆盖升级总时长方程、PDB 死锁规避、IMDS 预警排空与三年 TCO](ai-landing-zone-zero-disruption-k8s-node-maintenance-aks-fleet-update-runs-vs-blue-green-nodepool-vs-stamp-swap-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-zero-disruption-k8s-node-maintenance-aks-fleet-update-runs-vs-blue-green-nodepool-vs-stamp-swap-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-zero-disruption-k8s-node-maintenance-aks-fleet-update-runs-vs-blue-green-nodepool-vs-stamp-swap-selection-faq.en.md) |
