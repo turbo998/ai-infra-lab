@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guide 424 Office Rendering Workbench</title>
+  <style>
+    body { margin: 0; font-family: Segoe UI, Arial, sans-serif; background: #0f172a; color: #e2e8f0; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 24px; }
+    .card { background: #1e293b; border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+    label { display: block; margin: 8px 0 6px; color: #cbd5e1; }
+    input, select { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #334155; background: #0b1220; color: #e2e8f0; }
+    button { margin-top: 14px; background: #3b82f6; color: #fff; border: 0; border-radius: 10px; padding: 10px 14px; cursor: pointer; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .kpi { font-weight: 700; color: #93c5fd; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Guide #424 · Office/PDF Rendering Route Calculator</h1>
+    <div class="card grid">
+      <div>
+        <label>Monthly artifacts</label>
+        <input id="volume" type="number" value="250000" />
+      </div>
+      <div>
+        <label>Average pages per artifact</label>
+        <input id="pages" type="number" value="12" />
+      </div>
+      <div>
+        <label>Route A share (%)</label>
+        <input id="a" type="number" value="20" />
+      </div>
+      <div>
+        <label>Route B share (%)</label>
+        <input id="b" type="number" value="65" />
+      </div>
+      <div>
+        <label>Route C share (%)</label>
+        <input id="c" type="number" value="15" />
+      </div>
+      <div>
+        <label>Target visual defect escape (%)</label>
+        <input id="escape" type="number" value="0.15" step="0.01" />
+      </div>
+    </div>
+    <div class="card">
+      <button onclick="calc()">Recalculate</button>
+      <p class="kpi" id="k1"></p>
+      <p class="kpi" id="k2"></p>
+      <p class="kpi" id="k3"></p>
+    </div>
+  </div>
+  <script>
+    function calc() {
+      const volume = Number(document.getElementById('volume').value || 0);
+      const pages = Number(document.getElementById('pages').value || 0);
+      const a = Number(document.getElementById('a').value || 0) / 100;
+      const b = Number(document.getElementById('b').value || 0) / 100;
+      const c = Number(document.getElementById('c').value || 0) / 100;
+      const escape = Number(document.getElementById('escape').value || 0) / 100;
+      const norm = a + b + c || 1;
+      const nA = volume * a / norm;
+      const nB = volume * b / norm;
+      const nC = volume * c / norm;
+      const defects = Math.round(volume * escape);
+      const pageLoad = Math.round(volume * pages);
+      document.getElementById('k1').textContent = `Route split: A=${Math.round(nA)} / B=${Math.round(nB)} / C=${Math.round(nC)} artifacts`;
+      document.getElementById('k2').textContent = `Total rendered pages per month: ${pageLoad.toLocaleString()}`;
+      document.getElementById('k3').textContent = `Expected escaped defects at target: ${defects.toLocaleString()}`;
+    }
+    calc();
+  </script>
+</body>
+</html>

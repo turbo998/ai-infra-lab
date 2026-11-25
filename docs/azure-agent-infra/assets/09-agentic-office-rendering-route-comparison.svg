@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#1f2a44"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 42px 'Segoe UI', Arial, sans-serif; fill: #f8fafc; }
+      .sub { font: 500 22px 'Segoe UI', Arial, sans-serif; fill: #cbd5e1; }
+      .h { font: 700 26px 'Segoe UI', Arial, sans-serif; fill: #e2e8f0; }
+      .t { font: 500 19px 'Segoe UI', Arial, sans-serif; fill: #dbeafe; }
+      .pill { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #0b1220; }
+    </style>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <text x="70" y="90" class="title">Guide #424 · Agentic Office Artifact Rendering Architecture Comparison</text>
+  <text x="70" y="130" class="sub">Route A/B/C/D for PPTX/XLSX/DOCX/PDF quality, security, throughput, and governance</text>
+
+  <rect x="70" y="180" width="430" height="760" rx="20" fill="#1d4ed8" opacity="0.92"/>
+  <text x="95" y="230" class="h">Route A · Office Closed Loop</text>
+  <text x="95" y="280" class="t">• ACA Sessions / AKS Kata isolation</text>
+  <text x="95" y="320" class="t">• LibreOffice recalculation + error scan</text>
+  <text x="95" y="360" class="t">• pdftoppm + VLM visual QA (N≤2)</text>
+  <text x="95" y="400" class="t">• Corporate/CJK font fidelity control</text>
+  <text x="95" y="440" class="t">• Best for executive/regulatory artifacts</text>
+  <rect x="95" y="470" width="220" height="40" rx="16" fill="#f8fafc"/>
+  <text x="110" y="497" class="pill">Trust-first delivery</text>
+
+  <rect x="530" y="180" width="430" height="760" rx="20" fill="#0f766e" opacity="0.92"/>
+  <text x="555" y="230" class="h">Route B · Typst/Chromium</text>
+  <text x="555" y="280" class="t">• Declarative template rendering</text>
+  <text x="555" y="320" class="t">• Very high throughput batch generation</text>
+  <text x="555" y="360" class="t">• Low memory footprint per worker</text>
+  <text x="555" y="400" class="t">• Great for static statement workloads</text>
+  <text x="555" y="440" class="t">• Limited editable OOXML requirements</text>
+  <rect x="555" y="470" width="250" height="40" rx="16" fill="#f8fafc"/>
+  <text x="570" y="497" class="pill">Throughput-first delivery</text>
+
+  <rect x="990" y="180" width="430" height="760" rx="20" fill="#7c3aed" opacity="0.92"/>
+  <text x="1015" y="230" class="h">Route C · Graph Workbook</text>
+  <text x="1015" y="280" class="t">• Authoritative Excel calculation plane</text>
+  <text x="1015" y="320" class="t">• Native co-authoring and ACL boundary</text>
+  <text x="1015" y="360" class="t">• Purview label compatible workflows</text>
+  <text x="1015" y="400" class="t">• Handles live collaboration scenarios</text>
+  <text x="1015" y="440" class="t">• Plan for Graph throttling controls</text>
+  <rect x="1015" y="470" width="220" height="40" rx="16" fill="#f8fafc"/>
+  <text x="1030" y="497" class="pill">Collaboration-first</text>
+
+  <rect x="1450" y="180" width="400" height="760" rx="20" fill="#991b1b" opacity="0.92"/>
+  <text x="1475" y="230" class="h">Route D · Anti-Pattern</text>
+  <text x="1475" y="280" class="t">• One-shot export without recalculation</text>
+  <text x="1475" y="320" class="t">• No raster-level visual verification</text>
+  <text x="1475" y="360" class="t">• Weak execution isolation boundaries</text>
+  <text x="1475" y="400" class="t">• High hidden rework and incident cost</text>
+  <text x="1475" y="440" class="t">• Not suitable for critical production</text>
+  <rect x="1475" y="470" width="180" height="40" rx="16" fill="#fef2f2"/>
+  <text x="1490" y="497" class="pill">Do not ship</text>
+
+  <text x="70" y="1015" class="sub">Key KPI set: defect escape, render latency P95, retries per artifact, escalation ratio, and cost per artifact.</text>
+</svg>
