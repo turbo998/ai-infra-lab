@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（410 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（411 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **410 个架构选型、平台对比与安全治理决策专题**（共 `820` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **411 个架构选型、平台对比与安全治理决策专题**（共 `822` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 410 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 411 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（51 篇）
 
@@ -281,7 +281,7 @@
 | 398 | [企业 RAG 冲突来源权威裁决选型 FAQ：Architecture A（Authority-DAG + `Lex Specialis/Lex Posterior` 条款覆盖解析）vs Architecture B（NLI contradiction cluster 运行时冲突聚类升级）vs Architecture C（新鲜度/信任度加权重排）vs Architecture D（Naive Top-K 拼接反模式），覆盖 Superseded-Policy Hallucination、`O(k^2)` NLI 预算约束、紧急撤销切换 SLA 与三年治理 TCO](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.md) | [🇨🇳 中文](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.md) · [🇬🇧 EN](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.en.md) |
 | 405 | [企业 Agent 长期记忆污染防护选型 FAQ：Route A（Taint 感知写入防火墙 + `Cosmos/PostgreSQL` 溯源账本）vs Route B（`Proposed -> Confirmed` 人审两阶段记忆收件箱 + 版本回滚）vs Route C（零写持久记忆 + SoR 只读穿透）vs Route D（会后自动汇总平铺向量库反模式），覆盖 `1 - (1 - p_hit)^S`、多跳 taint 传播、级联回滚成本与三年 TCO](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.md) | [🇨🇳 中文](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.md) · [🇬🇧 EN](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（51 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（52 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -338,6 +338,7 @@
 | 389 | [企业实时语音 Agent 轮转结束判定与打断控制选型 FAQ：Architecture A（Native `semantic_vad` + 动态 `eagerness`）vs Architecture B（边缘降噪 + Prosodic/Lexical EoU + 两阶段 backchannel 安全 barge-in）vs Architecture C（`Push-to-Talk/Hold-to-Speak` 显式地板控制 + 可视侧信道）vs Architecture D（固定 `silence_duration_ms` 能量阈值反模式），覆盖误截断-轮转延迟 Pareto、`-18dB/180ms` 软压制与硬 `truncate` 体验权衡、PSTN vs WebRTC SNR 差异与三档 TCO](voice-turn-detection-barge-in-semantic-vad-vs-prosodic-eou-slm-vs-ptt-floor-selection-faq.md) | [🇨🇳 中文](voice-turn-detection-barge-in-semantic-vad-vs-prosodic-eou-slm-vs-ptt-floor-selection-faq.md) · [🇬🇧 EN](voice-turn-detection-barge-in-semantic-vad-vs-prosodic-eou-slm-vs-ptt-floor-selection-faq.en.md) |
 | 396 | [企业语音 Agent 深伪防护选型 FAQ：Architecture A（SBC/ACS 媒体分叉声学活体与深伪检测）vs Architecture B（风险触发 OOB Passkey/Verified ID）vs Architecture C（会话微挑战 + 声纹验证）vs Architecture D（静态声纹/KBA 反模式），覆盖 G.711 窄带 EER、Bayes 后验基率陷阱、`tx_hash` 交易绑定闸控与 `1.8M/4.5M` 呼叫场景三年 TCO](voice-agent-deepfake-liveness-sbc-spectral-detector-vs-oob-passkey-vs-kba-selection-faq.md) | [🇨🇳 中文](voice-agent-deepfake-liveness-sbc-spectral-detector-vs-oob-passkey-vs-kba-selection-faq.md) · [🇬🇧 EN](voice-agent-deepfake-liveness-sbc-spectral-detector-vs-oob-passkey-vs-kba-selection-faq.en.md) |
 | 403 | [企业跨模态全渠道会话连续性选型 FAQ：Route A（`ACS Call Automation + AOAI Realtime + Web PubSub` 实时伴随画布，`5-min` PoP/Passkey 绑定 `JWE`）vs Route B（`ACS Advanced Messaging WhatsApp/RCS + Durable + Cosmos TTL` `24h–72h` 异步恢复）vs Route C（`Dynamics 365 Contact Center + Copilot Studio` 一体化座席与主管插入）vs Route D（App 内深链接 Step-Up + PII-Masked Co-Browse 零 SMS 执行面），覆盖 `P_fork`、`W_replay`、跨租户混淆风险与三年 TCO](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.md) | [🇨🇳 中文](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.md) · [🇬🇧 EN](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.en.md) |
+| 411 | [企业实时联络中心 Whisper-Coach 选型 FAQ：Route A（SBC `SIPREC` 双声道旁路 + `AKS` 媒体接入）vs Route B（CCaaS `AudioHook/AudioStream` WebSocket 流）vs Route C（坐席桌面 Sidecar 捕获）vs Route D（`Dynamics 365 Contact Center` 原生实时 Copilot），覆盖 `<800ms` 卡片时延、合规 pause-resume 同步、提示冷却节流与三年 TCO](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.md) | [🇨🇳 中文](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.md) · [🇬🇧 EN](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（52 篇）
 
