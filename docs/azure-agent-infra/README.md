@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（451 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（452 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **451 个架构选型、平台对比与安全治理决策专题**（共 `902` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **452 个架构选型、平台对比与安全治理决策专题**（共 `904` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 451 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 452 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（57 篇）
 
@@ -112,7 +112,7 @@
 | 443 | [企业自治漏洞模糊测试与崩溃复现沙箱选型 FAQ：Route A（`AKS Kata + LibFuzzer/AFL++/Jazzer + ASAN/UBSAN` 零出网隔离池）vs Route B（`ACA Jobs + Kani/CBMC` PR 时间窗有界验证）vs Route C（`Azure Batch Spot` 持续语料最小化）vs Route D（共享 CI Runner 执行不可信 PoC 反模式），覆盖 `CrashReproP95`、`DedupPrecision`、`UnitCostPerUniqueCrash` 与三年 TCO](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.md) | [🇨🇳 中文](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.md) · [🇬🇧 EN](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.en.md) |
 | 451 | [企业自治 SOC 恶意样本逆向与引爆沙箱选型 FAQ：Pattern A（`AKS Kata` 静态逆向 airlock）vs Pattern B（`VMSS` 一次性动态引爆 + `FakeNet`）vs Pattern C（Defender 托管情报/引爆 API）vs Pattern D（共享容器执行反模式），覆盖隔离、审计与三年 TCO](autonomous-soc-malware-reverse-engineering-detonation-sandbox-aks-kata-ghidra-static-airlock-vs-vmss-vmi-cape-fakenet-vs-defender-ti-selection-faq.md) | [🇨🇳 中文](autonomous-soc-malware-reverse-engineering-detonation-sandbox-aks-kata-ghidra-static-airlock-vs-vmss-vmi-cape-fakenet-vs-defender-ti-selection-faq.md) · [🇬🇧 EN](autonomous-soc-malware-reverse-engineering-detonation-sandbox-aks-kata-ghidra-static-airlock-vs-vmss-vmi-cape-fakenet-vs-defender-ti-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（56 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（57 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -175,6 +175,7 @@
 | 431 | [多租户 Dynamic Multi-LoRA 服务选型 FAQ：Route A（`AKS ND H100/H200` + `vLLM/SGLang` `Punica/S-LoRA` 三层分页）vs Route B（Foundry 托管微调部署）vs Route C（Zipf 热温冷分层固定）vs Route D（每租户独立 checkpoint/GPU 或无 `tid->adapter` 绑定反模式），覆盖 HBM 预算方程、DRAM/NVMe 冷加载时延、异构 rank 吞吐惩罚与三年 TCO](multi-tenant-dynamic-multilora-adapter-serving-aks-vllm-sglang-slora-paging-vs-foundry-ft-deployments-vs-tiered-pinning-selection-faq.md) | [🇨🇳 中文](multi-tenant-dynamic-multilora-adapter-serving-aks-vllm-sglang-slora-paging-vs-foundry-ft-deployments-vs-tiered-pinning-selection-faq.md) · [🇬🇧 EN](multi-tenant-dynamic-multilora-adapter-serving-aks-vllm-sglang-slora-paging-vs-foundry-ft-deployments-vs-tiered-pinning-selection-faq.en.md) |
 | 435 | [企业策略感知分级模型路由选型 FAQ：Route A（Foundry/AOAI PTU 稳态主干）vs Route B（ACA Serverless GPU 弹性溢出）vs Route C（AKS KAITO `Prefill/Decode` 解耦高吞吐）vs Route D（单路径大模型与参数穿透反模式），覆盖 `N_breakeven`、`TTFT_p95_total`、策略门禁与三年 TCO](policy-aware-tiered-model-routing-speculative-decoding-disaggregated-prefill-decode-foundry-ptu-vs-aca-serverless-gpu-vs-aks-kaito-selection-faq.md) | [🇨🇳 中文](policy-aware-tiered-model-routing-speculative-decoding-disaggregated-prefill-decode-foundry-ptu-vs-aca-serverless-gpu-vs-aks-kaito-selection-faq.md) · [🇬🇧 EN](policy-aware-tiered-model-routing-speculative-decoding-disaggregated-prefill-decode-foundry-ptu-vs-aca-serverless-gpu-vs-aks-kaito-selection-faq.en.md) |
 | 444 | [企业多模型 GPU VRAM Sleep/Wake 复用选型 FAQ：Route A（`AKS vLLM/SGLang Sleep Mode + cuMem` 主机内存卸载）vs Route B（`Ray + veRL/OpenRLHF` 同卡时分共址）vs Route C（`ACA Serverless GPU` + `APIM` 溢出）vs Route D（低占空比模型静态独占池/naive MPS 反模式），覆盖 `WakeP95`、`HBMHit`、`GPUUtil` 与三年 TCO](multi-model-gpu-vram-sleep-wake-multiplexing-aks-vllm-sglang-cumem-host-dram-pinning-vs-ray-verl-colocation-vs-aca-gpu-spillover-selection-faq.md) | [🇨🇳 中文](multi-model-gpu-vram-sleep-wake-multiplexing-aks-vllm-sglang-cumem-host-dram-pinning-vs-ray-verl-colocation-vs-aca-gpu-spillover-selection-faq.md) · [🇬🇧 EN](multi-model-gpu-vram-sleep-wake-multiplexing-aks-vllm-sglang-cumem-host-dram-pinning-vs-ray-verl-colocation-vs-aca-gpu-spillover-selection-faq.en.md) |
+| 452 | [企业级低抖动实时解码调度选型 FAQ：Pattern A（`vLLM V1/SGLang` overlap + chunked prefill + piecewise CUDA graph）vs Pattern B（`TensorRT-LLM + Triton`）vs Pattern C（Foundry `PTU` + `APIM` 分道）vs Pattern D（未分块 prefill/eager 回退反模式），覆盖 ITL 抖动、SLA 与三年 TCO](low-jitter-realtime-decode-scheduling-aks-vllm-v1-chunked-prefill-piecewise-cuda-graph-overlap-vs-tensorrt-llm-cpp-vs-foundry-ptu-selection-faq.md) | [🇨🇳 中文](low-jitter-realtime-decode-scheduling-aks-vllm-v1-chunked-prefill-piecewise-cuda-graph-overlap-vs-tensorrt-llm-cpp-vs-foundry-ptu-selection-faq.md) · [🇬🇧 EN](low-jitter-realtime-decode-scheduling-aks-vllm-v1-chunked-prefill-piecewise-cuda-graph-overlap-vs-tensorrt-llm-cpp-vs-foundry-ptu-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（56 篇）
 
