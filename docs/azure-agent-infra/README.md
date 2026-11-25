@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（428 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（429 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **428 个架构选型、平台对比与安全治理决策专题**（共 `856` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **429 个架构选型、平台对比与安全治理决策专题**（共 `858` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 428 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 429 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（53 篇）
 
@@ -229,7 +229,7 @@
 | 414 | [企业 MCP 工具参数预检与实体落地治理选型 FAQ：Route A（`APIM` JSON Schema + 跨字段不变量 + `Redis` 引用存在性 + `(session,tool,args_hash)` 循环熔断）vs Route B（推理层 `strict: true` 约束解码）vs Route C（两段式实体 Resolver + Canonical Handle）vs Route D（静默自动修复边界治理），覆盖语义失败拦截、紧凑 `isError` 提示、跨租户枚举防护与三年 TCO](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.md) | [🇨🇳 中文](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.md) · [🇬🇧 EN](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.en.md) |
 | 422 | [企业外部付费 MCP 与 Agentic Web 变现选型 FAQ：Route A（`AFD` Web Bot Auth 签名验证 + `APIM HTTP 402` + 预付钱包原子扣费）vs Route B（`API Center + APIM + Entra External ID` 企业订阅后付费）vs Route C（边缘流量分流到许可 `llms.txt/MCP Resource` 端点）vs Route D（同步逐次刷卡与可伪造 UA 白名单反模式），覆盖微支付费率摊销、幂等结算与源站卸载成本方程](external-paid-mcp-agentic-web-monetization-afd-web-bot-auth-apim-http402-wallet-vs-apicenter-b2b-subscription-selection-faq.md) | [🇨🇳 中文](external-paid-mcp-agentic-web-monetization-afd-web-bot-auth-apim-http402-wallet-vs-apicenter-b2b-subscription-selection-faq.md) · [🇬🇧 EN](external-paid-mcp-agentic-web-monetization-afd-web-bot-auth-apim-http402-wallet-vs-apicenter-b2b-subscription-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（53 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（54 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -288,6 +288,7 @@
 | 405 | [企业 Agent 长期记忆污染防护选型 FAQ：Route A（Taint 感知写入防火墙 + `Cosmos/PostgreSQL` 溯源账本）vs Route B（`Proposed -> Confirmed` 人审两阶段记忆收件箱 + 版本回滚）vs Route C（零写持久记忆 + SoR 只读穿透）vs Route D（会后自动汇总平铺向量库反模式），覆盖 `1 - (1 - p_hit)^S`、多跳 taint 传播、级联回滚成本与三年 TCO](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.md) | [🇨🇳 中文](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.md) · [🇬🇧 EN](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.en.md) |
 | 413 | [企业跨语言多脚本 RAG 数据平面选型 FAQ：Route A（三模索引 dense+sparse+`keyword` 精确码）vs Route B（术语固定查询扩展 fan-out 并行检索）vs Route C（索引时 `content_native/content_pivot_en/domain_entities` 影子字段）vs Route D（主权区域索引网格），覆盖跨脚本 `Recall@10` 坍塌恢复、代码命中保底、原文权威引用与三年 TCO](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.md) | [🇨🇳 中文](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.md) · [🇬🇧 EN](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.en.md) |
 | 421 | [企业超长交叉引用文档 RAG 选型 FAQ：Route A（`Azure AI Search` 混合检索 + 条款/定义词引用图 `2-hop` 闭包）vs Route B（`ToC/Clause-AST` 层级树导航工具循环）vs Route C（`128K-1M` 长上下文缓存单 dossier 深挖）vs Route D（平铺分块/局部 parent-child 反模式），覆盖 `P_complete` 多跳完整率、度爆炸控制、ACL 裁剪与三年 TCO](cross-referenced-long-document-rag-clause-graph-expansion-ai-search-vs-hierarchical-toc-tree-vs-cached-long-context-selection-faq.md) | [🇨🇳 中文](cross-referenced-long-document-rag-clause-graph-expansion-ai-search-vs-hierarchical-toc-tree-vs-cached-long-context-selection-faq.md) · [🇬🇧 EN](cross-referenced-long-document-rag-clause-graph-expansion-ai-search-vs-hierarchical-toc-tree-vs-cached-long-context-selection-faq.en.md) |
+| 429 | [Agent 程序性记忆与可验证技能库选型 FAQ：Route A（GitOps 渐进披露 `SKILL.md`：`L0` 元数据路由 + `L1` SOP 正文 + `L2` 版本钉住脚本包）vs Route B（ReasoningBank/ACE 程序卡蒸馏 + `Beta(α,β)` 评分 + schema-hash 自动失效）vs Route C（净化 `k-NN` 轨迹样例库）vs Route D（原始日志向量化与全技能提示词堆叠反模式），覆盖 `Tokens_prompt`、反迷信门禁、跨租户 `k-anonymity` 与三年 TCO](agent-procedural-memory-verified-skill-library-progressive-skillmd-ai-search-vs-reasoningbank-cosmos-vs-knn-trajectory-selection-faq.md) | [🇨🇳 中文](agent-procedural-memory-verified-skill-library-progressive-skillmd-ai-search-vs-reasoningbank-cosmos-vs-knn-trajectory-selection-faq.md) · [🇬🇧 EN](agent-procedural-memory-verified-skill-library-progressive-skillmd-ai-search-vs-reasoningbank-cosmos-vs-knn-trajectory-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（54 篇）
 
