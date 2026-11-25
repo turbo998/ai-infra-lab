@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（439 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（440 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **439 个架构选型、平台对比与安全治理决策专题**（共 `878` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **440 个架构选型、平台对比与安全治理决策专题**（共 `880` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 439 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 440 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（54 篇）
 
@@ -421,7 +421,7 @@
 | 433 | [受监管 AI 通讯留痕与审阅归档选型 FAQ：Route A（`Purview Communication Compliance + DLM + eDiscovery + Blob Locked WORM`）vs Route B（`APIM/Envoy` Fail-Closed Journaling Tap -> `Event Hubs` -> `Smarsh/Global Relay` + `Azure Confidential Ledger` 对账证明）vs Route C（高风险外发 Pre-Send Principal Hold + 内部 Post-Send 抽样）vs Route D（可变遥测日志充当合规记录反模式），覆盖 `S_7yr` 留存容量、`ΔL_ack` 时延边界、`N_gateway==N_archive` 完整性证明与 3/7 年 TCO](regulated-ai-communications-recordkeeping-sec-17a4-finra-3110-purview-worm-vs-smarsh-global-relay-tap-vs-presend-hold-selection-faq.md) | [🇨🇳 中文](regulated-ai-communications-recordkeeping-sec-17a4-finra-3110-purview-worm-vs-smarsh-global-relay-tap-vs-presend-hold-selection-faq.md) · [🇬🇧 EN](regulated-ai-communications-recordkeeping-sec-17a4-finra-3110-purview-worm-vs-smarsh-global-relay-tap-vs-presend-hold-selection-faq.en.md) |
 | 439 | [受监管智能体记忆删除与跨境数据驻留选型 FAQ：Route A（`APIM` 地域门禁与租户声明校验）vs Route B（`Purview` 生命周期与删除策略治理）vs Route C（`Confidential Ledger` 删除证据不可抵赖账本）vs Route D（只删主库不清缓存/索引/副本反模式），覆盖 `W_erase`、`Risk_reg`、`Risk_xborder`、`Evidence_coverage` 与三年 TCO](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.md) | [🇨🇳 中文](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.md) · [🇬🇧 EN](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（54 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（55 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -481,6 +481,7 @@
 | 412 | [企业静默模型行为漂移检测选型 FAQ：Route A（Seeded Probe + Top-K Logprob JSD + CUSUM 顺序告警）vs Route B（OTel 真实流量结构遥测 + 分层分布漂移）vs Route C（在线评测影子镜像等价门禁）vs Route D（AKS 自托管不可变权重），覆盖 `1.5% -> 4.0%` 结构破坏检测时间、PTU 与 Spillover 等价判据、抗振荡回切与三年 TCO](silent-model-behavioral-drift-detection-seeded-logprob-sentinel-cusum-eventhouse-vs-online-eval-selection-faq.md) | [🇨🇳 中文](silent-model-behavioral-drift-detection-seeded-logprob-sentinel-cusum-eventhouse-vs-online-eval-selection-faq.md) · [🇬🇧 EN](silent-model-behavioral-drift-detection-seeded-logprob-sentinel-cusum-eventhouse-vs-online-eval-selection-faq.en.md) |
 | 420 | [企业 PTU 利用率最大化选型 FAQ：Route A（Global PTU Follow-the-Sun 跨 BU 共享清算池）vs Route B（`APIM` 闭环闲时回填 + `Service Bus/KEDA` AIMD 控制）vs Route C（Data-Zone/Regional PTU + Batch API 折扣 + PAYG 溢出）vs Route D（部门烟囱式 PTU 囤积与无节制定时任务反模式），覆盖时区复用增益方程、`U_target=0.72` 控制律、清算公平模型与三年 TCO](ptu-utilization-maximization-follow-the-sun-pooling-apim-idle-valley-backfill-vs-batch-api-finops-selection-faq.md) | [🇨🇳 中文](ptu-utilization-maximization-follow-the-sun-pooling-apim-idle-valley-backfill-vs-batch-api-finops-selection-faq.md) · [🇬🇧 EN](ptu-utilization-maximization-follow-the-sun-pooling-apim-idle-valley-backfill-vs-batch-api-finops-selection-faq.en.md) |
 | 428 | [企业 SME 标注与主动学习仲裁工作台选型 FAQ：Route A（`AKS/ACA` 私网 `Argilla/Label Studio` + `Private Link` + 双盲双审）vs Route B（`Teams/Outlook` 微审阅卡片 + `Service Bus/Cosmos DB`）vs Route C（`AVD` 零外泄 Tier-1 外包 + Tier-2 内部升级）vs Route D（随机抽样/预展示评委分数/公网众包反模式），覆盖 `Score_AL`、锚定偏差抑制、`κ/α` 一致性诊断与三年 TCO](enterprise-sme-annotation-active-learning-workbench-aks-argilla-label-studio-vs-teams-micro-review-vs-avd-tiered-bpo-selection-faq.md) | [🇨🇳 中文](enterprise-sme-annotation-active-learning-workbench-aks-argilla-label-studio-vs-teams-micro-review-vs-avd-tiered-bpo-selection-faq.md) · [🇬🇧 EN](enterprise-sme-annotation-active-learning-workbench-aks-argilla-label-studio-vs-teams-micro-review-vs-avd-tiered-bpo-selection-faq.en.md) |
+| 440 | [企业模型发布门禁与影子评测选型 FAQ：Route A（`Foundry Evals` 离线门禁）vs Route B（`APIM` 在线影子流量对照）vs Route C（分层金丝雀 `1%->10%->50%->100%` 自动回退）vs Route D（无评测全量切换反模式），覆盖 `Gain_release`、`Drift_shadow`、`Release_confidence` 与三年 TCO](model-release-gate-shadow-eval-groundedness-toxicity-latency-budget-apim-foundry-evals-selection-faq.md) | [🇨🇳 中文](model-release-gate-shadow-eval-groundedness-toxicity-latency-budget-apim-foundry-evals-selection-faq.md) · [🇬🇧 EN](model-release-gate-shadow-eval-groundedness-toxicity-latency-budget-apim-foundry-evals-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（55 篇）
 
