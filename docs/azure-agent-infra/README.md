@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（430 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（431 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **430 个架构选型、平台对比与安全治理决策专题**（共 `860` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **431 个架构选型、平台对比与安全治理决策专题**（共 `862` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 430 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 431 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（53 篇）
 
@@ -108,7 +108,7 @@
 | 416 | [Code-Mode 程序化工具编排沙箱选型 FAQ：Route A（AKS `V8 Isolate` capability-scoped worker pool + APIM OBO）vs Route B（`QuickJS + Wasmtime` fuel/线性内存硬上限）vs Route C（`ACA Dynamic Sessions` Hyper-V 会话池）vs Route D（进程内 `node:vm/eval` 与 20 回合顺序 JSON 反模式），覆盖 `K` 步编排时延与 Token 方程、MCP Schema 到 `.d.ts` 静态门禁、RPC 预算并发配额、幂等补偿与三年 TCO](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.md) | [🇨🇳 中文](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.md) · [🇬🇧 EN](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.en.md) |
 | 424 | [企业 Agentic Office 文档/PDF 渲染沙箱选型 FAQ：Route A（`ACA Sessions/AKS Kata` + `LibreOffice` 重算 + `pdftoppm` + VLM 视觉闭环）vs Route B（`Typst + Chromium Print-CSS` 高吞吐声明式排版）vs Route C（`Microsoft Graph Workbook` 原生计算协作）vs Route D（无重算无隔离单次导出反模式），覆盖缺陷逃逸率 `E_escape`、字体保真、SSRF 防护与三年 TCO](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.md) | [🇨🇳 中文](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.md) · [🇬🇧 EN](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（53 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（54 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -168,6 +168,7 @@
 | 407 | [企业全模态音视频智能体托管选型 FAQ：Route A（Foundry Omni/PTU 托管实时推理 + 溢出）vs Route B（AKS `Phi-4-Multimodal/Qwen2.5-Omni` 自托管）vs Route C（编码器解耦 + 前沿推理规划）vs Route D（Speech/Vision/Text 多服务级联），覆盖持续 token burn、P95 时延分解、GPU 显存装箱与三年 TCO](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.md) | [🇨🇳 中文](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.md) · [🇬🇧 EN](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.en.md) |
 | 415 | [主权语种与行业符号 DSL 分词膨胀治理选型 FAQ：Route A（`AML` 词表手术 `+24k-48k` + `FOCUS/WECHSEL/FVT` 热启 + 两阶段 CPT + AKS vLLM 专线）vs Route B（原生 `200k-256k` 多语词表基座 PTU/AKS）vs Route C（冻结 tokenizer + Multi-LoRA 共享基座）vs Route D（随机 append + LoRA-only 与 JSON 结构 token 失配反模式），覆盖 `F` 超线性成本、`lm_head` 税、UAG/EAGLE 兼容与三年 TCO](sovereign-domain-tokenizer-extension-fertility-optimization-aml-focus-cpt-vs-stock-vocab-ptu-selection-faq.md) | [🇨🇳 中文](sovereign-domain-tokenizer-extension-fertility-optimization-aml-focus-cpt-vs-stock-vocab-ptu-selection-faq.md) · [🇬🇧 EN](sovereign-domain-tokenizer-extension-fertility-optimization-aml-focus-cpt-vs-stock-vocab-ptu-selection-faq.en.md) |
 | 423 | [企业无 GPU 辅助模型服务选型 FAQ：Route A（AKS `Ddsv6/Dpsv6` + ONNX/OpenVINO 编码器）vs Route B（BitNet/INT4 `llama.cpp` CPU 生成式 SLM）vs Route C（ACA Serverless GPU 或 Foundry Serverless 升级）vs Route D（CPU 跑 BF16 大模型或低负载 24x7 GPU 反模式），覆盖 `TPS_max` 带宽上界、`RPS/$` 拐点、冷启动窗口与主权驻留升级策略](gpu-free-cpu-slm-encoder-serving-aks-dsv6-cobalt-openvino-onnx-vs-bitnet-llamacpp-vs-aca-serverless-gpu-selection-faq.md) | [🇨🇳 中文](gpu-free-cpu-slm-encoder-serving-aks-dsv6-cobalt-openvino-onnx-vs-bitnet-llamacpp-vs-aca-serverless-gpu-selection-faq.md) · [🇬🇧 EN](gpu-free-cpu-slm-encoder-serving-aks-dsv6-cobalt-openvino-onnx-vs-bitnet-llamacpp-vs-aca-serverless-gpu-selection-faq.en.md) |
+| 431 | [多租户 Dynamic Multi-LoRA 服务选型 FAQ：Route A（`AKS ND H100/H200` + `vLLM/SGLang` `Punica/S-LoRA` 三层分页）vs Route B（Foundry 托管微调部署）vs Route C（Zipf 热温冷分层固定）vs Route D（每租户独立 checkpoint/GPU 或无 `tid->adapter` 绑定反模式），覆盖 HBM 预算方程、DRAM/NVMe 冷加载时延、异构 rank 吞吐惩罚与三年 TCO](multi-tenant-dynamic-multilora-adapter-serving-aks-vllm-sglang-slora-paging-vs-foundry-ft-deployments-vs-tiered-pinning-selection-faq.md) | [🇨🇳 中文](multi-tenant-dynamic-multilora-adapter-serving-aks-vllm-sglang-slora-paging-vs-foundry-ft-deployments-vs-tiered-pinning-selection-faq.md) · [🇬🇧 EN](multi-tenant-dynamic-multilora-adapter-serving-aks-vllm-sglang-slora-paging-vs-foundry-ft-deployments-vs-tiered-pinning-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（54 篇）
 
