@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（404 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（405 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **404 个架构选型、平台对比与安全治理决策专题**（共 `808` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **405 个架构选型、平台对比与安全治理决策专题**（共 `810` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 404 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 405 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（50 篇）
 
@@ -220,7 +220,7 @@
 | 392 | [企业 MCP 工具调用读缓存与失效治理选型 FAQ：Architecture A（`APIM + Redis` 的 OBO-ACL 绑定 `JCS` 键与 `surrogate + write_epoch` RYW 失效）vs Architecture B（`Singleflight + XFetch + ETag` 并发塌缩）vs Architecture C（`CDC/Webhook -> Event Grid` 主动驱逐）vs Architecture D（`POST` 直通或主体盲 TTL 反模式），覆盖 `1 - H_eff`、`XFetch` 防击穿概率、`P(dup_write)` 与 `1M/25M/250M` 三档 TCO](mcp-tool-call-cache-acl-jcs-singleflight-vs-surrogate-ryw-vs-cdc-evict-selection-faq.md) | [🇨🇳 中文](mcp-tool-call-cache-acl-jcs-singleflight-vs-surrogate-ryw-vs-cdc-evict-selection-faq.md) · [🇬🇧 EN](mcp-tool-call-cache-acl-jcs-singleflight-vs-surrogate-ryw-vs-cdc-evict-selection-faq.en.md) |
 | 399 | [企业 OT/IT `IEC 62443` L3.5 IDMZ `OPC-UA/Modbus` MCP 网关与写入安全治理选型 FAQ：Route A（L3.5 Brokered Conduit + 物理包络/斜率门禁 + 双阶段签核）vs Route B（数据二极管只读影子）vs Route C（APIM + Relay 直连适配）vs Route D（直写 PLC 反模式），覆盖 `U_comm` 轮询裕度、`|Δu/Δt|` 物理约束、闭环时效门禁与三年 TCO](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.md) | [🇨🇳 中文](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.md) · [🇬🇧 EN](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（50 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（51 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -276,6 +276,7 @@
 | 384 | [企业 RAG 向量模型零停机迁移选型 FAQ：Architecture A（Blue-Green `Index Alias` 原子切换 + Canonical Chunk Store `AOAI Batch` 回填 + `Event Hubs` CDC 追平）vs Architecture B（`vec_v1/vec_v2` 双向量并行渐进切流）vs Architecture C（Orthogonal Procrustes 桥接应急迁移）vs Architecture D（同列覆写/全量重 OCR 反模式），覆盖 `T_backfill`、`C_OCR_saved`、`λ_CDC < μ_drain` 收敛条件与 `10M/100M/1B` 三档 TCO](rag-embedding-migration-blue-green-alias-vs-dual-vector-vs-procrustes-bridge-selection-faq.md) | [🇨🇳 中文](rag-embedding-migration-blue-green-alias-vs-dual-vector-vs-procrustes-bridge-selection-faq.md) · [🇬🇧 EN](rag-embedding-migration-blue-green-alias-vs-dual-vector-vs-procrustes-bridge-selection-faq.en.md) |
 | 391 | [企业 RAG 可验证引用与坐标级证据选型 FAQ：Architecture A（`Document Intelligence v4` `Span-ID + polygon` 坐标侧车 + `Quote-Then-Synthesize` 确定性子串校验）vs Architecture B（`Groundedness/NLI` 原子 claim 蕴含门禁）vs Architecture C（流式句边界后归因 `citation.resolved`）vs Architecture D（自由 `[1]` 脚注反模式），覆盖 `F1_cite`、`ΔS_poly ≈ N_span × B_poly`、`L_total` 时延权衡与 `50K/1M/20M` 三档 TCO](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.md) | [🇨🇳 中文](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.md) · [🇬🇧 EN](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.en.md) |
 | 398 | [企业 RAG 冲突来源权威裁决选型 FAQ：Architecture A（Authority-DAG + `Lex Specialis/Lex Posterior` 条款覆盖解析）vs Architecture B（NLI contradiction cluster 运行时冲突聚类升级）vs Architecture C（新鲜度/信任度加权重排）vs Architecture D（Naive Top-K 拼接反模式），覆盖 Superseded-Policy Hallucination、`O(k^2)` NLI 预算约束、紧急撤销切换 SLA 与三年治理 TCO](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.md) | [🇨🇳 中文](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.md) · [🇬🇧 EN](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.en.md) |
+| 405 | [企业 Agent 长期记忆污染防护选型 FAQ：Route A（Taint 感知写入防火墙 + `Cosmos/PostgreSQL` 溯源账本）vs Route B（`Proposed -> Confirmed` 人审两阶段记忆收件箱 + 版本回滚）vs Route C（零写持久记忆 + SoR 只读穿透）vs Route D（会后自动汇总平铺向量库反模式），覆盖 `1 - (1 - p_hit)^S`、多跳 taint 传播、级联回滚成本与三年 TCO](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.md) | [🇨🇳 中文](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.md) · [🇬🇧 EN](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（51 篇）
 
