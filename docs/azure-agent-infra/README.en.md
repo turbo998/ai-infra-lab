@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (413 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (414 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **413 structured architecture selection guides and trade-off FAQs** (`826` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **414 structured architecture selection guides and trade-off FAQs** (`828` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 413 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 414 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (51 Guides)
 
@@ -165,7 +165,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 400 | [Enterprise batch-invariant and bitwise-reproducible LLM inference selection FAQ: Route A (AKS `vLLM/SGLang` fixed-tile and fixed Split-K kernels) vs Route B (PTU plus `seed`, `system_fingerprint`, and immutable audit ledger) vs Route C (teacher-forced verification lane) vs Route D (shared dynamic-batching determinism anti-pattern), covering `P_div(L)` divergence probability, `η_inv` throughput tax, `|Δl|` tolerance bounds, and three-year TCO](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.en.md) | [🇬🇧 EN](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.en.md) · [🇨🇳 中文](batch-invariant-llm-inference-fixed-splitk-vllm-aks-vs-ptu-seed-ledger-selection-faq.md) |
 | 407 | [Enterprise omni-modal audio+video agent serving selection FAQ: Route A (Foundry Omni/PTU managed realtime serving with overflow) vs Route B (AKS self-hosted `Phi-4-Multimodal/Qwen2.5-Omni`) vs Route C (disaggregated encoder tier plus frontier planner) vs Route D (Speech/Vision/Text managed cascade), covering continuous token burn, P95 latency decomposition, GPU VRAM packing, and three-year TCO](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.en.md) | [🇬🇧 EN](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.en.md) · [🇨🇳 中文](omnimodal-audio-video-agent-serving-foundry-omni-ptu-vs-aks-phi4-qwen-omni-vs-cascade-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (51 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (52 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -222,6 +222,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 392 | [Enterprise MCP JSON-RPC `tools/call` read-cache governance FAQ: Architecture A (`APIM + Redis` OBO-ACL-bound `JCS` keys with `surrogate + write_epoch` RYW invalidation) vs Architecture B (`Singleflight + XFetch + ETag` concurrency collapse) vs Architecture C (`CDC/Webhook -> Event Grid` proactive eviction) vs Architecture D (`POST` pass-through or principal-blind TTL anti-pattern), covering `1 - H_eff`, XFetch stampede math, `P(dup_write)`, and tiered `1M/25M/250M` enterprise TCO](mcp-tool-call-cache-acl-jcs-singleflight-vs-surrogate-ryw-vs-cdc-evict-selection-faq.en.md) | [🇬🇧 EN](mcp-tool-call-cache-acl-jcs-singleflight-vs-surrogate-ryw-vs-cdc-evict-selection-faq.en.md) · [🇨🇳 中文](mcp-tool-call-cache-acl-jcs-singleflight-vs-surrogate-ryw-vs-cdc-evict-selection-faq.md) |
 | 399 | [Enterprise OT/IT `IEC 62443` level-3.5 IDMZ `OPC-UA/Modbus` MCP gateway and write-safety governance selection FAQ: Route A (level-3.5 brokered conduit with physics-envelope and slew-rate guards plus two-phase sign-off) vs Route B (hardware data-diode read-only shadow) vs Route C (APIM plus relay direct adapter) vs Route D (direct PLC write anti-pattern), covering `U_comm` polling headroom, `|Δu/Δt|` physical constraints, closed-loop staleness gates, and three-year TCO](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.en.md) | [🇬🇧 EN](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.en.md) · [🇨🇳 中文](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.md) |
 | 406 | [Enterprise cross-organization A2A transaction non-repudiation selection FAQ: Route A (`RFC 9421` bilateral signatures + `RFC 8785` JCS canonicalization + JWS receipts anchored in `Azure Confidential Ledger`) vs Route B (neutral clearinghouse/notary gateway with WORM audit feed) vs Route C (two-phase quote-lock commit with value-tiered HSM/human quorum) vs Route D (transport-only mTLS plus unilateral gateway logs baseline), covering fair-exchange crash-window recovery, SSE hash-chain finalization, and three-year TCO](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.en.md) | [🇬🇧 EN](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.en.md) · [🇨🇳 中文](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.md) |
+| 414 | [Enterprise MCP tool-argument pre-flight and entity-grounding governance selection FAQ: Route A (`APIM` JSON schema + cross-field invariants + `Redis` referential checks + `(session,tool,args_hash)` loop breaker) vs Route B (inference-layer `strict: true` constrained decoding) vs Route C (two-step entity resolver with canonical handles) vs Route D (silent auto-repair governance boundary), covering semantic-failure interception, compact `isError` recovery hints, cross-tenant enumeration controls, and three-year TCO](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.en.md) | [🇬🇧 EN](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.en.md) · [🇨🇳 中文](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (52 Guides)
 
