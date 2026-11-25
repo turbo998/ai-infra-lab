@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（433 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（434 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **433 个架构选型、平台对比与安全治理决策专题**（共 `866` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **434 个架构选型、平台对比与安全治理决策专题**（共 `868` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 433 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 434 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（54 篇）
 
@@ -477,7 +477,7 @@
 | 420 | [企业 PTU 利用率最大化选型 FAQ：Route A（Global PTU Follow-the-Sun 跨 BU 共享清算池）vs Route B（`APIM` 闭环闲时回填 + `Service Bus/KEDA` AIMD 控制）vs Route C（Data-Zone/Regional PTU + Batch API 折扣 + PAYG 溢出）vs Route D（部门烟囱式 PTU 囤积与无节制定时任务反模式），覆盖时区复用增益方程、`U_target=0.72` 控制律、清算公平模型与三年 TCO](ptu-utilization-maximization-follow-the-sun-pooling-apim-idle-valley-backfill-vs-batch-api-finops-selection-faq.md) | [🇨🇳 中文](ptu-utilization-maximization-follow-the-sun-pooling-apim-idle-valley-backfill-vs-batch-api-finops-selection-faq.md) · [🇬🇧 EN](ptu-utilization-maximization-follow-the-sun-pooling-apim-idle-valley-backfill-vs-batch-api-finops-selection-faq.en.md) |
 | 428 | [企业 SME 标注与主动学习仲裁工作台选型 FAQ：Route A（`AKS/ACA` 私网 `Argilla/Label Studio` + `Private Link` + 双盲双审）vs Route B（`Teams/Outlook` 微审阅卡片 + `Service Bus/Cosmos DB`）vs Route C（`AVD` 零外泄 Tier-1 外包 + Tier-2 内部升级）vs Route D（随机抽样/预展示评委分数/公网众包反模式），覆盖 `Score_AL`、锚定偏差抑制、`κ/α` 一致性诊断与三年 TCO](enterprise-sme-annotation-active-learning-workbench-aks-argilla-label-studio-vs-teams-micro-review-vs-avd-tiered-bpo-selection-faq.md) | [🇨🇳 中文](enterprise-sme-annotation-active-learning-workbench-aks-argilla-label-studio-vs-teams-micro-review-vs-avd-tiered-bpo-selection-faq.md) · [🇬🇧 EN](enterprise-sme-annotation-active-learning-workbench-aks-argilla-label-studio-vs-teams-micro-review-vs-avd-tiered-bpo-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（54 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（55 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -537,3 +537,4 @@
 | 410 | [企业级 Cell-Based + Shuffle Sharding 与四级 Brownout 韧性选型 FAQ：Route A（`APIM` 租户 HMAC `N-choose-K` 虚拟 Cell 路由 + `AKS/ACA` 分片配额）vs Route B（Shared-Nothing Deployment Stamps）vs Route C（Adaptive Graceful Brownout）vs Route D（共享池朴素跨区切流反模式），覆盖毒丸隔离、重试风暴遏制、分环发布回滚与三年 TCO](cell-based-shuffle-sharding-graceful-brownout-agent-resilience-apim-stamps-selection-faq.md) | [🇨🇳 中文](cell-based-shuffle-sharding-graceful-brownout-agent-resilience-apim-stamps-selection-faq.md) · [🇬🇧 EN](cell-based-shuffle-sharding-graceful-brownout-agent-resilience-apim-stamps-selection-faq.en.md) |
 | 418 | [AI Landing Zone 零中断节点维护选型 FAQ：Route A（`Kubernetes Fleet Manager` 分环 UpdateRun + `AKS` Blue-Green NodePool）vs Route B（配额受限 In-Place 升级 + `Scheduled Events` 预检点 + APIM 溢出）vs Route C（不可变 Deployment Stamp 蓝绿切换）vs Route D（托管卸载对照与跨区同时自动升级反模式），覆盖升级总时长方程、PDB 死锁规避、IMDS 预警排空与三年 TCO](ai-landing-zone-zero-disruption-k8s-node-maintenance-aks-fleet-update-runs-vs-blue-green-nodepool-vs-stamp-swap-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-zero-disruption-k8s-node-maintenance-aks-fleet-update-runs-vs-blue-green-nodepool-vs-stamp-swap-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-zero-disruption-k8s-node-maintenance-aks-fleet-update-runs-vs-blue-green-nodepool-vs-stamp-swap-selection-faq.en.md) |
 | 426 | [自治数据库 SRE 与自愈 DBops 智能体选型 FAQ：Route A（`HypoPG` 假想索引 + PITR 克隆回放 + GitOps 安全 DDL PR）vs Route B（Azure SQL 自动调优 + PostgreSQL 原生建议）vs Route C（受限锁风暴止血 Runbook：根阻塞识别、连接池剪切、受保护会话豁免）vs Route D（高权限自治生产写库反模式），覆盖锁队列放大方程、`C_after/C_before` 门槛、`ΔW_idx` 写放大与三年 TCO](autonomous-database-sre-dbops-agent-azure-pg-sql-hypopg-gitops-ddl-vs-automatic-tuning-vs-bounded-lock-mitigation-selection-faq.md) | [🇨🇳 中文](autonomous-database-sre-dbops-agent-azure-pg-sql-hypopg-gitops-ddl-vs-automatic-tuning-vs-bounded-lock-mitigation-selection-faq.md) · [🇬🇧 EN](autonomous-database-sre-dbops-agent-azure-pg-sql-hypopg-gitops-ddl-vs-automatic-tuning-vs-bounded-lock-mitigation-selection-faq.en.md) |
+| 434 | [多区域 RAG 与 AI Search 容灾选型 FAQ：Route A（双 Region `AI Search` Active-Active Stamp + `ADLS Gen2 GZRS` Golden Vector Lake）vs Route B（Pilot-Light 温备 `1 Replica` + 分层热语料优先回灌）vs Route C（`Cosmos DB DiskANN` 向量与业务状态原子容灾）vs Route D（多区域 LLM + 单区域检索反模式），覆盖 `SU=P×R` 成本模型、`T_scale` 副本扩展窗口、`RPO_acl` 权限撤销传播边界与三年 TCO](multi-region-rag-ai-search-bcdr-failover-active-active-gzrs-vector-lake-vs-pilot-light-hydration-vs-cosmos-diskann-selection-faq.md) | [🇨🇳 中文](multi-region-rag-ai-search-bcdr-failover-active-active-gzrs-vector-lake-vs-pilot-light-hydration-vs-cosmos-diskann-selection-faq.md) · [🇬🇧 EN](multi-region-rag-ai-search-bcdr-failover-active-active-gzrs-vector-lake-vs-pilot-light-hydration-vs-cosmos-diskann-selection-faq.en.md) |
