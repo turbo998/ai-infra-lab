@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（429 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（430 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **429 个架构选型、平台对比与安全治理决策专题**（共 `858` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **430 个架构选型、平台对比与安全治理决策专题**（共 `860` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 429 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 430 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（53 篇）
 
@@ -169,7 +169,7 @@
 | 415 | [主权语种与行业符号 DSL 分词膨胀治理选型 FAQ：Route A（`AML` 词表手术 `+24k-48k` + `FOCUS/WECHSEL/FVT` 热启 + 两阶段 CPT + AKS vLLM 专线）vs Route B（原生 `200k-256k` 多语词表基座 PTU/AKS）vs Route C（冻结 tokenizer + Multi-LoRA 共享基座）vs Route D（随机 append + LoRA-only 与 JSON 结构 token 失配反模式），覆盖 `F` 超线性成本、`lm_head` 税、UAG/EAGLE 兼容与三年 TCO](sovereign-domain-tokenizer-extension-fertility-optimization-aml-focus-cpt-vs-stock-vocab-ptu-selection-faq.md) | [🇨🇳 中文](sovereign-domain-tokenizer-extension-fertility-optimization-aml-focus-cpt-vs-stock-vocab-ptu-selection-faq.md) · [🇬🇧 EN](sovereign-domain-tokenizer-extension-fertility-optimization-aml-focus-cpt-vs-stock-vocab-ptu-selection-faq.en.md) |
 | 423 | [企业无 GPU 辅助模型服务选型 FAQ：Route A（AKS `Ddsv6/Dpsv6` + ONNX/OpenVINO 编码器）vs Route B（BitNet/INT4 `llama.cpp` CPU 生成式 SLM）vs Route C（ACA Serverless GPU 或 Foundry Serverless 升级）vs Route D（CPU 跑 BF16 大模型或低负载 24x7 GPU 反模式），覆盖 `TPS_max` 带宽上界、`RPS/$` 拐点、冷启动窗口与主权驻留升级策略](gpu-free-cpu-slm-encoder-serving-aks-dsv6-cobalt-openvino-onnx-vs-bitnet-llamacpp-vs-aca-serverless-gpu-selection-faq.md) | [🇨🇳 中文](gpu-free-cpu-slm-encoder-serving-aks-dsv6-cobalt-openvino-onnx-vs-bitnet-llamacpp-vs-aca-serverless-gpu-selection-faq.md) · [🇬🇧 EN](gpu-free-cpu-slm-encoder-serving-aks-dsv6-cobalt-openvino-onnx-vs-bitnet-llamacpp-vs-aca-serverless-gpu-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（53 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（54 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -228,6 +228,7 @@
 | 406 | [企业跨组织 A2A 交易不可抵赖选型 FAQ：Route A（`RFC 9421` 双边签名 + `RFC 8785` JCS 规范化 + JWS 回执锚定 `Azure Confidential Ledger`）vs Route B（中立清算/公证网关 + WORM 审计流）vs Route C（两阶段锁价承诺 + 风险分级 HSM/人工签核）vs Route D（仅 mTLS + 单边日志基线），覆盖公平交换 crash-window、SSE 哈希链终局与三年 TCO](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.md) | [🇨🇳 中文](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.md) · [🇬🇧 EN](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.en.md) |
 | 414 | [企业 MCP 工具参数预检与实体落地治理选型 FAQ：Route A（`APIM` JSON Schema + 跨字段不变量 + `Redis` 引用存在性 + `(session,tool,args_hash)` 循环熔断）vs Route B（推理层 `strict: true` 约束解码）vs Route C（两段式实体 Resolver + Canonical Handle）vs Route D（静默自动修复边界治理），覆盖语义失败拦截、紧凑 `isError` 提示、跨租户枚举防护与三年 TCO](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.md) | [🇨🇳 中文](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.md) · [🇬🇧 EN](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.en.md) |
 | 422 | [企业外部付费 MCP 与 Agentic Web 变现选型 FAQ：Route A（`AFD` Web Bot Auth 签名验证 + `APIM HTTP 402` + 预付钱包原子扣费）vs Route B（`API Center + APIM + Entra External ID` 企业订阅后付费）vs Route C（边缘流量分流到许可 `llms.txt/MCP Resource` 端点）vs Route D（同步逐次刷卡与可伪造 UA 白名单反模式），覆盖微支付费率摊销、幂等结算与源站卸载成本方程](external-paid-mcp-agentic-web-monetization-afd-web-bot-auth-apim-http402-wallet-vs-apicenter-b2b-subscription-selection-faq.md) | [🇨🇳 中文](external-paid-mcp-agentic-web-monetization-afd-web-bot-auth-apim-http402-wallet-vs-apicenter-b2b-subscription-selection-faq.md) · [🇬🇧 EN](external-paid-mcp-agentic-web-monetization-afd-web-bot-auth-apim-http402-wallet-vs-apicenter-b2b-subscription-selection-faq.en.md) |
+| 430 | [企业 MCP Server 升级发布选型 FAQ：Route A（`APIM` 只读影子镜像 + `Event Hubs/Eventhouse` 异步结构/语义差异引擎）vs Route B（`Microcks/WireMock` 录制回放沙箱 + Foundry 轨迹门禁）vs Route C（`App Configuration + APIM` 会话粘性金丝雀 `1%->10%->50%->100%` + 自动回退）vs Route D（盲影子写调用、会话跨版本、latest 原地覆盖反模式），覆盖副作用风险上界、`ΔTTFT`、样本量检测与三年 TCO](mcp-server-canary-shadow-traffic-replay-diff-governance-apim-readonly-mirror-vs-cassette-sandbox-vs-cohort-ring-selection-faq.md) | [🇨🇳 中文](mcp-server-canary-shadow-traffic-replay-diff-governance-apim-readonly-mirror-vs-cassette-sandbox-vs-cohort-ring-selection-faq.md) · [🇬🇧 EN](mcp-server-canary-shadow-traffic-replay-diff-governance-apim-readonly-mirror-vs-cassette-sandbox-vs-cohort-ring-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（54 篇）
 
