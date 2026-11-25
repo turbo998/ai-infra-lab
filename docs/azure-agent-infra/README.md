@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（453 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（454 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **453 个架构选型、平台对比与安全治理决策专题**（共 `906` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **454 个架构选型、平台对比与安全治理决策专题**（共 `908` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 453 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 454 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（57 篇）
 
@@ -241,7 +241,7 @@
 | 445 | [间歇 WAN 边缘 AI Gateway 与 Store-and-Forward MCP 治理选型 FAQ：Route A（`APIM Self-Hosted Gateway on AKS Arc` + `PVC config-backup` + 离线 JWKS pinning）vs Route B（`Envoy + OPA/Cedar + SPIFFE/SPIRE` 心跳无依赖自治）vs Route C（云 APIM 主平面 + 本地只读降级 Broker）vs Route D（Cloud Hairpin/无持久配置反模式），覆盖 `LocalRouteP95`、`OfflineSurvival`、`ReplayLoss` 与三年 TCO](intermittent-wan-edge-ai-gateway-store-and-forward-mcp-governance-apim-self-hosted-arc-vs-gitops-envoy-spiffe-vs-cloud-hairpin-selection-faq.md) | [🇨🇳 中文](intermittent-wan-edge-ai-gateway-store-and-forward-mcp-governance-apim-self-hosted-arc-vs-gitops-envoy-spiffe-vs-cloud-hairpin-selection-faq.md) · [🇬🇧 EN](intermittent-wan-edge-ai-gateway-store-and-forward-mcp-governance-apim-self-hosted-arc-vs-gitops-envoy-spiffe-vs-cloud-hairpin-selection-faq.en.md) |
 | 453 | [企业 Agent-Ready Web 门户与目录暴露选型 FAQ：Pattern A（`NLWeb + Schema.org + MCP`）vs Pattern B（`AFD llms.txt` + `Accept: text/markdown`）vs Pattern C（`agents.json` 事务清单）vs Pattern D（重 JS SPA/1:1 OpenAPI 暴露反模式），覆盖接入治理、缓存与三年 TCO](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.md) | [🇨🇳 中文](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.md) · [🇬🇧 EN](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（56 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（57 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -303,6 +303,7 @@
 | 429 | [Agent 程序性记忆与可验证技能库选型 FAQ：Route A（GitOps 渐进披露 `SKILL.md`：`L0` 元数据路由 + `L1` SOP 正文 + `L2` 版本钉住脚本包）vs Route B（ReasoningBank/ACE 程序卡蒸馏 + `Beta(α,β)` 评分 + schema-hash 自动失效）vs Route C（净化 `k-NN` 轨迹样例库）vs Route D（原始日志向量化与全技能提示词堆叠反模式），覆盖 `Tokens_prompt`、反迷信门禁、跨租户 `k-anonymity` 与三年 TCO](agent-procedural-memory-verified-skill-library-progressive-skillmd-ai-search-vs-reasoningbank-cosmos-vs-knn-trajectory-selection-faq.md) | [🇨🇳 中文](agent-procedural-memory-verified-skill-library-progressive-skillmd-ai-search-vs-reasoningbank-cosmos-vs-knn-trajectory-selection-faq.md) · [🇬🇧 EN](agent-procedural-memory-verified-skill-library-progressive-skillmd-ai-search-vs-reasoningbank-cosmos-vs-knn-trajectory-selection-faq.en.md) |
 | 437 | [企业有状态智能体记忆撤销与时间语义 RAG 选型 FAQ：Route A（`Cosmos DB + Change Feed + AI Search Push` 一致性主线）vs Route B（`Redis Lease + RYW` 会话级撤销护栏）vs Route C（`valid_from/valid_until + tombstone` 账本审计回放）vs Route D（仅删主库不清缓存/索引反模式），覆盖 `W_revoke`、`P_ghost`、`Replay_coverage` 与三年 TCO](stateful-agent-memory-revocation-temporal-rag-cosmos-changefeed-redis-lease-ai-search-tombstone-selection-faq.md) | [🇨🇳 中文](stateful-agent-memory-revocation-temporal-rag-cosmos-changefeed-redis-lease-ai-search-tombstone-selection-faq.md) · [🇬🇧 EN](stateful-agent-memory-revocation-temporal-rag-cosmos-changefeed-redis-lease-ai-search-tombstone-selection-faq.en.md) |
 | 446 | [多向量 Late-Interaction 与 Learned Sparse RAG 选型 FAQ：Pattern A（`Azure AI Search` 托管单向量混合检索）vs Pattern B（`AKS Vespa/Qdrant + ColBERT/ColQwen + SPLADE/BGE-M3`）vs Pattern C（`MUVERA` 级联精排）vs Pattern D（token 行爆炸反模式），覆盖 `NDCG@10`、`Recall@50`、`P95`、`ACL` 与三年 TCO](late-interaction-multivector-learned-sparse-rag-ai-search-bm25-semantic-ranker-vs-aks-vespa-qdrant-colbert-splade-vs-muvera-cascade-selection-faq.md) | [🇨🇳 中文](late-interaction-multivector-learned-sparse-rag-ai-search-bm25-semantic-ranker-vs-aks-vespa-qdrant-colbert-splade-vs-muvera-cascade-selection-faq.md) · [🇬🇧 EN](late-interaction-multivector-learned-sparse-rag-ai-search-bm25-semantic-ranker-vs-aks-vespa-qdrant-colbert-splade-vs-muvera-cascade-selection-faq.en.md) |
+| 454 | [企业语音通话档案与合规录音 RAG 选型 FAQ：Pattern A（`Azure Speech` 说话人分离 + N-best 音素索引）vs Pattern B（`Content Understanding` 托管抽取）vs Pattern C（`AKS` 声学向量检索）vs Pattern D（1-best 固定分块反模式），覆盖可追溯回放、合规与三年 TCO](enterprise-spoken-audio-call-archive-rag-azure-speech-diarization-phonetic-nbest-ai-search-vs-content-understanding-audio-vs-aks-acoustic-embeddings-selection-faq.md) | [🇨🇳 中文](enterprise-spoken-audio-call-archive-rag-azure-speech-diarization-phonetic-nbest-ai-search-vs-content-understanding-audio-vs-aks-acoustic-embeddings-selection-faq.md) · [🇬🇧 EN](enterprise-spoken-audio-call-archive-rag-azure-speech-diarization-phonetic-nbest-ai-search-vs-content-understanding-audio-vs-aks-acoustic-embeddings-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（56 篇）
 

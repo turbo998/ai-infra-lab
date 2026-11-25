@@ -5,11 +5,31 @@ from __future__ import annotations
 
 import unittest
 import sys
+import os
 from pathlib import Path
 
 SIMULATOR_DIR = Path(__file__).resolve().parent
 if str(SIMULATOR_DIR) not in sys.path:
     sys.path.insert(0, str(SIMULATOR_DIR))
+
+
+def _win_long_path(path: Path) -> Path:
+    if os.name != "nt":
+        return path
+    raw = str(path)
+    if raw.startswith("\\\\?\\"):
+        return path
+    if raw.startswith("\\\\"):
+        return Path("\\\\?\\UNC\\" + raw.lstrip("\\"))
+    return Path("\\\\?\\" + raw)
+
+
+def _safe_read_text(path: Path, encoding: str = "utf-8") -> str:
+    return _win_long_path(path).read_text(encoding=encoding)
+
+
+def _safe_exists(path: Path) -> bool:
+    return _win_long_path(path).exists()
 
 from agent_infra_sizer import (
     E2B_VM_BENCHMARKS,
@@ -124,7 +144,7 @@ class TestAgentInfraSizer(unittest.TestCase):
         svg_files = sorted((bundle_dir / "assets").glob("*.svg"))
         self.assertEqual(len(svg_files), 8)
         for svg in svg_files:
-            ET.fromstring(svg.read_text(encoding="utf-8"))
+            ET.fromstring(_safe_read_text(svg, encoding="utf-8"))
         for h5_name in ("index.html", "demo.html", "selector.html", "cards.html"):
             p = bundle_dir / "h5" / h5_name
             self.assertTrue(p.exists(), f"Missing H5 file {h5_name}")
@@ -188,7 +208,7 @@ class TestAgentInfraSizer(unittest.TestCase):
 
         bundle_dir = Path(__file__).resolve().parent.parent
         for md_file in bundle_dir.rglob("*.md"):
-            text = md_file.read_text(encoding="utf-8")
+            text = _safe_read_text(md_file, encoding="utf-8")
             text = re.sub(r"```.*?```", "", text, flags=re.S)
             for link in re.findall(r"\]\(([^)\s]+)(?:\s+\"[^\"]*\")?\)", text):
                 parsed = urllib.parse.urlsplit(link)
@@ -214,7 +234,7 @@ class TestAgentInfraSizer(unittest.TestCase):
         )
         self.assertIn("DEMO VERIFICATION", proc.stdout)
         trace_path = bundle_dir / "demo" / "latest-demo-trace.json"
-        trace = json.loads(trace_path.read_text(encoding="utf-8"))
+        trace = json.loads(_safe_read_text(trace_path, encoding="utf-8"))
         for key in (
             "demo_1_aksclaw",
             "demo_2_e2b_vmss",
@@ -527,14 +547,14 @@ class TestAgentInfraSizer(unittest.TestCase):
             for p in faq_dir.glob("*.en.md")
             if p.name != "README.en.md"
         }
-        self.assertEqual(len(zh_faqs), 453)
+        self.assertEqual(len(zh_faqs), 454)
         self.assertEqual(zh_faqs, en_faqs)
 
         link_re = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
         for md_file in repo_root.rglob("*.md"):
             if ".git" in md_file.parts:
                 continue
-            content = md_file.read_text(encoding="utf-8")
+            content = _safe_read_text(md_file, encoding="utf-8")
             in_fence = False
             for line in content.splitlines():
                 if line.strip().startswith("```"):
@@ -551,7 +571,7 @@ class TestAgentInfraSizer(unittest.TestCase):
                         continue
                     resolved = (md_file.parent / rel_path).resolve()
                     self.assertTrue(
-                        resolved.exists(),
+                        _safe_exists(resolved),
                         f"Broken relative link in {md_file.relative_to(repo_root)}: {raw_target}",
                     )
 
@@ -563,7 +583,7 @@ class TestAgentInfraSizer(unittest.TestCase):
         for json_file in repo_root.rglob("*.json"):
             if ".git" in json_file.parts:
                 continue
-            json.loads(json_file.read_text(encoding="utf-8"))
+            json.loads(_safe_read_text(json_file, encoding="utf-8"))
 
     def test_no_synthetic_readiness_padding_and_suffix_dedup(self) -> None:
         from collections import Counter
@@ -579,7 +599,7 @@ class TestAgentInfraSizer(unittest.TestCase):
         for md_file in faq_dir.glob("*.md"):
             if md_file.name in {"README.md", "README.en.md"}:
                 continue
-            text = md_file.read_text(encoding="utf-8")
+            text = _safe_read_text(md_file, encoding="utf-8")
             self.assertIsNone(
                 readiness_re.search(text),
                 f"Synthetic readiness padding marker found in {md_file.name}",
@@ -650,7 +670,7 @@ class TestAgentInfraSizer(unittest.TestCase):
             if path.resolve() == this_file:
                 continue
             if path.suffix.lower() in {".md", ".html", ".json", ".py", ".bicep", ".yaml", ".yml", ".xml"}:
-                text = path.read_text(encoding="utf-8")
+                text = _safe_read_text(path, encoding="utf-8")
                 match = banned_content_re.search(text)
                 self.assertIsNone(match, f"Banned non-SA/cycle token {match.group(0) if match else ''} in {rel}")
 
