@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（438 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（439 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **438 个架构选型、平台对比与安全治理决策专题**（共 `876` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **439 个架构选型、平台对比与安全治理决策专题**（共 `878` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 438 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 439 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（54 篇）
 
@@ -419,6 +419,7 @@
 | 417 | [Agentic 零点击隐蔽外泄防护选型 FAQ：Route A（流式 Markdown AST Airlock + Citation 来源白名单 + `AFD` HMAC 签名代理 + 严格 `CSP` 与 unfurl 抑制）vs Route B（`APIM` 会话污点账本 + MCP 出站收件人/租户边界门禁 + 熵/DLP 审查）vs Route C（Purview + Entra Internet Access + Defender for Cloud AI 托管联动）vs Route D（仅后端 egress deny 反模式），覆盖 URL 通道容量、分块绕过防护、SSRF/IMDS 连接钩子与三年 TCO](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.md) | [🇨🇳 中文](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.md) · [🇬🇧 EN](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.en.md) |
 | 425 | [企业 Agent 信息隔离墙与 MNPI 伦理墙选型 FAQ：Route A（Purview Information Barriers + M365 原生分段）vs Route B（`APIM + OPA` 实时双边冲突矩阵 + `excluded_segments` 检索裁剪 + 分段盐化语义缓存）vs Route C（每墙 CMK + 专属 Stamp 加密与计算环形隔离）vs Route D（共享索引/共享缓存/共享编排反模式），覆盖 `Allow(u,r)` 双边约束、`ΔT_wall` 亚分钟生效、间接越墙阻断与三年 TCO](enterprise-agent-information-barriers-mnpi-ethical-wall-purview-ib-vs-apim-opa-exclusion-rag-vs-cmk-stamp-ringfencing-selection-faq.md) | [🇨🇳 中文](enterprise-agent-information-barriers-mnpi-ethical-wall-purview-ib-vs-apim-opa-exclusion-rag-vs-cmk-stamp-ringfencing-selection-faq.md) · [🇬🇧 EN](enterprise-agent-information-barriers-mnpi-ethical-wall-purview-ib-vs-apim-opa-exclusion-rag-vs-cmk-stamp-ringfencing-selection-faq.en.md) |
 | 433 | [受监管 AI 通讯留痕与审阅归档选型 FAQ：Route A（`Purview Communication Compliance + DLM + eDiscovery + Blob Locked WORM`）vs Route B（`APIM/Envoy` Fail-Closed Journaling Tap -> `Event Hubs` -> `Smarsh/Global Relay` + `Azure Confidential Ledger` 对账证明）vs Route C（高风险外发 Pre-Send Principal Hold + 内部 Post-Send 抽样）vs Route D（可变遥测日志充当合规记录反模式），覆盖 `S_7yr` 留存容量、`ΔL_ack` 时延边界、`N_gateway==N_archive` 完整性证明与 3/7 年 TCO](regulated-ai-communications-recordkeeping-sec-17a4-finra-3110-purview-worm-vs-smarsh-global-relay-tap-vs-presend-hold-selection-faq.md) | [🇨🇳 中文](regulated-ai-communications-recordkeeping-sec-17a4-finra-3110-purview-worm-vs-smarsh-global-relay-tap-vs-presend-hold-selection-faq.md) · [🇬🇧 EN](regulated-ai-communications-recordkeeping-sec-17a4-finra-3110-purview-worm-vs-smarsh-global-relay-tap-vs-presend-hold-selection-faq.en.md) |
+| 439 | [受监管智能体记忆删除与跨境数据驻留选型 FAQ：Route A（`APIM` 地域门禁与租户声明校验）vs Route B（`Purview` 生命周期与删除策略治理）vs Route C（`Confidential Ledger` 删除证据不可抵赖账本）vs Route D（只删主库不清缓存/索引/副本反模式），覆盖 `W_erase`、`Risk_reg`、`Risk_xborder`、`Evidence_coverage` 与三年 TCO](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.md) | [🇨🇳 中文](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.md) · [🇬🇧 EN](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（54 篇）
 
