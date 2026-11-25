@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（442 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（443 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **442 个架构选型、平台对比与安全治理决策专题**（共 `884` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **443 个架构选型、平台对比与安全治理决策专题**（共 `886` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 442 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 443 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（59 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（56 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -109,6 +109,7 @@
 | 424 | [企业 Agentic Office 文档/PDF 渲染沙箱选型 FAQ：Route A（`ACA Sessions/AKS Kata` + `LibreOffice` 重算 + `pdftoppm` + VLM 视觉闭环）vs Route B（`Typst + Chromium Print-CSS` 高吞吐声明式排版）vs Route C（`Microsoft Graph Workbook` 原生计算协作）vs Route D（无重算无隔离单次导出反模式），覆盖缺陷逃逸率 `E_escape`、字体保真、SSRF 防护与三年 TCO](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.md) | [🇨🇳 中文](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.md) · [🇬🇧 EN](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.en.md) |
 | 432 | [企业不可信媒体转码与 Codec Airlock 沙箱选型 FAQ：Route A（`AKS Kata` 零出网一次性 `FFmpeg/libvips` Airlock + `protocol_whitelist file,pipe` + `policy.xml` + `seccomp`）vs Route B（CPU 预解封 + `NVDEC/NVENC` GPU 高吞吐池）vs Route C（`ACA Dynamic Sessions EgressDisabled` 轻量交互）vs Route D（主编排容器直跑媒体工具反模式），覆盖像素炸弹内存包络、Claim-Check SAS 与吞吐/成本拐点三年 TCO](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.md) | [🇨🇳 中文](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.md) · [🇬🇧 EN](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.en.md) |
 | 442 | [企业远程浏览器/CUA 沙箱隔离选型 FAQ：Route A（`ACA Dynamic Sessions` 轻量会话池）vs Route B（`Playwright Worker Fleet` 高并发脚本编排）vs Route C（`AKS Kata + GPU Browser` 强隔离富媒体任务）vs Route D（业务容器内嵌浏览器反模式），覆盖 `Q_capacity`、`P95_total`、`Risk_isolation`、`Cost_task` 与三年 TCO](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.md) | [🇨🇳 中文](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.md) · [🇬🇧 EN](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.en.md) |
+| 443 | [企业自治漏洞模糊测试与崩溃复现沙箱选型 FAQ：Route A（`AKS Kata + LibFuzzer/AFL++/Jazzer + ASAN/UBSAN` 零出网隔离池）vs Route B（`ACA Jobs + Kani/CBMC` PR 时间窗有界验证）vs Route C（`Azure Batch Spot` 持续语料最小化）vs Route D（共享 CI Runner 执行不可信 PoC 反模式），覆盖 `CrashReproP95`、`DedupPrecision`、`UnitCostPerUniqueCrash` 与三年 TCO](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.md) | [🇨🇳 中文](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.md) · [🇬🇧 EN](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（55 篇）
 
@@ -359,7 +360,7 @@
 | 427 | [多智能体 Typed Blackboard 协同选型 FAQ：Route A（`Cosmos DB` Typed Artifact Blackboard + `Change Feed` 谓词订阅 + `If-Match ETag`）vs Route B（`Managed Redis` `RedisJSON + Streams + Lua CAS` 亚 10ms Tuple-Space）vs Route C（`Durable Entities/Dapr Actors` 单写者热点单元串行化）vs Route D（中心监督者全历史中继/无版本共享 JSON 反模式），覆盖 `Tokens_hub` 与 `Tokens_bb` 缩放、`P_conflict` 拐点、`hop_budget` 防环路与三年 TCO](multi-agent-blackboard-coordination-cosmos-change-feed-etag-vs-redis-tuple-space-vs-durable-entities-actor-selection-faq.md) | [🇨🇳 中文](multi-agent-blackboard-coordination-cosmos-change-feed-etag-vs-redis-tuple-space-vs-durable-entities-actor-selection-faq.md) · [🇬🇧 EN](multi-agent-blackboard-coordination-cosmos-change-feed-etag-vs-redis-tuple-space-vs-durable-entities-actor-selection-faq.en.md) |
 | 438 | [企业人审门禁与长周期 Agent 编排选型 FAQ：Route A（`Durable Functions` 事件驱动审批编排）vs Route B（`Temporal on AKS` 复杂跨域状态机）vs Route C（`Logic Apps + BPMN` 连接器集成）vs Route D（同步请求串联审批与执行反模式），覆盖 `C_wait`、`Risk_timeout`、`Risk_duplicate`、`RTO_orchestration` 与三年 TCO](human-approval-durable-agent-workflow-durable-functions-vs-temporal-on-aks-vs-logic-apps-bpmn-selection-faq.md) | [🇨🇳 中文](human-approval-durable-agent-workflow-durable-functions-vs-temporal-on-aks-vs-logic-apps-bpmn-selection-faq.md) · [🇬🇧 EN](human-approval-durable-agent-workflow-durable-functions-vs-temporal-on-aks-vs-logic-apps-bpmn-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（55 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（56 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 

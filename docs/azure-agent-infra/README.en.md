@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (442 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (443 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **442 structured architecture selection guides and trade-off FAQs** (`884` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **443 structured architecture selection guides and trade-off FAQs** (`886` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 442 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 443 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (59 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (56 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -110,6 +110,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 424 | [Enterprise agentic Office/PDF artifact rendering sandbox selection FAQ: Route A (`ACA Sessions/AKS Kata` + `LibreOffice` recalculation + `pdftoppm` + VLM visual-QA loop) vs Route B (`Typst + Chromium Print-CSS` high-throughput declarative rendering) vs Route C (`Microsoft Graph Workbook` authoritative calculation/collaboration plane) vs Route D (blind export without recalculation/isolation), covering `E_escape`, typography fidelity, SSRF containment, and three-year TCO](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.en.md) | [🇬🇧 EN](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.en.md) · [🇨🇳 中文](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.md) |
 | 432 | [Enterprise untrusted media transcoding and codec-airlock sandbox selection FAQ: Route A (`AKS Kata` zero-egress one-shot `FFmpeg/libvips` airlock with `protocol_whitelist file,pipe`, `policy.xml`, and `seccomp`) vs Route B (CPU pre-demux airlock plus `NVDEC/NVENC` GPU throughput pool) vs Route C (`ACA Dynamic Sessions EgressDisabled` lightweight interaction lane) vs Route D (orchestrator-inline media tooling anti-pattern), covering decompression-bomb memory envelope, claim-check SAS transport economics, and three-year TCO crossover](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.en.md) | [🇬🇧 EN](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.en.md) · [🇨🇳 中文](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.md) |
 | 442 | [Enterprise remote-browser/CUA sandbox-isolation selection FAQ: Route A (`ACA Dynamic Sessions`) lightweight pool vs Route B (`Playwright Worker Fleet`) high-throughput script orchestration vs Route C (`AKS Kata + GPU browser`) hard-isolation rich-media execution vs Route D (embedded browser in business containers anti-pattern), covering `Q_capacity`, `P95_total`, `Risk_isolation`, `Cost_task`, and three-year TCO](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.en.md) | [🇬🇧 EN](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.en.md) · [🇨🇳 中文](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.md) |
+| 443 | [Enterprise autonomous fuzzing, crash-repro, and bounded-verification sandbox selection FAQ: Route A (`AKS Kata + LibFuzzer/AFL++/Jazzer + ASAN/UBSAN`) zero-egress isolation pool vs Route B (`ACA Jobs + Kani/CBMC`) PR-time bounded verification vs Route C (`Azure Batch Spot`) continuous corpus minimization vs Route D (shared CI runner executing untrusted PoCs anti-pattern), covering `CrashReproP95`, `DedupPrecision`, `UnitCostPerUniqueCrash`, and three-year TCO](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.en.md) | [🇬🇧 EN](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.en.md) · [🇨🇳 中文](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (55 Guides)
 
