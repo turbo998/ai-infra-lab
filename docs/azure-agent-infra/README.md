@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（441 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（442 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **441 个架构选型、平台对比与安全治理决策专题**（共 `882` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **442 个架构选型、平台对比与安全治理决策专题**（共 `884` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 441 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 442 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（54 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（59 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -108,6 +108,7 @@
 | 416 | [Code-Mode 程序化工具编排沙箱选型 FAQ：Route A（AKS `V8 Isolate` capability-scoped worker pool + APIM OBO）vs Route B（`QuickJS + Wasmtime` fuel/线性内存硬上限）vs Route C（`ACA Dynamic Sessions` Hyper-V 会话池）vs Route D（进程内 `node:vm/eval` 与 20 回合顺序 JSON 反模式），覆盖 `K` 步编排时延与 Token 方程、MCP Schema 到 `.d.ts` 静态门禁、RPC 预算并发配额、幂等补偿与三年 TCO](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.md) | [🇨🇳 中文](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.md) · [🇬🇧 EN](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.en.md) |
 | 424 | [企业 Agentic Office 文档/PDF 渲染沙箱选型 FAQ：Route A（`ACA Sessions/AKS Kata` + `LibreOffice` 重算 + `pdftoppm` + VLM 视觉闭环）vs Route B（`Typst + Chromium Print-CSS` 高吞吐声明式排版）vs Route C（`Microsoft Graph Workbook` 原生计算协作）vs Route D（无重算无隔离单次导出反模式），覆盖缺陷逃逸率 `E_escape`、字体保真、SSRF 防护与三年 TCO](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.md) | [🇨🇳 中文](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.md) · [🇬🇧 EN](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.en.md) |
 | 432 | [企业不可信媒体转码与 Codec Airlock 沙箱选型 FAQ：Route A（`AKS Kata` 零出网一次性 `FFmpeg/libvips` Airlock + `protocol_whitelist file,pipe` + `policy.xml` + `seccomp`）vs Route B（CPU 预解封 + `NVDEC/NVENC` GPU 高吞吐池）vs Route C（`ACA Dynamic Sessions EgressDisabled` 轻量交互）vs Route D（主编排容器直跑媒体工具反模式），覆盖像素炸弹内存包络、Claim-Check SAS 与吞吐/成本拐点三年 TCO](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.md) | [🇨🇳 中文](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.md) · [🇬🇧 EN](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.en.md) |
+| 442 | [企业远程浏览器/CUA 沙箱隔离选型 FAQ：Route A（`ACA Dynamic Sessions` 轻量会话池）vs Route B（`Playwright Worker Fleet` 高并发脚本编排）vs Route C（`AKS Kata + GPU Browser` 强隔离富媒体任务）vs Route D（业务容器内嵌浏览器反模式），覆盖 `Q_capacity`、`P95_total`、`Risk_isolation`、`Cost_task` 与三年 TCO](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.md) | [🇨🇳 中文](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.md) · [🇬🇧 EN](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（55 篇）
 
