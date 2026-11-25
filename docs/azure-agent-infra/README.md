@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（415 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（416 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **415 个架构选型、平台对比与安全治理决策专题**（共 `830` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **416 个架构选型、平台对比与安全治理决策专题**（共 `832` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 415 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 416 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（51 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（52 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -105,6 +105,7 @@
 | 394 | [企业分布式系统 Coding Agent 确定性仿真沙箱选型 FAQ：Architecture A（Antithesis 类 VMM 确定性时钟/网络 + `rr` 反例重放）vs Architecture B（`Turmoil/MadSim` 进程内高密度种子扫描）vs Architecture C（`AKS + Chaos Studio/Chaos Mesh` 真实内核混沌验证）vs Architecture D（wall-clock `sleep()`/共享 staging 反模式），覆盖 `P_detect`、`S_warp`、flake 污染率与 `200/3,000/25,000 PRs/mo` 三年 TCO](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.md) | [🇨🇳 中文](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.md) · [🇬🇧 EN](deterministic-simulation-sandbox-antithesis-vmm-vs-turmoil-aca-vs-chaos-aks-selection-faq.en.md) |
 | 401 | [企业 Agent 代码沙箱出站隔离选型 FAQ：Route A（AKS Kata + Out-of-Band Phantom-Token Envoy + DNS Sinkhole + IMDS 阻断）vs Route B（ACA Dynamic Sessions `EgressDisabled` + Host Broker）vs Route C（VNet + Azure Firewall Premium + DNS Private Resolver）vs Route D（明文 `.env` / IMDS 直通 / `0.0.0.0/0` 外联反模式），覆盖 `C_dns`、`ΔT_proxy`、`E_cred` 与三年治理 TCO](sandbox-egress-phantom-token-envoy-proxy-aks-kata-vs-aca-zero-egress-selection-faq.md) | [🇨🇳 中文](sandbox-egress-phantom-token-envoy-proxy-aks-kata-vs-aca-zero-egress-selection-faq.md) · [🇬🇧 EN](sandbox-egress-phantom-token-envoy-proxy-aks-kata-vs-aca-zero-egress-selection-faq.en.md) |
 | 408 | [企业遗留终端与厚客户端智能体沙箱选型 FAQ：Route A（`TN3270/TN5250` 协议原生无头容器）vs Route B（AVD `UIA/SAP GUI Scripting` + VLM 兜底）vs Route C（Citrix 像素双跳 VLM + 提交前 OCR 回读断言）vs Route D（Hosted RPA 机组编排），覆盖 LU 池回压、每 Agent 身份审计、破坏性提交联锁与三年 TCO](legacy-terminal-thick-client-agent-sandbox-tn3270-aca-vs-avd-uia-vlm-vs-hosted-rpa-selection-faq.md) | [🇨🇳 中文](legacy-terminal-thick-client-agent-sandbox-tn3270-aca-vs-avd-uia-vlm-vs-hosted-rpa-selection-faq.md) · [🇬🇧 EN](legacy-terminal-thick-client-agent-sandbox-tn3270-aca-vs-avd-uia-vlm-vs-hosted-rpa-selection-faq.en.md) |
+| 416 | [Code-Mode 程序化工具编排沙箱选型 FAQ：Route A（AKS `V8 Isolate` capability-scoped worker pool + APIM OBO）vs Route B（`QuickJS + Wasmtime` fuel/线性内存硬上限）vs Route C（`ACA Dynamic Sessions` Hyper-V 会话池）vs Route D（进程内 `node:vm/eval` 与 20 回合顺序 JSON 反模式），覆盖 `K` 步编排时延与 Token 方程、MCP Schema 到 `.d.ts` 静态门禁、RPC 预算并发配额、幂等补偿与三年 TCO](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.md) | [🇨🇳 中文](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.md) · [🇬🇧 EN](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（52 篇）
 
