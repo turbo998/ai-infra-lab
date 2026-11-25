@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（424 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（425 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **424 个架构选型、平台对比与安全治理决策专题**（共 `848` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **425 个架构选型、平台对比与安全治理决策专题**（共 `850` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 424 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 425 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（53 篇）
 
@@ -349,7 +349,7 @@
 | 411 | [企业实时联络中心 Whisper-Coach 选型 FAQ：Route A（SBC `SIPREC` 双声道旁路 + `AKS` 媒体接入）vs Route B（CCaaS `AudioHook/AudioStream` WebSocket 流）vs Route C（坐席桌面 Sidecar 捕获）vs Route D（`Dynamics 365 Contact Center` 原生实时 Copilot），覆盖 `<800ms` 卡片时延、合规 pause-resume 同步、提示冷却节流与三年 TCO](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.md) | [🇨🇳 中文](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.md) · [🇬🇧 EN](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.en.md) |
 | 419 | [企业实时双向同传语音桥选型 FAQ：Route A（`Azure AI Speech Live Interpreter` + 连续 `LID` + `ACS/LiveKit` 双路 ducking）vs Route B（`AOAI Realtime` 语义同传 + 严格角色护栏）vs Route C（`Wait-k` 分句级级联 + 数字/剂量确定性校验）vs Route D（Teams 内置同传与全句等待反模式对照），覆盖 `EVS` 时延窗口、双路回声抑制、数值一致性门禁与三年 TCO](realtime-simultaneous-speech-interpretation-bridge-speech-live-interpreter-vs-aoai-realtime-s2s-vs-waitk-cascade-selection-faq.md) | [🇨🇳 中文](realtime-simultaneous-speech-interpretation-bridge-speech-live-interpreter-vs-aoai-realtime-s2s-vs-waitk-cascade-selection-faq.md) · [🇬🇧 EN](realtime-simultaneous-speech-interpretation-bridge-speech-live-interpreter-vs-aoai-realtime-s2s-vs-waitk-cascade-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（53 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（54 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -408,6 +408,7 @@
 | 269 | [企业级 Agent 授权选型 FAQ：Entra PIM + JIT 同意 vs APIM JWT 能力声明 vs OPA Policy Graph 决策平面（最小权限、临时升级、审计可追溯与 P95/TCO 拐点平衡）](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) | [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) · [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) |
 | 409 | [企业主权 HYOK 与双重密钥加密选型 FAQ：Route A（Purview DKE + 客户密钥代理 + 受证明执行单元）vs Route B（同城 HYOK FPE 可逆代理 + 托管前沿模型）vs Route C（Managed HSM + SKR + 机密计算 CPU/GPU）vs Route D（主权伙伴云/断连边缘），覆盖 BYOK 与 HYOK 边界、吊销 SLA `<60s`、语义保真与三年 TCO](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.md) | [🇨🇳 中文](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.md) · [🇬🇧 EN](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.en.md) |
 | 417 | [Agentic 零点击隐蔽外泄防护选型 FAQ：Route A（流式 Markdown AST Airlock + Citation 来源白名单 + `AFD` HMAC 签名代理 + 严格 `CSP` 与 unfurl 抑制）vs Route B（`APIM` 会话污点账本 + MCP 出站收件人/租户边界门禁 + 熵/DLP 审查）vs Route C（Purview + Entra Internet Access + Defender for Cloud AI 托管联动）vs Route D（仅后端 egress deny 反模式），覆盖 URL 通道容量、分块绕过防护、SSRF/IMDS 连接钩子与三年 TCO](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.md) | [🇨🇳 中文](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.md) · [🇬🇧 EN](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.en.md) |
+| 425 | [企业 Agent 信息隔离墙与 MNPI 伦理墙选型 FAQ：Route A（Purview Information Barriers + M365 原生分段）vs Route B（`APIM + OPA` 实时双边冲突矩阵 + `excluded_segments` 检索裁剪 + 分段盐化语义缓存）vs Route C（每墙 CMK + 专属 Stamp 加密与计算环形隔离）vs Route D（共享索引/共享缓存/共享编排反模式），覆盖 `Allow(u,r)` 双边约束、`ΔT_wall` 亚分钟生效、间接越墙阻断与三年 TCO](enterprise-agent-information-barriers-mnpi-ethical-wall-purview-ib-vs-apim-opa-exclusion-rag-vs-cmk-stamp-ringfencing-selection-faq.md) | [🇨🇳 中文](enterprise-agent-information-barriers-mnpi-ethical-wall-purview-ib-vs-apim-opa-exclusion-rag-vs-cmk-stamp-ringfencing-selection-faq.md) · [🇬🇧 EN](enterprise-agent-information-barriers-mnpi-ethical-wall-purview-ib-vs-apim-opa-exclusion-rag-vs-cmk-stamp-ringfencing-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（53 篇）
 
