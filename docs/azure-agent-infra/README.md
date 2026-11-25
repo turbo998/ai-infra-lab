@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（435 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（436 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **435 个架构选型、平台对比与安全治理决策专题**（共 `870` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **436 个架构选型、平台对比与安全治理决策专题**（共 `872` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 435 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 436 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（54 篇）
 
@@ -172,7 +172,7 @@
 | 431 | [多租户 Dynamic Multi-LoRA 服务选型 FAQ：Route A（`AKS ND H100/H200` + `vLLM/SGLang` `Punica/S-LoRA` 三层分页）vs Route B（Foundry 托管微调部署）vs Route C（Zipf 热温冷分层固定）vs Route D（每租户独立 checkpoint/GPU 或无 `tid->adapter` 绑定反模式），覆盖 HBM 预算方程、DRAM/NVMe 冷加载时延、异构 rank 吞吐惩罚与三年 TCO](multi-tenant-dynamic-multilora-adapter-serving-aks-vllm-sglang-slora-paging-vs-foundry-ft-deployments-vs-tiered-pinning-selection-faq.md) | [🇨🇳 中文](multi-tenant-dynamic-multilora-adapter-serving-aks-vllm-sglang-slora-paging-vs-foundry-ft-deployments-vs-tiered-pinning-selection-faq.md) · [🇬🇧 EN](multi-tenant-dynamic-multilora-adapter-serving-aks-vllm-sglang-slora-paging-vs-foundry-ft-deployments-vs-tiered-pinning-selection-faq.en.md) |
 | 435 | [企业策略感知分级模型路由选型 FAQ：Route A（Foundry/AOAI PTU 稳态主干）vs Route B（ACA Serverless GPU 弹性溢出）vs Route C（AKS KAITO `Prefill/Decode` 解耦高吞吐）vs Route D（单路径大模型与参数穿透反模式），覆盖 `N_breakeven`、`TTFT_p95_total`、策略门禁与三年 TCO](policy-aware-tiered-model-routing-speculative-decoding-disaggregated-prefill-decode-foundry-ptu-vs-aca-serverless-gpu-vs-aks-kaito-selection-faq.md) | [🇨🇳 中文](policy-aware-tiered-model-routing-speculative-decoding-disaggregated-prefill-decode-foundry-ptu-vs-aca-serverless-gpu-vs-aks-kaito-selection-faq.md) · [🇬🇧 EN](policy-aware-tiered-model-routing-speculative-decoding-disaggregated-prefill-decode-foundry-ptu-vs-aca-serverless-gpu-vs-aks-kaito-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（54 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（55 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -232,6 +232,7 @@
 | 414 | [企业 MCP 工具参数预检与实体落地治理选型 FAQ：Route A（`APIM` JSON Schema + 跨字段不变量 + `Redis` 引用存在性 + `(session,tool,args_hash)` 循环熔断）vs Route B（推理层 `strict: true` 约束解码）vs Route C（两段式实体 Resolver + Canonical Handle）vs Route D（静默自动修复边界治理），覆盖语义失败拦截、紧凑 `isError` 提示、跨租户枚举防护与三年 TCO](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.md) | [🇨🇳 中文](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.md) · [🇬🇧 EN](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.en.md) |
 | 422 | [企业外部付费 MCP 与 Agentic Web 变现选型 FAQ：Route A（`AFD` Web Bot Auth 签名验证 + `APIM HTTP 402` + 预付钱包原子扣费）vs Route B（`API Center + APIM + Entra External ID` 企业订阅后付费）vs Route C（边缘流量分流到许可 `llms.txt/MCP Resource` 端点）vs Route D（同步逐次刷卡与可伪造 UA 白名单反模式），覆盖微支付费率摊销、幂等结算与源站卸载成本方程](external-paid-mcp-agentic-web-monetization-afd-web-bot-auth-apim-http402-wallet-vs-apicenter-b2b-subscription-selection-faq.md) | [🇨🇳 中文](external-paid-mcp-agentic-web-monetization-afd-web-bot-auth-apim-http402-wallet-vs-apicenter-b2b-subscription-selection-faq.md) · [🇬🇧 EN](external-paid-mcp-agentic-web-monetization-afd-web-bot-auth-apim-http402-wallet-vs-apicenter-b2b-subscription-selection-faq.en.md) |
 | 430 | [企业 MCP Server 升级发布选型 FAQ：Route A（`APIM` 只读影子镜像 + `Event Hubs/Eventhouse` 异步结构/语义差异引擎）vs Route B（`Microcks/WireMock` 录制回放沙箱 + Foundry 轨迹门禁）vs Route C（`App Configuration + APIM` 会话粘性金丝雀 `1%->10%->50%->100%` + 自动回退）vs Route D（盲影子写调用、会话跨版本、latest 原地覆盖反模式），覆盖副作用风险上界、`ΔTTFT`、样本量检测与三年 TCO](mcp-server-canary-shadow-traffic-replay-diff-governance-apim-readonly-mirror-vs-cassette-sandbox-vs-cohort-ring-selection-faq.md) | [🇨🇳 中文](mcp-server-canary-shadow-traffic-replay-diff-governance-apim-readonly-mirror-vs-cassette-sandbox-vs-cohort-ring-selection-faq.md) · [🇬🇧 EN](mcp-server-canary-shadow-traffic-replay-diff-governance-apim-readonly-mirror-vs-cassette-sandbox-vs-cohort-ring-selection-faq.en.md) |
+| 436 | [企业零信任 MCP/A2A 工具治理选型 FAQ：Route A（`APIM + Entra OBO + DPoP` 统一网关）vs Route B（`Envoy Sidecar + ext_authz` 内联控制）vs Route C（Broker 双阶段审批）vs Route D（工具参数直通与共享高权限令牌反模式），覆盖 `Risk_exp`、`ΔT_policy`、预算熔断与三年 TCO](zero-trust-mcp-a2a-tool-governance-apim-entra-dpop-sidecar-envoy-brokered-approval-selection-faq.md) | [🇨🇳 中文](zero-trust-mcp-a2a-tool-governance-apim-entra-dpop-sidecar-envoy-brokered-approval-selection-faq.md) · [🇬🇧 EN](zero-trust-mcp-a2a-tool-governance-apim-entra-dpop-sidecar-envoy-brokered-approval-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（54 篇）
 
