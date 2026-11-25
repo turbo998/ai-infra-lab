@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（419 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（420 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **419 个架构选型、平台对比与安全治理决策专题**（共 `838` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **420 个架构选型、平台对比与安全治理决策专题**（共 `840` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 419 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 420 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（52 篇）
 
@@ -405,7 +405,7 @@
 | 409 | [企业主权 HYOK 与双重密钥加密选型 FAQ：Route A（Purview DKE + 客户密钥代理 + 受证明执行单元）vs Route B（同城 HYOK FPE 可逆代理 + 托管前沿模型）vs Route C（Managed HSM + SKR + 机密计算 CPU/GPU）vs Route D（主权伙伴云/断连边缘），覆盖 BYOK 与 HYOK 边界、吊销 SLA `<60s`、语义保真与三年 TCO](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.md) | [🇨🇳 中文](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.md) · [🇬🇧 EN](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.en.md) |
 | 417 | [Agentic 零点击隐蔽外泄防护选型 FAQ：Route A（流式 Markdown AST Airlock + Citation 来源白名单 + `AFD` HMAC 签名代理 + 严格 `CSP` 与 unfurl 抑制）vs Route B（`APIM` 会话污点账本 + MCP 出站收件人/租户边界门禁 + 熵/DLP 审查）vs Route C（Purview + Entra Internet Access + Defender for Cloud AI 托管联动）vs Route D（仅后端 egress deny 反模式），覆盖 URL 通道容量、分块绕过防护、SSRF/IMDS 连接钩子与三年 TCO](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.md) | [🇨🇳 中文](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.md) · [🇬🇧 EN](agentic-zero-click-covert-exfiltration-defense-markdown-csp-citation-proxy-vs-apim-taint-gate-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（52 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（53 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -463,6 +463,7 @@
 | 397 | [企业 LLM 评审器校准选型 FAQ：Architecture A（跨家族 Jury + Rogan-Gladen/PPI + Dawid-Skene）vs Architecture B（`(A,B)/(B,A)` 交换 `Bradley-Terry/Glicko-2` 竞技排序）vs Architecture C（Atomic Binary Checklist + logprob 门禁）vs Architecture D（未校准单模型 Likert 反模式），覆盖低基率误差校正、`95% CI` 门禁、`Krippendorff's α` 漂移监控与三年 LLMOps Eval TCO](llm-judge-calibration-rogan-gladen-dawid-skene-vs-bradley-terry-vs-likert-selection-faq.md) | [🇨🇳 中文](llm-judge-calibration-rogan-gladen-dawid-skene-vs-bradley-terry-vs-likert-selection-faq.md) · [🇬🇧 EN](llm-judge-calibration-rogan-gladen-dawid-skene-vs-bradley-terry-vs-likert-selection-faq.en.md) |
 | 404 | [企业零 PII LLMOps 可观测与可调试选型 FAQ：Route A（Claim-Check 包络加密 Span Vault + Entra PIM `15min` Break-Glass）vs Route B（Collector 内联 HMAC 伪名化）vs Route C（零内容结构遥测 + `ε`-DP 失败聚类）vs Route D（用户显式报错快照 + 合成环境全捕获），覆盖 `P_residual = 1 - R^k`、删除 SLA、评审保真度与三年 TCO](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.md) | [🇨🇳 中文](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.md) · [🇬🇧 EN](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.en.md) |
 | 412 | [企业静默模型行为漂移检测选型 FAQ：Route A（Seeded Probe + Top-K Logprob JSD + CUSUM 顺序告警）vs Route B（OTel 真实流量结构遥测 + 分层分布漂移）vs Route C（在线评测影子镜像等价门禁）vs Route D（AKS 自托管不可变权重），覆盖 `1.5% -> 4.0%` 结构破坏检测时间、PTU 与 Spillover 等价判据、抗振荡回切与三年 TCO](silent-model-behavioral-drift-detection-seeded-logprob-sentinel-cusum-eventhouse-vs-online-eval-selection-faq.md) | [🇨🇳 中文](silent-model-behavioral-drift-detection-seeded-logprob-sentinel-cusum-eventhouse-vs-online-eval-selection-faq.md) · [🇬🇧 EN](silent-model-behavioral-drift-detection-seeded-logprob-sentinel-cusum-eventhouse-vs-online-eval-selection-faq.en.md) |
+| 420 | [企业 PTU 利用率最大化选型 FAQ：Route A（Global PTU Follow-the-Sun 跨 BU 共享清算池）vs Route B（`APIM` 闭环闲时回填 + `Service Bus/KEDA` AIMD 控制）vs Route C（Data-Zone/Regional PTU + Batch API 折扣 + PAYG 溢出）vs Route D（部门烟囱式 PTU 囤积与无节制定时任务反模式），覆盖时区复用增益方程、`U_target=0.72` 控制律、清算公平模型与三年 TCO](ptu-utilization-maximization-follow-the-sun-pooling-apim-idle-valley-backfill-vs-batch-api-finops-selection-faq.md) | [🇨🇳 中文](ptu-utilization-maximization-follow-the-sun-pooling-apim-idle-valley-backfill-vs-batch-api-finops-selection-faq.md) · [🇬🇧 EN](ptu-utilization-maximization-follow-the-sun-pooling-apim-idle-valley-backfill-vs-batch-api-finops-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（53 篇）
 
