@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（420 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（421 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **420 个架构选型、平台对比与安全治理决策专题**（共 `840` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **421 个架构选型、平台对比与安全治理决策专题**（共 `842` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 420 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 421 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（52 篇）
 
@@ -226,7 +226,7 @@
 | 406 | [企业跨组织 A2A 交易不可抵赖选型 FAQ：Route A（`RFC 9421` 双边签名 + `RFC 8785` JCS 规范化 + JWS 回执锚定 `Azure Confidential Ledger`）vs Route B（中立清算/公证网关 + WORM 审计流）vs Route C（两阶段锁价承诺 + 风险分级 HSM/人工签核）vs Route D（仅 mTLS + 单边日志基线），覆盖公平交换 crash-window、SSE 哈希链终局与三年 TCO](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.md) | [🇨🇳 中文](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.md) · [🇬🇧 EN](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.en.md) |
 | 414 | [企业 MCP 工具参数预检与实体落地治理选型 FAQ：Route A（`APIM` JSON Schema + 跨字段不变量 + `Redis` 引用存在性 + `(session,tool,args_hash)` 循环熔断）vs Route B（推理层 `strict: true` 约束解码）vs Route C（两段式实体 Resolver + Canonical Handle）vs Route D（静默自动修复边界治理），覆盖语义失败拦截、紧凑 `isError` 提示、跨租户枚举防护与三年 TCO](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.md) | [🇨🇳 中文](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.md) · [🇬🇧 EN](mcp-tool-argument-preflight-validation-entity-grounding-loop-breaker-apim-vs-strict-schema-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（52 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（53 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -284,6 +284,7 @@
 | 398 | [企业 RAG 冲突来源权威裁决选型 FAQ：Architecture A（Authority-DAG + `Lex Specialis/Lex Posterior` 条款覆盖解析）vs Architecture B（NLI contradiction cluster 运行时冲突聚类升级）vs Architecture C（新鲜度/信任度加权重排）vs Architecture D（Naive Top-K 拼接反模式），覆盖 Superseded-Policy Hallucination、`O(k^2)` NLI 预算约束、紧急撤销切换 SLA 与三年治理 TCO](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.md) | [🇨🇳 中文](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.md) · [🇬🇧 EN](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.en.md) |
 | 405 | [企业 Agent 长期记忆污染防护选型 FAQ：Route A（Taint 感知写入防火墙 + `Cosmos/PostgreSQL` 溯源账本）vs Route B（`Proposed -> Confirmed` 人审两阶段记忆收件箱 + 版本回滚）vs Route C（零写持久记忆 + SoR 只读穿透）vs Route D（会后自动汇总平铺向量库反模式），覆盖 `1 - (1 - p_hit)^S`、多跳 taint 传播、级联回滚成本与三年 TCO](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.md) | [🇨🇳 中文](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.md) · [🇬🇧 EN](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.en.md) |
 | 413 | [企业跨语言多脚本 RAG 数据平面选型 FAQ：Route A（三模索引 dense+sparse+`keyword` 精确码）vs Route B（术语固定查询扩展 fan-out 并行检索）vs Route C（索引时 `content_native/content_pivot_en/domain_entities` 影子字段）vs Route D（主权区域索引网格），覆盖跨脚本 `Recall@10` 坍塌恢复、代码命中保底、原文权威引用与三年 TCO](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.md) | [🇨🇳 中文](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.md) · [🇬🇧 EN](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.en.md) |
+| 421 | [企业超长交叉引用文档 RAG 选型 FAQ：Route A（`Azure AI Search` 混合检索 + 条款/定义词引用图 `2-hop` 闭包）vs Route B（`ToC/Clause-AST` 层级树导航工具循环）vs Route C（`128K-1M` 长上下文缓存单 dossier 深挖）vs Route D（平铺分块/局部 parent-child 反模式），覆盖 `P_complete` 多跳完整率、度爆炸控制、ACL 裁剪与三年 TCO](cross-referenced-long-document-rag-clause-graph-expansion-ai-search-vs-hierarchical-toc-tree-vs-cached-long-context-selection-faq.md) | [🇨🇳 中文](cross-referenced-long-document-rag-clause-graph-expansion-ai-search-vs-hierarchical-toc-tree-vs-cached-long-context-selection-faq.md) · [🇬🇧 EN](cross-referenced-long-document-rag-clause-graph-expansion-ai-search-vs-hierarchical-toc-tree-vs-cached-long-context-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（53 篇）
 
