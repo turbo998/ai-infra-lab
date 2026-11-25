@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（450 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（451 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **450 个架构选型、平台对比与安全治理决策专题**（共 `900` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **451 个架构选型、平台对比与安全治理决策专题**（共 `902` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 450 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 451 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（56 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（57 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -110,6 +110,7 @@
 | 432 | [企业不可信媒体转码与 Codec Airlock 沙箱选型 FAQ：Route A（`AKS Kata` 零出网一次性 `FFmpeg/libvips` Airlock + `protocol_whitelist file,pipe` + `policy.xml` + `seccomp`）vs Route B（CPU 预解封 + `NVDEC/NVENC` GPU 高吞吐池）vs Route C（`ACA Dynamic Sessions EgressDisabled` 轻量交互）vs Route D（主编排容器直跑媒体工具反模式），覆盖像素炸弹内存包络、Claim-Check SAS 与吞吐/成本拐点三年 TCO](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.md) | [🇨🇳 中文](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.md) · [🇬🇧 EN](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.en.md) |
 | 442 | [企业远程浏览器/CUA 沙箱隔离选型 FAQ：Route A（`ACA Dynamic Sessions` 轻量会话池）vs Route B（`Playwright Worker Fleet` 高并发脚本编排）vs Route C（`AKS Kata + GPU Browser` 强隔离富媒体任务）vs Route D（业务容器内嵌浏览器反模式），覆盖 `Q_capacity`、`P95_total`、`Risk_isolation`、`Cost_task` 与三年 TCO](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.md) | [🇨🇳 中文](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.md) · [🇬🇧 EN](remote-browser-cua-sandbox-isolation-headless-cluster-aca-sessions-vs-playwright-workers-vs-aks-kata-gpu-browser-selection-faq.en.md) |
 | 443 | [企业自治漏洞模糊测试与崩溃复现沙箱选型 FAQ：Route A（`AKS Kata + LibFuzzer/AFL++/Jazzer + ASAN/UBSAN` 零出网隔离池）vs Route B（`ACA Jobs + Kani/CBMC` PR 时间窗有界验证）vs Route C（`Azure Batch Spot` 持续语料最小化）vs Route D（共享 CI Runner 执行不可信 PoC 反模式），覆盖 `CrashReproP95`、`DedupPrecision`、`UnitCostPerUniqueCrash` 与三年 TCO](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.md) | [🇨🇳 中文](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.md) · [🇬🇧 EN](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.en.md) |
+| 451 | [企业自治 SOC 恶意样本逆向与引爆沙箱选型 FAQ：Pattern A（`AKS Kata` 静态逆向 airlock）vs Pattern B（`VMSS` 一次性动态引爆 + `FakeNet`）vs Pattern C（Defender 托管情报/引爆 API）vs Pattern D（共享容器执行反模式），覆盖隔离、审计与三年 TCO](autonomous-soc-malware-reverse-engineering-detonation-sandbox-aks-kata-ghidra-static-airlock-vs-vmss-vmi-cape-fakenet-vs-defender-ti-selection-faq.md) | [🇨🇳 中文](autonomous-soc-malware-reverse-engineering-detonation-sandbox-aks-kata-ghidra-static-airlock-vs-vmss-vmi-cape-fakenet-vs-defender-ti-selection-faq.md) · [🇬🇧 EN](autonomous-soc-malware-reverse-engineering-detonation-sandbox-aks-kata-ghidra-static-airlock-vs-vmss-vmi-cape-fakenet-vs-defender-ti-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（56 篇）
 
