@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（426 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（427 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **426 个架构选型、平台对比与安全治理决策专题**（共 `852` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **427 个架构选型、平台对比与安全治理决策专题**（共 `854` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 426 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 427 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（53 篇）
 
@@ -289,7 +289,7 @@
 | 413 | [企业跨语言多脚本 RAG 数据平面选型 FAQ：Route A（三模索引 dense+sparse+`keyword` 精确码）vs Route B（术语固定查询扩展 fan-out 并行检索）vs Route C（索引时 `content_native/content_pivot_en/domain_entities` 影子字段）vs Route D（主权区域索引网格），覆盖跨脚本 `Recall@10` 坍塌恢复、代码命中保底、原文权威引用与三年 TCO](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.md) | [🇨🇳 中文](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.md) · [🇬🇧 EN](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.en.md) |
 | 421 | [企业超长交叉引用文档 RAG 选型 FAQ：Route A（`Azure AI Search` 混合检索 + 条款/定义词引用图 `2-hop` 闭包）vs Route B（`ToC/Clause-AST` 层级树导航工具循环）vs Route C（`128K-1M` 长上下文缓存单 dossier 深挖）vs Route D（平铺分块/局部 parent-child 反模式），覆盖 `P_complete` 多跳完整率、度爆炸控制、ACL 裁剪与三年 TCO](cross-referenced-long-document-rag-clause-graph-expansion-ai-search-vs-hierarchical-toc-tree-vs-cached-long-context-selection-faq.md) | [🇨🇳 中文](cross-referenced-long-document-rag-clause-graph-expansion-ai-search-vs-hierarchical-toc-tree-vs-cached-long-context-selection-faq.md) · [🇬🇧 EN](cross-referenced-long-document-rag-clause-graph-expansion-ai-search-vs-hierarchical-toc-tree-vs-cached-long-context-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（53 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（54 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -348,6 +348,7 @@
 | 403 | [企业跨模态全渠道会话连续性选型 FAQ：Route A（`ACS Call Automation + AOAI Realtime + Web PubSub` 实时伴随画布，`5-min` PoP/Passkey 绑定 `JWE`）vs Route B（`ACS Advanced Messaging WhatsApp/RCS + Durable + Cosmos TTL` `24h–72h` 异步恢复）vs Route C（`Dynamics 365 Contact Center + Copilot Studio` 一体化座席与主管插入）vs Route D（App 内深链接 Step-Up + PII-Masked Co-Browse 零 SMS 执行面），覆盖 `P_fork`、`W_replay`、跨租户混淆风险与三年 TCO](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.md) | [🇨🇳 中文](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.md) · [🇬🇧 EN](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.en.md) |
 | 411 | [企业实时联络中心 Whisper-Coach 选型 FAQ：Route A（SBC `SIPREC` 双声道旁路 + `AKS` 媒体接入）vs Route B（CCaaS `AudioHook/AudioStream` WebSocket 流）vs Route C（坐席桌面 Sidecar 捕获）vs Route D（`Dynamics 365 Contact Center` 原生实时 Copilot），覆盖 `<800ms` 卡片时延、合规 pause-resume 同步、提示冷却节流与三年 TCO](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.md) | [🇨🇳 中文](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.md) · [🇬🇧 EN](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.en.md) |
 | 419 | [企业实时双向同传语音桥选型 FAQ：Route A（`Azure AI Speech Live Interpreter` + 连续 `LID` + `ACS/LiveKit` 双路 ducking）vs Route B（`AOAI Realtime` 语义同传 + 严格角色护栏）vs Route C（`Wait-k` 分句级级联 + 数字/剂量确定性校验）vs Route D（Teams 内置同传与全句等待反模式对照），覆盖 `EVS` 时延窗口、双路回声抑制、数值一致性门禁与三年 TCO](realtime-simultaneous-speech-interpretation-bridge-speech-live-interpreter-vs-aoai-realtime-s2s-vs-waitk-cascade-selection-faq.md) | [🇨🇳 中文](realtime-simultaneous-speech-interpretation-bridge-speech-live-interpreter-vs-aoai-realtime-s2s-vs-waitk-cascade-selection-faq.md) · [🇬🇧 EN](realtime-simultaneous-speech-interpretation-bridge-speech-live-interpreter-vs-aoai-realtime-s2s-vs-waitk-cascade-selection-faq.en.md) |
+| 427 | [多智能体 Typed Blackboard 协同选型 FAQ：Route A（`Cosmos DB` Typed Artifact Blackboard + `Change Feed` 谓词订阅 + `If-Match ETag`）vs Route B（`Managed Redis` `RedisJSON + Streams + Lua CAS` 亚 10ms Tuple-Space）vs Route C（`Durable Entities/Dapr Actors` 单写者热点单元串行化）vs Route D（中心监督者全历史中继/无版本共享 JSON 反模式），覆盖 `Tokens_hub` 与 `Tokens_bb` 缩放、`P_conflict` 拐点、`hop_budget` 防环路与三年 TCO](multi-agent-blackboard-coordination-cosmos-change-feed-etag-vs-redis-tuple-space-vs-durable-entities-actor-selection-faq.md) | [🇨🇳 中文](multi-agent-blackboard-coordination-cosmos-change-feed-etag-vs-redis-tuple-space-vs-durable-entities-actor-selection-faq.md) · [🇬🇧 EN](multi-agent-blackboard-coordination-cosmos-change-feed-etag-vs-redis-tuple-space-vs-durable-entities-actor-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（54 篇）
 
