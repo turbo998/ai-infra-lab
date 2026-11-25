@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (403 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (404 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **403 structured architecture selection guides and trade-off FAQs** (`806` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **404 structured architecture selection guides and trade-off FAQs** (`808` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 403 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 404 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (50 Guides)
 
@@ -393,7 +393,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 261 | [Enterprise agent privacy-gate selection FAQ: `Purview` discovery baseline vs `APIM` ingress/egress DLP policy gates vs runtime `Sidecar Tokenization` field controls vs a three-layer integrated zero-trust loop (balancing leakage rate, false-redaction rate, block latency, and governance cost per 1,000 requests)](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) | [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) · [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) |
 | 269 | [Enterprise agent authorization selection FAQ: Entra PIM + JIT consent vs APIM JWT capability claims vs OPA policy-graph decision plane (balancing least privilege, temporary elevation, auditable evidence, and P95/TCO inflection points)](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) | [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) · [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (50 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (51 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -449,6 +449,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 383 | [Enterprise LLMOps evaluation contamination-defense and sealed-holdout governance selection FAQ: Architecture A (sealed rolling holdout vault + canary GUID + MinHash/vector decontamination gate) vs Architecture B (parametric/metamorphic dynamic evaluation + deterministic oracle) vs Architecture C (Min-K%++ memorization forensics + exchangeability probes) vs Architecture D (static golden feedback-loop anti-pattern), covering contamination inflation bias `θ_obs = (1-α)θ_true + αθ_mem`, memorization gap `Δ_mem`, and tiered TCO across Startup/Enterprise/Regulated profiles](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.en.md) | [🇬🇧 EN](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.en.md) · [🇨🇳 中文](llmops-eval-contamination-sealed-holdout-vault-vs-parametric-synthesis-vs-mink-selection-faq.md) |
 | 390 | [Enterprise automated prompt optimization and trajectory compilation selection FAQ: Architecture A (`DSPy MIPROv2` Bayesian joint search with Batch Eval and sealed holdout gates) vs Architecture B (`GEPA/TextGrad` reflective Pareto evolution) vs Architecture C (`RFT/LoRA` distillation to amortize few-shot prefix tax) vs Architecture D (manual vibe-prompting anti-pattern), covering `C_compile = M_trials × |D_dev| × c_rollout_bar`, `V*` break-even, `sqrt(ln(M)/(2|D_dev|))` overfitting bound, and tiered enterprise TCO](automated-prompt-optimization-dspy-miprov2-vs-gepa-pareto-vs-rft-distill-selection-faq.en.md) | [🇬🇧 EN](automated-prompt-optimization-dspy-miprov2-vs-gepa-pareto-vs-rft-distill-selection-faq.en.md) · [🇨🇳 中文](automated-prompt-optimization-dspy-miprov2-vs-gepa-pareto-vs-rft-distill-selection-faq.md) |
 | 397 | [Enterprise LLM-judge calibration selection FAQ: Architecture A (cross-family jury with Rogan-Gladen/PPI calibration plus Dawid-Skene aggregation) vs Architecture B (`(A,B)/(B,A)` swapped `Bradley-Terry/Glicko-2` arena ranking) vs Architecture C (atomic binary checklist with logprob gates) vs Architecture D (uncalibrated single-model Likert anti-pattern), covering low-prevalence correction, `95% CI` gate logic, `Krippendorff's α` drift monitoring, and three-year LLMOps evaluation TCO](llm-judge-calibration-rogan-gladen-dawid-skene-vs-bradley-terry-vs-likert-selection-faq.en.md) | [🇬🇧 EN](llm-judge-calibration-rogan-gladen-dawid-skene-vs-bradley-terry-vs-likert-selection-faq.en.md) · [🇨🇳 中文](llm-judge-calibration-rogan-gladen-dawid-skene-vs-bradley-terry-vs-likert-selection-faq.md) |
+| 404 | [Enterprise zero-PII LLMOps observability and trace debugging selection FAQ: Route A (claim-check envelope encrypted span vault plus Entra PIM `15-minute` break-glass) vs Route B (collector inline HMAC pseudonymization) vs Route C (zero-payload structural telemetry plus `ε`-DP failure clustering) vs Route D (explicit user-initiated diagnostic snapshots with synthetic full-capture staging), covering `P_residual = 1 - R^k`, erase SLA, judge fidelity, and three-year TCO](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.en.md) | [🇬🇧 EN](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.en.md) · [🇨🇳 中文](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (51 Guides)
 
