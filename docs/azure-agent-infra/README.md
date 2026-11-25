@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（437 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（438 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **437 个架构选型、平台对比与安全治理决策专题**（共 `874` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **438 个架构选型、平台对比与安全治理决策专题**（共 `876` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 437 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 438 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（54 篇）
 
@@ -296,7 +296,7 @@
 | 429 | [Agent 程序性记忆与可验证技能库选型 FAQ：Route A（GitOps 渐进披露 `SKILL.md`：`L0` 元数据路由 + `L1` SOP 正文 + `L2` 版本钉住脚本包）vs Route B（ReasoningBank/ACE 程序卡蒸馏 + `Beta(α,β)` 评分 + schema-hash 自动失效）vs Route C（净化 `k-NN` 轨迹样例库）vs Route D（原始日志向量化与全技能提示词堆叠反模式），覆盖 `Tokens_prompt`、反迷信门禁、跨租户 `k-anonymity` 与三年 TCO](agent-procedural-memory-verified-skill-library-progressive-skillmd-ai-search-vs-reasoningbank-cosmos-vs-knn-trajectory-selection-faq.md) | [🇨🇳 中文](agent-procedural-memory-verified-skill-library-progressive-skillmd-ai-search-vs-reasoningbank-cosmos-vs-knn-trajectory-selection-faq.md) · [🇬🇧 EN](agent-procedural-memory-verified-skill-library-progressive-skillmd-ai-search-vs-reasoningbank-cosmos-vs-knn-trajectory-selection-faq.en.md) |
 | 437 | [企业有状态智能体记忆撤销与时间语义 RAG 选型 FAQ：Route A（`Cosmos DB + Change Feed + AI Search Push` 一致性主线）vs Route B（`Redis Lease + RYW` 会话级撤销护栏）vs Route C（`valid_from/valid_until + tombstone` 账本审计回放）vs Route D（仅删主库不清缓存/索引反模式），覆盖 `W_revoke`、`P_ghost`、`Replay_coverage` 与三年 TCO](stateful-agent-memory-revocation-temporal-rag-cosmos-changefeed-redis-lease-ai-search-tombstone-selection-faq.md) | [🇨🇳 中文](stateful-agent-memory-revocation-temporal-rag-cosmos-changefeed-redis-lease-ai-search-tombstone-selection-faq.md) · [🇬🇧 EN](stateful-agent-memory-revocation-temporal-rag-cosmos-changefeed-redis-lease-ai-search-tombstone-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（54 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（55 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -356,6 +356,7 @@
 | 411 | [企业实时联络中心 Whisper-Coach 选型 FAQ：Route A（SBC `SIPREC` 双声道旁路 + `AKS` 媒体接入）vs Route B（CCaaS `AudioHook/AudioStream` WebSocket 流）vs Route C（坐席桌面 Sidecar 捕获）vs Route D（`Dynamics 365 Contact Center` 原生实时 Copilot），覆盖 `<800ms` 卡片时延、合规 pause-resume 同步、提示冷却节流与三年 TCO](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.md) | [🇨🇳 中文](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.md) · [🇬🇧 EN](realtime-contact-center-agent-assist-siprec-sbc-forking-vs-ccaas-audiohook-vs-d365-whisper-coach-selection-faq.en.md) |
 | 419 | [企业实时双向同传语音桥选型 FAQ：Route A（`Azure AI Speech Live Interpreter` + 连续 `LID` + `ACS/LiveKit` 双路 ducking）vs Route B（`AOAI Realtime` 语义同传 + 严格角色护栏）vs Route C（`Wait-k` 分句级级联 + 数字/剂量确定性校验）vs Route D（Teams 内置同传与全句等待反模式对照），覆盖 `EVS` 时延窗口、双路回声抑制、数值一致性门禁与三年 TCO](realtime-simultaneous-speech-interpretation-bridge-speech-live-interpreter-vs-aoai-realtime-s2s-vs-waitk-cascade-selection-faq.md) | [🇨🇳 中文](realtime-simultaneous-speech-interpretation-bridge-speech-live-interpreter-vs-aoai-realtime-s2s-vs-waitk-cascade-selection-faq.md) · [🇬🇧 EN](realtime-simultaneous-speech-interpretation-bridge-speech-live-interpreter-vs-aoai-realtime-s2s-vs-waitk-cascade-selection-faq.en.md) |
 | 427 | [多智能体 Typed Blackboard 协同选型 FAQ：Route A（`Cosmos DB` Typed Artifact Blackboard + `Change Feed` 谓词订阅 + `If-Match ETag`）vs Route B（`Managed Redis` `RedisJSON + Streams + Lua CAS` 亚 10ms Tuple-Space）vs Route C（`Durable Entities/Dapr Actors` 单写者热点单元串行化）vs Route D（中心监督者全历史中继/无版本共享 JSON 反模式），覆盖 `Tokens_hub` 与 `Tokens_bb` 缩放、`P_conflict` 拐点、`hop_budget` 防环路与三年 TCO](multi-agent-blackboard-coordination-cosmos-change-feed-etag-vs-redis-tuple-space-vs-durable-entities-actor-selection-faq.md) | [🇨🇳 中文](multi-agent-blackboard-coordination-cosmos-change-feed-etag-vs-redis-tuple-space-vs-durable-entities-actor-selection-faq.md) · [🇬🇧 EN](multi-agent-blackboard-coordination-cosmos-change-feed-etag-vs-redis-tuple-space-vs-durable-entities-actor-selection-faq.en.md) |
+| 438 | [企业人审门禁与长周期 Agent 编排选型 FAQ：Route A（`Durable Functions` 事件驱动审批编排）vs Route B（`Temporal on AKS` 复杂跨域状态机）vs Route C（`Logic Apps + BPMN` 连接器集成）vs Route D（同步请求串联审批与执行反模式），覆盖 `C_wait`、`Risk_timeout`、`Risk_duplicate`、`RTO_orchestration` 与三年 TCO](human-approval-durable-agent-workflow-durable-functions-vs-temporal-on-aks-vs-logic-apps-bpmn-selection-faq.md) | [🇨🇳 中文](human-approval-durable-agent-workflow-durable-functions-vs-temporal-on-aks-vs-logic-apps-bpmn-selection-faq.md) · [🇬🇧 EN](human-approval-durable-agent-workflow-durable-functions-vs-temporal-on-aks-vs-logic-apps-bpmn-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（55 篇）
 
