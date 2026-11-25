@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（409 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（410 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **409 个架构选型、平台对比与安全治理决策专题**（共 `818` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **410 个架构选型、平台对比与安全治理决策专题**（共 `820` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 409 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 410 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（51 篇）
 
@@ -456,7 +456,7 @@
 | 397 | [企业 LLM 评审器校准选型 FAQ：Architecture A（跨家族 Jury + Rogan-Gladen/PPI + Dawid-Skene）vs Architecture B（`(A,B)/(B,A)` 交换 `Bradley-Terry/Glicko-2` 竞技排序）vs Architecture C（Atomic Binary Checklist + logprob 门禁）vs Architecture D（未校准单模型 Likert 反模式），覆盖低基率误差校正、`95% CI` 门禁、`Krippendorff's α` 漂移监控与三年 LLMOps Eval TCO](llm-judge-calibration-rogan-gladen-dawid-skene-vs-bradley-terry-vs-likert-selection-faq.md) | [🇨🇳 中文](llm-judge-calibration-rogan-gladen-dawid-skene-vs-bradley-terry-vs-likert-selection-faq.md) · [🇬🇧 EN](llm-judge-calibration-rogan-gladen-dawid-skene-vs-bradley-terry-vs-likert-selection-faq.en.md) |
 | 404 | [企业零 PII LLMOps 可观测与可调试选型 FAQ：Route A（Claim-Check 包络加密 Span Vault + Entra PIM `15min` Break-Glass）vs Route B（Collector 内联 HMAC 伪名化）vs Route C（零内容结构遥测 + `ε`-DP 失败聚类）vs Route D（用户显式报错快照 + 合成环境全捕获），覆盖 `P_residual = 1 - R^k`、删除 SLA、评审保真度与三年 TCO](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.md) | [🇨🇳 中文](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.md) · [🇬🇧 EN](zero-pii-llmops-trace-debugging-claim-check-vault-vs-otel-hmac-vs-dp-clustering-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（51 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（52 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -513,3 +513,4 @@
 | 388 | [企业 AI Agent 灰故障检测选型 FAQ：Architecture A（`x-canary-mode: dry-run` 语义探针网格）vs Architecture B（`median+MAD` 同伴离群逐戳排空）vs Architecture C（OTel 因果 DAG 告警压缩与 SRE Agent 去重）vs Architecture D（浅层 `200 OK` 健康探测反模式），覆盖 `MTTD≈Δt/2+kΔt`、稳健 Z 分数误逐出概率与告警压缩比及三档 TCO](aiops-gray-failure-semantic-canary-vs-peer-outlier-ejection-vs-dag-alert-corr-selection-faq.md) | [🇨🇳 中文](aiops-gray-failure-semantic-canary-vs-peer-outlier-ejection-vs-dag-alert-corr-selection-faq.md) · [🇬🇧 EN](aiops-gray-failure-semantic-canary-vs-peer-outlier-ejection-vs-dag-alert-corr-selection-faq.en.md) |
 | 395 | [企业主机现代化选型 FAQ：Architecture A（`ASG/Spec-First` 语义抽取 + 云原生重写 + 影子双跑等价工厂）vs Architecture B（主机仿真重宿主与机械转译）vs Architecture C（读侧绞杀共存）vs Architecture D（Prompt 逐行直译反模式），覆盖 IBM `R4HA` 降本曲线、双跑并行税 `T_dual_run`、`EBCDIC`/`UTF-8` 控制断裂与 `COMP-3` 漂移边界、`N_tx` `99.9999%` 等价门禁及 `1,500/8,000/35,000 MIPS` 三档三年 TCO](mainframe-cobol-jcl-modernization-spec-dual-run-vs-rehost-vs-strangler-selection-faq.md) | [🇨🇳 中文](mainframe-cobol-jcl-modernization-spec-dual-run-vs-rehost-vs-strangler-selection-faq.md) · [🇬🇧 EN](mainframe-cobol-jcl-modernization-spec-dual-run-vs-rehost-vs-strangler-selection-faq.en.md) |
 | 402 | [企业 AI Landing Zone `47-day` TLS/mTLS PKI 生命周期自动化选型 FAQ：Route A（边缘托管 ACME + AKS cert-manager + AKV/CSI + SDS 热切）vs Route B（Mesh `24h` 短证书 `12h` 轮换）vs Route C（APIM + AKV + Event Grid 续期管线）vs Route D（人工工单/PFX/重启反模式），覆盖 `T_renew`、`B_grace`、`M_ops` 与双 CA 重叠不变量](ai-landing-zone-47day-tls-mtls-pki-rotation-cert-manager-akv-vs-mesh-ca-selection-faq.md) | [🇨🇳 中文](ai-landing-zone-47day-tls-mtls-pki-rotation-cert-manager-akv-vs-mesh-ca-selection-faq.md) · [🇬🇧 EN](ai-landing-zone-47day-tls-mtls-pki-rotation-cert-manager-akv-vs-mesh-ca-selection-faq.en.md) |
+| 410 | [企业级 Cell-Based + Shuffle Sharding 与四级 Brownout 韧性选型 FAQ：Route A（`APIM` 租户 HMAC `N-choose-K` 虚拟 Cell 路由 + `AKS/ACA` 分片配额）vs Route B（Shared-Nothing Deployment Stamps）vs Route C（Adaptive Graceful Brownout）vs Route D（共享池朴素跨区切流反模式），覆盖毒丸隔离、重试风暴遏制、分环发布回滚与三年 TCO](cell-based-shuffle-sharding-graceful-brownout-agent-resilience-apim-stamps-selection-faq.md) | [🇨🇳 中文](cell-based-shuffle-sharding-graceful-brownout-agent-resilience-apim-stamps-selection-faq.md) · [🇬🇧 EN](cell-based-shuffle-sharding-graceful-brownout-agent-resilience-apim-stamps-selection-faq.en.md) |
