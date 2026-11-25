@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (408 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (409 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **408 structured architecture selection guides and trade-off FAQs** (`816` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **409 structured architecture selection guides and trade-off FAQs** (`818` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 408 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 409 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (51 Guides)
 
@@ -339,7 +339,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 396 | [Enterprise voice-agent deepfake defense selection FAQ: Architecture A (SBC/ACS media-fork acoustic liveness and anti-spoof detector) vs Architecture B (risk-triggered OOB passkey/Verified ID step-up) vs Architecture C (conversational micro-challenge plus speaker verification) vs Architecture D (static voiceprint/KBA anti-pattern), covering G.711 narrowband EER behavior, Bayesian base-rate traps, `tx_hash` transaction-bound gating, and three-year TCO across `1.8M/4.5M` monthly call scenarios](voice-agent-deepfake-liveness-sbc-spectral-detector-vs-oob-passkey-vs-kba-selection-faq.en.md) | [🇬🇧 EN](voice-agent-deepfake-liveness-sbc-spectral-detector-vs-oob-passkey-vs-kba-selection-faq.en.md) · [🇨🇳 中文](voice-agent-deepfake-liveness-sbc-spectral-detector-vs-oob-passkey-vs-kba-selection-faq.md) |
 | 403 | [Enterprise cross-modal omnichannel session continuity selection FAQ: Route A (`ACS Call Automation + AOAI Realtime + Web PubSub` live companion with `5-minute` PoP/passkey-bound `JWE`) vs Route B (`ACS Advanced Messaging WhatsApp/RCS + Durable + Cosmos TTL` asynchronous `24h–72h` resume) vs Route C (`Dynamics 365 Contact Center + Copilot Studio` integrated agent and supervisor operations) vs Route D (authenticated in-app deep-link step-up with PII-masked co-browse and zero SMS execution surface), covering `P_fork`, `W_replay`, cross-tenant confusion risk, and three-year TCO](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.en.md) | [🇬🇧 EN](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.en.md) · [🇨🇳 中文](omnichannel-session-continuity-voice-web-pubsub-companion-vs-whatsapp-rcs-vs-d365-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (51 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (52 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -396,6 +396,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 256 | [Enterprise agent outbound secretless-auth selection FAQ: `Managed Identity + workload federation` (Azure-native minimum rework) vs `SPIFFE/SVID + mTLS` (cross-cloud workload identity) vs `Vault broker` dynamic leased credentials (legacy compatibility) vs a hybrid control plane (unified identity vocabulary, audit unification, and fail-closed behavior)](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) | [🇬🇧 EN](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.en.md) · [🇨🇳 中文](secretless-outbound-agent-auth-managed-identity-vs-spiffe-svid-vs-vault-broker-selection-faq.md) |
 | 261 | [Enterprise agent privacy-gate selection FAQ: `Purview` discovery baseline vs `APIM` ingress/egress DLP policy gates vs runtime `Sidecar Tokenization` field controls vs a three-layer integrated zero-trust loop (balancing leakage rate, false-redaction rate, block latency, and governance cost per 1,000 requests)](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) | [🇬🇧 EN](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.en.md) · [🇨🇳 中文](agent-pii-redaction-runtime-dlp-purview-vs-apim-policy-vs-sidecar-tokenization-selection-faq.md) |
 | 269 | [Enterprise agent authorization selection FAQ: Entra PIM + JIT consent vs APIM JWT capability claims vs OPA policy-graph decision plane (balancing least privilege, temporary elevation, auditable evidence, and P95/TCO inflection points)](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) | [🇬🇧 EN](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.en.md) · [🇨🇳 中文](agent-authorization-jit-consent-entra-pim-vs-apim-jwt-claims-vs-opa-policy-graph-selection-faq.md) |
+| 409 | [Enterprise sovereign HYOK and double-key encryption selection FAQ: Route A (Purview DKE plus customer key broker plus attested worker) vs Route B (colocated HYOK reversible FPE proxy plus managed frontier model) vs Route C (Managed HSM plus secure-key-release plus confidential CPU/GPU compute) vs Route D (sovereign partner cloud or disconnected edge), covering BYOK vs HYOK boundary, `<60s` revoke SLA, semantic fidelity, and three-year TCO](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.en.md) | [🇬🇧 EN](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.en.md) · [🇨🇳 中文](sovereign-hyok-double-key-encryption-purview-dke-vs-colocation-fpe-proxy-vs-mhsm-tee-agent-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (51 Guides)
 
