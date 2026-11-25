@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (431 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (432 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **431 structured architecture selection guides and trade-off FAQs** (`862` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **432 structured architecture selection guides and trade-off FAQs** (`864` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 431 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 432 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (53 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (54 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -108,6 +108,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 408 | [Enterprise legacy terminal and thick-client sandbox selection FAQ: Route A (protocol-native `TN3270/TN5250` headless containers) vs Route B (AVD `UIA/SAP GUI Scripting` plus VLM fallback) vs Route C (Citrix pixel double-hop VLM with pre-commit OCR readback assertion) vs Route D (managed Hosted RPA machine groups), covering LU-pool backpressure, per-agent identity auditing, destructive commit interlocks, and three-year TCO](legacy-terminal-thick-client-agent-sandbox-tn3270-aca-vs-avd-uia-vlm-vs-hosted-rpa-selection-faq.en.md) | [🇬🇧 EN](legacy-terminal-thick-client-agent-sandbox-tn3270-aca-vs-avd-uia-vlm-vs-hosted-rpa-selection-faq.en.md) · [🇨🇳 中文](legacy-terminal-thick-client-agent-sandbox-tn3270-aca-vs-avd-uia-vlm-vs-hosted-rpa-selection-faq.md) |
 | 416 | [Code-Mode programmatic tool-composition sandbox selection FAQ: Route A (AKS `V8 Isolate` capability-scoped worker pool + APIM OBO) vs Route B (`QuickJS + Wasmtime` deterministic fuel and linear-memory caps) vs Route C (`ACA Dynamic Sessions` Hyper-V isolated session pools) vs Route D (in-process `node:vm/eval` and 20-turn sequential JSON anti-pattern), covering `K`-step latency and token equations, MCP Schema to `.d.ts` static gates, RPC budget/concurrency limits, idempotent compensation, and three-year TCO](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.en.md) | [🇬🇧 EN](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.en.md) · [🇨🇳 中文](code-mode-programmatic-tool-calling-js-sandbox-aks-v8-isolates-vs-quickjs-wasm-vs-aca-sessions-selection-faq.md) |
 | 424 | [Enterprise agentic Office/PDF artifact rendering sandbox selection FAQ: Route A (`ACA Sessions/AKS Kata` + `LibreOffice` recalculation + `pdftoppm` + VLM visual-QA loop) vs Route B (`Typst + Chromium Print-CSS` high-throughput declarative rendering) vs Route C (`Microsoft Graph Workbook` authoritative calculation/collaboration plane) vs Route D (blind export without recalculation/isolation), covering `E_escape`, typography fidelity, SSRF containment, and three-year TCO](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.en.md) | [🇬🇧 EN](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.en.md) · [🇨🇳 中文](agentic-office-pdf-artifact-rendering-sandbox-aca-sessions-libreoffice-vlm-qa-vs-typst-chromium-vs-graph-workbook-selection-faq.md) |
+| 432 | [Enterprise untrusted media transcoding and codec-airlock sandbox selection FAQ: Route A (`AKS Kata` zero-egress one-shot `FFmpeg/libvips` airlock with `protocol_whitelist file,pipe`, `policy.xml`, and `seccomp`) vs Route B (CPU pre-demux airlock plus `NVDEC/NVENC` GPU throughput pool) vs Route C (`ACA Dynamic Sessions EgressDisabled` lightweight interaction lane) vs Route D (orchestrator-inline media tooling anti-pattern), covering decompression-bomb memory envelope, claim-check SAS transport economics, and three-year TCO crossover](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.en.md) | [🇬🇧 EN](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.en.md) · [🇨🇳 中文](untrusted-media-transcoding-codec-airlock-sandbox-aks-kata-ffmpeg-libvips-vs-nvenc-gpu-pool-vs-aca-sessions-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (54 Guides)
 
