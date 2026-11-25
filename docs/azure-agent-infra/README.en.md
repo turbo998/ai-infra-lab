@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (412 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (413 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **412 structured architecture selection guides and trade-off FAQs** (`824` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **413 structured architecture selection guides and trade-off FAQs** (`826` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 412 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 413 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (51 Guides)
 
@@ -223,7 +223,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 399 | [Enterprise OT/IT `IEC 62443` level-3.5 IDMZ `OPC-UA/Modbus` MCP gateway and write-safety governance selection FAQ: Route A (level-3.5 brokered conduit with physics-envelope and slew-rate guards plus two-phase sign-off) vs Route B (hardware data-diode read-only shadow) vs Route C (APIM plus relay direct adapter) vs Route D (direct PLC write anti-pattern), covering `U_comm` polling headroom, `|Δu/Δt|` physical constraints, closed-loop staleness gates, and three-year TCO](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.en.md) | [🇬🇧 EN](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.en.md) · [🇨🇳 中文](ot-mcp-gateway-iec62443-dmz-opcua-conduit-vs-data-diode-vs-direct-plc-selection-faq.md) |
 | 406 | [Enterprise cross-organization A2A transaction non-repudiation selection FAQ: Route A (`RFC 9421` bilateral signatures + `RFC 8785` JCS canonicalization + JWS receipts anchored in `Azure Confidential Ledger`) vs Route B (neutral clearinghouse/notary gateway with WORM audit feed) vs Route C (two-phase quote-lock commit with value-tiered HSM/human quorum) vs Route D (transport-only mTLS plus unilateral gateway logs baseline), covering fair-exchange crash-window recovery, SSE hash-chain finalization, and three-year TCO](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.en.md) | [🇬🇧 EN](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.en.md) · [🇨🇳 中文](cross-org-a2a-non-repudiation-bilateral-receipts-rfc9421-confidential-ledger-vs-mtls-apim-selection-faq.md) |
 
-### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (51 Guides)
+### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (52 Guides)
 
 > Addresses session state & episodic memory (Cosmos DB vs. Redis vs. PostgreSQL/SQL), Hybrid RAG / GraphRAG / Fabric IQ ontology, and multimodal IDP.
 
@@ -280,6 +280,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 391 | [Enterprise verifiable RAG citation grounding selection FAQ: Architecture A (`Document Intelligence v4` `Span-ID + polygon` sidecar with deterministic `Quote-Then-Synthesize` verification) vs Architecture B (`Groundedness/NLI` atomic-claim entailment gate) vs Architecture C (streaming sentence-boundary post-hoc `citation.resolved` attribution) vs Architecture D (free `[1]` footnote anti-pattern), covering `F1_cite`, `ΔS_poly ≈ N_span × B_poly`, `L_total` latency trade-offs, and tiered `50K/1M/20M` enterprise TCO](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.en.md) | [🇬🇧 EN](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.en.md) · [🇨🇳 中文](rag-verifiable-citation-bounding-box-span-quote-vs-groundedness-nli-vs-posthoc-selection-faq.md) |
 | 398 | [Enterprise conflicting-source authority resolution selection FAQ: Architecture A (authority DAG plus `lex specialis/lex posterior` clause-level supersession resolver) vs Architecture B (runtime NLI contradiction-cluster escalation) vs Architecture C (freshness and trust-boosted reranking) vs Architecture D (naive Top-K stuffing anti-pattern), covering superseded-policy hallucination control, bounded `O(k^2)` NLI budget, emergency revocation cutover SLA, and three-year governance TCO](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.en.md) | [🇬🇧 EN](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.en.md) · [🇨🇳 中文](rag-conflicting-source-authority-lex-specialis-vs-nli-cluster-vs-recency-selection-faq.md) |
 | 405 | [Enterprise long-term agent memory poisoning defense selection FAQ: Route A (taint-aware write firewall plus `Cosmos/PostgreSQL` provenance ledger) vs Route B (`Proposed -> Confirmed` human-reviewed two-phase memory inbox with version rollback) vs Route C (zero-write persistent memory plus SoR read-through) vs Route D (post-session auto-consolidation flat vector-store anti-pattern), covering `1 - (1 - p_hit)^S`, multi-hop taint propagation, cascade rollback cost, and three-year TCO](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.en.md) | [🇬🇧 EN](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.en.md) · [🇨🇳 中文](agent-memory-poisoning-taint-write-firewall-cosmos-provenance-vs-hitl-ledger-vs-sor-readthrough-selection-faq.md) |
+| 413 | [Enterprise cross-lingual multi-script RAG data-plane selection FAQ: Route A (tri-modal dense+sparse+`keyword` exact-code indexing) vs Route B (glossary-pinned query fan-out across locales) vs Route C (index-time `content_native/content_pivot_en/domain_entities` shadow fields) vs Route D (sovereign regional index mesh), covering cross-script `Recall@10` collapse recovery, exact identifier hit guarantees, native authoritative citation retention, and three-year TCO](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.en.md) | [🇬🇧 EN](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.en.md) · [🇨🇳 中文](cross-lingual-multiscript-rag-ai-search-morphological-pivot-vs-bge-m3-cohere-vs-shadow-index-selection-faq.md) |
 
 ### 3.5 Multi-Agent Orchestration, Durable Workflows, Realtime Voice & Channels (52 Guides)
 
