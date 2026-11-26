@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（456 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（457 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **456 个架构选型、平台对比与安全治理决策专题**（共 `912` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **457 个架构选型、平台对比与安全治理决策专题**（共 `914` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 456 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 457 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（57 篇）
 
@@ -497,7 +497,7 @@
 | 448 | [私有 SWE-Agent 执行基准与发布门禁选型 FAQ：Pattern A（`AKS Kata` 密封 `F2P/P2P` + `Pass^k`）vs Pattern B（Mutation + CodeQL 差分 Oracle）vs Pattern C（静态 LLM Judge 漏斗预筛）vs Pattern D（公开榜单/单次 Pass@1 反模式），覆盖稳定性、反投机与三年 TCO](private-swe-agent-execution-benchmark-harness-aks-kata-f2p-pass-hat-k-vs-mutation-codeql-oracle-vs-static-llm-judge-selection-faq.md) | [🇨🇳 中文](private-swe-agent-execution-benchmark-harness-aks-kata-f2p-pass-hat-k-vs-mutation-codeql-oracle-vs-static-llm-judge-selection-faq.md) · [🇬🇧 EN](private-swe-agent-execution-benchmark-harness-aks-kata-f2p-pass-hat-k-vs-mutation-codeql-oracle-vs-static-llm-judge-selection-faq.en.md) |
 | 456 | [企业多模态 Agent 评测语料版本化与零拷贝血缘治理选型 FAQ：Pattern A（`ADLS Gen2 + lakeFS` 元数据零拷贝分支）vs Pattern B（`Foundry/AML Data Assets v2` 托管版本）vs Pattern C（`Delta/Iceberg` 大规模结构化时光回溯）vs Pattern D（`Git + DVC` 轻量仓库耦合），覆盖发布门禁、审计回放与三年 TCO](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.md) | [🇨🇳 中文](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.md) · [🇬🇧 EN](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（57 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（58 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -560,3 +560,4 @@
 | 434 | [多区域 RAG 与 AI Search 容灾选型 FAQ：Route A（双 Region `AI Search` Active-Active Stamp + `ADLS Gen2 GZRS` Golden Vector Lake）vs Route B（Pilot-Light 温备 `1 Replica` + 分层热语料优先回灌）vs Route C（`Cosmos DB DiskANN` 向量与业务状态原子容灾）vs Route D（多区域 LLM + 单区域检索反模式），覆盖 `SU=P×R` 成本模型、`T_scale` 副本扩展窗口、`RPO_acl` 权限撤销传播边界与三年 TCO](multi-region-rag-ai-search-bcdr-failover-active-active-gzrs-vector-lake-vs-pilot-light-hydration-vs-cosmos-diskann-selection-faq.md) | [🇨🇳 中文](multi-region-rag-ai-search-bcdr-failover-active-active-gzrs-vector-lake-vs-pilot-light-hydration-vs-cosmos-diskann-selection-faq.md) · [🇬🇧 EN](multi-region-rag-ai-search-bcdr-failover-active-active-gzrs-vector-lake-vs-pilot-light-hydration-vs-cosmos-diskann-selection-faq.en.md) |
 | 441 | [企业自治故障响应与多区域演练选型 FAQ：Route A（`Azure Monitor + KQL Burn-Rate` 多窗口检测）vs Route B（`Logic Apps/Functions/PagerDuty` 事件编排与自动处置）vs Route C（`Chaos Studio + GameDay` 混沌验证）vs Route D（静态阈值+人工口头交接反模式），覆盖 `BurnRate`、`SignalPrecision`、`AutoMitigationSuccess`、`GameDayCoverage` 与三年 TCO](autonomous-incident-response-slo-burn-rate-multi-region-drill-chaos-studio-monitor-workbooks-vs-pagerduty-event-orchestration-selection-faq.md) | [🇨🇳 中文](autonomous-incident-response-slo-burn-rate-multi-region-drill-chaos-studio-monitor-workbooks-vs-pagerduty-event-orchestration-selection-faq.md) · [🇬🇧 EN](autonomous-incident-response-slo-burn-rate-multi-region-drill-chaos-studio-monitor-workbooks-vs-pagerduty-event-orchestration-selection-faq.en.md) |
 | 449 | [企业级 AI GPU 机群健康与静默退化修复选型 FAQ：Pattern A（`AKS` + `DCGM` + taint-cordon-drain 闭环）vs Pattern B（Golden-Logit + Straggler Canary + `Azure SRE Agent`）vs Pattern C（Foundry/AML/ACA 托管卸载）vs Pattern D（Crash-only 黑洞节点反模式），覆盖 SLA、爆炸半径与三年 TCO](gpu-fleet-health-straggler-remediation-aks-dcgm-node-auto-repair-vs-golden-logit-canary-sre-agent-vs-managed-endpoints-selection-faq.md) | [🇨🇳 中文](gpu-fleet-health-straggler-remediation-aks-dcgm-node-auto-repair-vs-golden-logit-canary-sre-agent-vs-managed-endpoints-selection-faq.md) · [🇬🇧 EN](gpu-fleet-health-straggler-remediation-aks-dcgm-node-auto-repair-vs-golden-logit-canary-sre-agent-vs-managed-endpoints-selection-faq.en.md) |
+| 457 | [企业智能体网络丢包、CoreDNS 尾时延与私网出口可观测架构选型 FAQ：Pattern A（`AKS ACNS Retina + Hubble eBPF` + `NodeLocalDNSCache`）vs Pattern B（`VNet Flow Logs + Connection Monitor`）vs Pattern C（`Istio Ambient/Sidecar` L7 语义）vs Pattern D（临时特权抓包与高基数反模式），覆盖 DropReason 归因、SNAT 容量与三年 TCO](agent-network-drop-dns-tail-latency-observability-aks-acns-retina-hubble-ebpf-vs-vnet-flow-logs-vs-istio-ambient-selection-faq.md) | [🇨🇳 中文](agent-network-drop-dns-tail-latency-observability-aks-acns-retina-hubble-ebpf-vs-vnet-flow-logs-vs-istio-ambient-selection-faq.md) · [🇬🇧 EN](agent-network-drop-dns-tail-latency-observability-aks-acns-retina-hubble-ebpf-vs-vnet-flow-logs-vs-istio-ambient-selection-faq.en.md) |
