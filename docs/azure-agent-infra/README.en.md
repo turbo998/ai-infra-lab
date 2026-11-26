@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (466 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (467 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **466 structured architecture selection guides and trade-off FAQs** (`932` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **467 structured architecture selection guides and trade-off FAQs** (`934` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 466 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 467 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (58 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (59 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -113,6 +113,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 443 | [Enterprise autonomous fuzzing, crash-repro, and bounded-verification sandbox selection FAQ: Route A (`AKS Kata + LibFuzzer/AFL++/Jazzer + ASAN/UBSAN`) zero-egress isolation pool vs Route B (`ACA Jobs + Kani/CBMC`) PR-time bounded verification vs Route C (`Azure Batch Spot`) continuous corpus minimization vs Route D (shared CI runner executing untrusted PoCs anti-pattern), covering `CrashReproP95`, `DedupPrecision`, `UnitCostPerUniqueCrash`, and three-year TCO](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.en.md) | [🇬🇧 EN](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.en.md) · [🇨🇳 中文](autonomous-fuzzing-crash-repro-bounded-verification-sandbox-aks-kata-libfuzzer-aflpp-asan-vs-aca-jobs-kani-cbmc-vs-shared-ci-runner-selection-faq.md) |
 | 451 | [Enterprise autonomous SOC reverse-engineering and detonation sandbox selection FAQ: Pattern A (`AKS Kata` static reverse-engineering airlock) vs Pattern B (`VMSS` disposable dynamic detonation plus `FakeNet`) vs Pattern C (Defender managed intelligence and detonation APIs) vs Pattern D (shared-container execution anti-pattern), covering isolation, auditability, and three-year TCO](autonomous-soc-malware-reverse-engineering-detonation-sandbox-aks-kata-ghidra-static-airlock-vs-vmss-vmi-cape-fakenet-vs-defender-ti-selection-faq.en.md) | [🇬🇧 EN](autonomous-soc-malware-reverse-engineering-detonation-sandbox-aks-kata-ghidra-static-airlock-vs-vmss-vmi-cape-fakenet-vs-defender-ti-selection-faq.en.md) · [🇨🇳 中文](autonomous-soc-malware-reverse-engineering-detonation-sandbox-aks-kata-ghidra-static-airlock-vs-vmss-vmi-cape-fakenet-vs-defender-ti-selection-faq.md) |
 | 459 | [Enterprise stateful-agent and code/browser sandbox node-defragmentation selection FAQ: Pattern A (`AKS NAP/Karpenter` turn-aware consolidation) vs Pattern B (`Descheduler + Cluster Autoscaler` bin-packing rebalance) vs Pattern C (duration-tiered dual pools) vs Pattern D (permanent no-evict anti-pattern), covering packing utilization, eviction safety, and three-year TCO](agent-sandbox-node-defragmentation-bin-packing-aks-nap-karpenter-consolidation-vs-descheduler-pdb-vs-cluster-autoscaler-selection-faq.en.md) | [🇬🇧 EN](agent-sandbox-node-defragmentation-bin-packing-aks-nap-karpenter-consolidation-vs-descheduler-pdb-vs-cluster-autoscaler-selection-faq.en.md) · [🇨🇳 中文](agent-sandbox-node-defragmentation-bin-packing-aks-nap-karpenter-consolidation-vs-descheduler-pdb-vs-cluster-autoscaler-selection-faq.md) |
+| 467 | [Enterprise multi-tenant agent sandbox noisy-neighbor and resource-exhaustion isolation selection FAQ: Pattern A (`AKS Kata` + `XFS prjquota` + `cgroup v2 io.max/pids.max` + `PSI`) vs Pattern B (`ACA Dynamic Sessions`) vs Pattern C (`gVisor runsc + UserNS`) vs Pattern D (async quota and unlimited PID anti-pattern), covering inode/IOPS/PID blast containment and three-year TCO](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.en.md) | [🇬🇧 EN](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.en.md) · [🇨🇳 中文](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (58 Guides)
 
