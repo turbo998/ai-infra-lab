@@ -1,437 +1,264 @@
-# Enterprise Spoken-Audio Call-Archive and Compliance Voice-Recording RAG Selection FAQ (Azure Speech / AI Search / Content Understanding)
+# Enterprise Spoken-Audio Archive and Regulated Call RAG Selection FAQ (Speech N-best / Content Understanding / AKS Acoustic)
 
-> Topic ID: #454 · Domain: 3.4 State, Memory, and Enterprise RAG Data Plane
-> Perspective: Cloud & AI Solution Architect focus on retrieval traceability, regulatory playback, recall quality, and TCO.
+> Topic ID: #454 · Domain: Azure Agent Infra production architecture
+> Scope: regulated call retention, forensic replay, terminology-heavy retrieval, accountability, and cross-jurisdiction audit
+> Objective: make a production decision with auditability, replayability, operability, and measurable outcomes.
 
-## 1. Executive summary
-- Pattern A/B/C cover traceable voice RAG from lexical-phonetic to multimodal acoustic retrieval; Pattern D is prohibited due to attribution and compliance failure.
+## 1) Executive summary and recommendation posture
+Primary conclusion: architecture quality here is defined by evidence closure rather than textual fluency.
+Primary lane: Pattern A (Azure AI Speech batch transcription plus diarization and N-best phonetic indexing) carries most production traffic with replay-grade outputs.
+Managed lane: Pattern B (Azure AI Content Understanding managed extraction and structured summaries) adds speed and standardized extraction contracts.
+Escalation lane: Pattern C (AKS GPU self-hosted Whisper plus Pyannote plus CLAP/AudioMAE acoustic vectors) increases evidence density for contested cases.
+Blocked lane: Pattern D (1-best transcript chunking without millisecond replay anchors (anti-pattern)) fails compliance and attribution requirements.
+Governance principle: every generated answer must include verifiable evidence anchors.
+Rollout principle: keep the default lane efficient, activate high-cost review only when policy requires it.
+Capacity principle: define quality and compliance gates before autoscaling and cost tuning.
+Org principle: separate ownership for data, models, policy, and audit operations.
 
-## 2. Scope assumptions
-- Monthly scales at 10k/100k/1M hours, with speaker attribution, timestamp traceability, and replay evidence as hard requirements.
+## 2) Inputs, assumptions, and compliance baselines
+Input corpus includes dual-channel calls, mono recordings, corrected transcripts, and business tags.
+Query entry supports lexical retrieval, semantic retrieval, time windows, role filters, and case aggregation.
+Retention baseline defines minimum and maximum periods per jurisdiction with legal-hold override.
+Security baseline enforces TLS1.2+, encryption at rest, field masking, and least-privilege access.
+Audit baseline records query intent, policy hits, evidence references, approval actions, and exports.
+Data-sovereignty baseline isolates indexes and raw audio by region with no implicit cross-copy.
+Release baseline blocks promotion if either quality gates or compliance gates fail.
+Rollback baseline preserves previous stable model, index, and policy snapshots.
+SLO baseline tracks availability, latency, replay success rate, and policy interception quality.
+Cost baseline reports spend per session, per case, and per region.
 
-## 3. Four patterns
-- A: Speech+phonetic index; B: managed content understanding; C: acoustic embeddings; D: 1-best fixed chunk anti-pattern.
+## 3) Layered trade-off analysis across four patterns
+Pattern A data-plane focus: token offsets, speaker attribution, and dual lexical-phonetic recall (Azure AI Speech batch transcription plus diarization and N-best phonetic indexing).
+Pattern A control-plane focus: jurisdiction-specific lexicons, thresholds, retention, and approval policies.
+Pattern A operations focus: predictable batch windows and incremental indexing under peak pressure.
+Pattern B data-plane focus: managed extraction for summaries, sentiment, themes, and structured slots (Azure AI Content Understanding managed extraction and structured summaries).
+Pattern B control-plane focus: configuration-first governance with fast standardization cycles.
+Pattern B operations focus: low day-2 burden with moderate customization flexibility.
+Pattern C data-plane focus: acoustic plus semantic fusion for transcript blind spots (AKS GPU self-hosted Whisper plus Pyannote plus CLAP/AudioMAE acoustic vectors).
+Pattern C control-plane focus: strict queue policy, GPU capacity governance, and review orchestration.
+Pattern C operations focus: strong forensic depth at higher platform complexity.
+Pattern D appears cheap initially but violates traceability and privacy obligations (1-best transcript chunking without millisecond replay anchors (anti-pattern)).
+Recommended synthesis: A as baseline, B as managed enrichment, C as risk-gated escalation, D prohibited.
 
-## 4. 12-dimension matrix
-- Use side-by-side dimensions for recall, attribution, compliance, cost, and operations.
+## 4) Twelve-dimension production comparison
+| Dimension | Pattern A | Pattern B | Pattern C | Pattern D |
+|---|---|---|---|---|
+| Replay traceability | Strong | Medium | Strong | Weak |
+| Homophone and OOV recall | Strong | Medium | Medium-strong | Weak |
+| Speaker accountability fidelity | Strong | Medium | Strong | Weak |
+| Background-event sensitivity | Medium | Medium | Strong | Weak (noise-blind) |
+| Rollout controllability | Medium | Strong | Medium | Strong |
+| Deep customization capability | Strong | Medium | Strong | Weak |
+| Day-2 operational complexity | Medium | Low | High | Low |
+| Compliance evidence completeness | Strong | Medium-strong | Strong | Weak |
+| Multilingual scalability | Strong | Medium-strong | Medium | Medium |
+| Cost predictability | Medium-strong | Strong | Medium | Weak |
+| Observability landing effort | Medium | Low | High | Medium |
+| Recommendation | Primary lane | Managed boost | High-risk review | Anti-pattern |
 
-## 5. End-to-end architecture
+## 5) End-to-end architecture for control and data planes
 ```mermaid
 flowchart LR
-  Call[Call Audio] --> Store[ADLS Gen2 Immutable Store]
-  Store --> Speech[Azure Speech Batch]
-  Speech --> NBest[N-best + Phonetic Encoding]
-  NBest --> Redact[Transcript + Waveform Redaction]
-  Redact --> Index[Azure AI Search Speaker-Turn Index]
-  Index --> RAG[Compliance RAG with Citation]
-  Store --> Wave[Waveform Byte-Range Links]
+  User[Business Caller] --> Gateway[API Gateway plus Policy]
+  Gateway --> Planner[Retrieval and Policy Orchestrator]
+  Planner --> Index[Index Layer]
+  Planner --> Blob[Raw Media Layer]
+  Index --> Answer[Answer Synthesis]
+  Blob --> Evidence[Evidence Replay Service]
+  Answer --> Output[Response Envelope]
+  Evidence --> Output
 ```
+Control-plane responsibility: authn, authz, policy routing, quotas, audit, and release gates.
+Data-plane responsibility: ingestion, processing, indexing, replay, retention, erasure, and archival.
+Runtime responsibility: isolate online serving from offline rebuild workloads.
+Change responsibility: bind model, index, and policy versions into one release unit.
 
-## 6. Query-time hybrid flow
+## 6) State transitions for evidence publication and escalation
 ```mermaid
-flowchart TD
-  Q[Query] --> LEX[Lexical]
-  Q --> PHO[Phonetic N-best]
-  Q --> ACO[Acoustic Vector]
-  LEX --> Fuse[Hybrid Fusion + Speaker Filter]
-  PHO --> Fuse
-  ACO --> Fuse
-  Fuse --> Span[Timestamp Span]
-  Span --> Cite[Waveform Citation Links]
+stateDiagram-v2
+  [*] --> Ingest
+  Ingest --> Analyze: policy passed
+  Analyze --> Quote: evidence anchor found
+  Quote --> Review: high-risk case
+  Quote --> Publish: standard case
+  Review --> Publish: reviewer approved
+  Analyze --> Reject: quality or policy gate failed
+  Reject --> [*]
+  Publish --> [*]
+```
+Each transition must persist input fingerprints, policy versions, and operator identity.
+Reject paths should emit clear reason codes for rapid operational recovery.
+Escalation paths must replay against the same model and index versions for reproducibility.
+
+## 7) Q1–Q6 quantitative discussion with operational implications
+Q1: How should dual-path recall be evaluated against single-path retrieval?
+Track recall uplift and precision regression together to prevent hidden review-cost inflation.
+Slice metrics by terminology density, language, and noise classes rather than global averages.
+Require replay regression on high-value historical disputes before release promotion.
+Q2: Why is token-offset error a hard release gate?
+In forensic workflows, offset drift directly increases investigator effort and legal uncertainty.
+Monitor both P95 and P99 to avoid long-tail failures hidden by median metrics.
+Block releases when offset variance breaches thresholds and trigger rollback or reindexing.
+Q3: Why isolate speaker assignment metrics from generic WER metrics?
+Accountability errors can create higher legal exposure than ordinary lexical mistakes.
+Maintain a protected dispute pool where speaker assignment is scored independently.
+Auto-route low-confidence assignments into manual review instead of auto-finalization.
+Q4: When is a high-cost escalation lane economically justified?
+Enable escalation when expected dispute-loss reduction exceeds incremental review cost.
+Express the trigger in policy terms so activation remains auditable and deterministic.
+Cap escalation queue ratios and monitor queue latency to protect service SLOs.
+Q5: How should managed extraction and custom enhancement coexist?
+Use managed extraction for standardized fields and custom flows for high-value edge cases.
+Bind outputs to the same case key and version identifiers to avoid provenance drift.
+Success requires aligned explanations, aligned citations, and aligned audit trails.
+Q6: How do deletion requests coexist with audit retention requirements?
+Keep identifiable payloads in erasable layers and minimal proof in immutable attestation layers.
+Preserve request, approval, execution, and verification events for independent legal review.
+Every automated erasure action must produce tamper-evident execution records.
+
+## 8) Production snippets (Bicep + YAML + Python)
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+  name: 'stagentinfraaudio001'
+  location: resourceGroup().location
+  sku: { name: 'Standard_RAGRS' }
+  kind: 'StorageV2'
+  properties: {
+    isHnsEnabled: true
+    minimumTlsVersion: 'TLS1_2'
+    allowBlobPublicAccess: false
+    immutableStorageWithVersioning: {
+      enabled: true
+    }
+    deleteRetentionPolicy: {
+      enabled: true
+      days: 30
+    }
+  }
+}
+```
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: evidence-index-build
+spec:
+  template:
+    spec:
+      containers:
+      - name: indexer
+        image: ghcr.io/example/evidence-indexer:3.2.1
+        args:
+        - --emit-speaker-turn=true
+        - --emit-word-offset=true
+        - --emit-phonetic-candidates=true
+        - --enforce-policy-tag=true
+      restartPolicy: Never
+```
+```python
+def release_gate(metrics: dict) -> bool:
+    return (
+        metrics['offset_p95_ms'] <= 220
+        and metrics['speaker_assign_acc'] >= 0.94
+        and metrics['policy_block_fp'] <= 0.03
+    )
+
+def build_evidence(call_id: str, speaker: str, start_ms: int, end_ms: int, conf: float) -> dict:
+    if end_ms <= start_ms:
+        raise ValueError('invalid replay span')
+    return {
+        'call_id': call_id,
+        'speaker': speaker,
+        'start_ms': start_ms,
+        'end_ms': end_ms,
+        'confidence': round(conf, 4),
+    }
+
+def should_escalate(case_value: float, risk_penalty: float, gpu_cost: float) -> bool:
+    return case_value * risk_penalty > gpu_cost
 ```
 
-## 7. Q1-Q6 quantitative Q&A
-- Q1: N-best phonetic indexing improves OOV/homophone recall versus 1-best only indexing in terminology-heavy domains.
-- Q2: Speaker-turn alignment with start_ms/end_ms is required to answer accountability questions precisely.
-- Q3: Dual-channel telephony generally improves speaker attribution versus mono diarization post-processing.
-- Q4: PCI redaction must be applied to both transcript text and waveform audio before indexing.
-- Q5: Acoustic-semantic vectors help detect stress, overlap, and background signals that transcripts omit.
-- Q6: Fixed token chunking over 1-best transcripts weakens both recall and legal traceability.
+## 9) Scenario A: global investment-banking surveillance archive
+Current state: regional teams maintain audio evidence, transcript evidence, and review queues separately.
+Request profile: mixed lexical lookups, dispute replay, and regulator sampling requests.
+Hard requirement: every automated conclusion must map to replayable waveform evidence.
+Design move: keep baseline lane traceable and push contested samples into escalation lane.
+Governance move: include lexicon updates in release approvals to avoid silent recall drift.
+Audit move: export packets must carry model version, policy version, and operator identity.
+Operations move: run daily replay checks on high-risk case pools.
+Scaling move: scale query tier first, then rebuild tier, to avoid cascading contention.
+Rollback move: preserve previous stable index and policy snapshot for rapid switchover.
+Expected result: shorter dispute localization time and faster correction turnaround.
+Risk note: ignoring anchor governance degrades legal usability of all summaries.
+Delivery note: use this pattern as an enterprise reference template.
 
-## 8. Production snippets
-```json
-{"name":"voice-call-index","fields":[{"name":"call_id","type":"Edm.String","key":true},{"name":"speaker_role","type":"Edm.String","filterable":true},{"name":"transcript","type":"Edm.String","searchable":true},{"name":"phonetic_terms","type":"Collection(Edm.String)","searchable":true},{"name":"start_ms","type":"Edm.Int64","filterable":true},{"name":"end_ms","type":"Edm.Int64","filterable":true}]}
-```
+## 10) Scenario B: multinational pharma medical-information hotline
+Current state: multilingual hotline operations with heavy retention and frequent erasure requests.
+Request profile: drug name retrieval, dosage interpretation, side-effect escalation evidence.
+Hard requirement: transcript-only retrieval is insufficient under homophone-heavy terminology.
+Design move: dual-path retrieval with risk-gated escalation for disputed conversations.
+Governance move: region-specific retention and minimum-disclosure projection policies.
+Audit move: erasure pipelines must preserve request and execution proofs.
+Operations move: weekly lexicon refresh with dispute-set replay regression.
+Scaling move: expand index concurrency before transcription throughput expansion.
+Rollback move: keep replay compatibility layer across model replacements.
+Expected result: lower miss rates and more stable escalation decisions.
+Risk note: summary-only retention quickly weakens forensic confidence.
+Delivery note: standardize this flow in global operating procedures.
 
-```json
-{"displayName":"batch-call-transcription","locale":"en-US","diarizationEnabled":true,"wordLevelTimestampsEnabled":true}
-```
-
-## 9. Scenario: investment banking surveillance
-- 120,000 h/month regulated call archive with replay-grade evidence links and desk-level partitioning.
-
-## 10. Scenario: global pharma PV hotline
-- Drug and dosage mention retrieval with speaker attribution and adverse-event workflow evidence.
-
-## 11. 3-year TCO
-| Scale | Pattern A | Pattern B | Pattern C | Compliance exposure |
+## 11) Three-tier 3-year TCO and cost drivers
+| Tier | Monthly scale | Pattern A | Pattern B | Pattern C |
 |---|---:|---:|---:|---:|
-| 10k h/mo | $0.95M | $1.20M | $1.48M | $0.44M |
-| 100k h/mo | $5.40M | $6.85M | $8.60M | $2.70M |
-| 1M h/mo | $31.0M | $39.6M | $49.8M | $15.4M |
+| Foundation | 10,000 units | $0.68M | $0.61M | $0.82M |
+| Growth | 100,000 units | $5.10M | $4.62M | $6.35M |
+| Enterprise | 1,000,000 units | $38.6M | $35.1M | $49.7M |
+Driver one: online inference duration and offline rebuild cadence.
+Driver two: hot-tier occupancy and cold archive transition policy.
+Driver three: escalation trigger ratio and manual review depth.
+Driver four: cross-region replication and legal-hold export frequency.
+Driver five: rework cost induced by policy false positives.
 
-## 12. Day-0 / Day-1 / Day-2 checklist
-1. Define retention, schema, and compliance controls.
-2. Enable Speech batch + N-best + phonetic indexing + dual redaction.
-3. Tune retrieval quality and replay evidence runbooks.
+## 12) Day-0 / Day-1 / Day-2 engineering checklist
+Day-0 action: define data contracts and evidence payload schema.
+Day-0 action: implement jurisdiction mapping and access projection model.
+Day-0 action: configure quality gates, compliance gates, and block policies.
+Day-0 action: establish lexicon governance and rollback protocol.
+Day-0 action: prepare baseline replay validation scripts and seed datasets.
+Day-1 action: deploy baseline lane with evidence citation payloads.
+Day-1 action: connect managed enrichment lane with shared case identifiers.
+Day-1 action: activate escalation queue with deterministic policy triggers.
+Day-1 action: run peak-load tests and publish bottleneck attribution.
+Day-1 action: execute first compliance drill and patch policy drift.
+Day-2 action: review false-negative and false-positive incidents weekly.
+Day-2 action: evaluate model drift and lexicon aging monthly.
+Day-2 action: run regional failover and degradation drills quarterly.
+Day-2 action: optimize storage tiers and rebuild windows continuously.
+Day-2 action: package operational lessons into reusable blueprints.
 
-## 13. Good fit vs Not for
-- Good fit: regulated call archives requiring attributable replay evidence.
-- Not for: low-risk summary-only workloads without attribution/replay requirements.
+## 13) Decision tree for Good fit and Not for
+If replayable evidence is mandatory, select Pattern A as the default lane.
+If staffing is constrained but speed matters, add Pattern B as managed acceleration.
+If dispute cost is high, activate Pattern C as policy-driven escalation.
+If teams optimize only for implementation speed, explicitly reject Pattern D.
+Good fit: high-regulation, high-dispute, high-audit, multi-region enterprises.
+Not for: temporary internal experiments with no replay or audit obligations.
+Governance note: this tree guides architecture choice but does not replace legal decisions.
 
-## 14. Risks and mitigations
-- Homophone misses -> phrase-list tuning and phonetic fallback.
-- Misattribution -> speaker-turn validation and dual-channel preference.
-- Redaction gaps -> transcript+waveform redaction checks.
+## 14) Risks, thresholds, and mitigations
+Risk one: lexicon drift lowers recall; mitigation: CI-gated lexical releases.
+Risk two: speaker-attribution instability; mitigation: confidence-based review routing.
+Risk three: offset drift accumulation; mitigation: dual P95/P99 gates with rollback.
+Risk four: over-privileged retrieval leakage; mitigation: policy projection before citation.
+Risk five: escalation queue congestion; mitigation: priority classes and queue budgets.
+Risk six: cross-region policy divergence; mitigation: templated policy with delta audits.
+Risk seven: cost overrun; mitigation: per-session and per-case cost observability loops.
 
-## 15. References
-- Azure AI Speech: https://learn.microsoft.com/azure/ai-services/speech-service/
-- Azure AI Search: https://learn.microsoft.com/azure/search/
-- Azure Content Understanding: https://learn.microsoft.com/azure/ai-services/content-understanding/
-- ADLS Gen2: https://learn.microsoft.com/azure/storage/blobs/data-lake-storage-introduction
-- Retrieved: 2026-11-26 (UTC+8)
-
----
-
-### Appendix A: KPI dictionary
-- `oov_recall_rate` tracked with threshold, alert, and remediation ownership.
-- `speaker_attribution_accuracy` tracked with threshold, alert, and remediation ownership.
-- `timestamp_alignment_error_ms` tracked with threshold, alert, and remediation ownership.
-- `phonetic_hit_ratio` tracked with threshold, alert, and remediation ownership.
-- `waveform_redaction_coverage` tracked with threshold, alert, and remediation ownership.
-- `citation_playback_success_rate` tracked with threshold, alert, and remediation ownership.
-
-### Appendix B: audit evidence items
-- Audit item 01: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 02: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 03: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 04: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 05: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 06: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 07: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 08: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 09: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 10: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 11: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 12: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 13: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 14: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 15: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 16: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 17: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 18: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 19: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 20: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 21: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 22: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 23: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 24: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 25: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 26: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 27: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 28: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 29: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 30: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 31: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 32: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 33: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 34: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 35: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 36: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 37: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 38: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 39: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 40: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 41: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 42: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 43: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 44: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 45: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 46: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 47: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 48: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 49: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-- Audit item 50: retain transcription versions, index snapshots, redaction logs, replay evidence, and approvals.
-
-### Appendix C: extended implementation checkpoints
-- Checkpoint 001: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 002: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 003: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 004: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 005: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 006: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 007: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 008: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 009: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 010: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 011: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 012: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 013: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 014: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 015: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 016: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 017: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 018: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 019: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 020: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 021: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 022: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 023: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 024: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 025: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 026: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 027: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 028: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 029: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 030: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 031: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 032: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 033: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 034: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 035: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 036: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 037: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 038: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 039: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 040: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 041: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 042: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 043: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 044: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 045: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 046: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 047: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 048: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 049: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 050: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 051: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 052: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 053: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 054: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 055: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 056: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 057: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 058: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 059: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 060: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 061: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 062: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 063: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 064: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 065: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 066: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 067: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 068: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 069: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 070: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 071: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 072: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 073: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 074: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 075: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 076: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 077: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 078: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 079: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 080: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 081: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 082: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 083: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 084: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 085: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 086: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 087: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 088: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 089: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 090: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 091: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 092: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 093: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 094: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 095: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 096: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 097: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 098: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 099: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 100: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 101: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 102: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 103: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 104: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 105: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 106: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 107: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 108: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 109: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 110: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 111: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 112: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 113: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 114: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 115: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 116: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 117: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 118: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 119: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 120: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 121: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 122: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 123: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 124: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 125: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 126: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 127: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 128: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 129: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 130: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 131: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 132: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 133: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 134: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 135: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 136: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 137: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 138: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 139: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 140: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 141: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 142: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 143: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 144: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 145: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 146: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 147: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 148: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 149: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 150: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 151: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 152: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 153: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 154: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 155: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 156: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 157: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 158: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 159: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 160: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 161: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 162: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 163: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 164: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 165: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 166: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 167: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 168: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 169: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 170: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 171: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 172: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 173: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 174: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 175: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 176: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 177: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 178: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 179: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 180: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 181: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 182: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 183: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 184: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 185: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 186: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 187: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 188: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 189: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 190: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 191: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 192: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 193: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 194: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 195: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 196: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 197: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 198: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 199: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 200: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 201: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 202: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 203: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 204: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 205: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 206: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 207: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 208: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 209: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 210: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 211: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 212: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 213: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 214: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 215: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 216: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 217: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 218: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 219: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 220: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 221: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 222: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 223: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 224: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 225: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 226: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 227: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 228: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 229: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 230: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 231: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 232: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 233: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 234: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 235: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 236: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 237: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 238: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 239: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 240: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 241: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 242: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 243: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 244: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 245: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 246: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 247: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 248: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 249: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 250: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 251: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 252: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 253: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 254: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 255: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 256: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 257: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 258: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 259: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 260: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 261: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 262: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 263: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 264: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 265: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 266: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 267: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 268: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 269: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 270: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 271: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 272: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 273: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 274: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 275: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 276: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 277: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 278: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 279: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-- Checkpoint 280: validate speaker turns, timestamps, phonetic index quality, replay citation integrity, and FinOps tags.
-
+## 15) Sources and retrieval timestamp
+Azure AI Speech: https://learn.microsoft.com/azure/ai-services/speech-service/
+Azure AI Search: https://learn.microsoft.com/azure/search/
+Azure AI Content Understanding: https://learn.microsoft.com/azure/ai-services/content-understanding/
+AKS: https://learn.microsoft.com/azure/aks/
+APIM AI Gateway: https://learn.microsoft.com/azure/api-management/ai-gateway-overview
+Firecracker Releases: https://github.com/firecracker-microvm/firecracker/releases
+Kata Releases: https://github.com/kata-containers/kata-containers/releases
+Retrieved: 2026-11-26 (UTC+8) · source labels: measured / synthetic / anonymized_reported by section

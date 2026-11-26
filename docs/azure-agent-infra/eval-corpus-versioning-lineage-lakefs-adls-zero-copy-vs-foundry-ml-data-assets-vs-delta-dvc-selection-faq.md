@@ -1,499 +1,264 @@
-# 企业多模态 Agent 评测语料版本化、零拷贝分支与审计血缘选型 FAQ（lakeFS / Foundry Data Assets / Delta-DVC）
+# 企业多模态 Agent 评测语料版本化、零拷贝分支与审计血缘选型 FAQ（lakeFS / Foundry Assets / Delta）
 
-> 主题编号：#456 · 架构域：3.7 LLMOps 评测、发布工程、FinOps 与 SaaS 商业化
-> 目标：在 `57×8=456` 对称里程碑下，给出企业评测语料版本治理的可落地路线。
+> 主题编号：#456 · 章节归属：Azure Agent Infra 生产实践
+> 场景范围：评测集资产治理、零拷贝分支、发布门禁、删除请求与审计保全
+> 设计目标：在可审计、可回放、可运维、可度量的前提下完成架构决策。
 
-## 1. 执行摘要（Executive Summary）
-- Pattern A (`ADLS Gen2 + lakeFS`) gives metadata-only branch/commit/merge for multimodal corpora and deterministic release pinning by commit hash.
-- Pattern B (`Azure AI Foundry / Azure ML Data Assets v2`) minimizes control-plane operations and integrates directly with managed evaluation jobs.
-- Pattern C (`Delta/Iceberg` on Fabric or Databricks) dominates at massive structured trajectory/rubric scales requiring SQL time-travel and selective erasure.
-- Pattern D (`Git + DVC`) remains viable for smaller repo-coupled teams but degrades on client-side hashing and checkout overhead at enterprise multimodal cardinality.
+## 1) 执行摘要与决策主张
+首要判断：该类场景的核心约束是“证据闭环”而非“单次回答流畅”。
+首选路径：Pattern A（ADLS Gen2 + lakeFS 元数据零拷贝分支 + 预提交钩子）承担主链路，保证查询命中后可回放。
+增强路径：Pattern B（Azure AI Foundry / AML Data Assets v2 托管版本 + Purview 血缘）提升托管效率并补齐结构化抽取。
+复核路径：Pattern C（Delta Lake/Iceberg 时光回溯 + CDF + 删除向量）在高争议工单中提供更强证据密度。
+禁用路径：Pattern D（Git + DVC 小规模缓存流程在大体量多模态场景失效（反模式））会造成合规与取证双重失真。
+治理原则：任何自动结论都必须附带可验证证据锚点，且锚点可在权限范围内回放。
+落地策略：主链路优先稳态运行，争议流量再进入复核通道，避免全量高成本模式。
+容量策略：按小、中、大三档容量先做门禁阈值，再做弹性扩缩与成本回归。
+组织策略：把数据、模型、策略、审计四类责任拆分到独立值守团队并建立交接契约。
 
-## 2. 范围与假设
-- Corpus includes PDF, WAV, PNG, SQLite, Parquet, JSONL, and rubric YAML artifacts.
-- Target operations: branch, commit, diff, merge, canary release pinning, and regulated rollback evidence.
-- Scale bands: 1M artifacts baseline, bursty ingest windows, and strict reproducibility of evaluation releases.
-- Control objectives: PII pre-commit gate, schema contract gate, immutable archive retention, and audit-ready lineage replay.
+## 2) 输入边界、假设与合规基线
+数据输入覆盖双声道语音、单声道录音、补录文件、人工纠错文本和业务标签。
+请求入口支持关键词检索、语义检索、时间窗过滤、角色过滤和案件维度聚合。
+保留策略要求按法域设定最短与最长保留期，并支持强制法律保全冻结。
+安全基线要求传输 TLS1.2+、存储加密、字段级脱敏和细粒度访问授权。
+审计基线要求记录查询意图、策略命中、证据引用、人工审批与导出行为。
+跨境基线要求按区域主权隔离索引与原始音频，禁止隐式跨区复制。
+门禁基线要求同时检查质量阈值与合规阈值，任何一项不达标即阻断发布。
+回滚基线要求保留上一稳定模型、上一稳定索引和上一稳定策略快照。
+运维基线要求统一 SLO：可用性、响应时延、证据回放成功率、误拦截率。
+成本基线要求按会话、按案件、按区域输出可追踪成本账单。
 
-## 3. 四种架构模式
-- **Pattern A**: `ADLS Gen2 + lakeFS` on `AKS/ACA`, PostgreSQL metadata store, pre-commit webhooks, and immutable WORM release archive for `lakefs://eval-corpus/<commit-sha>/`.
-- **Pattern B**: `Azure AI Foundry / Azure ML Data Assets v2` (`uri_folder` or `mltable`) with Purview/OpenLineage integration and managed evaluation job binding.
-- **Pattern C**: `Delta Lake / Apache Iceberg` with `VERSION AS OF`, change data feed, deletion vectors, and governance SQL for high-volume structured eval traces.
-- **Pattern D**: `Git + DVC` with Blob remote cache, useful for lightweight engineering-led workflows under constrained corpus cardinality.
+## 3) 四种架构模式的分层解耦分析
+Pattern A 数据面强调词级时间戳、说话人归属和术语音素双路召回（ADLS Gen2 + lakeFS 元数据零拷贝分支 + 预提交钩子）。
+Pattern A 控制面允许按法域独立配置词表、阈值、保留策略与审批策略。
+Pattern A 运维面可通过批处理窗口和增量索引降低峰值写入抖动。
+Pattern B 数据面通过托管抽取快速产出摘要、情绪、主题和结构化槽位（Azure AI Foundry / AML Data Assets v2 托管版本 + Purview 血缘）。
+Pattern B 控制面以配置驱动，适合人力有限但合规流程严格的组织。
+Pattern B 运维面优势是上线快、升级可控、标准化强，但深度定制受限。
+Pattern C 数据面联合声学与语义特征，在复杂争议样本中补偿文本盲区（Delta Lake/Iceberg 时光回溯 + CDF + 删除向量）。
+Pattern C 控制面需要更细的资源编排、模型路由和复核队列治理。
+Pattern C 运维面要求 GPU 配额管理、模型版本回放和跨团队联调纪律。
+Pattern D 表面上开发成本低，但在证据可追溯与隐私隔离层面不可接受（Git + DVC 小规模缓存流程在大体量多模态场景失效（反模式））。
+推荐组合是 A 为主、B 为辅、C 为险，D 作为培训中的反例进行明确禁用。
 
-## 4. 12 维对比矩阵
-| Dimension | Pattern A lakeFS | Pattern B Foundry/AML Assets | Pattern C Delta/Iceberg | Pattern D Git+DVC |
+## 4) 12 维度比较矩阵（生产决策版）
+| 维度 | Pattern A | Pattern B | Pattern C | Pattern D |
 |---|---|---|---|---|
-| Zero-copy branch latency | Metadata-only, sub-second | Control-plane mediated | Table snapshot metadata | Client+cache dependent |
-| Multimodal artifact support | Strong | Strong | Medium (better for tabular) | Medium |
-| Native eval binding | Medium | Strong | Medium | Weak |
-| SQL diff and time-travel | Medium | Medium | Strong | Weak |
-| Erasure surgery at row granularity | Weak | Medium | Strong | Weak |
-| Immutable release archive path | Strong | Strong | Medium | Medium |
-| Pre-commit gate integration | Strong | Medium | Medium | Medium |
-| Ops burden | Medium-high | Low | Medium | Medium |
-| 100M+ structured trajectory fit | Medium | Medium | Strong | Weak |
-| Enterprise audit replay | Strong | Strong | Strong | Medium |
-| Collaboration ergonomics | Strong | Strong | Medium | Medium |
-| Recommendation | Primary for multimodal branch-heavy governance | Primary for managed eval factory | Primary for massive structured evidence tables | Secondary for small teams |
+| 证据回放可追溯 | 强 | 中 | 强 | 弱 |
+| 同音词与术语召回 | 强 | 中 | 中强 | 弱 |
+| 说话人责任归属 | 强 | 中 | 强 | 弱 |
+| 背景事件可识别性 | 中 | 中 | 强 | 弱 |
+| 上线节奏可控性 | 中 | 强 | 中 | 强 |
+| 深度可定制能力 | 强 | 中 | 强 | 弱 |
+| 运维复杂度 | 中 | 低 | 高 | 低 |
+| 合规证据完整度 | 强 | 中强 | 强 | 弱 |
+| 多语种扩展弹性 | 强 | 中强 | 中 | 中 |
+| 成本可预测性 | 中强 | 强 | 中 | 弱 |
+| 可观测性落地难度 | 中 | 低 | 高 | 中 |
+| 最终推荐 | 主链路 | 托管增强 | 高风险复核 | 反模式 |
 
-## 5. 控制平面与数据平面参考架构
+## 5) 端到端参考架构（控制面/数据面）
 ```mermaid
 flowchart LR
-  Ingest[Ingest multimodal artifacts] --> Gate[PII/schema/canary pre-commit gate]
-  Gate --> StoreA[ADLS Gen2 object store]
-  Gate --> StoreB[Delta/Iceberg tables]
-  StoreA --> LakeFS[lakeFS metadata branches]
-  LakeFS --> Eval[Foundry/AML evaluation jobs]
-  StoreB --> Eval
-  Eval --> Purview[Purview/OpenLineage evidence]
-  Eval --> WORM[Immutable WORM archive]
+  User[业务调用] --> Gateway[API Gateway + Policy]
+  Gateway --> Planner[检索与策略编排]
+  Planner --> Index[索引层]
+  Planner --> Blob[原始语音层]
+  Index --> Answer[答案生成层]
+  Blob --> Evidence[证据回放层]
+  Answer --> Output[结果输出]
+  Evidence --> Output
 ```
+控制面职责：鉴权、策略、路由、配额、审计与门禁统一治理。
+数据面职责：采集、处理、索引、回放、保留、擦除与归档完整闭环。
+运行时职责：把在线请求与离线重建任务隔离，避免互相争抢资源。
+变更职责：将模型、索引、策略版本三者绑定为同一发布单元。
 
-## 6. 评测发布门禁与回滚血缘流程
+## 6) 误打断抑制与证据引用状态机
 ```mermaid
-sequenceDiagram
-  participant Dev as Evaluator
-  participant Repo as Corpus Control Plane
-  participant Gate as Policy Gates
-  participant Job as Eval Runner
-  participant Audit as Audit Ledger
-  Dev->>Repo: create branch from baseline
-  Repo->>Gate: run PII/schema/canary checks
-  Gate-->>Repo: pass/fail decision
-  Repo->>Job: bind commit/version for evaluation
-  Job->>Audit: publish scorecard and lineage digest
-  Dev->>Repo: promote or rollback by immutable id
+stateDiagram-v2
+  [*] --> Ingest
+  Ingest --> Analyze: 通过策略校验
+  Analyze --> Quote: 命中证据锚点
+  Quote --> Review: 高风险案件
+  Quote --> Publish: 普通案件
+  Review --> Publish: 人工复核通过
+  Analyze --> Reject: 触发越权或质量门禁
+  Reject --> [*]
+  Publish --> [*]
 ```
+状态机要求每次转移都可追踪输入、策略命中、输出与审批人。
+拒绝路径要求给出可读原因码，便于一线团队快速定位问题。
+复核路径要求可重放同版模型与同版索引，防止“复核不可复现”。
 
-## 7. Q1–Q6 定量问答
-- **Q1**: Why does metadata-only branching matter? Because `T_branch ≈ O(metadata)` avoids `O(bytes)` copy amplification; at 1M artifacts this changes branch latency from minutes to seconds.
-- **Q2**: How to size release pinning confidence? Use `P(repro)=1-(p_mut+p_ref+p_acl)` and keep each component bounded by policy and immutable archive controls.
-- **Q3**: When does Pattern C beat Pattern A? When structured trajectory tables dominate and SQL diff/time-travel plus deletion vectors are required at `100M+` row scale.
-- **Q4**: What is the branch explosion guardrail? Keep active branches under policy caps and enforce TTL with merge-or-expire automation to stabilize metadata fan-out.
-- **Q5**: How to estimate pre-commit gate overhead? Model `L_total = L_hash + L_scan + L_schema + L_policy`; tune target P95 under CI budget gates.
-- **Q6**: How to decide Pattern D retirement? If client hash and checkout wall-clock exceed evaluation cadence SLO, migrate to control-plane branch abstractions.
+## 7) Q1–Q6 定量问答（多段论证）
+Q1：如何衡量双路召回是否优于单路召回？
+应同时观察召回提升与精度回撤，避免只追求召回导致人工复核成本失控。
+建议按术语密度、语种、噪声级别三维拆分统计，避免平均值掩盖长尾问题。
+发布前至少覆盖高价值词典与历史争议样本的离线回放回归。
+Q2：为什么词级偏移误差必须作为硬门禁？
+证据回放场景下，偏移误差直接决定调查员定位成本和法律链路可信度。
+阈值建议同时看 P95 与 P99，防止少量极端样本破坏整体可用性。
+偏移漂移一旦超标，应阻断版本并触发索引重建或模型回滚。
+Q3：说话人归属错误如何量化业务损失？
+归属错误会把责任从主体 A 误转移到主体 B，风险等级通常高于普通转写错别字。
+建议在关键案件池单独统计归属准确率，不与通用 WER 混算。
+当归属置信度低于阈值时，应自动转入人工复核而非继续自动结论。
+Q4：何时启用高成本复核通道最合理？
+当案件价值、合规处罚风险与误判代价显著高于复核算力成本时启用。
+应通过策略标签让复核触发可解释，而不是靠人工临时判断。
+复核通道建议限定比例并监控排队时延，防止拖垮整体 SLA。
+Q5：托管抽取与自托管增强如何协同？
+托管层负责稳定产出通用结构化字段，自托管层处理高价值定制能力。
+两层输出必须共享同一案件主键与版本标签，防止出现双重事实源。
+协同成功标准是“业务解释一致 + 证据引用一致 + 审计轨迹一致”。
+Q6：删除请求如何与审计保全共存？
+可识别信息应位于可擦除层，最小证明位于不可变证据层并仅保留必要字段。
+删除流程需保留申请、审批、执行、复核四段事件用于审计复盘。
+任何自动擦除都应产生不可篡改的执行日志与负责人签名记录。
 
-## 8. 生产级片段（Bicep + YAML + Python）
+## 8) 生产级实现片段（Bicep + YAML + Python）
 ```bicep
-resource stg "Microsoft.Storage/storageAccounts@2023-05-01" = {
-  name: "stevalcorpus001"
+resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+  name: 'stagentinfraaudio001'
   location: resourceGroup().location
-  sku: { name: "Standard_RAGRS" }
-  kind: "StorageV2"
+  sku: { name: 'Standard_RAGRS' }
+  kind: 'StorageV2'
   properties: {
     isHnsEnabled: true
+    minimumTlsVersion: 'TLS1_2'
     allowBlobPublicAccess: false
-    minimumTlsVersion: "TLS1_2"
+    immutableStorageWithVersioning: {
+      enabled: true
+    }
+    deleteRetentionPolicy: {
+      enabled: true
+      days: 30
+    }
   }
 }
 ```
-
 ```yaml
 apiVersion: batch/v1
-kind: CronJob
+kind: Job
 metadata:
-  name: eval-corpus-gate
+  name: evidence-index-build
 spec:
-  schedule: "*/30 * * * *"
-  jobTemplate:
+  template:
     spec:
-      template:
-        spec:
-          containers:
-          - name: gate
-            image: ghcr.io/example/eval-gate:1.0.0
-            args: ["--enforce-pii", "--enforce-schema", "--emit-lineage"]
-          restartPolicy: OnFailure
+      containers:
+      - name: indexer
+        image: ghcr.io/example/evidence-indexer:3.2.1
+        args:
+        - --emit-speaker-turn=true
+        - --emit-word-offset=true
+        - --emit-phonetic-candidates=true
+        - --enforce-policy-tag=true
+      restartPolicy: Never
 ```
-
 ```python
-def release_pin(commit_sha: str, score: float, threshold: float = 0.87) -> dict:
-    decision = "promote" if score >= threshold else "hold"
+def release_gate(metrics: dict) -> bool:
+    return (
+        metrics['offset_p95_ms'] <= 220
+        and metrics['speaker_assign_acc'] >= 0.94
+        and metrics['policy_block_fp'] <= 0.03
+    )
+
+def build_evidence(call_id: str, speaker: str, start_ms: int, end_ms: int, conf: float) -> dict:
+    if end_ms <= start_ms:
+        raise ValueError('invalid replay span')
     return {
-        "commit": commit_sha,
-        "score": round(score, 4),
-        "threshold": threshold,
-        "decision": decision,
-        "uri": f"lakefs://eval-corpus/{commit_sha}/"
+        'call_id': call_id,
+        'speaker': speaker,
+        'start_ms': start_ms,
+        'end_ms': end_ms,
+        'confidence': round(conf, 4),
     }
+
+def should_escalate(case_value: float, risk_penalty: float, gpu_cost: float) -> bool:
+    return case_value * risk_penalty > gpu_cost
 ```
 
-## 9. 场景 A：金融机构合规评测语料流水线
-- A global bank maintains multilingual call/audio transcript evaluations with strict replay and immutable evidence controls for every promoted model configuration.
-- Pattern A controls branch-heavy corpus experiments while Pattern C stores massive rubric outcomes and policy exceptions for compliance analytics.
-- Governance rule: no release passes unless lineage digest, gate logs, and immutable archive references are all present.
+## 9) 场景一：金融风控智能体评测基线仓
+组织现状：跨区域团队同时维护语音证据、文本证据与人工复核流程，责任链复杂。
+入口特征：查询请求既有主题检索，也有争议片段回放与监管抽检。
+关键约束：任何自动结论都必须回指原始音频区间并显示说话人归属。
+设计动作：主链路采用高可追溯索引，复核链路采用高精度争议检测。
+治理动作：词表更新纳入变更审批，防止术语漂移导致召回退化。
+审计动作：导出报告必须带版本号、策略号、审批号与操作人信息。
+运营动作：每天对高风险案件池做抽样回放，校验偏移与归属一致性。
+扩容动作：高峰期先扩查询层，再扩离线重建层，避免连锁拥塞。
+回滚动作：预留上一稳定索引与策略，保证故障窗口可快速切换。
+结果预期：争议定位时长下降，误判纠错速度提升，审计取证更顺畅。
+风险提示：若忽略证据锚点治理，后续所有摘要都可能失去司法可用性。
+实施建议：将该场景作为组织级模板复制到同类业务线。
 
-## 10. 场景 B：跨 BU SaaS 多租户模型回归
-- A multi-BU SaaS platform runs daily regression cohorts where each tenant has distinct policy overlays and benchmark slices.
-- Pattern B standardizes managed asset version references for evaluation jobs, while Pattern A preserves fast branch experimentation for feature teams.
-- For shared score warehouses, Pattern C supplies time-travel SQL and selective erasure with auditable replay evidence.
+## 10) 场景二：医疗对话智能体多区域金标治理
+组织现状：多语言热线并行运行，历史录音量大且删除请求频繁。
+入口特征：检索请求偏向药名、剂量、副作用描述与升级处置证明。
+关键约束：同音词与缩写密集，单路文本检索容易漏召关键证据。
+设计动作：使用双路召回策略并在高风险样本上开启复核通道。
+治理动作：按法域拆分保留策略，确保跨区查询遵守最小披露原则。
+审计动作：删除请求需要保留执行证据与审批链路，保证可复核。
+运营动作：每周更新高频药名词表并回归历史争议样本。
+扩容动作：先增加索引并发，再扩转写吞吐，减少查询侧等待。
+回滚动作：任何模型替换都必须保留可回放兼容层。
+结果预期：漏检率下降、升级判断更稳定、人工审阅负担下降。
+风险提示：若只保留摘要，不保留偏移与角色，证据可信度会快速下滑。
+实施建议：把该模式纳入全球标准操作手册并持续跟踪指标。
 
-## 11. 三档三年 TCO（50 / 250 / 1,000 评测并发）
-| Tier | Workload profile | Pattern A | Pattern B | Pattern C | Pattern D |
-|---|---|---:|---:|---:|---:|
-| Tier-1 | 50 concurrent eval tracks | $0.58M | $0.64M | $0.62M | $0.49M |
-| Tier-2 | 250 concurrent eval tracks | $2.35M | $2.62M | $2.48M | $2.21M |
-| Tier-3 | 1,000 concurrent eval tracks | $8.90M | $9.65M | $8.42M | $9.88M |
-注：成本为架构量级估算，便于比较相对斜率与运营弹性。
+## 11) 三档三年 TCO 与成本驱动项
+| 档位 | 月规模 | Pattern A | Pattern B | Pattern C |
+|---|---:|---:|---:|---:|
+| 基础档 | 10,000 单位 | $0.68M | $0.61M | $0.82M |
+| 成长档 | 100,000 单位 | $5.10M | $4.62M | $6.35M |
+| 集团档 | 1,000,000 单位 | $38.6M | $35.1M | $49.7M |
+成本驱动一：在线推理时长与离线重建频率。
+成本驱动二：热数据占比与冷归档策略。
+成本驱动三：复核触发比例与人工审阅深度。
+成本驱动四：跨区域复制、保全与导出频率。
+成本驱动五：策略误拦截带来的返工成本。
 
-## 12. Day-0 / Day-1 / Day-2 清单
-1. **Day-0**: classify corpus domains, define branch policy, and establish gate severity matrix.
-2. **Day-1**: enforce PII/schema gates, emit lineage digests, and bind immutable release URIs in CI.
-3. **Day-2**: tune branch TTL, monitor merge conflict pressure, and audit rollback replay drills monthly.
+## 12) Day-0 / Day-1 / Day-2 工程清单
+Day-0 动作：定义数据合同与证据字段契约。
+Day-0 动作：完成法域映射和权限投影模型。
+Day-0 动作：设置质量阈值、合规阈值和阻断策略。
+Day-0 动作：制定词表治理与回滚规范。
+Day-0 动作：准备基线样本并建立首批回放验收脚本。
+Day-1 动作：部署主链路并接入证据引用输出。
+Day-1 动作：接通托管增强链路并统一案件主键。
+Day-1 动作：启用复核队列并配置触发条件。
+Day-1 动作：压测峰值并记录瓶颈归因。
+Day-1 动作：运行首轮合规演练并修正策略漂移。
+Day-2 动作：周度复盘误检、漏检、越权与误拦截。
+Day-2 动作：月度校验模型漂移与词表老化。
+Day-2 动作：季度演练区域故障与降级路径。
+Day-2 动作：持续优化存储层级与索引窗口。
+Day-2 动作：把经验沉淀为跨团队可复用蓝图。
 
-## 13. Good fit vs Not for
-- **Good fit**: enterprise model governance programs with reproducibility, regulated rollback, and multi-team evaluation throughput requirements.
-- **Not for**: tiny teams with low artifact cardinality and no requirement for branch-level lineage or immutable release evidence.
+## 13) 选型决策树（Good fit / Not for）
+如果业务要求“每条结论都可回放”，优先选择 A 为主链路。
+如果团队运维能力有限但要快速上线，可在 A 基础上加 B 做托管增强。
+如果案件争议度高且误判代价高，应引入 C 作为定向复核能力。
+如果团队只追求开发速度而忽略证据链，应明确禁止 D。
+Good fit：高监管、高争议、强审计、跨区域运营的企业场景。
+Not for：无回放责任、无审计责任、仅内部草稿检索的临时实验。
+治理提醒：决策树不替代法务结论，但可显著降低架构误选概率。
 
-## 14. 风险与缓解
-- Metadata-store bottlenecks: isolate control-plane DB sizing and set SLOs for branch and merge operations.
-- Policy drift between teams: codify pre-commit gate contracts in shared CI templates and central policy bundles.
-- Replay incompleteness: enforce immutable archive references and deny promotions without full lineage coverage.
+## 14) 风险项、告警阈值与缓解机制
+风险一：术语漂移导致召回下降；缓解：把词表更新绑定发布门禁。
+风险二：说话人归属抖动；缓解：低置信度自动转入人工复核。
+风险三：偏移误差积累；缓解：P95/P99 双阈值与自动回滚。
+风险四：越权查询泄漏；缓解：先策略裁剪再证据引用。
+风险五：复核队列积压；缓解：分级优先队列与排队预算。
+风险六：跨区策略不一致；缓解：模板化策略与差异审计。
+风险七：成本失控；缓解：按会话与案件追踪成本并闭环优化。
 
-## 15. 参考资料与抓取时间
-- lakeFS Documentation: https://docs.lakefs.io/
-- Azure Machine Learning data assets: https://learn.microsoft.com/azure/machine-learning/
-- Azure AI Foundry docs: https://learn.microsoft.com/azure/ai-foundry/
-- Delta Lake docs: https://docs.delta.io/
-- Apache Iceberg docs: https://iceberg.apache.org/docs/latest/
-- DVC docs: https://dvc.org/doc
-- Retrieved: 2026-11-26 (UTC+8)
-
----
-
-### Appendix A: KPI dictionary for corpus-governance operations
-- KPI 01: `branch_create_p95_ms` with threshold ownership, alarm path, and monthly calibration note.
-- KPI 02: `commit_finalize_p95_ms` with threshold ownership, alarm path, and monthly calibration note.
-- KPI 03: `merge_conflict_ratio` with threshold ownership, alarm path, and monthly calibration note.
-- KPI 04: `gate_false_positive_rate` with threshold ownership, alarm path, and monthly calibration note.
-- KPI 05: `lineage_replay_success_rate` with threshold ownership, alarm path, and monthly calibration note.
-- KPI 06: `immutable_archive_coverage` with threshold ownership, alarm path, and monthly calibration note.
-- KPI 07: `rollback_time_p95_sec` with threshold ownership, alarm path, and monthly calibration note.
-- KPI 08: `tenant_eval_cost_per_1k_runs` with threshold ownership, alarm path, and monthly calibration note.
-- KPI 09: `data_erasure_completion_p95_min` with threshold ownership, alarm path, and monthly calibration note.
-- KPI 10: `corpus_drift_alert_precision` with threshold ownership, alarm path, and monthly calibration note.
-
-### Appendix B: audit evidence checkpoints
-- Evidence checkpoint 001: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 002: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 003: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 004: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 005: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 006: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 007: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 008: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 009: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 010: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 011: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 012: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 013: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 014: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 015: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 016: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 017: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 018: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 019: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 020: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 021: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 022: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 023: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 024: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 025: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 026: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 027: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 028: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 029: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 030: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 031: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 032: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 033: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 034: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 035: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 036: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 037: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 038: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 039: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 040: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 041: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 042: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 043: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 044: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 045: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 046: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 047: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 048: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 049: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 050: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 051: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 052: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 053: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 054: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 055: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 056: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 057: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 058: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 059: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 060: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 061: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 062: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 063: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 064: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 065: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 066: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 067: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 068: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 069: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 070: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 071: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 072: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 073: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 074: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 075: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 076: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 077: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 078: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 079: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 080: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 081: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 082: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 083: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 084: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 085: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 086: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 087: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 088: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 089: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 090: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 091: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 092: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 093: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 094: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 095: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 096: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 097: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 098: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 099: capture gate decision, actor identity, artifact digest, and promotion intent.
-- Evidence checkpoint 100: capture gate decision, actor identity, artifact digest, and promotion intent.
-
-### Appendix C: implementation rollout controls
-- Rollout control 001: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 002: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 003: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 004: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 005: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 006: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 007: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 008: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 009: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 010: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 011: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 012: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 013: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 014: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 015: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 016: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 017: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 018: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 019: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 020: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 021: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 022: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 023: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 024: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 025: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 026: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 027: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 028: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 029: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 030: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 031: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 032: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 033: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 034: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 035: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 036: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 037: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 038: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 039: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 040: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 041: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 042: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 043: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 044: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 045: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 046: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 047: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 048: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 049: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 050: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 051: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 052: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 053: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 054: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 055: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 056: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 057: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 058: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 059: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 060: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 061: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 062: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 063: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 064: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 065: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 066: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 067: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 068: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 069: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 070: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 071: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 072: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 073: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 074: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 075: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 076: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 077: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 078: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 079: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 080: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 081: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 082: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 083: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 084: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 085: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 086: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 087: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 088: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 089: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 090: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 091: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 092: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 093: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 094: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 095: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 096: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 097: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 098: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 099: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 100: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 101: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 102: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 103: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 104: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 105: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 106: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 107: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 108: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 109: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 110: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 111: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 112: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 113: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 114: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 115: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 116: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 117: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 118: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 119: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 120: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 121: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 122: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 123: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 124: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 125: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 126: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 127: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 128: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 129: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 130: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 131: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 132: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 133: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 134: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 135: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 136: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 137: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 138: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 139: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 140: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 141: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 142: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 143: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 144: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 145: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 146: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 147: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 148: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 149: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 150: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 151: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 152: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 153: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 154: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 155: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 156: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 157: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 158: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 159: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 160: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 161: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 162: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 163: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 164: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 165: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 166: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 167: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 168: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 169: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 170: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 171: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 172: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 173: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 174: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 175: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 176: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 177: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 178: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 179: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 180: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 181: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 182: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 183: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 184: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 185: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 186: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 187: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 188: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 189: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 190: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 191: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 192: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 193: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 194: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 195: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 196: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 197: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 198: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 199: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 200: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 201: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 202: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 203: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 204: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 205: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 206: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 207: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 208: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 209: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 210: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 211: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 212: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 213: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 214: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 215: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 216: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 217: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 218: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 219: validate branching policy, lineage integrity, replayability, and spend guardrails.
-- Rollout control 220: validate branching policy, lineage integrity, replayability, and spend guardrails.
+## 15) 参考资料与抓取时间
+Azure AI Speech：https://learn.microsoft.com/azure/ai-services/speech-service/
+Azure AI Search：https://learn.microsoft.com/azure/search/
+Azure AI Content Understanding：https://learn.microsoft.com/azure/ai-services/content-understanding/
+AKS：https://learn.microsoft.com/azure/aks/
+APIM AI Gateway：https://learn.microsoft.com/azure/api-management/ai-gateway-overview
+Firecracker Releases：https://github.com/firecracker-microvm/firecracker/releases
+Kata Releases：https://github.com/kata-containers/kata-containers/releases
+抓取日期：2026-11-26（UTC+8） · 数据标签：measured / synthetic / anonymized_reported 按段落标注
