@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（486 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（487 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **486 个架构选型、平台对比与安全治理决策专题**（共 `972` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **487 个架构选型、平台对比与安全治理决策专题**（共 `974` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 486 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 487 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（61 篇）
 
@@ -321,7 +321,7 @@
 | 478 | [企业退化档案扫描与手写红章遮挡 RAG 入库选型 FAQ：Pattern A（`Document Intelligence v4` 置信度与表格校验门控 + `600 DPI` polygon 局部 `GPT-4o/Phi-4` 升级 + 分歧强制 HITL）vs Pattern B（双 OCR 共识投票）vs Pattern C（全页 VLM）vs Pattern D（单次灰度 OCR 反模式），覆盖静默数值污染率、坐标保真与三年 TCO](degraded-archival-scan-handwritten-seal-rag-doc-intel-confidence-vlm-vs-dual-ocr-vs-hitl-selection-faq.md) | [🇨🇳 中文](degraded-archival-scan-handwritten-seal-rag-doc-intel-confidence-vlm-vs-dual-ocr-vs-hitl-selection-faq.md) · [🇬🇧 EN](degraded-archival-scan-handwritten-seal-rag-doc-intel-confidence-vlm-vs-dual-ocr-vs-hitl-selection-faq.en.md) |
 | 486 | [企业法律合同红线与 OOXML 修订图谱选型 FAQ：Pattern A（原生 `OOXML` 修订图谱 AST + 双态条款投影 + Azure AI Search 强制 OData 状态过滤）vs Pattern B（`Document Intelligence` + 视觉红线线索分类）vs Pattern C（净稿序列 deterministic diff + LLM 综合）vs Pattern D（扁平 `docx2txt` 反模式），覆盖突变条款幻觉率、迁移对齐与三年 TCO](legal-contract-redline-track-changes-ooxml-revision-graph-rag-vs-flattened-ocr-vs-diff-llm-selection-faq.md) | [🇨🇳 中文](legal-contract-redline-track-changes-ooxml-revision-graph-rag-vs-flattened-ocr-vs-diff-llm-selection-faq.md) · [🇬🇧 EN](legal-contract-redline-track-changes-ooxml-revision-graph-rag-vs-flattened-ocr-vs-diff-llm-selection-faq.en.md) |
 
-### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（60 篇）
+### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（61 篇）
 
 > 涵盖 Microsoft Agent Framework (MAF) 演进、长周期审批编排（Durable Functions / Logic Apps / Temporal）、实时语音 WebRTC 与企业渠道接入。
 
@@ -387,6 +387,7 @@
 | 463 | [企业 Browser CUA 动作锚定与自愈回放选型 FAQ：Pattern A（`Playwright ariaSnapshot` 语义定位缓存 + 断言驱动自愈）vs Pattern B（`OmniParser v2` Set-of-Mark `#ID` 视觉落点）vs Pattern C（`AOAI computer-use-preview` 原生像素循环）vs Pattern D（逐步截图推理反模式），覆盖缓存命中率、预提交读回闸门、误提交风险与三年 TCO](browser-cua-action-grounding-self-healing-replay-playwright-aria-snapshot-cache-vs-omniparser-som-aks-vs-pixel-cua-selection-faq.md) | [🇨🇳 中文](browser-cua-action-grounding-self-healing-replay-playwright-aria-snapshot-cache-vs-omniparser-som-aks-vs-pixel-cua-selection-faq.md) · [🇬🇧 EN](browser-cua-action-grounding-self-healing-replay-playwright-aria-snapshot-cache-vs-omniparser-som-aks-vs-pixel-cua-selection-faq.en.md) |
 | 471 | [企业语音智能体高熵字母数字实体采集与发音治理选型 FAQ：Pattern A（`AOAI Realtime` 对话 + `Azure AI Speech` `N-best` 校验求解 + `SSML/PLS` 读回）vs Pattern B（全 `Custom Speech -> LLM -> TTS` 确定性级联）vs Pattern C（带外短信与可视卡片补充）vs Pattern D（原始实时转写反模式），覆盖 VIN 与保单编码精确率、延迟与三年 TCO](voice-agent-alphanumeric-entity-capture-lexicon-aoai-realtime-speech-nbest-checksum-vs-ssml-cascade-vs-oob-selection-faq.md) | [🇨🇳 中文](voice-agent-alphanumeric-entity-capture-lexicon-aoai-realtime-speech-nbest-checksum-vs-ssml-cascade-vs-oob-selection-faq.md) · [🇬🇧 EN](voice-agent-alphanumeric-entity-capture-lexicon-aoai-realtime-speech-nbest-checksum-vs-ssml-cascade-vs-oob-selection-faq.en.md) |
 | 479 | [企业多智能体循环交接活锁治理选型 FAQ：Pattern A（状态规范化 `SHA-256 + 64-bit SimHash` 进展判定 + 单调 hop/token 预算包络 + 强制综合/HITL）vs Pattern B（编译期 DAG/FSM 无环守卫）vs Pattern C（层级仲裁器收敛评分）vs Pattern D（仅 `max_turns` 反模式），覆盖 `A->B->A` 震荡拦截、二次 token 膨胀、`P99` 上限与三年 TCO](multi-agent-cyclic-handoff-livelock-breaker-state-hash-budget-vs-dag-compiler-vs-arbiter-selection-faq.md) | [🇨🇳 中文](multi-agent-cyclic-handoff-livelock-breaker-state-hash-budget-vs-dag-compiler-vs-arbiter-selection-faq.md) · [🇬🇧 EN](multi-agent-cyclic-handoff-livelock-breaker-state-hash-budget-vs-dag-compiler-vs-arbiter-selection-faq.en.md) |
+| 487 | [企业入站邮件智能体自动回复回环风暴防护选型 FAQ：Pattern A（`RFC 3834/5322` 前置协议过滤 + `DMARC/DKIM` 校验 + `Reply-To` 对齐 + `Redis` 线程熔断 + 出站抑制头）vs Pattern B（单次回执 + 门户深链）vs Pattern C（Exchange 规则 + Draft 人审）vs Pattern D（Webhook 直连 LLM 反模式），覆盖风暴指数放大、伪造发件人拦截与三年 TCO](inbound-email-agent-autoresponder-loop-storm-rfc3834-dkim-dmarc-redis-vs-exchange-rules-selection-faq.md) | [🇨🇳 中文](inbound-email-agent-autoresponder-loop-storm-rfc3834-dkim-dmarc-redis-vs-exchange-rules-selection-faq.md) · [🇬🇧 EN](inbound-email-agent-autoresponder-loop-storm-rfc3834-dkim-dmarc-redis-vs-exchange-rules-selection-faq.en.md) |
 
 ### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（61 篇）
 
