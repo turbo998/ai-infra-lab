@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（489 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（490 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **489 个架构选型、平台对比与安全治理决策专题**（共 `978` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **490 个架构选型、平台对比与安全治理决策专题**（共 `980` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 489 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 490 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（61 篇）
 
@@ -389,7 +389,7 @@
 | 479 | [企业多智能体循环交接活锁治理选型 FAQ：Pattern A（状态规范化 `SHA-256 + 64-bit SimHash` 进展判定 + 单调 hop/token 预算包络 + 强制综合/HITL）vs Pattern B（编译期 DAG/FSM 无环守卫）vs Pattern C（层级仲裁器收敛评分）vs Pattern D（仅 `max_turns` 反模式），覆盖 `A->B->A` 震荡拦截、二次 token 膨胀、`P99` 上限与三年 TCO](multi-agent-cyclic-handoff-livelock-breaker-state-hash-budget-vs-dag-compiler-vs-arbiter-selection-faq.md) | [🇨🇳 中文](multi-agent-cyclic-handoff-livelock-breaker-state-hash-budget-vs-dag-compiler-vs-arbiter-selection-faq.md) · [🇬🇧 EN](multi-agent-cyclic-handoff-livelock-breaker-state-hash-budget-vs-dag-compiler-vs-arbiter-selection-faq.en.md) |
 | 487 | [企业入站邮件智能体自动回复回环风暴防护选型 FAQ：Pattern A（`RFC 3834/5322` 前置协议过滤 + `DMARC/DKIM` 校验 + `Reply-To` 对齐 + `Redis` 线程熔断 + 出站抑制头）vs Pattern B（单次回执 + 门户深链）vs Pattern C（Exchange 规则 + Draft 人审）vs Pattern D（Webhook 直连 LLM 反模式），覆盖风暴指数放大、伪造发件人拦截与三年 TCO](inbound-email-agent-autoresponder-loop-storm-rfc3834-dkim-dmarc-redis-vs-exchange-rules-selection-faq.md) | [🇨🇳 中文](inbound-email-agent-autoresponder-loop-storm-rfc3834-dkim-dmarc-redis-vs-exchange-rules-selection-faq.md) · [🇬🇧 EN](inbound-email-agent-autoresponder-loop-storm-rfc3834-dkim-dmarc-redis-vs-exchange-rules-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（61 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（62 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -456,6 +456,7 @@
 | 466 | [企业开源权重模型与 LoRA 产物检疫签名准入选型 FAQ：Pattern A（隔离检疫转码 + `ACR ORAS` + `Notation` + `Ratify/Gatekeeper`）vs Pattern B（`Foundry` 官方目录 + `Azure Policy`）vs Pattern C（`Artifactory/Nexus` Hugging Face 代理）vs Pattern D（生产运行时公网拉模反模式），覆盖反序列化 RCE、防模板注入与三年 SecOps TCO](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.md) | [🇨🇳 中文](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.md) · [🇬🇧 EN](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.en.md) |
 | 474 | [企业专有大模型防蒸馏与模型提取防御选型 FAQ：Pattern A（`APIM` `logprobs/CoT` 净化 + 跨账号流形覆盖检测）vs Pattern B（密钥绿色词表水印与统计取证）vs Pattern C（`Entra B2B` 可信身份 + 结构化最小信息输出）vs Pattern D（静态配额反模式），覆盖提取检测窗口、误报率、取证强度与三年 TCO](proprietary-llm-anti-distillation-defense-apim-logit-scrub-detector-vs-watermark-vs-quota-selection-faq.md) | [🇨🇳 中文](proprietary-llm-anti-distillation-defense-apim-logit-scrub-detector-vs-watermark-vs-quota-selection-faq.md) · [🇬🇧 EN](proprietary-llm-anti-distillation-defense-apim-logit-scrub-detector-vs-watermark-vs-quota-selection-faq.en.md) |
 | 482 | [企业智能体 Markdown 图片与 CSS 渲染期外传防护选型 FAQ：Pattern A（严格 CSP + URL 来源证明与熵门禁 + HMAC Camo 代理）vs Pattern B（沙箱 iframe + 零预取）vs Pattern C（引用 ID 结构化渲染）vs Pattern D（默认 DOMPurify 反模式），覆盖零点击外传阻断、unfurl 放大控制与三年风险调整 TCO](agent-markdown-image-css-render-exfiltration-csp-camo-proxy-vs-dompurify-vs-plaintext-selection-faq.md) | [🇨🇳 中文](agent-markdown-image-css-render-exfiltration-csp-camo-proxy-vs-dompurify-vs-plaintext-selection-faq.md) · [🇬🇧 EN](agent-markdown-image-css-render-exfiltration-csp-camo-proxy-vs-dompurify-vs-plaintext-selection-faq.en.md) |
+| 490 | [企业 CUA 浏览器剪贴板/拖拽文件外传防护选型 FAQ：Pattern A（浏览器双平面边界 + CDP 拦截 + Purview DLP）vs Pattern B（VDI/OS 粗粒度全禁）vs Pattern C（重型 OS DLP Agent）vs Pattern D（共享工作区反模式），覆盖跨源剪贴板污染、文件选择器越界上传与多租户审计/TCO](cua-browser-clipboard-file-drop-dlp-purview-cdp-hook-vs-vdi-lockdown-vs-os-agent-selection-faq.md) | [🇨🇳 中文](cua-browser-clipboard-file-drop-dlp-purview-cdp-hook-vs-vdi-lockdown-vs-os-agent-selection-faq.md) · [🇬🇧 EN](cua-browser-clipboard-file-drop-dlp-purview-cdp-hook-vs-vdi-lockdown-vs-os-agent-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（61 篇）
 

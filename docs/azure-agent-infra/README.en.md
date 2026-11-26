@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (489 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (490 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **489 structured architecture selection guides and trade-off FAQs** (`978` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **490 structured architecture selection guides and trade-off FAQs** (`980` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 489 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 490 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (61 Guides)
 
@@ -389,7 +389,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 479 | [Enterprise multi-agent cyclic handoff livelock breaker selection FAQ: Pattern A (canonical `SHA-256 + 64-bit SimHash` state-progress detection with monotonic hop/token envelope and forced synthesis/HITL) vs Pattern B (compile-time DAG/FSM acyclic guards) vs Pattern C (hierarchical arbiter convergence scoring) vs Pattern D (`max_turns`-only anti-pattern), covering `A->B->A` oscillation interception, quadratic token-burn containment, `P99` caps, and three-year TCO](multi-agent-cyclic-handoff-livelock-breaker-state-hash-budget-vs-dag-compiler-vs-arbiter-selection-faq.en.md) | [🇬🇧 EN](multi-agent-cyclic-handoff-livelock-breaker-state-hash-budget-vs-dag-compiler-vs-arbiter-selection-faq.en.md) · [🇨🇳 中文](multi-agent-cyclic-handoff-livelock-breaker-state-hash-budget-vs-dag-compiler-vs-arbiter-selection-faq.md) |
 | 487 | [Enterprise inbound email agent autoresponder loop-storm defense selection FAQ: Pattern A (`RFC 3834/5322` pre-LLM protocol filtering plus `DMARC/DKIM` checks plus `Reply-To` alignment plus Redis thread breaker plus outbound suppression headers) vs Pattern B (one-shot acknowledgment plus portal deep-link) vs Pattern C (Exchange rules plus draft-with-human-send approval) vs Pattern D (direct webhook-to-LLM anti-pattern), covering geometric loop amplification, spoofed sender containment, and three-year TCO](inbound-email-agent-autoresponder-loop-storm-rfc3834-dkim-dmarc-redis-vs-exchange-rules-selection-faq.en.md) | [🇬🇧 EN](inbound-email-agent-autoresponder-loop-storm-rfc3834-dkim-dmarc-redis-vs-exchange-rules-selection-faq.en.md) · [🇨🇳 中文](inbound-email-agent-autoresponder-loop-storm-rfc3834-dkim-dmarc-redis-vs-exchange-rules-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (61 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (62 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -456,6 +456,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 466 | [Enterprise open-weight model and LoRA artifact quarantine-signing-admission selection FAQ: Pattern A (isolated quarantine transcoding + `ACR ORAS` + `Notation` + `Ratify/Gatekeeper`) vs Pattern B (`Foundry` curated catalog + `Azure Policy`) vs Pattern C (`Artifactory/Nexus` Hugging Face proxy) vs Pattern D (runtime public-download anti-pattern), covering deserialization RCE defense, template-injection mitigation, and three-year SecOps TCO](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.en.md) | [🇬🇧 EN](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.en.md) · [🇨🇳 中文](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.md) |
 | 474 | [Enterprise proprietary LLM anti-distillation and model-extraction defense selection FAQ: Pattern A (`APIM` `logprobs/CoT` sanitization plus cross-key manifold coverage detector) vs Pattern B (keyed green-list watermark and statistical attribution) vs Pattern C (`Entra B2B` trusted identity plus structured minimal-information outputs) vs Pattern D (static quota anti-pattern), covering detection horizon, false-positive rate, attribution strength, and three-year TCO](proprietary-llm-anti-distillation-defense-apim-logit-scrub-detector-vs-watermark-vs-quota-selection-faq.en.md) | [🇬🇧 EN](proprietary-llm-anti-distillation-defense-apim-logit-scrub-detector-vs-watermark-vs-quota-selection-faq.en.md) · [🇨🇳 中文](proprietary-llm-anti-distillation-defense-apim-logit-scrub-detector-vs-watermark-vs-quota-selection-faq.md) |
 | 482 | [Enterprise agent markdown image and CSS render-time exfiltration defense selection FAQ: Pattern A (strict CSP + URL provenance and entropy gate + HMAC Camo proxy) vs Pattern B (sandboxed iframe + zero-unfurl flow) vs Pattern C (citation-ID schema rendering) vs Pattern D (default DOMPurify-only anti-pattern), covering zero-click exfil blocking, unfurl amplification control, and three-year risk-adjusted TCO](agent-markdown-image-css-render-exfiltration-csp-camo-proxy-vs-dompurify-vs-plaintext-selection-faq.en.md) | [🇬🇧 EN](agent-markdown-image-css-render-exfiltration-csp-camo-proxy-vs-dompurify-vs-plaintext-selection-faq.en.md) · [🇨🇳 中文](agent-markdown-image-css-render-exfiltration-csp-camo-proxy-vs-dompurify-vs-plaintext-selection-faq.md) |
+| 490 | [Enterprise CUA browser clipboard and file-drop exfiltration defense selection FAQ: Pattern A (dual-plane browser boundary + CDP interceptor + Purview DLP) vs Pattern B (coarse VDI/OS lockdown) vs Pattern C (heavy OS DLP agent) vs Pattern D (shared workspace anti-pattern), covering cross-origin clipboard taint, chooser-path exfiltration, and multi-tenant audit/TCO](cua-browser-clipboard-file-drop-dlp-purview-cdp-hook-vs-vdi-lockdown-vs-os-agent-selection-faq.en.md) | [🇬🇧 EN](cua-browser-clipboard-file-drop-dlp-purview-cdp-hook-vs-vdi-lockdown-vs-os-agent-selection-faq.en.md) · [🇨🇳 中文](cua-browser-clipboard-file-drop-dlp-purview-cdp-hook-vs-vdi-lockdown-vs-os-agent-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (61 Guides)
 
