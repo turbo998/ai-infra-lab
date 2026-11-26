@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（465 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（466 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **465 个架构选型、平台对比与安全治理决策专题**（共 `930` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **466 个架构选型、平台对比与安全治理决策专题**（共 `932` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 465 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 466 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（58 篇）
 
@@ -374,7 +374,7 @@
 | 455 | [企业噪声远场语音智能体声学前端选型 FAQ：Pattern A（`DeepFilterNet3 + VoiceFilter` 边缘门控）vs Pattern B（多麦波束 + `ACS WebRTC + Speech`）vs Pattern C（`PTT + AOAI Realtime semantic_vad`）vs Pattern D（原始全向流反模式），覆盖误打断抑制、隐私与三年 TCO](noisy-far-field-voice-agent-edge-deepfilternet-voicefilter-vs-acs-webrtc-speech-vs-aoai-realtime-selection-faq.md) | [🇨🇳 中文](noisy-far-field-voice-agent-edge-deepfilternet-voicefilter-vs-acs-webrtc-speech-vs-aoai-realtime-selection-faq.md) · [🇬🇧 EN](noisy-far-field-voice-agent-edge-deepfilternet-voicefilter-vs-acs-webrtc-speech-vs-aoai-realtime-selection-faq.en.md) |
 | 463 | [企业 Browser CUA 动作锚定与自愈回放选型 FAQ：Pattern A（`Playwright ariaSnapshot` 语义定位缓存 + 断言驱动自愈）vs Pattern B（`OmniParser v2` Set-of-Mark `#ID` 视觉落点）vs Pattern C（`AOAI computer-use-preview` 原生像素循环）vs Pattern D（逐步截图推理反模式），覆盖缓存命中率、预提交读回闸门、误提交风险与三年 TCO](browser-cua-action-grounding-self-healing-replay-playwright-aria-snapshot-cache-vs-omniparser-som-aks-vs-pixel-cua-selection-faq.md) | [🇨🇳 中文](browser-cua-action-grounding-self-healing-replay-playwright-aria-snapshot-cache-vs-omniparser-som-aks-vs-pixel-cua-selection-faq.md) · [🇬🇧 EN](browser-cua-action-grounding-self-healing-replay-playwright-aria-snapshot-cache-vs-omniparser-som-aks-vs-pixel-cua-selection-faq.en.md) |
 
-### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（58 篇）
+### 3.6 零信任身份、私有网络隔离与强监管数据合规（Zero-Trust Identity, Private Networking & Regulated Security）（59 篇）
 
 > 聚焦 Entra Agent ID / OBO / CIAM 细粒度鉴权、Private Link 标准 VNet 注入、Purview AI Hub 合规留存、DLP 脱敏与 Defender SOAR 响应。
 
@@ -438,6 +438,7 @@
 | 439 | [受监管智能体记忆删除与跨境数据驻留选型 FAQ：Route A（`APIM` 地域门禁与租户声明校验）vs Route B（`Purview` 生命周期与删除策略治理）vs Route C（`Confidential Ledger` 删除证据不可抵赖账本）vs Route D（只删主库不清缓存/索引/副本反模式），覆盖 `W_erase`、`Risk_reg`、`Risk_xborder`、`Evidence_coverage` 与三年 TCO](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.md) | [🇨🇳 中文](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.md) · [🇬🇧 EN](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.en.md) |
 | 450 | [企业隐私保护语料去标识化与差分隐私合成选型 FAQ：Pattern A（一致性 surrogate + k 匿名）vs Pattern B（`(ε,δ)`-DP + `MIA` 门禁）vs Pattern C（`Managed HSM` `FF1`）vs Pattern D（Regex/无盐哈希反模式），覆盖合规、可用性与三年 TCO](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.md) | [🇨🇳 中文](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.md) · [🇬🇧 EN](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.en.md) |
 | 458 | [企业多云无密钥智能体工作负载身份联合选型 FAQ：Pattern A（`AKS OIDC -> Entra Workload ID -> AWS STS / GCP WIF`）vs Pattern B（`SPIFFE/SPIRE` 联邦 `SVID`）vs Pattern C（`Vault/OpenBao` 动态租约）vs Pattern D（长期静态密钥反模式），覆盖 TTL 爆炸半径、跨云审计关联与三年 TCO](cross-cloud-secretless-agent-workload-identity-federation-entra-oidc-aws-sts-gcp-wif-vs-spiffe-spire-vs-vault-dynamic-leases-selection-faq.md) | [🇨🇳 中文](cross-cloud-secretless-agent-workload-identity-federation-entra-oidc-aws-sts-gcp-wif-vs-spiffe-spire-vs-vault-dynamic-leases-selection-faq.md) · [🇬🇧 EN](cross-cloud-secretless-agent-workload-identity-federation-entra-oidc-aws-sts-gcp-wif-vs-spiffe-spire-vs-vault-dynamic-leases-selection-faq.en.md) |
+| 466 | [企业开源权重模型与 LoRA 产物检疫签名准入选型 FAQ：Pattern A（隔离检疫转码 + `ACR ORAS` + `Notation` + `Ratify/Gatekeeper`）vs Pattern B（`Foundry` 官方目录 + `Azure Policy`）vs Pattern C（`Artifactory/Nexus` Hugging Face 代理）vs Pattern D（生产运行时公网拉模反模式），覆盖反序列化 RCE、防模板注入与三年 SecOps TCO](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.md) | [🇨🇳 中文](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.md) · [🇬🇧 EN](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.en.md) |
 
 ### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（58 篇）
 

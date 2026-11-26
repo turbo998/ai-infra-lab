@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (465 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (466 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **465 structured architecture selection guides and trade-off FAQs** (`930` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **466 structured architecture selection guides and trade-off FAQs** (`932` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 465 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 466 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (58 Guides)
 
@@ -374,7 +374,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 455 | [Enterprise noisy far-field voice-agent acoustic front-end selection FAQ: Pattern A (`DeepFilterNet3 + VoiceFilter` edge gating) vs Pattern B (multi-mic beamforming plus `ACS WebRTC + Speech`) vs Pattern C (`PTT + AOAI Realtime semantic_vad`) vs Pattern D (raw omni stream anti-pattern), covering false-barge suppression, privacy, and three-year TCO](noisy-far-field-voice-agent-edge-deepfilternet-voicefilter-vs-acs-webrtc-speech-vs-aoai-realtime-selection-faq.en.md) | [🇬🇧 EN](noisy-far-field-voice-agent-edge-deepfilternet-voicefilter-vs-acs-webrtc-speech-vs-aoai-realtime-selection-faq.en.md) · [🇨🇳 中文](noisy-far-field-voice-agent-edge-deepfilternet-voicefilter-vs-acs-webrtc-speech-vs-aoai-realtime-selection-faq.md) |
 | 463 | [Enterprise browser CUA action-grounding and self-healing replay selection FAQ: Pattern A (`Playwright ariaSnapshot` semantic locator cache with assertion-driven healing) vs Pattern B (`OmniParser v2` Set-of-Mark `#ID` visual grounding) vs Pattern C (`AOAI computer-use-preview` native pixel loop) vs Pattern D (screenshot-per-step anti-pattern), covering cache-hit economics, pre-submit readback gates, mis-submit risk, and three-year TCO](browser-cua-action-grounding-self-healing-replay-playwright-aria-snapshot-cache-vs-omniparser-som-aks-vs-pixel-cua-selection-faq.en.md) | [🇬🇧 EN](browser-cua-action-grounding-self-healing-replay-playwright-aria-snapshot-cache-vs-omniparser-som-aks-vs-pixel-cua-selection-faq.en.md) · [🇨🇳 中文](browser-cua-action-grounding-self-healing-replay-playwright-aria-snapshot-cache-vs-omniparser-som-aks-vs-pixel-cua-selection-faq.md) |
 
-### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (58 Guides)
+### 3.6 Zero-Trust Identity, Private Networking & Regulated AI Compliance (59 Guides)
 
 > Focuses on Entra Agent ID / OBO / CIAM authorization, Private Link VNet injection, Purview AI Hub compliance/DLP, and Defender + Sentinel SOAR.
 
@@ -438,6 +438,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 439 | [Regulated agent-memory erasure and cross-border data-residency selection FAQ: Route A (`APIM`) region-gate and tenant-claim validation vs Route B (`Purview`) lifecycle and erasure-governance policies vs Route C (`Confidential Ledger`) non-repudiable evidence ledger vs Route D (source-only delete without cache/index/replica cleanup anti-pattern), covering `W_erase`, `Risk_reg`, `Risk_xborder`, `Evidence_coverage`, and three-year TCO](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.en.md) | [🇬🇧 EN](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.en.md) · [🇨🇳 中文](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.md) |
 | 450 | [Enterprise privacy-preserving de-identification and differential-privacy synthetic corpus selection FAQ: Pattern A (consistent surrogate plus k-anonymity) vs Pattern B (`(ε,δ)`-DP plus `MIA` gate) vs Pattern C (`Managed HSM` `FF1`) vs Pattern D (regex or unsalted-hash anti-pattern), covering compliance, utility, and three-year TCO](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.en.md) | [🇬🇧 EN](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.en.md) · [🇨🇳 中文](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.md) |
 | 458 | [Enterprise cross-cloud secretless agent workload identity federation selection FAQ: Pattern A (`AKS OIDC -> Entra Workload ID -> AWS STS / GCP WIF`) vs Pattern B (`SPIFFE/SPIRE` federated `SVID`) vs Pattern C (`Vault/OpenBao` dynamic leases) vs Pattern D (long-lived static-key anti-pattern), covering TTL blast window, cross-cloud audit correlation, and three-year TCO](cross-cloud-secretless-agent-workload-identity-federation-entra-oidc-aws-sts-gcp-wif-vs-spiffe-spire-vs-vault-dynamic-leases-selection-faq.en.md) | [🇬🇧 EN](cross-cloud-secretless-agent-workload-identity-federation-entra-oidc-aws-sts-gcp-wif-vs-spiffe-spire-vs-vault-dynamic-leases-selection-faq.en.md) · [🇨🇳 中文](cross-cloud-secretless-agent-workload-identity-federation-entra-oidc-aws-sts-gcp-wif-vs-spiffe-spire-vs-vault-dynamic-leases-selection-faq.md) |
+| 466 | [Enterprise open-weight model and LoRA artifact quarantine-signing-admission selection FAQ: Pattern A (isolated quarantine transcoding + `ACR ORAS` + `Notation` + `Ratify/Gatekeeper`) vs Pattern B (`Foundry` curated catalog + `Azure Policy`) vs Pattern C (`Artifactory/Nexus` Hugging Face proxy) vs Pattern D (runtime public-download anti-pattern), covering deserialization RCE defense, template-injection mitigation, and three-year SecOps TCO](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.en.md) | [🇬🇧 EN](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.en.md) · [🇨🇳 中文](open-weight-model-artifact-quarantine-signing-admission-safetensors-modelscan-acr-notation-ratify-aks-vs-foundry-catalog-vs-hf-proxy-selection-faq.md) |
 
 ### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (58 Guides)
 
