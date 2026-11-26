@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (463 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (464 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **463 structured architecture selection guides and trade-off FAQs** (`926` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **464 structured architecture selection guides and trade-off FAQs** (`928` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 463 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 464 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (58 Guides)
 
@@ -439,7 +439,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 450 | [Enterprise privacy-preserving de-identification and differential-privacy synthetic corpus selection FAQ: Pattern A (consistent surrogate plus k-anonymity) vs Pattern B (`(ε,δ)`-DP plus `MIA` gate) vs Pattern C (`Managed HSM` `FF1`) vs Pattern D (regex or unsalted-hash anti-pattern), covering compliance, utility, and three-year TCO](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.en.md) | [🇬🇧 EN](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.en.md) · [🇨🇳 中文](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.md) |
 | 458 | [Enterprise cross-cloud secretless agent workload identity federation selection FAQ: Pattern A (`AKS OIDC -> Entra Workload ID -> AWS STS / GCP WIF`) vs Pattern B (`SPIFFE/SPIRE` federated `SVID`) vs Pattern C (`Vault/OpenBao` dynamic leases) vs Pattern D (long-lived static-key anti-pattern), covering TTL blast window, cross-cloud audit correlation, and three-year TCO](cross-cloud-secretless-agent-workload-identity-federation-entra-oidc-aws-sts-gcp-wif-vs-spiffe-spire-vs-vault-dynamic-leases-selection-faq.en.md) | [🇬🇧 EN](cross-cloud-secretless-agent-workload-identity-federation-entra-oidc-aws-sts-gcp-wif-vs-spiffe-spire-vs-vault-dynamic-leases-selection-faq.en.md) · [🇨🇳 中文](cross-cloud-secretless-agent-workload-identity-federation-entra-oidc-aws-sts-gcp-wif-vs-spiffe-spire-vs-vault-dynamic-leases-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (57 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (58 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -502,6 +502,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 440 | [Enterprise model-release gate and shadow-evaluation selection FAQ: Route A (`Foundry Evals`) offline gate vs Route B (`APIM`) online shadow-traffic comparison vs Route C (tiered canary `1%->10%->50%->100%` with automatic rollback) vs Route D (full cutover without evaluation anti-pattern), covering `Gain_release`, `Drift_shadow`, `Release_confidence`, and three-year TCO](model-release-gate-shadow-eval-groundedness-toxicity-latency-budget-apim-foundry-evals-selection-faq.en.md) | [🇬🇧 EN](model-release-gate-shadow-eval-groundedness-toxicity-latency-budget-apim-foundry-evals-selection-faq.en.md) · [🇨🇳 中文](model-release-gate-shadow-eval-groundedness-toxicity-latency-budget-apim-foundry-evals-selection-faq.md) |
 | 448 | [Private SWE-agent execution benchmark and release-gate selection FAQ: Pattern A (`AKS Kata` hermetic `F2P/P2P` plus `Pass^k`) vs Pattern B (mutation plus CodeQL differential oracle) vs Pattern C (static LLM-judge funnel prefilter) vs Pattern D (public benchmark and single-pass anti-pattern), covering reliability, anti-gaming, and three-year TCO](private-swe-agent-execution-benchmark-harness-aks-kata-f2p-pass-hat-k-vs-mutation-codeql-oracle-vs-static-llm-judge-selection-faq.en.md) | [🇬🇧 EN](private-swe-agent-execution-benchmark-harness-aks-kata-f2p-pass-hat-k-vs-mutation-codeql-oracle-vs-static-llm-judge-selection-faq.en.md) · [🇨🇳 中文](private-swe-agent-execution-benchmark-harness-aks-kata-f2p-pass-hat-k-vs-mutation-codeql-oracle-vs-static-llm-judge-selection-faq.md) |
 | 456 | [Enterprise multimodal agent evaluation-corpus versioning and zero-copy lineage governance selection FAQ: Pattern A (`ADLS Gen2 + lakeFS` metadata-only branching) vs Pattern B (`Foundry/AML Data Assets v2` managed versions) vs Pattern C (`Delta/Iceberg` large-scale structured time-travel) vs Pattern D (`Git + DVC` lightweight repo-coupled flow), covering release gates, audit replay, and three-year TCO](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.en.md) | [🇬🇧 EN](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.en.md) · [🇨🇳 中文](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.md) |
+| 464 | [Enterprise LLM serving Goodput benchmarking, prefix-cache replay, and PTU right-sizing selection FAQ: Pattern A (`AIPerf/GuideLLM` zero-PII hash-tree replay) vs Pattern B (`APIM` token-shape telemetry + `Foundry PTU` weighted equivalence) vs Pattern C (`ISL×OSL×CacheHit` synthetic CI grid) vs Pattern D (single-prompt and mean-only anti-pattern), covering joint `TTFT/TPOT` Goodput and `$/1M_goodput_tokens` three-year TCO](llm-goodput-benchmarking-prefix-cache-trace-replay-aiperf-guidellm-aks-vs-foundry-ptu-sizing-vs-synthetic-grid-selection-faq.en.md) | [🇬🇧 EN](llm-goodput-benchmarking-prefix-cache-trace-replay-aiperf-guidellm-aks-vs-foundry-ptu-sizing-vs-synthetic-grid-selection-faq.en.md) · [🇨🇳 中文](llm-goodput-benchmarking-prefix-cache-trace-replay-aiperf-guidellm-aks-vs-foundry-ptu-sizing-vs-synthetic-grid-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (58 Guides)
 
