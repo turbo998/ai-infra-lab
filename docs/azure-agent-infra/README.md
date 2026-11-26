@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（468 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（469 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **468 个架构选型、平台对比与安全治理决策专题**（共 `936` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **469 个架构选型、平台对比与安全治理决策专题**（共 `938` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 468 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 469 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（59 篇）
 
@@ -181,7 +181,7 @@
 | 460 | [企业高分辨率多模态 VLM 与 CUA 解耦式 EPD 推理选型 FAQ：Pattern A（`AKS A10/L4` DALI/nvJPEG + ViT 编码池 + `mm_hash` 缓存 + `AKS H100/H200` 解码池）vs Pattern B（Foundry 多模态 `PTU/PayGo`）vs Pattern C（同池 H100 折中）vs Pattern D（同步 PIL + base64 全量上送反模式），覆盖 ITL 抖动隔离、缓存命中与三年 TCO](multimodal-vlm-disaggregated-vision-encoder-epd-serving-aks-dali-vit-cache-vllm-sglang-vs-monolithic-h100-vs-foundry-ptu-selection-faq.md) | [🇨🇳 中文](multimodal-vlm-disaggregated-vision-encoder-epd-serving-aks-dali-vit-cache-vllm-sglang-vs-monolithic-h100-vs-foundry-ptu-selection-faq.md) · [🇬🇧 EN](multimodal-vlm-disaggregated-vision-encoder-epd-serving-aks-dali-vit-cache-vllm-sglang-vs-monolithic-h100-vs-foundry-ptu-selection-faq.en.md) |
 | 468 | [企业辅助模型分数 GPU 供给选型 FAQ：Pattern A（`AKS NVIDIA MIG` 硬件切片）vs Pattern B（非 MIG `CUDA MPS`）vs Pattern C（`HAMi vGPU` 细粒度调度）vs Pattern D（在线路径 Time-Slicing 反模式），覆盖显存隔离、尾延迟抖动与三年 TCO](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.md) | [🇨🇳 中文](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.md) · [🇬🇧 EN](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（58 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（59 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -245,6 +245,7 @@
 | 445 | [间歇 WAN 边缘 AI Gateway 与 Store-and-Forward MCP 治理选型 FAQ：Route A（`APIM Self-Hosted Gateway on AKS Arc` + `PVC config-backup` + 离线 JWKS pinning）vs Route B（`Envoy + OPA/Cedar + SPIFFE/SPIRE` 心跳无依赖自治）vs Route C（云 APIM 主平面 + 本地只读降级 Broker）vs Route D（Cloud Hairpin/无持久配置反模式），覆盖 `LocalRouteP95`、`OfflineSurvival`、`ReplayLoss` 与三年 TCO](intermittent-wan-edge-ai-gateway-store-and-forward-mcp-governance-apim-self-hosted-arc-vs-gitops-envoy-spiffe-vs-cloud-hairpin-selection-faq.md) | [🇨🇳 中文](intermittent-wan-edge-ai-gateway-store-and-forward-mcp-governance-apim-self-hosted-arc-vs-gitops-envoy-spiffe-vs-cloud-hairpin-selection-faq.md) · [🇬🇧 EN](intermittent-wan-edge-ai-gateway-store-and-forward-mcp-governance-apim-self-hosted-arc-vs-gitops-envoy-spiffe-vs-cloud-hairpin-selection-faq.en.md) |
 | 453 | [企业 Agent-Ready Web 门户与目录暴露选型 FAQ：Pattern A（`NLWeb + Schema.org + MCP`）vs Pattern B（`AFD llms.txt` + `Accept: text/markdown`）vs Pattern C（`agents.json` 事务清单）vs Pattern D（重 JS SPA/1:1 OpenAPI 暴露反模式），覆盖接入治理、缓存与三年 TCO](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.md) | [🇨🇳 中文](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.md) · [🇬🇧 EN](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.en.md) |
 | 461 | [企业遗留 REST/OpenAPI 到 MCP 工具曲面治理选型 FAQ：Pattern A（`OpenAPI Overlay 1.0 + API Center + APIM Native MCP`）vs Pattern B（`ACA/AKS` 复合意图工具门面）vs Pattern C（`2-Tool` 动态元工具目录）vs Pattern D（1:1 自动暴露反模式），覆盖工具面 token 税、分页/202 轮询回合压缩、变更闸门与三年 TCO](enterprise-openapi-to-mcp-curation-ergonomics-openapi-overlays-apim-native-mcp-vs-composite-intent-facade-vs-dynamic-meta-tool-selection-faq.md) | [🇨🇳 中文](enterprise-openapi-to-mcp-curation-ergonomics-openapi-overlays-apim-native-mcp-vs-composite-intent-facade-vs-dynamic-meta-tool-selection-faq.md) · [🇬🇧 EN](enterprise-openapi-to-mcp-curation-ergonomics-openapi-overlays-apim-native-mcp-vs-composite-intent-facade-vs-dynamic-meta-tool-selection-faq.en.md) |
+| 469 | [企业实时 MCP/A2A 令牌撤销与连续访问评估选型 FAQ：Pattern A（`Entra CAE + SSF/CAEP` 推送 + `APIM + Redis` 水位线 + 活跃会话断流）vs Pattern B（短 TTL OBO）vs Pattern C（`RFC7662` 内省）vs Pattern D（静态 JWT 反模式），覆盖中途撤销传播、流式连接终止与三年 TCO](realtime-mcp-a2a-token-revocation-continuous-access-evaluation-entra-cae-openid-ssf-caep-apim-redis-killswitch-vs-short-ttl-obo-vs-rfc7662-introspection-selection-faq.md) | [🇨🇳 中文](realtime-mcp-a2a-token-revocation-continuous-access-evaluation-entra-cae-openid-ssf-caep-apim-redis-killswitch-vs-short-ttl-obo-vs-rfc7662-introspection-selection-faq.md) · [🇬🇧 EN](realtime-mcp-a2a-token-revocation-continuous-access-evaluation-entra-cae-openid-ssf-caep-apim-redis-killswitch-vs-short-ttl-obo-vs-rfc7662-introspection-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（58 篇）
 
