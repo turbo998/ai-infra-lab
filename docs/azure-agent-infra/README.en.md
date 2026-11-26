@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (475 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (476 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **475 structured architecture selection guides and trade-off FAQs** (`950` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **476 structured architecture selection guides and trade-off FAQs** (`952` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 475 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 476 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (60 Guides)
 
@@ -116,7 +116,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 467 | [Enterprise multi-tenant agent sandbox noisy-neighbor and resource-exhaustion isolation selection FAQ: Pattern A (`AKS Kata` + `XFS prjquota` + `cgroup v2 io.max/pids.max` + `PSI`) vs Pattern B (`ACA Dynamic Sessions`) vs Pattern C (`gVisor runsc + UserNS`) vs Pattern D (async quota and unlimited PID anti-pattern), covering inode/IOPS/PID blast containment and three-year TCO](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.en.md) | [🇬🇧 EN](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.en.md) · [🇨🇳 中文](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.md) |
 | 475 | [Enterprise large-image cold-start elimination selection FAQ: Pattern A (`ACR Artifact Streaming` plus `AKS Spegel` P2P) vs Pattern B (`Dragonfly + Nydus/eStargz`) vs Pattern C (pre-pull DaemonSet plus custom VHD) vs Pattern D (monolithic `gzip` anti-pattern), covering `20 GB` second-level startup, ACR egress reduction, and three-year TCO](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.en.md) | [🇬🇧 EN](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.en.md) · [🇨🇳 中文](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.md) |
 
-### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (59 Guides)
+### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (60 Guides)
 
 > Covers PTU vs. Serverless MaaS vs. AKS+KAITO/vLLM serving, SLM/LLM cascade routing, SFT/RFT/Multi-LoRA adaptation, and GPU fractional sharing.
 
@@ -181,6 +181,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 452 | [Enterprise low-jitter real-time decode scheduling selection FAQ: Pattern A (`vLLM V1/SGLang` overlap plus chunked prefill plus piecewise CUDA graph) vs Pattern B (`TensorRT-LLM + Triton`) vs Pattern C (Foundry `PTU` plus `APIM` lane partitioning) vs Pattern D (unchunked prefill and eager-fallback anti-pattern), covering ITL jitter, SLA, and three-year TCO](low-jitter-realtime-decode-scheduling-aks-vllm-v1-chunked-prefill-piecewise-cuda-graph-overlap-vs-tensorrt-llm-cpp-vs-foundry-ptu-selection-faq.en.md) | [🇬🇧 EN](low-jitter-realtime-decode-scheduling-aks-vllm-v1-chunked-prefill-piecewise-cuda-graph-overlap-vs-tensorrt-llm-cpp-vs-foundry-ptu-selection-faq.en.md) · [🇨🇳 中文](low-jitter-realtime-decode-scheduling-aks-vllm-v1-chunked-prefill-piecewise-cuda-graph-overlap-vs-tensorrt-llm-cpp-vs-foundry-ptu-selection-faq.md) |
 | 460 | [Enterprise high-resolution multimodal VLM and CUA disaggregated EPD serving selection FAQ: Pattern A (`AKS A10/L4` DALI/nvJPEG + ViT encoder pool + `mm_hash` cache + `AKS H100/H200` decode pool) vs Pattern B (Foundry multimodal `PTU/PayGo`) vs Pattern C (colocated H100 compromise) vs Pattern D (synchronous PIL plus full base64 upload anti-pattern), covering ITL jitter isolation, cache-hit efficiency, and three-year TCO](multimodal-vlm-disaggregated-vision-encoder-epd-serving-aks-dali-vit-cache-vllm-sglang-vs-monolithic-h100-vs-foundry-ptu-selection-faq.en.md) | [🇬🇧 EN](multimodal-vlm-disaggregated-vision-encoder-epd-serving-aks-dali-vit-cache-vllm-sglang-vs-monolithic-h100-vs-foundry-ptu-selection-faq.en.md) · [🇨🇳 中文](multimodal-vlm-disaggregated-vision-encoder-epd-serving-aks-dali-vit-cache-vllm-sglang-vs-monolithic-h100-vs-foundry-ptu-selection-faq.md) |
 | 468 | [Enterprise fractional-GPU auxiliary model serving selection FAQ: Pattern A (`AKS NVIDIA MIG` hardware slices) vs Pattern B (non-MIG `CUDA MPS`) vs Pattern C (`HAMi vGPU` fine-grained scheduling) vs Pattern D (online-path time-slicing anti-pattern), covering VRAM isolation, tail-latency jitter, and three-year TCO](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.en.md) | [🇬🇧 EN](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.en.md) · [🇨🇳 中文](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.md) |
+| 476 | [Enterprise multi-node Frontier and MoE serving selection FAQ: Pattern A (`AKS NDv5` `InfiniBand RDMA` plus `LeaderWorkerSet/Kueue` topology alignment plus `NCCL` watchdog) vs Pattern B (`Azure AI Foundry` managed PTU/Serverless) vs Pattern C (`NC` Ethernet `PP` pipeline) vs Pattern D (cross-node TCP `TP=16` anti-pattern), covering `TPOT`, automated recovery, and three-year TCO](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.en.md) | [🇬🇧 EN](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.en.md) · [🇨🇳 中文](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.md) |
 
 ### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (59 Guides)
 

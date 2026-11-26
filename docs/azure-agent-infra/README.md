@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（475 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（476 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **475 个架构选型、平台对比与安全治理决策专题**（共 `950` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **476 个架构选型、平台对比与安全治理决策专题**（共 `952` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 475 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 476 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（60 篇）
 
@@ -115,7 +115,7 @@
 | 467 | [企业多租户 Agent 沙箱噪声邻居与资源耗尽隔离选型 FAQ：Pattern A（`AKS Kata` + `XFS prjquota` + `cgroup v2 io.max/pids.max` + `PSI`）vs Pattern B（`ACA Dynamic Sessions`）vs Pattern C（`gVisor runsc + UserNS`）vs Pattern D（异步配额与无限 PID 反模式），覆盖 inode/IOPS/PID 爆炸防护与三年 TCO](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.md) | [🇨🇳 中文](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.md) · [🇬🇧 EN](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.en.md) |
 | 475 | [企业超大镜像冷启动消除选型 FAQ：Pattern A（`ACR Artifact Streaming` + `AKS Spegel` P2P）vs Pattern B（`Dragonfly + Nydus/eStargz`）vs Pattern C（预拉取 DaemonSet + 自定义 VHD）vs Pattern D（单层 `gzip` 反模式），覆盖 `20 GB` 冷启动秒级化、`ACR` 出口削减与三年 TCO](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.md) | [🇨🇳 中文](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.md) · [🇬🇧 EN](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.en.md) |
 
-### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（59 篇）
+### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（60 篇）
 
 > 涵盖 PTU 预留吞吐 vs Serverless MaaS vs AKS+KAITO/vLLM、大小模型级联路由、SFT/RFT/Multi-LoRA 微调与 GPU MIG/MPS/DRA 切分。
 
@@ -181,6 +181,7 @@
 | 452 | [企业级低抖动实时解码调度选型 FAQ：Pattern A（`vLLM V1/SGLang` overlap + chunked prefill + piecewise CUDA graph）vs Pattern B（`TensorRT-LLM + Triton`）vs Pattern C（Foundry `PTU` + `APIM` 分道）vs Pattern D（未分块 prefill/eager 回退反模式），覆盖 ITL 抖动、SLA 与三年 TCO](low-jitter-realtime-decode-scheduling-aks-vllm-v1-chunked-prefill-piecewise-cuda-graph-overlap-vs-tensorrt-llm-cpp-vs-foundry-ptu-selection-faq.md) | [🇨🇳 中文](low-jitter-realtime-decode-scheduling-aks-vllm-v1-chunked-prefill-piecewise-cuda-graph-overlap-vs-tensorrt-llm-cpp-vs-foundry-ptu-selection-faq.md) · [🇬🇧 EN](low-jitter-realtime-decode-scheduling-aks-vllm-v1-chunked-prefill-piecewise-cuda-graph-overlap-vs-tensorrt-llm-cpp-vs-foundry-ptu-selection-faq.en.md) |
 | 460 | [企业高分辨率多模态 VLM 与 CUA 解耦式 EPD 推理选型 FAQ：Pattern A（`AKS A10/L4` DALI/nvJPEG + ViT 编码池 + `mm_hash` 缓存 + `AKS H100/H200` 解码池）vs Pattern B（Foundry 多模态 `PTU/PayGo`）vs Pattern C（同池 H100 折中）vs Pattern D（同步 PIL + base64 全量上送反模式），覆盖 ITL 抖动隔离、缓存命中与三年 TCO](multimodal-vlm-disaggregated-vision-encoder-epd-serving-aks-dali-vit-cache-vllm-sglang-vs-monolithic-h100-vs-foundry-ptu-selection-faq.md) | [🇨🇳 中文](multimodal-vlm-disaggregated-vision-encoder-epd-serving-aks-dali-vit-cache-vllm-sglang-vs-monolithic-h100-vs-foundry-ptu-selection-faq.md) · [🇬🇧 EN](multimodal-vlm-disaggregated-vision-encoder-epd-serving-aks-dali-vit-cache-vllm-sglang-vs-monolithic-h100-vs-foundry-ptu-selection-faq.en.md) |
 | 468 | [企业辅助模型分数 GPU 供给选型 FAQ：Pattern A（`AKS NVIDIA MIG` 硬件切片）vs Pattern B（非 MIG `CUDA MPS`）vs Pattern C（`HAMi vGPU` 细粒度调度）vs Pattern D（在线路径 Time-Slicing 反模式），覆盖显存隔离、尾延迟抖动与三年 TCO](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.md) | [🇨🇳 中文](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.md) · [🇬🇧 EN](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.en.md) |
+| 476 | [企业多节点 Frontier/MoE 服务选型 FAQ：Pattern A（`AKS NDv5` `InfiniBand RDMA` + `LeaderWorkerSet/Kueue` 拓扑对齐 + `NCCL` 看门狗）vs Pattern B（`Azure AI Foundry` 托管 PTU/Serverless）vs Pattern C（`NC` 以太网 `PP` 管线）vs Pattern D（跨节点 TCP `TP=16` 反模式），覆盖 `TPOT`、自动恢复与三年 TCO](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.md) | [🇨🇳 中文](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.md) · [🇬🇧 EN](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.en.md) |
 
 ### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（59 篇）
 
