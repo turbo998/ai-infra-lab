@@ -1,6 +1,6 @@
 # AI Infra Lab — Enterprise Cloud & AI Infrastructure Architecture Lab
 
-> 🌐 **Language / 语言切换**: **[🇨🇳 中文主页 (`README.md`)](README.md)** | **English Homepage (`README.en.md`)** | **[📚 455 Architecture Selection FAQs (`docs/azure-agent-infra/`)](docs/azure-agent-infra/README.en.md)** | **[🛠️ 28-Chapter Playbook & IaC (`workshops/azure-agent-infra/`)](workshops/azure-agent-infra/README.en.md)**
+> 🌐 **Language / 语言切换**: **[🇨🇳 中文主页 (`README.md`)](README.md)** | **English Homepage (`README.en.md`)** | **[📚 456 Architecture Selection FAQs (`docs/azure-agent-infra/`)](docs/azure-agent-infra/README.en.md)** | **[🛠️ 28-Chapter Playbook & IaC (`workshops/azure-agent-infra/`)](workshops/azure-agent-infra/README.en.md)**
 
 A production-oriented reference architecture, platform trade-off catalog, capacity/TCO sizing model, and deployable Infrastructure-as-Code (IaC) repository built for **Cloud & AI Solution Architects**. Every deliverable focuses on concrete architectural decisions encountered when designing enterprise LLM inference, multi-agent orchestration, and secure sandbox platforms:
 
@@ -56,7 +56,7 @@ ai-infra-lab/
 ├── README.md / README.en.md          # Bilingual repository overview & quick-decision trade-off matrix
 ├── docs/
 │   ├── README.md / README.en.md      # Bilingual documentation hub index
-│   ├── azure-agent-infra/            # 455 Enterprise Azure AI & Agent Selection FAQs (910 bilingual docs + 8 SVGs)
+│   ├── azure-agent-infra/            # 456 Enterprise Azure AI & Agent Selection FAQs (912 bilingual docs + 8 SVGs)
 │   ├── alibaba-cloud-ai-infra/       # Alibaba Cloud L0–L3 AI Infra evaluation & cross-cloud mapping (bilingual + 6 SVGs)
 │   └── video-explainers/             # Bilingual 4-act architecture explainer storyboards (EP03 & EP05)
 └── workshops/

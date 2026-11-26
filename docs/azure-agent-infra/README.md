@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（455 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（456 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **455 个架构选型、平台对比与安全治理决策专题**（共 `910` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **456 个架构选型、平台对比与安全治理决策专题**（共 `912` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 455 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 456 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（57 篇）
 
@@ -433,7 +433,7 @@
 | 439 | [受监管智能体记忆删除与跨境数据驻留选型 FAQ：Route A（`APIM` 地域门禁与租户声明校验）vs Route B（`Purview` 生命周期与删除策略治理）vs Route C（`Confidential Ledger` 删除证据不可抵赖账本）vs Route D（只删主库不清缓存/索引/副本反模式），覆盖 `W_erase`、`Risk_reg`、`Risk_xborder`、`Evidence_coverage` 与三年 TCO](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.md) | [🇨🇳 中文](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.md) · [🇬🇧 EN](regulated-agent-memory-erasure-gdpr-ccpa-pipeda-apim-purview-confidential-ledger-region-fencing-selection-faq.en.md) |
 | 450 | [企业隐私保护语料去标识化与差分隐私合成选型 FAQ：Pattern A（一致性 surrogate + k 匿名）vs Pattern B（`(ε,δ)`-DP + `MIA` 门禁）vs Pattern C（`Managed HSM` `FF1`）vs Pattern D（Regex/无盐哈希反模式），覆盖合规、可用性与三年 TCO](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.md) | [🇨🇳 中文](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.md) · [🇬🇧 EN](privacy-preserving-deidentification-differential-privacy-synthetic-corpus-azure-deid-presidio-vs-aks-tee-smartnoise-dp-vs-mhsm-ff1-selection-faq.en.md) |
 
-### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（56 篇）
+### 3.7 LLMOps 评测、发布工程、FinOps 降本与 SaaS 商业化（LLMOps, Release Gates, FinOps & SaaS Monetization）（57 篇）
 
 > 覆盖 Foundry Eval / PyRIT 自动化红队门禁、流量镜像与金丝雀发布、语义缓存 vs Prompt Caching vs Batch API 降本及 SaaS 多租户计量变现。
 
@@ -495,6 +495,7 @@
 | 428 | [企业 SME 标注与主动学习仲裁工作台选型 FAQ：Route A（`AKS/ACA` 私网 `Argilla/Label Studio` + `Private Link` + 双盲双审）vs Route B（`Teams/Outlook` 微审阅卡片 + `Service Bus/Cosmos DB`）vs Route C（`AVD` 零外泄 Tier-1 外包 + Tier-2 内部升级）vs Route D（随机抽样/预展示评委分数/公网众包反模式），覆盖 `Score_AL`、锚定偏差抑制、`κ/α` 一致性诊断与三年 TCO](enterprise-sme-annotation-active-learning-workbench-aks-argilla-label-studio-vs-teams-micro-review-vs-avd-tiered-bpo-selection-faq.md) | [🇨🇳 中文](enterprise-sme-annotation-active-learning-workbench-aks-argilla-label-studio-vs-teams-micro-review-vs-avd-tiered-bpo-selection-faq.md) · [🇬🇧 EN](enterprise-sme-annotation-active-learning-workbench-aks-argilla-label-studio-vs-teams-micro-review-vs-avd-tiered-bpo-selection-faq.en.md) |
 | 440 | [企业模型发布门禁与影子评测选型 FAQ：Route A（`Foundry Evals` 离线门禁）vs Route B（`APIM` 在线影子流量对照）vs Route C（分层金丝雀 `1%->10%->50%->100%` 自动回退）vs Route D（无评测全量切换反模式），覆盖 `Gain_release`、`Drift_shadow`、`Release_confidence` 与三年 TCO](model-release-gate-shadow-eval-groundedness-toxicity-latency-budget-apim-foundry-evals-selection-faq.md) | [🇨🇳 中文](model-release-gate-shadow-eval-groundedness-toxicity-latency-budget-apim-foundry-evals-selection-faq.md) · [🇬🇧 EN](model-release-gate-shadow-eval-groundedness-toxicity-latency-budget-apim-foundry-evals-selection-faq.en.md) |
 | 448 | [私有 SWE-Agent 执行基准与发布门禁选型 FAQ：Pattern A（`AKS Kata` 密封 `F2P/P2P` + `Pass^k`）vs Pattern B（Mutation + CodeQL 差分 Oracle）vs Pattern C（静态 LLM Judge 漏斗预筛）vs Pattern D（公开榜单/单次 Pass@1 反模式），覆盖稳定性、反投机与三年 TCO](private-swe-agent-execution-benchmark-harness-aks-kata-f2p-pass-hat-k-vs-mutation-codeql-oracle-vs-static-llm-judge-selection-faq.md) | [🇨🇳 中文](private-swe-agent-execution-benchmark-harness-aks-kata-f2p-pass-hat-k-vs-mutation-codeql-oracle-vs-static-llm-judge-selection-faq.md) · [🇬🇧 EN](private-swe-agent-execution-benchmark-harness-aks-kata-f2p-pass-hat-k-vs-mutation-codeql-oracle-vs-static-llm-judge-selection-faq.en.md) |
+| 456 | [企业多模态 Agent 评测语料版本化与零拷贝血缘治理选型 FAQ：Pattern A（`ADLS Gen2 + lakeFS` 元数据零拷贝分支）vs Pattern B（`Foundry/AML Data Assets v2` 托管版本）vs Pattern C（`Delta/Iceberg` 大规模结构化时光回溯）vs Pattern D（`Git + DVC` 轻量仓库耦合），覆盖发布门禁、审计回放与三年 TCO](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.md) | [🇨🇳 中文](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.md) · [🇬🇧 EN](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.en.md) |
 
 ### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（57 篇）
 

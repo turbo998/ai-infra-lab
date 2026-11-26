@@ -1,6 +1,6 @@
 # AI Infra Lab — 云原生与企业级 AI 基础设施架构实验室
 
-> 🌐 **Language / 语言切换**: **中文主页 (`README.md`)** | **[🇬🇧 English Homepage (`README.en.md`)](README.en.md)** | **[📚 455 篇架构选型决策库 (`docs/azure-agent-infra/`)](docs/azure-agent-infra/README.md)** | **[🛠️ 28 章全栈手册与蓝图 (`workshops/azure-agent-infra/`)](workshops/azure-agent-infra/README.md)**
+> 🌐 **Language / 语言切换**: **中文主页 (`README.md`)** | **[🇬🇧 English Homepage (`README.en.md`)](README.en.md)** | **[📚 456 篇架构选型决策库 (`docs/azure-agent-infra/`)](docs/azure-agent-infra/README.md)** | **[🛠️ 28 章全栈手册与蓝图 (`workshops/azure-agent-infra/`)](workshops/azure-agent-infra/README.md)**
 
 面向 **Cloud & AI Solution Architect（云与 AI 解决方案架构师）** 的生产级参考架构、平台选型权衡（Trade-offs）、容量与 TCO 测算模型以及可部署基础设施即代码（IaC）知识库。本仓库聚焦企业在落地大规模 LLM 推理、多智能体编排与安全沙箱时的真实架构决策：
 
@@ -56,7 +56,7 @@ ai-infra-lab/
 ├── README.md / README.en.md          # 中英双语仓库总览与高频选型矩阵
 ├── docs/
 │   ├── README.md / README.en.md      # 文档中心总索引（中英双语）
-│   ├── azure-agent-infra/            # 455 篇企业级 Azure AI 与智能体架构选型 FAQ（910 份双语文档 + 8 张 SVG）
+│   ├── azure-agent-infra/            # 456 篇企业级 Azure AI 与智能体架构选型 FAQ（912 份双语文档 + 8 张 SVG）
 │   ├── alibaba-cloud-ai-infra/       # 阿里云 L0–L3 AI Infra 全栈测评与跨云对标报告（双语 + 6 张 SVG）
 │   └── video-explainers/             # AI 基础设施硬核架构科普视频分镜脚本（EP03 · EP05 双语）
 └── workshops/
