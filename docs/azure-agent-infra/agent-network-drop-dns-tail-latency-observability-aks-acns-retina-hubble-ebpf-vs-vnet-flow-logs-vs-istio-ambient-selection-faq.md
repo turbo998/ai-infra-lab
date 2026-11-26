@@ -167,10 +167,25 @@ spec:
 ```
 ### 13.3 PromQL + KQL：丢包/DNS/SNAT 联合告警
 ```python
-promql_drop = 'sum(rate(networkobservability_drop_count{reason=~\"POLICY_DENIED|CT_MAP_INSERTION_FAILED\"}[5m])) by (node,reason)'
-promql_dns = 'sum(rate(networkobservability_dns_response_count{rcode!=\"NOERROR\"}[5m])) by (node,rcode)'
-kql_snat = \"\"\"\nAzureDiagnostics\n| where Category == 'NetworkSecurityGroupFlowEvent'\n| summarize dcount_snat= dcount(SrcPort_d) by bin(TimeGenerated, 1m), Subnet_s\n| where dcount_snat > 50000\n\"\"\"\nprint(promql_drop)\nprint(promql_dns)\nprint(kql_snat)\n```
-print(promql_drop)\nprint(promql_dns)\nprint(kql_snat)\n```
+promql_drop = """
+sum(rate(networkobservability_drop_count{reason=~"POLICY_DENIED|CT_MAP_INSERTION_FAILED"}[5m]))
+by (node, reason)
+"""
+promql_dns = """
+sum(rate(networkobservability_dns_response_count{rcode!="NOERROR"}[5m]))
+by (node, rcode)
+"""
+kql_snat = """
+AzureDiagnostics
+| where Category == "NetworkSecurityGroupFlowEvent"
+| summarize dcount_snat = dcount(SrcPort_d) by bin(TimeGenerated, 1m), Subnet_s
+| where dcount_snat > 50000
+"""
+queries = {"drop": promql_drop, "dns": promql_dns, "snat": kql_snat}
+for key, text in queries.items():
+    print(f"--- {key} ---")
+    print(text.strip())
+```
 ## 14) 企业场景与三档三年 TCO
 ### 14.1 场景 A：全球支付编排智能体平台（闪购峰值）
 平台在活动高峰可到 `8,000 RPS`，单次请求会触发多下游工具扇出。
