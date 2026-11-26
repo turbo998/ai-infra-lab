@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (487 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (488 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **487 structured architecture selection guides and trade-off FAQs** (`974` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **488 structured architecture selection guides and trade-off FAQs** (`976` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 487 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 488 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (61 Guides)
 
@@ -457,7 +457,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 474 | [Enterprise proprietary LLM anti-distillation and model-extraction defense selection FAQ: Pattern A (`APIM` `logprobs/CoT` sanitization plus cross-key manifold coverage detector) vs Pattern B (keyed green-list watermark and statistical attribution) vs Pattern C (`Entra B2B` trusted identity plus structured minimal-information outputs) vs Pattern D (static quota anti-pattern), covering detection horizon, false-positive rate, attribution strength, and three-year TCO](proprietary-llm-anti-distillation-defense-apim-logit-scrub-detector-vs-watermark-vs-quota-selection-faq.en.md) | [🇬🇧 EN](proprietary-llm-anti-distillation-defense-apim-logit-scrub-detector-vs-watermark-vs-quota-selection-faq.en.md) · [🇨🇳 中文](proprietary-llm-anti-distillation-defense-apim-logit-scrub-detector-vs-watermark-vs-quota-selection-faq.md) |
 | 482 | [Enterprise agent markdown image and CSS render-time exfiltration defense selection FAQ: Pattern A (strict CSP + URL provenance and entropy gate + HMAC Camo proxy) vs Pattern B (sandboxed iframe + zero-unfurl flow) vs Pattern C (citation-ID schema rendering) vs Pattern D (default DOMPurify-only anti-pattern), covering zero-click exfil blocking, unfurl amplification control, and three-year risk-adjusted TCO](agent-markdown-image-css-render-exfiltration-csp-camo-proxy-vs-dompurify-vs-plaintext-selection-faq.en.md) | [🇬🇧 EN](agent-markdown-image-css-render-exfiltration-csp-camo-proxy-vs-dompurify-vs-plaintext-selection-faq.en.md) · [🇨🇳 中文](agent-markdown-image-css-render-exfiltration-csp-camo-proxy-vs-dompurify-vs-plaintext-selection-faq.md) |
 
-### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (60 Guides)
+### 3.7 LLMOps Evaluation, Release Engineering, FinOps & SaaS Monetization (61 Guides)
 
 > Covers Foundry Eval + PyRIT CI/CD gates, shadow mirroring & canary flags, Semantic vs. Prompt Caching vs. Batch FinOps, and B2B SaaS metering.
 
@@ -523,6 +523,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 464 | [Enterprise LLM serving Goodput benchmarking, prefix-cache replay, and PTU right-sizing selection FAQ: Pattern A (`AIPerf/GuideLLM` zero-PII hash-tree replay) vs Pattern B (`APIM` token-shape telemetry + `Foundry PTU` weighted equivalence) vs Pattern C (`ISL×OSL×CacheHit` synthetic CI grid) vs Pattern D (single-prompt and mean-only anti-pattern), covering joint `TTFT/TPOT` Goodput and `$/1M_goodput_tokens` three-year TCO](llm-goodput-benchmarking-prefix-cache-trace-replay-aiperf-guidellm-aks-vs-foundry-ptu-sizing-vs-synthetic-grid-selection-faq.en.md) | [🇬🇧 EN](llm-goodput-benchmarking-prefix-cache-trace-replay-aiperf-guidellm-aks-vs-foundry-ptu-sizing-vs-synthetic-grid-selection-faq.en.md) · [🇨🇳 中文](llm-goodput-benchmarking-prefix-cache-trace-replay-aiperf-guidellm-aks-vs-foundry-ptu-sizing-vs-synthetic-grid-selection-faq.md) |
 | 472 | [Enterprise asynchronous multi-agent distributed trace continuity and FinOps attribution selection FAQ: Pattern A (segment bounded `SpanLinks` plus signed `baggage` plus `ADX` causal join) vs Pattern B (`Application Insights` native correlation) vs Pattern C (workflow-ledger callback nonce anchoring) vs Pattern D (monster-trace anti-pattern), covering batch fan-in fidelity, active-versus-wait decomposition, and three-year TCO](async-agent-distributed-trace-propagation-otel-spanlinks-baggage-adx-vs-appinsights-vs-workflow-ledger-selection-faq.en.md) | [🇬🇧 EN](async-agent-distributed-trace-propagation-otel-spanlinks-baggage-adx-vs-appinsights-vs-workflow-ledger-selection-faq.en.md) · [🇨🇳 中文](async-agent-distributed-trace-propagation-otel-spanlinks-baggage-adx-vs-appinsights-vs-workflow-ledger-selection-faq.md) |
 | 480 | [Enterprise agent composite COGS and paid-tool royalty FinOps selection FAQ: Pattern A (`OpenTelemetry + APIM` metered tool proxy + `Redis` pre-auth + `Eventhouse/ADX` real-time margin engine) vs Pattern B (`T+1` invoice plus `FOCUS` reconciliation) vs Pattern C (seat plus composite-credit wallet with high-royalty step-up) vs Pattern D (token-only flat bundling anti-pattern), covering task-level margin-floor enforcement, reservation-versus-settlement drift control, and three-year TCO](agent-composite-cogs-paid-tool-royalty-finops-otel-apim-eventhouse-vs-token-only-vs-flat-selection-faq.en.md) | [🇬🇧 EN](agent-composite-cogs-paid-tool-royalty-finops-otel-apim-eventhouse-vs-token-only-vs-flat-selection-faq.en.md) · [🇨🇳 中文](agent-composite-cogs-paid-tool-royalty-finops-otel-apim-eventhouse-vs-token-only-vs-flat-selection-faq.md) |
+| 488 | [Enterprise flaky agent-eval CI quarantine and sequential SPRT gate selection FAQ: Pattern A (replayable cassette plus seed and fingerprint pinning plus Wald `SPRT` adaptive early stop plus flaky quarantine) vs Pattern B (fixed `Pass^k`) vs Pattern C (nightly full regression plus lightweight PR smoke gate) vs Pattern D (`Pass@k>=1` retry-until-green anti-pattern), covering false-green inflation, sequential boundaries, Wilson tie-breaks, and three-year risk-adjusted TCO](flaky-agent-eval-ci-quarantine-sequential-sprt-gate-seed-pin-vs-fixed-passk-vs-single-run-selection-faq.en.md) | [🇬🇧 EN](flaky-agent-eval-ci-quarantine-sequential-sprt-gate-seed-pin-vs-fixed-passk-vs-single-run-selection-faq.en.md) · [🇨🇳 中文](flaky-agent-eval-ci-quarantine-sequential-sprt-gate-seed-pin-vs-fixed-passk-vs-single-run-selection-faq.md) |
 
 ### 3.8 Autonomous Cloud Ops (AIOps), Multi-Region BCDR & Enterprise Landing Zones (61 Guides)
 
