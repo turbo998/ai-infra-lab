@@ -595,11 +595,19 @@ class TestAgentInfraSizer(unittest.TestCase):
             r"(Readiness \d{3}:|就绪核查\d{3}|迁移观察要点\s*\d+|Migration observation\s*\d+)",
             re.IGNORECASE,
         )
+        cross_file_line_files: dict[tuple[bool, str], set[str]] = {}
 
         for md_file in faq_dir.glob("*.md"):
             if md_file.name in {"README.md", "README.en.md"}:
                 continue
             text = _safe_read_text(md_file, encoding="utf-8")
+            if not md_file.name.endswith(".en.md") and md_file.name != "README.md":
+                cjk_count = len(re.findall(r"[\u4e00-\u9fff]", text))
+                self.assertGreaterEqual(
+                    cjk_count,
+                    550,
+                    f"CJK floor violation in {md_file.name}: {cjk_count}",
+                )
             self.assertIsNone(
                 readiness_re.search(text),
                 f"Synthetic readiness padding marker found in {md_file.name}",
@@ -618,9 +626,8 @@ class TestAgentInfraSizer(unittest.TestCase):
                     continue
                 if line.startswith("|") or line.startswith("#"):
                     continue
-                if line.startswith("-") or line.startswith("*"):
-                    continue
-                if re.match(r"^\d+\.", line):
+                line = re.sub(r"^(?:[-*+]|\d+\.)\s+(?:\[[ xX]\]\s+)?", "", line)
+                if not line:
                     continue
                 if re.match(r"^[A-Za-z][A-Za-z\s]{3,}[A-Z]:", line):
                     continue
@@ -633,6 +640,20 @@ class TestAgentInfraSizer(unittest.TestCase):
                 suffix = norm_line[-24:]
                 per_file_prefix_counter[prefix] += 1
                 per_file_suffix_counter[suffix] += 1
+                if (
+                    len(norm_line) >= 55
+                    and not line.startswith(">")
+                    and not line.startswith("`")
+                    and "http://" not in norm_line
+                    and "https://" not in norm_line
+                    and "fetched:" not in norm_line.lower()
+                    and "抓取" not in norm_line
+                    and "measured" not in norm_line.lower()
+                    and "synthetic" not in norm_line.lower()
+                    and "anonymized_reported" not in norm_line.lower()
+                ):
+                    key = (md_file.name.endswith(".en.md"), norm_line)
+                    cross_file_line_files.setdefault(key, set()).add(md_file.name)
 
             per_file_max_prefix = max(per_file_prefix_counter.values(), default=0)
             per_file_max_suffix = max(per_file_suffix_counter.values(), default=0)
@@ -645,6 +666,16 @@ class TestAgentInfraSizer(unittest.TestCase):
                 per_file_max_suffix,
                 10,
                 f"Excessive repeated 24-char suffix in {md_file.name}: {per_file_max_suffix}",
+            )
+        for (is_en, norm_line), file_set in cross_file_line_files.items():
+            self.assertLessEqual(
+                len(file_set),
+                5,
+                (
+                    "Cross-file prose duplication too high "
+                    f"({'EN' if is_en else 'ZH'}): appears in {len(file_set)} files; "
+                    f"sample={norm_line[:90]!r}"
+                ),
             )
 
     def test_repo_sa_content_hygiene(self) -> None:
@@ -659,7 +690,9 @@ class TestAgentInfraSizer(unittest.TestCase):
             r"|\((?:tag|marker|item|point|note|ref)\s*#?\d{2,3}\)|第\s*\d+\s*条强调"
             r"|zhanchor|enanchor|outcome tag:|endpoint tag:|结论标签[:：]"
             r"|，标签[:：][a-z0-9-]+|（治理要点\d+）|第\s*\d+\s*条实施观察"
-            r"|implementation observation\s*\d+)",
+            r"|implementation observation\s*\d+|(?:Evidence\s+)?Checkpoint\s*#?\d{2,3}[:：]"
+            r"|检查点\s*#?\d{2,3}[:：]|Rollout\s+control\s*#?\d{2,3}[:：]"
+            r"|控制项\s*#?\d{2,3}[:：]|检查项\s*#?\d{2,3}[:：]|Day-[012]\s*(?:项|control)\s*\d{2,3}[:：])",
             re.IGNORECASE,
         )
         for path in repo_root.rglob("*"):
