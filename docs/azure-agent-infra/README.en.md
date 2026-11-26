@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (476 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (477 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **476 structured architecture selection guides and trade-off FAQs** (`952` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **477 structured architecture selection guides and trade-off FAQs** (`954` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,7 +41,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 476 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 477 Architecture Selection Guides by Domain (8 SA Domains)
 
 ### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (60 Guides)
 
@@ -183,7 +183,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 468 | [Enterprise fractional-GPU auxiliary model serving selection FAQ: Pattern A (`AKS NVIDIA MIG` hardware slices) vs Pattern B (non-MIG `CUDA MPS`) vs Pattern C (`HAMi vGPU` fine-grained scheduling) vs Pattern D (online-path time-slicing anti-pattern), covering VRAM isolation, tail-latency jitter, and three-year TCO](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.en.md) | [🇬🇧 EN](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.en.md) · [🇨🇳 中文](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.md) |
 | 476 | [Enterprise multi-node Frontier and MoE serving selection FAQ: Pattern A (`AKS NDv5` `InfiniBand RDMA` plus `LeaderWorkerSet/Kueue` topology alignment plus `NCCL` watchdog) vs Pattern B (`Azure AI Foundry` managed PTU/Serverless) vs Pattern C (`NC` Ethernet `PP` pipeline) vs Pattern D (cross-node TCP `TP=16` anti-pattern), covering `TPOT`, automated recovery, and three-year TCO](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.en.md) | [🇬🇧 EN](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.en.md) · [🇨🇳 中文](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.md) |
 
-### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (59 Guides)
+### 3.3 AI Gateway, MCP Tool Governance & Cross-Org A2A Federation (60 Guides)
 
 > Focuses on APIM AI Gateway governance across clouds, Remote MCP registry & schema pinning, A2A federation, tenant fairness, and token-drain defense.
 
@@ -248,6 +248,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 453 | [Enterprise agent-ready web portal and catalog exposure selection FAQ: Pattern A (`NLWeb + Schema.org + MCP`) vs Pattern B (`AFD llms.txt` plus `Accept: text/markdown`) vs Pattern C (`agents.json` transactional manifest) vs Pattern D (heavy JS SPA and 1:1 OpenAPI exposure anti-pattern), covering access governance, caching, and three-year TCO](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.en.md) | [🇬🇧 EN](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.en.md) · [🇨🇳 中文](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.md) |
 | 461 | [Enterprise legacy REST/OpenAPI-to-MCP curation ergonomics selection FAQ: Pattern A (`OpenAPI Overlay 1.0 + API Center + APIM Native MCP`) vs Pattern B (`ACA/AKS` composite intent facade) vs Pattern C (`2-tool` dynamic meta-tool catalog) vs Pattern D (raw 1:1 auto-exposure anti-pattern), covering tool-surface token tax, pagination/`202` polling turn compression, release gates, and three-year TCO](enterprise-openapi-to-mcp-curation-ergonomics-openapi-overlays-apim-native-mcp-vs-composite-intent-facade-vs-dynamic-meta-tool-selection-faq.en.md) | [🇬🇧 EN](enterprise-openapi-to-mcp-curation-ergonomics-openapi-overlays-apim-native-mcp-vs-composite-intent-facade-vs-dynamic-meta-tool-selection-faq.en.md) · [🇨🇳 中文](enterprise-openapi-to-mcp-curation-ergonomics-openapi-overlays-apim-native-mcp-vs-composite-intent-facade-vs-dynamic-meta-tool-selection-faq.md) |
 | 469 | [Enterprise real-time MCP/A2A token revocation and continuous-access-evaluation selection FAQ: Pattern A (`Entra CAE + SSF/CAEP` push + `APIM + Redis` watermark + active stream sever) vs Pattern B (short-TTL OBO) vs Pattern C (`RFC7662` introspection) vs Pattern D (stateless JWT anti-pattern), covering mid-session revocation propagation, streaming termination, and three-year TCO](realtime-mcp-a2a-token-revocation-continuous-access-evaluation-entra-cae-openid-ssf-caep-apim-redis-killswitch-vs-short-ttl-obo-vs-rfc7662-introspection-selection-faq.en.md) | [🇬🇧 EN](realtime-mcp-a2a-token-revocation-continuous-access-evaluation-entra-cae-openid-ssf-caep-apim-redis-killswitch-vs-short-ttl-obo-vs-rfc7662-introspection-selection-faq.en.md) · [🇨🇳 中文](realtime-mcp-a2a-token-revocation-continuous-access-evaluation-entra-cae-openid-ssf-caep-apim-redis-killswitch-vs-short-ttl-obo-vs-rfc7662-introspection-selection-faq.md) |
+| 477 | [Enterprise agent URL-tool SSRF and DNS-rebinding defense selection FAQ: Pattern A (unpeered DMZ `Envoy/Smokescreen` plus connect-time IP pinning plus per-hop redirect re-validation plus `Cilium` default-deny egress) vs Pattern B (`ACA Dynamic Sessions/AKS Kata` identity-less isolated fetch sandbox) vs Pattern C (`Azure Firewall` FQDN controls) vs Pattern D (application-layer string-check anti-pattern), covering IMDS/WireServer blocking, TOCTOU immunity, payload caps, and three-year TCO](agent-url-tool-ssrf-dns-rebinding-defense-pinned-envoy-proxy-vs-firewall-fqdn-vs-fetcher-selection-faq.en.md) | [🇬🇧 EN](agent-url-tool-ssrf-dns-rebinding-defense-pinned-envoy-proxy-vs-firewall-fqdn-vs-fetcher-selection-faq.en.md) · [🇨🇳 中文](agent-url-tool-ssrf-dns-rebinding-defense-pinned-envoy-proxy-vs-firewall-fqdn-vs-fetcher-selection-faq.md) |
 
 ### 3.4 Agent State, Memory Tiering, Enterprise RAG & Multimodal Data Plane (59 Guides)
 

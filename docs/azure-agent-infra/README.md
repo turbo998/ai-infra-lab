@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（476 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（477 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **476 个架构选型、平台对比与安全治理决策专题**（共 `952` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **477 个架构选型、平台对比与安全治理决策专题**（共 `954` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 476 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 477 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（60 篇）
 
@@ -183,7 +183,7 @@
 | 468 | [企业辅助模型分数 GPU 供给选型 FAQ：Pattern A（`AKS NVIDIA MIG` 硬件切片）vs Pattern B（非 MIG `CUDA MPS`）vs Pattern C（`HAMi vGPU` 细粒度调度）vs Pattern D（在线路径 Time-Slicing 反模式），覆盖显存隔离、尾延迟抖动与三年 TCO](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.md) | [🇨🇳 中文](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.md) · [🇬🇧 EN](fractional-gpu-auxiliary-model-serving-aks-nvidia-mig-vs-cuda-mps-vs-hami-vgpu-vs-gpu-time-slicing-selection-faq.en.md) |
 | 476 | [企业多节点 Frontier/MoE 服务选型 FAQ：Pattern A（`AKS NDv5` `InfiniBand RDMA` + `LeaderWorkerSet/Kueue` 拓扑对齐 + `NCCL` 看门狗）vs Pattern B（`Azure AI Foundry` 托管 PTU/Serverless）vs Pattern C（`NC` 以太网 `PP` 管线）vs Pattern D（跨节点 TCP `TP=16` 反模式），覆盖 `TPOT`、自动恢复与三年 TCO](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.md) | [🇨🇳 中文](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.md) · [🇬🇧 EN](multi-node-aks-ndv5-infiniband-rdma-rail-topology-nccl-watchdog-vs-rocev2-vs-foundry-selection-faq.en.md) |
 
-### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（59 篇）
+### 3.3 AI 网关、MCP 工具治理与跨组织 A2A 协议（AI Gateway, MCP Governance & Cross-Org A2A）（60 篇）
 
 > 聚焦 APIM AI Gateway 多模型/多云治理、远程 MCP 注册与防投毒钉扎、A2A 跨组织协议、多租户公平限流与防刷流（Denial-of-Wallet）。
 
@@ -248,6 +248,7 @@
 | 453 | [企业 Agent-Ready Web 门户与目录暴露选型 FAQ：Pattern A（`NLWeb + Schema.org + MCP`）vs Pattern B（`AFD llms.txt` + `Accept: text/markdown`）vs Pattern C（`agents.json` 事务清单）vs Pattern D（重 JS SPA/1:1 OpenAPI 暴露反模式），覆盖接入治理、缓存与三年 TCO](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.md) | [🇨🇳 中文](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.md) · [🇬🇧 EN](agent-ready-web-portal-catalog-exposure-nlweb-schemaorg-mcp-apim-ai-search-vs-afd-llms-txt-markdown-negotiation-vs-agents-json-selection-faq.en.md) |
 | 461 | [企业遗留 REST/OpenAPI 到 MCP 工具曲面治理选型 FAQ：Pattern A（`OpenAPI Overlay 1.0 + API Center + APIM Native MCP`）vs Pattern B（`ACA/AKS` 复合意图工具门面）vs Pattern C（`2-Tool` 动态元工具目录）vs Pattern D（1:1 自动暴露反模式），覆盖工具面 token 税、分页/202 轮询回合压缩、变更闸门与三年 TCO](enterprise-openapi-to-mcp-curation-ergonomics-openapi-overlays-apim-native-mcp-vs-composite-intent-facade-vs-dynamic-meta-tool-selection-faq.md) | [🇨🇳 中文](enterprise-openapi-to-mcp-curation-ergonomics-openapi-overlays-apim-native-mcp-vs-composite-intent-facade-vs-dynamic-meta-tool-selection-faq.md) · [🇬🇧 EN](enterprise-openapi-to-mcp-curation-ergonomics-openapi-overlays-apim-native-mcp-vs-composite-intent-facade-vs-dynamic-meta-tool-selection-faq.en.md) |
 | 469 | [企业实时 MCP/A2A 令牌撤销与连续访问评估选型 FAQ：Pattern A（`Entra CAE + SSF/CAEP` 推送 + `APIM + Redis` 水位线 + 活跃会话断流）vs Pattern B（短 TTL OBO）vs Pattern C（`RFC7662` 内省）vs Pattern D（静态 JWT 反模式），覆盖中途撤销传播、流式连接终止与三年 TCO](realtime-mcp-a2a-token-revocation-continuous-access-evaluation-entra-cae-openid-ssf-caep-apim-redis-killswitch-vs-short-ttl-obo-vs-rfc7662-introspection-selection-faq.md) | [🇨🇳 中文](realtime-mcp-a2a-token-revocation-continuous-access-evaluation-entra-cae-openid-ssf-caep-apim-redis-killswitch-vs-short-ttl-obo-vs-rfc7662-introspection-selection-faq.md) · [🇬🇧 EN](realtime-mcp-a2a-token-revocation-continuous-access-evaluation-entra-cae-openid-ssf-caep-apim-redis-killswitch-vs-short-ttl-obo-vs-rfc7662-introspection-selection-faq.en.md) |
+| 477 | [企业 Agent URL 工具 SSRF 与 DNS Rebinding 防御选型 FAQ：Pattern A（非对等 DMZ `Envoy/Smokescreen` + 连接时 IP 钉扎 + 每跳 3xx 复核 + `Cilium` 默认拒绝）vs Pattern B（`ACA Dynamic Sessions/AKS Kata` 零身份隔离抓取沙箱）vs Pattern C（`Azure Firewall` FQDN 规则）vs Pattern D（应用层字符串校验反模式），覆盖 IMDS/WireServer 阻断、TOCTOU 免疫、payload 上限与三年 TCO](agent-url-tool-ssrf-dns-rebinding-defense-pinned-envoy-proxy-vs-firewall-fqdn-vs-fetcher-selection-faq.md) | [🇨🇳 中文](agent-url-tool-ssrf-dns-rebinding-defense-pinned-envoy-proxy-vs-firewall-fqdn-vs-fetcher-selection-faq.md) · [🇬🇧 EN](agent-url-tool-ssrf-dns-rebinding-defense-pinned-envoy-proxy-vs-firewall-fqdn-vs-fetcher-selection-faq.en.md) |
 
 ### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（59 篇）
 
