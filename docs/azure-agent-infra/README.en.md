@@ -1,8 +1,8 @@
-# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (482 Bilingual FAQs)
+# Azure AI & Enterprise Agent Infrastructure Architecture Selection Library (483 Bilingual FAQs)
 
 > 🌐 **Language / 语言切换**: **[🇨🇳 中文版 (`README.md`)](README.md)** | **English Edition (Current)** | **[📘 28-Chapter Architecture Playbook & Sizer (`../../workshops/azure-agent-infra/README.en.md`)](../../workshops/azure-agent-infra/README.en.md)** | **[🏠 Repository Home (`../../README.en.md`)](../../README.en.md)**
 
-Curated from a **Cloud & AI Solution Architect** perspective, this library provides **482 structured architecture selection guides and trade-off FAQs** (`964` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
+Curated from a **Cloud & AI Solution Architect** perspective, this library provides **483 structured architecture selection guides and trade-off FAQs** (`966` bilingual Chinese & English documents + `8` verified SVG architecture diagrams) addressing the highest-frequency platform decisions when moving enterprise AI agents from PoC to production.
 
 Every guide follows a consistent **Solution Architect Deliverable Standard**:
 - **Executive Summary**: Direct architectural recommendation, boundary conditions, and anti-pattern warnings;
@@ -41,9 +41,9 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 
 ---
 
-## 3. Complete 482 Architecture Selection Guides by Domain (8 SA Domains)
+## 3. Complete 483 Architecture Selection Guides by Domain (8 SA Domains)
 
-### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (60 Guides)
+### 3.1 Agent Runtime Hosting & Code/GUI Sandboxes (61 Guides)
 
 > Where agent runtimes execute, how untrusted code/GUI actions are isolated with hypervisor boundaries, and how elastic capacity is provisioned.
 
@@ -115,6 +115,7 @@ Every guide follows a consistent **Solution Architect Deliverable Standard**:
 | 459 | [Enterprise stateful-agent and code/browser sandbox node-defragmentation selection FAQ: Pattern A (`AKS NAP/Karpenter` turn-aware consolidation) vs Pattern B (`Descheduler + Cluster Autoscaler` bin-packing rebalance) vs Pattern C (duration-tiered dual pools) vs Pattern D (permanent no-evict anti-pattern), covering packing utilization, eviction safety, and three-year TCO](agent-sandbox-node-defragmentation-bin-packing-aks-nap-karpenter-consolidation-vs-descheduler-pdb-vs-cluster-autoscaler-selection-faq.en.md) | [🇬🇧 EN](agent-sandbox-node-defragmentation-bin-packing-aks-nap-karpenter-consolidation-vs-descheduler-pdb-vs-cluster-autoscaler-selection-faq.en.md) · [🇨🇳 中文](agent-sandbox-node-defragmentation-bin-packing-aks-nap-karpenter-consolidation-vs-descheduler-pdb-vs-cluster-autoscaler-selection-faq.md) |
 | 467 | [Enterprise multi-tenant agent sandbox noisy-neighbor and resource-exhaustion isolation selection FAQ: Pattern A (`AKS Kata` + `XFS prjquota` + `cgroup v2 io.max/pids.max` + `PSI`) vs Pattern B (`ACA Dynamic Sessions`) vs Pattern C (`gVisor runsc + UserNS`) vs Pattern D (async quota and unlimited PID anti-pattern), covering inode/IOPS/PID blast containment and three-year TCO](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.en.md) | [🇬🇧 EN](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.en.md) · [🇨🇳 中文](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.md) |
 | 475 | [Enterprise large-image cold-start elimination selection FAQ: Pattern A (`ACR Artifact Streaming` plus `AKS Spegel` P2P) vs Pattern B (`Dragonfly + Nydus/eStargz`) vs Pattern C (pre-pull DaemonSet plus custom VHD) vs Pattern D (monolithic `gzip` anti-pattern), covering `20 GB` second-level startup, ACR egress reduction, and three-year TCO](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.en.md) | [🇬🇧 EN](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.en.md) · [🇨🇳 中文](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.md) |
+| 483 | [Enterprise sandbox ephemeral NVMe scratch crypto-erase selection FAQ: Pattern A (local NVMe slicing + `dm-crypt` + XFS synchronous hard caps + key destruction) vs Pattern B (`tmpfs` bounded memory scratch) vs Pattern C (Azure Container Storage durable checkpoints) vs Pattern D (plaintext shared `emptyDir` / short-session dynamic managed-disk anti-pattern), covering overshoot elimination, `NIST SP 800-88` erase posture, and three-year TCO](sandbox-ephemeral-nvme-scratch-crypto-erase-luks2-xfs-vs-tmpfs-ram-vs-managed-disk-selection-faq.en.md) | [🇬🇧 EN](sandbox-ephemeral-nvme-scratch-crypto-erase-luks2-xfs-vs-tmpfs-ram-vs-managed-disk-selection-faq.en.md) · [🇨🇳 中文](sandbox-ephemeral-nvme-scratch-crypto-erase-luks2-xfs-vs-tmpfs-ram-vs-managed-disk-selection-faq.md) |
 
 ### 3.2 Model Serving, Tiered Routing, Fine-Tuning & GPU Orchestration (60 Guides)
 

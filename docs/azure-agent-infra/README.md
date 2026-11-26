@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（482 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（483 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **482 个架构选型、平台对比与安全治理决策专题**（共 `964` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **483 个架构选型、平台对比与安全治理决策专题**（共 `966` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,9 +41,9 @@
 
 ---
 
-## 三、全量 482 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 483 篇架构选型决策指南分类索引（8 大架构域）
 
-### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（60 篇）
+### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（61 篇）
 
 > 解决“Agent 代码跑在哪里、不可信代码与 GUI 操作如何硬件级隔离、Spot/预留算力如何弹性供给”的核心底座选型。
 
@@ -114,6 +114,7 @@
 | 459 | [企业有状态智能体与代码/浏览器沙箱节点碎片整理选型 FAQ：Pattern A（`AKS NAP/Karpenter` 回合感知整合）vs Pattern B（`Descheduler + Cluster Autoscaler` 装箱重排）vs Pattern C（时长分层双池）vs Pattern D（永久不可驱逐反模式），覆盖装箱率、驱逐安全与三年 TCO](agent-sandbox-node-defragmentation-bin-packing-aks-nap-karpenter-consolidation-vs-descheduler-pdb-vs-cluster-autoscaler-selection-faq.md) | [🇨🇳 中文](agent-sandbox-node-defragmentation-bin-packing-aks-nap-karpenter-consolidation-vs-descheduler-pdb-vs-cluster-autoscaler-selection-faq.md) · [🇬🇧 EN](agent-sandbox-node-defragmentation-bin-packing-aks-nap-karpenter-consolidation-vs-descheduler-pdb-vs-cluster-autoscaler-selection-faq.en.md) |
 | 467 | [企业多租户 Agent 沙箱噪声邻居与资源耗尽隔离选型 FAQ：Pattern A（`AKS Kata` + `XFS prjquota` + `cgroup v2 io.max/pids.max` + `PSI`）vs Pattern B（`ACA Dynamic Sessions`）vs Pattern C（`gVisor runsc + UserNS`）vs Pattern D（异步配额与无限 PID 反模式），覆盖 inode/IOPS/PID 爆炸防护与三年 TCO](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.md) | [🇨🇳 中文](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.md) · [🇬🇧 EN](agent-sandbox-noisy-neighbor-inode-iops-pid-exhaustion-aks-kata-xfs-cgroupv2-psi-vs-aca-dynamic-sessions-vs-gvisor-selection-faq.en.md) |
 | 475 | [企业超大镜像冷启动消除选型 FAQ：Pattern A（`ACR Artifact Streaming` + `AKS Spegel` P2P）vs Pattern B（`Dragonfly + Nydus/eStargz`）vs Pattern C（预拉取 DaemonSet + 自定义 VHD）vs Pattern D（单层 `gzip` 反模式），覆盖 `20 GB` 冷启动秒级化、`ACR` 出口削减与三年 TCO](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.md) | [🇨🇳 中文](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.md) · [🇬🇧 EN](cold-start-image-streaming-aks-acr-artifact-spegel-p2p-vs-nydus-stargz-vs-daemonset-selection-faq.en.md) |
+| 483 | [企业沙箱临时 NVMe Scratch 加密擦除选型 FAQ：Pattern A（本地 NVMe 分片 + `dm-crypt` + XFS 同步硬上限 + 密钥销毁）vs Pattern B（`tmpfs` 小容量内存 scratch）vs Pattern C（Azure Container Storage 持久检查点）vs Pattern D（共享明文 `emptyDir` / 短会话动态挂盘反模式），覆盖超写抑制、`NIST SP 800-88` 擦除与三年 TCO](sandbox-ephemeral-nvme-scratch-crypto-erase-luks2-xfs-vs-tmpfs-ram-vs-managed-disk-selection-faq.md) | [🇨🇳 中文](sandbox-ephemeral-nvme-scratch-crypto-erase-luks2-xfs-vs-tmpfs-ram-vs-managed-disk-selection-faq.md) · [🇬🇧 EN](sandbox-ephemeral-nvme-scratch-crypto-erase-luks2-xfs-vs-tmpfs-ram-vs-managed-disk-selection-faq.en.md) |
 
 ### 3.2 模型托管、大小模型分级路由、微调与 GPU 编排（Model Serving, Tiered Routing & GPU Orchestration）（60 篇）
 
