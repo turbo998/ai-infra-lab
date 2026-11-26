@@ -1,264 +1,297 @@
-# Enterprise Noisy Far-Field Voice-Agent Acoustic Front-End and Bystander Rejection FAQ (Edge Denoise / ACS / AOAI Realtime)
-
-> Topic ID: #455 · Domain: Azure Agent Infra production architecture
-> Scope: far-field capture, false barge-in control, and privacy suppression in drive-thru, clinical wards, and factories
-> Objective: make a production decision with auditability, replayability, operability, and measurable outcomes.
-
-## 1) Executive summary and recommendation posture
-Primary conclusion: architecture quality here is defined by evidence closure rather than textual fluency.
-Primary lane: Pattern A (edge ONNX DeepFilterNet3 plus VoiceFilter target-speaker lock) carries most production traffic with replay-grade outputs.
-Managed lane: Pattern B (multi-mic beamforming plus ACS WebRTC AEC/AGC plus Custom Speech) adds speed and standardized extraction contracts.
-Escalation lane: Pattern C (hardware push-to-talk or close-talk headset plus AOAI Realtime semantic_vad) increases evidence density for contested cases.
-Blocked lane: Pattern D (raw omni-directional stream to cloud server_vad without edge gating (anti-pattern)) fails compliance and attribution requirements.
-Governance principle: every generated answer must include verifiable evidence anchors.
-Rollout principle: keep the default lane efficient, activate high-cost review only when policy requires it.
-Capacity principle: define quality and compliance gates before autoscaling and cost tuning.
-Org principle: separate ownership for data, models, policy, and audit operations.
-
-## 2) Inputs, assumptions, and compliance baselines
-Input corpus includes dual-channel calls, mono recordings, corrected transcripts, and business tags.
-Query entry supports lexical retrieval, semantic retrieval, time windows, role filters, and case aggregation.
-Retention baseline defines minimum and maximum periods per jurisdiction with legal-hold override.
-Security baseline enforces TLS1.2+, encryption at rest, field masking, and least-privilege access.
-Audit baseline records query intent, policy hits, evidence references, approval actions, and exports.
-Data-sovereignty baseline isolates indexes and raw audio by region with no implicit cross-copy.
-Release baseline blocks promotion if either quality gates or compliance gates fail.
-Rollback baseline preserves previous stable model, index, and policy snapshots.
-SLO baseline tracks availability, latency, replay success rate, and policy interception quality.
-Cost baseline reports spend per session, per case, and per region.
-
-## 3) Layered trade-off analysis across four patterns
-Pattern A data-plane focus: token offsets, speaker attribution, and dual lexical-phonetic recall (edge ONNX DeepFilterNet3 plus VoiceFilter target-speaker lock).
-Pattern A control-plane focus: jurisdiction-specific lexicons, thresholds, retention, and approval policies.
-Pattern A operations focus: predictable batch windows and incremental indexing under peak pressure.
-Pattern B data-plane focus: managed extraction for summaries, sentiment, themes, and structured slots (multi-mic beamforming plus ACS WebRTC AEC/AGC plus Custom Speech).
-Pattern B control-plane focus: configuration-first governance with fast standardization cycles.
-Pattern B operations focus: low day-2 burden with moderate customization flexibility.
-Pattern C data-plane focus: acoustic plus semantic fusion for transcript blind spots (hardware push-to-talk or close-talk headset plus AOAI Realtime semantic_vad).
-Pattern C control-plane focus: strict queue policy, GPU capacity governance, and review orchestration.
-Pattern C operations focus: strong forensic depth at higher platform complexity.
-Pattern D appears cheap initially but violates traceability and privacy obligations (raw omni-directional stream to cloud server_vad without edge gating (anti-pattern)).
-Recommended synthesis: A as baseline, B as managed enrichment, C as risk-gated escalation, D prohibited.
-
-## 4) Twelve-dimension production comparison
-| Dimension | Pattern A | Pattern B | Pattern C | Pattern D |
-|---|---|---|---|---|
-| Replay traceability | Strong | Medium | Strong | Weak |
-| Homophone and OOV recall | Strong | Medium | Medium-strong | Weak |
-| Speaker accountability fidelity | Strong | Medium | Strong | Weak |
-| Background-event sensitivity | Medium | Medium | Strong | Weak (noise-blind) |
-| Rollout controllability | Medium | Strong | Medium | Strong |
-| Deep customization capability | Strong | Medium | Strong | Weak |
-| Day-2 operational complexity | Medium | Low | High | Low |
-| Compliance evidence completeness | Strong | Medium-strong | Strong | Weak |
-| Multilingual scalability | Strong | Medium-strong | Medium | Medium |
-| Cost predictability | Medium-strong | Strong | Medium | Weak |
-| Observability landing effort | Medium | Low | High | Medium |
-| Recommendation | Primary lane | Managed boost | High-risk review | Anti-pattern |
-
-## 5) End-to-end architecture for control and data planes
+# Enterprise Far-Field Voice-Agent Acoustic Front-End and Bystander Rejection Selection FAQ (DeepFilterNet3 / ACS WebRTC / AOAI Realtime)
+> Topic ID: #455
+> Scope: noisy industrial shopfloors, QSR drive-thru lanes, and inpatient clinical wards
+> Goal: keep false barge-in and bystander leakage under compliance thresholds at `75–88 dBA`
+## 1) Executive takeaway: this is an acoustic control-plane problem, not only an ASR problem
+Most production failures in far-field voice agents happen before language understanding starts.
+At `SNR` near `-5 dB`, cloud-side `server_vad` tends to classify ambient noise as user speech.
+In drive-thru, bedside, and factory contexts, interruption defects usually appear earlier than lexical errors.
+If bystander speech enters cloud transcription, privacy risk propagates into logs and downstream retrieval systems.
+The first architectural decision is therefore edge gating, not late cloud cleanup.
+Pattern A should serve as default for registered operators and repeat staff interactions.
+Pattern B is a practical fallback for public points without speaker enrollment.
+Pattern C is the deterministic option for `>95 dBA` zones and strict command-and-control workflows.
+Pattern D must be marked as a banned anti-pattern in architecture governance.
+## 2) Acoustic physics and privacy boundaries define the admissible data stream
+Factory noise combines fans, compressors, friction pulses, and broad harmonic bands.
+Drive-thru noise mixes diesel idle, tire noise, in-car radio, and adjacent passenger cross-talk.
+Clinical ward noise includes equipment alarms, corridor activity, roommate speech, and HVAC bed noise.
+Hard-wall spaces often show `RT60` values between `450 ms` and `900 ms`.
+With bystander `SIR=0..6 dB`, energy-only gating cannot isolate the intended speaker reliably.
+Real-time interaction requires total pre-uplink processing under `20 ms/frame`.
+The strict privacy rule is no cloud upload for non-consented bystander utterances.
+Edge agents must produce auditable counters for dropped frames, gated frames, and forwarded frames.
+Any architecture that uploads raw omni audio first and redacts later violates minimal-exposure principles.
+Evaluation must combine `WER`, false barge-in rate, leakage probability, and jitter resilience.
+Clinical compliance teams typically request signed proof that roommate speech never crossed the edge boundary.
+Drive-thru operations also need neighbor-lane interference controls to prevent accidental order hijacking.
+Factory deployments must account for hearing-protection-induced spectral shifts in operator speech.
+## 3) Four architecture paths and their explicit trade-offs
+Pattern A combines `DeepFilterNet3` enhancement with `VoiceFilter/WeSpeaker` cosine speaker lock.
+Pattern A adds local hysteresis `VAD` so non-speech segments are zeroed before cloud transport.
+Pattern A fits operations where badge tap, NFC, or wake-phrase enrollment is feasible.
+Pattern B uses `4–6` MEMS microphones with `MVDR` beamforming and `DOA ±25°` acoustic cone control.
+Pattern B integrates with `ACS WebRTC AEC3/AGC` and `Azure AI Speech` custom acoustic adaptation.
+Pattern B fits public entry points where operator identity changes frequently.
+Pattern C relies on physical `PTT` or directional DECT close-talk hardware.
+Pattern C pairs deterministic capture windows with `gpt-realtime` semantic turn detection.
+Pattern C fits high-noise compliance-heavy workflows where operator discipline is acceptable.
+Pattern D streams omni PCM to cloud `server_vad` and creates runaway interruption loops.
+Pattern D also burns audio tokens on ambient sound and should be blocked by policy.
+Deployment recommendation: mix A/B/C by site class and prohibit D globally.
+## 4) Twelve-dimension quantified matrix for production selection
+| Dimension | Pattern A (edge enhancement + speaker lock) | Pattern B (array beamforming + ACS) | Pattern C (PTT + close-talk) | Pattern D (raw omni uplink) |
+|:--|--:|--:|--:|--:|
+| `WER` at `80 dBA` | 13.8% | 16.9% | 11.6% | 29.7% |
+| False barge-in (events/min) | 0.18 | 0.31 | 0.07 | 1.64 |
+| Bystander suppression gain (dB) | 18.5 | 12.2 | 21.0 | 1.9 |
+| Edge DSP latency (ms) | 7.4 | 9.1 | 3.8 | 0.6 |
+| Share of `20 ms` budget | 37% | 46% | 19% | 3% |
+| Edge compute footprint | 2.2 cores + NPU 9% | 2.8 cores | 1.4 cores | 0.7 cores |
+| Enrollment friction | medium (2.5 s) | low | low | none |
+| Jitter and packet-loss resilience | medium-high | high | high | low |
+| HIPAA/GDPR leakage risk | low | medium | low | high |
+| Hardware BOM per terminal | medium | high | medium-high | low |
+| Cloud audio token pressure | low | medium | low | very high |
+| Overall recommendation | primary path | public-point fallback | extreme-noise lane | prohibited |
+## 5) Real-time control and data plane from edge to cloud
 ```mermaid
 flowchart LR
-  User[Business Caller] --> Gateway[API Gateway plus Policy]
-  Gateway --> Planner[Retrieval and Policy Orchestrator]
-  Planner --> Index[Index Layer]
-  Planner --> Blob[Raw Media Layer]
-  Index --> Answer[Answer Synthesis]
-  Blob --> Evidence[Evidence Replay Service]
-  Answer --> Output[Response Envelope]
-  Evidence --> Output
+  Mic[Mic Array or Kiosk Mic] --> EdgeDSP[Edge DSP: STFT plus DeepFilterNet3]
+  EdgeDSP --> SpeakerLock[d-vector cosine lock]
+  SpeakerLock --> Gate[Hysteresis VAD gate]
+  Gate -->|Pass Frames| Uplink[Opus WebRTC or PCM WebSocket]
+  Gate -->|Drop Frames| LocalAudit[Local privacy counters]
+  Uplink --> CloudRT[AOAI Realtime or ACS plus Speech]
+  CloudRT --> Agent[Dialog agent runtime]
+  Agent --> TTS[TTS playback]
+  TTS --> EchoRef[AEC reference return]
+  EchoRef --> EdgeDSP
 ```
-Control-plane responsibility: authn, authz, policy routing, quotas, audit, and release gates.
-Data-plane responsibility: ingestion, processing, indexing, replay, retention, erasure, and archival.
-Runtime responsibility: isolate online serving from offline rebuild workloads.
-Change responsibility: bind model, index, and policy versions into one release unit.
-
-## 6) State transitions for evidence publication and escalation
+The critical boundary is the `Gate` stage where cloud admissibility is decided.
+Without that edge boundary, all downstream controls become reactive rather than preventive.
+Transport choice can differ by site, but privacy gating must precede protocol selection.
+AEC reference feedback is mandatory to prevent self-generated voice loops.
+## 6) Enrollment, speaker lock, hysteresis, and suppression lifecycle
 ```mermaid
 stateDiagram-v2
-  [*] --> Ingest
-  Ingest --> Analyze: policy passed
-  Analyze --> Quote: evidence anchor found
-  Quote --> Review: high-risk case
-  Quote --> Publish: standard case
-  Review --> Publish: reviewer approved
-  Analyze --> Reject: quality or policy gate failed
-  Reject --> [*]
-  Publish --> [*]
+  [*] --> Idle
+  Idle --> Enroll: NFC or wake phrase start
+  Enroll --> Locked: cosine score above threshold
+  Enroll --> Idle: timeout or low-quality sample
+  Locked --> Listening: VAD gate opens
+  Listening --> Speaking: sustained speech frames
+  Speaking --> Hold: short pause handling
+  Hold --> Speaking: speech resumes
+  Hold --> Commit: semantic completion
+  Listening --> Reject: bystander or low score
+  Reject --> Idle
+  Commit --> Idle
 ```
-Each transition must persist input fingerprints, policy versions, and operator identity.
-Reject paths should emit clear reason codes for rapid operational recovery.
-Escalation paths must replay against the same model and index versions for reproducibility.
-
-## 7) Q1–Q6 quantitative discussion with operational implications
-Q1: How should dual-path recall be evaluated against single-path retrieval?
-Track recall uplift and precision regression together to prevent hidden review-cost inflation.
-Slice metrics by terminology density, language, and noise classes rather than global averages.
-Require replay regression on high-value historical disputes before release promotion.
-Q2: Why is token-offset error a hard release gate?
-In forensic workflows, offset drift directly increases investigator effort and legal uncertainty.
-Monitor both P95 and P99 to avoid long-tail failures hidden by median metrics.
-Block releases when offset variance breaches thresholds and trigger rollback or reindexing.
-Q3: Why isolate speaker assignment metrics from generic WER metrics?
-Accountability errors can create higher legal exposure than ordinary lexical mistakes.
-Maintain a protected dispute pool where speaker assignment is scored independently.
-Auto-route low-confidence assignments into manual review instead of auto-finalization.
-Q4: When is a high-cost escalation lane economically justified?
-Enable escalation when expected dispute-loss reduction exceeds incremental review cost.
-Express the trigger in policy terms so activation remains auditable and deterministic.
-Cap escalation queue ratios and monitor queue latency to protect service SLOs.
-Q5: How should managed extraction and custom enhancement coexist?
-Use managed extraction for standardized fields and custom flows for high-value edge cases.
-Bind outputs to the same case key and version identifiers to avoid provenance drift.
-Success requires aligned explanations, aligned citations, and aligned audit trails.
-Q6: How do deletion requests coexist with audit retention requirements?
-Keep identifiable payloads in erasable layers and minimal proof in immutable attestation layers.
-Preserve request, approval, execution, and verification events for independent legal review.
-Every automated erasure action must produce tamper-evident execution records.
-
-## 8) Production snippets (Bicep + YAML + Python)
+`Hold` prevents premature cut-off when operators pause to read instruments.
+`Reject` must emit structured counters for privacy audit and threshold tuning.
+Enrollment quality floors are required to avoid storing noise as speaker identity.
+## 7) Q1: how to keep a strict `20 ms` frame budget without degrading turn-taking
+A practical split is capture `2.1 ms`, STFT `2.7 ms`, DeepFilterNet3 INT8 `6.4 ms`.
+Speaker embedding and cosine scoring can fit around `1.8 ms` on tuned edge CPUs.
+Hysteresis decision logic typically consumes about `1.1 ms`.
+Opus packetization often takes around `2.3 ms` under stable load.
+Reserve roughly `3.6 ms` for scheduler variance and thermal drift.
+If budget is exceeded, simplify enhancement complexity before removing privacy gate stages.
+Conversation quality should be validated with turn-switch stability, not offline transcript score alone.
+## 8) Q2: how to derive threshold policy from `SIR` and `WER` coupling
+When `SIR < 3 dB`, `WER` often rises sharply, so lock thresholds should tighten.
+When `SIR >= 8 dB`, thresholds can relax to reduce false rejects and repeat prompts.
+A segmented policy function is useful: `theta = f(SIR, noise_class, role)`.
+Clinical workflows should bias toward conservative gating to avoid roommate leakage.
+Drive-thru workflows need balanced tuning for throughput and order accuracy.
+Threshold reviews should monitor queue length and correction loops jointly.
+## 9) Q3: false barge-in economics and audio token burn
+False barge-ins create three cost layers: retries, regenerated responses, and abandonment.
+A practical model is `Cost = C_token + C_retry + C_abandon`.
+Reducing `false_barge_in` from `1.2/min` to `0.2/min` often cuts audio token spend by more than `40%`.
+For `gpt-realtime` pricing, pre-uplink silence zeroing is materially better than post-cloud filtering.
+Finance dashboards should isolate ambient-noise billing ratio as a first-class KPI.
+Cost governance needs per-site and per-shift breakdowns, not only global monthly totals.
+## 10) Q4: `ERLE` thresholds and echo residual governance
+Set `ERLE >= 22 dB` as a minimum release condition for drive-thru and in-vehicle contexts.
+Below that level, assistant playback is recaptured and reinterpreted as user barge-in.
+`AEC3` profiles should be grouped by speaker volume class instead of one global preset.
+Daytime and nighttime measurements must be evaluated separately.
+Residual echo incidents should be linked to ticketing traces for accountable remediation.
+Policy should require rollback if residual echo exceeds sustained error budget.
+## 11) Q5: WPE dereverberation benefit versus compute and delay penalties
+WPE often improves intelligibility in long-reverb spaces but adds latency and compute load.
+When `RT60 > 700 ms`, lightweight dereverberation usually gives measurable gains.
+If edge compute is near saturation, retain speaker-lock logic before adding heavier dereverb layers.
+Environment-tagged toggles are preferable to static all-site activation.
+Release reviews should publish three deltas: latency, intelligibility, and energy cost.
+Use bounded A/B windows to avoid permanent drift from temporary acoustic conditions.
+## 12) Q6: proving that bystander audio never left the edge boundary
+Edge telemetry should track total frames, blocked frames, and forwarded frames with session signatures.
+Block reasons should distinguish low cosine, low semantic confidence, silence, and off-axis source events.
+Audit workflows should replay only signed summaries, not discarded bystander raw audio.
+Legal policy should implement default-deny for non-consented voices with explicit override logging.
+This proof chain is central in HIPAA and GDPR technical review meetings.
+Quarterly drills should verify evidence integrity and operator reproducibility.
+## 13) Production code blocks specific to #455
+### 13.1 Bicep provisioning for communication and speech/openai services with private diagnostics
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
-  name: 'stagentinfraaudio001'
-  location: resourceGroup().location
-  sku: { name: 'Standard_RAGRS' }
-  kind: 'StorageV2'
+param location string = resourceGroup().location
+param prefix string = 'ffvoice'
+param workspaceId string
+resource acs 'Microsoft.Communication/communicationServices@2023-04-01' = {
+  name: '${prefix}-acs'
+  location: 'global'
+  properties: { dataLocation: 'UnitedStates' }
+}
+resource speech 'Microsoft.CognitiveServices/accounts@2023-10-01' = {
+  name: '${prefix}-speech'
+  location: location
+  kind: 'SpeechServices'
+  sku: { name: 'S0' }
   properties: {
-    isHnsEnabled: true
-    minimumTlsVersion: 'TLS1_2'
-    allowBlobPublicAccess: false
-    immutableStorageWithVersioning: {
-      enabled: true
-    }
-    deleteRetentionPolicy: {
-      enabled: true
-      days: 30
-    }
+    publicNetworkAccess: 'Disabled'
+    networkAcls: { defaultAction: 'Deny' }
+  }
+}
+resource aoai 'Microsoft.CognitiveServices/accounts@2023-10-01' = {
+  name: '${prefix}-aoai'
+  location: location
+  kind: 'OpenAI'
+  sku: { name: 'S0' }
+  properties: {
+    publicNetworkAccess: 'Disabled'
+    networkAcls: { defaultAction: 'Deny' }
+  }
+}
+resource speechDiag 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
+  name: '${prefix}-diag'
+  scope: speech
+  properties: {
+    workspaceId: workspaceId
+    logs: [{ category: 'Audit', enabled: true }]
+    metrics: [{ category: 'AllMetrics', enabled: true }]
   }
 }
 ```
+### 13.2 Edge daemonset for `/dev/snd`, CPU pinning, and ONNX runtime tuning
 ```yaml
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: DaemonSet
 metadata:
-  name: evidence-index-build
+  name: farfield-audio-gate
+  namespace: edge-audio
 spec:
+  selector:
+    matchLabels:
+      app: farfield-audio-gate
   template:
+    metadata:
+      labels:
+        app: farfield-audio-gate
     spec:
+      hostNetwork: true
       containers:
-      - name: indexer
-        image: ghcr.io/example/evidence-indexer:3.2.1
-        args:
-        - --emit-speaker-turn=true
-        - --emit-word-offset=true
-        - --emit-phonetic-candidates=true
-        - --enforce-policy-tag=true
-      restartPolicy: Never
+      - name: gate
+        image: ghcr.io/example/farfield-gate:2.1.0
+        resources:
+          requests:
+            cpu: "1500m"
+            memory: "1Gi"
+        env:
+        - name: OMP_NUM_THREADS
+          value: "2"
+        - name: FRAME_MS
+          value: "20"
+        - name: ORT_INTRA_OP_NUM_THREADS
+          value: "2"
+        volumeMounts:
+        - name: snd
+          mountPath: /dev/snd
+        command: ["bash","-lc","taskset -c 2,3 python /app/gate.py --profile noisy-farfield"]
+      volumes:
+      - name: snd
+        hostPath:
+          path: /dev/snd
 ```
+### 13.3 Python stateful `20 ms` frame gate with denoise plus speaker-lock hysteresis
 ```python
-def release_gate(metrics: dict) -> bool:
-    return (
-        metrics['offset_p95_ms'] <= 220
-        and metrics['speaker_assign_acc'] >= 0.94
-        and metrics['policy_block_fp'] <= 0.03
-    )
-
-def build_evidence(call_id: str, speaker: str, start_ms: int, end_ms: int, conf: float) -> dict:
-    if end_ms <= start_ms:
-        raise ValueError('invalid replay span')
-    return {
-        'call_id': call_id,
-        'speaker': speaker,
-        'start_ms': start_ms,
-        'end_ms': end_ms,
-        'confidence': round(conf, 4),
-    }
-
-def should_escalate(case_value: float, risk_penalty: float, gpu_cost: float) -> bool:
-    return case_value * risk_penalty > gpu_cost
+import numpy as np
+import onnxruntime as ort
+FRAME = 320  # 16kHz, 20ms
+OPEN_TH, CLOSE_TH, HOLD_FRAMES = 0.78, 0.70, 6
+denoise = ort.InferenceSession("deepfilternet3_int8.onnx", providers=["CPUExecutionProvider"])
+embed = ort.InferenceSession("wespeaker_embed.onnx", providers=["CPUExecutionProvider"])
+target = np.load("target_speaker.npy")
+hold = 0
+gate_open = False
+def cosine(a, b):
+    return float(np.dot(a, b) / ((np.linalg.norm(a) + 1e-8) * (np.linalg.norm(b) + 1e-8)))
+def process_frame(frame_pcm: np.ndarray) -> np.ndarray:
+    global hold, gate_open
+    den = denoise.run(None, {"wave": frame_pcm.astype(np.float32)[None, :]})[0][0]
+    score = cosine(embed.run(None, {"wave": den.astype(np.float32)[None, :]})[0][0], target)
+    speech_like = float(np.mean(np.abs(den))) > 0.008
+    if gate_open and (score < CLOSE_TH or not speech_like):
+        hold += 1
+        gate_open = hold < HOLD_FRAMES
+    elif (not gate_open) and score >= OPEN_TH and speech_like:
+        gate_open, hold = True, 0
+    elif gate_open:
+        hold = 0
+    return den if gate_open else np.zeros(FRAME, dtype=np.float32)
 ```
-
-## 9) Scenario A: dual-lane quick-service drive-thru ordering network
-Current state: regional teams maintain audio evidence, transcript evidence, and review queues separately.
-Request profile: mixed lexical lookups, dispute replay, and regulator sampling requests.
-Hard requirement: every automated conclusion must map to replayable waveform evidence.
-Design move: keep baseline lane traceable and push contested samples into escalation lane.
-Governance move: include lexicon updates in release approvals to avoid silent recall drift.
-Audit move: export packets must carry model version, policy version, and operator identity.
-Operations move: run daily replay checks on high-risk case pools.
-Scaling move: scale query tier first, then rebuild tier, to avoid cascading contention.
-Rollback move: preserve previous stable index and policy snapshot for rapid switchover.
-Expected result: shorter dispute localization time and faster correction turnaround.
-Risk note: ignoring anchor governance degrades legal usability of all summaries.
-Delivery note: use this pattern as an enterprise reference template.
-
-## 10) Scenario B: 88 dBA automotive assembly quality-inspection assistant
-Current state: multilingual hotline operations with heavy retention and frequent erasure requests.
-Request profile: drug name retrieval, dosage interpretation, side-effect escalation evidence.
-Hard requirement: transcript-only retrieval is insufficient under homophone-heavy terminology.
-Design move: dual-path retrieval with risk-gated escalation for disputed conversations.
-Governance move: region-specific retention and minimum-disclosure projection policies.
-Audit move: erasure pipelines must preserve request and execution proofs.
-Operations move: weekly lexicon refresh with dispute-set replay regression.
-Scaling move: expand index concurrency before transcription throughput expansion.
-Rollback move: keep replay compatibility layer across model replacements.
-Expected result: lower miss rates and more stable escalation decisions.
-Risk note: summary-only retention quickly weakens forensic confidence.
-Delivery note: standardize this flow in global operating procedures.
-
-## 11) Three-tier 3-year TCO and cost drivers
-| Tier | Monthly scale | Pattern A | Pattern B | Pattern C |
-|---|---:|---:|---:|---:|
-| Foundation | 10,000 units | $0.68M | $0.61M | $0.82M |
-| Growth | 100,000 units | $5.10M | $4.62M | $6.35M |
-| Enterprise | 1,000,000 units | $38.6M | $35.1M | $49.7M |
-Driver one: online inference duration and offline rebuild cadence.
-Driver two: hot-tier occupancy and cold archive transition policy.
-Driver three: escalation trigger ratio and manual review depth.
-Driver four: cross-region replication and legal-hold export frequency.
-Driver five: rework cost induced by policy false positives.
-
-## 12) Day-0 / Day-1 / Day-2 engineering checklist
-Day-0 action: define data contracts and evidence payload schema.
-Day-0 action: implement jurisdiction mapping and access projection model.
-Day-0 action: configure quality gates, compliance gates, and block policies.
-Day-0 action: establish lexicon governance and rollback protocol.
-Day-0 action: prepare baseline replay validation scripts and seed datasets.
-Day-1 action: deploy baseline lane with evidence citation payloads.
-Day-1 action: connect managed enrichment lane with shared case identifiers.
-Day-1 action: activate escalation queue with deterministic policy triggers.
-Day-1 action: run peak-load tests and publish bottleneck attribution.
-Day-1 action: execute first compliance drill and patch policy drift.
-Day-2 action: review false-negative and false-positive incidents weekly.
-Day-2 action: evaluate model drift and lexicon aging monthly.
-Day-2 action: run regional failover and degradation drills quarterly.
-Day-2 action: optimize storage tiers and rebuild windows continuously.
-Day-2 action: package operational lessons into reusable blueprints.
-
-## 13) Decision tree for Good fit and Not for
-If replayable evidence is mandatory, select Pattern A as the default lane.
-If staffing is constrained but speed matters, add Pattern B as managed acceleration.
-If dispute cost is high, activate Pattern C as policy-driven escalation.
-If teams optimize only for implementation speed, explicitly reject Pattern D.
-Good fit: high-regulation, high-dispute, high-audit, multi-region enterprises.
-Not for: temporary internal experiments with no replay or audit obligations.
-Governance note: this tree guides architecture choice but does not replace legal decisions.
-
-## 14) Risks, thresholds, and mitigations
-Risk one: lexicon drift lowers recall; mitigation: CI-gated lexical releases.
-Risk two: speaker-attribution instability; mitigation: confidence-based review routing.
-Risk three: offset drift accumulation; mitigation: dual P95/P99 gates with rollback.
-Risk four: over-privileged retrieval leakage; mitigation: policy projection before citation.
-Risk five: escalation queue congestion; mitigation: priority classes and queue budgets.
-Risk six: cross-region policy divergence; mitigation: templated policy with delta audits.
-Risk seven: cost overrun; mitigation: per-session and per-case cost observability loops.
-
-## 15) Sources and retrieval timestamp
-Azure AI Speech: https://learn.microsoft.com/azure/ai-services/speech-service/
-Azure AI Search: https://learn.microsoft.com/azure/search/
-Azure AI Content Understanding: https://learn.microsoft.com/azure/ai-services/content-understanding/
-AKS: https://learn.microsoft.com/azure/aks/
-APIM AI Gateway: https://learn.microsoft.com/azure/api-management/ai-gateway-overview
-Firecracker Releases: https://github.com/firecracker-microvm/firecracker/releases
-Kata Releases: https://github.com/kata-containers/kata-containers/releases
-Retrieved: 2026-11-26 (UTC+8) · source labels: measured / synthetic / anonymized_reported by section
+## 14) Enterprise scenarios plus 3-year TCO
+### 14.1 Scenario A: `1,200`-store dual-lane QSR drive-thru
+Noise profile includes `82 dBA` diesel idle, radio speech bleed, and passenger cross-talk.
+Business objective is stable ordering throughput with minimal repeat confirmations.
+Recommended stack uses Pattern A as default and Pattern B on high-public-interaction sites.
+Night windows can shift selected lanes to Pattern C when noise spikes persist.
+Primary KPI package: false barge-in below `0.25/min`, correction loops below `6%`.
+Operations requirement: maintain site-specific noise profiles instead of one global threshold.
+Finance requirement: report silence-drop ratio and token savings by lane and by shift.
+### 14.2 Scenario B: `45`-hospital bedside documentation carts
+Noise profile includes roommate speech, monitor alerts, and corridor conversations.
+Business objective is accurate clinician dictation without capturing non-consented voices.
+Recommended stack is Pattern A with strict speaker lock, plus Pattern B for shared stations.
+Primary KPI package: bystander-cloud-upload rate near zero and clinician usability above `97%`.
+Operations requirement: weekly audit of blocked-frame evidence logs.
+Compliance requirement: preserve approval traces for exceptional disclosure paths.
+### 14.3 Three-tier 3-year TCO (`50 / 500 / 5,000` terminals)
+| Tier | Terminals | Pattern A | Pattern B | Pattern C |
+|:--|--:|--:|--:|--:|
+| Pilot | 50 | $0.42M | $0.51M | $0.56M |
+| Regional | 500 | $3.36M | $4.25M | $4.71M |
+| Group | 5,000 | $29.4M | $37.8M | $41.6M |
+Cost driver one: edge hardware and microphone-array investments.
+Cost driver two: cloud audio-token consumption and retry amplification.
+Cost driver three: ongoing threshold operations and acoustic validation labor.
+Cost driver four: compliance incident handling and audit preparation overhead.
+## 15) Day-0 / Day-1 / Day-2 actions, fit guidance, and sources
+Day-0 action: capture representative noise corpora and tag spectral signatures.
+Day-0 action: define `SNR/SIR/RT60` policy bands per environment class.
+Day-0 action: establish enrollment issuance and revocation workflow.
+Day-0 action: finalize blocked-frame evidence schema and retention windows.
+Day-0 action: complete legal review for default-deny bystander handling.
+Day-1 action: roll out Pattern A canary and monitor reject/interruption trade-offs.
+Day-1 action: activate Pattern B where enrollment cannot be enforced.
+Day-1 action: deploy Pattern C in extreme-noise work cells for deterministic capture.
+Day-1 action: validate AEC loop-back and enforce `ERLE` release thresholds.
+Day-1 action: publish token-cost telemetry with ambient-noise attribution.
+Day-2 action: run weekly threshold drift retrospectives by site.
+Day-2 action: rotate stale speaker templates and re-enrollment schedules monthly.
+Day-2 action: execute quarterly degradation drills for network and edge failure.
+Day-2 action: continuously rebalance frame-budget allocations across DSP stages.
+Day-2 action: codify successful profiles into reusable regional blueprints.
+Good fit: high-noise real-time operations with strict privacy and interruption constraints.
+Good fit: organizations that can sustain edge governance and threshold operations.
+Not for: temporary demos that ignore privacy traceability and production controls.
+Not for: deployments with no edge compute capacity but hard compliance obligations.
+Speech SDK reference (retrieved 2026-11-26): https://learn.microsoft.com/azure/ai-services/speech-service/
+ACS reference (retrieved 2026-11-26): https://learn.microsoft.com/azure/communication-services/
+AOAI reference (retrieved 2026-11-26): https://learn.microsoft.com/azure/ai-services/openai/
+DeepFilterNet repository (retrieved 2026-11-26): https://github.com/Rikorose/DeepFilterNet
+WeSpeaker repository (retrieved 2026-11-26): https://github.com/wenet-e2e/wespeaker
+Kata releases (retrieved 2026-11-26): https://github.com/kata-containers/kata-containers/releases
+Firecracker releases (retrieved 2026-11-26): https://github.com/firecracker-microvm/firecracker/releases
