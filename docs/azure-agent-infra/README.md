@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（464 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（465 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **464 个架构选型、平台对比与安全治理决策专题**（共 `928` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **465 个架构选型、平台对比与安全治理决策专题**（共 `930` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 464 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 465 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（58 篇）
 
@@ -504,7 +504,7 @@
 | 456 | [企业多模态 Agent 评测语料版本化与零拷贝血缘治理选型 FAQ：Pattern A（`ADLS Gen2 + lakeFS` 元数据零拷贝分支）vs Pattern B（`Foundry/AML Data Assets v2` 托管版本）vs Pattern C（`Delta/Iceberg` 大规模结构化时光回溯）vs Pattern D（`Git + DVC` 轻量仓库耦合），覆盖发布门禁、审计回放与三年 TCO](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.md) | [🇨🇳 中文](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.md) · [🇬🇧 EN](eval-corpus-versioning-lineage-lakefs-adls-zero-copy-vs-foundry-ml-data-assets-vs-delta-dvc-selection-faq.en.md) |
 | 464 | [企业 LLM Serving Goodput 基准、前缀缓存回放与 PTU 右定价选型 FAQ：Pattern A（`AIPerf/GuideLLM` 零 PII 哈希前缀树回放）vs Pattern B（`APIM` token 形态遥测 + `Foundry PTU` 加权等效）vs Pattern C（`ISL×OSL×CacheHit` 合成网格 CI 门禁）vs Pattern D（单 prompt 压测与均值指标反模式），覆盖联合 `TTFT/TPOT` Goodput 与 `$/1M_goodput_tokens` 三年 TCO](llm-goodput-benchmarking-prefix-cache-trace-replay-aiperf-guidellm-aks-vs-foundry-ptu-sizing-vs-synthetic-grid-selection-faq.md) | [🇨🇳 中文](llm-goodput-benchmarking-prefix-cache-trace-replay-aiperf-guidellm-aks-vs-foundry-ptu-sizing-vs-synthetic-grid-selection-faq.md) · [🇬🇧 EN](llm-goodput-benchmarking-prefix-cache-trace-replay-aiperf-guidellm-aks-vs-foundry-ptu-sizing-vs-synthetic-grid-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（58 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（59 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -568,3 +568,4 @@
 | 441 | [企业自治故障响应与多区域演练选型 FAQ：Route A（`Azure Monitor + KQL Burn-Rate` 多窗口检测）vs Route B（`Logic Apps/Functions/PagerDuty` 事件编排与自动处置）vs Route C（`Chaos Studio + GameDay` 混沌验证）vs Route D（静态阈值+人工口头交接反模式），覆盖 `BurnRate`、`SignalPrecision`、`AutoMitigationSuccess`、`GameDayCoverage` 与三年 TCO](autonomous-incident-response-slo-burn-rate-multi-region-drill-chaos-studio-monitor-workbooks-vs-pagerduty-event-orchestration-selection-faq.md) | [🇨🇳 中文](autonomous-incident-response-slo-burn-rate-multi-region-drill-chaos-studio-monitor-workbooks-vs-pagerduty-event-orchestration-selection-faq.md) · [🇬🇧 EN](autonomous-incident-response-slo-burn-rate-multi-region-drill-chaos-studio-monitor-workbooks-vs-pagerduty-event-orchestration-selection-faq.en.md) |
 | 449 | [企业级 AI GPU 机群健康与静默退化修复选型 FAQ：Pattern A（`AKS` + `DCGM` + taint-cordon-drain 闭环）vs Pattern B（Golden-Logit + Straggler Canary + `Azure SRE Agent`）vs Pattern C（Foundry/AML/ACA 托管卸载）vs Pattern D（Crash-only 黑洞节点反模式），覆盖 SLA、爆炸半径与三年 TCO](gpu-fleet-health-straggler-remediation-aks-dcgm-node-auto-repair-vs-golden-logit-canary-sre-agent-vs-managed-endpoints-selection-faq.md) | [🇨🇳 中文](gpu-fleet-health-straggler-remediation-aks-dcgm-node-auto-repair-vs-golden-logit-canary-sre-agent-vs-managed-endpoints-selection-faq.md) · [🇬🇧 EN](gpu-fleet-health-straggler-remediation-aks-dcgm-node-auto-repair-vs-golden-logit-canary-sre-agent-vs-managed-endpoints-selection-faq.en.md) |
 | 457 | [企业智能体网络丢包、CoreDNS 尾时延与私网出口可观测架构选型 FAQ：Pattern A（`AKS ACNS Retina + Hubble eBPF` + `NodeLocalDNSCache`）vs Pattern B（`VNet Flow Logs + Connection Monitor`）vs Pattern C（`Istio Ambient/Sidecar` L7 语义）vs Pattern D（临时特权抓包与高基数反模式），覆盖 DropReason 归因、SNAT 容量与三年 TCO](agent-network-drop-dns-tail-latency-observability-aks-acns-retina-hubble-ebpf-vs-vnet-flow-logs-vs-istio-ambient-selection-faq.md) | [🇨🇳 中文](agent-network-drop-dns-tail-latency-observability-aks-acns-retina-hubble-ebpf-vs-vnet-flow-logs-vs-istio-ambient-selection-faq.md) · [🇬🇧 EN](agent-network-drop-dns-tail-latency-observability-aks-acns-retina-hubble-ebpf-vs-vnet-flow-logs-vs-istio-ambient-selection-faq.en.md) |
+| 465 | [企业区域 GPU 缺货韧性与容量保障选型 FAQ：Pattern A（`CRG + AKS capacityReservationGroupID + RI` 稳态保障）vs Pattern B（`NAP/Karpenter` 多 SKU 级联 + `Fleet` 跨区承接）vs Pattern C（`APIM` 队列阈值触发 `Foundry Global Standard` 溢出桥接）vs Pattern D（把 RI 当物理容量保障反模式），覆盖 `AllocationFailed` 恢复、升级 surge 安全与三年 TCO](regional-gpu-stockout-allocation-resilience-capacity-reservation-crg-aks-vs-multi-sku-karpenter-fleet-cascade-vs-foundry-spillover-selection-faq.md) | [🇨🇳 中文](regional-gpu-stockout-allocation-resilience-capacity-reservation-crg-aks-vs-multi-sku-karpenter-fleet-cascade-vs-foundry-spillover-selection-faq.md) · [🇬🇧 EN](regional-gpu-stockout-allocation-resilience-capacity-reservation-crg-aks-vs-multi-sku-karpenter-fleet-cascade-vs-foundry-spillover-selection-faq.en.md) |
