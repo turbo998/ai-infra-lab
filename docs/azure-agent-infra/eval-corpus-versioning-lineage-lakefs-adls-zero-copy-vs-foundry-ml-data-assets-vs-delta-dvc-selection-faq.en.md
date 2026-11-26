@@ -1,264 +1,258 @@
-# Enterprise Multimodal Agent Evaluation Corpus Versioning, Zero-Copy Branching, and Audit Lineage FAQ (lakeFS / Foundry Assets / Delta)
-
-> Topic ID: #456 · Domain: Azure Agent Infra production architecture
-> Scope: evaluation-asset governance, zero-copy branches, release gates, deletion requests, and audit retention
-> Objective: make a production decision with auditability, replayability, operability, and measurable outcomes.
-
-## 1) Executive summary and recommendation posture
-Primary conclusion: architecture quality here is defined by evidence closure rather than textual fluency.
-Primary lane: Pattern A (ADLS Gen2 plus lakeFS metadata-only branching with pre-commit hooks) carries most production traffic with replay-grade outputs.
-Managed lane: Pattern B (Azure AI Foundry or AML Data Assets v2 managed versions with Purview lineage) adds speed and standardized extraction contracts.
-Escalation lane: Pattern C (Delta Lake or Iceberg time-travel with CDF and deletion vectors) increases evidence density for contested cases.
-Blocked lane: Pattern D (Git plus DVC cache workflow collapsing at enterprise multimodal scale (anti-pattern)) fails compliance and attribution requirements.
-Governance principle: every generated answer must include verifiable evidence anchors.
-Rollout principle: keep the default lane efficient, activate high-cost review only when policy requires it.
-Capacity principle: define quality and compliance gates before autoscaling and cost tuning.
-Org principle: separate ownership for data, models, policy, and audit operations.
-
-## 2) Inputs, assumptions, and compliance baselines
-Input corpus includes dual-channel calls, mono recordings, corrected transcripts, and business tags.
-Query entry supports lexical retrieval, semantic retrieval, time windows, role filters, and case aggregation.
-Retention baseline defines minimum and maximum periods per jurisdiction with legal-hold override.
-Security baseline enforces TLS1.2+, encryption at rest, field masking, and least-privilege access.
-Audit baseline records query intent, policy hits, evidence references, approval actions, and exports.
-Data-sovereignty baseline isolates indexes and raw audio by region with no implicit cross-copy.
-Release baseline blocks promotion if either quality gates or compliance gates fail.
-Rollback baseline preserves previous stable model, index, and policy snapshots.
-SLO baseline tracks availability, latency, replay success rate, and policy interception quality.
-Cost baseline reports spend per session, per case, and per region.
-
-## 3) Layered trade-off analysis across four patterns
-Pattern A data-plane focus: token offsets, speaker attribution, and dual lexical-phonetic recall (ADLS Gen2 plus lakeFS metadata-only branching with pre-commit hooks).
-Pattern A control-plane focus: jurisdiction-specific lexicons, thresholds, retention, and approval policies.
-Pattern A operations focus: predictable batch windows and incremental indexing under peak pressure.
-Pattern B data-plane focus: managed extraction for summaries, sentiment, themes, and structured slots (Azure AI Foundry or AML Data Assets v2 managed versions with Purview lineage).
-Pattern B control-plane focus: configuration-first governance with fast standardization cycles.
-Pattern B operations focus: low day-2 burden with moderate customization flexibility.
-Pattern C data-plane focus: acoustic plus semantic fusion for transcript blind spots (Delta Lake or Iceberg time-travel with CDF and deletion vectors).
-Pattern C control-plane focus: strict queue policy, GPU capacity governance, and review orchestration.
-Pattern C operations focus: strong forensic depth at higher platform complexity.
-Pattern D appears cheap initially but violates traceability and privacy obligations (Git plus DVC cache workflow collapsing at enterprise multimodal scale (anti-pattern)).
-Recommended synthesis: A as baseline, B as managed enrichment, C as risk-gated escalation, D prohibited.
-
-## 4) Twelve-dimension production comparison
-| Dimension | Pattern A | Pattern B | Pattern C | Pattern D |
-|---|---|---|---|---|
-| Replay traceability | Strong | Medium | Strong | Weak |
-| Homophone and OOV recall | Strong | Medium | Medium-strong | Weak |
-| Speaker accountability fidelity | Strong | Medium | Strong | Weak |
-| Background-event sensitivity | Medium | Medium | Strong | Weak (noise-blind) |
-| Rollout controllability | Medium | Strong | Medium | Strong |
-| Deep customization capability | Strong | Medium | Strong | Weak |
-| Day-2 operational complexity | Medium | Low | High | Low |
-| Compliance evidence completeness | Strong | Medium-strong | Strong | Weak |
-| Multilingual scalability | Strong | Medium-strong | Medium | Medium |
-| Cost predictability | Medium-strong | Strong | Medium | Weak |
-| Observability landing effort | Medium | Low | High | Medium |
-| Recommendation | Primary lane | Managed boost | High-risk review | Anti-pattern |
-
-## 5) End-to-end architecture for control and data planes
+# Enterprise Multimodal Agent Evaluation Corpus Versioning, Zero-Copy Branching, and Audit Lineage Selection FAQ (lakeFS / Foundry Assets / Delta-Iceberg)
+> Topic ID: #456
+> Target workload: `500K–50M` trajectories, multimodal fixtures, and `5 TB–200 TB` corpus footprints
+> Mission: enforce reproducibility, compliance, and cost discipline in one governance control plane
+## 1) Decision baseline: this is not folder hygiene, it is provable version governance
+Evaluation corpora include tool-call JSONL traces, screenshots, PDFs, WAV clips, and rubric metadata.
+Once many teams run parallel prompt and router iterations, mutable folder naming becomes untrustworthy.
+Regulatory review does not accept approximate statements about which dataset version was used.
+Model risk governance requires deterministic ties between input snapshot, policy bundle, and score output.
+Without zero-copy branching, each parallel experiment triggers expensive TB-scale object duplication.
+Without merge gates, contaminated examples can silently enter golden sets and poison release quality.
+Without cryptographic lineage, replay claims remain narrative instead of machine-verifiable evidence.
+The core design question is therefore evidentiary reproducibility, not only storage location.
+## 2) Constraint stack: scale, concurrency, audits, and erasure requests co-exist
+Scale pressure comes from `5 TB–200 TB` pools and frequent `10K` small-file directory operations.
+Concurrency pressure comes from `50+` simultaneous PR evaluations across prompt and router tracks.
+Audit pressure comes from EU AI Act and SR 11-7 style model-risk reproducibility requirements.
+Sovereignty pressure requires explicit cross-region controls and traceable data movement boundaries.
+Erasure pressure requires GDPR-selective deletion without destroying historical release lineage.
+Contamination pressure requires canary-GUID checks across training and evaluation partitions.
+Gate pressure requires both pre-commit and pre-merge policy enforcement with hard reject semantics.
+Performance pressure requires near-instant branch creation to avoid developer waiting cascades.
+Cost pressure requires branch growth with metadata delta rather than object-level cloning.
+## 3) Four architecture choices and practical boundary conditions
+Pattern A uses `ADLS Gen2 + lakeFS` for metadata-driven zero-copy branches and commit lineage.
+Pattern A relies on Graveler metadata graphs to create branches in `<80 ms` with zero blob duplication.
+Pattern A usually runs with AKS control-plane high availability and PostgreSQL Flexible Server metadata.
+Pattern A fits mixed binary and tabular corpora that need strict merge policies and replay certainty.
+Pattern B uses `Foundry/AML Data Assets v2` as immutable asset registry with managed experience.
+Pattern B pairs naturally with Purview and OpenLineage for broad lineage visibility.
+Pattern B fits teams prioritizing managed operations and moderate customization depth.
+Pattern C uses `Delta/Iceberg` for heavy structured trajectories with time travel and CDF semantics.
+Pattern C is strong for table-heavy evaluation histories and vectorized change inspection.
+Pattern C still needs complementary object governance for large binary fixture collections.
+Pattern D (`Git + DVC` or mutable ADLS folders) collapses under millions of small files and weak gates.
+Pattern D also lacks robust server-side atomic merge controls at enterprise scale.
+## 4) Twelve-dimension quantified matrix for architecture review boards
+| Dimension | Pattern A (ADLS + lakeFS) | Pattern B (Foundry Assets) | Pattern C (Delta/Iceberg) | Pattern D (Git+DVC or mutable folders) |
+|:-|:-:|:-:|:-:|:-:|
+| Branch creation latency on `20 TB` | 45–80 ms | 2–6 s | 4–12 s | 40 min–3 h |
+| Extra storage per branch | `<0.4%` | 2–8% | 5–15% | 18–45% |
+| PDF/PNG/WAV handling maturity | high | medium | low-to-medium | low |
+| Pre-commit hook programmability | high | medium | medium | low |
+| Pre-merge atomic policy gate | high | medium | medium | very-low |
+| Commit-to-eval binding strength | high | medium-high | medium | low |
+| GDPR selective erasure support | medium-high | medium | high (tabular) | low |
+| WORM-compatible signed release tags | high | medium | medium | low |
+| `10K` small-file listing efficiency | high | medium | medium | low |
+| RBAC/ABAC granularity | high | medium-high | medium-high | low |
+| Day-2 operations burden | medium | low | medium-high | high |
+| Board recommendation | primary backbone | managed complement | tabular accelerator | anti-pattern |
+## 5) Control-plane and data-plane interaction topology
 ```mermaid
 flowchart LR
-  User[Business Caller] --> Gateway[API Gateway plus Policy]
-  Gateway --> Planner[Retrieval and Policy Orchestrator]
-  Planner --> Index[Index Layer]
-  Planner --> Blob[Raw Media Layer]
-  Index --> Answer[Answer Synthesis]
-  Blob --> Evidence[Evidence Replay Service]
-  Answer --> Output[Response Envelope]
-  Evidence --> Output
+  RepoPR[Prompt or Router PR] --> BranchCtl[lakeFS Branch Controller]
+  BranchCtl --> GateA[Pre-commit Gate]
+  BranchCtl --> GateB[Pre-merge Gate]
+  GateA --> ObjStore[ADLS Gen2 Objects]
+  GateB --> EvalRun[Foundry Eval Run]
+  ObjStore --> EvalRun
+  EvalRun --> Ledger[Signed Provenance Ledger]
+  Ledger --> Release[Golden Release Tag]
+  Release --> WORM[Immutable WORM Lock]
 ```
-Control-plane responsibility: authn, authz, policy routing, quotas, audit, and release gates.
-Data-plane responsibility: ingestion, processing, indexing, replay, retention, erasure, and archival.
-Runtime responsibility: isolate online serving from offline rebuild workloads.
-Change responsibility: bind model, index, and policy versions into one release unit.
-
-## 6) State transitions for evidence publication and escalation
+The control plane enforces policy, signatures, approval workflow, rollback, and alerting.
+The data plane manages object blobs, metadata maps, references, and branch deltas.
+The release plane binds commit IDs, dataset digests, and evaluation outcomes into one evidence unit.
+## 6) Corpus lifecycle with GDPR fork semantics
 ```mermaid
 stateDiagram-v2
-  [*] --> Ingest
-  Ingest --> Analyze: policy passed
-  Analyze --> Quote: evidence anchor found
-  Quote --> Review: high-risk case
-  Quote --> Publish: standard case
-  Review --> Publish: reviewer approved
-  Analyze --> Reject: quality or policy gate failed
-  Reject --> [*]
-  Publish --> [*]
+  [*] --> DraftBranch
+  DraftBranch --> PreCommitGate: schema+pii+canary checks
+  PreCommitGate --> MergeReview: pass
+  PreCommitGate --> Rework: fail
+  MergeReview --> SignedGoldenTag: approved
+  SignedGoldenTag --> WORMAuditLock: publish
+  WORMAuditLock --> GDPRFork: erasure request
+  GDPRFork --> TombstoneCommit: selective redaction
+  TombstoneCommit --> ReEval: consistency verify
+  ReEval --> SignedGoldenTag
+  Rework --> DraftBranch
 ```
-Each transition must persist input fingerprints, policy versions, and operator identity.
-Reject paths should emit clear reason codes for rapid operational recovery.
-Escalation paths must replay against the same model and index versions for reproducibility.
-
-## 7) Q1–Q6 quantitative discussion with operational implications
-Q1: How should dual-path recall be evaluated against single-path retrieval?
-Track recall uplift and precision regression together to prevent hidden review-cost inflation.
-Slice metrics by terminology density, language, and noise classes rather than global averages.
-Require replay regression on high-value historical disputes before release promotion.
-Q2: Why is token-offset error a hard release gate?
-In forensic workflows, offset drift directly increases investigator effort and legal uncertainty.
-Monitor both P95 and P99 to avoid long-tail failures hidden by median metrics.
-Block releases when offset variance breaches thresholds and trigger rollback or reindexing.
-Q3: Why isolate speaker assignment metrics from generic WER metrics?
-Accountability errors can create higher legal exposure than ordinary lexical mistakes.
-Maintain a protected dispute pool where speaker assignment is scored independently.
-Auto-route low-confidence assignments into manual review instead of auto-finalization.
-Q4: When is a high-cost escalation lane economically justified?
-Enable escalation when expected dispute-loss reduction exceeds incremental review cost.
-Express the trigger in policy terms so activation remains auditable and deterministic.
-Cap escalation queue ratios and monitor queue latency to protect service SLOs.
-Q5: How should managed extraction and custom enhancement coexist?
-Use managed extraction for standardized fields and custom flows for high-value edge cases.
-Bind outputs to the same case key and version identifiers to avoid provenance drift.
-Success requires aligned explanations, aligned citations, and aligned audit trails.
-Q6: How do deletion requests coexist with audit retention requirements?
-Keep identifiable payloads in erasable layers and minimal proof in immutable attestation layers.
-Preserve request, approval, execution, and verification events for independent legal review.
-Every automated erasure action must produce tamper-evident execution records.
-
-## 8) Production snippets (Bicep + YAML + Python)
+This machine treats erasure requests as controlled forks instead of in-place history rewrites.
+Historical tags remain auditable while current views can evolve through signed lineage updates.
+## 7) Q1: how to quantify zero-copy storage amplification savings
+A practical model is `Saving_TB = N_branch * Corpus_TB - Metadata_Overhead_TB`.
+For `N_branch=60`, `Corpus=25 TB`, and metadata overhead `0.35%`, savings exceed `1,490 TB`.
+This benefit compounds with every parallel experiment cycle rather than one-time provisioning.
+Full-copy branching quickly saturates network egress and storage quotas at enterprise scale.
+## 8) Q2: Graveler lookup latency versus raw ADLS listing economics
+Directory recursion over millions of objects creates unstable tail latency and high listing cost.
+Metadata graph lookups convert version resolution into commit graph traversal.
+A practical policy is to ban recursive object diff when object count exceeds `5M`.
+Capacity dashboards should track both commit-lookup P95 and object-list P95 for drift detection.
+## 9) Q3: contamination gates and canary-GUID mathematics
+Inject controlled canary GUIDs into protected subsets and run dual presence checks before merge.
+If training data contains evaluation canaries, merge must be rejected with contamination severity labels.
+A simple metric is `LeakRate = leaked_canary / total_canary`, target value permanently near zero.
+This mechanism produces deterministic evidence and outperforms manual spot-check routines.
+## 10) Q4: reconciling ten-year audit retention with thirty-day GDPR erasure
+Use a two-layer design: immutable snapshot lineage plus erasable PII sidecar indirection.
+Erasure requests trigger sidecar localization and crypto-shredding instead of rewriting signed history.
+Audit records keep hashes and signatures while avoiding long-term retention of direct identifiers.
+This pattern supports both traceability mandates and privacy-right execution deadlines.
+## 11) Q5: Delta deletion vectors versus shallow-branch compaction
+Structured trajectories fit Delta/Iceberg deletion vectors and time-travel replay very well.
+Binary fixtures are better governed through object-version control with branch references.
+A balanced strategy is table workloads on Pattern C, multimodal binaries on Pattern A.
+Single-layer designs handling all modalities often fail either performance or compliance goals.
+## 12) Q6: deterministic tie-in between lakeFS commit and Foundry release gates
+Evaluation submission should carry `commit_id`, `dataset_digest`, and `policy_bundle_sha` tags.
+Release gates must reject results missing any of the three immutable provenance coordinates.
+Reviewers should replay by tags and verify identical snapshot plus policy package before approval.
+This triad acts as the final evidence integrity lock before model promotion.
+## 13) Production-grade code snippets specific to #456
+### 13.1 Bicep provisioning for ADLS Gen2 WORM and PostgreSQL metadata backend
 ```bicep
+param location string = resourceGroup().location
+param prefix string = 'evalcorpus'
 resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' = {
-  name: 'stagentinfraaudio001'
-  location: resourceGroup().location
+  name: '${prefix}stg01'
+  location: location
   sku: { name: 'Standard_RAGRS' }
   kind: 'StorageV2'
   properties: {
     isHnsEnabled: true
-    minimumTlsVersion: 'TLS1_2'
+    immutableStorageWithVersioning: { enabled: true }
     allowBlobPublicAccess: false
-    immutableStorageWithVersioning: {
-      enabled: true
-    }
-    deleteRetentionPolicy: {
-      enabled: true
-      days: 30
-    }
+    minimumTlsVersion: 'TLS1_2'
+  }
+}
+resource pg 'Microsoft.DBforPostgreSQL/flexibleServers@2023-12-01-preview' = {
+  name: '${prefix}-pg'
+  location: location
+  sku: { name: 'Standard_D4ds_v5', tier: 'GeneralPurpose' }
+  properties: {
+    highAvailability: { mode: 'ZoneRedundant' }
+    network: { publicNetworkAccess: 'Disabled' }
+    storage: { storageSizeGB: 512 }
   }
 }
 ```
+### 13.2 lakeFS pre-merge action gate for PII, schema, and canary controls
 ```yaml
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: evidence-index-build
-spec:
-  template:
-    spec:
-      containers:
-      - name: indexer
-        image: ghcr.io/example/evidence-indexer:3.2.1
-        args:
-        - --emit-speaker-turn=true
-        - --emit-word-offset=true
-        - --emit-phonetic-candidates=true
-        - --enforce-policy-tag=true
-      restartPolicy: Never
+name: pre-merge-eval-gate
+on:
+  pre-merge:
+    branches: [main]
+actions:
+  - id: presidio-scan
+    type: run
+    command: "python tools/pii_scan.py --branch $SOURCE_BRANCH --max-hit 0"
+  - id: schema-check
+    type: run
+    command: "python tools/schema_validate.py --branch $SOURCE_BRANCH --spec eval_trace.schema.json"
+  - id: canary-check
+    type: run
+    command: "python tools/canary_guard.py --branch $SOURCE_BRANCH --must-contain eval_canary_guid.txt --must-not-contain train_canary_guid.txt"
+  - id: decision
+    type: gate
+    require: [presidio-scan, schema-check, canary-check]
 ```
+### 13.3 Python snippet for zero-copy branch, immutable tags, and replay verification
 ```python
-def release_gate(metrics: dict) -> bool:
-    return (
-        metrics['offset_p95_ms'] <= 220
-        and metrics['speaker_assign_acc'] >= 0.94
-        and metrics['policy_block_fp'] <= 0.03
-    )
+from hashlib import sha256
+from lakefs_client import Client
+from azure.ai.evaluation import EvaluationClient
 
-def build_evidence(call_id: str, speaker: str, start_ms: int, end_ms: int, conf: float) -> dict:
-    if end_ms <= start_ms:
-        raise ValueError('invalid replay span')
-    return {
-        'call_id': call_id,
-        'speaker': speaker,
-        'start_ms': start_ms,
-        'end_ms': end_ms,
-        'confidence': round(conf, 4),
-    }
+repo = "eval-gold"
+base_ref = "main"
+pr_ref = "pr-router-184"
+commit_id = "9f1c0d8a4c..."
+dataset_digest = sha256(b"lakefs://eval-gold@9f1c0d8a4c...").hexdigest()
 
-def should_escalate(case_value: float, risk_penalty: float, gpu_cost: float) -> bool:
-    return case_value * risk_penalty > gpu_cost
+lf = Client(endpoint="https://lakefs.contoso.com", access_key="***", secret_key="***")
+lf.branches.create_branch(repository=repo, branch=pr_ref, source=base_ref)
+
+ev = EvaluationClient(endpoint="https://foundry.contoso.com", credential="***")
+run = ev.create_run(
+    name="router-pr-184-eval",
+    tags={
+        "lakefs_commit": commit_id,
+        "dataset_digest": dataset_digest,
+        "policy_bundle_sha": "f7e2aa21..."
+    },
+)
+
+assert run.tags["lakefs_commit"] == commit_id
+assert run.tags["dataset_digest"] == dataset_digest
 ```
-
-## 9) Scenario A: financial-risk agent evaluation baseline repository
-Current state: regional teams maintain audio evidence, transcript evidence, and review queues separately.
-Request profile: mixed lexical lookups, dispute replay, and regulator sampling requests.
-Hard requirement: every automated conclusion must map to replayable waveform evidence.
-Design move: keep baseline lane traceable and push contested samples into escalation lane.
-Governance move: include lexicon updates in release approvals to avoid silent recall drift.
-Audit move: export packets must carry model version, policy version, and operator identity.
-Operations move: run daily replay checks on high-risk case pools.
-Scaling move: scale query tier first, then rebuild tier, to avoid cascading contention.
-Rollback move: preserve previous stable index and policy snapshot for rapid switchover.
-Expected result: shorter dispute localization time and faster correction turnaround.
-Risk note: ignoring anchor governance degrades legal usability of all summaries.
-Delivery note: use this pattern as an enterprise reference template.
-
-## 10) Scenario B: multi-region healthcare conversation-agent golden-set governance
-Current state: multilingual hotline operations with heavy retention and frequent erasure requests.
-Request profile: drug name retrieval, dosage interpretation, side-effect escalation evidence.
-Hard requirement: transcript-only retrieval is insufficient under homophone-heavy terminology.
-Design move: dual-path retrieval with risk-gated escalation for disputed conversations.
-Governance move: region-specific retention and minimum-disclosure projection policies.
-Audit move: erasure pipelines must preserve request and execution proofs.
-Operations move: weekly lexicon refresh with dispute-set replay regression.
-Scaling move: expand index concurrency before transcription throughput expansion.
-Rollback move: keep replay compatibility layer across model replacements.
-Expected result: lower miss rates and more stable escalation decisions.
-Risk note: summary-only retention quickly weakens forensic confidence.
-Delivery note: standardize this flow in global operating procedures.
-
-## 11) Three-tier 3-year TCO and cost drivers
-| Tier | Monthly scale | Pattern A | Pattern B | Pattern C |
-|---|---:|---:|---:|---:|
-| Foundation | 10,000 units | $0.68M | $0.61M | $0.82M |
-| Growth | 100,000 units | $5.10M | $4.62M | $6.35M |
-| Enterprise | 1,000,000 units | $38.6M | $35.1M | $49.7M |
-Driver one: online inference duration and offline rebuild cadence.
-Driver two: hot-tier occupancy and cold archive transition policy.
-Driver three: escalation trigger ratio and manual review depth.
-Driver four: cross-region replication and legal-hold export frequency.
-Driver five: rework cost induced by policy false positives.
-
-## 12) Day-0 / Day-1 / Day-2 engineering checklist
-Day-0 action: define data contracts and evidence payload schema.
-Day-0 action: implement jurisdiction mapping and access projection model.
-Day-0 action: configure quality gates, compliance gates, and block policies.
-Day-0 action: establish lexicon governance and rollback protocol.
-Day-0 action: prepare baseline replay validation scripts and seed datasets.
-Day-1 action: deploy baseline lane with evidence citation payloads.
-Day-1 action: connect managed enrichment lane with shared case identifiers.
-Day-1 action: activate escalation queue with deterministic policy triggers.
-Day-1 action: run peak-load tests and publish bottleneck attribution.
-Day-1 action: execute first compliance drill and patch policy drift.
-Day-2 action: review false-negative and false-positive incidents weekly.
-Day-2 action: evaluate model drift and lexicon aging monthly.
-Day-2 action: run regional failover and degradation drills quarterly.
-Day-2 action: optimize storage tiers and rebuild windows continuously.
-Day-2 action: package operational lessons into reusable blueprints.
-
-## 13) Decision tree for Good fit and Not for
-If replayable evidence is mandatory, select Pattern A as the default lane.
-If staffing is constrained but speed matters, add Pattern B as managed acceleration.
-If dispute cost is high, activate Pattern C as policy-driven escalation.
-If teams optimize only for implementation speed, explicitly reject Pattern D.
-Good fit: high-regulation, high-dispute, high-audit, multi-region enterprises.
-Not for: temporary internal experiments with no replay or audit obligations.
-Governance note: this tree guides architecture choice but does not replace legal decisions.
-
-## 14) Risks, thresholds, and mitigations
-Risk one: lexicon drift lowers recall; mitigation: CI-gated lexical releases.
-Risk two: speaker-attribution instability; mitigation: confidence-based review routing.
-Risk three: offset drift accumulation; mitigation: dual P95/P99 gates with rollback.
-Risk four: over-privileged retrieval leakage; mitigation: policy projection before citation.
-Risk five: escalation queue congestion; mitigation: priority classes and queue budgets.
-Risk six: cross-region policy divergence; mitigation: templated policy with delta audits.
-Risk seven: cost overrun; mitigation: per-session and per-case cost observability loops.
-
-## 15) Sources and retrieval timestamp
-Azure AI Speech: https://learn.microsoft.com/azure/ai-services/speech-service/
-Azure AI Search: https://learn.microsoft.com/azure/search/
-Azure AI Content Understanding: https://learn.microsoft.com/azure/ai-services/content-understanding/
-AKS: https://learn.microsoft.com/azure/aks/
-APIM AI Gateway: https://learn.microsoft.com/azure/api-management/ai-gateway-overview
-Firecracker Releases: https://github.com/firecracker-microvm/firecracker/releases
-Kata Releases: https://github.com/kata-containers/kata-containers/releases
-Retrieved: 2026-11-26 (UTC+8) · source labels: measured / synthetic / anonymized_reported by section
+## 14) Enterprise scenarios and three-year TCO
+### 14.1 Scenario A: global investment-bank SR 11-7 validation hub
+Data profile: `18 TB` earnings-call PDFs, multimodal traces, and adjudication artifacts.
+Team profile: `40` quantitative and model-risk squads iterating prompts and routing logic in parallel.
+Primary challenge: maintain audit-grade replay while sustaining high branch concurrency.
+Execution pattern: Pattern A as backbone, Pattern B for managed registry, Pattern C for heavy table analytics.
+Operational KPI: every scorecard must trace to one immutable commit and policy package.
+### 14.2 Scenario B: multi-market ecommerce visual-shopping and care-agent platform
+Data profile: `12M` image-plus-chat trajectories with daily GDPR erasure requests.
+Team profile: regional operations, trust and safety, recommendation, and service quality groups.
+Primary challenge: frequent deletions with preserved signed release lineage.
+Execution pattern: sidecar-based erasure, signed re-tag, and mandatory post-erasure re-evaluation.
+Operational KPI: no unverified lineage transitions in deletion-driven release cycles.
+### 14.3 Three-tier 3-year TCO (`2 TB / 25 TB / 150 TB`)
+| Tier | Corpus size | Pattern A | Pattern B | Pattern C |
+|:-|:-:|:-:|:-:|:-:|
+| Business-unit scale | 2 TB | $0.58M | $0.63M | $0.71M |
+| Group scale | 25 TB | $4.90M | $5.44M | $6.20M |
+| Ultra scale | 150 TB | $27.6M | $31.2M | $35.5M |
+Cost driver one: object storage and metadata-index lifecycle maintenance.
+Cost driver two: concurrent branch count and evaluation job parallelism.
+Cost driver three: compliance audit effort plus selective-erasure operations.
+Cost driver four: cross-region governance divergence and remediation workload.
+## 15) Day-0 / Day-1 / Day-2 actions and source list
+Day-0 action: establish modality taxonomy and classify identifiable versus attestable fields.
+Day-0 action: define branch naming, commit signing, and release-tag conventions.
+Day-0 action: implement canary-GUID injection and leakage guard baseline scripts.
+Day-0 action: codify pre-commit and pre-merge reject reason dictionaries.
+Day-0 action: complete legal workflow review for GDPR erasure evidence packaging.
+Day-1 action: deploy Pattern A baseline and pressure-test `<80 ms` branch targets.
+Day-1 action: connect Pattern B registry flows and expose Purview lineage dashboards.
+Day-1 action: enable Pattern C time-travel and CDF replay for table trajectories.
+Day-1 action: enforce commit-run tag consistency checks in CI and release gates.
+Day-1 action: issue first signed WORM-protected golden tags and run replay validation.
+Day-2 action: review contamination gate false alarms and misses weekly.
+Day-2 action: optimize small-file IOPS hotspots through directory layout adjustments monthly.
+Day-2 action: conduct quarterly region-failover and evidence-recovery drills.
+Day-2 action: benchmark marginal cost and latency of A/B/C combinations continuously.
+Day-2 action: publish reusable governance bundles for cross-team onboarding.
+Adoption note: organizations requiring strict replay and high-concurrency experimentation should anchor on Pattern A.
+Risk note: retaining Pattern D beyond prototyping almost always leads to metadata storms and audit breakdown.
+lakeFS documentation (retrieved 2026-11-26): https://docs.lakefs.io/
+Azure Data Assets documentation (retrieved 2026-11-26): https://learn.microsoft.com/azure/machine-learning/how-to-create-data-assets
+Purview documentation (retrieved 2026-11-26): https://learn.microsoft.com/purview/
+Delta Lake documentation (retrieved 2026-11-26): https://docs.delta.io/latest/
+Apache Iceberg documentation (retrieved 2026-11-26): https://iceberg.apache.org/docs/latest/
+## 16) Extended operating notes for sustained corpus governance
+A platform committee should own branch lifecycle policy instead of leaving conventions to each squad.
+Snapshot expiration windows must be driven by legal and risk controls rather than ad-hoc storage cleanup.
+Merge gate failures should map to explicit remediation playbooks with accountable owners and deadlines.
+Every production release should archive a machine-readable provenance bundle for external examiners.
+Teams should classify fixtures by sensitivity tier to minimize unnecessary high-trust handling paths.
+Binary fixture compression choices should be benchmarked against replay latency and forensic readability.
+Large-object ingestion pipelines benefit from deterministic chunking to reduce redundant object churn.
+Small-file storms should trigger automatic layout refactoring recommendations in governance reports.
+Cross-region replication policies need explicit justification fields tied to data sovereignty controls.
+Policy bundle rollouts should include staged canary checks before global enforcement.
+Evaluation run dashboards should expose lineage completeness as a first-class health signal.
+Incident postmortems should include provenance breakage analysis, not only model quality deltas.
+Delete-request workflows should emit tamper-evident audit artifacts for every execution step.
+Dataset digest mismatches must hard-fail release promotion regardless of score improvements.
+Schema drift should be tracked with compatibility levels and controlled exception windows.
+Long-running branches should receive staleness warnings to prevent hidden divergence buildup.
+Quarterly governance drills should rehearse replay from historical commits under access constraints.
+Capacity models should forecast metadata growth, not only raw blob growth, under branch multiplication.
+Finance reporting should separate storage baseline from branch-concurrency amplification effects.
+Security reviews should include webhook integrity, signing key rotation, and gate bypass resistance.
+Operating handbooks should publish escalation contacts for legal, platform, and data stewardship teams.
