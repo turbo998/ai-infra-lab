@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（485 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（486 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **485 个架构选型、平台对比与安全治理决策专题**（共 `970` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **486 个架构选型、平台对比与安全治理决策专题**（共 `972` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 485 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 486 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（61 篇）
 
@@ -253,7 +253,7 @@
 | 477 | [企业 Agent URL 工具 SSRF 与 DNS Rebinding 防御选型 FAQ：Pattern A（非对等 DMZ `Envoy/Smokescreen` + 连接时 IP 钉扎 + 每跳 3xx 复核 + `Cilium` 默认拒绝）vs Pattern B（`ACA Dynamic Sessions/AKS Kata` 零身份隔离抓取沙箱）vs Pattern C（`Azure Firewall` FQDN 规则）vs Pattern D（应用层字符串校验反模式），覆盖 IMDS/WireServer 阻断、TOCTOU 免疫、payload 上限与三年 TCO](agent-url-tool-ssrf-dns-rebinding-defense-pinned-envoy-proxy-vs-firewall-fqdn-vs-fetcher-selection-faq.md) | [🇨🇳 中文](agent-url-tool-ssrf-dns-rebinding-defense-pinned-envoy-proxy-vs-firewall-fqdn-vs-fetcher-selection-faq.md) · [🇬🇧 EN](agent-url-tool-ssrf-dns-rebinding-defense-pinned-envoy-proxy-vs-firewall-fqdn-vs-fetcher-selection-faq.en.md) |
 | 485 | [企业跨组织 A2A mTLS 证书轮换与撤销选型 FAQ：Pattern A（`APIM` 颁发者链 + SAN 校验 + `active/next` 双槽 + `RFC 8705 cnf.x5t#S256` + `<5s` 热撤销）vs Pattern B（`SPIFFE/SPIRE` 私网短证书）vs Pattern C（`private_key_jwt + DPoP`）vs Pattern D（单指纹钉扎/未绑定 Bearer 反模式），覆盖 `47` 天轮换频率、OCSP 尾延迟与三年 TCO](cross-org-a2a-mtls-cert-rollover-ocsp-revocation-apim-keyvault-vs-spiffe-vs-static-pinning-selection-faq.md) | [🇨🇳 中文](cross-org-a2a-mtls-cert-rollover-ocsp-revocation-apim-keyvault-vs-spiffe-vs-static-pinning-selection-faq.md) · [🇬🇧 EN](cross-org-a2a-mtls-cert-rollover-ocsp-revocation-apim-keyvault-vs-spiffe-vs-static-pinning-selection-faq.en.md) |
 
-### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（60 篇）
+### 3.4 智能体状态存储、记忆分层、企业 RAG 与多模态数据面（State, Memory, Enterprise RAG & Multimodal Data Plane）（61 篇）
 
 > 解决会话状态与情景记忆存储（Cosmos DB vs Redis vs PostgreSQL/SQL）、企业级混合 RAG / GraphRAG / Fabric IQ 语义层与多模态文档解析。
 
@@ -319,6 +319,7 @@
 | 462 | [企业法定财报 iXBRL/XBRL 与跨页表格附注关联 RAG 选型 FAQ：Pattern A（`Arelle` linkbase 事实图 + `Fabric/DuckDB` 规范化事实平面 + `AI Search` 附注检索）vs Pattern B（`Document Intelligence v4` 跨页续表 + `Content Understanding` 结构侧车）vs Pattern C（长上下文 VLM 整本直读）vs Pattern D（固定分块反模式），覆盖单位倍率、符号方向、restatement 时点隔离与三年 TCO](enterprise-ixbrl-financial-filings-cross-page-table-footnote-rag-arelle-fabric-ai-search-vs-docint-layout-vs-long-context-vlm-selection-faq.md) | [🇨🇳 中文](enterprise-ixbrl-financial-filings-cross-page-table-footnote-rag-arelle-fabric-ai-search-vs-docint-layout-vs-long-context-vlm-selection-faq.md) · [🇬🇧 EN](enterprise-ixbrl-financial-filings-cross-page-table-footnote-rag-arelle-fabric-ai-search-vs-docint-layout-vs-long-context-vlm-selection-faq.en.md) |
 | 470 | [企业跨源异构 ACL 归一化与 Deny-ACE 组展开选型 FAQ：Pattern A（`Azure AI Search` 双 `allow_acl/deny_acl` `preFilter` + 紧凑主体字典 + `Redis` 传递组缓存）vs Pattern B（`SpiceDB/OpenFGA` `sd_hash` 等价类反向索引）vs Pattern C（Live OBO 联邦检索）vs Pattern D（allow-only/postFilter 反模式），覆盖稀疏权限召回、拒绝优先语义与三年 TCO](federated-rag-acl-normalization-deny-ace-group-expansion-ai-search-prefilter-redis-vs-spicedb-vs-live-obo-selection-faq.md) | [🇨🇳 中文](federated-rag-acl-normalization-deny-ace-group-expansion-ai-search-prefilter-redis-vs-spicedb-vs-live-obo-selection-faq.md) · [🇬🇧 EN](federated-rag-acl-normalization-deny-ace-group-expansion-ai-search-prefilter-redis-vs-spicedb-vs-live-obo-selection-faq.en.md) |
 | 478 | [企业退化档案扫描与手写红章遮挡 RAG 入库选型 FAQ：Pattern A（`Document Intelligence v4` 置信度与表格校验门控 + `600 DPI` polygon 局部 `GPT-4o/Phi-4` 升级 + 分歧强制 HITL）vs Pattern B（双 OCR 共识投票）vs Pattern C（全页 VLM）vs Pattern D（单次灰度 OCR 反模式），覆盖静默数值污染率、坐标保真与三年 TCO](degraded-archival-scan-handwritten-seal-rag-doc-intel-confidence-vlm-vs-dual-ocr-vs-hitl-selection-faq.md) | [🇨🇳 中文](degraded-archival-scan-handwritten-seal-rag-doc-intel-confidence-vlm-vs-dual-ocr-vs-hitl-selection-faq.md) · [🇬🇧 EN](degraded-archival-scan-handwritten-seal-rag-doc-intel-confidence-vlm-vs-dual-ocr-vs-hitl-selection-faq.en.md) |
+| 486 | [企业法律合同红线与 OOXML 修订图谱选型 FAQ：Pattern A（原生 `OOXML` 修订图谱 AST + 双态条款投影 + Azure AI Search 强制 OData 状态过滤）vs Pattern B（`Document Intelligence` + 视觉红线线索分类）vs Pattern C（净稿序列 deterministic diff + LLM 综合）vs Pattern D（扁平 `docx2txt` 反模式），覆盖突变条款幻觉率、迁移对齐与三年 TCO](legal-contract-redline-track-changes-ooxml-revision-graph-rag-vs-flattened-ocr-vs-diff-llm-selection-faq.md) | [🇨🇳 中文](legal-contract-redline-track-changes-ooxml-revision-graph-rag-vs-flattened-ocr-vs-diff-llm-selection-faq.md) · [🇬🇧 EN](legal-contract-redline-track-changes-ooxml-revision-graph-rag-vs-flattened-ocr-vs-diff-llm-selection-faq.en.md) |
 
 ### 3.5 多智能体编排、长周期工作流、实时音视频与业务渠道（Orchestration, Channels, Voice & Enterprise SaaS）（60 篇）
 
