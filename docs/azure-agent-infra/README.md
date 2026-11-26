@@ -1,8 +1,8 @@
-# Azure AI 与企业级智能体架构选型决策知识库（488 篇双语 Selection FAQ）
+# Azure AI 与企业级智能体架构选型决策知识库（489 篇双语 Selection FAQ）
 
 > 🌐 **Language / 语言切换**: **中文版（当前）** | **[🇬🇧 English Edition (`README.en.md`)](README.en.md)** | **[📘 28 章全栈架构手册与容量测算台 (`../../workshops/azure-agent-infra/README.md`)](../../workshops/azure-agent-infra/README.md)** | **[🏠 返回仓库首页 (`../../README.md`)](../../README.md)**
 
-本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **488 个架构选型、平台对比与安全治理决策专题**（共 `976` 份中英双语文档 + `8` 张矢量参考架构图）。
+本目录面向 **Cloud & AI Solution Architect（云与人工智能解决方案架构师）**，系统沉淀企业在推进 AI Agent 从 PoC 走向生产落地过程中最高频的 **489 个架构选型、平台对比与安全治理决策专题**（共 `978` 份中英双语文档 + `8` 张矢量参考架构图）。
 
 每一篇选型指南均遵循统一的 **架构师交付物标准**：
 - **一页纸高管结论（Executive Summary）**：直接给出推荐架构路线、边界条件与反模式警示；
@@ -41,7 +41,7 @@
 
 ---
 
-## 三、全量 488 篇架构选型决策指南分类索引（8 大架构域）
+## 三、全量 489 篇架构选型决策指南分类索引（8 大架构域）
 
 ### 3.1 计算宿主、代码沙箱与运行时隔离（Agent Runtime Hosting & Code/GUI Sandboxes）（61 篇）
 
@@ -525,7 +525,7 @@
 | 480 | [企业智能体复合 COGS 与付费工具版税 FinOps 选型 FAQ：Pattern A（`OpenTelemetry + APIM` 计费工具代理 + `Redis` 预授权 + `Eventhouse/ADX` 实时毛利引擎）vs Pattern B（`T+1` 发票与 `FOCUS` 对账）vs Pattern C（席位+复合积分钱包与高版税二次确认）vs Pattern D（仅 token 计费平价打包反模式），覆盖任务级毛利下限守门、预授权偏差控制与三年 TCO](agent-composite-cogs-paid-tool-royalty-finops-otel-apim-eventhouse-vs-token-only-vs-flat-selection-faq.md) | [🇨🇳 中文](agent-composite-cogs-paid-tool-royalty-finops-otel-apim-eventhouse-vs-token-only-vs-flat-selection-faq.md) · [🇬🇧 EN](agent-composite-cogs-paid-tool-royalty-finops-otel-apim-eventhouse-vs-token-only-vs-flat-selection-faq.en.md) |
 | 488 | [企业智能体评测 CI 波动隔离与序贯 SPRT 门禁选型 FAQ：Pattern A（可回放 Cassette + `seed/fingerprint` 固定 + Wald `SPRT` 自适应早停 + Flaky Quarantine）vs Pattern B（固定 `Pass^k`）vs Pattern C（夜间全量回归 + PR 轻门禁）vs Pattern D（`Pass@k>=1` 重试到绿反模式），覆盖 false-green 膨胀、序贯边界、Wilson tie-break 与三年风险调整 TCO](flaky-agent-eval-ci-quarantine-sequential-sprt-gate-seed-pin-vs-fixed-passk-vs-single-run-selection-faq.md) | [🇨🇳 中文](flaky-agent-eval-ci-quarantine-sequential-sprt-gate-seed-pin-vs-fixed-passk-vs-single-run-selection-faq.md) · [🇬🇧 EN](flaky-agent-eval-ci-quarantine-sequential-sprt-gate-seed-pin-vs-fixed-passk-vs-single-run-selection-faq.en.md) |
 
-### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（61 篇）
+### 3.8 智能云运维 AIOps、多区域容灾韧性与企业 Landing Zone（Autonomous Cloud Ops, Multi-Region BCDR & Landing Zones）（62 篇）
 
 > 涵盖 Azure SRE Agent 智能分诊自愈、多区域 PTU/DataZone 容灾与混沌工程压测、以及企业 AI CoE Hub-Spoke / Stamp 运营架构。
 
@@ -592,3 +592,4 @@
 | 465 | [企业区域 GPU 缺货韧性与容量保障选型 FAQ：Pattern A（`CRG + AKS capacityReservationGroupID + RI` 稳态保障）vs Pattern B（`NAP/Karpenter` 多 SKU 级联 + `Fleet` 跨区承接）vs Pattern C（`APIM` 队列阈值触发 `Foundry Global Standard` 溢出桥接）vs Pattern D（把 RI 当物理容量保障反模式），覆盖 `AllocationFailed` 恢复、升级 surge 安全与三年 TCO](regional-gpu-stockout-allocation-resilience-capacity-reservation-crg-aks-vs-multi-sku-karpenter-fleet-cascade-vs-foundry-spillover-selection-faq.md) | [🇨🇳 中文](regional-gpu-stockout-allocation-resilience-capacity-reservation-crg-aks-vs-multi-sku-karpenter-fleet-cascade-vs-foundry-spillover-selection-faq.md) · [🇬🇧 EN](regional-gpu-stockout-allocation-resilience-capacity-reservation-crg-aks-vs-multi-sku-karpenter-fleet-cascade-vs-foundry-spillover-selection-faq.en.md) |
 | 473 | [企业零掉线 AKS GPU 与有状态智能体补丁编排选型 FAQ：Pattern A（`AKS Planned Maintenance` + 蓝绿节点池交换 + `preStop` 流排空）vs Pattern B（`maxSurge=0` + `Kured/PDB` 串行升级）vs Pattern C（`nodeOsUpgradeChannel: SecurityPatch` 与热补丁）vs Pattern D（默认 surge 与短宽限反模式），覆盖会话掉线率、配额死锁规避、回滚 RTO 与三年 TCO](zero-drop-aks-gpu-agent-patching-blue-green-nodepool-drain-vs-kured-pdb-vs-hotpatch-selection-faq.md) | [🇨🇳 中文](zero-drop-aks-gpu-agent-patching-blue-green-nodepool-drain-vs-kured-pdb-vs-hotpatch-selection-faq.md) · [🇬🇧 EN](zero-drop-aks-gpu-agent-patching-blue-green-nodepool-drain-vs-kured-pdb-vs-hotpatch-selection-faq.en.md) |
 | 481 | [企业 AKS 控制平面 `kube-apiserver`/`etcd` 高 churn watch 风暴治理选型 FAQ：Pattern A（APF Shuffle-Sharding + Watch Cache + CRD 状态投影）vs Pattern B（`vCluster` 租户级虚拟控制平面）vs Pattern C（Fleet 多集群一致性哈希分片）vs Pattern D（uncached LIST + 1s 心跳写入反模式），覆盖 410 Gone 重连、MVCC 增长抑制与三年 TCO](aks-apiserver-etcd-watch-storm-crd-sharding-apf-informer-cache-vs-vcluster-vs-multicluster-selection-faq.md) | [🇨🇳 中文](aks-apiserver-etcd-watch-storm-crd-sharding-apf-informer-cache-vs-vcluster-vs-multicluster-selection-faq.md) · [🇬🇧 EN](aks-apiserver-etcd-watch-storm-crd-sharding-apf-informer-cache-vs-vcluster-vs-multicluster-selection-faq.en.md) |
+| 489 | [企业 AKS 节点 `nf_conntrack` / SNAT 耗尽治理选型 FAQ：Pattern A（Azure CNI Overlay + Cilium eBPF CT + NodeLocal DNSCache + NAT Gateway + 连接池）vs Pattern B（仅 `sysctl` 扩容）vs Pattern C（集中式 Egress Proxy）vs Pattern D（`hostNetwork`/`NOTRACK` 反模式），覆盖连接风暴抑制、端口容量规划与三年风险调整 TCO](aks-node-conntrack-nf-nat-exhaustion-ebpf-ct-bypass-cilium-vs-sysctl-tuning-vs-hostnet-selection-faq.md) | [🇨🇳 中文](aks-node-conntrack-nf-nat-exhaustion-ebpf-ct-bypass-cilium-vs-sysctl-tuning-vs-hostnet-selection-faq.md) · [🇬🇧 EN](aks-node-conntrack-nf-nat-exhaustion-ebpf-ct-bypass-cilium-vs-sysctl-tuning-vs-hostnet-selection-faq.en.md) |
